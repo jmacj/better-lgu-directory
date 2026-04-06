@@ -15,7 +15,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Los Baños, Laguna               | [betterlb.org](https://betterlb.org)              | [GitHub](https://github.com/BetterLosBanos/betterlb)                           | [Facebook](https://www.facebook.com/BetterLB.org)                  | 🟢 Active | [@miconficker](https://github.com/miconficker)                                         |
 | Las Piñas City, Metro Manila    | [betterlaspinas.org](https://betterlaspinas.org)  | [GitHub](https://github.com/jmacj/betterlaspinas)                              | [Facebook](https://www.facebook.com/betterlaspinas.org)            | 🟢 Active | [@jmacj](https://github.com/jmacj), [@Martin-Enghoy](https://github.com/Martin-Enghoy) |
 | Cainta, Rizal                   | [bettercainta.org](https://bettercainta.org)      | -                                                                              | -                                                                  | 🟢 Active | -                                                                                      |
-
+| Tagaytay City, Cavite           | [bettertagaytay.org](https://www.bettertagaytay.org/) | [GitHub](https://github.com/Arlovzki/bettertagaytay)                       | [Facebook](https://www.facebook.com/bettertagaytay)                | 🟢 Active | [@Arlovzki](https://github.com/Arlovzki)                                               |
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
 
 ---
