@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs (IntelliJ, WebStorm, etc.)
+.idea/
+
+# Vim / Neovim
+*.swp
+*.swo
+
+# Emacs
+*#
+.#*
