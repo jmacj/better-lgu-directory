@@ -6,7 +6,7 @@
     <title>{% if page.title and page.title != 'Home' %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/style.css">
     {% seo %}
 </head>
 <body class="bg-gray-50 font-main antialiased" x-data="{ mobileMenuOpen: false }">
@@ -26,8 +26,8 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center shrink-0">
-                    <a href="{{ site.baseurl }}/" class="flex items-center group">
-                        <img src="{{ site.baseurl }}/assets/images/logos/BetterGov_Icon-Primary.svg" alt="BetterGov Logo" class="h-12 w-12 mr-3 transition-transform group-hover:scale-105">
+                    <a href="{{ site.baseurl }}./" class="flex items-center group">
+                        <img src="{{ site.baseurl }}assets/images/logos/BetterGov_Icon-Primary.svg" alt="BetterGov Logo" class="h-12 w-12 mr-3 transition-transform group-hover:scale-105">
                         <div>
                             <div class="text-black font-bold text-lg leading-tight">BetterLGU Directory</div>
                             <div class="text-xs text-gray-500">by BetterGov.ph</div>
@@ -36,10 +36,10 @@
                 </div>
 
                 <div class="hidden lg:flex items-center space-x-6">
-                    <a href="{{ site.baseurl }}/" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Home' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Directory</a>
-                    <a href="{{ site.baseurl }}/GUIDE" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Guide' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Start Your LGU</a>
-                    <a href="{{ site.baseurl }}/TEMPLATES" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Community Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Templates</a>
-                    <a href="{{ site.baseurl }}/CONTRIBUTING" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Contributing' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Contributing</a>
+                    <a href="{{ site.baseurl }}./" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Home' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Directory</a>
+                    <a href="{{ site.baseurl }}GUIDE" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Guide' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Start Your LGU</a>
+                    <a href="{{ site.baseurl }}TEMPLATES" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Community Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Templates</a>
+                    <a href="{{ site.baseurl }}CONTRIBUTING" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Contributing' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Contributing</a>
                 </div>
 
                 <div class="lg:hidden flex items-center">
@@ -57,10 +57,10 @@
 
         <div class="lg:hidden bg-white border-t border-gray-100" x-show="mobileMenuOpen" x-transition x-cloak>
             <div class="px-4 py-3 space-y-1">
-                <a href="{{ site.baseurl }}/" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Directory</a>
-                <a href="{{ site.baseurl }}/GUIDE" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Start Your LGU</a>
-                <a href="{{ site.baseurl }}/TEMPLATES" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Templates</a>
-                <a href="{{ site.baseurl }}/CONTRIBUTING" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Contributing</a>
+                <a href="{{ site.baseurl }}./" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Directory</a>
+                <a href="{{ site.baseurl }}GUIDE" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Start Your LGU</a>
+                <a href="{{ site.baseurl }}TEMPLATES" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Templates</a>
+                <a href="{{ site.baseurl }}CONTRIBUTING" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Contributing</a>
                 <a href="https://bettergov.ph/join-us" class="block py-2 text-base font-semibold text-blue-600">🚀 Join Us</a>
             </div>
         </div>
@@ -81,14 +81,14 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <a href="#directory" class="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-xl font-bold text-lg transition-all transform hover:-translate-y-1 shadow-lg">View Directory</a>
-                        <a href="{{ site.baseurl }}/GUIDE" class="bg-blue-500/30 text-white border border-white/20 hover:bg-blue-500/40 px-8 py-3 rounded-xl font-bold text-lg transition-all backdrop-blur-sm">How to contribute</a>
+                        <a href="{{ site.baseurl }}GUIDE" class="bg-blue-500/30 text-white border border-white/20 hover:bg-blue-500/40 px-8 py-3 rounded-xl font-bold text-lg transition-all backdrop-blur-sm">How to contribute</a>
                     </div>
                 </div>
                 <div class="hidden lg:block animate-slide-in">
                     <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
                         <div class="relative z-10">
                             <div class="flex items-center mb-6">
-                                <img src="{{ site.baseurl }}/assets/images/logos/BetterGov_Icon-White.svg" alt="BetterGov Emblem" class="h-10 w-10 mr-3">
+                                <img src="{{ site.baseurl }}assets/images/logos/BetterGov_Icon-White.svg" alt="BetterGov Emblem" class="h-10 w-10 mr-3">
                                 <h2 class="text-2xl font-bold">LGU Transparency</h2>
                             </div>
                             <div class="space-y-4">
@@ -116,7 +116,7 @@
         <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
             <h1 class="text-3xl md:text-5xl font-bold tracking-tight animate-fade-in">{{ page.title }}</h1>
             <nav class="mt-4 flex justify-center md:justify-start items-center text-sm text-[var(--color-primary-100)]">
-                <a href="{{ site.baseurl }}/" class="hover:text-white transition-colors">Home</a>
+                <a href="{{ site.baseurl }}./" class="hover:text-white transition-colors">Home</a>
                 <span class="mx-2 opacity-50">/</span>
                 <span class="text-white font-medium">{{ page.title }}</span>
             </nav>
@@ -137,7 +137,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <div class="lg:col-span-2">
                     <div class="flex items-center mb-6">
-                        <img src="{{ site.baseurl }}/assets/images/logos/BetterGov_Icon-White.svg" alt="BetterGov Logo" class="h-12 w-12 mr-3">
+                        <img src="{{ site.baseurl }}assets/images/logos/BetterGov_Icon-White.svg" alt="BetterGov Logo" class="h-12 w-12 mr-3">
                         <div>
                             <div class="font-bold text-xl leading-tight">BetterLGU Directory</div>
                             <div class="text-xs text-gray-400">by BetterGov.ph</div>
@@ -151,10 +151,10 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Resources</h3>
                     <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="{{ site.baseurl }}/GUIDE" class="hover:text-white transition-colors">How to Start Your Portal</a></li>
-                        <li><a href="{{ site.baseurl }}/TEMPLATES" class="hover:text-white transition-colors">Start-up Templates</a></li>
-                        <li><a href="{{ site.baseurl }}/CONTRIBUTING" class="hover:text-white transition-colors">Register Your LGU</a></li>
-                        <li><a href="{{ site.baseurl }}/CHANGELOG" class="hover:text-white transition-colors">Latest Updates</a></li>
+                        <li><a href="{{ site.baseurl }}GUIDE" class="hover:text-white transition-colors">How to Start Your Portal</a></li>
+                        <li><a href="{{ site.baseurl }}TEMPLATES" class="hover:text-white transition-colors">Start-up Templates</a></li>
+                        <li><a href="{{ site.baseurl }}CONTRIBUTING" class="hover:text-white transition-colors">Register Your LGU</a></li>
+                        <li><a href="{{ site.baseurl }}CHANGELOG" class="hover:text-white transition-colors">Latest Updates</a></li>
                     </ul>
                 </div>
 
@@ -162,7 +162,7 @@
                     <h3 class="text-lg font-semibold mb-4">Community</h3>
                     <ul class="space-y-3 text-sm text-gray-400">
                         <li><a href="https://github.com/jmacj/better-lgu-directory" class="hover:text-white transition-colors">GitHub Repository</a></li>
-                        <li><a href="{{ site.baseurl }}/CODE_OF_CONDUCT" class="hover:text-white transition-colors">Code of Conduct</a></li>
+                        <li><a href="{{ site.baseurl }}CODE_OF_CONDUCT" class="hover:text-white transition-colors">Code of Conduct</a></li>
                         <li><a href="https://bettergov.ph" class="hover:text-white transition-colors">BetterGov.ph Portal</a></li>
                     </ul>
                 </div>
@@ -178,7 +178,7 @@
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
                 <p>&copy; {{ site.time | date: "%Y" }} <strong>BetterGov.ph</strong>. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="{{ site.baseurl }}/LICENSE" class="hover:text-white">License</a>
+                    <a href="{{ site.baseurl }}LICENSE" class="hover:text-white">License</a>
                     <a href="https://github.com/jmacj/better-lgu-directory" class="hover:text-white">Source Code</a>
                     <a href="https://bettergov.ph" class="hover:text-white">BetterGov.ph</a>
                 </div>
