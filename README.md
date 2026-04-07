@@ -16,6 +16,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Las Piñas City, Metro Manila    | [betterlaspinas.org](https://betterlaspinas.org)  | [GitHub](https://github.com/jmacj/betterlaspinas)                              | [Facebook](https://www.facebook.com/betterlaspinas.org)            | 🟢 Active | [@jmacj](https://github.com/jmacj), [@Martin-Enghoy](https://github.com/Martin-Enghoy) |
 | Cainta, Rizal                   | [bettercainta.org](https://bettercainta.org)      | -                                                                              | -                                                                  | 🟢 Active | -                                                                                      |
 | Tagaytay City, Cavite           | [bettertagaytay.org](https://www.bettertagaytay.org/) | [GitHub](https://github.com/Arlovzki/bettertagaytay)                       | [Facebook](https://www.facebook.com/bettertagaytay)                | 🟢 Active | [@Arlovzki](https://github.com/Arlovzki)                                               |
+| Indang, Cavite | [betterindang.org](https://betterindang.org) or — | [GitHub](https://github.com/michaustriaqa/betterindang) | [Facebook](https://facebook.com/betterindang) | 🟢 Active  | [@michaustriaqa](https://github.com/michaustriaqa) |
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
 
 ---
