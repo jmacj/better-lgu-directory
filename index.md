@@ -34,6 +34,18 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 </div>
 
+<!-- No Results View -->
+<div id="no-results" class="hidden py-12 text-center bg-white border border-gray-100 rounded-2xl shadow-xs animate-fade-in">
+    <div class="inline-flex items-center justify-center w-16 h-16 mb-4 bg-gray-50 rounded-full">
+        <svg class="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    </div>
+    <h3 class="text-lg font-semibold text-gray-900">No LGUs found</h3>
+    <p class="mt-1 text-gray-500">We couldn't find any LGUs matching your search. Try a different keyword or LGU name.</p>
+    <button onclick="document.getElementById('lgu-search').value=''; filterDirectory();" class="mt-4 text-sm font-medium text-blue-600 hover:text-blue-700">Clear search</button>
+</div>
+
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
 
 ## 🚦 Status Legend
@@ -80,7 +92,10 @@ function filterDirectory() {
     const input = document.getElementById("lgu-search");
     const filter = input.value.toUpperCase();
     const container = document.getElementById("lgu-table-container");
+    const table = container.getElementsByTagName("table")[0];
     const tr = container.getElementsByTagName("tr");
+    const noResults = document.getElementById("no-results");
+    let visibleCount = 0;
 
     for (let i = 1; i < tr.length; i++) {
         let found = false;
@@ -92,7 +107,20 @@ function filterDirectory() {
                 break;
             }
         }
-        tr[i].style.display = found ? "" : "none";
+        if (found) {
+            tr[i].style.display = "";
+            visibleCount++;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+
+    if (visibleCount === 0) {
+        if (table) table.style.display = "none";
+        noResults.classList.remove("hidden");
+    } else {
+        if (table) table.style.display = "";
+        noResults.classList.add("hidden");
     }
 }
 </script>
