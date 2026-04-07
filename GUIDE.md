@@ -9,8 +9,12 @@ This guide walks you through creating a digital transparency portal for your loc
 A Better LGU portal is a publicly accessible website that makes local government information — budgets, projects, officials, ordinances, and contact information — easy for citizens to find and understand. It is built and maintained by civic-minded developers and volunteers, independent of the official LGU website.
 
 Examples:
-- [betterlaspinas.org](https://betterlaspinas.org)
 - [bettersolano.org](https://bettersolano.org)
+- [betterbacolod.org](https://betterbacolod.org)
+- [bettercaluan.org](https://bettercalauan.org)
+- [betterormoc.org](https://www.betterormoc.org/en)
+- [betterlb.org](https://betterlb.org)
+- [betterlaspinas.org](https://betterlaspinas.org)
 
 ---
 
@@ -46,7 +50,7 @@ If no template fits your needs, you can build from scratch and contribute your o
 ## Step 3 — Set Up Your Repository
 
 1. Fork or clone your chosen template.
-2. Rename the repository to `better[lguname]` (e.g., `bettermakati`, `betterdavao`).
+2. Rename the repository to `better[lguname]` (e.g., `bettersolano`, `betterbacolod`).
 3. Set up your repository on GitHub and make it public.
 
 ---
@@ -67,7 +71,7 @@ Data sources include your LGU's official website, the Commission on Audit (COA),
 
 ## Step 5 — Choose a Domain
 
-Register a domain in the format `better[lguname].org` (e.g., `bettercaloocan.org`). The `.org` TLD reflects the civic, non-commercial nature of the project.
+Register a domain in the format `better[lguname].org` (e.g., `bettercalauan.org`). The `.org` TLD reflects the civic, non-commercial nature of the project.
 
 Domain costs roughly ₱600–₱900/year through local registrars.
 
