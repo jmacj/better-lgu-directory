@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title and page.title != 'Home' %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    {% seo %}
+</head>
+<body class="bg-gray-50 font-main antialiased" x-data="{ mobileMenuOpen: false }">
+
+    <nav class="bg-white shadow-xs sticky top-0 z-50 overflow-x-clip border-b border-gray-100">
+        <div class="border-b border-gray-200 hidden md:block">
+            <div class="max-w-7xl mx-auto px-4 flex justify-end">
+                <div class="flex items-center gap-x-4 py-2 text-xs">
+                    <a href="https://bettergov.ph/join-us" class="font-semibold text-blue-600 hover:text-blue-700 transition-colors">🚀 Join Us</a>
+                    <a href="https://bettergov.ph/about" class="text-gray-800 hover:text-blue-600 transition-colors">About BetterGov.ph</a>
+                    <a href="https://www.gov.ph" target="_blank" rel="noreferrer" class="text-gray-800 hover:text-blue-600 transition-colors">Official Gov.ph</a>
+                    <a href="https://bettergov.ph/contact" class="text-gray-800 hover:text-blue-600 transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center shrink-0">
+                    <a href="{{ site.baseurl }}/" class="flex items-center group">
+                        <img src="{{ site.baseurl }}/assets/images/logos/BetterGov_Icon-Primary.svg" alt="BetterGov Logo" class="h-12 w-12 mr-3 transition-transform group-hover:scale-105">
+                        <div>
+                            <div class="text-black font-bold text-lg leading-tight">BetterLGU Directory</div>
+                            <div class="text-xs text-gray-500">by BetterGov.ph</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="{{ site.baseurl }}/" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Home' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Directory</a>
+                    <a href="{{ site.baseurl }}/GUIDE" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Guide' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Start Your LGU</a>
+                    <a href="{{ site.baseurl }}/TEMPLATES" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Community Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Templates</a>
+                    <a href="{{ site.baseurl }}/CONTRIBUTING" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Contributing' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Contributing</a>
+                </div>
+
+                <div class="lg:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 rounded-md text-gray-700 hover:text-blue-500 hover:bg-gray-100 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show="!mobileMenuOpen">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show="mobileMenuOpen" x-cloak>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:hidden bg-white border-t border-gray-100" x-show="mobileMenuOpen" x-transition x-cloak>
+            <div class="px-4 py-3 space-y-1">
+                <a href="{{ site.baseurl }}/" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Directory</a>
+                <a href="{{ site.baseurl }}/GUIDE" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Start Your LGU</a>
+                <a href="{{ site.baseurl }}/TEMPLATES" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Templates</a>
+                <a href="{{ site.baseurl }}/CONTRIBUTING" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Contributing</a>
+                <a href="https://bettergov.ph/join-us" class="block py-2 text-base font-semibold text-blue-600">🚀 Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+    {% if page.title == 'Home' %}
+    <section class="hero-gradient py-12 md:py-24 animate-fade-in shadow-inner">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+                        The Official 
+                        <span class="block text-blue-200">BetterLGU Directory</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto lg:mx-0">
+                        A community-run catalogue of **Better LGU** digital portals across the Philippines. 
+                        Helping citizens find ordinances, budgets, and public services with ease.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#directory" class="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-xl font-bold text-lg transition-all transform hover:-translate-y-1 shadow-lg">View Directory</a>
+                        <a href="{{ site.baseurl }}/GUIDE" class="bg-blue-500/30 text-white border border-white/20 hover:bg-blue-500/40 px-8 py-3 rounded-xl font-bold text-lg transition-all backdrop-blur-sm">How to contribute</a>
+                    </div>
+                </div>
+                <div class="hidden lg:block animate-slide-in">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="flex items-center mb-6">
+                                <img src="{{ site.baseurl }}/assets/images/logos/BetterGov_Icon-White.svg" alt="BetterGov Emblem" class="h-10 w-10 mr-3">
+                                <h2 class="text-2xl font-bold">LGU Transparency</h2>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-white/20 p-4 rounded-xl flex items-center gap-4">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                    <span class="font-medium">Active Maintenance</span>
+                                </div>
+                                <div class="bg-white/20 p-4 rounded-xl flex items-center gap-4 opacity-80">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                    <span class="font-medium">Open Source Templates</span>
+                                </div>
+                                <div class="bg-white/20 p-4 rounded-xl flex items-center gap-4 opacity-60">
+                                    <div class="w-2 h-2 bg-orange-400 rounded-full"></div>
+                                    <span class="font-medium">Citizen-led Initiative</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% else %}
+    <section class="bg-[var(--color-primary-700)] text-white py-12 border-b border-[var(--color-primary-800)] shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight animate-fade-in">{{ page.title }}</h1>
+            <nav class="mt-4 flex justify-center md:justify-start items-center text-sm text-[var(--color-primary-100)]">
+                <a href="{{ site.baseurl }}/" class="hover:text-white transition-colors">Home</a>
+                <span class="mx-2 opacity-50">/</span>
+                <span class="text-white font-medium">{{ page.title }}</span>
+            </nav>
+        </div>
+    </section>
+    {% endif %}
+
+    <main class="max-w-7xl mx-auto px-4 py-8 md:py-16">
+        <div class="prose max-w-none prose-lg md:prose-xl">
+            <div id="directory">
+                {{ content }}
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 pt-16 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="{{ site.baseurl }}/assets/images/logos/BetterGov_Icon-White.svg" alt="BetterGov Logo" class="h-12 w-12 mr-3">
+                        <div>
+                            <div class="font-bold text-xl leading-tight">BetterLGU Directory</div>
+                            <div class="text-xs text-gray-400">by BetterGov.ph</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm mb-6">
+                        A community-run directory providing Philippine citizens with information about LGU transparency portals and digital services.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="{{ site.baseurl }}/GUIDE" class="hover:text-white transition-colors">How to Start Your Portal</a></li>
+                        <li><a href="{{ site.baseurl }}/TEMPLATES" class="hover:text-white transition-colors">Start-up Templates</a></li>
+                        <li><a href="{{ site.baseurl }}/CONTRIBUTING" class="hover:text-white transition-colors">Register Your LGU</a></li>
+                        <li><a href="{{ site.baseurl }}/CHANGELOG" class="hover:text-white transition-colors">Latest Updates</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Community</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="https://github.com/jmacj/better-lgu-directory" class="hover:text-white transition-colors">GitHub Repository</a></li>
+                        <li><a href="{{ site.baseurl }}/CODE_OF_CONDUCT" class="hover:text-white transition-colors">Code of Conduct</a></li>
+                        <li><a href="https://bettergov.ph" class="hover:text-white transition-colors">BetterGov.ph Portal</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-center mb-16">
+                <div class="inline-flex flex-col md:flex-row items-center gap-2 bg-gray-800 px-8 py-4 rounded-2xl border border-gray-700 shadow-xl text-center md:text-left">
+                    <span class="text-gray-300">Cost to the People of the Philippines:</span>
+                    <span class="text-green-500 font-bold">₱0</span>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; {{ site.time | date: "%Y" }} <strong>BetterGov.ph</strong>. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="{{ site.baseurl }}/LICENSE" class="hover:text-white">License</a>
+                    <a href="https://github.com/jmacj/better-lgu-directory" class="hover:text-white">Source Code</a>
+                    <a href="https://bettergov.ph" class="hover:text-white">BetterGov.ph</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

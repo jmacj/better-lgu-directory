@@ -1,3 +1,7 @@
+---
+layout: default
+title: Community Templates
+---
 # Community Templates
 
 These templates are provided by the BetterGov.ph community to help you build a transparency portal for your LGU quickly. All templates are open source.

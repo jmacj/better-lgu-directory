@@ -1,0 +1,13 @@
+title: BetterLGU Directory by BetterGov.ph
+description: A community-maintained directory of Better LGU digital transparency portals across the Philippines.
+baseurl: "/better-lgu-directory"
+url: "https://jmacj.github.io"
+
+markdown: kramdown
+theme: jekyll-theme-minimal
+
+exclude:
+  - ".github"
+  - ".idea"
+  - ".gitignore"
+  - "LICENSE"

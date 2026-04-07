@@ -1,3 +1,7 @@
+---
+layout: default
+title: Guide
+---
 # How to Start Your Better LGU Portal
 
 This guide walks you through creating a digital transparency portal for your local government unit (LGU) under the BetterGov.ph initiative.

@@ -1,3 +1,7 @@
+---
+layout: default
+title: Contributing
+---
 # Contributing to the BetterGov.ph LGU Directory
 
 Thank you for being part of the BetterGov.ph community. This guide explains how to register your LGU, update an existing entry, or contribute a template.
