@@ -1,0 +1,45 @@
+name: Sync Directory to Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main-pages (Website)
+        uses: actions/checkout@v6
+        with:
+          ref: main-pages
+          fetch-depth: 0 # Needed for merge
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge main into main-pages
+        run: |
+          git fetch origin main
+          git merge origin/main --no-edit
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Generate LGU Data
+        run: |
+          node scripts/sync-to-data.js
+
+      - name: Commit and Push to main-pages
+        run: |
+          git add _data/
+          if git diff --staged --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "chore(data): auto-sync directory entries from README.md"
+            git push origin main-pages
+          fi

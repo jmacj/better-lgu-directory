@@ -6,6 +6,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 ## 📋 Directory
 
+<!-- SYNC_LGU_TABLE_START -->
+
 | LGU                                 | Domain                                                | Repository                                                                     | Facebook                                                           | Status    | Maintainer/s                                                                           |
 |-------------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------|
 | Solano, Nueva Vizcaya               | [bettersolano.org](https://bettersolano.org)          | [GitHub](https://github.com/BetterSolano/bettersolano)                         | [Facebook](https://www.facebook.com/bettersolano.org)              | 🟢 Active | [@ramonloganjr](https://github.com/ramonloganjr)                                       |
@@ -18,6 +20,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tagaytay City, Cavite               | [bettertagaytay.org](https://www.bettertagaytay.org/) | [GitHub](https://github.com/Arlovzki/bettertagaytay)                           | [Facebook](https://www.facebook.com/bettertagaytay)                | 🟢 Active | [@Arlovzki](https://github.com/Arlovzki)                                               |
 | Indang, Cavite                      | [betterindang.org](https://betterindang.org)          | [GitHub](https://github.com/michaustriaqa/betterindang)                        | [Facebook](https://facebook.com/betterindang)                      | 🟢 Active | [@michaustriaqa](https://github.com/michaustriaqa)                                     |
 | General Santos City, South Cotabato | [bettergensan.org](https://bettergensan.org)          | [GitHub](https://github.com/psalmcatulpos/bettergensan)                        | -                                                                  | 🟢 Active | [@psalmcatulpos](https://github.com/psalmcatulpos)                                     |
+
+<!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
 
