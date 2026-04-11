@@ -22,7 +22,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 | LGU                             | Domain                                                | Repository                                                                     | Facebook                                                           | Status    | Maintainer/s                                                                           |
 |---------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------|
-{% for lgu in site.data.lgus %}| {{ lgu.name }} | {% if lgu.domain != "—" and lgu.domain != "-" %}[{{ lgu.domain | replace: "https://", "" | replace: "http://", "" | remove: "/" }}]({{ lgu.domain }}){% else %}-{% endif %} | {% if lgu.repo != "—" and lgu.repo != "-" %}[GitHub]({{ lgu.repo }}){% else %}-{% endif %} | {% if lgu.facebook != "—" and lgu.facebook != "-" %}[Facebook]({{ lgu.facebook }}){% else %}-{% endif %} | {{ lgu.status }} | {{ lgu.maintainer }} |
+{% for lgu in site.data.lgus %}| {{ lgu.name }} | {{ lgu.domain }} | {{ lgu.repo }} | {{ lgu.facebook }} | {{ lgu.status }} | {{ lgu.maintainer }} |
 {% endfor %}
 
 </div>
