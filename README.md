@@ -20,7 +20,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tagaytay City, Cavite               | [bettertagaytay.org](https://www.bettertagaytay.org/) | [GitHub](https://github.com/Arlovzki/bettertagaytay)                           | [Facebook](https://www.facebook.com/bettertagaytay)                | 🟢 Active | [@Arlovzki](https://github.com/Arlovzki)                                               |
 | Indang, Cavite                      | [betterindang.org](https://betterindang.org)          | [GitHub](https://github.com/michaustriaqa/betterindang)                        | [Facebook](https://facebook.com/betterindang)                      | 🟢 Active | [@michaustriaqa](https://github.com/michaustriaqa)                                     |
 | General Santos City, South Cotabato | [bettergensan.org](https://bettergensan.org)          | [GitHub](https://github.com/psalmcatulpos/bettergensan)                        | -                                                                  | 🟢 Active | [@psalmcatulpos](https://github.com/psalmcatulpos)                                     |
-
+| Dasmariñas City, Cavite             | [betterdasmarinas.org](https://betterdasmarinas.org)  | [GitHub](https://github.com/Shuashuaa/BetterDasmarinas)                        | [Facebook](https://www.facebook.com/profile.php?id=61570802813363) | 🟢 Active | [@Shuashuaa](https://github.com/Shuashuaa)                                             |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
