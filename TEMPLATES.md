@@ -1,3 +1,7 @@
+---
+layout: default
+title: Community Templates
+---
 # Community Templates
 
 These templates are provided by the BetterGov.ph community to help you build a transparency portal for your LGU quickly. All templates are open source.
@@ -6,11 +10,15 @@ These templates are provided by the BetterGov.ph community to help you build a t
 
 ## Available Templates
 
-| Template                 | Stack              | Repository                                              | Description                                                 |
-|--------------------------|--------------------|---------------------------------------------------------|-------------------------------------------------------------|
-| Better Solano Starter    | React + TypeScript | [GitHub](https://github.com/BetterSolano/bettersolano]) | Starter template based on the BetterSolano implementation   |
-| Better Los Baños Starter | React + TypeScript | [GitHub](https://github.com/BetterLosBanos/betterlb)    | Starter template based on the BetterLosBaños implementation |
-| Better Local Gov         | React + TypeScript | [GitHub](https://github.com/iyanski/betterlocalgov)     | Local Government Website Starter Kit                        |
+<div class="table-wrapper" markdown="1">
+
+| Template                 | Stack              | Repository                                             | Description                                                 |
+|--------------------------|--------------------|--------------------------------------------------------|-------------------------------------------------------------|
+| Better Solano Starter    | React + TypeScript | [GitHub](https://github.com/BetterSolano/bettersolano) | Starter template based on the BetterSolano implementation   |
+| Better Los Baños Starter | React + TypeScript | [GitHub](https://github.com/BetterLosBanos/betterlb)   | Starter template based on the BetterLosBaños implementation |
+| Better Local Gov         | React + TypeScript | [GitHub](https://github.com/iyanski/betterlocalgov)    | Local Government Website Starter Kit                        |
+
+</div>
 
 ---
 
