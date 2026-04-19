@@ -23,6 +23,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Dasmariñas City, Cavite             | [betterdasmarinas.org](https://betterdasmarinas.org)  | [GitHub](https://github.com/Shuashuaa/BetterDasmarinas)                        | [Facebook](https://www.facebook.com/profile.php?id=61570802813363) | 🟢 Active | [@Shuashuaa](https://github.com/Shuashuaa)                                             |
 | General Trias, Cavite | [bettergeneraltrias.org](https://www.bettergeneraltrias.org/) | [GitHub](https://github.com/kenhehe/betterGeneraltrias) | [Facebook](https://www.facebook.com/betterGeneralTrias) | 🟢 Active | [@kenhehe](https://github.com/kenhehe) |                        |
 | San Pedro, Laguna | — | [GitHub](https://github.com/sechipeanut/BetterSanPedro) | — | 🟡 Work in Progress | [@sechipeanut](https://github.com/sechipeanut) |
+| Cabuyao, Laguna | — | [GitHub](https://github.com/johnrommeloctaviano/better-cabuyao) | — | 🟡 Work in Progress | [@johnrommeloctaviano](https://github.com/johnrommeloctaviano) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
