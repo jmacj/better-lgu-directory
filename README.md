@@ -25,6 +25,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | San Pedro, Laguna | — | [GitHub](https://github.com/sechipeanut/BetterSanPedro) | — | 🟡 Work in Progress | [@sechipeanut](https://github.com/sechipeanut) |
 | Cabuyao, Laguna | — | [GitHub](https://github.com/johnrommeloctaviano/better-cabuyao) | — | 🟡 Work in Progress | [@johnrommeloctaviano](https://github.com/johnrommeloctaviano) |
 | Tuguegarao, Cagayan Valley | — | [GitHub](https://github.com/JDgayagoy/BetterTuguegarao) | — | 🟡 Work in Progress | [@JDgayagoy](https://github.com/JDgayagoy), [@sidj28](https://github.com/sidj28), [@geneconceja](https://github.com/geneconceja) |
+| Davao City, Davao Del Sur | — | [GitHub](https://github.com/johnloydlao/betterdavao) | — | 🔵 Planned | [@johnloydlao](https://github.com/johnloydlao) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
