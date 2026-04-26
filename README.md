@@ -27,6 +27,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tuguegarao, Cagayan Valley | — | [GitHub](https://github.com/JDgayagoy/BetterTuguegarao) | — | 🟡 Work in Progress | [@JDgayagoy](https://github.com/JDgayagoy), [@sidj28](https://github.com/sidj28), [@geneconceja](https://github.com/geneconceja) |
 | Davao City, Davao Del Sur | — | [GitHub](https://github.com/johnloydlao/betterdavao) | — | 🟡 Work in Progress | [@johnloydlao](https://github.com/johnloydlao) |
 | Allen, Northern Samar | — | [GitHub](https://github.com/xandreiAThome/betterallen) | — | 🟡 Work in Progress  | [@xandreiAThome](https://github.com/xandreiAThome) |
+| Aparri, Cagayan Valley | — | [GitHub](https://github.com/egiebk/betteraparri) | — | 🟡 Work in Progress | [@egiebk](https://github.com/egiebk) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
