@@ -30,6 +30,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Aparri, Cagayan Valley | [betteraparri.org](https://betteraparri.org/) | [GitHub](https://github.com/egiebk/betteraparri) | [Facebook](https://www.facebook.com/betteraparri.org) | 🟢 Active  | [@egiebk](https://github.com/egiebk) |
 | San Pablo, Laguna | — | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | — | 🔵 Planned  | [@ChristiannWick](https://github.com/ChristiannWick) |
 | Binangonan, Rizal | — | [GitHub](https://github.com/betterbinangonan-devs/betterbinangonan) | [Facebook](https://www.facebook.com/BetterBinangonan.org) | 🟡 Work in Progress | [@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals) |
+| Taytay, Rizal | — | [GitHub](https://github.com/zzelif/bettertaytay) | — | 🟡 Work in Progress | [@zzelif](https://github.com/zzelif) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
