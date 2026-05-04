@@ -31,6 +31,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | San Pablo, Laguna | — | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | — | 🟡 Work in Progress  | [@ChristiannWick](https://github.com/ChristiannWick) |
 | Binangonan, Rizal | — | [GitHub](https://github.com/betterbinangonan-devs/betterbinangonan) | [Facebook](https://www.facebook.com/BetterBinangonan.org) | 🟡 Work in Progress | [@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals) |
 | Taytay, Rizal | — | [GitHub](https://github.com/zzelif/bettertaytay) | — | 🟡 Work in Progress | [@zzelif](https://github.com/zzelif) |
+| Antique | — | [GitHub](https://github.com/bonfire404/betterantique) | — | 🔵 Planned | [@bonfire404](https://github.com/bonfire404) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
