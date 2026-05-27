@@ -29,7 +29,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Davao City, Davao Del Sur | — | [GitHub](https://github.com/johnloydlao/betterdavao) | — | 🟡 Work in Progress | [@johnloydlao](https://github.com/johnloydlao) |
 | Allen, Northern Samar | [betterallen.org](https://betterallen.org) | [GitHub](https://github.com/xandreiAThome/betterallen) | [Facebook](https://www.facebook.com/betterallen.org) | 🟢 Active  | [@xandreiAThome](https://github.com/xandreiAThome) |
 | Aparri, Cagayan Valley | [betteraparri.org](https://betteraparri.org/) | [GitHub](https://github.com/egiebk/betteraparri) | [Facebook](https://www.facebook.com/betteraparri.org) | 🟢 Active  | [@egiebk](https://github.com/egiebk) |
-| San Pablo, Laguna | [bettersanpablo.org]https://www.bettersanpablo.org/ | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | — | 🟢 Active  | [@ChristiannWick](https://github.com/ChristiannWick) |
+| San Pablo, Laguna | [bettersanpablo.org](https://www.bettersanpablo.org/) | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | — | 🟢 Active  | [@ChristiannWick](https://github.com/ChristiannWick) |
 | Binangonan, Rizal | — | [GitHub](https://github.com/betterbinangonan-devs/betterbinangonan) | [Facebook](https://www.facebook.com/BetterBinangonan.org) | 🟡 Work in Progress | [@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals) |
 | Taytay, Rizal | — | [GitHub](https://github.com/zzelif/bettertaytay) | — | 🟡 Work in Progress | [@zzelif](https://github.com/zzelif) |
 | Olongapo City, Zambales | — | [GitHub](https://github.com/eyronjohn/betterolongapo) | — | 🟡 Work in Progress | [@eyronjohn](https://github.com/eyronjohn) |
