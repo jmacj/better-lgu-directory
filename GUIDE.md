@@ -33,7 +33,7 @@ You do not need permission from your LGU to build a transparency portal. Most of
 
 ## Step 1 — Register Your Intent
 
-Open a Pull Request to [this repository](https://github.com/bettergov-ph/lgu-directory) to add your LGU to the directory with a `🔵 Planned` status. This is the first concrete step and signals to your community that something is coming.
+Open a Pull Request to [this repository](https://github.com/jmacj/better-lgu-directory) to add your LGU to the directory with a `🔵 Planned` status. This is the first concrete step and signals to your community that something is coming.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for exact instructions.
 
@@ -41,7 +41,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for exact instructions.
 
 ## Step 2 — Pick a Template
 
-Browse the [community templates](TEMPLATES.md) and choose one that fits your technical stack and the complexity you are aiming for. Most templates are built with Nuxt 3 or plain HTML/CSS and are designed to be forked and customized.
+Browse the [community templates](TEMPLATES.md) and choose one that fits your technical stack and the complexity you are aiming for. Most templates are built with React + TypeScript and are designed to be forked and customized.
 
 If no template fits your needs, you can build from scratch and contribute your own template back to the community afterward.
 
@@ -81,7 +81,7 @@ Domain costs roughly ₱600–₱900/year through local registrars.
 
 Most templates are deployable for free on:
 
-- [Vercel](https://vercel.com) — best for Nuxt/Next/React projects
+- [Vercel](https://vercel.com) — best for React/Next/Nuxt projects
 - [Netlify](https://netlify.com) — good general-purpose option
 - [GitHub Pages](https://pages.github.com) — best for static HTML/CSS sites
 

@@ -22,16 +22,24 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | General Santos City, South Cotabato | [bettergensan.org](https://bettergensan.org)          | [GitHub](https://github.com/psalmcatulpos/bettergensan)                        | -                                                                  | 🟢 Active | [@psalmcatulpos](https://github.com/psalmcatulpos)                                     |
 | Dasmariñas City, Cavite             | [betterdasmarinas.org](https://betterdasmarinas.org)  | [GitHub](https://github.com/Shuashuaa/BetterDasmarinas)                        | [Facebook](https://www.facebook.com/profile.php?id=61570802813363) | 🟢 Active | [@Shuashuaa](https://github.com/Shuashuaa)                                             |
 | General Trias, Cavite | [bettergeneraltrias.org](https://www.bettergeneraltrias.org/) | [GitHub](https://github.com/kenhehe/betterGeneraltrias) | [Facebook](https://www.facebook.com/betterGeneralTrias) | 🟢 Active | [@kenhehe](https://github.com/kenhehe) |                        |
+| Tanza, Cavite | - | [GitHub](https://github.com/manalilib/betterTanza) | [Facebook](https://www.facebook.com/betterTanzaCavite) | 🔵 Planned | [@manalilib](https://github.com/manalilib) |
 | San Pedro, Laguna | — | [GitHub](https://github.com/sechipeanut/BetterSanPedro) | — | 🟡 Work in Progress | [@sechipeanut](https://github.com/sechipeanut) |
 | Cabuyao City, Laguna | [bettercabuyao.org](https://bettercabuyao.org/) | [GitHub](https://github.com/johnrommeloctaviano/better-cabuyao) | — | 🟢 Active | [@johnrommeloctaviano](https://github.com/johnrommeloctaviano) |
 | Tuguegarao, Cagayan Valley | — | [GitHub](https://github.com/JDgayagoy/BetterTuguegarao) | — | 🟡 Work in Progress | [@JDgayagoy](https://github.com/JDgayagoy), [@sidj28](https://github.com/sidj28), [@geneconceja](https://github.com/geneconceja) |
 | Davao City, Davao Del Sur | — | [GitHub](https://github.com/johnloydlao/betterdavao) | — | 🟡 Work in Progress | [@johnloydlao](https://github.com/johnloydlao) |
-| Allen, Northern Samar | — | [GitHub](https://github.com/xandreiAThome/betterallen) | — | 🟡 Work in Progress  | [@xandreiAThome](https://github.com/xandreiAThome) |
+| Allen, Northern Samar | [betterallen.org](https://betterallen.org) | [GitHub](https://github.com/xandreiAThome/betterallen) | [Facebook](https://www.facebook.com/betterallen.org) | 🟢 Active  | [@xandreiAThome](https://github.com/xandreiAThome) |
 | Aparri, Cagayan Valley | [betteraparri.org](https://betteraparri.org/) | [GitHub](https://github.com/egiebk/betteraparri) | [Facebook](https://www.facebook.com/betteraparri.org) | 🟢 Active  | [@egiebk](https://github.com/egiebk) |
 | San Pablo, Laguna | — | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | — | 🟡 Work in Progress  | [@ChristiannWick](https://github.com/ChristiannWick) |
 | Binangonan, Rizal | — | [GitHub](https://github.com/betterbinangonan-devs/betterbinangonan) | [Facebook](https://www.facebook.com/BetterBinangonan.org) | 🟡 Work in Progress | [@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals) |
 | Taytay, Rizal | — | [GitHub](https://github.com/zzelif/bettertaytay) | — | 🟡 Work in Progress | [@zzelif](https://github.com/zzelif) |
-| San Jose, Antique | — | [GitHub](-) | — | 🔵 Planned | [@bonfire404](https://github.com/bonfire404) |
+| Olongapo City, Zambales | — | [GitHub](https://github.com/eyronjohn/betterolongapo) | — | 🟡 Work in Progress | [@eyronjohn](https://github.com/eyronjohn) |
+| Biñan, Laguna | — | [GitHub](https://github.com/Criflar/betterbinan) | — | 🔵 Planned | [@Criflar](https://github.com/Criflar), [@chiwasushuba](https://github.com/chiwasushuba) |
+| Tanay, Rizal | — | [GitHub](https://github.com/s4burieru/bettertanay) | — | 🟡 Work in Progress | [@s4burieru](https://github.com/s4burieru) |
+| Puerto Princesa City, Palawan | — | [GitHub](https://github.com/Kelxety/betterpuertoprincesa) | — | 🔵 Planned | [@kelxety](https://github.com/kelxety) |
+| Iligan City, Lanao del Norte         | —                                                     | [GitHub](https://github.com/KishonShrill/BetterIligan)                         | [Facebook](https://www.facebook.com/BetterIligan.org/)            | 🔵 Planned | [@KishonShrill](https://github.com/KishonShrill)                                        |
+| Hilongos, Leyte | — | [GitHub](https://github.com/rolpppp/betterhilongos) | — | 🟡 Work in Progress | [@rolpppp](https://github.com/rolpppp) |
+| Limay, Bataan | — | — | — | 🔵 Planned | [@frensenccruz](https://github.com/frensenccruz) |
+| San Jose, Antique | — | — | — | 🔵 Planned | [@bonfire404](https://github.com/bonfire404) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
