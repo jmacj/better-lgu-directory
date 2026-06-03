@@ -44,6 +44,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | San Pascual, Masbate | — | [GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate)| — | 🟡 Work in Progress | [@marcuwynu23](https://github.com/marcuwynu23) |
 | Teresa, Rizal | — | — | — | 🔵 Planned | [@MewSeiren](https://github.com/MewSeiren) |
 | Atimonan, Quezon | — | [GitHub](https://github.com/EmsiPrds/betteratimonan)  | — | 🔵 Planned | [@EmsiPrds](https://github.com/EmsiPrds) |
+| Dinalupihan, Bataan | - | - | - | 🔵 Planned | [@dardeejay](https://github.com/dardeejay) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
