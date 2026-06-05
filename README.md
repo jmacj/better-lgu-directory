@@ -32,7 +32,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | San Pablo, Laguna | [bettersanpablo.org](https://www.bettersanpablo.org/) | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | — | 🟢 Active  | [@ChristiannWick](https://github.com/ChristiannWick) |
 | Binangonan, Rizal | — | [GitHub](https://github.com/betterbinangonan-devs/betterbinangonan) | [Facebook](https://www.facebook.com/BetterBinangonan.org) | 🟡 Work in Progress | [@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals) |
 | Taytay, Rizal | — | [GitHub](https://github.com/zzelif/bettertaytay) | — | 🟡 Work in Progress | [@zzelif](https://github.com/zzelif) |
-| Olongapo City, Zambales | — | [GitHub](https://github.com/eyronjohn/betterolongapo) | — | 🟡 Work in Progress | [@eyronjohn](https://github.com/eyronjohn) |
+| Olongapo City, Zambales | [betterolongapo.org](https://betterolongapo.org/) | [GitHub](https://github.com/eyronjohn/betterolongapo) | — | 🟢 Active | [@eyronjohn](https://github.com/eyronjohn) |
 | Biñan, Laguna | — | [GitHub](https://github.com/Criflar/betterbinan) | — | 🔵 Planned | [@Criflar](https://github.com/Criflar), [@chiwasushuba](https://github.com/chiwasushuba) |
 | Tanay, Rizal | — | [GitHub](https://github.com/s4burieru/bettertanay) | — | 🟡 Work in Progress | [@s4burieru](https://github.com/s4burieru) |
 | Puerto Princesa City, Palawan | — | [GitHub](https://github.com/Kelxety/betterpuertoprincesa) | — | 🔵 Planned | [@kelxety](https://github.com/kelxety) |
