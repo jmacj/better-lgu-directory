@@ -43,9 +43,10 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Libmanan, Camarines Sur | — | [GitHub](https://github.com/enzox0/betterlibmanan) | — | 🟡 Work in Progress  | [@enzox0](https://github.com/enzox0) |
 | San Pascual, Masbate | — | [GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate)| — | 🟡 Work in Progress | [@marcuwynu23](https://github.com/marcuwynu23) |
 | Teresa, Rizal | — | — | — | 🔵 Planned | [@MewSeiren](https://github.com/MewSeiren) |
-| Atimonan, Quezon | — | [GitHub](https://github.com/EmsiPrds/betteratimonan)  | — | 🔵 Planned | [@EmsiPrds](https://github.com/EmsiPrds) |
+| Atimonan, Quezon | — | [GitHub](https://github.com/EmsiPrds/betteratimonan)  | — |  | [@EmsiPrds](https://github.com/EmsiPrds) |
 | Dinalupihan, Bataan | - | - | - | 🔵 Planned | [@dardeejay](https://github.com/dardeejay) |
 | Calamba, Laguna | — | — | — | 🔵 Planned | [@apajuan](https://github.com/apajuan) |
+| Angeles City, Pampanga | — | [GitHub](https://github.com/ongods/betterangeles) | — | 🔵 Planned | [@ongods](https://github.com/ongods) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
