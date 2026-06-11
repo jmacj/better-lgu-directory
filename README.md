@@ -48,7 +48,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Calamba, Laguna | — | — | — | 🔵 Planned | [@apajuan](https://github.com/apajuan) |
 | Cabanatuan City, Nueva Ecija | — | — | — | 🔵 Planned | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
 | Angeles City, Pampanga | — | [GitHub](https://github.com/ongods/betterangeles) | — | 🔵 Planned | [@ongods](https://github.com/ongods) |
-| Cebu City, Cebu | — | — | — | 🟡 Work in Progress | [@eclairifyy](https://github.com/eclairifyy) |
+| Cebu City, Cebu | — | — | — | 🟡 Work in Progress | [@kyrenmearr](https://github.com/kyrenmearr) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
