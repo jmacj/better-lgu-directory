@@ -52,6 +52,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Cebu City, Cebu | — | [GitHub](https://github.com/kyrenmearr/bettercebucity) | — | 🟡 Work in Progress | [@kyrenmearr](https://github.com/kyrenmearr) |
 | Piat, Cagayan Valley | — | — | — | 🔵 Planned | [@JoScripty](https://github.com/JoScripty) |
 | Alaminos City, Pangasinan | — | — | — | 🔵 Planned | [@ljsalcedo-dev](https://github.com/ljsalcedo-dev) |
+| Santo Tomas, Pangasinan | — | — | — | 🔵 Planned | [@PatrickTomas2](https://github.com/PatrickTomas2) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
