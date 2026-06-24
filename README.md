@@ -55,7 +55,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Santo Tomas, Pangasinan | — | — | — | 🔵 Planned | [@PatrickTomas2](https://github.com/PatrickTomas2) |
 | Legazpi, Albay | — | — | — | 🔵 Planned | [@bpbelen](https://github.com/bpbelen) |
 | Santa Barbara, Pangasinan | — | [GitHub](https://github.com/JericoGarcia21/better-santabarbara) | — | 🟡 Work in Progress | [@JericoGarcia21](https://github.com/JericoGarcia21) |
-
+| Marilao, Bulacan | [bettermarilao.org](https://bettermarilao.org) | [GitLab.com](https://gitlab.com/bettermarilao/bettermarilao.gitlab.io) | [Bluesky](https://bsky.app/profile/bettermarilao.org) | 🔵 Planned | [@ajhalili2006](https://github.com/ajhalili2006) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
