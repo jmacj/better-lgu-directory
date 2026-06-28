@@ -44,7 +44,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Libmanan, Camarines Sur | — | [GitHub](https://github.com/enzox0/betterlibmanan) | — | 🟡 Work in Progress  | [@enzox0](https://github.com/enzox0) |
 | San Pascual, Masbate | — | [GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate)| — | 🟡 Work in Progress | [@marcuwynu23](https://github.com/marcuwynu23) |
 | Teresa, Rizal | — | — | — | 🔵 Planned | [@MewSeiren](https://github.com/MewSeiren) |
-| Atimonan, Quezon | — | [GitHub](https://github.com/EmsiPrds/betteratimonan)  | — | 🔵 Planned | [@EmsiPrds](https://github.com/EmsiPrds) |
+| Atimonan, Quezon | — | [GitHub](https://github.com/EmsiPrds/betteratimonan)  | — | 🟡 Work in Progress | [@EmsiPrds](https://github.com/EmsiPrds) |
 | Dinalupihan, Bataan | - | - | - | 🔵 Planned | [@dardeejay](https://github.com/dardeejay) |
 | Calamba, Laguna | — | [GitHub](https://github.com/apajuan/bettercalamba) | — | 🟡 Work in Progress | [@apajuan](https://github.com/apajuan) |
 | Cabanatuan City, Nueva Ecija | [bettercabanatuan.org](https://bettercabanatuan.org) | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan) | [Facebook](https://www.facebook.com/bettercabanatuan.org) | 🟢 Active | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
