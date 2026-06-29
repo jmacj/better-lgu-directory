@@ -15,12 +15,12 @@ You do not need to have a finished portal to register. If you are planning to bu
 2. **Edit `README.md`** and add a row to the Directory table:
 
    ```markdown
-   | Your LGU Name | [yourdomain.org](https://yourdomain.org) or — | [GitHub](https://github.com/you/repo) or — | [Facebook](https://facebook.com/yourpage) or — | 🔵 Planned | [@yourhandle](https://github.com/yourhandle) |
+   | Your LGU Name | [yourdomain.org](https://yourdomain.org) or - | [GitHub](https://github.com/you/repo) or - | [Facebook](https://facebook.com/yourpage) or - | 🔵 Planned | [@yourhandle](https://github.com/yourhandle) |
    ```
 
    The **Socials** column accepts one or more platform links. Multiple links are comma-separated, e.g. `[Facebook](https://facebook.com/yourpage), [X](https://x.com/yourhandle)`.
 
-   Use `—` for any field that does not apply yet.
+   Use `-` for any field that does not apply yet.
 
 3. **Choose the correct status badge:**
 
