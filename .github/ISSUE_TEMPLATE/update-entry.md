@@ -8,7 +8,7 @@ labels: update
 [Provide the name of the LGU as it appears in the directory]
 
 ### What is changing?
-[e.g. Status, Domain, Repository, Maintainers]
+[e.g. Status, Domain, Repository, Socials, Maintainers]
 
 ### Old Value
 [The current value in the directory]
