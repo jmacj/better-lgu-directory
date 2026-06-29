@@ -16,13 +16,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **37 new LGU entries**: Indang, General Santos City, Dasmariñas City, General Trias, San Pedro, Cabuyao City, Tuguegarao, Davao City, Allen, Aparri, San Pablo, Binangonan, Taytay, Tanza, Olongapo City, Biñan, Tanay, Puerto Princesa City, Iligan City, Hilongos, Limay, Antique, Libmanan, Teresa, Atimonan, San Pascual, Dinalupihan, Calamba, Angeles City, Cabanatuan City, Piat, Cebu City, Alaminos City, Koronadal City, Santo Tomas, Legazpi, and Santa Barbara.
 
 ### Changed
-- Renamed the `Facebook` column to `Socials`, and updated `CONTRIBUTING.md` and the pull request template to match (socials are comma-separated).
+- Renamed the `Facebook` column to `Socials`, and updated `CONTRIBUTING.md`, the pull request template, and the update-entry issue template to match (socials are comma-separated).
 - Reframed the directory introduction toward a builder audience.
 - Expanded the Getting Started steps and added a directory deduplication gate to the guide; refreshed the tech stack and examples.
 - Numerous LGU status transitions as portals progressed (Planned → Work in Progress → Active), including Aparri, Allen, San Pablo, Libmanan, Iligan City, Cabanatuan City, Atimonan, San Pascual, and Calamba.
 
 ### Fixed
-- Normalized empty directory cells to a uniform dash.
+- Normalized empty directory cells to a uniform dash, and aligned contributor guidance to use a single `-`.
 - Hardened the README → data sync: YAML escaping, detection of malformed Socials cells, and URL parsing for links containing parentheses.
 - Fixed social icons not rendering inside Markdown table cells, and restored their hover colors.
 - Fixed the sync workflow to push merge commits even when there are no data changes.
