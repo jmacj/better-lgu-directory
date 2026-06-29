@@ -13,6 +13,12 @@ function yamlStr(value) {
     return String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 }
 
+// Normalize a "no value" cell to a single uniform dash so the rendered
+// table doesn't mix hyphens and em/en dashes.
+function normalizeDash(value) {
+    return EMPTY_MARKERS.includes((value || '').trim()) ? '-' : value;
+}
+
 function parseTable(content, startMarker, endMarker) {
     const startIdx = content.indexOf(startMarker);
     const endIdx = content.indexOf(endMarker);
@@ -72,7 +78,14 @@ function validateLgu(cells, index) {
         throw new Error(`LGU Table Row ${index + 1} has a Socials cell with no valid [label](url) links: "${socialsCell}".`);
     }
 
-    return { name, domain, repo, socials, status, maintainer };
+    return {
+        name,
+        domain: normalizeDash(domain),
+        repo: normalizeDash(repo),
+        socials,
+        status,
+        maintainer: normalizeDash(maintainer),
+    };
 }
 
 function formatSocialsYaml(socials) {
