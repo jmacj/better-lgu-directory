@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 > [!NOTE]
 > This file is updated by the repository maintainers. Contributors are requested to **not** update the `CHANGELOG.md` in their Pull Requests.
 
-## [1.1.0] - 2026-07-06
+## [Unreleased]
 
 ### Added
 - **Multi-platform Socials**: the directory's `Facebook` column is now a `Socials` column that supports multiple social links per LGU — Facebook, X, Instagram, LinkedIn, YouTube, TikTok, and Bluesky — rendered as platform icons on the website, with a generic fallback for any other link.
