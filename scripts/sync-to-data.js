@@ -6,6 +6,13 @@ const LGUS_DATA_PATH = process.argv[2] || path.join(__dirname, '../_data/lgus.ym
 
 const VALID_STATUSES = ['🟢 Active', '🟡 Work in Progress', '🔴 Unmaintained', '🔵 Planned'];
 
+const EMPTY_MARKERS = ['', '-', '—', '–'];
+
+// Escape a value for safe embedding inside a double-quoted YAML scalar.
+function yamlStr(value) {
+    return String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+
 function parseTable(content, startMarker, endMarker) {
     const startIdx = content.indexOf(startMarker);
     const endIdx = content.indexOf(endMarker);
@@ -27,11 +34,12 @@ function parseTable(content, startMarker, endMarker) {
 }
 
 function parseSocials(cell) {
-    if (!cell || cell === '-' || cell === '—' || cell === '–') {
+    if (EMPTY_MARKERS.includes(cell)) {
         return [];
     }
 
-    const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+    // URL group allows one level of nested parens, e.g. ..._(Philippines)
+    const linkPattern = /\[([^\]]+)\]\(([^)]*(?:\([^)]*\)[^)]*)*)\)/g;
     const socials = [];
     let match;
 
@@ -60,6 +68,9 @@ function validateLgu(cells, index) {
     }
 
     const socials = parseSocials(socialsCell);
+    if (socials.length === 0 && !EMPTY_MARKERS.includes(socialsCell)) {
+        throw new Error(`LGU Table Row ${index + 1} has a Socials cell with no valid [label](url) links: "${socialsCell}".`);
+    }
 
     return { name, domain, repo, socials, status, maintainer };
 }
@@ -70,9 +81,9 @@ function formatSocialsYaml(socials) {
     }
     const lines = ['  socials:'];
     for (const s of socials) {
-        lines.push(`    - platform: "${s.platform}"`);
-        lines.push(`      label: "${s.label}"`);
-        lines.push(`      url: "${s.url}"`);
+        lines.push(`    - platform: "${yamlStr(s.platform)}"`);
+        lines.push(`      label: "${yamlStr(s.label)}"`);
+        lines.push(`      url: "${yamlStr(s.url)}"`);
     }
     return lines.join('\n');
 }
@@ -95,12 +106,12 @@ try {
     // Write to YAML
     const lguYaml = lgus.map(l => {
         return [
-            `- name: "${l.name}"`,
-            `  domain: "${l.domain}"`,
-            `  repo: "${l.repo}"`,
+            `- name: "${yamlStr(l.name)}"`,
+            `  domain: "${yamlStr(l.domain)}"`,
+            `  repo: "${yamlStr(l.repo)}"`,
             formatSocialsYaml(l.socials),
-            `  status: "${l.status}"`,
-            `  maintainer: "${l.maintainer}"`,
+            `  status: "${yamlStr(l.status)}"`,
+            `  maintainer: "${yamlStr(l.maintainer)}"`,
         ].join('\n');
     }).join('\n');
 
