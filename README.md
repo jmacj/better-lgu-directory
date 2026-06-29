@@ -1,6 +1,6 @@
 # BetterGov.ph — LGU Directory
 
-A community-maintained directory of **Better LGU** digital transparency portals across the Philippines — find an existing portal before you build, contribute to one, or start your own. Each entry links to the LGU's portal, source repository, and Facebook page, along with its current maintenance status.
+A community-maintained directory of **Better LGU** digital transparency portals across the Philippines — find an existing portal before you build, contribute to one, or start your own. Each entry links to the LGU's portal, source repository, and social pages, along with its current maintenance status.
 
 ---
 
@@ -8,7 +8,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 <!-- SYNC_LGU_TABLE_START -->
 
-| LGU                                 | Domain                                                | Repository                                                                     | Facebook                                                           | Status    | Maintainer/s                                                                           |
+| LGU                                 | Domain                                                | Repository                                                                     | Socials                                                            | Status    | Maintainer/s                                                                           |
 |-------------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------|
 | Solano, Nueva Vizcaya               | [bettersolano.org](https://bettersolano.org)          | [GitHub](https://github.com/BetterSolano/bettersolano)                         | [Facebook](https://www.facebook.com/bettersolano.org)              | 🟢 Active | [@ramonloganjr](https://github.com/ramonloganjr)                                       |
 | Bacolod City, Negros Occidental     | [betterbacolod.org](https://betterbacolod.org)        | [GitHub](https://github.com/betterbacolod/betterbacolod)                       | [Facebook](https://www.facebook.com/betterbacolod.org)             | 🟢 Active | [@mattenarle10](https://github.com/mattenarle10)                                       |

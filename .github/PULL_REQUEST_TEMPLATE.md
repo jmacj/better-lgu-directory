@@ -5,7 +5,7 @@ Please provide the details for the LGU entry being added or updated.
 - **LGU Name:**
 - **Domain:**
 - **Repository Link:**
-- **Facebook Page Link:**
+- **Social Links:**
 - **Status:** (Planned / Work in Progress / Active / Unmaintained)
 - **Maintainer GitHub Handle/s:**
 
