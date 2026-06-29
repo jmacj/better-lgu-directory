@@ -237,7 +237,14 @@ main tr:last-child td {
 }
 
 .social-icon-link {
+  color: #9ca3af;
+  cursor: pointer;
   transition: color 0.2s, transform 0.2s;
+}
+
+.social-icon-link:hover {
+  color: var(--brand, #6b7280);
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {

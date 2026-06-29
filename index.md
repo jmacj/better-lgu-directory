@@ -33,7 +33,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 | LGU                             | Domain                                                | Repository                                                                     | Socials                                                            | Status    | Maintainer/s                                                                           |
 |---------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------|
-{% for lgu in site.data.lgus %}| {{ lgu.name }} | {{ lgu.domain }} | {{ lgu.repo }} | {% if lgu.socials and lgu.socials.size > 0 %}<div class="flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</div>{% else %}-{% endif %} | {{ lgu.status }} | {{ lgu.maintainer }} |
+{% for lgu in site.data.lgus %}| {{ lgu.name }} | {{ lgu.domain }} | {{ lgu.repo }} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }} | {{ lgu.maintainer }} |
 {% endfor %}
 
 </div>
