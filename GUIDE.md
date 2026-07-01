@@ -109,6 +109,17 @@ A transparency portal is only valuable if it stays current. Consider:
 - Recruiting co-maintainers from your local tech community
 - Connecting with other Better LGU maintainers in the BetterGov.ph community for support
 
+### Funnel Reports to the Community Discord
+
+Once your portal has a live intake surface (a citizen report or feedback form), you can pipe submissions — citizen reports, feedback, or system logs — into a dedicated channel in the BetterGov.ph Discord via webhook, so the wider community can see and help triage them. This is optional and only relevant after launch.
+
+**Before you request a webhook, your report intake must already be protected against automated abuse.** Webhook access is granted only to portals that can demonstrate this. There is no single required tool — the goal is simply that a bot cannot flood the channel through your form. Common ways to meet the bar:
+
+- A CAPTCHA on the form (Google reCAPTCHA, Cloudflare Turnstile, or similar)
+- Edge rate-limiting (e.g. Cloudflare) or application-level throttling on the submit endpoint
+
+When your protection is in place, reach out to the Discord Mod team through the BetterGov.ph community channels — they provision the channel and issue the webhook URL, and make the final call on whether your measures are sufficient.
+
 ---
 
 ## Need Help?

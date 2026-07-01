@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **Multi-platform Socials**: the directory's `Facebook` column is now a `Socials` column that supports multiple social links per LGU — Facebook, X, Instagram, LinkedIn, YouTube, TikTok, and Bluesky — rendered as platform icons on the website, with a generic fallback for any other link.
 - **Automated README → website sync**: a GitHub Actions workflow keeps the published website data in sync with the directory table in `README.md`.
+- **Discord reporting integration guide**: `GUIDE.md` now documents how maintainers can funnel citizen reports, feedback, or logs into the BetterGov.ph Discord via webhook — including the bot-protection prerequisite (reCAPTCHA, Turnstile, or rate-limiting) required before the mods issue a webhook URL.
 - **37 new LGU entries**: Indang, General Santos City, Dasmariñas City, General Trias, San Pedro, Cabuyao City, Tuguegarao, Davao City, Allen, Aparri, San Pablo, Binangonan, Taytay, Tanza, Olongapo City, Biñan, Tanay, Puerto Princesa City, Iligan City, Hilongos, Limay, Antique, Libmanan, Teresa, Atimonan, San Pascual, Dinalupihan, Calamba, Angeles City, Cabanatuan City, Piat, Cebu City, Alaminos City, Koronadal City, Santo Tomas, Legazpi, and Santa Barbara.
 
 ### Changed
