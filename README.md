@@ -57,6 +57,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Santa Barbara, Pangasinan | — | [GitHub](https://github.com/JericoGarcia21/better-santabarbara) | — | 🟡 Work in Progress | [@JericoGarcia21](https://github.com/JericoGarcia21) |
 | Taguig City, Metro Manila | — | [GitHub](https://github.com/plvzfq-rit/bettertaguig) | — | 🔵 Planned | [@plvzfq-rit](https://github.com/plvzfq-rit) |
 | Sara, Iloilo | — | [GitHub](https://github.com/SaraGugmaKo/bettersara) | — | 🟡 Work in Progress | [@SaraGugmaKo](https://github.com/SaraGugmaKo) |
+| Bayawan | — | [GitHub](https://github.com/rodneydelacruz/betterbayawan) | — | 🔵 Planned | [@rodneydelacruz](https://github.com/rodneydelacruz) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
