@@ -58,6 +58,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Taguig City, Metro Manila | — | [GitHub](https://github.com/plvzfq-rit/bettertaguig) | — | 🔵 Planned | [@plvzfq-rit](https://github.com/plvzfq-rit) |
 | Sara, Iloilo | — | [GitHub](https://github.com/SaraGugmaKo/bettersara) | — | 🟡 Work in Progress | [@SaraGugmaKo](https://github.com/SaraGugmaKo) |
 | Bayawan, Negros Oriental | — | [GitHub](https://github.com/rodneydelacruz/betterbayawan) | — | 🔵 Planned | [@rodneydelacruz](https://github.com/rodneydelacruz) |
+| Bacoor City, Cavite | — | [Github](https://github.com/riamjs/betterbacoor) | — | 🔵 Planned | [@riamjs](https://github.com/riamjs) | 
 
 <!-- SYNC_LGU_TABLE_END -->
 
