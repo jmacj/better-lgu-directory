@@ -59,7 +59,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Sara, Iloilo | — | [GitHub](https://github.com/SaraGugmaKo/bettersara) | — | 🟡 Work in Progress | [@SaraGugmaKo](https://github.com/SaraGugmaKo) |
 | Bayawan, Negros Oriental | — | [GitHub](https://github.com/rodneydelacruz/betterbayawan) | — | 🔵 Planned | [@rodneydelacruz](https://github.com/rodneydelacruz) |
 | Bacoor City, Cavite | — | [Github](https://github.com/riamjs/betterbacoor) | — | 🔵 Planned | [@riamjs](https://github.com/riamjs) | 
-| Lucena City, Quezon | — | — | — | 🔵 Planned | [@marrrkkk](https://github.com/marrrkkk) | 
+| Lucena City, Quezon | — | — | — | 🔵 Planned | [@marrrkkk](https://github.com/marrrkkk) |
+| Carigara, Leyte | — | — | — | 🔵 Planned | [@dauganz09](https://github.com/dauganz09) |  
 
 <!-- SYNC_LGU_TABLE_END -->
 
