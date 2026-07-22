@@ -61,7 +61,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Bacoor City, Cavite | — | [Github](https://github.com/riamjs/betterbacoor) | — | 🔵 Planned | [@riamjs](https://github.com/riamjs) | 
 | Lucena City, Quezon | — | — | — | 🔵 Planned | [@marrrkkk](https://github.com/marrrkkk) |
 | Carigara, Leyte | — | — | — | 🔵 Planned | [@dauganz09](https://github.com/dauganz09) |  
-| Claver, Surigao del Norte | - | - | - | 🔵 Planned | [@blacklabs-eljohn](https://github.com/blacklabs-eljohn) |
+| Claver, Surigao del Norte | - | - | - | 🔵 Planned | [@eljohn2001](https://github.com/eljohn2001) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
