@@ -39,7 +39,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Puerto Princesa City, Palawan | — | [GitHub](https://github.com/Kelxety/betterpuertoprincesa) | — | 🔵 Planned | [@kelxety](https://github.com/kelxety) |
 | Iligan City, Lanao del Norte | [betteriligancity.org](https://betteriligancity.org/) | [GitHub](https://github.com/KishonShrill/BetterIligan) | [Facebook](https://www.facebook.com/BetterIligan.org/) | 🟢 Active | [@KishonShrill](https://github.com/KishonShrill), [@Vantalim12](https://github.com/Vantalim12) |
 | Hilongos, Leyte | — | [GitHub](https://github.com/rolpppp/betterhilongos) | — | 🟡 Work in Progress | [@rolpppp](https://github.com/rolpppp) |
-| Limay, Bataan | — | — | — | 🔵 Planned | [@frensenccruz](https://github.com/frensenccruz) |
+| Limay, Bataan | [betterlimay.org](https://betterlimay.org/) | [Github](https://github.com/AstroMC98/betterlimay) | [Facebook](https://www.facebook.com/betterlimay.org) | 🟡 Work in Progress | [@AstroMC98](https://github.com/AstroMC98) |
 | San Jose, Antique | — | — | — | 🔵 Planned | [@bonfire404](https://github.com/bonfire404) |
 | Libmanan, Camarines Sur | — | [GitHub](https://github.com/enzox0/betterlibmanan) | [Facebook](https://www.facebook.com/BetterLibmanan.org) | 🟡 Work in Progress  | [@enzox0](https://github.com/enzox0) |
 | San Pascual, Masbate | — | [GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate)| — | 🟡 Work in Progress | [@marcuwynu23](https://github.com/marcuwynu23) |
