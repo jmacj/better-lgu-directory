@@ -51,7 +51,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Cabanatuan City, Nueva Ecija | [bettercabanatuan.org](https://bettercabanatuan.org) | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan) | [Facebook](https://www.facebook.com/bettercabanatuan.org) | 🟢 Active | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
 | Angeles City, Pampanga | — | [GitHub](https://github.com/ongods/betterangeles) | — | 🔵 Planned | [@ongods](https://github.com/ongods) |
 | Cebu City, Cebu | — | [GitHub](https://github.com/kyrenmearr/bettercebucity) | — | 🟡 Work in Progress | [@kyrenmearr](https://github.com/kyrenmearr) |
-| Piat, Cagayan Valley | — | — | — | 🔵 Planned | [@JoScripty](https://github.com/JoScripty) |
+| Piat, Cagayan Valley | — | [GitHub](https://github.com/JoScripty/betterpiat) | — | 🟡 Work in Progress | [@JoScripty](https://github.com/JoScripty) |
 | Alaminos City, Pangasinan | [betteralaminoscity.org](https://betteralaminoscity.org) | [GitHub](https://github.com/ljsalcedo-dev/betteralaminoscity) | — | 🟡 Work in Progress | [@ljsalcedo-dev](https://github.com/ljsalcedo-dev) |
 | Santo Tomas, Pangasinan | — | — | — | 🔵 Planned | [@PatrickTomas2](https://github.com/PatrickTomas2) |
 | Legazpi, Albay | — | — | — | 🔵 Planned | [@bpbelen](https://github.com/bpbelen) |
