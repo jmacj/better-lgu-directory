@@ -147,6 +147,7 @@ function main() {
     const readme = fs.readFileSync(README_PATH, 'utf8');
     const lastUpdated = lastUpdatedByName();
 
+    const planned = [];
     const shouldTag = [];
     const shouldUntag = [];
     let plannedCount = 0;
@@ -169,7 +170,9 @@ function main() {
         const ageDays = Math.floor((now - new Date(updatedAt).getTime()) / MS_PER_DAY);
         const isStale = ageDays > staleAfterDays;
         const tagged = statusTags.includes(STALE_TAG);
-        const entry = { name, ageDays, updatedAt: updatedAt.slice(0, 10) };
+        const entry = { name, ageDays, updatedAt: updatedAt.slice(0, 10), tagged };
+
+        planned.push(entry);
 
         if (isStale && !tagged) {
             shouldTag.push(entry);
@@ -178,19 +181,32 @@ function main() {
         }
     }
 
-    console.log(`Checked ${plannedCount} 🔵 Planned entries against a ${staleAfterDays}-day threshold.\n`);
+    planned.sort((a, b) => b.ageDays - a.ageDays);
 
-    for (const { name, ageDays, updatedAt } of shouldTag) {
-        console.log(`➕ ${name} — last updated ${updatedAt} (${ageDays} days ago); add "${STALE_TAG}" and "${ADOPTION_TAG}".`);
-    }
+    const nameWidth = Math.max(...planned.map(e => e.name.length), 4);
+    const line = ({ name, ageDays, updatedAt, tagged }) =>
+        `  ${tagged ? '⚠️ ' : '   '}${name.padEnd(nameWidth)}  ${updatedAt}  ${String(ageDays).padStart(4)}d`;
 
-    for (const { name, ageDays, updatedAt } of shouldUntag) {
-        console.log(`➖ ${name} — last updated ${updatedAt} (${ageDays} days ago); remove "${STALE_TAG}" and "${ADOPTION_TAG}".`);
+    console.log(`${plannedCount} 🔵 Planned entries, oldest first (threshold: ${staleAfterDays} days).`);
+    console.log(`⚠️  marks an entry already tagged "${STALE_TAG}" in README.md.\n`);
+
+    for (const entry of planned) {
+        console.log(line(entry));
     }
 
     if (shouldTag.length === 0 && shouldUntag.length === 0) {
-        console.log('✅ Every 🔵 Planned entry is tagged correctly.');
+        console.log('\n✅ Tags match the threshold — nothing to change.');
         return;
+    }
+
+    console.log('\nSuggested changes — your call, not the script\'s:');
+
+    for (const { name, ageDays, updatedAt } of shouldTag) {
+        console.log(`  ➕ ${name} — last updated ${updatedAt} (${ageDays} days ago); consider adding "${STALE_TAG}" and "${ADOPTION_TAG}".`);
+    }
+
+    for (const { name, ageDays, updatedAt } of shouldUntag) {
+        console.log(`  ➖ ${name} — last updated ${updatedAt} (${ageDays} days ago); consider removing "${STALE_TAG}" and "${ADOPTION_TAG}".`);
     }
 
     process.exitCode = 1;
