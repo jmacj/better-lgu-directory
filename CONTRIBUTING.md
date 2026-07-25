@@ -31,6 +31,8 @@ You do not need to have a finished portal to register. If you are planning to bu
    | 🟢 Active           | Publicly launched and actively maintained            |
    | 🔴 Unmaintained     | Previously active but no longer maintained           |
 
+   Keep a `🔵 Planned` entry moving. Planned entries that see no directory activity for over 30 days are tagged `⚠️ Stale` and `🤝 Open for Adoption` — see [Stale Entries](#stale-entries).
+
 4. **Open a Pull Request** with the title format:
 
    ```
@@ -52,6 +54,31 @@ If your LGU's status, domain, repository, or maintainer has changed:
    ```
    Update [LGU Name] — [brief reason, e.g. "status change to Active"]
    ```
+
+---
+
+## Stale Entries
+
+A `🔵 Planned` entry whose row has not changed in over 30 days is tagged `⚠️ Stale` in the Status column and `🤝 Open for Adoption` under its maintainer:
+
+```
+| Your LGU Name | - | - | - | 🔵 Planned<br>⚠️ Stale | [@yourhandle](https://github.com/yourhandle)<br>🤝 Open for Adoption |
+```
+
+The two tags always appear together, and only on `🔵 Planned` entries — the sync script rejects any other combination.
+
+**If it is your entry:** it is not a penalty and nothing is removed. Any update clears it — move to `🟡 Work in Progress`, add your repo link, or open a PR removing both tags to confirm you are still on it.
+
+**If you want to adopt one:** open a PR that moves the entry to `🟡 Work in Progress`, adds your handle to the Maintainer/s column, and drops both tags. No heads-up needed beforehand — if the adoption needs discussion, that happens in the PR. Leave the original maintainer's handle in place — they registered the LGU and keep that credit.
+
+Staleness is derived from git history, since the directory has no separate "last updated" field. To see which entries are affected:
+
+```bash
+node scripts/check-stale.js            # uses the 30-day threshold
+node scripts/check-stale.js --days 60  # or any other window
+```
+
+It only reports drift — applying the tags stays a human decision made in a PR.
 
 ---
 
