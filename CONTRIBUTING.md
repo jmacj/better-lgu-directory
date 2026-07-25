@@ -73,14 +73,7 @@ The two tags always appear together, and only on `🔵 Planned` entries — the 
 
 Adopting resets the clock: the entry counts as updated from the day that PR merges, so it will not be re-tagged for another 30 days.
 
-Staleness is derived from git history, since the directory has no separate "last updated" field. To see which entries are affected:
-
-```bash
-node scripts/check-stale.js            # uses the 30-day threshold
-node scripts/check-stale.js --days 60  # or any other window
-```
-
-It only reports drift — applying the tags stays a human decision made in a PR.
+The tags are applied by the repository maintainers during periodic reviews, never by automation. Elapsed time is what prompts a look, not the whole judgement — an entry with visible progress elsewhere will not be tagged just because its row has not changed.
 
 ---
 

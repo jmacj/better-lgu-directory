@@ -89,7 +89,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 **Adopting a stale entry?** Open a PR that updates the Maintainer/s column and removes both tags. The status can stay `🔵 Planned` — change it only when the work actually starts. Any discussion happens in that PR.
 
-Staleness is derived from git history, since the directory has no separate "last updated" field. Run `node scripts/check-stale.js` to list entries whose tags are out of date; it reports drift and changes nothing.
+Tags are applied by the repository maintainers during periodic reviews, never automatically — time since the last update is a prompt to look, not the only thing that decides it.
 
 ---
 

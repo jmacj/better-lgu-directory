@@ -7,9 +7,11 @@
 // touched since it was added falls back to the date it first appeared, which is
 // the same commit.
 //
-// Advisory by design: it reports drift but changes nothing. Run it before a
-// directory sweep, then apply the tags by hand in a PR so a human stays in the
-// loop on who gets flagged.
+// A local tool for the repository maintainers, not part of any workflow: run it
+// to get a quick list to check against what you already know, then decide by
+// hand. It reads git history and prints — it never edits README.md, and is
+// deliberately not wired into CI. Elapsed time is a prompt to look, not the only
+// thing that makes an entry stale, so tagging stays a manual judgement call.
 //
 // Usage: node scripts/check-stale.js [--days 30]
 
@@ -45,8 +47,50 @@ function git(args) {
     return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
 }
 
-// Map every LGU name in a given revision of README.md to its raw row text, with
-// whitespace collapsed so pure-formatting commits don't read as real updates.
+// Reduce a row to the content that counts as an update. The stale and adoption
+// tags are stripped so they can be judged separately by direction — see
+// isActivity.
+function comparableRow(cells) {
+    return cells
+        .map(cell => splitCellLines(cell)
+            .filter(line => line !== STALE_TAG && line !== ADOPTION_TAG)
+            .join(' '))
+        .join(' | ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function rowTags(cells) {
+    const tags = new Set();
+    for (const cell of cells) {
+        for (const line of splitCellLines(cell)) {
+            if (line === STALE_TAG || line === ADOPTION_TAG) {
+                tags.add(line);
+            }
+        }
+    }
+    return tags;
+}
+
+// Did this commit count as activity on the entry? Real content edits always do,
+// and so does a first appearance. Tag changes are judged by direction: applying
+// the tags is the directory noting an absence, so it must not reset the clock —
+// otherwise tagging an entry stale would instantly make it look fresh again.
+// Clearing them is a person showing up to say they are still on it — a renewal,
+// whether that is the original maintainer buying more time or someone adopting.
+function isActivity(previous, current) {
+    if (!previous) {
+        return true;
+    }
+    if (previous.content !== current.content) {
+        return true;
+    }
+    return [...previous.tags].some(tag => !current.tags.has(tag));
+}
+
+// Map every LGU name in a given revision of README.md to its comparable row
+// text, with whitespace collapsed so pure-formatting commits don't read as
+// real updates either.
 function rowsAtRevision(sha) {
     const rows = new Map();
     let content;
@@ -64,7 +108,7 @@ function rowsAtRevision(sha) {
     for (const cells of parseTable(content, TABLE_START, TABLE_END)) {
         const name = (cells[0] || '').trim();
         if (name) {
-            rows.set(name, cells.join(' | ').replace(/\s+/g, ' ').trim());
+            rows.set(name, { content: comparableRow(cells), tags: rowTags(cells) });
         }
     }
 
@@ -85,7 +129,7 @@ function lastUpdatedByName() {
         const current = rowsAtRevision(sha);
 
         for (const [name, row] of current) {
-            if (previous.get(name) !== row) {
+            if (isActivity(previous.get(name), row)) {
                 lastUpdated.set(name, isoDate);
             }
         }
