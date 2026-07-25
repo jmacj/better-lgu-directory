@@ -87,7 +87,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | ⚠️ Stale             | A `🔵 Planned` entry with no directory activity for over 30 days                     |
 | 🤝 Open for Adoption | The entry is stale and welcomes a new maintainer — the original one stays credited   |
 
-**Adopting a stale entry?** Open a PR updating the entry — move it to `🟡 Work in Progress` and add yourself to the Maintainer/s column. Any discussion happens in that PR. Removing the original maintainer's handle is not required — attribution for registering the LGU stays.
+**Adopting a stale entry?** Open a PR that updates the Maintainer/s column and removes both tags. The status can stay `🔵 Planned` — change it only when the work actually starts. Any discussion happens in that PR.
 
 Staleness is derived from git history, since the directory has no separate "last updated" field. Run `node scripts/check-stale.js` to list entries whose tags are out of date; it reports drift and changes nothing.
 
