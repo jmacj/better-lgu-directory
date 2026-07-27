@@ -85,7 +85,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tag                  | Meaning                                                                             |
 |----------------------|-------------------------------------------------------------------------------------|
 | ⚠️ Stale             | A `🔵 Planned` entry with no directory activity for over 30 days                     |
-| 🤝 Open for Adoption | The entry is stale and welcomes a new maintainer — the original one stays credited   |
+| 🤝 Open for Adoption | Anyone may take the entry on — as a takeover, or alongside the original maintainer   |
 
 **Adopting a stale entry?** Open a PR that updates the Maintainer/s column and removes both tags. The status can stay `🔵 Planned` — change it only when the work actually starts. Any discussion happens in that PR.
 
