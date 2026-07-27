@@ -64,7 +64,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Carigara, Leyte | — | — | — | 🔵 Planned | [@dauganz09](https://github.com/dauganz09) |  
 | Claver, Surigao del Norte | - | - | - | 🔵 Planned | [@eljohn2001](https://github.com/eljohn2001) |
 | Agoo, La Union | - | - | - | 🔵 Planned | [@glennmarkgarcia](https://github.com/glennmarkgarcia) |
-
+| Aurora, Zamboanga del Sur | [betteraurora.org](https://betteraurora.org)  | [Github](https://github.com/Jayke770/betteraurora) | - | 🟡 Work in Progress | [@jayke770](https://github.com/jayke770) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
