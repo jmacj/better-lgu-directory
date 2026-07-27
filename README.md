@@ -65,7 +65,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Claver, Surigao del Norte | - | - | - | 🔵 Planned | [@eljohn2001](https://github.com/eljohn2001) |
 | Agoo, La Union | - | - | - | 🔵 Planned | [@glennmarkgarcia](https://github.com/glennmarkgarcia) |
 | Infanta, Quezon | - | - | - | 🔵 Planned | [@davisolpruvnik](https://github.com/davisolpruvnik) |
-| Bocaue, Bulacan | - | - | - | 🔵 Planned | [@ericksondelacruz](https://github.com/ericksondelacruz) |
+| Bocaue, Bulacan | - | [Github](https://github.com/ericksondelacruz/betterbocaue) | - | 🟡 Work in Progress | [@ericksondelacruz](https://github.com/ericksondelacruz) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
