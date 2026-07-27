@@ -66,6 +66,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Agoo, La Union | - | - | - | 🔵 Planned | [@glennmarkgarcia](https://github.com/glennmarkgarcia) |
 | Infanta, Quezon | - | - | - | 🔵 Planned | [@davisolpruvnik](https://github.com/davisolpruvnik) |
 | Bocaue, Bulacan | - | - | - | 🔵 Planned | [@ericksondelacruz](https://github.com/ericksondelacruz) |
+| North Cotabato, Midsayap | - | - | - | 🔵 Planned | [@PostNZT](https://github.com/PostNZT) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
