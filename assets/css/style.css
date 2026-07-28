@@ -219,6 +219,31 @@ main tr:last-child td {
   border-bottom: none;
 }
 
+/* Secondary tags shown under the primary value of the Status / Maintainer cells. */
+.lgu-tag {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.lgu-tag-stale {
+  background-color: #fff4e0;
+  border-color: #f5c877;
+  color: #8a5200;
+}
+
+.lgu-tag-adoption {
+  background-color: var(--color-primary-50);
+  border-color: #9dc4f7;
+  color: var(--color-primary-700);
+}
+
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideIn { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 .animate-fade-in { animation: fadeIn 0.5s ease-in-out forwards; }

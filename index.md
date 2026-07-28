@@ -16,7 +16,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
             </svg>
         </div>
-        <input type="text" id="lgu-search" onkeyup="filterDirectory()" placeholder="Search LGUs by name, status, or maintainer..." class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm">
+        <input type="text" id="lgu-search" onkeyup="filterDirectory()" placeholder="Search LGUs by name, status, tag, or maintainer..." class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm">
     </div>
     <div class="w-full md:w-64">
         <select id="status-filter" onchange="filterDirectory()" class="block w-full px-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm cursor-pointer">
@@ -27,13 +27,19 @@ A community-maintained directory of **Better LGU** digital transparency portals 
             <option value="Planned">🔵 Planned</option>
         </select>
     </div>
+    <div class="w-full md:w-auto shrink-0">
+        <label for="adoption-filter" class="flex items-center gap-2 px-3 py-3 border border-gray-200 rounded-xl bg-white shadow-sm sm:text-sm cursor-pointer transition-all">
+            <input type="checkbox" id="adoption-filter" onchange="filterDirectory()" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-600 cursor-pointer">
+            <span class="font-medium text-gray-700 whitespace-nowrap">🤝 Open for adoption</span>
+        </label>
+    </div>
 </div>
 
 <div id="lgu-table-container" class="table-wrapper" markdown="1">
 
 | LGU                             | Domain                                                | Repository                                                                     | Socials                                                            | Status    | Maintainer/s                                                                           |
 |---------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------|
-{% for lgu in site.data.lgus %}| {{ lgu.name }} | {{ lgu.domain }} | {{ lgu.repo }} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }} | {{ lgu.maintainer }} |
+{% for lgu in site.data.lgus %}| {{ lgu.name }} | {{ lgu.domain }} | {{ lgu.repo }} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }}{% if lgu.stale %}<br><span class="lgu-tag lgu-tag-stale">⚠️ Stale</span>{% endif %} | {{ lgu.maintainer }}{% if lgu.open_for_adoption %}<br><span class="lgu-tag lgu-tag-adoption">🤝 Open for Adoption</span>{% endif %} |
 {% endfor %}
 
 </div>
@@ -73,7 +79,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
     </div>
     <h3 class="text-lg font-semibold text-gray-900">No LGUs found</h3>
     <p class="mt-1 text-gray-500">We couldn't find any LGUs matching your search. Try a different keyword or LGU name.</p>
-    <button onclick="document.getElementById('lgu-search').value=''; document.getElementById('status-filter').value=''; filterDirectory();" class="mt-4 text-sm font-medium text-blue-600 hover:text-blue-700">Clear all filters</button>
+    <button onclick="document.getElementById('lgu-search').value=''; document.getElementById('status-filter').value=''; document.getElementById('adoption-filter').checked=false; filterDirectory();" class="mt-4 text-sm font-medium text-blue-600 hover:text-blue-700">Clear all filters</button>
 </div>
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
@@ -90,6 +96,21 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | 🔵 Planned          | Registered intent — development not yet started |
 
 </div>
+
+### Secondary Tags
+
+<div class="table-wrapper" markdown="1">
+
+| Tag                  | Meaning                                                                           |
+|----------------------|-----------------------------------------------------------------------------------|
+| ⚠️ Stale             | A `🔵 Planned` entry with no directory activity for over 30 days                   |
+| 🤝 Open for Adoption | Anyone may take the entry on — as a takeover, or alongside the original maintainer |
+
+</div>
+
+**Adopting a stale entry?** Open a PR that updates the Maintainer/s column and removes both tags. The status can stay `🔵 Planned` — change it only when the work actually starts. Any discussion happens in that PR.
+
+Tags are applied by the repository maintainers during periodic reviews, never automatically — time since the last update is a prompt to look, not the only thing that decides it.
 
 ## 🧩 Community Templates
 
@@ -139,6 +160,7 @@ function updateItemsPerPage() {
 function filterDirectory() {
     const searchText = document.getElementById("lgu-search").value.toUpperCase();
     const statusFilter = document.getElementById("status-filter").value.toUpperCase();
+    const adoptionOnly = document.getElementById("adoption-filter").checked;
     const container = document.getElementById("lgu-table-container");
     const table = container.getElementsByTagName("table")[0];
     const tr = container.getElementsByTagName("tr");
@@ -154,9 +176,12 @@ function filterDirectory() {
 
         const statusText = td[4].textContent.toUpperCase();
         const statusMatch = statusFilter === "" || statusText.includes(statusFilter);
-        
+
+        // The 🤝 Open for Adoption tag is rendered in the Maintainer/s cell.
+        const adoptionMatch = !adoptionOnly || td[5].textContent.toUpperCase().includes("OPEN FOR ADOPTION");
+
         let searchMatch = false;
-        if (statusMatch) {
+        if (statusMatch && adoptionMatch) {
             for (let j = 0; j < td.length; j++) {
                 const txtValue = td[j].textContent || td[j].innerText;
                 if (txtValue.toUpperCase().indexOf(searchText) > -1) {
@@ -166,7 +191,7 @@ function filterDirectory() {
             }
         }
 
-        if (statusMatch && searchMatch) {
+        if (statusMatch && adoptionMatch && searchMatch) {
             visibleRows.push(tr[i]);
         }
         tr[i].style.display = "none"; // Hide all rows initially
