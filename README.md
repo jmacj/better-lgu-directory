@@ -64,9 +64,13 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Carigara, Leyte | — | — | — | 🔵 Planned | [@dauganz09](https://github.com/dauganz09) |  
 | Claver, Surigao del Norte | - | - | - | 🔵 Planned | [@eljohn2001](https://github.com/eljohn2001) |
 | Agoo, La Union | - | - | - | 🔵 Planned | [@glennmarkgarcia](https://github.com/glennmarkgarcia) |
+| Aurora, Zamboanga del Sur | [betteraurora.org](https://betteraurora.org)  | [Github](https://github.com/Jayke770/betteraurora) | - | 🟡 Work in Progress | [@jayke770](https://github.com/jayke770) |
 | Infanta, Quezon | - | - | - | 🔵 Planned | [@davisolpruvnik](https://github.com/davisolpruvnik) |
-| Bocaue, Bulacan | - | - | - | 🔵 Planned | [@ericksondelacruz](https://github.com/ericksondelacruz) |
-| North Cotabato, Midsayap | - | - | - | 🔵 Planned | [@PostNZT](https://github.com/PostNZT) |
+| Bocaue, Bulacan | - | [Github](https://github.com/ericksondelacruz/betterbocaue) | - | 🟡 Work in Progress | [@ericksondelacruz](https://github.com/ericksondelacruz) |
+| General Mariano Alvarez, Cavite | - | - | - | 🔵 Planned | [@izxclyde](https://github.com/izxclyde) |
+| Meycauayan, Bulacan | - | [Github](https://github.com/shnflrsc/bettermeycauayan) | - | 🟡 Work in Progress | [@shnflrsc](https://github.com/shnflrsc) |
+| Calapan, Oriental Mindoro | - | [Github](https://github.com/arvingarciabtw/bettercalapan) | - | 🔵 Planned | [@arvingarciabtw](https://github.com/arvingarciabtw) |
+| Midsayap, North Cotabato | - | - | - | 🔵 Planned | [@PostNZT](https://github.com/PostNZT) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
