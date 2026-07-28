@@ -71,7 +71,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Meycauayan, Bulacan | - | [Github](https://github.com/shnflrsc/bettermeycauayan) | - | 🟡 Work in Progress | [@shnflrsc](https://github.com/shnflrsc) |
 | Calapan, Oriental Mindoro | - | [Github](https://github.com/arvingarciabtw/bettercalapan) | - | 🔵 Planned | [@arvingarciabtw](https://github.com/arvingarciabtw) |
 | Midsayap, North Cotabato | - | - | - | 🔵 Planned | [@PostNZT](https://github.com/PostNZT) |
-
+| Baler, Aurora | - | - | - | 🔵 Planned | [@bjtecuico](https://github.com/bjtecuico) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
