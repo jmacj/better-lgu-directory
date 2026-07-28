@@ -69,7 +69,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Bocaue, Bulacan | - | [Github](https://github.com/ericksondelacruz/betterbocaue) | - | 🟡 Work in Progress | [@ericksondelacruz](https://github.com/ericksondelacruz) |
 | General Mariano Alvarez, Cavite | - | - | - | 🔵 Planned | [@izxclyde](https://github.com/izxclyde) |
 | Meycauayan, Bulacan | - | [Github](https://github.com/shnflrsc/bettermeycauayan) | - | 🟡 Work in Progress | [@shnflrsc](https://github.com/shnflrsc) |
-| Calapan, Oriental Mindoro | - | [Github](https://github.com/arvingarciabtw/bettercalapan) | - | 🔵 Planned | [@arvingarciabtw](https://github.com/arvingarciabtw) |
+| Calapan, Oriental Mindoro | [bettercalapan.org](https://bettercalapan.org) | [Github](https://github.com/arvingarciabtw/bettercalapan) | - | 🟡 Work in Progress | [@arvingarciabtw](https://github.com/arvingarciabtw) |
 | Midsayap, North Cotabato | - | - | - | 🔵 Planned | [@PostNZT](https://github.com/PostNZT) |
 | Tandag City, Surigao del Sur | — | [Github](https://github.com/BetterTandag/better-tandag) | — | 🟡 Work in Progress | [@ikmespinoza](https://github.com/ikmespinoza) |
 | Baler, Aurora | - | - | - | 🔵 Planned | [@bjtecuico](https://github.com/bjtecuico) |
