@@ -74,6 +74,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tandag City, Surigao del Sur | — | [Github](https://github.com/BetterTandag/better-tandag) | — | 🟡 Work in Progress | [@ikmespinoza](https://github.com/ikmespinoza) |
 | Baler, Aurora | - | - | - | 🔵 Planned | [@bjtecuico](https://github.com/bjtecuico) |
 | City of Manila, Metro Manila | [bettermanila.org](https://bettermanila.org) | [GitHub](https://github.com/grgdlm/bettermanila) | - | 🟡 Work in Progress | [@grgdlm](https://github.com/grgdlm) |
+| Butuan City, Agusan del Norte | - | - | - | 🔵 Planned | [@stinkymonkeyph]([https://github.com/PostNZT](https://github.com/stinkymonkeyph)) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
