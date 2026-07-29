@@ -73,19 +73,52 @@ function nameOnlyKey(name) {
     return fold(name.split(',')[0]);
 }
 
+// Directory table columns, in order. Used to say which kind of link is being
+// reported: a portal domain, a source repository, a social page and a
+// maintainer's profile all need checking in different ways.
+const COLUMNS = ['LGU', 'Domain', 'Repository', 'Socials', 'Status', 'Maintainer'];
+
+const MARKDOWN_LINK = /\[([^\]]*)\]\(\s*(https?:\/\/[^\s)]+?)\s*\)/g;
+// A bare URL, excluding the ones already captured as markdown link targets.
+const BARE_URL = /(?<!\()\bhttps?:\/\/[^\s|)\]]+/g;
+
+function trimUrl(url) {
+    return url.replace(/\/+$/, '');
+}
+
 function urlsIn(text) {
     const urls = new Set();
-    const markdownLink = /\[[^\]]*\]\(\s*(https?:\/\/[^\s)]+)/g;
-    const bareUrl = /(?<!\()\bhttps?:\/\/[^\s|)\]]+/g;
 
     let match;
-    while ((match = markdownLink.exec(text)) !== null) {
-        urls.add(match[1].replace(/\/+$/, ''));
+    const pattern = new RegExp(MARKDOWN_LINK.source, 'g');
+    while ((match = pattern.exec(text)) !== null) {
+        urls.add(trimUrl(match[2]));
     }
-    for (const bare of text.match(bareUrl) || []) {
-        urls.add(bare.replace(/\/+$/, ''));
+    for (const bare of text.match(BARE_URL) || []) {
+        urls.add(trimUrl(bare));
     }
     return urls;
+}
+
+// Links in a single row, tagged with the column they came from and the text they
+// were written with, so the comment can name what each one is meant to be.
+function linksIn(row) {
+    const links = [];
+
+    row.cells.forEach((cell, index) => {
+        const column = COLUMNS[index] || `Column ${index + 1}`;
+
+        let match;
+        const pattern = new RegExp(MARKDOWN_LINK.source, 'g');
+        while ((match = pattern.exec(cell)) !== null) {
+            links.push({ column, label: match[1].trim(), url: trimUrl(match[2]) });
+        }
+        for (const bare of cell.match(BARE_URL) || []) {
+            links.push({ column, label: '', url: trimUrl(bare) });
+        }
+    });
+
+    return links;
 }
 
 function groupBy(rows, keyFn) {
@@ -163,12 +196,50 @@ async function checkLink(url) {
     }
 }
 
+// Long enough to identify a link, short enough that a login redirect carrying a
+// query string does not take over the comment.
+const MAX_LINK_TEXT = 60;
+
+function linkText(url) {
+    const bare = url.replace(/^https?:\/\//, '');
+    return bare.length > MAX_LINK_TEXT ? `${bare.slice(0, MAX_LINK_TEXT - 1)}…` : bare;
+}
+
+// Render a link so it is clickable in the comment. Markdown link text cannot
+// contain brackets, so fall back to the bare host and path when it does.
+function asLink(url, text) {
+    const shown = text && !/[[\]]/.test(text) ? text : linkText(url);
+    return `[${shown}](${url})`;
+}
+
+/**
+ * How to introduce a link: the column it sits in, plus the text it was written
+ * with when that says something the URL does not. "Repository (GitLab)" and
+ * "Socials (Facebook)" name the platform and are worth keeping; a Domain cell
+ * whose text is just the domain over again is not.
+ */
+function linkHeading({ column, label, url }) {
+    const written = label.trim();
+    if (!written) {
+        return column;
+    }
+
+    // Cell text that is itself a domain adds nothing to the rendered link.
+    const looksLikeUrl = /\./.test(written) && !/\s/.test(written);
+    const shown = url.replace(/^https?:\/\//, '').toLowerCase();
+    if (looksLikeUrl && shown.startsWith(written.toLowerCase())) {
+        return column;
+    }
+
+    return `${column} (${written})`;
+}
+
 function describe(result) {
     if (result.status === null) {
         return `unreachable (${result.error})`;
     }
-    const redirected = result.finalUrl && result.finalUrl.replace(/\/+$/, '') !== result.url
-        ? ` → \`${result.finalUrl}\``
+    const redirected = result.finalUrl && trimUrl(result.finalUrl) !== result.url
+        ? ` → redirects to ${asLink(result.finalUrl)}`
         : '';
     return `HTTP ${result.status}${redirected}`;
 }
@@ -257,29 +328,34 @@ async function main() {
     }
 
     const baseUrls = urlsIn(baseContent);
-    const newUrls = [];
+    const newLinks = [];
     for (const row of [...added, ...changed.map(entry => entry.row)]) {
-        for (const url of urlsIn(row.text)) {
-            if (!baseUrls.has(url) && !newUrls.includes(url)) {
-                newUrls.push(url);
+        for (const link of linksIn(row)) {
+            if (!baseUrls.has(link.url) && !newLinks.some(seen => seen.url === link.url)) {
+                newLinks.push(link);
             }
         }
     }
 
-    if (newUrls.length > 0) {
+    if (newLinks.length > 0) {
         labels.add('needs-verification');
 
-        const checked = newUrls.slice(0, MAX_LINKS_CHECKED);
-        const results = await Promise.all(checked.map(async url => ({ url, ...(await checkLink(url)) })));
+        const checked = newLinks.slice(0, MAX_LINKS_CHECKED);
+        const results = await Promise.all(checked.map(async link => ({ ...link, ...(await checkLink(link.url)) })));
 
         notes.push('### New links to verify\n');
         for (const result of results) {
-            notes.push(`- \`${result.url}\` — ${describe(result)}`);
+            notes.push(`- **${linkHeading(result)}** — ${asLink(result.url)} — ${describe(result)}`);
         }
-        if (newUrls.length > checked.length) {
-            notes.push(`- …and ${newUrls.length - checked.length} more, not checked.`);
+        if (newLinks.length > checked.length) {
+            notes.push(`- …and ${newLinks.length - checked.length} more, not checked.`);
         }
-        notes.push('\nA reachable link is not a verified one — confirm each points at this LGU\'s own portal or page, then remove `needs-verification`.\n');
+        notes.push('\nReachable is not the same as correct, and these are different kinds of link — check each on its own terms:\n');
+        notes.push('- **Domain** — serves the Better LGU portal itself, not a parked domain or a redirect to somewhere unrelated.');
+        notes.push('- **Repository** — holds that portal\'s source, on whichever host the contributor uses.');
+        notes.push('- **Socials** — the Better LGU project\'s own page, not the local government\'s official account and not a personal profile.');
+        notes.push('- **Maintainer** — the GitHub account of the person or people listed.');
+        notes.push('\nOnce they all check out, remove `needs-verification`.\n');
     }
 
     return {
