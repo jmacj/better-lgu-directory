@@ -27,13 +27,24 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
+      - name: Check the pull request is still open
+        id: guard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          state=$(gh pr view "$PR" --repo "${{ github.repository }}" --json state --jq .state)
+          echo "open=$([ "$state" = 'OPEN' ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          echo "Pull request #${PR} is ${state}."
+
       - name: Checkout
+        if: steps.guard.outputs.open == 'true'
         uses: actions/checkout@v7
         with:
           # Full history so the merge base with the pull request is reachable.
           fetch-depth: 0
 
       - name: Read both sides of the diff
+        if: steps.guard.outputs.open == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -53,11 +64,13 @@ jobs:
           git show refs/remotes/pr/head:README.md > "${RUNNER_TEMP}/head-README.md"
 
       - uses: actions/setup-node@v7
+        if: steps.guard.outputs.open == 'true'
         with:
           node-version: '24'
 
       - name: Diff directory entries
         id: triage
+        if: steps.guard.outputs.open == 'true'
         env:
           COMMENT_FILE: ${{ runner.temp }}/triage-comment.md
         run: node scripts/triage-pr.js "${RUNNER_TEMP}/base-README.md" "${RUNNER_TEMP}/head-README.md"
@@ -69,6 +82,7 @@ jobs:
         run: gh pr edit "$PR" --add-label "${{ steps.triage.outputs.labels }}"
 
       - name: Post or update the triage comment
+        if: steps.guard.outputs.open == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
