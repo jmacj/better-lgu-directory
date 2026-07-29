@@ -76,9 +76,13 @@ function nameOnlyKey(name) {
 // Directory table columns, in order. Used to say which kind of link is being
 // reported: a portal domain, a source repository, a social page and a
 // maintainer's profile all need checking in different ways.
-const COLUMNS = ['LGU', 'Domain', 'Repository', 'Socials', 'Status', 'Maintainer'];
+const COLUMNS = ['LGU', 'Domain', 'Repository', 'Socials', 'Status', 'Maintainer/s'];
 
-const MARKDOWN_LINK = /\[([^\]]*)\]\(\s*(https?:\/\/[^\s)]+?)\s*\)/g;
+// The closing bracket is optional on purpose. A cell whose link is missing it is
+// malformed, and that is exactly the sort of row worth flagging — requiring the
+// bracket would drop the URL here, and BARE_URL cannot pick it up either because
+// it refuses to match immediately after an opening bracket.
+const MARKDOWN_LINK = /\[([^\]]*)\]\(\s*(https?:\/\/[^\s)]+)\s*\)?/g;
 // A bare URL, excluding the ones already captured as markdown link targets.
 const BARE_URL = /(?<!\()\bhttps?:\/\/[^\s|)\]]+/g;
 
@@ -205,11 +209,11 @@ function linkText(url) {
     return bare.length > MAX_LINK_TEXT ? `${bare.slice(0, MAX_LINK_TEXT - 1)}…` : bare;
 }
 
-// Render a link so it is clickable in the comment. Markdown link text cannot
-// contain brackets, so fall back to the bare host and path when it does.
-function asLink(url, text) {
-    const shown = text && !/[[\]]/.test(text) ? text : linkText(url);
-    return `[${shown}](${url})`;
+// Render a link so it is clickable in the comment. The visible text is derived
+// from the URL rather than taken from the cell, which keeps brackets in a
+// contributor's link text from breaking the markdown.
+function asLink(url) {
+    return `[${linkText(url)}](${url})`;
 }
 
 /**
@@ -224,10 +228,12 @@ function linkHeading({ column, label, url }) {
         return column;
     }
 
-    // Cell text that is itself a domain adds nothing to the rendered link.
-    const looksLikeUrl = /\./.test(written) && !/\s/.test(written);
+    // Cell text that is itself a domain or a URL adds nothing to the rendered
+    // link, whether or not the contributor included the protocol.
+    const bare = written.replace(/^https?:\/\//, '');
+    const looksLikeUrl = /\./.test(bare) && !/\s/.test(bare);
     const shown = url.replace(/^https?:\/\//, '').toLowerCase();
-    if (looksLikeUrl && shown.startsWith(written.toLowerCase())) {
+    if (looksLikeUrl && shown.startsWith(bare.toLowerCase())) {
         return column;
     }
 
