@@ -19,7 +19,6 @@ on:
 permissions:
   contents: read
   pull-requests: write
-  statuses: write
 
 env:
   PR: ${{ github.event.pull_request.number || inputs.pr-number }}
@@ -97,12 +96,3 @@ jobs:
           else
             gh pr comment "$PR" --body-file "$COMMENT_FILE"
           fi
-
-      # Labels this workflow just applied with GITHUB_TOKEN do not fire a
-      # labeled event, so the merge gate would not otherwise notice them.
-      - name: Refresh the merge gate
-        if: steps.guard.outputs.open == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-        run: bash scripts/merge-gate.sh
