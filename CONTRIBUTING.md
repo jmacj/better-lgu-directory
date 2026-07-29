@@ -69,6 +69,27 @@ If you have built a reusable starter template:
 
 ---
 
+## What Happens After You Open a PR
+
+Some labels are applied automatically, so do not worry about setting them yourself.
+
+| Label | Meaning |
+|--------------------|--------------------------------------------------------------------------|
+| `entry:new` | Your PR adds a new LGU row. |
+| `entry:update` | Your PR changes an existing LGU row. |
+| `entry:collision` | The LGU you added is already in the directory — see the comment on your PR. |
+| `needs-verification` | Your PR introduces new links; a maintainer will check them before merging. |
+
+A maintainer may then add:
+
+- `needs-changes` — something needs fixing on your side. A PR that sits here for 14 days is marked `stale` and closed 7 days later. Closing is not a rejection; reopen it whenever you are ready.
+- `needs-coordination` — someone is already registered for that LGU. Talk to them rather than adding a second row; two contributors on one portal is a good outcome.
+- `blocked` — waiting on something outside this repository, such as a domain going live.
+
+If you are looking for something to pick up, the `open-for-adoption` label marks entries that have no active maintainer.
+
+---
+
 ## Changelog
 
 Please do **not** update `CHANGELOG.md` in your Pull Request. The repository maintainers will update the changelog periodically to summarize recent additions and improvements.

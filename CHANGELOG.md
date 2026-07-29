@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Discord reporting integration guide**: `GUIDE.md` now documents how maintainers can funnel citizen reports, feedback, or logs into the BetterGov.ph Discord via webhook — including the bot-protection prerequisite (reCAPTCHA, Turnstile, or rate-limiting) required before the mods issue a webhook URL.
 - **37 new LGU entries**: Indang, General Santos City, Dasmariñas City, General Trias, San Pedro, Cabuyao City, Tuguegarao, Davao City, Allen, Aparri, San Pablo, Binangonan, Taytay, Tanza, Olongapo City, Biñan, Tanay, Puerto Princesa City, Iligan City, Hilongos, Limay, Antique, Libmanan, Teresa, Atimonan, San Pascual, Dinalupihan, Calamba, Angeles City, Cabanatuan City, Piat, Cebu City, Alaminos City, Koronadal City, Santo Tomas, Legazpi, and Santa Barbara.
 
+- **Automated pull request triage**: incoming pull requests are now labelled automatically. Changed paths set `entry:template`, `site`, `ci`, and `docs`; a diff of the directory table against the merge base sets `entry:new`, `entry:update`, `entry:collision`, and `needs-verification`, and posts a comment listing any already-registered LGU and the reachability of every new link. Pull requests left on `needs-changes` for 14 days go stale and close after a further 7.
+
 ### Changed
 - Renamed the `Facebook` column to `Socials`, and updated `CONTRIBUTING.md`, the pull request template, and the update-entry issue template to match (socials are comma-separated).
 - Reframed the directory introduction toward a builder audience.
