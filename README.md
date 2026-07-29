@@ -73,6 +73,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Midsayap, North Cotabato | - | - | - | 🔵 Planned | [@PostNZT](https://github.com/PostNZT) |
 | Tandag City, Surigao del Sur | — | [Github](https://github.com/BetterTandag/better-tandag) | — | 🟡 Work in Progress | [@ikmespinoza](https://github.com/ikmespinoza) |
 | Baler, Aurora | - | - | - | 🔵 Planned | [@bjtecuico](https://github.com/bjtecuico) |
+| Puerto Princesa, Palawan               | [betterpuertoprincesa.org](https://betterpuertoprincesa.org)          | [GitHub](https://github.com/BetterPuertoPrincesa/betterpuertoprincesa)                         | [Facebook](https://www.facebook.com/bettersolano.org)              | 🟡 Work in Progress | [@hmcldryl](https://github.com/hmcldryl)
 
 <!-- SYNC_LGU_TABLE_END -->
 
