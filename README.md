@@ -75,7 +75,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Baler, Aurora | - | - | - | 🔵 Planned | [@bjtecuico](https://github.com/bjtecuico) |
 | City of Manila, Metro Manila | [bettermanila.org](https://bettermanila.org) | [GitHub](https://github.com/grgdlm/bettermanila) | - | 🟡 Work in Progress | [@grgdlm](https://github.com/grgdlm) |
 | Butuan City, Agusan del Norte | - | - | - | 🔵 Planned | [@stinkymonkeyph](https://github.com/stinkymonkeyph) |
-| Aborlan, Palawan | - | [GitHub](https://github.com/BetterAborlan/betteraborlan) | - | 🟡 Work in Progress | [@hmcldryl](https://github.com/hmcldryl) |
+| Aborlan, Palawan | [betteraborlan.org](https://betteraborlan.org) | [GitHub](https://github.com/BetterAborlan/betteraborlan) | - | 🟡 Work in Progress | [@hmcldryl](https://github.com/hmcldryl) |
 | Quezon City, Metro Manila | - | [GitHub](https://github.com/brixavengoza/betterquezoncity) | - | 🔵 Planned | [@brixavengoza](https://github.com/brixavengoza) |
 
 <!-- SYNC_LGU_TABLE_END -->
