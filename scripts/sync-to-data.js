@@ -191,5 +191,6 @@ module.exports = {
     STALE_AFTER_DAYS,
     parseTable,
     splitCellLines,
+    normalizeDash,
     validateLgu,
 };

@@ -25,6 +25,7 @@ const {
     STALE_AFTER_DAYS,
     parseTable,
     splitCellLines,
+    normalizeDash,
 } = require('./sync-to-data.js');
 
 const TABLE_START = '<!-- SYNC_LGU_TABLE_START -->';
@@ -49,12 +50,15 @@ function git(args) {
 
 // Reduce a row to the content that counts as an update. The stale and adoption
 // tags are stripped so they can be judged separately by direction — see
-// isActivity.
+// isActivity. Presentation-only differences are normalized away first, so a
+// tidy-up pass over the table doesn't read as everyone updating at once:
+// whitespace is collapsed, and every way of writing an empty cell (blank, `-`,
+// `—`, `–`) folds to one marker via normalizeDash.
 function comparableRow(cells) {
     return cells
-        .map(cell => splitCellLines(cell)
+        .map(cell => normalizeDash(splitCellLines(cell)
             .filter(line => line !== STALE_TAG && line !== ADOPTION_TAG)
-            .join(' '))
+            .join(' ')))
         .join(' | ')
         .replace(/\s+/g, ' ')
         .trim();
@@ -89,7 +93,7 @@ function isActivity(previous, current) {
 }
 
 // Map every LGU name in a given revision of README.md to its comparable row
-// text, with whitespace collapsed so pure-formatting commits don't read as
+// text, normalized by comparableRow so pure-formatting commits don't read as
 // real updates either.
 function rowsAtRevision(sha) {
     const rows = new Map();
