@@ -8,6 +8,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 > [!NOTE]
 > This file is updated by the repository maintainers. Contributors are requested to **not** update the `CHANGELOG.md` in their Pull Requests.
 
+## [Unreleased]
+
+### Added
+- **Multi-platform Socials**: the directory's `Facebook` column is now a `Socials` column that supports multiple social links per LGU — Facebook, X, Instagram, LinkedIn, YouTube, TikTok, and Bluesky — rendered as platform icons on the website, with a generic fallback for any other link.
+- **Automated README → website sync**: a GitHub Actions workflow keeps the published website data in sync with the directory table in `README.md`.
+- **Discord reporting integration guide**: `GUIDE.md` now documents how maintainers can funnel citizen reports, feedback, or logs into the BetterGov.ph Discord via webhook — including the bot-protection prerequisite (reCAPTCHA, Turnstile, or rate-limiting) required before the mods issue a webhook URL.
+- **37 new LGU entries**: Indang, General Santos City, Dasmariñas City, General Trias, San Pedro, Cabuyao City, Tuguegarao, Davao City, Allen, Aparri, San Pablo, Binangonan, Taytay, Tanza, Olongapo City, Biñan, Tanay, Puerto Princesa City, Iligan City, Hilongos, Limay, Antique, Libmanan, Teresa, Atimonan, San Pascual, Dinalupihan, Calamba, Angeles City, Cabanatuan City, Piat, Cebu City, Alaminos City, Koronadal City, Santo Tomas, Legazpi, and Santa Barbara.
+- **Automated pull request triage**: incoming pull requests are now labelled automatically. Changed paths set `entry:template`, `site`, `ci`, and `docs`; a diff of the directory table against the merge base sets `entry:new`, `entry:update`, `entry:collision`, and `needs-verification`, and posts a comment listing any already-registered LGU and the reachability of every new link. Links are reported as clickable links grouped by the column they came from — domain, repository, socials, or maintainer — each with a note on what verifying that particular kind of link means. Pull requests left on `needs-changes` for 14 days go stale and close after a further 7.
+
+### Changed
+- Renamed the `Facebook` column to `Socials`, and updated `CONTRIBUTING.md`, the pull request template, and the update-entry issue template to match (socials are comma-separated).
+- Reframed the directory introduction toward a builder audience.
+- Expanded the Getting Started steps and added a directory deduplication gate to the guide; refreshed the tech stack and examples.
+- Numerous LGU status transitions as portals progressed (Planned → Work in Progress → Active), including Aparri, Allen, San Pablo, Libmanan, Iligan City, Cabanatuan City, Atimonan, San Pascual, and Calamba.
+
+### Fixed
+- Normalized empty directory cells to a uniform dash, and aligned contributor guidance to use a single `-`.
+- Hardened the README → data sync: YAML escaping, detection of malformed Socials cells, and URL parsing for links containing parentheses.
+- Fixed social icons not rendering inside Markdown table cells, and restored their hover colors.
+- Fixed the sync workflow to push merge commits even when there are no data changes.
+- Fixed a broken Better Solano Starter link and a repository link in the registration instructions.
+
 ## [1.0.0] - 2026-04-06
 
 ### Added

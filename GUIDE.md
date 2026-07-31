@@ -31,7 +31,15 @@ You do not need permission from your LGU to build a transparency portal. Most of
 
 ---
 
-## Step 1 — Register Your Intent
+## Step 1 — Search the Directory First
+
+Before anything else, search the [directory](https://lgu.bettergov.ph) for your LGU. This avoids duplicating effort and connects you with people already working nearby.
+
+- **Found, with a repository (🟢 Active or 🟡 Work in Progress):** contribute to the existing portal instead of starting a new one. Open its repository, read its `README` and `CONTRIBUTING`, and pick up an open issue or send a pull request.
+- **Found, but 🔵 Planned or with no repository yet:** there is nothing to build on yet — reach out to the listed maintainer to team up and co-maintain.
+- **Not listed:** it is yours to start. Continue below.
+
+### Register Your Intent
 
 Open a Pull Request to [this repository](https://github.com/jmacj/better-lgu-directory) to add your LGU to the directory with a `🔵 Planned` status. This is the first concrete step and signals to your community that something is coming.
 
@@ -100,6 +108,17 @@ A transparency portal is only valuable if it stays current. Consider:
 - Scheduling quarterly data review sessions
 - Recruiting co-maintainers from your local tech community
 - Connecting with other Better LGU maintainers in the BetterGov.ph community for support
+
+### Funnel Reports to the Community Discord
+
+Once your portal has a live intake surface (a citizen report or feedback form), you can pipe submissions — citizen reports, feedback, or system logs — into a dedicated channel in the BetterGov.ph Discord via webhook, so the wider community can see and help triage them. This is optional and only relevant after launch.
+
+**Before you request a webhook, your report intake must already be protected against automated abuse.** Webhook access is granted only to portals that can demonstrate this. There is no single required tool — the goal is simply that a bot cannot flood the channel through your form. Common ways to meet the bar:
+
+- A CAPTCHA on the form (Google reCAPTCHA, Cloudflare Turnstile, or similar)
+- Edge rate-limiting (e.g. Cloudflare) or application-level throttling on the submit endpoint
+
+When your protection is in place, reach out to the Discord Mod team through the BetterGov.ph community channels — they provision the channel and issue the webhook URL, and make the final call on whether your measures are sufficient.
 
 ---
 

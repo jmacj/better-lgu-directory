@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Ask a question
+    url: https://github.com/jmacj/better-lgu-directory/discussions/categories/q-a
+    about: Building a portal? Ask about templates, domains, or public data sources in Q&A.
+  - name: Propose a directory change
+    url: https://github.com/jmacj/better-lgu-directory/discussions/categories/ideas
+    about: Suggest a change to the directory table, badges, or contribution process.
   - name: BetterGov.ph Community
     url: https://bettergov.ph
     about: For general questions, visit the BetterGov.ph community site.

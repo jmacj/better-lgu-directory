@@ -38,8 +38,8 @@ jobs:
         run: |
           git add _data/
           if git diff --staged --quiet; then
-            echo "No data changes"
+            echo "No data changes — pushing merge only"
           else
             git commit -m "chore(data): auto-sync directory entries from README.md"
-            git push origin main-pages
           fi
+          git push origin main-pages

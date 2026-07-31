@@ -1,14 +1,14 @@
 ---
 name: Update LGU Entry
 about: Request an update to an existing LGU entry (e.g. status change, domain change, new maintainer).
-labels: update
+labels: entry:update
 ---
 
 ### LGU Name
 [Provide the name of the LGU as it appears in the directory]
 
 ### What is changing?
-[e.g. Status, Domain, Repository, Maintainers]
+[e.g. Status, Domain, Repository, Socials, Maintainers]
 
 ### Old Value
 [The current value in the directory]

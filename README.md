@@ -1,6 +1,6 @@
 # BetterGov.ph — LGU Directory
 
-A community-maintained directory of **Better LGU** digital transparency portals across the Philippines. Each entry links to the LGU's portal, source repository, and Facebook page, along with its current maintenance status.
+A community-maintained directory of **Better LGU** digital transparency portals across the Philippines — find an existing portal before you build, contribute to one, or start your own. Each entry links to the LGU's portal, source repository, and social pages, along with its current maintenance status.
 
 ---
 
@@ -8,7 +8,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 <!-- SYNC_LGU_TABLE_START -->
 
-| LGU                                 | Domain                                                | Repository                                                                     | Facebook                                                           | Status    | Maintainer/s                                                                           |
+| LGU                                 | Domain                                                | Repository                                                                     | Socials                                                            | Status    | Maintainer/s                                                                           |
 |-------------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------|
 | Solano, Nueva Vizcaya               | [bettersolano.org](https://bettersolano.org)          | [GitHub](https://github.com/BetterSolano/bettersolano)                         | [Facebook](https://www.facebook.com/bettersolano.org)              | 🟢 Active | [@ramonloganjr](https://github.com/ramonloganjr)                                       |
 | Bacolod City, Negros Occidental     | [betterbacolod.org](https://betterbacolod.org)        | [GitHub](https://github.com/betterbacolod/betterbacolod)                       | [Facebook](https://www.facebook.com/betterbacolod.org)             | 🟢 Active | [@mattenarle10](https://github.com/mattenarle10)                                       |
@@ -20,6 +20,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tagaytay City, Cavite               | [bettertagaytay.org](https://www.bettertagaytay.org/) | [GitHub](https://github.com/Arlovzki/bettertagaytay)                           | [Facebook](https://www.facebook.com/bettertagaytay)                | 🟢 Active | [@Arlovzki](https://github.com/Arlovzki)                                               |
 | Indang, Cavite                      | [betterindang.org](https://betterindang.org)          | [GitHub](https://github.com/michaustriaqa/betterindang)                        | [Facebook](https://facebook.com/betterindang)                      | 🟢 Active | [@michaustriaqa](https://github.com/michaustriaqa)                                     |
 | General Santos City, South Cotabato | [bettergensan.org](https://bettergensan.org)          | [GitHub](https://github.com/psalmcatulpos/bettergensan)                        | -                                                                  | 🟢 Active | [@psalmcatulpos](https://github.com/psalmcatulpos)                                     |
+| Koronadal City, South Cotabato     | [betterkoronadal.org](https://betterkoronadal.org) | [GitHub](https://github.com/janineooak/betterkoronadal)                        | —                                                                  | 🟡 Work in Progress | [@janineooak](https://github.com/janineooak)                                           |
 | Dasmariñas City, Cavite             | [betterdasmarinas.org](https://betterdasmarinas.org)  | [GitHub](https://github.com/Shuashuaa/BetterDasmarinas)                        | [Facebook](https://www.facebook.com/profile.php?id=61570802813363) | 🟢 Active | [@Shuashuaa](https://github.com/Shuashuaa)                                             |
 | General Trias, Cavite | [bettergeneraltrias.org](https://www.bettergeneraltrias.org/) | [GitHub](https://github.com/kenhehe/betterGeneraltrias) | [Facebook](https://www.facebook.com/betterGeneralTrias) | 🟢 Active | [@kenhehe](https://github.com/kenhehe) |                        |
 | Tanza, Cavite | - | [GitHub](https://github.com/manalilib/betterTanza) | [Facebook](https://www.facebook.com/betterTanzaCavite) | 🔵 Planned | [@manalilib](https://github.com/manalilib) |
@@ -29,17 +30,53 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Davao City, Davao Del Sur | — | [GitHub](https://github.com/johnloydlao/betterdavao) | — | 🟡 Work in Progress | [@johnloydlao](https://github.com/johnloydlao) |
 | Allen, Northern Samar | [betterallen.org](https://betterallen.org) | [GitHub](https://github.com/xandreiAThome/betterallen) | [Facebook](https://www.facebook.com/betterallen.org) | 🟢 Active  | [@xandreiAThome](https://github.com/xandreiAThome) |
 | Aparri, Cagayan Valley | [betteraparri.org](https://betteraparri.org/) | [GitHub](https://github.com/egiebk/betteraparri) | [Facebook](https://www.facebook.com/betteraparri.org) | 🟢 Active  | [@egiebk](https://github.com/egiebk) |
-| San Pablo, Laguna | — | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | — | 🟡 Work in Progress  | [@ChristiannWick](https://github.com/ChristiannWick) |
+| San Pablo, Laguna | [bettersanpablo.org](https://www.bettersanpablo.org/) | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | — | 🟢 Active  | [@ChristiannWick](https://github.com/ChristiannWick) |
 | Binangonan, Rizal | — | [GitHub](https://github.com/betterbinangonan-devs/betterbinangonan) | [Facebook](https://www.facebook.com/BetterBinangonan.org) | 🟡 Work in Progress | [@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals) |
 | Taytay, Rizal | — | [GitHub](https://github.com/zzelif/bettertaytay) | — | 🟡 Work in Progress | [@zzelif](https://github.com/zzelif) |
-| Olongapo City, Zambales | — | [GitHub](https://github.com/eyronjohn/betterolongapo) | — | 🟡 Work in Progress | [@eyronjohn](https://github.com/eyronjohn) |
+| Olongapo City, Zambales | [betterolongapo.org](https://betterolongapo.org/) | [GitHub](https://github.com/eyronjohn/betterolongapo) | — | 🟢 Active | [@eyronjohn](https://github.com/eyronjohn) |
 | Biñan, Laguna | — | [GitHub](https://github.com/Criflar/betterbinan) | — | 🔵 Planned | [@Criflar](https://github.com/Criflar), [@chiwasushuba](https://github.com/chiwasushuba) |
-| Tanay, Rizal | — | [GitHub](https://github.com/s4burieru/bettertanay) | — | 🟡 Work in Progress | [@s4burieru](https://github.com/s4burieru) |
+| Tanay, Rizal | [bettertanay.org](https://bettertanay.org) | [GitHub](https://github.com/s4burieru/bettertanay) | [Facebook](https://www.facebook.com/bettertanay) | 🟢 Active | [@s4burieru](https://github.com/s4burieru) |
 | Puerto Princesa City, Palawan | — | [GitHub](https://github.com/Kelxety/betterpuertoprincesa) | — | 🔵 Planned | [@kelxety](https://github.com/kelxety) |
-| Iligan City, Lanao del Norte         | —                                                     | [GitHub](https://github.com/KishonShrill/BetterIligan)                         | [Facebook](https://www.facebook.com/BetterIligan.org/)            | 🔵 Planned | [@KishonShrill](https://github.com/KishonShrill)                                        |
+| Iligan City, Lanao del Norte | [betteriligancity.org](https://betteriligancity.org/) | [GitHub](https://github.com/KishonShrill/BetterIligan) | [Facebook](https://www.facebook.com/BetterIligan.org/) | 🟢 Active | [@KishonShrill](https://github.com/KishonShrill), [@Vantalim12](https://github.com/Vantalim12) |
 | Hilongos, Leyte | — | [GitHub](https://github.com/rolpppp/betterhilongos) | — | 🟡 Work in Progress | [@rolpppp](https://github.com/rolpppp) |
-| Limay, Bataan | — | — | — | 🔵 Planned | [@frensenccruz](https://github.com/frensenccruz) |
+| Limay, Bataan | [betterlimay.org](https://betterlimay.org/) | [Github](https://github.com/AstroMC98/betterlimay) | [Facebook](https://www.facebook.com/betterlimay.org) | 🟡 Work in Progress | [@AstroMC98](https://github.com/AstroMC98) |
+| Balanga, Bataan | [betterbalanga.org](https://betterbalanga.org/) | [Github](https://github.com/AstroMC98/betterbalanga) | [Facebook](https://www.facebook.com/betterbalanga.org) | 🟡 Work in Progress | [@AstroMC98](https://github.com/AstroMC98) |
 | San Jose, Antique | — | [GitHub](https://github.com/bonfire404/bettersanjose) | — | 🟡 Work in Progress | [@bonfire404](https://github.com/bonfire404) |
+| Libmanan, Camarines Sur | [betterlibmanan.org](https://betterlibmanan.org) | [GitHub](https://github.com/enzox0/betterlibmanan) | [Facebook](https://www.facebook.com/BetterLibmanan.org) | 🟡 Work in Progress  | [@enzox0](https://github.com/enzox0) |
+| San Pascual, Masbate | — | [GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate)| — | 🟡 Work in Progress | [@marcuwynu23](https://github.com/marcuwynu23) |
+| Teresa, Rizal | — | — | — | 🔵 Planned | [@MewSeiren](https://github.com/MewSeiren) |
+| Atimonan, Quezon | — | [GitHub](https://github.com/EmsiPrds/betteratimonan)  | — | 🟡 Work in Progress | [@EmsiPrds](https://github.com/EmsiPrds) |
+| Dinalupihan, Bataan | - | - | - | 🔵 Planned | [@dardeejay](https://github.com/dardeejay) |
+| Calamba, Laguna | — | [GitHub](https://github.com/apajuan/bettercalamba) | — | 🟡 Work in Progress | [@apajuan](https://github.com/apajuan) |
+| Cabanatuan City, Nueva Ecija | [bettercabanatuan.org](https://bettercabanatuan.org) | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan) | [Facebook](https://www.facebook.com/bettercabanatuan.org) | 🟢 Active | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
+| Angeles City, Pampanga | — | [GitHub](https://github.com/ongods/betterangeles) | — | 🔵 Planned | [@ongods](https://github.com/ongods) |
+| Cebu City, Cebu | — | [GitHub](https://github.com/kyrenmearr/bettercebucity) | — | 🟡 Work in Progress | [@kyrenmearr](https://github.com/kyrenmearr) |
+| Piat, Cagayan Valley | — | [GitHub](https://github.com/JoScripty/betterpiat) | — | 🟡 Work in Progress | [@JoScripty](https://github.com/JoScripty) |
+| Alaminos City, Pangasinan | [betteralaminoscity.org](https://betteralaminoscity.org) | [GitHub](https://github.com/ljsalcedo-dev/betteralaminoscity) | — | 🟡 Work in Progress | [@ljsalcedo-dev](https://github.com/ljsalcedo-dev) |
+| Santo Tomas, Pangasinan | — | — | — | 🔵 Planned | [@PatrickTomas2](https://github.com/PatrickTomas2) |
+| Legazpi, Albay | — | — | — | 🔵 Planned | [@bpbelen](https://github.com/bpbelen) |
+| Santa Barbara, Pangasinan | — | [GitHub](https://github.com/JericoGarcia21/better-santabarbara) | — | 🟡 Work in Progress | [@JericoGarcia21](https://github.com/JericoGarcia21) |
+| Taguig City, Metro Manila | — | [GitHub](https://github.com/plvzfq-rit/bettertaguig) | — | 🔵 Planned | [@plvzfq-rit](https://github.com/plvzfq-rit) |
+| Sara, Iloilo | — | [GitHub](https://github.com/SaraGugmaKo/bettersara) | — | 🟡 Work in Progress | [@SaraGugmaKo](https://github.com/SaraGugmaKo) |
+| Bayawan, Negros Oriental | — | [GitHub](https://github.com/rodneydelacruz/betterbayawan) | — | 🔵 Planned | [@rodneydelacruz](https://github.com/rodneydelacruz) |
+| Bacoor City, Cavite | — | [Github](https://github.com/riamjs/betterbacoor) | — | 🔵 Planned | [@riamjs](https://github.com/riamjs) | 
+| Lucena City, Quezon | — | — | — | 🔵 Planned | [@marrrkkk](https://github.com/marrrkkk) |
+| Carigara, Leyte | — | — | — | 🔵 Planned | [@dauganz09](https://github.com/dauganz09) |  
+| Claver, Surigao del Norte | - | - | - | 🔵 Planned | [@eljohn2001](https://github.com/eljohn2001) |
+| Agoo, La Union | - | - | - | 🔵 Planned | [@glennmarkgarcia](https://github.com/glennmarkgarcia) |
+| Aurora, Zamboanga del Sur | [betteraurora.org](https://betteraurora.org)  | [Github](https://github.com/Jayke770/betteraurora) | - | 🟡 Work in Progress | [@jayke770](https://github.com/jayke770) |
+| Infanta, Quezon | - | - | - | 🔵 Planned | [@davisolpruvnik](https://github.com/davisolpruvnik) |
+| Bocaue, Bulacan | - | [Github](https://github.com/ericksondelacruz/betterbocaue) | - | 🟡 Work in Progress | [@ericksondelacruz](https://github.com/ericksondelacruz) |
+| General Mariano Alvarez, Cavite | - | - | - | 🔵 Planned | [@izxclyde](https://github.com/izxclyde) |
+| Meycauayan, Bulacan | - | [Github](https://github.com/shnflrsc/bettermeycauayan) | - | 🟡 Work in Progress | [@shnflrsc](https://github.com/shnflrsc) |
+| Calapan, Oriental Mindoro | [bettercalapan.org](https://bettercalapan.org) | [Github](https://github.com/arvingarciabtw/bettercalapan) | - | 🟡 Work in Progress | [@arvingarciabtw](https://github.com/arvingarciabtw) |
+| Midsayap, North Cotabato | - | - | - | 🔵 Planned | [@PostNZT](https://github.com/PostNZT) |
+| Tandag City, Surigao del Sur | — | [Github](https://github.com/BetterTandag/better-tandag) | — | 🟡 Work in Progress | [@ikmespinoza](https://github.com/ikmespinoza) |
+| Baler, Aurora | - | - | - | 🔵 Planned | [@bjtecuico](https://github.com/bjtecuico) |
+| City of Manila, Metro Manila | [bettermanila.org](https://bettermanila.org) | [GitHub](https://github.com/grgdlm/bettermanila) | - | 🟡 Work in Progress | [@grgdlm](https://github.com/grgdlm) |
+| Butuan City, Agusan del Norte | - | - | - | 🔵 Planned | [@stinkymonkeyph](https://github.com/stinkymonkeyph) |
+| Aborlan, Palawan | [betteraborlan.org](https://betteraborlan.org) | [GitHub](https://github.com/BetterAborlan/betteraborlan) | [Facebook](https://www.facebook.com/betteraborlan.org) | 🟡 Work in Progress | [@hmcldryl](https://github.com/hmcldryl) |
+| Quezon City, Metro Manila | - | [GitHub](https://github.com/brixavengoza/betterquezoncity) | - | 🔵 Planned | [@brixavengoza](https://github.com/brixavengoza) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
@@ -77,9 +114,9 @@ These templates are provided by the community to help you get started quickly.
 Ready to build a transparency portal for your LGU? Read the full guide: **[How to Start Your Better LGU Portal](GUIDE.md)**
 
 The short version:
-1. Fork or clone a [community template](TEMPLATES.md)
-2. Open a PR to this repository to register your LGU (even if you're still planning)
-3. Build, launch, and keep it updated
+1. **Register your intent** — open a PR to add your LGU with a `🔵 Planned` status
+2. **Build** — pick a [community template](TEMPLATES.md), set up your `better[lguname]` repo, gather public data, and deploy to a `better[lguname].org` domain
+3. **Launch and maintain** — update your entry to `🟢 Active` once live, and keep the data current
 
 ---
 
