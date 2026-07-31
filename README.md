@@ -39,7 +39,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Iligan City, Lanao del Norte         | —                                                     | [GitHub](https://github.com/KishonShrill/BetterIligan)                         | [Facebook](https://www.facebook.com/BetterIligan.org/)            | 🔵 Planned | [@KishonShrill](https://github.com/KishonShrill)                                        |
 | Hilongos, Leyte | — | [GitHub](https://github.com/rolpppp/betterhilongos) | — | 🟡 Work in Progress | [@rolpppp](https://github.com/rolpppp) |
 | Limay, Bataan | — | — | — | 🔵 Planned | [@frensenccruz](https://github.com/frensenccruz) |
-| San Jose, Antique | [bettersj.org](https://bettersj.org) | [GitHub](https://github.com/bonfire404/bettersanjose) | — | 🟡 Work in Progress | [@bonfire404](https://github.com/bonfire404) |
+| San Jose, Antique | — | [GitHub](https://github.com/bonfire404/bettersanjose) | — | 🟡 Work in Progress | [@bonfire404](https://github.com/bonfire404) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
