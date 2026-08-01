@@ -274,6 +274,53 @@ main tr:last-child td {
   transform: scale(1.1);
 }
 
+/* Featured Portal card (#132) — a themed, blue-on-glass variant of the
+   generic `.lgu-tag` pill above, plus the parts of the stretched-link
+   pattern Tailwind's utilities can't express on their own: the inverted
+   badge, keyboard focus for the whole-card link, and styling the <a> tags
+   kramdown emits from `lgu.maintainer`'s raw markdown (there is no class
+   hook available on those — see _includes/featured-portal.html). */
+.featured-portal-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: #fff;
+  color: var(--color-primary-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.featured-portal-card__link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.featured-portal-card__inline-link,
+.featured-portal-card__maintainer a {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+  transition: text-decoration-color 0.2s;
+}
+
+.featured-portal-card__inline-link:hover,
+.featured-portal-card__maintainer a:hover {
+  text-decoration-color: #fff;
+}
+
+.featured-portal-card__socials .social-icon-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.featured-portal-card__socials .social-icon-link:hover {
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .prose h1 { font-size: 1.875rem; }
   .prose h2 { font-size: 1.5rem; }

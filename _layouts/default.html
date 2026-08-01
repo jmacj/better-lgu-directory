@@ -85,29 +85,8 @@
                         <a href="#directory" class="bg-blue-500/30 text-white border border-white/20 hover:bg-blue-500/40 px-8 py-3 rounded-xl font-bold text-lg transition-all backdrop-blur-sm">Check the directory</a>
                     </div>
                 </div>
-                <div class="hidden lg:block animate-slide-in">
-                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
-                        <div class="relative z-10">
-                            <div class="flex items-center mb-6">
-                                <img src="{{ site.baseurl }}assets/images/logos/BetterGov_Icon-White.svg" alt="BetterGov Emblem" class="h-10 w-10 mr-3">
-                                <h2 class="text-2xl font-bold">LGU Transparency</h2>
-                            </div>
-                            <div class="space-y-4">
-                                <div class="bg-white/20 p-4 rounded-xl flex items-center gap-4">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                    <span class="font-medium">Active Maintenance</span>
-                                </div>
-                                <div class="bg-white/20 p-4 rounded-xl flex items-center gap-4 opacity-80">
-                                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                    <span class="font-medium">Open Source Templates</span>
-                                </div>
-                                <div class="bg-white/20 p-4 rounded-xl flex items-center gap-4 opacity-60">
-                                    <div class="w-2 h-2 bg-orange-400 rounded-full"></div>
-                                    <span class="font-medium">Citizen-led Initiative</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="animate-slide-in">
+                    {%- include featured-portal.html -%}
                 </div>
             </div>
         </div>

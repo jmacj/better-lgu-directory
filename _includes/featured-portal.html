@@ -1,0 +1,86 @@
+{%- comment -%}
+Featured Portal card (#132). Pure build-time Liquid — no JavaScript.
+
+Pool: every complete, eligible row in `_data/lgu-meta.yml` (written by the
+crawl in `scripts/crawl-lgu-meta.js` on `main`; see #122/#125 for the
+eligibility predicate). Sorted by the crawl-assigned `order_key` (first 8 hex
+chars of sha1(domain)) so the sequence is shuffled but stable per portal, not
+alphabetical (#131).
+
+Index: the Unix day number modulo the pool size — a pure function of the
+build's own clock, re-evaluated once a day by the scheduled rebuild in
+`.github/workflows/rebuild-featured.yml`. `date: '%s'` returns a string, so it
+is coerced with `times: 1` before the integer division — see
+scripts/test-rotation-index.js for the arithmetic proof (#131 flagged this
+chain as unverified against a live Jekyll build; verify it here on first
+deploy).
+
+If the pool is empty, this include renders nothing — no divide-by-zero, no
+placeholder card (#125's no-fallback rule extends to the degenerate case).
+
+Layout: a themed (blue-on-glass) variant of the same glassmorphism the panel
+it replaces used — see the `.featured-portal-*` rules in assets/css/style.css
+for the parts Tailwind's utility classes can't express cleanly (the inverted
+badge pill, the stretched-link overlay, and styling the `<a>` tags kramdown
+emits from `lgu.maintainer`'s raw markdown).
+{%- endcomment -%}
+{%- assign pool = site.data.lgu-meta | sort: "order_key" -%}
+{%- if pool and pool.size > 0 -%}
+  {%- assign day = site.time | date: '%s' | times: 1 | divided_by: 86400 -%}
+  {%- assign i = day | modulo: pool.size -%}
+  {%- assign featured = pool[i] -%}
+  {%- assign lgu = site.data.lgus | where: "name", featured.name | first -%}
+  {%- comment -%}
+  The whole card is inert to pointer events by default (pointer-events-none);
+  only the stretched link and the individually-marked inline links opt back
+  in with pointer-events-auto. That is what lets the stretched link receive
+  clicks everywhere — including over the image — while the domain,
+  maintainer, and social links stay independently clickable on top of it,
+  without a manual z-index fight between siblings.
+  {%- endcomment -%}
+  <div class="featured-portal-card relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl overflow-hidden pointer-events-none">
+    <a
+      href="https://{{ featured.domain }}"
+      class="featured-portal-card__link absolute inset-0 z-0 rounded-2xl pointer-events-auto"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Visit {{ featured.name }}'s Better LGU portal"
+    ></a>
+
+    <div class="relative z-0 aspect-[1200/630] w-full overflow-hidden">
+      {%- comment -%} Decorative — the eyebrow and heading below already carry the same information as real text (#133). {%- endcomment -%}
+      <img src="{{ featured.image }}" alt="" loading="lazy" class="w-full h-full object-cover">
+    </div>
+
+    <div class="relative z-10 p-6 md:p-8 space-y-3">
+      <span class="featured-portal-badge">⭐ Featured</span>
+
+      <p class="text-xs font-semibold uppercase tracking-wide text-blue-200">{{ featured.title }}</p>
+      <h2 class="text-2xl font-bold text-white leading-tight">{{ featured.name }}</h2>
+      <p class="text-sm text-blue-100 line-clamp-3">{{ featured.description }}</p>
+
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1">
+        <a
+          href="https://{{ featured.domain }}"
+          class="featured-portal-card__inline-link pointer-events-auto"
+          target="_blank"
+          rel="noopener noreferrer"
+        >{{ featured.domain }}</a>
+
+        {%- if lgu and lgu.maintainer and lgu.maintainer != "-" -%}
+          <span class="featured-portal-card__maintainer pointer-events-auto text-sm text-blue-100">
+            Maintained by {{ lgu.maintainer | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+          </span>
+        {%- endif -%}
+
+        {%- if lgu and lgu.socials and lgu.socials.size > 0 -%}
+          <span class="featured-portal-card__socials pointer-events-auto inline-flex items-center gap-3">
+            {%- for s in lgu.socials -%}
+              {% include social-icon.html label=s.label url=s.url %}
+            {%- endfor -%}
+          </span>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
