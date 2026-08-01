@@ -51,11 +51,10 @@ emits from `lgu.maintainer`'s raw markdown).
       {%- comment -%} Decorative — the eyebrow and heading below already carry the same information as real text (#133). {%- endcomment -%}
       {%- comment -%} No loading="lazy": this card sits above the fold (#126/#129 — the hero image is the likely LCP element, and lazy-loading it above the fold would delay first paint). {%- endcomment -%}
       <img src="{{ featured.image }}" alt="" class="w-full h-full object-cover">
+      <span class="featured-portal-badge">⭐ Featured</span>
     </div>
 
     <div class="relative z-10 p-6 md:p-8 space-y-3">
-      <span class="featured-portal-badge">⭐ Featured</span>
-
       <p class="text-xs font-semibold uppercase tracking-wide text-blue-200 line-clamp-1">{{ featured.title }}</p>
       <h2 class="text-2xl font-bold text-white leading-tight">{{ featured.name }}</h2>
       <p class="text-sm text-blue-100 line-clamp-3">{{ featured.description }}</p>

@@ -281,15 +281,27 @@ main tr:last-child td {
    kramdown emits from `lgu.maintainer`'s raw markdown (there is no class
    hook available on those — see _includes/featured-portal.html). */
 .featured-portal-badge {
+  /* Overlay pill on the image's top-left corner per #126's locked spec
+     (D/heropanel variant) — not an inline pill in the text body. #1d4ed8
+     is the spec's fixed value for this variant, not var(--color-primary-700)
+     (#003d8d), which is a different blue used elsewhere on the card. */
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
+  border-radius: 999px;
   background-color: #fff;
-  color: var(--color-primary-700);
-  font-size: 0.75rem;
+  color: #1d4ed8;
+  font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.35),
+    0 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
 .featured-portal-card__link:focus-visible {
