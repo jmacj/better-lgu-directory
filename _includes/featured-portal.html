@@ -10,10 +10,14 @@ alphabetical (#131).
 Index: the Unix day number modulo the pool size — a pure function of the
 build's own clock, re-evaluated once a day by the scheduled rebuild in
 `.github/workflows/rebuild-featured.yml`. `date: '%s'` returns a string, so it
-is coerced with `times: 1` before the integer division — see
-scripts/test-rotation-index.js for the arithmetic proof (#131 flagged this
-chain as unverified against a live Jekyll build; verify it here on first
-deploy).
+is coerced with `times: 1` before the integer division. #132's cadence is
+meant to flip at 00:00 Asia/Manila (UTC+8), not 00:00 UTC — the scheduled
+rebuild fires at 16:00 UTC for exactly that reason — so the epoch seconds are
+shifted by `plus: 28800` (Manila's +8h offset, in seconds) before the
+divide-by-86400, moving the day-floor boundary from UTC midnight to Manila
+midnight (#142). See scripts/test-rotation-index.js for the arithmetic proof
+(#131 flagged this chain as unverified against a live Jekyll build; verify it
+here on first deploy).
 
 If the pool is empty, this include renders nothing — no divide-by-zero, no
 placeholder card (#125's no-fallback rule extends to the degenerate case).
@@ -26,7 +30,7 @@ emits from `lgu.maintainer`'s raw markdown).
 {%- endcomment -%}
 {%- assign pool = site.data.lgu-meta | sort: "order_key" -%}
 {%- if pool and pool.size > 0 -%}
-  {%- assign day = site.time | date: '%s' | times: 1 | divided_by: 86400 -%}
+  {%- assign day = site.time | date: '%s' | times: 1 | plus: 28800 | divided_by: 86400 -%}
   {%- assign i = day | modulo: pool.size -%}
   {%- assign featured = pool[i] -%}
   {%- assign lgu = site.data.lgus | where: "name", featured.name | first -%}
