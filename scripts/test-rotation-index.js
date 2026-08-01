@@ -9,13 +9,17 @@
 // change if this repo ever adopts one.
 //
 // Why this exists: #131's resolution flagged that the exact Liquid filter
-// chain (`site.time | date: '%s' | times: 1 | divided_by: 86400 | modulo:
-// pool.size`) was never run against a live Jekyll build while the design was
-// being decided, and asked for it to be "verified in the implementation and
-// covered by a test." Liquid itself cannot be unit tested outside a Jekyll
+// chain (`site.time | date: '%s' | times: 1 | plus: 28800 | divided_by: 86400
+// | modulo: pool.size`) was never run against a live Jekyll build while the
+// design was being decided, and asked for it to be "verified in the
+// implementation and covered by a test." The `plus: 28800` step (#142) shifts
+// the day-floor boundary from UTC midnight to Asia/Manila midnight (UTC+8),
+// matching the cadence #132 actually intended and the 16:00 UTC scheduled
+// rebuild trigger. Liquid itself cannot be unit tested outside a Jekyll
 // build, so this test instead re-implements the *documented* filter
 // semantics in plain JS (Unix seconds -> string -> coerced back to a number
-// -> floor-divided by 86400 -> modulo pool size) and proves the properties
+// -> shifted by Manila's UTC+8 offset -> floor-divided by 86400 -> modulo
+// pool size) and proves the properties
 // the design depends on: true round-robin with no repeats inside a cycle,
 // and safe behaviour at the degenerate pool sizes (0 and 1). It is a proof of
 // the arithmetic, not a substitute for eyeballing one real `bundle exec
@@ -33,15 +37,19 @@ const {
 // --- Liquid filter chain, mirrored in JS -----------------------------------
 //
 // {%- assign pool = site.data.lgu-meta | sort: "order_key" -%}
-// {%- assign day = site.time | date: '%s' | times: 1 | divided_by: 86400 -%}
+// {%- assign day = site.time | date: '%s' | times: 1 | plus: 28800 | divided_by: 86400 -%}
 // {%- assign i = day | modulo: pool.size -%}
 // {%- assign featured = pool[i] -%}
 //
 // Liquid's `date: '%s'` returns Unix seconds as a *string*; `times: 1`
-// coerces it to a number; `divided_by` on two integers performs integer
-// (floor) division. `modulo` follows Ruby's `%`, which for two non-negative
-// operands (always true here — Unix seconds and pool.size are never
-// negative) agrees with JS's `%`.
+// coerces it to a number; `plus: 28800` shifts it by Asia/Manila's UTC+8
+// offset (in seconds) so the subsequent floor-division's day boundary lands
+// on Manila midnight (16:00 UTC) instead of UTC midnight (#142); `divided_by`
+// on two integers performs integer (floor) division. `modulo` follows Ruby's
+// `%`, which for two non-negative operands (always true here — the shifted
+// seconds and pool.size are never negative) agrees with JS's `%`.
+const MANILA_OFFSET_SECONDS = 8 * 60 * 60; // UTC+8, no DST
+
 function sortByOrderKey(pool) {
     return [...pool].sort((a, b) => (a.order_key < b.order_key ? -1 : a.order_key > b.order_key ? 1 : 0));
 }
@@ -49,7 +57,8 @@ function sortByOrderKey(pool) {
 function dayNumber(unixSeconds) {
     const asString = String(unixSeconds); // date: '%s'
     const asNumber = Number(asString); // times: 1
-    return Math.floor(asNumber / 86400); // divided_by: 86400 (integer division)
+    const manilaShifted = asNumber + MANILA_OFFSET_SECONDS; // plus: 28800
+    return Math.floor(manilaShifted / 86400); // divided_by: 86400 (integer division)
 }
 
 function pickFeatured(pool, unixSeconds) {
@@ -75,12 +84,24 @@ function check(condition, message) {
 
 // --- day number arithmetic --------------------------------------------------
 
-// 2026-08-01T16:00:00Z, the scheduled rebuild's own fixed cron moment.
+// 2026-08-01T16:00:00Z, the scheduled rebuild's own fixed cron moment — this
+// instant IS 00:00:00 Asia/Manila, so it must land exactly on a day boundary
+// (day 20667, not 20666 as the old UTC-midnight math gave).
 const KNOWN_UNIX_SECONDS = 1785600000;
-check(dayNumber(KNOWN_UNIX_SECONDS) === 20666, 'dayNumber floors Unix seconds to a whole day count');
-check(dayNumber(0) === 0, 'dayNumber(epoch) is day 0');
-check(dayNumber(86399) === 0, 'dayNumber stays on day 0 for the last second before the boundary');
-check(dayNumber(86400) === 1, 'dayNumber advances exactly at the 86400s boundary');
+check(dayNumber(KNOWN_UNIX_SECONDS) === 20667, 'dayNumber floors to the Manila day that starts at the scheduled rebuild moment');
+check(dayNumber(0) === 0, 'dayNumber(epoch) is day 0 (1970-01-01T00:00:00Z is still 1970-01-01 in Manila, 08:00 local)');
+
+// The Manila-midnight boundary falls at 16:00:00 UTC (= 57600s past UTC
+// midnight), not at 00:00:00 UTC (86400s) as the old math assumed.
+check(dayNumber(57599) === 0, 'dayNumber stays on the previous day at 15:59:59 UTC — one second before Manila midnight');
+check(dayNumber(57600) === 1, 'dayNumber advances exactly at 16:00:00 UTC, which is 00:00:00 Asia/Manila');
+
+// Regression: under the OLD (buggy) UTC-midnight math, these two timestamps
+// — same UTC calendar date, one before and one after true UTC midnight —
+// would have been on different days despite still being the same Manila
+// day (07:59:59 Manila and 08:00:00 Manila respectively, same Manila date).
+// Confirms the fix no longer flips at UTC midnight.
+check(dayNumber(86399) === dayNumber(86400), 'UTC midnight (86400s) is NOT a day boundary anymore — both sides are still the same Manila day');
 
 // --- degenerate pool sizes ---------------------------------------------------
 
@@ -121,13 +142,34 @@ for (const size of [2, 3, 6, 7, 20]) {
     }
 }
 
-// Two builds landing on the same day (e.g. a push-triggered sync at noon and
-// the 16:00 UTC scheduled rebuild) must render the same LGU.
+// Two builds landing on the same MANILA day (e.g. a push-triggered sync
+// mid-Manila-day and the 16:00 UTC scheduled rebuild that starts the next
+// one) must render the same LGU. The Manila day spanning 2026-08-02 runs from
+// 2026-08-01T16:00:00Z (00:00 Manila) up to but not including
+// 2026-08-02T16:00:00Z (24:00 Manila) — pick two builds inside that window
+// that straddle UTC midnight, since that's exactly the case the old
+// UTC-midnight math got wrong.
 {
     const pool = makePool(6);
-    const morning = pickFeatured(pool, Date.UTC(2026, 7, 1, 2, 0, 0) / 1000);
-    const evening = pickFeatured(pool, Date.UTC(2026, 7, 1, 23, 0, 0) / 1000);
-    check(morning.domain === evening.domain, 'two builds on the same UTC day pick the same featured entry');
+    const morning = pickFeatured(pool, Date.UTC(2026, 7, 1, 18, 0, 0) / 1000); // 2026-08-02T02:00 Manila
+    const evening = pickFeatured(pool, Date.UTC(2026, 7, 2, 10, 0, 0) / 1000); // 2026-08-02T18:00 Manila
+    check(morning.domain === evening.domain, 'two builds on the same Manila day (straddling UTC midnight) pick the same featured entry');
+}
+
+// Regression: the OLD test asserted 2026-08-01T02:00Z and 2026-08-01T23:00Z
+// (same UTC calendar date) picked the same entry — but those two instants
+// actually straddle the Manila day boundary (16:00 UTC) and are genuinely
+// different Manila days (2026-08-01T02:00Z = 10:00 Manila on Aug 1;
+// 2026-08-01T23:00Z = 07:00 Manila on Aug 2). Confirms the fix now tells
+// them apart instead of conflating them.
+{
+    const pool = makePool(6);
+    const beforeManilaMidnight = pickFeatured(pool, Date.UTC(2026, 7, 1, 2, 0, 0) / 1000);
+    const afterManilaMidnight = pickFeatured(pool, Date.UTC(2026, 7, 1, 23, 0, 0) / 1000);
+    check(
+        beforeManilaMidnight.domain !== afterManilaMidnight.domain,
+        'a build before and a build after the 16:00 UTC Manila-midnight boundary on the same UTC calendar date pick different entries',
+    );
 }
 
 // --- order_key (#131) --------------------------------------------------------
