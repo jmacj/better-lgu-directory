@@ -49,7 +49,8 @@ emits from `lgu.maintainer`'s raw markdown).
 
     <div class="relative z-0 aspect-[1200/630] w-full overflow-hidden">
       {%- comment -%} Decorative — the eyebrow and heading below already carry the same information as real text (#133). {%- endcomment -%}
-      <img src="{{ featured.image }}" alt="" loading="lazy" class="w-full h-full object-cover">
+      {%- comment -%} No loading="lazy": this card sits above the fold (#126/#129 — the hero image is the likely LCP element, and lazy-loading it above the fold would delay first paint). {%- endcomment -%}
+      <img src="{{ featured.image }}" alt="" class="w-full h-full object-cover">
     </div>
 
     <div class="relative z-10 p-6 md:p-8 space-y-3">
