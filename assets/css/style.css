@@ -295,6 +295,8 @@ main tr:last-child td {
   z-index: 2;
   display: inline-flex;
   align-items: center;
+  gap: 0.3em;
+  line-height: 1;
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
   background-color: #fff;
@@ -306,6 +308,28 @@ main tr:last-child td {
   box-shadow:
     0 4px 14px rgba(0, 0, 0, 0.35),
     0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+/* Icon and label as separate flex items (#140) — align-items: center on
+   the parent only has an effect between distinct flex items on the cross
+   axis; a single unstructured text node ("⭐ Featured") gives it nothing
+   to center, so the star's own glyph metrics sat off the label's
+   baseline. Splitting them lets each participate in flex centering, and
+   the icon gets its own line-height/vertical nudge since emoji glyphs
+   commonly render with extra internal leading that text characters don't
+   have — 1 (inherited from the parent) still isn't enough to visually
+   center the glyph against the label's cap-height/x-height. */
+.featured-portal-badge__icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  transform: translateY(0.05em);
+}
+
+.featured-portal-badge__label {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .featured-portal-card__link:focus-visible {
