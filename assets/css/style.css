@@ -296,7 +296,15 @@ main tr:last-child td {
   display: inline-flex;
   align-items: center;
   gap: 0.3em;
-  line-height: 1;
+  /* 1.4 (not 1) matches #126's prototype `font: 700 11px/1.4 …` reference —
+     #140's line-height:1 fixed vertical misalignment but flattened the
+     pill's line-box, making it read as compact vs. the locked spec. All
+     three rules here (parent + both inner spans) must share this value:
+     the parent's line-height no longer directly sizes anything (icon/label
+     are the flex items now), but keeping it consistent avoids a stray
+     mismatched line-box if a future edit adds text directly to the parent
+     again. */
+  line-height: 1.4;
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
   background-color: #fff;
@@ -318,18 +326,31 @@ main tr:last-child td {
    the icon gets its own line-height/vertical nudge since emoji glyphs
    commonly render with extra internal leading that text characters don't
    have — 1 (inherited from the parent) still isn't enough to visually
-   center the glyph against the label's cap-height/x-height. */
+   center the glyph against the label's cap-height/x-height.
+
+   line-height bumped from 1 to 1.4 (regression fix, follow-up to #141 —
+   flat line-height:1 was making the whole pill read as compact vs. #126's
+   locked spec). The 0.05em translateY nudge is UNCHANGED and still
+   correct at 1.4: the nudge compensates for the emoji glyph's own
+   optical position inside its em-box, a font-metric bias that's
+   independent of line-height. Growing line-height only adds equal
+   half-leading above and below the existing content of BOTH spans
+   (icon and label share the same 1.4 value), so it enlarges the two
+   line-boxes symmetrically around their prior centers — it doesn't
+   reintroduce or shift the relative offset the nudge was tuned to
+   correct. Re-verify visually if the font-size or nudge value ever
+   changes together. */
 .featured-portal-badge__icon {
   display: inline-flex;
   align-items: center;
-  line-height: 1;
+  line-height: 1.4;
   transform: translateY(0.05em);
 }
 
 .featured-portal-badge__label {
   display: inline-flex;
   align-items: center;
-  line-height: 1;
+  line-height: 1.4;
 }
 
 .featured-portal-card__link:focus-visible {
