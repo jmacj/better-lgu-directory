@@ -1,0 +1,32 @@
+name: Daily Featured Portal Rebuild
+
+# Advances the Featured Portal rotation (#132) by requesting a Pages rebuild
+# with zero commits — the build-time Liquid index is a pure function of the
+# current date (#131), so a fresh build is all "today's pick" needs.
+#
+# schedule + workflow_dispatch only. Never `push` on main-pages: that would
+# self-loop with sync-to-pages.yml, which pushes to main-pages on every sync.
+on:
+  schedule:
+    # 16:00 UTC = 00:00 Asia/Manila. The Philippines has no DST (fixed
+    # UTC+8), so this is a stable day boundary with no timezone data needed.
+    - cron: '0 16 * * *'
+  workflow_dispatch: {}
+
+# Shared with sync-to-pages.yml (#132) so a same-time crawl commit and this
+# no-commit rebuild request can't race each other.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+permissions:
+  pages: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request a Pages rebuild (no commit)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api --method POST "repos/${{ github.repository }}/pages/builds"
