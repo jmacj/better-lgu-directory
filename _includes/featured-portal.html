@@ -54,12 +54,18 @@ emits from `lgu.maintainer`'s raw markdown).
       <span class="featured-portal-badge">⭐ Featured</span>
     </div>
 
-    <div class="relative z-10 p-6 md:p-8 space-y-3">
+    <div class="relative z-10 p-6 md:p-8">
+      {%- comment -%}
+      Explicit per-gap margins instead of a flat `space-y-3`: #126 calls for
+      a distinctly tighter eyebrow-to-heading gap (0.35–0.45rem, "reads as a
+      label above the heading, not a floating fragment") while the other
+      gaps keep the card's usual ~0.75rem rhythm.
+      {%- endcomment -%}
       <p class="text-xs font-semibold uppercase tracking-wide text-blue-200 line-clamp-1">{{ featured.title }}</p>
-      <h2 class="text-2xl font-bold text-white leading-tight">{{ featured.name }}</h2>
-      <p class="text-sm text-blue-100 line-clamp-3">{{ featured.description }}</p>
+      <h2 class="mt-[0.4rem] text-2xl font-bold text-white leading-tight">{{ featured.name }}</h2>
+      <p class="mt-3 text-sm text-blue-100 line-clamp-3">{{ featured.description }}</p>
 
-      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1">
+      <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 pt-1">
         <a
           href="https://{{ featured.domain }}"
           class="featured-portal-card__inline-link pointer-events-auto"

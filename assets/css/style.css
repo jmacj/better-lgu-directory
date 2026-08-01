@@ -285,10 +285,13 @@ main tr:last-child td {
      (D/heropanel variant) — not an inline pill in the text body. #2563eb
      is #126's fixed value for this badge (the D variant just inverts fill
      and text vs. the other variants), not var(--color-primary-700)
-     (#003d8d), which is a different blue used elsewhere on the card. */
+     (#003d8d), which is a different blue used elsewhere on the card.
+     Inset bumped to 1rem (from the prototype's literal .65rem) — matches
+     the card's own `rounded-2xl` (1rem) radius, so the pill clears the
+     curve of the corner instead of crowding it (Jan, live visual check). */
   position: absolute;
-  top: 0.65rem;
-  left: 0.65rem;
+  top: 1rem;
+  left: 1rem;
   z-index: 2;
   display: inline-flex;
   align-items: center;
