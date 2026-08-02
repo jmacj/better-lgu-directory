@@ -41,6 +41,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Hilongos, Leyte | — | [GitHub](https://github.com/rolpppp/betterhilongos) | — | 🟡 Work in Progress | [@rolpppp](https://github.com/rolpppp) |
 | Limay, Bataan | [betterlimay.org](https://betterlimay.org/) | [Github](https://github.com/AstroMC98/betterlimay) | [Facebook](https://www.facebook.com/betterlimay.org) | 🟡 Work in Progress | [@AstroMC98](https://github.com/AstroMC98) |
 | Balanga, Bataan | [betterbalanga.org](https://betterbalanga.org/) | [Github](https://github.com/AstroMC98/betterbalanga) | [Facebook](https://www.facebook.com/betterbalanga.org) | 🟡 Work in Progress | [@AstroMC98](https://github.com/AstroMC98) |
+| Bulakan, Bulacan | [betterbulakan.vercel.app](https://betterbulakan.vercel.app) | [GitHub](https://github.com/kuyacarlo/betterbulakan) | — | 🟡 Work in Progress | [@kuyacarlo](https://github.com/kuyacarlo) |
 | San Jose, Antique | — | [GitHub](https://github.com/bonfire404/bettersanjose) | — | 🟡 Work in Progress | [@bonfire404](https://github.com/bonfire404) |
 | Libmanan, Camarines Sur | [betterlibmanan.org](https://betterlibmanan.org) | [GitHub](https://github.com/enzox0/betterlibmanan) | [Facebook](https://www.facebook.com/BetterLibmanan.org) | 🟡 Work in Progress  | [@enzox0](https://github.com/enzox0) |
 | San Pascual, Masbate | — | [GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate)| — | 🟡 Work in Progress | [@marcuwynu23](https://github.com/marcuwynu23) |
