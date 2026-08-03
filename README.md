@@ -79,6 +79,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Aborlan, Palawan | [betteraborlan.org](https://betteraborlan.org) | [GitHub](https://github.com/BetterAborlan/betteraborlan) | [Facebook](https://www.facebook.com/betteraborlan.org) | 🟡 Work in Progress | [@hmcldryl](https://github.com/hmcldryl) |
 | Quezon City, Metro Manila | - | [GitHub](https://github.com/brixavengoza/betterquezoncity) | - | 🔵 Planned | [@brixavengoza](https://github.com/brixavengoza) |
 | Kabugao, Apayao | - | [GitHub](https://github.com/KuyaLoy/betterkabugao) | - | 🔵 Planned | [@KuyaLoy](https://github.com/KuyaLoy) |
+| Tago, Surigao del Sur | — | — | — | 🔵 Planned | [@ikmespinoza](https://github.com/ikmespinoza) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
