@@ -66,7 +66,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Claver, Surigao del Norte | - | - | - | 🔵 Planned | [@eljohn2001](https://github.com/eljohn2001) |
 | Agoo, La Union | - | - | - | 🔵 Planned | [@glennmarkgarcia](https://github.com/glennmarkgarcia) |
 | Aurora, Zamboanga del Sur | [betteraurora.org](https://betteraurora.org)  | [Github](https://github.com/Jayke770/betteraurora) | - | 🟡 Work in Progress | [@jayke770](https://github.com/jayke770) |
-| Infanta, Quezon | - | - | - | 🔵 Planned | [@davisolpruvnik](https://github.com/davisolpruvnik) |
+| Infanta, Quezon | - | [Github](https://github.com/davisolpruvnik/betterinfanta) | - | 🟡 Work in Progress | [@davisolpruvnik](https://github.com/davisolpruvnik) |
 | Bocaue, Bulacan | - | [Github](https://github.com/ericksondelacruz/betterbocaue) | - | 🟡 Work in Progress | [@ericksondelacruz](https://github.com/ericksondelacruz) |
 | General Mariano Alvarez, Cavite | - | - | - | 🔵 Planned | [@izxclyde](https://github.com/izxclyde) |
 | Meycauayan, Bulacan | - | [Github](https://github.com/shnflrsc/bettermeycauayan) | - | 🟡 Work in Progress | [@shnflrsc](https://github.com/shnflrsc) |
