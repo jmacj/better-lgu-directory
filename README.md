@@ -80,6 +80,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Quezon City, Metro Manila | - | [GitHub](https://github.com/brixavengoza/betterquezoncity) | - | 🔵 Planned | [@brixavengoza](https://github.com/brixavengoza) |
 | Kabugao, Apayao | - | [GitHub](https://github.com/KuyaLoy/betterkabugao) | - | 🔵 Planned | [@KuyaLoy](https://github.com/KuyaLoy) |
 | Tago, Surigao del Sur | — | — | — | 🔵 Planned | [@ikmespinoza](https://github.com/ikmespinoza) |
+| San Mariano, Isabela | — | — | — | 🔵 Planned | [@yazunom](https://github.com/yazunom) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
