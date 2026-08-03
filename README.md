@@ -81,6 +81,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Kabugao, Apayao | - | [GitHub](https://github.com/KuyaLoy/betterkabugao) | - | 🔵 Planned | [@KuyaLoy](https://github.com/KuyaLoy) |
 | Tago, Surigao del Sur | — | — | — | 🔵 Planned | [@ikmespinoza](https://github.com/ikmespinoza) |
 | San Mariano, Isabela | — | — | — | 🔵 Planned | [@yazunom](https://github.com/yazunom) |
+| Pasig City, Metro Manila | — | [Github](https://github.com/ericvelasco-dev/betterpasig) | — | 🔵 Planned | [@ericvelasco-dev](https://github.com/ericvelasco-dev) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
