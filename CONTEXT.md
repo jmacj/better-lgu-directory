@@ -25,5 +25,5 @@ The social network a Social points to (facebook, x, instagram, linkedin, youtube
 _Avoid_: network, provider, site.
 
 **Sync pipeline**:
-The `main` → `main-pages` projection: `scripts/sync-to-data.js` parses the `README.md` table into `_data/lgus.yml`, which `index.md` renders. `README.md` is the source of truth; `_data/lgus.yml` is generated and never hand-edited.
+The `main` → `main-pages` projection, run by `sync-to-pages.yml` on every push to `main`. It generates two files, both written into the same `chore(data): auto-sync` commit and never hand-edited: `scripts/sync-to-data.js` parses the `README.md` table into `_data/lgus.yml`, which `index.md` renders as the directory table; `scripts/crawl-lgu-meta.js` crawls each `🟢 Active` Entry's portal and writes `_data/lgu-meta.yml` (image, title, description, domain, and a stable `order_key`) for every Entry that passes the Featured Portal eligibility predicate, which the hero's Featured card partial reads. `README.md` remains the sole source of truth for Entries; both generated files are derived data.
 _Avoid_: build, import.

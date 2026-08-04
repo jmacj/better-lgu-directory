@@ -1,0 +1,98 @@
+name: Triage Directory PR
+
+# pull_request_target so forks get a write-scoped token. The job checks out the
+# base branch and only ever reads the pull request's README.md as data — no
+# contributor code is executed.
+#
+# workflow_dispatch exists to triage a pull request that was already open when
+# this workflow landed, since nothing re-fires for those on its own.
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: 'Pull request number to triage'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  PR: ${{ github.event.pull_request.number || inputs.pr-number }}
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the pull request is still open
+        id: guard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          state=$(gh pr view "$PR" --repo "${{ github.repository }}" --json state --jq .state)
+          echo "open=$([ "$state" = 'OPEN' ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          echo "Pull request #${PR} is ${state}."
+
+      - name: Checkout
+        if: steps.guard.outputs.open == 'true'
+        uses: actions/checkout@v7
+        with:
+          # Full history so the merge base with the pull request is reachable.
+          fetch-depth: 0
+
+      - name: Read both sides of the diff
+        if: steps.guard.outputs.open == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Resolve the base branch from the pull request itself — entries target
+          # main, but website work targets main-pages.
+          base_ref=$(gh pr view "$PR" --json baseRefName --jq .baseRefName)
+          git fetch --no-tags origin "+refs/heads/${base_ref}:refs/remotes/origin/${base_ref}"
+          git fetch --no-tags origin "+refs/pull/${PR}/head:refs/remotes/pr/head"
+
+          # Diff against the merge base, not the tip of the base branch: an
+          # out-of-date branch would otherwise look like it deleted every entry
+          # merged since it was forked.
+          merge_base=$(git merge-base "refs/remotes/origin/${base_ref}" refs/remotes/pr/head)
+          echo "Comparing ${base_ref} at ${merge_base} against the pull request head."
+
+          git show "${merge_base}:README.md" > "${RUNNER_TEMP}/base-README.md"
+          git show refs/remotes/pr/head:README.md > "${RUNNER_TEMP}/head-README.md"
+
+      - uses: actions/setup-node@v7
+        if: steps.guard.outputs.open == 'true'
+        with:
+          node-version: '24'
+
+      - name: Diff directory entries
+        id: triage
+        if: steps.guard.outputs.open == 'true'
+        env:
+          COMMENT_FILE: ${{ runner.temp }}/triage-comment.md
+        run: node scripts/triage-pr.js "${RUNNER_TEMP}/base-README.md" "${RUNNER_TEMP}/head-README.md"
+
+      - name: Apply labels
+        if: steps.triage.outputs.labels != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr edit "$PR" --add-label "${{ steps.triage.outputs.labels }}"
+
+      - name: Post or update the triage comment
+        if: steps.guard.outputs.open == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          COMMENT_FILE: ${{ runner.temp }}/triage-comment.md
+        run: |
+          [ -s "$COMMENT_FILE" ] || exit 0
+          existing=$(gh api "repos/${REPO}/issues/${PR}/comments?per_page=100" \
+            --jq '[.[] | select(.body | startswith("<!-- lgu-triage-bot -->")) | .id] | first // empty')
+          if [ -n "$existing" ]; then
+            gh api -X PATCH "repos/${REPO}/issues/comments/${existing}" -F body=@"$COMMENT_FILE"
+          else
+            gh pr comment "$PR" --body-file "$COMMENT_FILE"
+          fi

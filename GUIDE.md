@@ -11,7 +11,7 @@ A Better LGU portal is a publicly accessible website that makes local government
 Examples:
 - [bettersolano.org](https://bettersolano.org)
 - [betterbacolod.org](https://betterbacolod.org)
-- [bettercaluan.org](https://bettercalauan.org)
+- [bettercalauan.org](https://bettercalauan.org)
 - [betterormoc.org](https://www.betterormoc.org/en)
 - [betterlb.org](https://betterlb.org)
 - [betterlaspinas.org](https://betterlaspinas.org)

@@ -5,6 +5,12 @@ on:
     branches:
       - main
 
+# Shared with rebuild-featured.yml (#132) so a same-time crawl commit and a
+# no-commit Pages rebuild request can't race each other.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -33,6 +39,10 @@ jobs:
       - name: Generate LGU Data
         run: |
           node scripts/sync-to-data.js
+
+      - name: Generate Featured Portal Metadata
+        run: |
+          node scripts/crawl-lgu-meta.js
 
       - name: Commit and Push to main-pages
         run: |

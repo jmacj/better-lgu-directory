@@ -8,6 +8,23 @@ const VALID_STATUSES = ['🟢 Active', '🟡 Work in Progress', '🔴 Unmaintain
 
 const EMPTY_MARKERS = ['', '-', '—', '–'];
 
+// Secondary tags rendered on a second line of a cell, under the primary value.
+// `⚠️ Stale` marks a Planned entry with no directory activity for over
+// STALE_AFTER_DAYS; `🤝 Open for Adoption` invites a new maintainer to take it
+// over. The two always travel together — see validateLgu.
+const STALE_TAG = '⚠️ Stale';
+const ADOPTION_TAG = '🤝 Open for Adoption';
+const STALE_AFTER_DAYS = 30;
+
+// A cell may stack values on separate lines with <br>. Returns the trimmed,
+// non-empty parts in order, so parts[0] is the cell's primary value.
+function splitCellLines(cell) {
+    return String(cell)
+        .split(/<br\s*\/?>/i)
+        .map(part => part.trim())
+        .filter(part => part !== '');
+}
+
 // Escape a value for safe embedding inside a double-quoted YAML scalar.
 function yamlStr(value) {
     return String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
@@ -63,14 +80,36 @@ function validateLgu(cells, index) {
     if (cells.length < 6) {
         throw new Error(`LGU Table Row ${index + 1} is malformed (missing columns).`);
     }
-    const [name, domain, repo, socialsCell, status, maintainer] = cells;
+    const [name, domain, repo, socialsCell, statusCell, maintainerCell] = cells;
 
     if (!name || name === '—') {
         throw new Error(`LGU Table Row ${index + 1} is missing a name.`);
     }
 
+    const [status, ...statusTags] = splitCellLines(statusCell);
+
     if (!VALID_STATUSES.includes(status)) {
         throw new Error(`LGU Table Row ${index + 1} has an invalid status: "${status}".`);
+    }
+
+    const unknownStatusTag = statusTags.find(tag => tag !== STALE_TAG);
+    if (unknownStatusTag) {
+        throw new Error(`LGU Table Row ${index + 1} has an unknown status tag: "${unknownStatusTag}".`);
+    }
+
+    const stale = statusTags.includes(STALE_TAG);
+    if (stale && status !== '🔵 Planned') {
+        throw new Error(`LGU Table Row ${index + 1} is tagged "${STALE_TAG}" but its status is "${status}" — only 🔵 Planned entries can go stale.`);
+    }
+
+    const maintainerLines = splitCellLines(maintainerCell);
+    const openForAdoption = maintainerLines.includes(ADOPTION_TAG);
+    const maintainer = maintainerLines.filter(line => line !== ADOPTION_TAG).join(' ');
+
+    // Keep the two columns coherent: a stale entry is by definition open for
+    // adoption, and nothing else may carry the adoption call to action.
+    if (stale !== openForAdoption) {
+        throw new Error(`LGU Table Row ${index + 1} must carry "${STALE_TAG}" and "${ADOPTION_TAG}" together (stale=${stale}, open for adoption=${openForAdoption}).`);
     }
 
     const socials = parseSocials(socialsCell);
@@ -84,6 +123,8 @@ function validateLgu(cells, index) {
         repo: normalizeDash(repo),
         socials,
         status,
+        stale,
+        openForAdoption,
         maintainer: normalizeDash(maintainer),
     };
 }
@@ -101,7 +142,7 @@ function formatSocialsYaml(socials) {
     return lines.join('\n');
 }
 
-try {
+function main() {
     console.log('🚀 Starting sync from README.md to LGU Data...');
     const readmeContent = fs.readFileSync(README_PATH, 'utf8');
 
@@ -124,14 +165,32 @@ try {
             `  repo: "${yamlStr(l.repo)}"`,
             formatSocialsYaml(l.socials),
             `  status: "${yamlStr(l.status)}"`,
+            `  stale: ${l.stale}`,
+            `  open_for_adoption: ${l.openForAdoption}`,
             `  maintainer: "${yamlStr(l.maintainer)}"`,
         ].join('\n');
     }).join('\n');
 
     fs.writeFileSync(LGUS_DATA_PATH, lguYaml);
     console.log(`🎉 Success! Data synchronized to ${LGUS_DATA_PATH}`);
-
-} catch (error) {
-    console.error(`\n❌ SYNC FAILED: ${error.message}`);
-    process.exit(1);
 }
+
+if (require.main === module) {
+    try {
+        main();
+    } catch (error) {
+        console.error(`\n❌ SYNC FAILED: ${error.message}`);
+        process.exit(1);
+    }
+}
+
+module.exports = {
+    README_PATH,
+    STALE_TAG,
+    ADOPTION_TAG,
+    STALE_AFTER_DAYS,
+    parseTable,
+    splitCellLines,
+    normalizeDash,
+    validateLgu,
+};

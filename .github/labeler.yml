@@ -1,0 +1,38 @@
+# Path-based labels for pull requests.
+#
+# README.md is deliberately NOT matched here — it holds the directory table,
+# so it is triaged by scripts/triage-pr.js instead (entry:new / entry:update /
+# entry:collision / needs-verification, or docs for prose-only edits).
+
+"entry:template":
+  - changed-files:
+      - any-glob-to-any-file: TEMPLATES.md
+
+site:
+  - changed-files:
+      - any-glob-to-any-file:
+          - _config.yml
+          - _data/**
+          - _includes/**
+          - _layouts/**
+          - assets/**
+          - scripts/sync-to-data.js
+          - "**/*.html"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/labeler.yml
+          - .github/workflows/**
+          - scripts/triage-pr.js
+
+docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/ISSUE_TEMPLATE/**
+          - .github/PULL_REQUEST_TEMPLATE.md
+          - CHANGELOG.md
+          - CODE_OF_CONDUCT.md
+          - CONTEXT.md
+          - CONTRIBUTING.md
+          - GUIDE.md

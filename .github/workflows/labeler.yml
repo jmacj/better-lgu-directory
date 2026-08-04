@@ -1,0 +1,34 @@
+name: Label PR by Path
+
+# pull_request_target is required so the workflow gets a write-scoped token on
+# pull requests opened from forks — which is how every community entry arrives.
+# It runs the base branch's config, never the contributor's code.
+#
+# workflow_dispatch exists to label pull requests that were already open when
+# this workflow landed, since nothing re-fires for those on its own.
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+    inputs:
+      pr-numbers:
+        description: 'Pull request number(s) to label, whitespace-separated'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v7
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          # Empty on pull_request_target, where the action reads the triggering
+          # pull request itself.
+          pr-number: ${{ inputs.pr-numbers }}
+          # Never strip labels a maintainer added by hand.
+          sync-labels: false
