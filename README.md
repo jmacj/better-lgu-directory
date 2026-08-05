@@ -73,7 +73,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Calapan, Oriental Mindoro | [bettercalapan.org](https://bettercalapan.org) | [Github](https://github.com/arvingarciabtw/bettercalapan) | - | 🟡 Work in Progress | [@arvingarciabtw](https://github.com/arvingarciabtw) |
 | Midsayap, North Cotabato | - | - | - | 🔵 Planned | [@PostNZT](https://github.com/PostNZT) |
 | Tandag City, Surigao del Sur | — | [Github](https://github.com/BetterTandag/better-tandag) | — | 🟡 Work in Progress | [@ikmespinoza](https://github.com/ikmespinoza) |
-| Baler, Aurora | - | [Github]((https://github.com/tekwicks/betterbaler)) | - | 🟡 Work in Progress | [@tekwicks](https://github.com/tekwicks) |
+| Baler, Aurora | - | [GitHub](https://github.com/tekwicks/betterbaler) | - | 🟡 Work in Progress | [@tekwicks](https://github.com/tekwicks) |
 | City of Manila, Metro Manila | [bettermanila.org](https://bettermanila.org) | [GitHub](https://github.com/grgdlm/bettermanila) | - | 🟡 Work in Progress | [@grgdlm](https://github.com/grgdlm) |
 | Butuan City, Agusan del Norte | - | - | - | 🔵 Planned | [@stinkymonkeyph](https://github.com/stinkymonkeyph) |
 | Aborlan, Palawan | [betteraborlan.org](https://betteraborlan.org) | [GitHub](https://github.com/BetterAborlan/betteraborlan) | [Facebook](https://www.facebook.com/betteraborlan.org) | 🟡 Work in Progress | [@hmcldryl](https://github.com/hmcldryl) |
