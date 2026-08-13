@@ -83,6 +83,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | San Mariano, Isabela                | -                                                             | -                                                                              | -                                                                  | 🔵 Planned             | [@yazunom](https://github.com/yazunom)                                                                                           |
 | Pasig City, Metro Manila            | -                                                             | [GitHub](https://github.com/ericvelasco-dev/betterpasig)                       | -                                                                  | 🔵 Planned             | [@ericvelasco-dev](https://github.com/ericvelasco-dev)                                                                           |
 | Cavite City, Cavite                 | [bettercavitecity.org](https://bettercavitecity.org)          | -                                                                              | [Facebook](https://www.facebook.com/bettercavitecity.org)          | 🟢 Active              | [@jdsatsatin](https://github.com/jdsatsatin)                                                                                     |
+| Aklan Province | [betteraklan.org](https://betteraklan.org/)  | [GitHub](https://github.com/fr4nc1stein/betteraklan)  | - | 🟢 Active  | [@laet4x](https://github.com/fr4nc1stein/) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
