@@ -85,7 +85,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Cavite City, Cavite                 | [bettercavitecity.org](https://bettercavitecity.org)          | -                                                                              | [Facebook](https://www.facebook.com/bettercavitecity.org)          | 🟢 Active              | [@jdsatsatin](https://github.com/jdsatsatin)                                                                                     |
 | Aklan Province | [betteraklan.org](https://betteraklan.org/)  | [GitHub](https://github.com/fr4nc1stein/betteraklan)  | - | 🟢 Active  | [@laet4x](https://github.com/fr4nc1stein/) |
 | Dumaguete City, Negros Oriental     | -                                                             | -                                                                              | -                                                                  | 🔵 Planned             | [@daveteves](https://github.com/daveteves)            |
-| Paombong, Bulacan     | -                                                             | -                                                                              | -                                                                  | 🔵 Planned             | [@denvdev](https://github.com/denverbaltazar)            |
+| Paombong, Bulacan     | -                                                             | -                                                                              | -                                                                  | 🔵 Planned             | [@denvdev](https://github.com/denvdev)            |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
