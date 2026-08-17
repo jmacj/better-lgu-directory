@@ -86,6 +86,9 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Aklan Province                      | [betteraklan.org](https://betteraklan.org/)                   | [GitHub](https://github.com/fr4nc1stein/betteraklan)                           | -                                                                  | 🟢 Active              | [@laet4x](https://github.com/fr4nc1stein/)                                                                                       |
 | Dumaguete City, Negros Oriental     | -                                                             | -                                                                              | -                                                                  | 🔵 Planned             | [@daveteves](https://github.com/daveteves)                                                                                       |
 | Paombong, Bulacan                   | -                                                             | -                                                                              | -                                                                  | 🔵 Planned             | [@denvdev](https://github.com/denvdev)                                                                                           |
+| Daraga, Albay                       | [betterdaraga.org](https://betterdaraga.org)                  | [GitHub](https://github.com/Dev-Russ-001/betterdaraga)                         |                                                                    | 🟡 Work in Progress    | [@Dev-Russ-001](https://github.com/Dev-Russ-001)
+
+
 
 <!-- SYNC_LGU_TABLE_END -->
 
