@@ -93,7 +93,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Malolos, Bulacan                    | [bettermalolos.org](https://bettermalolos.org/)               | [GitHub](https://github.com/francisdiaz22/bettermalolos)                       | [Facebook](https://www.facebook.com/bettermalolos.org)             | 🟡 Work in Progress    | [@francisdiaz22](https://github.com/francisdiaz22)                                                                               |
 | Maddela, Quirino                    | [bettermaddela.vercel.app](https://bettermaddela.vercel.app/) | [GitHub](https://github.com/Hendrizzzz/bettermaddela)                          | -                                                                  | 🟡 Work in Progress    | [@Hendrizzzz](https://github.com/Hendrizzzz)                                                                                     |
 | Caloocan City, Metro Manila         | -                                                             | -                                                                              | -                                                                  | 🔵 Planned             | [@angelicatanagras](https://github.com/angelicatanagras)                                                                         |
-
+| Zamboanga City | - | [GitHub](https://github.com/RALPH22222/betterzamboangacity) | - | 🟡 Work in Progress | [@RALPH22222](https://github.com/RALPH22222) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
