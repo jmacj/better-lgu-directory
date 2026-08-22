@@ -52,8 +52,19 @@ function git(args) {
 // tags are stripped so they can be judged separately by direction — see
 // isActivity. Presentation-only differences are normalized away first, so a
 // tidy-up pass over the table doesn't read as everyone updating at once:
-// whitespace is collapsed, and every way of writing an empty cell (blank, `-`,
-// `—`, `–`) folds to one marker via normalizeDash.
+// whitespace is collapsed, every way of writing an empty cell (blank, `-`, `—`,
+// `–`) folds to one marker via normalizeDash, and case is folded so relabelling
+// passes like `Github` -> `GitHub` read as the cosmetics they are.
+//
+// Case folding is deliberately lossy: an edit that changes nothing but letter
+// case no longer counts as activity, so a maintainer who only fixes their own
+// capitalization will not reset their clock. That is the safer direction to err.
+// A missed cosmetic edit silently makes an entry look fresher than it is and
+// hides it from the report; a missed real edit only surfaces an entry early,
+// where a human is already reviewing every suggestion by hand.
+//
+// The return value is compared for equality only — never printed — so lowering
+// it costs no legibility in the output.
 function comparableRow(cells) {
     return cells
         .map(cell => normalizeDash(splitCellLines(cell)
@@ -61,7 +72,8 @@ function comparableRow(cells) {
             .join(' ')))
         .join(' | ')
         .replace(/\s+/g, ' ')
-        .trim();
+        .trim()
+        .toLowerCase();
 }
 
 function rowTags(cells) {

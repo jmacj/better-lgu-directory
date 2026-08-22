@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed the sync workflow to push merge commits even when there are no data changes.
 - Fixed a broken Better Solano Starter link and a repository link in the registration instructions.
 - Fixed Las Piñas City's Repository link to point at `betterlaspinas/betterlaspinas` instead of the maintainer's personal fork, so the repository-activity feature reads from the org repo.
+- Fixed `scripts/check-stale.js` reading a case-only relabelling as a real update, which reset an entry's idle clock and hid it from the report. A `Github` → `GitHub` fix in a table-formatting commit had masked Bacoor City as 11 days idle when it had been 37.
 
 ## [1.0.0] - 2026-04-06
 
