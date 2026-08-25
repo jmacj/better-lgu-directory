@@ -25,5 +25,22 @@ The social network a Social points to (facebook, x, instagram, linkedin, youtube
 _Avoid_: network, provider, site.
 
 **Sync pipeline**:
-The `main` → `main-pages` projection, run by `sync-to-pages.yml` on every push to `main`. It generates two files, both written into the same `chore(data): auto-sync` commit and never hand-edited: `scripts/sync-to-data.js` parses the `README.md` table into `_data/lgus.yml`, which `index.md` renders as the directory table; `scripts/crawl-lgu-meta.js` crawls each `🟢 Active` Entry's portal and writes `_data/lgu-meta.yml` (image, title, description, domain, and a stable `order_key`) for every Entry that passes the Featured Portal eligibility predicate, which the hero's Featured card partial reads. `README.md` remains the sole source of truth for Entries; both generated files are derived data.
+The `main` → `main-pages` projection, run by `sync-to-pages.yml` on every push to `main` and monthly on a schedule (#179). It generates data files, all written into the same `chore(data): auto-sync` commit and never hand-edited: `scripts/sync-to-data.js` parses the `README.md` table into `_data/lgus.yml`, which `index.md` renders as the directory table. `scripts/crawl-lgu-meta.js` fetches each `🟢 Active` Entry's portal exactly once (#179) and judges the fetched page against two independent predicates: the Featured Portal predicate writes `_data/lgu-meta.yml` (image, title, description, domain, and a stable `order_key`) for every Entry that passes it, read by the hero's Featured card partial; the Logo predicate writes `_data/lgu-logos.yml` (domain, resolved icon source/size/bytes) plus the resolved icon bytes themselves at `assets/images/lgu-logos/<domain>.<ext>`, for every Entry that resolves a Logo per the chain in `scripts/crawl-lgu-meta.js`, read by the home page's Logo band. `README.md` remains the sole source of truth for Entries; all generated files/assets are derived data.
 _Avoid_: build, import.
+
+**Repository activity**:
+Public GitHub signals about an Entry's linked repository (last commit, and
+later contributors/stars), fetched **in the browser at view time** and never
+stored in this repository — the opposite of the sync pipeline above.
+`scripts/sync-to-data.js` only emits the structured `owner`/`repo` (and a
+pinned `/tree/<ref>` where present) that the browser module needs to know
+which repo to ask about; it never fetches anything itself.
+_Avoid_: portal activity (the portal is the site; this measures the repo),
+stale (a different clock — see below).
+
+The existing `⚠️ Stale` tag means *no directory activity on the Entry row*
+(the README table itself hasn't been touched) for over 30 days, judged by
+hand during a maintainer review. Repository activity measures the *linked
+repo's* commit history instead, is computed automatically at view time, and
+is informational only — it must never be conflated with `⚠️ Stale` or drive
+it.

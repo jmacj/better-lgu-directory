@@ -36,6 +36,35 @@ function normalizeDash(value) {
     return EMPTY_MARKERS.includes((value || '').trim()) ? '-' : value;
 }
 
+// Matches a github.com repo URL, optionally pinned to a branch via /tree/<ref>
+// (bettercalauan/bettercalauan is the one Entry in the table that does this —
+// see GUIDE.md/CONTRIBUTING.md context in #162). Anything else — a non-GitHub
+// host, a user/org profile URL with no repo segment, a malformed link — does
+// not match, and the Entry is treated as having no parseable repo.
+const GITHUB_REPO_URL_PATTERN = /^https:\/\/github\.com\/([^\/\s#?]+)\/([^\/\s#?]+?)(?:\/tree\/([^\s#?]+?))?\/?$/;
+
+// Parses the Repository cell's `[label](url)` markdown link into structured
+// owner/repo/ref, for #162 (repository activity). This is the *only* place
+// that reads a repo URL out of README.md presentation markup — everything
+// downstream (the browser module, index.md) consumes the structured fields
+// this produces, never the raw cell text. Returns null for "-" cells, cells
+// with no link, or links that aren't github.com repo URLs.
+function parseRepoCell(cell) {
+    if (EMPTY_MARKERS.includes((cell || '').trim())) {
+        return null;
+    }
+    const linkMatch = /\[[^\]]*\]\(([^)]+)\)/.exec(cell);
+    if (!linkMatch) {
+        return null;
+    }
+    const urlMatch = GITHUB_REPO_URL_PATTERN.exec(linkMatch[1].trim());
+    if (!urlMatch) {
+        return null;
+    }
+    const [, owner, repo, ref] = urlMatch;
+    return ref ? { owner, repo, ref } : { owner, repo };
+}
+
 function parseTable(content, startMarker, endMarker) {
     const startIdx = content.indexOf(startMarker);
     const endIdx = content.indexOf(endMarker);
@@ -117,10 +146,15 @@ function validateLgu(cells, index) {
         throw new Error(`LGU Table Row ${index + 1} has a Socials cell with no valid [label](url) links: "${socialsCell}".`);
     }
 
+    const repoInfo = parseRepoCell(repo);
+
     return {
         name,
         domain: normalizeDash(domain),
         repo: normalizeDash(repo),
+        repoOwner: repoInfo ? repoInfo.owner : null,
+        repoName: repoInfo ? repoInfo.repo : null,
+        repoRef: repoInfo ? repoInfo.ref || null : null,
         socials,
         status,
         stale,
@@ -159,10 +193,18 @@ function main() {
 
     // Write to YAML
     const lguYaml = lgus.map(l => {
+        const repoIdentityLines = l.repoOwner
+            ? [
+                `  repo_owner: "${yamlStr(l.repoOwner)}"`,
+                `  repo_name: "${yamlStr(l.repoName)}"`,
+                ...(l.repoRef ? [`  repo_ref: "${yamlStr(l.repoRef)}"`] : []),
+            ]
+            : [];
         return [
             `- name: "${yamlStr(l.name)}"`,
             `  domain: "${yamlStr(l.domain)}"`,
             `  repo: "${yamlStr(l.repo)}"`,
+            ...repoIdentityLines,
             formatSocialsYaml(l.socials),
             `  status: "${yamlStr(l.status)}"`,
             `  stale: ${l.stale}`,
@@ -192,5 +234,6 @@ module.exports = {
     parseTable,
     splitCellLines,
     normalizeDash,
+    parseRepoCell,
     validateLgu,
 };

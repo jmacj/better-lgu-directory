@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # 16:00 UTC = 00:00 Asia/Manila (#179) — re-crawls Logos/Featured metadata
+    # monthly even with no push to main, so a portal that ships a new favicon
+    # (or lets an old one bit-rot past the byte ceiling) gets picked up
+    # without waiting on unrelated directory activity. Same boundary as
+    # rebuild-featured.yml's daily schedule.
+    - cron: '0 16 1 * *'
 
 # Shared with rebuild-featured.yml (#132) so a same-time crawl commit and a
 # no-commit Pages rebuild request can't race each other.
@@ -46,7 +53,7 @@ jobs:
 
       - name: Commit and Push to main-pages
         run: |
-          git add _data/
+          git add _data/ assets/images/lgu-logos/
           if git diff --staged --quiet; then
             echo "No data changes — pushing merge only"
           else

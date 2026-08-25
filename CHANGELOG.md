@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Discord reporting integration guide**: `GUIDE.md` now documents how maintainers can funnel citizen reports, feedback, or logs into the BetterGov.ph Discord via webhook — including the bot-protection prerequisite (reCAPTCHA, Turnstile, or rate-limiting) required before the mods issue a webhook URL.
 - **37 new LGU entries**: Indang, General Santos City, Dasmariñas City, General Trias, San Pedro, Cabuyao City, Tuguegarao, Davao City, Allen, Aparri, San Pablo, Binangonan, Taytay, Tanza, Olongapo City, Biñan, Tanay, Puerto Princesa City, Iligan City, Hilongos, Limay, Antique, Libmanan, Teresa, Atimonan, San Pascual, Dinalupihan, Calamba, Angeles City, Cabanatuan City, Piat, Cebu City, Alaminos City, Koronadal City, Santo Tomas, Legazpi, and Santa Barbara.
 - **Automated pull request triage**: incoming pull requests are now labelled automatically. Changed paths set `entry:template`, `site`, `ci`, and `docs`; a diff of the directory table against the merge base sets `entry:new`, `entry:update`, `entry:collision`, and `needs-verification`, and posts a comment listing any already-registered LGU and the reachability of every new link. Links are reported as clickable links grouped by the column they came from — domain, repository, socials, or maintainer — each with a note on what verifying that particular kind of link means. Pull requests left on `needs-changes` for 14 days go stale and close after a further 7.
+- **Repository activity, data enabling step (#162)**: `scripts/sync-to-data.js` now parses each Entry's Repository cell into structured `repo_owner`/`repo_name` (and `repo_ref` for the one pinned `/tree/<ref>` link) in `_data/lgus.yml`, so the upcoming client-side "last updated" feature can identify a repo without regexing presentation markup. Offline, no network calls — `check-stale.js` and `triage-pr.js` are unaffected. The website-side rendering lands separately on `main-pages`.
 
 ### Changed
 - Renamed the `Facebook` column to `Socials`, and updated `CONTRIBUTING.md`, the pull request template, and the update-entry issue template to match (socials are comma-separated).
@@ -29,6 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed social icons not rendering inside Markdown table cells, and restored their hover colors.
 - Fixed the sync workflow to push merge commits even when there are no data changes.
 - Fixed a broken Better Solano Starter link and a repository link in the registration instructions.
+- Fixed Las Piñas City's Repository link to point at `betterlaspinas/betterlaspinas` instead of the maintainer's personal fork, so the repository-activity feature reads from the org repo.
+- Fixed `scripts/check-stale.js` reading a case-only relabelling as a real update, which reset an entry's idle clock and hid it from the report. A `Github` → `GitHub` fix in a table-formatting commit had masked Bacoor City as 11 days idle when it had been 37.
 
 ## [1.0.0] - 2026-04-06
 
