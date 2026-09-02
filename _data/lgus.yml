@@ -579,12 +579,14 @@
   maintainer: "[@0phl](https://github.com/0phl)"
 - name: "Lucena City, Quezon"
   domain: "-"
-  repo: "-"
+  repo: "[GitHub](https://github.com/RyannKim327/BetterLucenaCity)"
+  repo_owner: "RyannKim327"
+  repo_name: "BetterLucenaCity"
   socials: []
-  status: "🔵 Planned"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@marrrkkk](https://github.com/marrrkkk)"
+  maintainer: "[@RyannKim327](https://github.com/RyannKim327), [@marrrkkk](https://github.com/marrrkkk)"
 - name: "Carigara, Leyte"
   domain: "-"
   repo: "-"
