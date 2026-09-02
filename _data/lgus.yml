@@ -1003,3 +1003,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@migi-macati](https://github.com/migi-macati)"
+- name: "San Carlos City, Pangasinan"
+  domain: "-"
+  repo: "[GitHub](https://github.com/edisonmalasan/bettersancarlos)"
+  repo_owner: "edisonmalasan"
+  repo_name: "bettersancarlos"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@edisonmalasan](https://github.com/edisonmalasan)"
