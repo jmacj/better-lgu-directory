@@ -983,3 +983,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@gab26g](https://github.com/gab26g)"
+- name: "Makati City, Metro Manila"
+  domain: "-"
+  repo: "[GitHub](https://github.com/migi-macati/bettermakati)"
+  repo_owner: "migi-macati"
+  repo_name: "bettermakati"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@migi-macati](https://github.com/migi-macati)"
