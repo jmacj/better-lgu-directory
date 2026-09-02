@@ -505,10 +505,15 @@
   open_for_adoption: true
   maintainer: "[@PatrickTomas2](https://github.com/PatrickTomas2)"
 - name: "Legazpi, Albay"
-  domain: "-"
-  repo: "-"
-  socials: []
-  status: "🔵 Planned"
+  domain: "[betterlegazpi.org](https://www.betterlegazpi.org/)"
+  repo: "[GitHub](https://github.com/bpbelen/betterlegazpi)"
+  repo_owner: "bpbelen"
+  repo_name: "betterlegazpi"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterlegazpi"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@bpbelen](https://github.com/bpbelen)"

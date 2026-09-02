@@ -23,7 +23,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 63170
-  order_key: "0032"
+  order_key: "0033"
   shuffle_key: "0009"
 - name: "Ormoc City, Leyte"
   domain: "betterormoc.org"
@@ -42,7 +42,7 @@
   px: "vector"
   bytes: 1078872
   order_key: "0022"
-  shuffle_key: "0031"
+  shuffle_key: "0032"
 - name: "Las Piñas City, Metro Manila"
   domain: "betterlaspinas.org"
   file: "betterlaspinas.org.svg"
@@ -95,7 +95,7 @@
   source: "rel-icon-svg"
   px: "317"
   bytes: 137916
-  order_key: "0033"
+  order_key: "0034"
   shuffle_key: "0001"
 - name: "Allen, Northern Samar"
   domain: "betterallen.org"
@@ -141,7 +141,7 @@
   px: "3264"
   bytes: 658852
   order_key: "0015"
-  shuffle_key: "0033"
+  shuffle_key: "0034"
 - name: "Iligan City, Lanao del Norte"
   domain: "betteriligancity.org"
   file: "betteriligancity.org.png"
@@ -169,6 +169,15 @@
   bytes: 9522
   order_key: "0000"
   shuffle_key: "0000"
+- name: "Legazpi, Albay"
+  domain: "betterlegazpi.org"
+  file: "betterlegazpi.org.png"
+  ext: "png"
+  source: "rel-icon"
+  px: "2000"
+  bytes: 235050
+  order_key: "0032"
+  shuffle_key: "0030"
 - name: "Aurora, Zamboanga del Sur"
   domain: "betteraurora.org"
   file: "betteraurora.org.svg"
@@ -231,7 +240,7 @@
   px: "vector"
   bytes: 602
   order_key: "0013"
-  shuffle_key: "0032"
+  shuffle_key: "0033"
 - name: "Cavite City, Cavite"
   domain: "bettercavitecity.org"
   file: "bettercavitecity.org.png"
@@ -240,7 +249,7 @@
   px: "192"
   bytes: 16275
   order_key: "0002"
-  shuffle_key: "0030"
+  shuffle_key: "0031"
 - name: "Aklan Province"
   domain: "betteraklan.org"
   file: "betteraklan.org.png"
