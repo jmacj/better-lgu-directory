@@ -1,4 +1,4 @@
-# BetterGov.ph — LGU Directory
+<img width="2248" height="632" alt="image" src="https://github.com/user-attachments/assets/c6c956c5-cd62-499d-b0fb-67f680822ce4" /># BetterGov.ph — LGU Directory
 
 A community-maintained directory of **Better LGU** digital transparency portals across the Philippines — find an existing portal before you build, contribute to one, or start your own. Each entry links to the LGU's portal, source repository, and social pages, along with its current maintenance status.
 
@@ -105,6 +105,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Samal, Bataan                       | -                                                             | -                                                                              | -                                                                                                                                                           | 🔵 Planned             | [@gab26g](https://github.com/gab26g)                                                                                             |
 | Makati City, Metro Manila           | -                                                             | [GitHub](https://github.com/migi-macati/bettermakati)                          | -                                                                                                                                                           | 🟡 Work in Progress    | [@migi-macati](https://github.com/migi-macati)                                                                                   |
 | San Carlos City, Pangasinan | - | [GitHub](https://github.com/edisonmalasan/bettersancarlos) | - | 🟡 Work in Progress | [@edisonmalasan](https://github.com/edisonmalasan) |
+| Pagbilao, Quezon | - | - | - | 🔵 Planned | [@rallion90](https://github.com/rallion90) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
