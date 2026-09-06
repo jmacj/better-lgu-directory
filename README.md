@@ -105,6 +105,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Samal, Bataan                       | -                                                             | -                                                                              | -                                                                                                                                                           | 🔵 Planned             | [@gab26g](https://github.com/gab26g)                                                                                             |
 | Makati City, Metro Manila           | -                                                             | [GitHub](https://github.com/migi-macati/bettermakati)                          | -                                                                                                                                                           | 🟡 Work in Progress    | [@migi-macati](https://github.com/migi-macati)                                                                                   |
 | San Carlos City, Pangasinan | - | [GitHub](https://github.com/edisonmalasan/bettersancarlos) | - | 🟡 Work in Progress | [@edisonmalasan](https://github.com/edisonmalasan) |
+| Tabaco City, Albay | - | [GitHub](https://github.com/johnjoshualipio/bettertabaco) | - | 🟡 Work in Progress | [@johnjoshualipio](https://github.com/johnjoshualipio) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
