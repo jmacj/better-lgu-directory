@@ -5,7 +5,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 3971
-  order_key: "0031"
+  order_key: "0032"
   shuffle_key: "0012"
 - name: "Bacolod City, Negros Occidental"
   domain: "betterbacolod.org"
@@ -23,7 +23,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 63170
-  order_key: "0035"
+  order_key: "0036"
   shuffle_key: "0011"
 - name: "Ormoc City, Leyte"
   domain: "betterormoc.org"
@@ -41,8 +41,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 1078872
-  order_key: "0024"
-  shuffle_key: "0034"
+  order_key: "0025"
+  shuffle_key: "0035"
 - name: "Las Piñas City, Metro Manila"
   domain: "betterlaspinas.org"
   file: "betterlaspinas.org.svg"
@@ -50,7 +50,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 107303
-  order_key: "0026"
+  order_key: "0027"
   shuffle_key: "0029"
 - name: "Cainta, Rizal"
   domain: "bettercainta.org"
@@ -68,7 +68,7 @@
   source: "rel-icon"
   px: "966"
   bytes: 370044
-  order_key: "0025"
+  order_key: "0026"
   shuffle_key: "0024"
 - name: "General Santos City, South Cotabato"
   domain: "bettergensan.org"
@@ -86,7 +86,7 @@
   source: "rel-icon"
   px: "630"
   bytes: 541251
-  order_key: "0032"
+  order_key: "0033"
   shuffle_key: "0010"
 - name: "Cabuyao City, Laguna"
   domain: "bettercabuyao.org"
@@ -95,7 +95,7 @@
   source: "rel-icon-svg"
   px: "317"
   bytes: 137916
-  order_key: "0036"
+  order_key: "0037"
   shuffle_key: "0002"
 - name: "Allen, Northern Samar"
   domain: "betterallen.org"
@@ -113,7 +113,7 @@
   source: "rel-icon"
   px: "1000"
   bytes: 168890
-  order_key: "0030"
+  order_key: "0031"
   shuffle_key: "0006"
 - name: "San Pablo, Laguna"
   domain: "bettersanpablo.org"
@@ -141,7 +141,7 @@
   px: "3264"
   bytes: 658852
   order_key: "0017"
-  shuffle_key: "0036"
+  shuffle_key: "0037"
 - name: "Iligan City, Lanao del Norte"
   domain: "betteriligancity.org"
   file: "betteriligancity.org.png"
@@ -158,7 +158,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 59724
-  order_key: "0027"
+  order_key: "0028"
   shuffle_key: "0028"
 - name: "Alaminos City, Pangasinan"
   domain: "betteralaminoscity.org"
@@ -176,15 +176,15 @@
   source: "rel-icon"
   px: "2000"
   bytes: 235050
-  order_key: "0034"
-  shuffle_key: "0032"
+  order_key: "0035"
+  shuffle_key: "0033"
 - name: "Mapandan, Pangasinan"
   domain: "bettermapandan.org"
-  file: "bettermapandan.org.svg"
-  ext: "svg"
-  source: "rel-icon-svg"
-  px: "vector"
-  bytes: 85771
+  file: "bettermapandan.org.png"
+  ext: "png"
+  source: "manifest"
+  px: "512"
+  bytes: 232182
   order_key: "0013"
   shuffle_key: "0007"
 - name: "Aurora, Zamboanga del Sur"
@@ -230,7 +230,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 1452
-  order_key: "0028"
+  order_key: "0029"
   shuffle_key: "0016"
 - name: "Aborlan, Palawan"
   domain: "betteraborlan.org"
@@ -249,7 +249,7 @@
   px: "vector"
   bytes: 602
   order_key: "0015"
-  shuffle_key: "0035"
+  shuffle_key: "0036"
 - name: "Cavite City, Cavite"
   domain: "bettercavitecity.org"
   file: "bettercavitecity.org.png"
@@ -258,7 +258,7 @@
   px: "192"
   bytes: 16275
   order_key: "0003"
-  shuffle_key: "0033"
+  shuffle_key: "0034"
 - name: "Aklan Province"
   domain: "betteraklan.org"
   file: "betteraklan.org.png"
@@ -302,7 +302,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 519
-  order_key: "0029"
+  order_key: "0030"
   shuffle_key: "0019"
 - name: "Baguio City, Benguet"
   domain: "betterbaguio.org"
@@ -311,7 +311,7 @@
   source: "rel-icon"
   px: "512"
   bytes: 151638
-  order_key: "0033"
+  order_key: "0034"
   shuffle_key: "0009"
 - name: "Trece Martires City, Cavite"
   domain: "bettertrecemartires.org"
@@ -322,6 +322,15 @@
   bytes: 740048
   order_key: "0006"
   shuffle_key: "0015"
+- name: "Makati City, Metro Manila"
+  domain: "bettermakati.org"
+  file: "bettermakati.org.svg"
+  ext: "svg"
+  source: "rel-icon-svg"
+  px: "vector"
+  bytes: 2566
+  order_key: "0024"
+  shuffle_key: "0032"
 - name: "San Carlos City, Pangasinan"
   domain: "bettersancarlos.vercel.app"
   file: "bettersancarlos.vercel.app.svg"
