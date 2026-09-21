@@ -119,6 +119,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | City of Santa Rosa, Laguna          | -                                                             | [GitHub](https://github.com/jericizon/bettersantarosacity)                     | -                                                                                                                                                           | 🔵 Planned             | [@jericizon](https://github.com/jericizon)                                                                                       |
 | Roxas City, Capiz                   | -                                                             | [GitHub](https://github.com/chariz1101/betterroxas)                            | -                                                                                                                                                           | 🔵 Planned             | [@chariz1101](https://github.com/chariz1101)                                                                                     |
 
+| Camalaniugan, Cagayan               | -                                                              | https://github.com/Blank-Szacharine/bettercamalanuigan      | https://www.facebook.com/profile.php?id=100064690959177                                                                                                                 |  🟡 Work in Progress              | [@Blank-Szacharine](https://github.com/Blank-Szacharine)                                                                        |
+
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
