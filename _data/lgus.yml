@@ -1051,6 +1051,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@edisonmalasan](https://github.com/edisonmalasan)"
+- name: "Pagbilao, Quezon"
+  domain: "[betterpagbilao.org](https://betterpagbilao.org)"
+  repo: "[GitHub](https://github.com/rallion90/better-pagbilao)"
+  repo_owner: "rallion90"
+  repo_name: "better-pagbilao"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@rallion90](https://github.com/rallion90)"
 - name: "Mandaue City, Cebu"
   domain: "-"
   repo: "-"
