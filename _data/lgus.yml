@@ -1234,3 +1234,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@JeremyDFabian](https://github.com/JeremyDFabian)"
+- name: "Catbalogan City, Samar"
+  domain: "-"
+  repo: "[GitHub](https://github.com/hplarozner/better-lgu-catbalogan)"
+  repo_owner: "hplarozner"
+  repo_name: "better-lgu-catbalogan"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@hplarozner](https://github.com/hplarozner)"
