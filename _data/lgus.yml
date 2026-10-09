@@ -1056,7 +1056,10 @@
   repo: "[GitHub](https://github.com/rallion90/better-pagbilao)"
   repo_owner: "rallion90"
   repo_name: "better-pagbilao"
-  socials: []
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterpagbilao"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
