@@ -129,6 +129,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Valenzuela City, Metro Manila       | -                                                             | [GitHub](https://github.com/JeremyDFabian/bettervalenzuela)                    | -                                                                                                                                                           | 🔵 Planned             | [@JeremyDFabian](https://github.com/JeremyDFabian)                                                                               |
 | Catbalogan City, Samar       | -                                                             | [GitHub](https://github.com/hplarozner/better-lgu-catbalogan)                    | -                                                                                                                                                           | 🔵 Planned             | [@hplarozner](https://github.com/hplarozner)                                                                               |
 
+| Marawi City, Lanao del Sur | - | - | [Facebook](https://facebook.com/bettermarawi.org) | 🔵 Planned | [@mamangcao](https://github.com/mamangcao) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
