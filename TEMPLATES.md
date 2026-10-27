@@ -11,6 +11,7 @@ These templates are provided by the BetterGov.ph community to help you build a t
 | Better Solano Starter    | React + TypeScript | [GitHub](https://github.com/BetterSolano/bettersolano) | Starter template based on the BetterSolano implementation   |
 | Better Los Baños Starter | React + TypeScript | [GitHub](https://github.com/BetterLosBanos/betterlb)    | Starter template based on the BetterLosBaños implementation |
 | Better Local Gov         | React + TypeScript | [GitHub](https://github.com/iyanski/betterlocalgov)     | Local Government Website Starter Kit                        |
+| BetterCavinti Civic Portal | React + TypeScript | [GitHub](https://github.com/klnwlks/bettercavinti) | Bilingual static-first portal with a validated data pack and documented LGU configuration; MIT code, CC BY 4.0 documentation. |
 
 ---
 
