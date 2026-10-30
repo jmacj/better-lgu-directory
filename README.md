@@ -147,6 +147,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Talibon, Bohol       | -                                                             | [GitHub](https://github.com/jessie-melendres/bettertalibon)                    | -                                                                          |  🟡 Work in Progress           | [@jessie-melendres](https://github.com/jessie-melendres)                                                                               |
 | Tampakan, South Cotabato | - | [GitHub](https://github.com/jamez78/bettertampakan) | - | 🟡 Work in Progress | [@jamez78](https://github.com/jamez78) |
 | Pasay City, Metro Manila            | -                                                             | [GitHub](https://github.com/slvdrvncntjvr/betterpasay)                              | -                                                                                                                                                           | 🔵 Planned             | [@slvdrvncntjvr](https://github.com/slvdrvncntjvr)                                                                               |
+| Tayabas, Quezon| - | [GitHub](https://github.com/arksmc/better-tayabas) | [Facebook](https://www.facebook.com/mark.cascara) | 🔵 Planned | [@arksmc](https://github.com/arksmc) |
+
 
 <!-- SYNC_LGU_TABLE_END -->
 
