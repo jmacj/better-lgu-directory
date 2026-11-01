@@ -147,7 +147,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Talibon, Bohol       | -                                                             | [GitHub](https://github.com/jessie-melendres/bettertalibon)                    | -                                                                          |  🟡 Work in Progress           | [@jessie-melendres](https://github.com/jessie-melendres)                                                                               |
 | Tampakan, South Cotabato | - | [GitHub](https://github.com/jamez78/bettertampakan) | - | 🟡 Work in Progress | [@jamez78](https://github.com/jamez78) |
 | Pasay City, Metro Manila            | -                                                             | [GitHub](https://github.com/slvdrvncntjvr/betterpasay)                              | -                                                                                                                                                           | 🔵 Planned             | [@slvdrvncntjvr](https://github.com/slvdrvncntjvr)                                                                               |
-| Taal, Batangas | [betterbatangas.org](https://betterbatangas.org), [taal.betterbatangas.org](https://taal.betterbatangas.org) | [GitHub](https://github.com/pogicodes/batangas-transparency-portal) | - | 🟡 Work in Progress | [@pogicodes](https://github.com/pogicodes) |
+| Batangas Province | [betterbatangas.org](https://betterbatangas.org) | [GitHub](https://github.com/pogicodes/batangas-transparency-portal) | - | 🟢 Active | [@pogicodes](https://github.com/pogicodes) |
+| Taal, Batangas | [taal.betterbatangas.org](https://taal.betterbatangas.org) | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | - | 🟡 Work in Progress | [@pogicodes](https://github.com/pogicodes) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
