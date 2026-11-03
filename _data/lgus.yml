@@ -1534,3 +1534,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@VLDCNDN](https://github.com/VLDCNDN)"
+- name: "San Jose Del Monte, Bulacan"
+  domain: "-"
+  repo: "[GitHub](https://github.com/Better-SJDM/better-sjdm)"
+  repo_owner: "Better-SJDM"
+  repo_name: "better-sjdm"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@zchuwie](https://github.com/zchuwie)"
