@@ -1544,3 +1544,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@zchuwie](https://github.com/zchuwie)"
+- name: "Urdaneta City, Pangasinan"
+  domain: "-"
+  repo: "[GitHub](https://github.com/robotinkers/betterurdaneta)"
+  repo_owner: "robotinkers"
+  repo_name: "betterurdaneta"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@robotinkers](https://github.com/robotinkers)"
