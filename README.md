@@ -151,6 +151,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Lumban, Laguna | - | [GitHub](https://github.com/avoabadier/betterlumban) | - | 🔵 Planned | [@avoabadier](https://github.com/avoabadier) |
 | Panabo City, Davao Del Norte | [citizensconnectnabotech.vercel.app](https://citizensconnectnabotech.vercel.app/) | [GitHub](https://github.com/ProjectFuritsu/citizensconnectnabotech) | - | 🟡 Work in Progress | [@ProjectFuritsu](https://github.com/ProjectFuritsu/) |
 | Obando, Bulacan | [betterobando.vercel.app](https://betterobando.vercel.app) | [GitHub](https://github.com/MigzAndroidz/better-obando) | [Facebook](https://www.facebook.com/BetterObando/) | 🟢 Active | [@MigzAndroidz](https://github.com/MigzAndroidz) |
+| Bayombong, Nueva Vizcaya | - | [GitHub](https://github.com/betterbayombong/betterbayombong) | - | 🟡 Work in Progress | [@rppf](https://github.com/rppf), [@h4ckedneko](https://github.com/h4ckedneko) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
