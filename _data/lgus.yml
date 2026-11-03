@@ -1498,3 +1498,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ProjectFuritsu](https://github.com/ProjectFuritsu/)"
+- name: "Obando, Bulacan"
+  domain: "[betterobando.vercel.app](https://betterobando.vercel.app)"
+  repo: "[GitHub](https://github.com/MigzAndroidz/better-obando)"
+  repo_owner: "MigzAndroidz"
+  repo_name: "better-obando"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/BetterObando/"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@MigzAndroidz](https://github.com/MigzAndroidz)"
