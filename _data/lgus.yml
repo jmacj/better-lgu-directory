@@ -332,8 +332,8 @@
   maintainer: "[@s4burieru](https://github.com/s4burieru)"
 - name: "Puerto Princesa City, Palawan"
   domain: "[betterpuertoprincesa.org](https://betterpuertoprincesa.org)"
-  repo: "[GitHub](https://github.com/hmcldryl/betterpuertoprincesa)"
-  repo_owner: "hmcldryl"
+  repo: "[GitHub](https://github.com/BetterPuertoPrincesa/betterpuertoprincesa)"
+  repo_owner: "BetterPuertoPrincesa"
   repo_name: "betterpuertoprincesa"
   socials:
     - platform: "facebook"
