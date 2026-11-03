@@ -1388,6 +1388,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@mamangcao](https://github.com/mamangcao)"
+- name: "Llanera, Nueva Ecija"
+  domain: "-"
+  repo: "[GitHub](https://github.com/heyerikfelipe/BetterLlanera)"
+  repo_owner: "heyerikfelipe"
+  repo_name: "BetterLlanera"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@heyerikfelipe](https://github.com/heyerikfelipe)"
 - name: "Lapu Lapu City, Cebu"
   domain: "[betterlapulapu.org](https://betterlapulapu.org)"
   repo: "[GitHub](https://github.com/BetterLapuLapu/betterlapulapu)"
