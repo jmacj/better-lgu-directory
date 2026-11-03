@@ -159,6 +159,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Bukidnon Province | [betterbukidnon.org](https://betterbukidnon.org) | [GitHub](https://github.com/Better-Bukidnon) | - | 🟢 Active | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 | Lopez, Quezon | - | [GitHub](https://github.com/StanleyPangaruy/betterlopez) | - | 🟡 Work in Progress | [@StanleyPangaruy](https://github.com/StanleyPangaruy) |
 
+| Your LGU Name | [betterhilongos.org](https://betterhilongos.org) | [GitHub]([https://github.com/you/repo](https://github.com/fgelsano/betterhilongos)) | 🔵 Planned | [@fgelsano]([https://github.com/yourhandle](https://github.com/fgelsano)) |
+
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
