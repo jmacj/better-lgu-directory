@@ -896,7 +896,10 @@
   repo: "[GitHub](https://github.com/kaarlosasiang/bettermaticity)"
   repo_owner: "kaarlosasiang"
   repo_name: "bettermaticity"
-  socials: []
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://web.facebook.com/profile.php?id=61595995200616"
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
