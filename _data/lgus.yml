@@ -1575,3 +1575,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@DMNCDLPRT](https://github.com/DMNCDLPRT)"
+- name: "Lopez, Quezon"
+  domain: "-"
+  repo: "[GitHub](https://github.com/StanleyPangaruy/betterlopez)"
+  repo_owner: "StanleyPangaruy"
+  repo_name: "betterlopez"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@StanleyPangaruy](https://github.com/StanleyPangaruy)"
