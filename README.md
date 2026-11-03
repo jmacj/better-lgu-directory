@@ -154,6 +154,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Bayombong, Nueva Vizcaya | - | [GitHub](https://github.com/betterbayombong/betterbayombong) | - | 🟡 Work in Progress | [@rppf](https://github.com/rppf), [@h4ckedneko](https://github.com/h4ckedneko) |
 | Catanduanes Province | [bettercatanduanes.org](https://bettercatanduanes.org) | [GitHub](https://github.com/VLDCNDN/bettercatanduanes) | [Facebook](https://www.facebook.com/bettercatanduanes) | 🟢 Active | [@VLDCNDN](https://github.com/VLDCNDN) |
 | San Jose Del Monte, Bulacan | - | [GitHub](https://github.com/Better-SJDM/better-sjdm) | - | 🟡 Work in Progress | [@zchuwie](https://github.com/zchuwie) |
+| Urdaneta City, Pangasinan | - | [GitHub](https://github.com/robotinkers/betterurdaneta) | - | 🟡 Work in Progress | [@robotinkers](https://github.com/robotinkers) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
