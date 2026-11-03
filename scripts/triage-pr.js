@@ -19,6 +19,47 @@
  */
 
 const fs = require('fs');
+const dns = require('dns').promises;
+const net = require('net');
+
+// Blocks the PR-triage bot from being used as an SSRF proxy: a contributor
+// could otherwise point a table link at localhost, a cloud metadata address,
+// or any other internal host and have the CI runner fetch it on their behalf.
+function isPrivateAddress(address) {
+    if (net.isIP(address) === 0) {
+        return true;
+    }
+    if (address === '::1' || /^f[cd]/i.test(address) || /^fe80:/i.test(address)) {
+        return true;
+    }
+    const parts = address.split('.').map(Number);
+    if (parts.length === 4) {
+        const [a, b] = parts;
+        if (a === 10 || a === 127 || a === 0) return true;
+        if (a === 169 && b === 254) return true;
+        if (a === 172 && b >= 16 && b <= 31) return true;
+        if (a === 192 && b === 168) return true;
+    }
+    return false;
+}
+
+async function isAllowedUrl(url) {
+    let parsed;
+    try {
+        parsed = new URL(url);
+    } catch {
+        return false;
+    }
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+        return false;
+    }
+    try {
+        const { address } = await dns.lookup(parsed.hostname);
+        return !isPrivateAddress(address);
+    } catch {
+        return false;
+    }
+}
 
 const START_MARKER = '<!-- SYNC_LGU_TABLE_START -->';
 const END_MARKER = '<!-- SYNC_LGU_TABLE_END -->';
@@ -168,6 +209,10 @@ function diffRows(baseRows, headRows) {
 }
 
 async function checkLink(url) {
+    if (!(await isAllowedUrl(url))) {
+        return { status: null, error: 'blocked: not a publicly routable http(s) host' };
+    }
+
     const attempt = async (method) => {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), LINK_TIMEOUT_MS);
