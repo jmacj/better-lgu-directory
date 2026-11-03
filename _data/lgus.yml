@@ -1488,3 +1488,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@avoabadier](https://github.com/avoabadier)"
+- name: "Panabo City, Davao Del Norte"
+  domain: "[citizensconnectnabotech.vercel.app](https://citizensconnectnabotech.vercel.app/)"
+  repo: "[GitHub](https://github.com/ProjectFuritsu/citizensconnectnabotech)"
+  repo_owner: "ProjectFuritsu"
+  repo_name: "citizensconnectnabotech"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ProjectFuritsu](https://github.com/ProjectFuritsu/)"
