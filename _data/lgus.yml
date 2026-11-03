@@ -39,12 +39,12 @@
   open_for_adoption: false
   maintainer: "[@xpall](https://github.com/xpall)"
 - name: "Cavinti, Laguna"
-  domain: "-"
+  domain: "[bettercavinti.org](https://bettercavinti.org)"
   repo: "[GitHub](https://github.com/klnwlks/bettercavinti)"
   repo_owner: "klnwlks"
   repo_name: "bettercavinti"
   socials: []
-  status: "🟡 Work in Progress"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@klnwlks](https://github.com/klnwlks)"
