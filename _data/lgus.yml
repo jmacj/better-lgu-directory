@@ -1521,3 +1521,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rppf](https://github.com/rppf), [@h4ckedneko](https://github.com/h4ckedneko)"
+- name: "Catanduanes Province"
+  domain: "[bettercatanduanes.org](https://bettercatanduanes.org)"
+  repo: "[GitHub](https://github.com/VLDCNDN/bettercatanduanes)"
+  repo_owner: "VLDCNDN"
+  repo_name: "bettercatanduanes"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettercatanduanes"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@VLDCNDN](https://github.com/VLDCNDN)"
