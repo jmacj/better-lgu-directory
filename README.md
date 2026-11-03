@@ -156,6 +156,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | San Jose Del Monte, Bulacan | - | [GitHub](https://github.com/Better-SJDM/better-sjdm) | - | 🟡 Work in Progress | [@zchuwie](https://github.com/zchuwie) |
 | Urdaneta City, Pangasinan | - | [GitHub](https://github.com/robotinkers/betterurdaneta) | - | 🟡 Work in Progress | [@robotinkers](https://github.com/robotinkers) |
 | Ilocos Norte Province               | -                                                             | [GitHub](https://github.com/russellraed/betterilocosnorte)                         | -                                                                                                                                                           | 🟡 Work in Progress    | [@russellraed](https://github.com/russellraed)                                                                                   |
+| Bukidnon Province | [betterbukidnon.org](https://betterbukidnon.org) | [GitHub](https://github.com/Better-Bukidnon) | - | 🟢 Active | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
