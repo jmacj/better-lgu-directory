@@ -1554,3 +1554,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@robotinkers](https://github.com/robotinkers)"
+- name: "Ilocos Norte Province"
+  domain: "-"
+  repo: "[GitHub](https://github.com/russellraed/betterilocosnorte)"
+  repo_owner: "russellraed"
+  repo_name: "betterilocosnorte"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@russellraed](https://github.com/russellraed)"
