@@ -275,7 +275,7 @@
   open_for_adoption: false
   maintainer: "[@ChristiannWick](https://github.com/ChristiannWick)"
 - name: "Binangonan, Rizal"
-  domain: "-"
+  domain: "[betterbinangonan.org](https://betterbinangonan.org)"
   repo: "[GitHub](https://github.com/betterbinangonan-devs/betterbinangonan)"
   repo_owner: "betterbinangonan-devs"
   repo_name: "betterbinangonan"
@@ -283,7 +283,7 @@
     - platform: "facebook"
       label: "Facebook"
       url: "https://www.facebook.com/BetterBinangonan.org"
-  status: "🟡 Work in Progress"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals)"
