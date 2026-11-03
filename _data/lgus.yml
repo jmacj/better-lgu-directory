@@ -1468,3 +1468,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@slvdrvncntjvr](https://github.com/slvdrvncntjvr)"
+- name: "Lumban, Laguna"
+  domain: "-"
+  repo: "[GitHub](https://github.com/avoabadier/betterlumban)"
+  repo_owner: "avoabadier"
+  repo_name: "betterlumban"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@avoabadier](https://github.com/avoabadier)"
