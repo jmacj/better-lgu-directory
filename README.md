@@ -149,6 +149,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tampakan, South Cotabato | - | [GitHub](https://github.com/jamez78/bettertampakan) | - | 🟡 Work in Progress | [@jamez78](https://github.com/jamez78) |
 | Pasay City, Metro Manila            | -                                                             | [GitHub](https://github.com/slvdrvncntjvr/betterpasay)                              | -                                                                                                                                                           | 🔵 Planned             | [@slvdrvncntjvr](https://github.com/slvdrvncntjvr)                                                                               |
 | Lumban, Laguna | - | [GitHub](https://github.com/avoabadier/betterlumban) | - | 🔵 Planned | [@avoabadier](https://github.com/avoabadier) |
+| Panabo City, Davao Del Norte | [citizensconnectnabotech.vercel.app](https://citizensconnectnabotech.vercel.app/) | [GitHub](https://github.com/ProjectFuritsu/citizensconnectnabotech) | - | 🟡 Work in Progress | [@ProjectFuritsu](https://github.com/ProjectFuritsu/) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
