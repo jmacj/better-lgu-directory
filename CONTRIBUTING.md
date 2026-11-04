@@ -47,12 +47,45 @@ You do not need to have a finished portal to register. If you are planning to bu
 
 ---
 
+## Adding a Budget Portal
+
+Budget transparency portals are listed in `BUDGET.md` and shown at [lgu.bettergov.ph/BUDGET](https://lgu.bettergov.ph/BUDGET), separately from the Better LGU portals in `README.md`. See [How to Start Your Budget Transparency Portal](BUDGET_GUIDE.md) if you haven't built one yet.
+
+Unlike a Better LGU portal, a budget portal doesn't need to be registered in advance. The template takes minutes to set up, so add it once it's live.
+
+1. **Fork this repository.**
+
+2. **Edit `BUDGET.md`** and add a row to the Directory table:
+
+   ```markdown
+   | Your LGU Name | [budget.yourdomain.org](https://budget.yourdomain.org) | 🧩 Integrated or 🏛️ Standalone | [GitHub](https://github.com/you/repo) or - | [@yourhandle](https://github.com/yourhandle) |
+   ```
+
+3. **Choose the type:**
+
+   | Type          | When to use                                                                     |
+   |---------------|---------------------------------------------------------------------------------|
+   | 🧩 Integrated | The budget portal is a subdomain or path of your LGU's Better LGU portal         |
+   | 🏛️ Standalone | The budget portal is a site of its own, with no Better LGU portal behind it      |
+
+   For `🧩 Integrated`, the **LGU** cell must match your LGU's name in `README.md` exactly, so the website can link it to your Better LGU portal (otherwise that link shows `-`). If your Better LGU portal isn't in `README.md` yet, add it in the same PR. Copy **Maintainer/s** from your LGU's `README.md` row.
+
+   There is no Status column: the **Portal** link is required, and a budget portal is listed only while it's live. If one goes offline, open a PR removing its row. Budget portals don't take the `⚠️ Stale` or `🤝 Open for Adoption` tags.
+
+4. **Open a Pull Request** with the title format:
+
+   ```
+   Add [LGU Name] budget portal to directory
+   ```
+
+---
+
 ## Updating an Existing Entry
 
 If your LGU's status, domain, repository, or maintainer has changed:
 
 1. Fork this repository.
-2. Edit the relevant row in `README.md`.
+2. Edit the relevant row in `README.md` (or `BUDGET.md` for a budget portal).
 3. Open a PR with the title format:
 
    ```
@@ -86,7 +119,7 @@ The tags are applied by the repository maintainers during periodic reviews, neve
 If you have built a reusable starter template:
 
 1. Fork this repository.
-2. Add a row to the templates table in both `README.md` and `TEMPLATES.md`.
+2. Add a row to the templates table in both `README.md` and `TEMPLATES.md`. Budget portal templates go in [`BUDGET_TEMPLATES.md`](BUDGET_TEMPLATES.md) only.
 3. Open a PR with the title format:
 
    ```
@@ -105,6 +138,7 @@ Some labels are applied automatically, so do not worry about setting them yourse
 | `entry:update` | Your PR changes an existing LGU row. |
 | `entry:collision` | The LGU you added is already in the directory — see the comment on your PR. |
 | `needs-verification` | Your PR introduces new links; a maintainer will check them before merging. |
+| `entry:budget` | Your PR changes the Budget Portal table in `BUDGET.md`. |
 
 A maintainer may then add:
 
