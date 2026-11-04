@@ -6,7 +6,15 @@
 
 "entry:template":
   - changed-files:
-      - any-glob-to-any-file: TEMPLATES.md
+      - any-glob-to-any-file:
+          - TEMPLATES.md
+          - BUDGET_TEMPLATES.md
+
+# BUDGET.md holds the Budget Portal table. scripts/triage-pr.js only diffs
+# README.md, so budget PRs get this path label instead of entry:new/update.
+"entry:budget":
+  - changed-files:
+      - any-glob-to-any-file: BUDGET.md
 
 site:
   - changed-files:
@@ -17,6 +25,7 @@ site:
           - _layouts/**
           - assets/**
           - scripts/sync-to-data.js
+          - scripts/sync-budget-to-data.js
           - "**/*.html"
 
 ci:
@@ -36,3 +45,4 @@ docs:
           - CONTEXT.md
           - CONTRIBUTING.md
           - GUIDE.md
+          - BUDGET_GUIDE.md
