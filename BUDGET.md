@@ -20,7 +20,8 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Silang, Cavite               | [bettersilang.org](https://www.bettersilang.org)                                 | 🏛️ Standalone | [GitHub](https://github.com/0xDataBear/bettersilang)                          | [@0xDataBear](https://github.com/0xDataBear)                                           |
 | Batangas Province            | [betterbatangas.org](https://betterbatangas.org)                                 | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal)           | [@pogicodes](https://github.com/pogicodes)                                             |
 | Pampanga Province            | [betterpampanga.vercel.app](https://betterpampanga.vercel.app)                   | 🏛️ Standalone | [GitHub](https://github.com/Pseudoman21/betterpampanga)                       | [@Pseudoman21](https://github.com/Pseudoman21)                                         |
-| Taal, Batangas               | [taal.betterbatangas.org](https://taal.betterbatangas.org)                       | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | [@pogicodes](https://github.com/pogicodes)                                             |
+| Taal, Batangas               | [taal.betterbatangas.org](https://taal.betterbatangas.org)                       | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | [@pogicodes](https://github.com/pogicodes)                                             |3
+| Rosario, Batangas            | [rosario-betterbatangas.vercel.app](https://rosario-betterbatangas.vercel.app)   | 🏛️ Standalone | [GitHub](https://github.com/BetterWatchMen/better-rosario)                     | [@BetterWatchMen](https://github.com/BetterWatchMen)                                   |
 
 <!-- SYNC_BUDGET_TABLE_END -->
 
