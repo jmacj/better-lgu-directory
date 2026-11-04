@@ -1,5 +1,5 @@
 // Projects the Budget Portal table in BUDGET.md into _data/budget_portals.yml,
-// rendered by budget.md on main-pages at lgu.bettergov.ph/budget/.
+// rendered by budget-directory.md on main-pages at lgu.bettergov.ph/BUDGET/.
 //
 // BUDGET.md is the sole source of truth for Budget Portals, the same way
 // README.md is for Entries. An `🧩 Integrated` Budget Portal belongs to a

@@ -21,4 +21,4 @@ If you have built a reusable budget portal template that others can fork:
 3. Add a row to the table above.
 4. Open a PR with the title: `Add budget template — [Template Name]`
 
-A fork configured for one LGU isn't a template. Register it in the [Budget Portal Directory](https://lgu.bettergov.ph/budget) instead.
+A fork configured for one LGU isn't a template. Register it in the [Budget Portal Directory](https://lgu.bettergov.ph/BUDGET) instead.
