@@ -7,6 +7,7 @@ describe('BetterMC public portal', () => {
     render(<MemoryRouter><App /></MemoryRouter>)
     expect(screen.getByText(/Independent public information platform/)).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /Malaybalay public information/i })).toBeInTheDocument()
+    expect(screen.getByLabelText(/Malaybalay time/i)).toBeInTheDocument()
     expect(screen.getByText('Not separately reported')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /Operating income by source/i })).toBeInTheDocument()
     expect(screen.getByText('₱1,188,506,575.00')).toBeInTheDocument()

@@ -18,6 +18,8 @@ Updated: **2026-11-04**
 - All 46 DILG-listed Punong Barangay names plus valid published phone/email fields
 - Layered City Hall hero background; the former image carousel has been removed
 - Scope-labeled BAC procurement source cards that distinguish bids, awards, and completion evidence
+- Live Malaybalay date and time in the top utility bar on every page
+- Compact disclosure index rows replacing the oversized decorative disclosure card
 
 ## Real limitations — not presented as completed
 

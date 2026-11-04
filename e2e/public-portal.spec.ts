@@ -3,7 +3,8 @@ import { expect, test } from '@playwright/test'
 test('core public routes are navigable and do not overflow', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { name: /Malaybalay public information/i })).toBeVisible()
-  await expect(page.getByText(/Malaybalay time/i).first()).toBeVisible()
+  await expect(page.locator('.independence-bar .city-clock')).toBeVisible()
+  await expect(page.locator('.site-footer .city-clock')).toHaveCount(0)
   await expect(page.getByRole('heading', { name: /Where the money came from/i })).toBeVisible()
   await page.getByRole('link', { name: /Explore transparency/i }).click()
   await expect(page.getByRole('heading', { name: /Public records/i })).toBeVisible()

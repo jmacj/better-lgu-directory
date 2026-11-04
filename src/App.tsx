@@ -54,7 +54,7 @@ function Header() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to main content</a>
-      <div className="independence-bar">Independent public information platform <span>Not an official City Government website</span></div>
+      <div className="independence-bar"><div className="container independence-inner"><p>Independent public information platform <span>Not an official City Government website</span></p><MalaybalayClock /></div></div>
       <header className="site-header">
         <div className="container header-inner">
           <Brand />
@@ -77,7 +77,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
-        <div><Brand /><p>Public information should be accessible. Public spending should be understandable.</p><MalaybalayClock /></div>
+        <div><Brand /><p>Public information should be accessible. Public spending should be understandable.</p></div>
         <div><h2>Platform</h2><Link to="/about">About & methodology</Link><Link to="/transparency">Data sources</Link><a href="https://github.com/lordzxxxx/bettermalaybalay" target="_blank" rel="noreferrer">Contribute on GitHub</a></div>
         <div><h2>Official sources</h2><a href="https://sakata.malaybalaycity.gov.ph/" target="_blank" rel="noreferrer">Malaybalay City Government</a><a href="https://lgu.bettergov.ph/" target="_blank" rel="noreferrer">BetterGov LGU directory</a></div>
       </div>
@@ -175,11 +175,11 @@ function HomePage() {
     </section>
     <section className="section container">
       <SectionHeading eyebrow="Transparency center" title="Start with the original record">BetterMC organizes official listings without turning allocations into claims of spending or missing files into claims of noncompliance.</SectionHeading>
-      <div className="feature-grid">
-        <Link className="feature-card feature-primary" to="/transparency"><span className="icon-box"><FileCheck2 /></span><small>Full disclosure portal</small><h3>Browse public documents by year, quarter, and category.</h3><p>Source-listed financial, procurement, utilization, staffing and GAD records.</p><span className="text-link">Browse records <ArrowRight /></span></Link>
-        <div className="feature-stack">
-          <a className="feature-card" href="/#financial-snapshot"><BarChart3 /><div><small>Financial breakdown</small><h3>2025 Q2 figures with context</h3><p>Review income sources, service-area spending, non-operating expenditures, and cash movement from the original statement.</p></div></a>
-          <Link className="feature-card" to="/participate"><Database /><div><small>Correction desk</small><h3>Help improve the record</h3><p>Submit a source-backed correction or report a broken official link.</p></div></Link>
+      <div className="transparency-actions">
+        <Link className="disclosure-row" to="/transparency"><span className="disclosure-icon"><FileCheck2 /></span><span className="disclosure-copy"><small>Full disclosure portal</small><strong>Browse public documents</strong><em>Filter financial, procurement, utilization, staffing, and GAD records by year and quarter.</em></span><span className="disclosure-meta"><b>{availableDisclosures} entries</b><small>Source-listed in this portal</small></span><ArrowRight aria-hidden="true" /></Link>
+        <div className="supporting-links">
+          <a href="/#financial-snapshot"><BarChart3 /><span><small>Financial breakdown</small><strong>Read the 2025 Q2 figures with context</strong></span><ArrowRight /></a>
+          <Link to="/participate"><Database /><span><small>Correction desk</small><strong>Submit a source-backed correction</strong></span><ArrowRight /></Link>
         </div>
       </div>
     </section>
