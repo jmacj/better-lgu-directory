@@ -17,7 +17,7 @@ These templates help you publish a budget transparency portal for your LGU quick
 If you have built a reusable budget portal template that others can fork:
 
 1. Make sure your repository is public, and its `README.md` explains setup and deployment.
-2. Make sure it reads from the [BetterGov.ph Budget API](https://budget.bettergov.ph/docs) and keeps the rules in [Step 4 of the guide](BUDGET_GUIDE.md#step-4--keep-the-templates-rules).
+2. Make sure it reads from the [BetterGov.ph Budget API](https://budget.bettergov.ph/docs) and keeps the rules in [Keep the Numbers Honest](BUDGET_GUIDE.md#keep-the-numbers-honest).
 3. Add a row to the table above.
 4. Open a PR with the title: `Add budget template — [Template Name]`
 

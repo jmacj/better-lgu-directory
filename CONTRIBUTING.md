@@ -54,7 +54,7 @@ Unlike a Better LGU portal, a budget portal doesn't need to be registered in adv
 2. **Edit `BUDGET.md`** and add a row to the Directory table:
 
    ```markdown
-   | Your LGU Name | [budget.yourdomain.org](https://budget.yourdomain.org) or - | 🧩 Integrated or 🏛️ Standalone | [GitHub](https://github.com/you/repo) or - | 🟢 Active | [@yourhandle](https://github.com/yourhandle) |
+   | Your LGU Name | [budget.yourdomain.org](https://budget.yourdomain.org) | 🧩 Integrated or 🏛️ Standalone | [GitHub](https://github.com/you/repo) or - | [@yourhandle](https://github.com/yourhandle) |
    ```
 
 3. **Choose the type:**
@@ -66,7 +66,7 @@ Unlike a Better LGU portal, a budget portal doesn't need to be registered in adv
 
    For `🧩 Integrated`, the **LGU** cell must match your LGU's name in `README.md` exactly. If your Better LGU portal isn't in `README.md` yet, add it in the same PR.
 
-   Use `🟢 Active` for a live portal. The other statuses work the same as for LGU entries — `🟡 Work in Progress` if you want to list it before launch, `🔴 Unmaintained` if it stops being updated. Budget portals don't take the `⚠️ Stale` or `🤝 Open for Adoption` tags.
+   There is no Status column: the **Portal** link is required, and a budget portal is listed only while it's live. If one goes offline, open a PR removing its row. Budget portals don't take the `⚠️ Stale` or `🤝 Open for Adoption` tags.
 
 4. **Open a Pull Request** with the title format:
 
