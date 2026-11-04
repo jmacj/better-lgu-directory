@@ -70,10 +70,35 @@ test('integrated row whose Entry has no domain gets "-"', () => {
     assert.strictEqual(p.parentDomain, '-');
 });
 
-test('integrated row with no matching README Entry fails', () => {
-    assert.throws(() => syncBudget(budget(
+// console.warn is expected in the fallback cases below; silence it so test
+// output stays readable, and capture it so the warning itself is asserted.
+function withWarnings(fn) {
+    const original = console.warn;
+    const warnings = [];
+    console.warn = (msg) => warnings.push(String(msg));
+    try {
+        return { result: fn(), warnings };
+    } finally {
+        console.warn = original;
+    }
+}
+
+test('integrated row with no matching README Entry falls back to "-" with a warning', () => {
+    const { result: [p], warnings } = withWarnings(() => syncBudget(budget(
         `| Nowhere City | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | - |`,
-    ), README), /not an LGU in README\.md/);
+    ), README));
+    assert.strictEqual(p.parentDomain, '-');
+    assert.ok(warnings.some(w => w.includes('Nowhere City')), 'expected a warning naming the LGU');
+});
+
+test('unreadable or empty README falls back to "-" for every parent', () => {
+    for (const readme of ['', 'no markers here']) {
+        const { result: [p], warnings } = withWarnings(() => syncBudget(budget(
+            `| Los Baños, Laguna | [budget.betterlb.org](https://budget.betterlb.org) | ${INTEGRATED} | - | - |`,
+        ), readme));
+        assert.strictEqual(p.parentDomain, '-');
+        assert.ok(warnings.some(w => w.includes('Could not read Entries')));
+    }
 });
 
 test('standalone row needs no README Entry', () => {

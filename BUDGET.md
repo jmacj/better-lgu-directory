@@ -37,7 +37,7 @@ There is no status column: a budget portal is listed once it's live, and its row
 | 🧩 Integrated | Part of the LGU's Better LGU portal — a subdomain (`budget.betterlb.org`) or a path (`bettercatanduanes.org/transparency`) |
 | 🏛️ Standalone | A budget portal on its own, with no Better LGU portal behind it (`bettersilang.org`)                                      |
 
-An `🧩 Integrated` row's **LGU** must match that LGU's name in the [Better LGU Directory](README.md) exactly — the website links the two entries together, and the sync fails if no match is found. Register the Better LGU portal first if it isn't listed yet. Copy an Integrated row's **Maintainer/s** from that LGU's README row.
+An `🧩 Integrated` row's **LGU** must match that LGU's name in the [Better LGU Directory](README.md) exactly — the website uses it to link the budget portal to its Better LGU portal. If no match is found, the sync logs a warning and the Better LGU Portal column shows `-`. Register the Better LGU portal first if it isn't listed yet. Copy an Integrated row's **Maintainer/s** from that LGU's README row.
 
 ---
 

@@ -64,7 +64,7 @@ Unlike a Better LGU portal, a budget portal doesn't need to be registered in adv
    | 🧩 Integrated | The budget portal is a subdomain or path of your LGU's Better LGU portal         |
    | 🏛️ Standalone | The budget portal is a site of its own, with no Better LGU portal behind it      |
 
-   For `🧩 Integrated`, the **LGU** cell must match your LGU's name in `README.md` exactly. If your Better LGU portal isn't in `README.md` yet, add it in the same PR. Copy **Maintainer/s** from your LGU's `README.md` row.
+   For `🧩 Integrated`, the **LGU** cell must match your LGU's name in `README.md` exactly, so the website can link it to your Better LGU portal (otherwise that link shows `-`). If your Better LGU portal isn't in `README.md` yet, add it in the same PR. Copy **Maintainer/s** from your LGU's `README.md` row.
 
    There is no Status column: the **Portal** link is required, and a budget portal is listed only while it's live. If one goes offline, open a PR removing its row. Budget portals don't take the `⚠️ Stale` or `🤝 Open for Adoption` tags.
 

@@ -4,7 +4,8 @@
 // BUDGET.md is the sole source of truth for Budget Portals, the same way
 // README.md is for Entries. An `🧩 Integrated` Budget Portal belongs to a
 // Better LGU Entry: its LGU cell must match that Entry's name in README.md
-// exactly, and the Entry's Domain is copied in as `parent_domain`. Its
+// exactly, and the Entry's Domain is copied in as `parent_domain` — falling
+// back to "-" with a warning if the Entry or README can't be found. Its
 // Maintainer/s cell is copied by hand from the Entry's README row. Offline,
 // no network calls.
 //
@@ -39,11 +40,35 @@ const VALID_TYPES = [INTEGRATED, STANDALONE];
 // Status column. The Portal cell must therefore hold a link.
 const MARKDOWN_LINK = /\[[^\]]+\]\([^)\s]+\)/;
 
+const NO_PARENT = '-';
+
 // Builds name → Entry from the README table, reusing the directory's own
-// validator so a budget sync never accepts a README the main sync would reject.
+// validator. The README only feeds the derived `parent_domain`, so a README
+// that is missing or fails to parse must not block the budget sync: warn once
+// and return null, and every Integrated row falls back to "-".
 function indexEntries(readmeContent) {
-    const entries = parseTable(readmeContent, LGU_START, LGU_END, 'README.md').map(validateLgu);
-    return new Map(entries.map(entry => [entry.name, entry]));
+    try {
+        const entries = parseTable(readmeContent, LGU_START, LGU_END, 'README.md').map(validateLgu);
+        return new Map(entries.map(entry => [entry.name, entry]));
+    } catch (error) {
+        console.warn(`⚠️  Could not read Entries from README.md (${error.message}) — Better LGU Portal links fall back to "${NO_PARENT}".`);
+        return null;
+    }
+}
+
+// The Better LGU Portal shown beside an Integrated row, copied from its README
+// Entry's Domain. Every failure mode degrades to "-" with a warning instead of
+// failing the sync: no README, no matching Entry, or an Entry with no domain.
+function resolveParentDomain(type, name, row, entriesByName) {
+    if (type !== INTEGRATED || entriesByName === null) {
+        return NO_PARENT;
+    }
+    const entry = entriesByName.get(name);
+    if (!entry) {
+        console.warn(`⚠️  ${row}: "${name}" is "${INTEGRATED}" but has no Entry in README.md with that exact name — its Better LGU Portal shows "${NO_PARENT}".`);
+        return NO_PARENT;
+    }
+    return normalizeDash(entry.domain);
 }
 
 function validateBudgetPortal(cells, index, entriesByName) {
@@ -66,11 +91,7 @@ function validateBudgetPortal(cells, index, entriesByName) {
         throw new Error(`${row} (${name}) needs a live portal link in the Portal column, e.g. [budget.example.org](https://budget.example.org). Budget portals are added once they are live.`);
     }
 
-    const entry = entriesByName.get(name);
-    if (type === INTEGRATED && !entry) {
-        throw new Error(`${row} is "${INTEGRATED}" but "${name}" is not an LGU in README.md — match the Entry's name exactly, or register the Better LGU portal first.`);
-    }
-    if (type === STANDALONE && entry) {
+    if (type === STANDALONE && entriesByName && entriesByName.has(name)) {
         // Not fatal: an LGU can have a Better LGU portal and a separately-run
         // budget site. Flag it so a reviewer can decide.
         console.warn(`⚠️  ${row}: "${name}" is "${STANDALONE}" but has a Better LGU Entry in README.md — should it be "${INTEGRATED}"?`);
@@ -83,7 +104,7 @@ function validateBudgetPortal(cells, index, entriesByName) {
         portal,
         type,
         integrated: type === INTEGRATED,
-        parentDomain: type === INTEGRATED ? entry.domain : '-',
+        parentDomain: resolveParentDomain(type, name, row, entriesByName),
         repo: normalizeDash(repo),
         repoOwner: repoInfo ? repoInfo.owner : null,
         repoName: repoInfo ? repoInfo.repo : null,
@@ -123,10 +144,13 @@ function syncBudget(budgetContent, readmeContent) {
 
 function main() {
     console.log('🚀 Starting sync from BUDGET.md to Budget Portal Data...');
-    const portals = syncBudget(
-        fs.readFileSync(BUDGET_PATH, 'utf8'),
-        fs.readFileSync(README_PATH, 'utf8'),
-    );
+    let readmeContent = '';
+    try {
+        readmeContent = fs.readFileSync(README_PATH, 'utf8');
+    } catch (error) {
+        // indexEntries() then warns and every parent falls back to "-".
+    }
+    const portals = syncBudget(fs.readFileSync(BUDGET_PATH, 'utf8'), readmeContent);
     console.log(`✅ Validated ${portals.length} Budget Portal entries.`);
 
     fs.mkdirSync(path.dirname(BUDGET_DATA_PATH), { recursive: true });
