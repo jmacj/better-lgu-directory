@@ -1,7 +1,7 @@
 ---
 layout: default
 title: BetterGov.ph — LGU Budget Transparency Portal Directory
-permalink: /budget
+permalink: /BUDGET
 ---
 A community-maintained directory of **budget transparency portals** for Philippine LGUs — sites that show citizens every budget project for one province, city, or municipality, built on the public [BetterGov.ph Budget API](https://budget.bettergov.ph/docs) behind the national [budget.bettergov.ph](https://budget.bettergov.ph).
 
@@ -33,7 +33,7 @@ A budget portal is either part of an LGU's [Better LGU portal]({{ site.baseurl }
 
 | LGU | Budget Portal | Type | Better LGU Portal | Repository | Maintainer/s |
 |-----|---------------|------|-------------------|------------|--------------|
-{% for p in site.data.budget_portals %}| {{ p.name }} | {{ p.portal }} | {{ p.type }} | {{ p.parent_domain }} | {{ p.repo }}{% if p.repo_owner %}<br><span class="repo-activity" data-repo="{{ p.repo_owner }}/{{ p.repo_name }}"></span>{% endif %} | {{ p.maintainer }} |
+{% for p in site.data.budget_portals %}| {{ p.name }} | {{ p.portal }} | {{ p.type }} | {{ p.parent_domain | default: "-" }} | {{ p.repo }}{% if p.repo_owner %}<br><span class="repo-activity" data-repo="{{ p.repo_owner }}/{{ p.repo_name }}"></span>{% endif %} | {{ p.maintainer }} |
 {% endfor %}
 
 </div>

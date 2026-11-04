@@ -23,7 +23,7 @@ defaults:
       title: Budget Portal Templates
 
 exclude:
-  # Source table for /budget (budget-directory.md renders it from _data).
+  # Source table for /BUDGET (budget-directory.md renders it from _data).
   - "BUDGET.md"
   - ".github"
   - ".idea"
