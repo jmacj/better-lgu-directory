@@ -47,12 +47,14 @@ You do not need to have a finished portal to register. If you are planning to bu
 
 Budget transparency portals are listed in `BUDGET.md` and shown at [lgu.bettergov.ph/budget](https://lgu.bettergov.ph/budget), separately from the Better LGU portals in `README.md`. See [How to Start Your Budget Transparency Portal](BUDGET_GUIDE.md) if you haven't built one yet.
 
+Unlike a Better LGU portal, a budget portal doesn't need to be registered in advance. The template takes minutes to set up, so add it once it's live.
+
 1. **Fork this repository.**
 
 2. **Edit `BUDGET.md`** and add a row to the Directory table:
 
    ```markdown
-   | Your LGU Name | [budget.yourdomain.org](https://budget.yourdomain.org) or - | 🧩 Integrated or 🏛️ Standalone | [GitHub](https://github.com/you/repo) or - | 🔵 Planned | [@yourhandle](https://github.com/yourhandle) |
+   | Your LGU Name | [budget.yourdomain.org](https://budget.yourdomain.org) or - | 🧩 Integrated or 🏛️ Standalone | [GitHub](https://github.com/you/repo) or - | 🟢 Active | [@yourhandle](https://github.com/yourhandle) |
    ```
 
 3. **Choose the type:**
@@ -64,7 +66,7 @@ Budget transparency portals are listed in `BUDGET.md` and shown at [lgu.bettergo
 
    For `🧩 Integrated`, the **LGU** cell must match your LGU's name in `README.md` exactly. If your Better LGU portal isn't in `README.md` yet, add it in the same PR.
 
-   Statuses are the same as for LGU entries. Budget portals don't take the `⚠️ Stale` or `🤝 Open for Adoption` tags.
+   Use `🟢 Active` for a live portal. The other statuses work the same as for LGU entries — `🟡 Work in Progress` if you want to list it before launch, `🔴 Unmaintained` if it stops being updated. Budget portals don't take the `⚠️ Stale` or `🤝 Open for Adoption` tags.
 
 4. **Open a Pull Request** with the title format:
 

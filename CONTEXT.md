@@ -25,7 +25,7 @@ The social network a Social points to (facebook, x, instagram, linkedin, youtube
 _Avoid_: network, provider, site.
 
 **Budget Portal**:
-A Philippine LGU's budget transparency site, built on the BetterGov.ph Budget API — one row in the Budget Portal table in `BUDGET.md`, rendered at `lgu.bettergov.ph/budget/`. Either `🧩 Integrated` (a subdomain or path of an Entry's portal; its LGU cell must match that Entry's name in `README.md`, and the Entry's Domain is derived as `parent_domain`) or `🏛️ Standalone` (no Entry behind it). Separate from Entries: no Socials, no `⚠️ Stale`/`🤝 Open for Adoption` tags.
+A Philippine LGU's budget transparency site, built on the BetterGov.ph Budget API — one row in the Budget Portal table in `BUDGET.md`, rendered at `lgu.bettergov.ph/budget/`. Either `🧩 Integrated` (a subdomain or path of an Entry's portal; its LGU cell must match that Entry's name in `README.md`, and the Entry's Domain is derived as `parent_domain`) or `🏛️ Standalone` (no Entry behind it). Separate from Entries: no Socials, no `⚠️ Stale`/`🤝 Open for Adoption` tags, and no `🔵 Planned` status — a Budget Portal is added once it exists, with no advance registration.
 _Avoid_: budget entry, transparency entry (an Entry is always a README row).
 
 **Sync pipeline**:

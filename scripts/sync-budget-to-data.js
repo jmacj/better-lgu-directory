@@ -35,6 +35,11 @@ const INTEGRATED = '🧩 Integrated';
 const STANDALONE = '🏛️ Standalone';
 const VALID_TYPES = [INTEGRATED, STANDALONE];
 
+// A budget portal is listed once it exists: the template goes live in minutes,
+// so there is no advance-registration step and no `🔵 Planned` status.
+const PLANNED = '🔵 Planned';
+const BUDGET_STATUSES = VALID_STATUSES.filter(status => status !== PLANNED);
+
 // Builds name → Entry from the README table, reusing the directory's own
 // validator so a budget sync never accepts a README the main sync would reject.
 function indexEntries(readmeContent) {
@@ -61,8 +66,11 @@ function validateBudgetPortal(cells, index, entriesByName) {
     // Budget Portals carry no secondary tags (⚠️ Stale / 🤝 Open for Adoption
     // are Entry-only), so the status cell must be exactly one badge.
     const statusLines = splitCellLines(statusCell);
-    if (statusLines.length !== 1 || !VALID_STATUSES.includes(statusLines[0])) {
-        throw new Error(`${row} (${name}) has an invalid status: "${statusCell}".`);
+    if (statusLines.length !== 1 || !BUDGET_STATUSES.includes(statusLines[0])) {
+        const hint = statusLines[0] === PLANNED
+            ? ' Budget portals are added once they are live — use 🟡 Work in Progress or 🟢 Active.'
+            : '';
+        throw new Error(`${row} (${name}) has an invalid status: "${statusCell}".${hint}`);
     }
     const status = statusLines[0];
 
@@ -148,6 +156,7 @@ if (require.main === module) {
 module.exports = {
     INTEGRATED,
     STANDALONE,
+    BUDGET_STATUSES,
     validateBudgetPortal,
     syncBudget,
     toYaml,

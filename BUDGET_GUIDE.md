@@ -2,6 +2,8 @@
 
 This guide walks you through publishing a budget transparency portal for your local government unit (LGU) — a site that shows citizens every budget project for one province, city, or municipality, with links to the source documents behind each figure.
 
+It's a much shorter road than a full [Better LGU portal](GUIDE.md). The official template pulls every figure from the BetterGov.ph Budget API, so there is no data to gather or publish yourself: fork it, pick your LGU, deploy, and add it to the directory once it's live. You don't need to register first.
+
 ---
 
 ## What Is a Budget Transparency Portal?
@@ -25,15 +27,11 @@ Integrated is the default recommendation: it keeps one home for your LGU's civic
 
 ---
 
-## Step 1 — Search the Directories First
+## Step 1 — Check the Directories
 
-Check both the [Budget Portal Directory](https://lgu.bettergov.ph/budget) and the [Better LGU Directory](https://lgu.bettergov.ph/) for your LGU. If someone is already building a budget portal for it, reach out to the maintainer listed — join that effort instead of starting a second one.
+Look your LGU up in the [Budget Portal Directory](https://lgu.bettergov.ph/budget) and the [Better LGU Directory](https://lgu.bettergov.ph/). If it already has a budget portal, contribute to that one rather than publishing a second.
 
 If your LGU has a Better LGU portal, talk to its maintainers before you start. An integrated budget portal goes on their domain, so they need to agree to it and set up the subdomain or path.
-
-### Register Your Intent
-
-Once you know nobody else is building it, open a PR adding your LGU to the [Budget Portal Directory](https://lgu.bettergov.ph/budget) with a `🔵 Planned` status — see [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal).
 
 ---
 
@@ -98,9 +96,9 @@ Run `npm run check` in CI. It exits non-zero on a broken config, so a change in 
 
 ---
 
-## Step 7 — Update Your Directory Entry
+## Step 7 — Add It to the Directory
 
-Once the portal is live, open a PR updating your row in `BUDGET.md`: set the **Portal** link, the **Repository**, and the status to `🟢 Active`.
+Once the portal is live, open a PR adding it to `BUDGET.md` with status `🟢 Active` — see [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal). For an integrated portal, your LGU's Better LGU portal must already be in the [Better LGU Directory](https://lgu.bettergov.ph/); add it in the same PR if it isn't.
 
 ---
 

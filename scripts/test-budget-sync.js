@@ -87,18 +87,24 @@ test('unknown status or a secondary tag fails', () => {
         `| Silang, Cavite | - | ${STANDALONE} | - | Live | - |`,
     ), README), /invalid status/);
     assert.throws(() => syncBudget(budget(
-        `| Silang, Cavite | - | ${STANDALONE} | - | 🔵 Planned<br>⚠️ Stale | - |`,
+        `| Silang, Cavite | - | ${STANDALONE} | - | 🟡 Work in Progress<br>⚠️ Stale | - |`,
     ), README), /invalid status/);
 });
 
+test('🔵 Planned is rejected with a hint (no advance registration)', () => {
+    assert.throws(() => syncBudget(budget(
+        `| Silang, Cavite | - | ${STANDALONE} | - | 🔵 Planned | - |`,
+    ), README), /added once they are live/);
+});
+
 test('duplicate LGU fails', () => {
-    const row = `| Silang, Cavite | - | ${STANDALONE} | - | 🔵 Planned | - |`;
+    const row = `| Silang, Cavite | - | ${STANDALONE} | - | 🟢 Active | - |`;
     assert.throws(() => syncBudget(budget(row, row), README), /more than once/);
 });
 
 test('empty cells normalize to "-" and YAML escapes quotes', () => {
     const [p] = syncBudget(budget(
-        `| Silang, Cavite | — | ${STANDALONE} | – |  🔵 Planned | |`,
+        `| Silang, Cavite | — | ${STANDALONE} | – |  🟡 Work in Progress | |`,
     ), README);
     assert.strictEqual(p.portal, '-');
     assert.strictEqual(p.repo, '-');

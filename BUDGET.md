@@ -37,12 +37,13 @@ An `🧩 Integrated` row's **LGU** must match that LGU's name in the [Better LGU
 
 ## 🚦 Status Legend
 
+Budget portals are added once they're live, so there is no `🔵 Planned` status.
+
 | Badge               | Meaning                                         |
 |---------------------|-------------------------------------------------|
 | 🟢 Active           | Live and kept current with the budget data      |
 | 🟡 Work in Progress | Under development, not yet publicly launched    |
 | 🔴 Unmaintained     | No longer being actively maintained             |
-| 🔵 Planned          | Registered intent — development not yet started |
 
 ---
 
@@ -50,10 +51,10 @@ An `🧩 Integrated` row's **LGU** must match that LGU's name in the [Better LGU
 
 Ready to build one? Read **[How to Start Your Budget Transparency Portal](BUDGET_GUIDE.md)** and pick a [budget portal template](BUDGET_TEMPLATES.md).
 
-The short version:
-1. **Search** this table and the [Better LGU Directory](README.md) for your LGU
-2. **Build** — fork the [official template](https://github.com/bettergovph/transparency-portal), run `npm run setup` for your LGU, and deploy
-3. **Register** — open a PR adding your portal to this table
+The short version — no advance registration needed:
+1. **Check** this table and the [Better LGU Directory](README.md) for your LGU
+2. **Build and deploy** — fork the [official template](https://github.com/bettergovph/transparency-portal), run `npm run setup` for your LGU, and deploy
+3. **Add it** — once it's live, open a PR adding your portal to this table as `🟢 Active`
 
 ---
 
