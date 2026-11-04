@@ -7,7 +7,7 @@ permalink: /budget
 
 A community-maintained directory of **budget transparency portals** for Philippine LGUs — sites that show citizens every budget project for one province, city, or municipality, built on the public [BetterGov.ph Budget API](https://budget.bettergov.ph/docs) behind the national [budget.bettergov.ph](https://budget.bettergov.ph).
 
-A budget portal is either part of an LGU's [Better LGU portal]({{ site.baseurl }}./) or a site of its own. Both are listed here — check this table before you build, so you can join an existing effort instead of duplicating it.
+A budget portal is either part of an LGU's [Better LGU portal]({{ site.baseurl }}./) or a site of its own. Every portal listed here is live — check this table before you build, so you can contribute to an existing one instead of publishing a second.
 
 ## 💰 Directory
 
@@ -29,23 +29,13 @@ A budget portal is either part of an LGU's [Better LGU portal]({{ site.baseurl }
             <option value="Standalone">🏛️ Standalone</option>
         </select>
     </div>
-    <div class="w-full md:w-56">
-        <label for="budget-status-filter" class="sr-only">Filter by status</label>
-        <select id="budget-status-filter" onchange="filterBudget()" class="block w-full px-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm cursor-pointer">
-            <option value="">All Statuses</option>
-            <option value="Active">🟢 Active</option>
-            <option value="Work in Progress">🟡 Work in Progress</option>
-            <option value="Unmaintained">🔴 Unmaintained</option>
-            <option value="Planned">🔵 Planned</option>
-        </select>
-    </div>
 </div>
 
 <div id="budget-table-container" class="table-wrapper" markdown="1">
 
-| LGU | Budget Portal | Type | Better LGU Portal | Repository | Status | Maintainer/s |
-|-----|---------------|------|-------------------|------------|--------|--------------|
-{% for p in site.data.budget_portals %}| {{ p.name }} | {{ p.portal }} | {{ p.type }} | {{ p.parent_domain }} | {{ p.repo }}{% if p.repo_owner %}<br><span class="repo-activity" data-repo="{{ p.repo_owner }}/{{ p.repo_name }}"></span>{% endif %} | {{ p.status }} | {{ p.maintainer }} |
+| LGU | Budget Portal | Type | Better LGU Portal | Repository | Maintainer/s |
+|-----|---------------|------|-------------------|------------|--------------|
+{% for p in site.data.budget_portals %}| {{ p.name }} | {{ p.portal }} | {{ p.type }} | {{ p.parent_domain }} | {{ p.repo }}{% if p.repo_owner %}<br><span class="repo-activity" data-repo="{{ p.repo_owner }}/{{ p.repo_name }}"></span>{% endif %} | {{ p.maintainer }} |
 {% endfor %}
 
 </div>
@@ -67,18 +57,17 @@ A budget portal is either part of an LGU's [Better LGU portal]({{ site.baseurl }
 | 🧩 Integrated | Part of the LGU's Better LGU portal — a subdomain (`budget.betterlb.org`) or a path (`bettercatanduanes.org/transparency`) |
 | 🏛️ Standalone | A budget portal on its own, with no Better LGU portal behind it (`bettersilang.org`)                                      |
 
-## 🚦 Status Legend
-
-| Badge               | Meaning                                         |
-|---------------------|-------------------------------------------------|
-| 🟢 Active           | Live and kept current with the budget data      |
-| 🟡 Work in Progress | Under development, not yet publicly launched    |
-| 🔴 Unmaintained     | No longer being actively maintained             |
-| 🔵 Planned          | Registered intent — development not yet started |
-
 ## 🚀 Getting Started
 
-Ready to build one? Read **[How to Start Your Budget Transparency Portal]({{ site.baseurl }}BUDGET_GUIDE)** and pick a [budget portal template]({{ site.baseurl }}BUDGET_TEMPLATES).
+Your province, city, or town can have one too — free, open source, and no server or database to run. Three steps, no advance registration:
+
+1. **Fork** the [official template](https://github.com/bettergovph/transparency-portal) on GitHub
+2. **Run `npm run setup`** and pick your LGU
+3. **Deploy** it to Cloudflare, Vercel, or Netlify
+
+Then send us the link by [adding it to this directory]({{ site.baseurl }}CONTRIBUTING#adding-a-budget-portal). The full walkthrough is in **[How to Start Your Budget Transparency Portal]({{ site.baseurl }}BUDGET_GUIDE)**; other starting points are in [Budget Portal Templates]({{ site.baseurl }}BUDGET_TEMPLATES).
+
+Amounts on these portals are as published in the 2027 NEP and House Bill 10858, not spending. A project found in only one version is a candidate to check, not a finding.
 
 <script defer src="{{ site.baseurl }}assets/js/repo-activity.js?v={{ site.time | date: '%s' }}"></script>
 
@@ -86,18 +75,16 @@ Ready to build one? Read **[How to Start Your Budget Transparency Portal]({{ sit
 function filterBudget() {
     const search = document.getElementById("budget-search").value.toUpperCase();
     const type = document.getElementById("type-filter").value.toUpperCase();
-    const status = document.getElementById("budget-status-filter").value.toUpperCase();
     const container = document.getElementById("budget-table-container");
     const rows = container.querySelectorAll("tbody tr");
     let shown = 0;
 
     rows.forEach(function (row) {
         const td = row.getElementsByTagName("td");
-        // Column order: LGU, Budget Portal, Type, Better LGU Portal, Repository, Status, Maintainer/s
+        // Column order: LGU, Budget Portal, Type, Better LGU Portal, Repository, Maintainer/s
         const typeMatch = type === "" || td[2].textContent.toUpperCase().includes(type);
-        const statusMatch = status === "" || td[5].textContent.toUpperCase().includes(status);
         const searchMatch = search === "" || row.textContent.toUpperCase().includes(search);
-        const visible = typeMatch && statusMatch && searchMatch;
+        const visible = typeMatch && searchMatch;
         row.style.display = visible ? "" : "none";
         if (visible) shown++;
     });
