@@ -39,6 +39,7 @@
 
                 <div class="hidden lg:flex items-center space-x-6">
                     <a href="{{ site.baseurl }}./" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Home' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Directory</a>
+                    <a href="{{ site.baseurl }}BUDGET" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'BetterGov.ph — LGU Budget Transparency Portal Directory' or page.title == 'Start Your Budget Portal' or page.title == 'Budget Portal Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Budget Portals</a>
                     <a href="{{ site.baseurl }}GUIDE" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Guide' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Start Your LGU</a>
                     <a href="{{ site.baseurl }}TEMPLATES" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Community Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Templates</a>
                     <a href="{{ site.baseurl }}CONTRIBUTING" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Contributing' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Contributing</a>
@@ -60,6 +61,7 @@
         <div class="lg:hidden bg-white border-t border-gray-100" x-show="mobileMenuOpen" x-transition x-cloak>
             <div class="px-4 py-3 space-y-1">
                 <a href="{{ site.baseurl }}./" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Directory</a>
+                <a href="{{ site.baseurl }}BUDGET" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Budget Portals</a>
                 <a href="{{ site.baseurl }}GUIDE" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Start Your LGU</a>
                 <a href="{{ site.baseurl }}TEMPLATES" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Templates</a>
                 <a href="{{ site.baseurl }}CONTRIBUTING" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Contributing</a>
@@ -138,6 +140,9 @@
                         <li><a href="{{ site.baseurl }}GUIDE" class="hover:text-white transition-colors">How to Start Your Portal</a></li>
                         <li><a href="{{ site.baseurl }}TEMPLATES" class="hover:text-white transition-colors">Start-up Templates</a></li>
                         <li><a href="{{ site.baseurl }}CONTRIBUTING" class="hover:text-white transition-colors">Register Your LGU</a></li>
+                        <li><a href="{{ site.baseurl }}BUDGET" class="hover:text-white transition-colors">Budget Portal Directory</a></li>
+                        <li><a href="{{ site.baseurl }}BUDGET_GUIDE" class="hover:text-white transition-colors">Start a Budget Portal</a></li>
+                        <li><a href="{{ site.baseurl }}BUDGET_TEMPLATES" class="hover:text-white transition-colors">Budget Portal Templates</a></li>
                         <li><a href="{{ site.baseurl }}CHANGELOG" class="hover:text-white transition-colors">Latest Updates</a></li>
                     </ul>
                 </div>

@@ -6,7 +6,25 @@ url: "https://better-lgu-dir.jmacj.dev"
 markdown: kramdown
 theme: jekyll-theme-minimal
 
+# BUDGET_GUIDE.md and BUDGET_TEMPLATES.md come from the main branch with no
+# front matter (jekyll-optional-front-matter renders them). Their layout and
+# title live here instead of in a front-matter block, so later edits to those
+# files never add/add-conflict in the sync merge.
+defaults:
+  - scope:
+      path: "BUDGET_GUIDE.md"
+    values:
+      layout: default
+      title: Start Your Budget Portal
+  - scope:
+      path: "BUDGET_TEMPLATES.md"
+    values:
+      layout: default
+      title: Budget Portal Templates
+
 exclude:
+  # Source table for /BUDGET (budget-directory.md renders it from _data).
+  - "BUDGET.md"
   - ".github"
   - ".idea"
   - ".gitignore"
