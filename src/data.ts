@@ -358,12 +358,36 @@ export const governanceHighlights = [
   },
 ]
 
-export const cityGallery = [
-  { image: '/images/malaybalay-city-view.jpg', title: 'Malaybalay’s highland landscape', description: 'A forest campsite featured by the City Government’s tourism page.' },
-  { image: '/images/agri-eco-farms.jpg', title: 'Agri-ecotourism', description: 'A nature-based farm destination in Malaybalay’s tourism collection.' },
-  { image: '/images/san-isidro-cathedral.jpg', title: 'San Isidro Labrador Cathedral', description: 'A civic and cultural landmark in the city center.' },
-  { image: '/images/abbey-transfiguration.jpg', title: 'Abbey of the Transfiguration', description: 'One of Malaybalay’s recognized cultural and spiritual landmarks.' },
-].map((item) => ({ ...item, source: { label: 'City Government of Malaybalay — Tourism', url: 'https://sakata.malaybalaycity.gov.ph/tourism/', verifiedOn: VERIFIED_ON } satisfies Source }))
+export const procurementSources = [
+  {
+    kind: 'Record hub',
+    title: 'BAC awarded-projects hub',
+    description: 'Central BAC page that currently includes dated 2026 bidding opportunities alongside procurement links.',
+    coverage: 'Mixed record types · verify each linked notice',
+    url: 'https://sites.google.com/site/malaybalay221/awarded-projects?authuser=0',
+  },
+  {
+    kind: 'Award records',
+    title: 'Infrastructure',
+    description: 'Infrastructure award listings with project titles and links to PhilGEPS notices.',
+    coverage: 'Page currently leads with 2024 awards',
+    url: 'https://sites.google.com/site/malaybalay221/awarded-projects/infrastructure',
+  },
+  {
+    kind: 'Award records',
+    title: 'Goods and services',
+    description: 'Award listings for supplies, equipment, medicines, vehicles, and contracted services.',
+    coverage: 'Page currently includes 2024 and earlier records',
+    url: 'https://sites.google.com/site/malaybalay221/awarded-projects/goods-and-services',
+  },
+  {
+    kind: 'Mixed procurement page',
+    title: 'Small value procurement',
+    description: 'BAC page labeled for SVP that currently also displays broader 2026 bidding opportunities.',
+    coverage: 'Mixed record types · verify each linked notice',
+    url: 'https://sites.google.com/site/malaybalay221/awarded-projects/svp-small-value-procurement',
+  },
+] as const
 
 export const publicProjects = [
   {

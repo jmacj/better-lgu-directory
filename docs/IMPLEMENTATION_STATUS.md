@@ -16,7 +16,8 @@ Updated: **2026-11-04**
 - Detailed 2025 Q2 financial breakdown with source-linked accounting caveats
 - Institution-scoped ordinances and executive orders, reported project status, and verified recognition
 - All 46 DILG-listed Punong Barangay names plus valid published phone/email fields
-- Manual, keyboard-accessible city image carousel using official tourism imagery
+- Layered City Hall hero background; the former image carousel has been removed
+- Scope-labeled BAC procurement source cards that distinguish bids, awards, and completion evidence
 
 ## Real limitations — not presented as completed
 

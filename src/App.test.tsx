@@ -10,6 +10,7 @@ describe('BetterMC public portal', () => {
     expect(screen.getByText('Not separately reported')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /Operating income by source/i })).toBeInTheDocument()
     expect(screen.getByText('₱1,188,506,575.00')).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Next image' })).not.toBeInTheDocument()
     expect(screen.getAllByText(/not affiliated with, endorsed by, or operated by/i).length).toBeGreaterThan(0)
   })
 
@@ -17,6 +18,7 @@ describe('BetterMC public portal', () => {
     render(<MemoryRouter initialEntries={['/transparency']}><App /></MemoryRouter>)
     expect(screen.getByRole('heading', { name: /Public records/i })).toBeInTheDocument()
     expect(screen.getByText('Annual Budget Report')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Infrastructure/i })).toHaveAttribute('href', expect.stringContaining('/infrastructure'))
     expect(screen.getAllByRole('link', { name: /Official source/i }).length).toBeGreaterThan(0)
   })
 

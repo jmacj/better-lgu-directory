@@ -1,12 +1,12 @@
 import { FormEvent, ReactNode, useDeferredValue, useEffect, useMemo, useState } from 'react'
 import {
-  ArrowRight, Award, BarChart3, BookOpen, Building2, Check, ChevronLeft, ChevronRight, CircleAlert, Clock3,
+  ArrowRight, Award, BarChart3, BookOpen, Building2, Check, CircleAlert, Clock3,
   Database, ExternalLink, FileCheck2, FileText, Landmark, Mail, Menu, Phone,
   ReceiptText, Search, ShieldCheck, Siren, TrendingUp, X,
 } from 'lucide-react'
 import { Link, NavLink, Route, Routes, useLocation, useSearchParams } from 'react-router-dom'
 import { z } from 'zod'
-import { barangayProfiles, cityGallery, civicRecords, departments, disclosures, financialSnapshot, governanceHighlights, officials, publicProjects, searchableRecords, services, VERIFIED_ON } from './data'
+import { barangayProfiles, civicRecords, departments, disclosures, financialSnapshot, governanceHighlights, officials, procurementSources, publicProjects, searchableRecords, services, VERIFIED_ON } from './data'
 
 const navItems = [
   { label: 'Transparency', to: '/transparency' },
@@ -34,21 +34,6 @@ function MalaybalayClock() {
   const date = new Intl.DateTimeFormat('en-PH', { timeZone: 'Asia/Manila', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }).format(now)
   const time = new Intl.DateTimeFormat('en-PH', { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }).format(now)
   return <div className="city-clock" aria-label={`Malaybalay time: ${date}, ${time}`}><Clock3 aria-hidden="true" /><span><small>Malaybalay time · Asia/Manila</small><strong><time dateTime={now.toISOString()}>{time}</time><em>{date}</em></strong></span></div>
-}
-
-function CityGallery() {
-  const [active, setActive] = useState(0)
-  const selected = cityGallery[active]
-  const show = (index: number) => setActive((index + cityGallery.length) % cityGallery.length)
-  return <section className="city-gallery" aria-label="Malaybalay city gallery">
-    <div className="gallery-stage">
-      <img src={selected.image} alt={selected.title} width="768" height="576" loading="eager" />
-      <div className="gallery-scrim" />
-      <div className="gallery-caption"><span>Discover Malaybalay</span><h2>{selected.title}</h2><p>{selected.description}</p><a href={selected.source.url} target="_blank" rel="noreferrer">Official image source <ExternalLink /></a></div>
-      <div className="gallery-controls"><button type="button" onClick={() => show(active - 1)} aria-label="Previous image"><ChevronLeft /></button><span aria-live="polite">{active + 1} / {cityGallery.length}</span><button type="button" onClick={() => show(active + 1)} aria-label="Next image"><ChevronRight /></button></div>
-    </div>
-    <div className="gallery-thumbnails" aria-label="Choose a gallery image">{cityGallery.map((item, index) => <button key={item.image} type="button" className={index === active ? 'active' : ''} aria-label={`Show ${item.title}`} aria-pressed={index === active} onClick={() => show(index)}><img src={item.image} alt="" width="180" height="120" loading="lazy" /><span>{item.title}</span></button>)}</div>
-  </section>
 }
 
 function FinancialBreakdown() {
@@ -164,7 +149,6 @@ function HomePage() {
         </div>
       </div>
     </section>
-    <section className="section container gallery-section"><SectionHeading eyebrow="The city in context" title="A real place behind every public record">Official tourism imagery adds geographic and cultural context without distracting from the records residents came to inspect.</SectionHeading><CityGallery /></section>
     <section className="metrics-strip">
       <div className="container metrics-grid">
         <div><strong>{availableDisclosures}</strong><span>source-listed disclosure entries</span></div>
@@ -175,7 +159,7 @@ function HomePage() {
       <p className="metric-caption container">Counts reflect records in this portal, not a legal-compliance assessment.</p>
     </section>
     <section className="section container finance-section" id="financial-snapshot">
-      <div className="finance-heading"><SectionHeading eyebrow="Financial snapshot" title="See the numbers, and what they actually mean">Figures below are transcribed from the City Government’s 2025 Q2 Statement of Receipts and Expenditures. They are not estimates.</SectionHeading><SourceNote url={financialSnapshot.source.url} label={financialSnapshot.source.label} /></div>
+      <div className="finance-heading"><SectionHeading eyebrow="City finances · 2025 Q2" title="Where the money came from, where it went, and what remained.">These are reported actual amounts—not forecasts—from Malaybalay City’s Statement of Receipts and Expenditures for the quarter ending June 2025. Labels below follow the source record.</SectionHeading><div className="finance-source"><FileCheck2 aria-hidden="true" /><div><span>Primary financial record</span><a href={financialSnapshot.source.url} target="_blank" rel="noreferrer">2025 Q2 Statement of Receipts and Expenditures <ExternalLink /></a><small>Official City Government PDF · source reviewed {VERIFIED_ON}</small></div></div></div>
       <div className="finance-grid">
         <article><TrendingUp /><span>Current operating income</span><strong>{money(financialSnapshot.currentOperatingIncome)}</strong><small>{financialSnapshot.period} reported actual</small></article>
         <article><ReceiptText /><span>Current operating expenditures</span><strong>{money(financialSnapshot.currentOperatingExpenditures)}</strong><small>{financialSnapshot.period} reported actual</small></article>
@@ -228,6 +212,11 @@ function TransparencyPage() {
     <PageHero eyebrow="Transparency center" title="Public records, with their context intact." description="Browse the City Government’s Full Disclosure listings. Availability here means a record was listed by the official source; it is not a legal-compliance rating." />
     <section className="section container">
       <div className="data-notice"><CircleAlert /><div><strong>What this catalog can and cannot tell you</strong><p>BetterMC links to the official disclosure source. It does not infer that an appropriation was spent, or that an unlisted record proves noncompliance.</p></div></div>
+      <div className="procurement-sources">
+        <SectionHeading eyebrow="Procurement records" title="Award notices and bidding opportunities, kept distinct">The BAC pages below organize public procurement records by type. An invitation to bid is not an award, and an award notice does not by itself establish payment, delivery, or project completion.</SectionHeading>
+        <div className="procurement-grid">{procurementSources.map((source) => <a key={source.title} href={source.url} target="_blank" rel="noreferrer"><span>{source.kind}</span><h2>{source.title}</h2><p>{source.description}</p><small>{source.coverage}</small><strong>Open BAC source <ExternalLink /></strong></a>)}</div>
+        <p className="procurement-review"><ShieldCheck aria-hidden="true" /> Pages reviewed {VERIFIED_ON}. The general hub and SVP page currently mix bidding opportunities with other records; BetterMC does not relabel them as awarded projects.</p>
+      </div>
       <div className="toolbar">
         <label><span>Search records</span><div className="input-wrap"><Search /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search document titles" /></div></label>
         <label><span>Fiscal year</span><select value={year} onChange={(event) => updateParam('year', event.target.value)}>{[2026, 2025, 2024, 2023, 2022].map((value) => <option key={value}>{value}</option>)}</select></label>

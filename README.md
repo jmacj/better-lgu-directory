@@ -11,7 +11,8 @@ BetterMC is an independent public information and transparency portal for Malayb
 - DILG-listed Punong Barangay names and valid published contact fields
 - 2025 Q2 income, operating expenditure, non-operating expenditure, and cash-position breakdown
 - Institution-attributed ordinances, mayoral executive issuances, project reports, and verified city recognition
-- Source-attributed Malaybalay image gallery with manual accessible controls
+- Layered, subdued Malaybalay City Hall hero background with readable foreground content
+- Scope-labeled BAC procurement links for infrastructure, goods and services, and small-value procurement
 - Official Citizen's Charter and public-service entry points
 - Moderated community correction intake with validation, D1 persistence, and rate limiting
 - Responsive, keyboard-accessible public interface
