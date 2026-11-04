@@ -1,0 +1,37 @@
+import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
+import App from './App'
+
+describe('BetterMC public portal', () => {
+  it('renders the independent-platform disclosure and homepage purpose', () => {
+    render(<MemoryRouter><App /></MemoryRouter>)
+    expect(screen.getByText(/Independent public information platform/)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Malaybalay public information/i })).toBeInTheDocument()
+    expect(screen.getByText('Not separately reported')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Operating income by source/i })).toBeInTheDocument()
+    expect(screen.getByText('₱1,188,506,575.00')).toBeInTheDocument()
+    expect(screen.getAllByText(/not affiliated with, endorsed by, or operated by/i).length).toBeGreaterThan(0)
+  })
+
+  it('lists source-linked transparency records', () => {
+    render(<MemoryRouter initialEntries={['/transparency']}><App /></MemoryRouter>)
+    expect(screen.getByRole('heading', { name: /Public records/i })).toBeInTheDocument()
+    expect(screen.getByText('Annual Budget Report')).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: /Official source/i }).length).toBeGreaterThan(0)
+  })
+
+  it('lists DILG-sourced barangay leadership', () => {
+    render(<MemoryRouter initialEntries={['/barangays']}><App /></MemoryRouter>)
+    expect(screen.getByRole('heading', { name: /Every barangay/i })).toBeInTheDocument()
+    expect(screen.getByText('Gregorio D. Jaroy')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /088-813-1357/ })).toHaveAttribute('href', 'tel:0888131357')
+    expect(screen.getAllByRole('link', { name: /DILG officials directory/i }).length).toBe(46)
+  })
+
+  it('separates mayoral issuances, council ordinances, and institutional recognition', () => {
+    render(<MemoryRouter initialEntries={['/government?tab=records']}><App /></MemoryRouter>)
+    expect(screen.getByText('Executive Order No. 23, Series of 2026')).toBeInTheDocument()
+    expect(screen.getByText('Ordinance No. 1118, Series of 2026')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Verified recognition/i })).toBeInTheDocument()
+  })
+})

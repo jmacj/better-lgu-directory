@@ -24,3 +24,21 @@ Desktop.ini
 # Emacs
 *#
 .#*
+
+# Node and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Local environment values
+.env
+.env.*
+!.env.example
+.dev.vars
+
+# Test and browser artifacts
+.playwright-cli/
+playwright-report/
+test-results/
+output/
+coverage/
