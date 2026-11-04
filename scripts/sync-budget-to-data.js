@@ -4,9 +4,9 @@
 // BUDGET.md is the sole source of truth for Budget Portals, the same way
 // README.md is for Entries. An `🧩 Integrated` Budget Portal belongs to a
 // Better LGU Entry: its LGU cell must match that Entry's name in README.md
-// exactly, and the Entry's Domain (as `parent_domain`) and Maintainer/s are
-// copied in, so the two rows are never edited twice. An Integrated row's own
-// Maintainer/s cell must be `-`. Offline, no network calls.
+// exactly, and the Entry's Domain is copied in as `parent_domain`. Its
+// Maintainer/s cell is copied by hand from the Entry's README row. Offline,
+// no network calls.
 //
 // Usage: node scripts/sync-budget-to-data.js [output-path]
 
@@ -76,10 +76,6 @@ function validateBudgetPortal(cells, index, entriesByName) {
         console.warn(`⚠️  ${row}: "${name}" is "${STANDALONE}" but has a Better LGU Entry in README.md — should it be "${INTEGRATED}"?`);
     }
 
-    if (type === INTEGRATED && !EMPTY_MARKERS.includes(maintainer.trim())) {
-        throw new Error(`${row} (${name}) is "${INTEGRATED}", so its Maintainer/s come from the LGU's row in README.md — set this cell to "-" and update README.md instead.`);
-    }
-
     const repoInfo = parseRepoCell(repo);
 
     return {
@@ -91,7 +87,7 @@ function validateBudgetPortal(cells, index, entriesByName) {
         repo: normalizeDash(repo),
         repoOwner: repoInfo ? repoInfo.owner : null,
         repoName: repoInfo ? repoInfo.repo : null,
-        maintainer: type === INTEGRATED ? entry.maintainer : normalizeDash(maintainer),
+        maintainer: normalizeDash(maintainer),
     };
 }
 

@@ -10,17 +10,17 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 
 <!-- SYNC_BUDGET_TABLE_START -->
 
-| LGU                          | Portal                                                                           | Type          | Repository                                                                    | Maintainer/s                                   |
-|------------------------------|----------------------------------------------------------------------------------|---------------|-------------------------------------------------------------------------------|------------------------------------------------|
-| Los Baños, Laguna            | [budget.betterlb.org](https://budget.betterlb.org)                               | 🧩 Integrated  | -                                                                             | -                                              |
-| Ilocos Norte Province        | [budget.betterilocosnorte.org](https://budget.betterilocosnorte.org)             | 🧩 Integrated  | -                                                                             | -                                              |
-| Bukidnon Province            | [budget.betterbukidnon.org](https://budget.betterbukidnon.org)                   | 🧩 Integrated  | -                                                                             | -                                              |
-| Las Piñas City, Metro Manila | [budget.betterlaspinas.org](https://budget.betterlaspinas.org)                   | 🧩 Integrated  | [GitHub](https://github.com/betterlaspinas/budget)                            | -                                              |
-| Catanduanes Province         | [bettercatanduanes.org/transparency](https://bettercatanduanes.org/transparency) | 🧩 Integrated  | -                                                                             | -                                              |
-| Silang, Cavite               | [bettersilang.org](https://www.bettersilang.org)                                 | 🏛️ Standalone | [GitHub](https://github.com/0xDataBear/bettersilang)                          | [@0xDataBear](https://github.com/0xDataBear)   |
-| Batangas Province            | [betterbatangas.org](https://betterbatangas.org)                                 | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal)           | [@pogicodes](https://github.com/pogicodes)     |
-| Pampanga Province            | [betterpampanga.vercel.app](https://betterpampanga.vercel.app)                   | 🏛️ Standalone | [GitHub](https://github.com/Pseudoman21/betterpampanga)                       | [@Pseudoman21](https://github.com/Pseudoman21) |
-| Taal, Batangas               | [taal.betterbatangas.org](https://taal.betterbatangas.org)                       | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | [@pogicodes](https://github.com/pogicodes)     |
+| LGU                          | Portal                                                                           | Type           | Repository                                                                    | Maintainer/s                                                                           |
+|------------------------------|----------------------------------------------------------------------------------|----------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| Los Baños, Laguna            | [budget.betterlb.org](https://budget.betterlb.org)                               | 🧩 Integrated  | -                                                                             | [@miconficker](https://github.com/miconficker)                                         |
+| Ilocos Norte Province        | [budget.betterilocosnorte.org](https://budget.betterilocosnorte.org)             | 🧩 Integrated  | -                                                                             | [@russellraed](https://github.com/russellraed)                                         |
+| Bukidnon Province            | [budget.betterbukidnon.org](https://budget.betterbukidnon.org)                   | 🧩 Integrated  | -                                                                             | [@DMNCDLPRT](https://github.com/DMNCDLPRT)                                             |
+| Las Piñas City, Metro Manila | [budget.betterlaspinas.org](https://budget.betterlaspinas.org)                   | 🧩 Integrated  | [GitHub](https://github.com/betterlaspinas/budget)                            | [@jmacj](https://github.com/jmacj), [@Martin-Enghoy](https://github.com/Martin-Enghoy) |
+| Catanduanes Province         | [bettercatanduanes.org/transparency](https://bettercatanduanes.org/transparency) | 🧩 Integrated  | -                                                                             | [@VLDCNDN](https://github.com/VLDCNDN)                                                 |
+| Silang, Cavite               | [bettersilang.org](https://www.bettersilang.org)                                 | 🏛️ Standalone | [GitHub](https://github.com/0xDataBear/bettersilang)                          | [@0xDataBear](https://github.com/0xDataBear)                                           |
+| Batangas Province            | [betterbatangas.org](https://betterbatangas.org)                                 | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal)           | [@pogicodes](https://github.com/pogicodes)                                             |
+| Pampanga Province            | [betterpampanga.vercel.app](https://betterpampanga.vercel.app)                   | 🏛️ Standalone | [GitHub](https://github.com/Pseudoman21/betterpampanga)                       | [@Pseudoman21](https://github.com/Pseudoman21)                                         |
+| Taal, Batangas               | [taal.betterbatangas.org](https://taal.betterbatangas.org)                       | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | [@pogicodes](https://github.com/pogicodes)                                             |
 
 <!-- SYNC_BUDGET_TABLE_END -->
 
@@ -37,7 +37,7 @@ There is no status column: a budget portal is listed once it's live, and its row
 | 🧩 Integrated | Part of the LGU's Better LGU portal — a subdomain (`budget.betterlb.org`) or a path (`bettercatanduanes.org/transparency`) |
 | 🏛️ Standalone | A budget portal on its own, with no Better LGU portal behind it (`bettersilang.org`)                                      |
 
-An `🧩 Integrated` row's **LGU** must match that LGU's name in the [Better LGU Directory](README.md) exactly — the website links the two entries together, and the sync fails if no match is found. Register the Better LGU portal first if it isn't listed yet. An Integrated row's **Maintainer/s** come from that README row too, so leave the cell as `-` here and keep maintainers up to date in `README.md`.
+An `🧩 Integrated` row's **LGU** must match that LGU's name in the [Better LGU Directory](README.md) exactly — the website links the two entries together, and the sync fails if no match is found. Register the Better LGU portal first if it isn't listed yet. Copy an Integrated row's **Maintainer/s** from that LGU's README row.
 
 ---
 

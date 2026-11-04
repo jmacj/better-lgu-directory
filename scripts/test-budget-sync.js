@@ -16,7 +16,7 @@ const README = `
 <!-- SYNC_LGU_TABLE_START -->
 | LGU | Domain | Repository | Socials | Status | Maintainer/s |
 |-----|--------|------------|---------|--------|--------------|
-| Los Baños, Laguna | [betterlb.org](https://betterlb.org) | - | - | 🟢 Active | [@lbdev](https://github.com/lbdev) |
+| Los Baños, Laguna | [betterlb.org](https://betterlb.org) | - | - | 🟢 Active | - |
 | Ilocos Norte Province | - | - | - | 🟡 Work in Progress | - |
 <!-- SYNC_LGU_TABLE_END -->
 `;
@@ -52,20 +52,15 @@ test('integrated row takes parent_domain from the README Entry', () => {
     assert.strictEqual(p.parentDomain, '[betterlb.org](https://betterlb.org)');
     assert.strictEqual(p.repoOwner, 'o');
     assert.strictEqual(p.repoName, 'r');
-    assert.strictEqual(p.maintainer, '[@lbdev](https://github.com/lbdev)');
 });
 
-test('integrated row with its own Maintainer/s fails (README is the source)', () => {
-    assert.throws(() => syncBudget(budget(
-        `| Los Baños, Laguna | [budget.betterlb.org](https://budget.betterlb.org) | ${INTEGRATED} | - | [@someone](https://github.com/someone) |`,
-    ), README), /come from the LGU's row in README\.md/);
-});
-
-test('standalone row keeps its own Maintainer/s', () => {
-    const [p] = syncBudget(budget(
+test('Maintainer/s cell is taken as written, for both types', () => {
+    const [i, s] = syncBudget(budget(
+        `| Los Baños, Laguna | [budget.betterlb.org](https://budget.betterlb.org) | ${INTEGRATED} | - | [@lbdev](https://github.com/lbdev) |`,
         `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | [@x](https://github.com/x) |`,
     ), README);
-    assert.strictEqual(p.maintainer, '[@x](https://github.com/x)');
+    assert.strictEqual(i.maintainer, '[@lbdev](https://github.com/lbdev)');
+    assert.strictEqual(s.maintainer, '[@x](https://github.com/x)');
 });
 
 test('integrated row whose Entry has no domain gets "-"', () => {
