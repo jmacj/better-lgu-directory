@@ -2,7 +2,7 @@
 
 A community-maintained directory of **budget transparency portals** for Philippine LGUs — sites that show citizens every budget project for one province, city, or municipality, built on the public [BetterGov.ph Budget API](https://budget.bettergov.ph/docs) behind the national [budget.bettergov.ph](https://budget.bettergov.ph).
 
-A budget portal is either part of an LGU's Better LGU portal (`budget.betterlaspinas.org`, `bettercatanduanes.org/transparency`) or a site of its own (`bettersilang.org`). Both are listed here — check this table before you build, so you can join an existing effort instead of duplicating it.
+A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.org`, `bettercatanduanes.org/transparency`) or a site of its own (`bettersilang.org`). Both are listed here — check this table before you build, so you can join an existing effort instead of duplicating it.
 
 ---
 
@@ -12,10 +12,10 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlasp
 
 | LGU                          | Portal                                                                           | Type          | Repository                                                          | Maintainer/s                                 |
 |------------------------------|----------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------|----------------------------------------------|
-| Las Piñas City, Metro Manila | [budget.betterlaspinas.org](https://budget.betterlaspinas.org)                   | 🧩 Integrated  | [GitHub](https://github.com/betterlaspinas/budget)                  | -                                            |
 | Los Baños, Laguna            | [budget.betterlb.org](https://budget.betterlb.org)                               | 🧩 Integrated  | -                                                                   | -                                            |
 | Ilocos Norte Province        | [budget.betterilocosnorte.org](https://budget.betterilocosnorte.org)             | 🧩 Integrated  | -                                                                   | -                                            |
 | Bukidnon Province            | [budget.betterbukidnon.org](https://budget.betterbukidnon.org)                   | 🧩 Integrated  | -                                                                   | -                                            |
+| Las Piñas City, Metro Manila | [budget.betterlaspinas.org](https://budget.betterlaspinas.org)                   | 🧩 Integrated  | [GitHub](https://github.com/betterlaspinas/budget)                  | -                                            |
 | Catanduanes Province         | [bettercatanduanes.org/transparency](https://bettercatanduanes.org/transparency) | 🧩 Integrated  | -                                                                   | -                                            |
 | Silang, Cavite               | [bettersilang.org](https://www.bettersilang.org)                                 | 🏛️ Standalone | [GitHub](https://github.com/0xDataBear/bettersilang)                | [@0xDataBear](https://github.com/0xDataBear) |
 | Batangas Province            | [betterbatangas.org](https://betterbatangas.org)                                 | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal) | [@pogicodes](https://github.com/pogicodes)   |
