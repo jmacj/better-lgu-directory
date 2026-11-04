@@ -24,8 +24,8 @@ const README = `
 function budget(...rows) {
     return [
         '<!-- SYNC_BUDGET_TABLE_START -->',
-        '| LGU | Portal | Type | Repository | Status | Maintainer/s |',
-        '|-----|--------|------|------------|--------|--------------|',
+        '| LGU | Portal | Type | Repository | Maintainer/s |',
+        '|-----|--------|------|------------|--------------|',
         ...rows,
         '<!-- SYNC_BUDGET_TABLE_END -->',
     ].join('\n');
@@ -46,7 +46,7 @@ console.log('sync-budget-to-data');
 
 test('integrated row takes parent_domain from the README Entry', () => {
     const [p] = syncBudget(budget(
-        `| Los Baños, Laguna | [budget.betterlb.org](https://budget.betterlb.org) | ${INTEGRATED} | [GitHub](https://github.com/o/r) | 🟢 Active | - |`,
+        `| Los Baños, Laguna | [budget.betterlb.org](https://budget.betterlb.org) | ${INTEGRATED} | [GitHub](https://github.com/o/r) | - |`,
     ), README);
     assert.strictEqual(p.integrated, true);
     assert.strictEqual(p.parentDomain, '[betterlb.org](https://betterlb.org)');
@@ -56,20 +56,20 @@ test('integrated row takes parent_domain from the README Entry', () => {
 
 test('integrated row whose Entry has no domain gets "-"', () => {
     const [p] = syncBudget(budget(
-        `| Ilocos Norte Province | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | 🟢 Active | - |`,
+        `| Ilocos Norte Province | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | - |`,
     ), README);
     assert.strictEqual(p.parentDomain, '-');
 });
 
 test('integrated row with no matching README Entry fails', () => {
     assert.throws(() => syncBudget(budget(
-        `| Nowhere City | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | 🟢 Active | - |`,
+        `| Nowhere City | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | - |`,
     ), README), /not an LGU in README\.md/);
 });
 
 test('standalone row needs no README Entry', () => {
     const [p] = syncBudget(budget(
-        `| Silang, Cavite | [bettersilang.org](https://bettersilang.org) | ${STANDALONE} | - | 🟢 Active | - |`,
+        `| Silang, Cavite | [bettersilang.org](https://bettersilang.org) | ${STANDALONE} | - | - |`,
     ), README);
     assert.strictEqual(p.integrated, false);
     assert.strictEqual(p.parentDomain, '-');
@@ -78,35 +78,34 @@ test('standalone row needs no README Entry', () => {
 
 test('unknown type fails', () => {
     assert.throws(() => syncBudget(budget(
-        '| Silang, Cavite | - | Standalone | - | 🟢 Active | - |',
+        '| Silang, Cavite | [s.org](https://s.org) | Standalone | - | - |',
     ), README), /invalid type/);
 });
 
-test('unknown status or a secondary tag fails', () => {
+test('a row without a live portal link fails (no advance registration)', () => {
     assert.throws(() => syncBudget(budget(
-        `| Silang, Cavite | - | ${STANDALONE} | - | Live | - |`,
-    ), README), /invalid status/);
+        `| Silang, Cavite | - | ${STANDALONE} | - | - |`,
+    ), README), /added once they are live/);
     assert.throws(() => syncBudget(budget(
-        `| Silang, Cavite | - | ${STANDALONE} | - | 🟡 Work in Progress<br>⚠️ Stale | - |`,
-    ), README), /invalid status/);
+        `| Silang, Cavite | bettersilang.org | ${STANDALONE} | - | - |`,
+    ), README), /needs a live portal link/);
 });
 
-test('🔵 Planned is rejected with a hint (no advance registration)', () => {
+test('a leftover Status column fails with the expected column list', () => {
     assert.throws(() => syncBudget(budget(
-        `| Silang, Cavite | - | ${STANDALONE} | - | 🔵 Planned | - |`,
-    ), README), /added once they are live/);
+        `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | 🟢 Active | - |`,
+    ), README), /must have 5 columns/);
 });
 
 test('duplicate LGU fails', () => {
-    const row = `| Silang, Cavite | - | ${STANDALONE} | - | 🟢 Active | - |`;
+    const row = `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | - |`;
     assert.throws(() => syncBudget(budget(row, row), README), /more than once/);
 });
 
 test('empty cells normalize to "-" and YAML escapes quotes', () => {
     const [p] = syncBudget(budget(
-        `| Silang, Cavite | — | ${STANDALONE} | – |  🟡 Work in Progress | |`,
+        `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | – | |`,
     ), README);
-    assert.strictEqual(p.portal, '-');
     assert.strictEqual(p.repo, '-');
     assert.strictEqual(p.maintainer, '-');
     const yaml = toYaml([{ ...p, name: 'A "quoted" LGU' }]);

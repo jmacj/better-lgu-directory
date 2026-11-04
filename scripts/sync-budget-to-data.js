@@ -13,10 +13,8 @@ const fs = require('fs');
 const path = require('path');
 const {
     README_PATH,
-    VALID_STATUSES,
     EMPTY_MARKERS,
     parseTable,
-    splitCellLines,
     normalizeDash,
     parseRepoCell,
     validateLgu,
@@ -35,10 +33,10 @@ const INTEGRATED = '🧩 Integrated';
 const STANDALONE = '🏛️ Standalone';
 const VALID_TYPES = [INTEGRATED, STANDALONE];
 
-// A budget portal is listed once it exists: the template goes live in minutes,
-// so there is no advance-registration step and no `🔵 Planned` status.
-const PLANNED = '🔵 Planned';
-const BUDGET_STATUSES = VALID_STATUSES.filter(status => status !== PLANNED);
+// A Budget Portal is either live and listed, or not listed at all: the
+// template goes live in minutes, so there is no advance registration and no
+// Status column. The Portal cell must therefore hold a link.
+const MARKDOWN_LINK = /\[[^\]]+\]\([^)\s]+\)/;
 
 // Builds name → Entry from the README table, reusing the directory's own
 // validator so a budget sync never accepts a README the main sync would reject.
@@ -49,10 +47,10 @@ function indexEntries(readmeContent) {
 
 function validateBudgetPortal(cells, index, entriesByName) {
     const row = `Budget Table Row ${index + 1}`;
-    if (cells.length < 6) {
-        throw new Error(`${row} is malformed (missing columns).`);
+    if (cells.length !== 5) {
+        throw new Error(`${row} must have 5 columns (LGU, Portal, Type, Repository, Maintainer/s); found ${cells.length}.`);
     }
-    const [name, portal, typeCell, repo, statusCell, maintainer] = cells;
+    const [name, portal, typeCell, repo, maintainer] = cells;
 
     if (EMPTY_MARKERS.includes(name)) {
         throw new Error(`${row} is missing an LGU name.`);
@@ -63,16 +61,9 @@ function validateBudgetPortal(cells, index, entriesByName) {
         throw new Error(`${row} (${name}) has an invalid type: "${type}". Use "${INTEGRATED}" or "${STANDALONE}".`);
     }
 
-    // Budget Portals carry no secondary tags (⚠️ Stale / 🤝 Open for Adoption
-    // are Entry-only), so the status cell must be exactly one badge.
-    const statusLines = splitCellLines(statusCell);
-    if (statusLines.length !== 1 || !BUDGET_STATUSES.includes(statusLines[0])) {
-        const hint = statusLines[0] === PLANNED
-            ? ' Budget portals are added once they are live — use 🟡 Work in Progress or 🟢 Active.'
-            : '';
-        throw new Error(`${row} (${name}) has an invalid status: "${statusCell}".${hint}`);
+    if (!MARKDOWN_LINK.test(portal)) {
+        throw new Error(`${row} (${name}) needs a live portal link in the Portal column, e.g. [budget.example.org](https://budget.example.org). Budget portals are added once they are live.`);
     }
-    const status = statusLines[0];
 
     const entry = entriesByName.get(name);
     if (type === INTEGRATED && !entry) {
@@ -88,14 +79,13 @@ function validateBudgetPortal(cells, index, entriesByName) {
 
     return {
         name,
-        portal: normalizeDash(portal),
+        portal,
         type,
         integrated: type === INTEGRATED,
         parentDomain: type === INTEGRATED ? entry.domain : '-',
         repo: normalizeDash(repo),
         repoOwner: repoInfo ? repoInfo.owner : null,
         repoName: repoInfo ? repoInfo.repo : null,
-        status,
         maintainer: normalizeDash(maintainer),
     };
 }
@@ -111,7 +101,6 @@ function toYaml(portals) {
         ...(p.repoOwner
             ? [`  repo_owner: "${yamlStr(p.repoOwner)}"`, `  repo_name: "${yamlStr(p.repoName)}"`]
             : []),
-        `  status: "${yamlStr(p.status)}"`,
         `  maintainer: "${yamlStr(p.maintainer)}"`,
     ].join('\n')).join('\n');
 }
@@ -156,7 +145,6 @@ if (require.main === module) {
 module.exports = {
     INTEGRATED,
     STANDALONE,
-    BUDGET_STATUSES,
     validateBudgetPortal,
     syncBudget,
     toYaml,
