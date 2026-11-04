@@ -14,7 +14,7 @@ All of the data comes from the public [BetterGov.ph Budget API](https://budget.b
 
 ## Integrated or Standalone?
 
-Decide first where the portal will live. The [Budget Portal Directory](BUDGET.md) lists both kinds:
+Decide first where the portal will live. The [Budget Portal Directory](https://lgu.bettergov.ph/budget) lists both kinds:
 
 | Type          | Where it lives                                                                              | Choose it when                                              |
 |---------------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------|
@@ -27,13 +27,13 @@ Integrated is the default recommendation: it keeps one home for your LGU's civic
 
 ## Step 1 — Search the Directories First
 
-Check both the [Budget Portal Directory](BUDGET.md) and the [Better LGU Directory](README.md) for your LGU. If someone is already building a budget portal for it, reach out to the maintainer listed — join that effort instead of starting a second one.
+Check both the [Budget Portal Directory](https://lgu.bettergov.ph/budget) and the [Better LGU Directory](https://lgu.bettergov.ph/) for your LGU. If someone is already building a budget portal for it, reach out to the maintainer listed — join that effort instead of starting a second one.
 
 If your LGU has a Better LGU portal, talk to its maintainers before you start. An integrated budget portal goes on their domain, so they need to agree to it and set up the subdomain or path.
 
 ### Register Your Intent
 
-Once you know nobody else is building it, open a PR adding your LGU to the [Budget Portal Directory](BUDGET.md) with a `🔵 Planned` status — see [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal).
+Once you know nobody else is building it, open a PR adding your LGU to the [Budget Portal Directory](https://lgu.bettergov.ph/budget) with a `🔵 Planned` status — see [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal).
 
 ---
 
@@ -100,7 +100,7 @@ Run `npm run check` in CI. It exits non-zero on a broken config, so a change in 
 
 ## Step 7 — Update Your Directory Entry
 
-Once the portal is live, open a PR updating your row in [BUDGET.md](BUDGET.md): set the **Portal** link, the **Repository**, and the status to `🟢 Active`.
+Once the portal is live, open a PR updating your row in `BUDGET.md`: set the **Portal** link, the **Repository**, and the status to `🟢 Active`.
 
 ---
 

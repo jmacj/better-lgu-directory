@@ -45,7 +45,7 @@ You do not need to have a finished portal to register. If you are planning to bu
 
 ## Adding a Budget Portal
 
-Budget transparency portals are listed in [`BUDGET.md`](BUDGET.md), separately from the Better LGU portals in `README.md`. See [How to Start Your Budget Transparency Portal](BUDGET_GUIDE.md) if you haven't built one yet.
+Budget transparency portals are listed in `BUDGET.md` and shown at [lgu.bettergov.ph/budget](https://lgu.bettergov.ph/budget), separately from the Better LGU portals in `README.md`. See [How to Start Your Budget Transparency Portal](BUDGET_GUIDE.md) if you haven't built one yet.
 
 1. **Fork this repository.**
 
