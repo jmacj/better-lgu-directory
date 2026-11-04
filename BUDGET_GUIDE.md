@@ -1,55 +1,43 @@
 # How to Start Your Budget Transparency Portal
 
-This guide walks you through publishing a budget transparency portal for your local government unit (LGU) — a site that shows citizens every budget project for one province, city, or municipality, with links to the source documents behind each figure.
+Your province, city, or town can have its own site that lists every 2027 project in the national budget: what the National Expenditure Program (NEP) gave it, what the House bill (House Bill 10858) gives it, what was added or dropped, and the page in the budget documents for each figure.
 
-It's a much shorter road than a full [Better LGU portal](GUIDE.md). The official template pulls every figure from the BetterGov.ph Budget API, so there is no data to gather or publish yourself: fork it, pick your LGU, deploy, and add it to the directory once it's live. You don't need to register first.
+It's free and open source, and there's no server or database to run. Every figure comes from the [BetterGov.ph Budget API](https://budget.bettergov.ph/docs), the same data behind [budget.bettergov.ph](https://budget.bettergov.ph). You don't register anything in advance: build it, put it live, then send us the link.
 
----
-
-## What Is a Budget Transparency Portal?
-
-A budget portal answers one question for one place: *where is the national budget going here?* For the FY 2027 budget it lists every project for the LGU — what the National Expenditure Program (NEP) gave it, what the House bill gives it, what was added or dropped — alongside the enacted budgets (GAA) of earlier years.
-
-All of the data comes from the public [BetterGov.ph Budget API](https://budget.bettergov.ph/docs), the same data behind the national [budget.bettergov.ph](https://budget.bettergov.ph). A budget portal needs no backend and no database: it is a static site you can host for free.
+It's meant for LGU IT offices, civic groups, newsrooms, and student developers. You'll need Node.js, a GitHub account, and a free account on a static host.
 
 ---
 
-## Integrated or Standalone?
+## Before You Start
 
-Decide first where the portal will live. The [Budget Portal Directory](https://lgu.bettergov.ph/budget) lists both kinds:
+**Check the directories.** Look your LGU up in the [Budget Portal Directory](https://lgu.bettergov.ph/budget). If it already has a budget portal, contribute to that one instead of publishing a second.
 
-| Type          | Where it lives                                                                              | Choose it when                                              |
-|---------------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| 🧩 Integrated | A subdomain (`budget.betterlb.org`) or path (`bettercatanduanes.org/transparency`) of your Better LGU portal | Your LGU already has (or is building) a Better LGU portal   |
-| 🏛️ Standalone | A domain of its own (`bettersilang.org`)                                                     | There is no Better LGU portal for your LGU, and you aren't building one |
+**Decide where it lives.**
 
-Integrated is the default recommendation: it keeps one home for your LGU's civic data and lets the two portals share a domain, socials, and maintainers. If your LGU has no Better LGU portal yet, consider [starting one](GUIDE.md) — the budget portal can be its first section.
+| Type          | Where it lives                                                                                                  | Choose it when                                   |
+|---------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| 🧩 Integrated | A subdomain (`budget.betterlb.org`) or path (`bettercatanduanes.org/transparency`) of your LGU's Better LGU portal | Your LGU is in the [Better LGU Directory](https://lgu.bettergov.ph/) |
+| 🏛️ Standalone | A domain of its own (`bettersilang.org`)                                                                         | Your LGU has no Better LGU portal                |
 
----
-
-## Step 1 — Check the Directories
-
-Look your LGU up in the [Budget Portal Directory](https://lgu.bettergov.ph/budget) and the [Better LGU Directory](https://lgu.bettergov.ph/). If it already has a budget portal, contribute to that one rather than publishing a second.
-
-If your LGU has a Better LGU portal, talk to its maintainers before you start. An integrated budget portal goes on their domain, so they need to agree to it and set up the subdomain or path.
+For an integrated portal, talk to the Better LGU portal's maintainers first. It goes on their domain, so they need to agree to it and point the subdomain at your deploy. A subdomain is simpler than a path, because the budget portal then deploys on its own.
 
 ---
 
-## Step 2 — Fork the Template
+## Step 1 — Fork the Code
 
-Start from the official [BetterGov.ph transparency portal template](https://github.com/bettergovph/transparency-portal) — see [Budget Portal Templates](BUDGET_TEMPLATES.md) for all templates.
+Fork the official [BetterGov.ph transparency portal](https://github.com/bettergovph/transparency-portal) on GitHub, then clone your fork:
 
 ```bash
-git clone https://github.com/bettergovph/transparency-portal budget-portal
+git clone https://github.com/<you>/transparency-portal budget-portal
 cd budget-portal
 npm install
 ```
 
-Name the repository after the portal, e.g. `better[lguname]-budget` or `budget`. If the portal is integrated, create the repository under the same GitHub organization as your Better LGU portal.
+For an integrated portal, fork it into the same GitHub organization as your Better LGU portal. Other starting points are listed in [Budget Portal Templates](BUDGET_TEMPLATES.md).
 
 ---
 
-## Step 3 — Configure Your LGU
+## Step 2 — Run `npm run setup` and Pick Your LGU
 
 ```bash
 npm run setup   # pick your province, city, or municipality
@@ -57,58 +45,50 @@ npm run check   # counts every query against the live API
 npm run dev     # preview locally
 ```
 
-`npm run setup` looks up your LGU's exact names and ids in the API and writes `portal.config.ts`, the only file a fork needs to change. The config scopes the portal by DPWH district engineering office, by place name, or both. Review the lines found only by name (`npm run check -- --verbose`) and exclude any namesakes from other provinces, each with a reason.
+`npm run setup` looks up your LGU's exact names and ids in the API and writes `portal.config.ts`, the only file a fork needs to change.
 
-Municipality portals rely on project titles that name the town, because the API doesn't yet place every project in a city or municipality. Expect to spend more time reviewing matches for a municipality than for a province.
+Then review what it found. `npm run check -- --verbose` lists the projects matched only by name, and these can include namesakes from other provinces. Exclude any that aren't yours; each exclusion needs a reason, and the portal publishes it. Expect more of this for a municipality than for a province: the API doesn't yet place every project in a city or town, so a municipality portal relies on project titles that spell the town out.
+
+The template can also build a portal for a DPWH district engineering office. This directory lists LGU portals only for now.
 
 ---
 
-## Step 4 — Keep the Template's Rules
+## Step 3 — Deploy
 
-The template prints figures the way budget.bettergov.ph does. Keep these rules when you customize it:
+```bash
+npm run build   # static files in dist/
+```
 
-- Amounts are pesos as published. A dash means "no such line in this document", never zero.
+Deploy to Cloudflare, Vercel, or Netlify; the template already has the config for each. Any other static host works too, as long as it sends unknown paths to `/index.html`. Set `siteUrl` in `portal.config.ts` to your domain so link previews work.
+
+Run `npm run check` in CI as well. It fails on a broken config, so a change in the API shows up before citizens see wrong numbers.
+
+---
+
+## Send Us the Link
+
+Once the portal is live, open a PR adding it to `BUDGET.md` — see [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal). It appears on the [Budget Portal Directory](https://lgu.bettergov.ph/budget) after merge. For an integrated portal, your LGU's Better LGU portal must already be in the [Better LGU Directory](https://lgu.bettergov.ph/); add it in the same PR if it isn't.
+
+---
+
+## Keep the Numbers Honest
+
+The template presents figures the way budget.bettergov.ph does. Restyle it to match your Better LGU portal if you like, but keep these rules:
+
+- Amounts are as published in the 2027 NEP and House Bill 10858. They are not spending.
 - The NEP and the House bill are two versions of one budget. Compare them; never add them together.
-- "In the House bill only" and "In the NEP only" are leads to check, not confirmed insertions or deletions.
+- A project found in only one version is a candidate to check, not a finding.
+- A dash means "no such line in this document", never zero.
 - Keep the disclaimers from the API response on every page that shows figures.
-- Never hide a project silently. Every hand exclusion is listed with its reason on the About page.
-
-Restyle it to match your Better LGU portal if you like, but don't change how the numbers are computed or labelled.
+- Never hide a project silently. Every exclusion is listed with its reason on the About page.
 
 ---
 
-## Step 5 — Choose a Domain
+## Keeping It Current
 
-| Type          | Domain pattern                                                         |
-|---------------|------------------------------------------------------------------------|
-| 🧩 Integrated | `budget.better[lguname].org`, or a `/transparency` path on the main portal |
-| 🏛️ Standalone | `better[lguname].org`                                                  |
-
-A subdomain is simpler than a path: the budget portal deploys on its own, separately from the main portal. Use a path only if the main portal can serve the budget portal's static files under it.
-
----
-
-## Step 6 — Deploy
-
-`npm run build` writes static files to `dist/`. The template ships config for Cloudflare Workers, Vercel, and Netlify, and works on any static host that sends unknown paths to `/index.html`. Set `siteUrl` in `portal.config.ts` to your domain so link previews work.
-
-Run `npm run check` in CI. It exits non-zero on a broken config, so a change in the API shows up before citizens see wrong numbers.
-
----
-
-## Step 7 — Add It to the Directory
-
-Once the portal is live, open a PR adding it to `BUDGET.md` with status `🟢 Active` — see [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal). For an integrated portal, your LGU's Better LGU portal must already be in the [Better LGU Directory](https://lgu.bettergov.ph/); add it in the same PR if it isn't.
-
----
-
-## Keeping It Maintained
-
-- Pull updates from the upstream template when the budget moves to a new stage (bicameral version, enacted GAA) or a new fiscal year.
-- Re-run `npm run check` after every upstream update.
-- If you can no longer maintain the portal, update its status to `🔴 Unmaintained` so others know it needs a new maintainer.
-
-Citizen reports about a project will go to one central service on budget.bettergov.ph for every portal. Don't build a separate reporting form — link to the central one once it opens (the template's `reporting` setting handles this).
+- Pull updates from the upstream template when the budget moves to a new stage (bicameral version, enacted GAA) or a new fiscal year, then re-run `npm run check`.
+- Citizen reports will go to one central service on budget.bettergov.ph for every portal. Don't build your own form; the template's `reporting` setting links to the central one once it opens.
+- If you take the portal offline, open a PR removing its row from `BUDGET.md`. The directory only lists live portals.
 
 ---
 
