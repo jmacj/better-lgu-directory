@@ -158,7 +158,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Ilocos Norte Province               | -                                                             | [GitHub](https://github.com/russellraed/betterilocosnorte)                         | -                                                                                                                                                           | 🟡 Work in Progress    | [@russellraed](https://github.com/russellraed)                                                                                   |
 | Bukidnon Province | [betterbukidnon.org](https://betterbukidnon.org) | [GitHub](https://github.com/Better-Bukidnon) | - | 🟢 Active | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 | Lopez, Quezon | - | [GitHub](https://github.com/StanleyPangaruy/betterlopez) | - | 🟡 Work in Progress | [@StanleyPangaruy](https://github.com/StanleyPangaruy) |
-
+| San Fabian, Pangasinan | [bettersanfabian.org](https://bettersanfabian.org) or - | [GitHub](https://github.com/you/repo) or - | [Facebook](https://facebook.com/yourpage) or - | 🔵 Planned | [@yourhandle](https://github.com/yourhandle) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
