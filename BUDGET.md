@@ -18,7 +18,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlasp
 | Bukidnon Province            | [budget.betterbukidnon.org](https://budget.betterbukidnon.org)           | 🧩 Integrated | -                                                  | 🟢 Active | -                                            |
 | Catanduanes Province         | [bettercatanduanes.org/transparency](https://bettercatanduanes.org/transparency) | 🧩 Integrated | -                                          | 🟢 Active | -                                            |
 | Silang, Cavite               | [bettersilang.org](https://www.bettersilang.org)                         | 🏛️ Standalone | [GitHub](https://github.com/0xDataBear/bettersilang) | 🟢 Active | [@0xDataBear](https://github.com/0xDataBear) |
-| Batangas Province            | [betterbatangas.org](https://betterbatangas.org)                         | 🏛️ Standalone | -                                                  | 🟢 Active | -                                            |
+| Batangas Province            | [betterbatangas.org](https://betterbatangas.org)                         | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal) | 🟢 Active | [@pogicodes](https://github.com/pogicodes) |
 
 <!-- SYNC_BUDGET_TABLE_END -->
 
