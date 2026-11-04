@@ -163,6 +163,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
 
+> 💰 Looking for budget transparency portals? See the **[Budget Portal Directory](BUDGET.md)** — LGU sites built on the [BetterGov.ph Budget API](https://budget.bettergov.ph/docs), whether part of a Better LGU portal or standalone.
+
 ---
 
 ## 🚦 Status Legend
