@@ -3,6 +3,7 @@ import {
   VERIFIED_ON,
   type Source,
 } from "./data";
+import { bidRecords2026, type BidRecord } from "./bidRecords";
 
 export const barangaySlug = (name: string) =>
   name
@@ -155,13 +156,26 @@ export type BarangayMicrositeProfile = {
   population: number;
   logo: string;
   logoSource: Source;
+  heroImage?: {
+    url: string;
+    alt: string;
+    source: Source;
+    license: string;
+  };
   leadershipSource: Source;
   psgcSource: Source;
   boundarySource: Source;
   description: string;
   serviceAreas: typeof localServiceAreas;
   committeeAreas: typeof committeeAreas;
+  bids: BidRecord[];
   requestedSubdomain: string;
+};
+
+const sumpongHallSource: Source = {
+  label: "Wikimedia Commons — Sumpong Barangay Hall",
+  url: "https://commons.wikimedia.org/wiki/File:Sumpong_Barangay_Hall.jpg",
+  verifiedOn: VERIFIED_ON,
 };
 
 export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
@@ -178,12 +192,24 @@ export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
       email: directory.email,
       logo: `/images/barangays/${slug}.webp`,
       logoSource,
+      heroImage:
+        slug === "sumpong"
+          ? {
+              url: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Sumpong_Barangay_Hall.jpg",
+              alt: "Sumpong Barangay Administration Building",
+              source: sumpongHallSource,
+              license: "CC BY-SA 4.0",
+            }
+          : undefined,
       leadershipSource: directory.leadershipSource,
       psgcSource,
       boundarySource,
       description: `${psgc.name} is classified by the Philippine Statistics Authority as ${psgc.classification === "Urban" ? "an" : "a"} ${psgc.classification.toLowerCase()} barangay of Malaybalay City. The 2024 POPCEN recorded ${psgc.population.toLocaleString("en-PH")} residents.`,
       serviceAreas: localServiceAreas,
       committeeAreas,
+      bids: bidRecords2026.filter((record) =>
+        record.barangays.includes(slug),
+      ),
       requestedSubdomain: `https://${slug}.bettergov.org`,
     };
   },

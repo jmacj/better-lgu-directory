@@ -46,8 +46,7 @@ test("city hall background and detailed finance remain usable", async ({
     "background-image",
     /malaybalay-city-hall/,
   );
-  await expect(page.locator("#financial-detail")).toBeHidden();
-  await page.getByRole("button", { name: /Show detailed breakdown/i }).click();
+  await expect(page.locator("#financial-detail")).toBeVisible();
   await expect(page.getByText("₱1,188,506,575.00")).toBeVisible();
   await page.getByRole("button", { name: /Current operating income/i }).click();
   await expect(
@@ -103,7 +102,7 @@ test("leader profiles expose verified contacts and record scope", async ({
 }) => {
   await page.goto("/government");
   const firstDetailsButton = page
-    .getByRole("button", { name: /View verified details/i })
+    .getByRole("button", { name: "Details", exact: true })
     .first();
   const leaderCard = firstDetailsButton.locator("xpath=ancestor::article");
   const closedBox = await leaderCard.boundingBox();
@@ -148,9 +147,19 @@ test("barangay profile exposes sourced identity, services, and emergency contact
   );
   await expect(
     page.getByRole("heading", {
-      name: /Service areas awaiting named assignments/i,
+      name: /Common committee areas/i,
     }),
   ).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      name: /Published projects mentioning Dalwangan/i,
+    }),
+  ).toBeVisible();
+  await expect(page.locator(".leaflet-overlay-pane path")).toHaveCount(1);
+  await expect(page.locator(".leaflet-overlay-pane path")).toHaveAttribute(
+    "fill-opacity",
+    "0",
+  );
   await expect(
     page.getByRole("heading", { name: /Urgent help across Malaybalay/i }),
   ).toBeVisible();
@@ -197,6 +206,23 @@ test("procurement sources preserve record scope", async ({ page }) => {
   await expect(
     page.getByText(/does not relabel them as awarded projects/i),
   ).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      name: /Search published bidding opportunities/i,
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: /Show all 212 records/i }),
+  ).toBeVisible();
+  await page
+    .getByPlaceholder(/Search project, office, barangay, or ITB number/i)
+    .fill("Cabangahan");
+  await expect(page.locator(".procurement-count")).not.toContainText(
+    "212 matching records",
+  );
+  await expect(page.locator(".bid-record-list a").first()).toContainText(
+    /Cabangahan/i,
+  );
 });
 
 test("directory filters reach emergency contacts", async ({ page }) => {

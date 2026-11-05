@@ -89,9 +89,15 @@ describe("BetterMC public portal", () => {
     expect(screen.getByText("7,812")).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
-        name: /Service areas awaiting named assignments/i,
+        name: /Common committee areas/i,
       }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: /Published projects mentioning Dalwangan/i,
+      }),
+    ).toBeInTheDocument();
+    expect(screen.getAllByText(/ITB-2026-/i).length).toBeGreaterThan(0);
     expect(
       screen.getByText(/Complete roster not published/i),
     ).toBeInTheDocument();
@@ -103,6 +109,21 @@ describe("BetterMC public portal", () => {
         name: /DILG Barangay Officials Directory/i,
       }).length,
     ).toBeGreaterThan(0);
+  });
+
+  it("indexes searchable 2026 BAC notices without calling them awards", () => {
+    render(
+      <MemoryRouter initialEntries={["/transparency"]}>
+        <App />
+      </MemoryRouter>,
+    );
+    expect(
+      screen.getByRole("heading", {
+        name: /Search published bidding opportunities/i,
+      }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/These are procurement notices, not awards/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Show all 212 records/i })).toBeInTheDocument();
   });
 
   it("separates mayoral issuances, council ordinances, and institutional recognition", () => {

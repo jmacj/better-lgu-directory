@@ -25,7 +25,6 @@ import {
   Github,
   HeartPulse,
   Landmark,
-  Layers3,
   Mail,
   Menu,
   Phone,
@@ -68,6 +67,11 @@ import {
   barangaySlugFromHostname,
   type BarangayMicrositeProfile,
 } from "./barangayProfiles";
+import {
+  BAC_2026_SOURCE,
+  BAC_2026_VERIFIED_ON,
+  bidRecords2026,
+} from "./bidRecords";
 
 const navItems = [
   { label: "Transparency", to: "/transparency" },
@@ -1006,6 +1010,80 @@ function PageHero({
   );
 }
 
+function ProcurementIndex() {
+  const [query, setQuery] = useState("");
+  const [expanded, setExpanded] = useState(false);
+  const normalizedQuery = query.trim().toLowerCase();
+  const filtered = bidRecords2026.filter((record) =>
+    `${record.number} ${record.title} ${record.stage}`
+      .toLowerCase()
+      .includes(normalizedQuery),
+  );
+  const visible = expanded || normalizedQuery ? filtered : filtered.slice(0, 18);
+
+  return (
+    <div className="procurement-index">
+      <div className="procurement-index-head">
+        <div>
+          <span className="eyebrow">2026 BAC index</span>
+          <h2>Search published bidding opportunities</h2>
+          <p>
+            These are procurement notices, not awards or proof of payment. Open
+            the linked document for the approved budget, schedule, eligibility,
+            and technical requirements.
+          </p>
+        </div>
+        <label className="procurement-search">
+          <span className="sr-only">Search 2026 bid records</span>
+          <Search aria-hidden="true" />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search project, office, barangay, or ITB number"
+          />
+        </label>
+      </div>
+      <div className="procurement-count" role="status">
+        <strong>{filtered.length}</strong> matching records · source reviewed {BAC_2026_VERIFIED_ON}
+      </div>
+      <div className="bid-record-list">
+        {visible.map((record, index) => (
+          <a
+            key={`${record.number}-${record.url}-${index}`}
+            href={record.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>{record.stage}</span>
+            <strong>{record.number}</strong>
+            <p>{record.title.replace(/^ITB-2026-\d+\.?\s*/i, "")}</p>
+            <ExternalLink aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+      {!normalizedQuery && filtered.length > 18 && (
+        <button
+          className="bid-record-toggle"
+          type="button"
+          aria-expanded={expanded}
+          onClick={() => setExpanded((value) => !value)}
+        >
+          {expanded ? "Show fewer records" : `Show all ${filtered.length} records`}
+          <ChevronDown aria-hidden="true" />
+        </button>
+      )}
+      <a
+        className="procurement-index-source"
+        href={BAC_2026_SOURCE}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Open the City BAC source page <ExternalLink aria-hidden="true" />
+      </a>
+    </div>
+  );
+}
+
 function TransparencyPage() {
   const [params, setParams] = useSearchParams();
   const year = Number(params.get("year") ?? 2026);
@@ -1077,6 +1155,7 @@ function TransparencyPage() {
             other records; BetterMC does not relabel them as awarded projects.
           </p>
         </div>
+        <ProcurementIndex />
         <div className="toolbar">
           <label>
             <span>Search records</span>
@@ -1748,7 +1827,6 @@ type BoundaryCollection = FeatureCollection<
 
 function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
   const mapElement = useRef<HTMLDivElement>(null);
-  const [coordinates, setCoordinates] = useState<string | null>(null);
   const [mapError, setMapError] = useState(false);
 
   useEffect(() => {
@@ -1786,29 +1864,18 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
             attribution:
               "Tiles &copy; Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community",
           },
-        ).addTo(map);
+        );
 
         const selected = boundaries.features.find(
           (feature) => feature.properties.code === profile.code,
         );
-        L.geoJSON(boundaries, {
-          interactive: false,
-          style: (feature) => ({
-            color:
-              feature?.properties.code === profile.code ? "#eaf4ff" : "#bfd3e8",
-            weight: feature?.properties.code === profile.code ? 4 : 1,
-            opacity: feature?.properties.code === profile.code ? 1 : 0.55,
-            fillColor: "#1473e6",
-            fillOpacity: feature?.properties.code === profile.code ? 0.24 : 0.02,
-          }),
-        }).addTo(map);
         if (!selected) throw new Error("Selected barangay boundary unavailable");
         const selectedLayer = L.geoJSON(selected, {
           style: {
-            color: "#ffffff",
-            weight: 3,
-            fillColor: "#1473e6",
-            fillOpacity: 0.25,
+            color: "#1259c3",
+            weight: 4,
+            opacity: 0.95,
+            fillOpacity: 0,
           },
         })
           .bindPopup(
@@ -1816,10 +1883,9 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
           )
           .addTo(map);
         const bounds = selectedLayer.getBounds();
-        map.fitBounds(bounds, { padding: [28, 28], maxZoom: 14 });
-        const center = bounds.getCenter();
-        setCoordinates(`${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}`);
-        L.control.layers({ "Satellite view": imagery, "Street map": street }).addTo(map);
+        street.addTo(map);
+        map.fitBounds(bounds, { padding: [34, 34], maxZoom: 14 });
+        L.control.layers({ "Street map": street, Satellite: imagery }).addTo(map);
       } catch {
         if (!disposed) setMapError(true);
       }
@@ -1837,23 +1903,13 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
       <div
         ref={mapElement}
         className="barangay-map-canvas"
-        aria-label={`Satellite and street map showing the indicative outline of ${profile.name}`}
+        aria-label={`Interactive map showing the indicative outline of ${profile.name}`}
       />
-      {mapError ? (
+      {mapError && (
         <p role="status">
           The interactive map could not load. Use the provenance link below to
           inspect the boundary source.
         </p>
-      ) : (
-        <div className="barangay-map-meta">
-          <span>
-            <MapPin aria-hidden="true" /> Map-derived center
-          </span>
-          <strong>{coordinates ?? "Loading coordinates…"}</strong>
-          <span>
-            <Layers3 aria-hidden="true" /> Satellite and street layers
-          </span>
-        </div>
       )}
     </div>
   );
@@ -1878,7 +1934,17 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
   return (
     <div className="barangay-site">
       <section className="barangay-hero">
-        <div className="barangay-hero-image" aria-hidden="true" />
+        <div
+          className={`barangay-hero-image${profile.heroImage ? " has-photo" : ""}`}
+          style={
+            profile.heroImage
+              ? {
+                  backgroundImage: `linear-gradient(90deg, rgba(5, 30, 70, 0.94), rgba(14, 63, 130, 0.68) 62%, rgba(30, 98, 166, 0.42)), url("${profile.heroImage.url}")`,
+                }
+              : undefined
+          }
+          aria-hidden="true"
+        />
         <div className="container barangay-hero-content">
           <div className="barangay-brand-lockup">
             <div className="barangay-logo-frame">
@@ -1927,6 +1993,17 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
               <dd>{profile.punongBarangay}</dd>
             </div>
           </dl>
+          {profile.heroImage && (
+            <a
+              className="barangay-photo-credit"
+              href={profile.heroImage.source.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {profile.heroImage.alt} · {profile.heroImage.license}
+              <ExternalLink aria-hidden="true" />
+            </a>
+          )}
         </div>
       </section>
 
@@ -1938,6 +2015,7 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           <a href="#about">About</a>
           <a href="#map">Map</a>
           <a href="#leadership">Leadership</a>
+          <a href="#projects">Projects</a>
           <a href="#committees">Committees</a>
           <a href="#services">Services</a>
           <a href="#contacts">Contacts</a>
@@ -1952,10 +2030,8 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
             <h2>Source-backed community profile</h2>
             <p>{profile.description}</p>
             <p>
-              The population and classification are official PSA records.
-              BetterMC does not publish an area figure because no surveyed
-              barangay boundary was verified for this profile. The map below
-              uses a clearly labelled indicative boundary for orientation only.
+              Population and classification are official PSA records. The map
+              is an indicative reference, not a surveyed boundary.
             </p>
           </div>
           <aside className="barangay-source-card">
@@ -1973,22 +2049,18 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           className="barangay-profile-section barangay-map-section"
         >
           <SectionHeading
-            eyebrow="Location and indicative boundary"
-            title={`Explore ${profile.name} on the map`}
+            eyebrow="Map"
+            title={`${profile.name} boundary reference`}
           >
-            Switch between satellite imagery and OpenStreetMap. The highlighted
-            polygon is a generalized planning reference, not a surveyed legal
-            boundary.
+            The outline is for orientation only. Satellite imagery is available
+            from the map control.
           </SectionHeading>
           <BarangayMap profile={profile} />
           <div className="barangay-map-disclaimer">
             <CircleAlert aria-hidden="true" />
             <p>
-              Boundary geometry is derived from the PSA/NAMRIA 2023-11-06
-              snapshot and matched to PSGC code {profile.code}. It is indicative
-              only and must not be used to decide ownership, jurisdiction, or
-              survey lines. Map imagery and roads may update independently of
-              the boundary snapshot.
+              Indicative PSA/NAMRIA-derived geometry · PSGC {profile.code} · not
+              a legal survey.
             </p>
             <a
               href={profile.boundarySource.url}
@@ -1998,6 +2070,64 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
               Review boundary provenance <ExternalLink aria-hidden="true" />
             </a>
           </div>
+        </section>
+
+        <section id="projects" className="barangay-profile-section">
+          <SectionHeading
+            eyebrow="2026 procurement"
+            title={`Published projects mentioning ${profile.name}`}
+          >
+            These are BAC notices linked to this barangay. A notice is not an
+            award, expenditure, completion report, or personal achievement.
+          </SectionHeading>
+          {profile.bids.length ? (
+            <div className="barangay-bid-list">
+              {profile.bids.slice(0, 6).map((record, index) => (
+                <a
+                  key={`${record.url}-${index}`}
+                  href={record.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>{record.stage}</span>
+                  <strong>{record.number}</strong>
+                  <p>{record.title.replace(/^ITB-2026-\d+\.?\s*/i, "")}</p>
+                  <ExternalLink aria-hidden="true" />
+                </a>
+              ))}
+              {profile.bids.length > 6 && (
+                <details>
+                  <summary>Show {profile.bids.length - 6} more records</summary>
+                  <div>
+                    {profile.bids.slice(6).map((record, index) => (
+                      <a
+                        key={`${record.url}-more-${index}`}
+                        href={record.url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span>{record.stage}</span>
+                        <strong>{record.number}</strong>
+                        <p>{record.title.replace(/^ITB-2026-\d+\.?\s*/i, "")}</p>
+                        <ExternalLink aria-hidden="true" />
+                      </a>
+                    ))}
+                  </div>
+                </details>
+              )}
+            </div>
+          ) : (
+            <div className="barangay-project-empty">
+              <CircleAlert aria-hidden="true" />
+              <p>
+                No 2026 BAC notice on the reviewed source page explicitly
+                matched this barangay. This is not proof that no project exists.
+              </p>
+              <a href={BAC_2026_SOURCE} target="_blank" rel="noreferrer">
+                Check the official BAC page <ExternalLink aria-hidden="true" />
+              </a>
+            </div>
+          )}
         </section>
 
         <section id="leadership" className="barangay-profile-section">
@@ -2037,11 +2167,10 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
         <section id="committees" className="barangay-profile-section">
           <SectionHeading
             eyebrow="Committee transparency"
-            title="Service areas awaiting named assignments"
+            title="Common committee areas"
           >
-            These topics help residents route concerns. They are not presented
-            as this barangay’s verified committee roster because chair
-            assignments were not published in the sources reviewed.
+            Named assignments were not available in the reviewed official
+            directory.
           </SectionHeading>
           <div className="barangay-committee-grid">
             {profile.committeeAreas.map((committee) => (
@@ -2049,9 +2178,6 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
                 <Check />
                 <div>
                   <h3>{committee}</h3>
-                  <p>
-                    Chair and members not yet published in a verified source.
-                  </p>
                 </div>
               </article>
             ))}
@@ -2158,17 +2284,6 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           />
         </section>
 
-        <aside className="barangay-domain-note">
-          <Database />
-          <div>
-            <strong>Subdomain-ready profile</strong>
-            <p>
-              Requested address: <code>{profile.requestedSubdomain}</code>. The
-              application resolves barangay subdomains when wildcard DNS and
-              hosting are connected.
-            </p>
-          </div>
-        </aside>
       </div>
     </div>
   );
