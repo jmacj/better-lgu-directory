@@ -1,4 +1,4 @@
-export const VERIFIED_ON = '2026-11-04'
+export const VERIFIED_ON = '2026-11-05'
 
 export type Source = {
   label: string
@@ -11,38 +11,43 @@ export type Official = {
   role: string
   group: 'Executive' | 'Legislative' | 'Sectoral'
   source: Source
+  office: {
+    name: string
+    address: string
+    phone: string
+    email: string
+    source: Source
+  }
 }
 
-const legislativeSource: Source = {
-  label: 'City Government of Malaybalay — Legislative',
-  url: 'https://sakata.malaybalaycity.gov.ph/legislative/',
+const cityHallAddress = 'New City Hall, National Highway, Barangay Casisang, Malaybalay City, 8700 Bukidnon'
+const contactDirectorySource: Source = {
+  label: 'City Government of Malaybalay — Contact Us',
+  url: 'https://sakata.malaybalaycity.gov.ph/contact-us/',
   verifiedOn: VERIFIED_ON,
 }
+const mayorOffice = { name: 'City Mayor’s Office', address: cityHallAddress, phone: '0953-459-1777', email: 'malaybalaycitylgu@gmail.com', source: contactDirectorySource }
+const viceMayorOffice = { name: 'City Vice Mayor’s Office', address: cityHallAddress, phone: '0917-128-8087', email: 'spmarabe@gmail.com', source: contactDirectorySource }
+const councilOffice = { name: 'Office of the Sangguniang Panlungsod', address: cityHallAddress, phone: '0917-497-6861', email: 'spmalaybalaycity@gmail.com', source: contactDirectorySource }
 
-const executiveSource: Source = {
-  label: 'City Government of Malaybalay — Executive',
-  url: 'https://sakata.malaybalaycity.gov.ph/executive/',
-  verifiedOn: VERIFIED_ON,
-}
+const officialProfile = (url: string): Source => ({ label: 'City Government of Malaybalay — Official profile', url, verifiedOn: VERIFIED_ON })
 
 export const officials: Official[] = [
-  { name: 'Jay Warren R. Pabillaran', role: 'City Mayor', group: 'Executive', source: executiveSource },
-  { name: 'Estelito “Litoy” R. Marabe', role: 'City Vice Mayor', group: 'Executive', source: legislativeSource },
-  ...[
-    'Jason Chad J. Ayala',
-    'Brian Nelson T. Flores',
-    'Rendon P. Sangalang',
-    'Niko P. Aldeguer',
-    'Kathleen Cecille C. Pagaling',
-    'Alan Ryann O. Legaspi',
-    'Erwin A. Damasco',
-    'Flaviano T. Gapol, Jr.',
-    'Zoltan Dindo D. Dinlayan',
-    'Cromwell Kiril D. Dinlayan',
-  ].map((name): Official => ({ name, role: 'City Councilor', group: 'Legislative', source: legislativeSource })),
-  { name: 'Julius N. Manghano', role: 'ABC President', group: 'Sectoral', source: legislativeSource },
-  { name: 'Datu Sumbongan', role: 'Indigenous Peoples Mandatory Representative', group: 'Sectoral', source: legislativeSource },
-  { name: 'Christopher Tortola', role: 'SK Federation President', group: 'Sectoral', source: legislativeSource },
+  { name: 'Jay Warren R. Pabillaran', role: 'City Mayor', group: 'Executive', office: mayorOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/executive1/') },
+  { name: 'Estelito “Litoy” R. Marabe', role: 'City Vice Mayor', group: 'Executive', office: viceMayorOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legistative-vice-mayor/') },
+  { name: 'Jason Chad J. Ayala', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-1/') },
+  { name: 'Brian Nelson T. Flores', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-ii/') },
+  { name: 'Rendon P. Sangalang', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-iii/') },
+  { name: 'Niko P. Aldeguer', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-iv/') },
+  { name: 'Kathleen Cecille C. Pagaling', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-v/') },
+  { name: 'Alan Ryann O. Legaspi', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-vi/') },
+  { name: 'Erwin A. Damasco', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-vii/') },
+  { name: 'Flaviano T. Gapol, Jr.', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-viii/') },
+  { name: 'Zoltan Dindo D. Dinlayan', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-ix/') },
+  { name: 'Cromwell Kiril D. Dinlayan', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-x/') },
+  { name: 'Julius N. Manghano', role: 'ABC President', group: 'Sectoral', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-xi/') },
+  { name: 'Datu Sumbongan', role: 'Indigenous Peoples Mandatory Representative', group: 'Sectoral', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-xii/') },
+  { name: 'Christopher Tortola', role: 'SK Federation President', group: 'Sectoral', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-xiii/') },
 ]
 
 export type Department = {
@@ -53,11 +58,7 @@ export type Department = {
   source: Source
 }
 
-const contactSource: Source = {
-  label: 'City Government of Malaybalay — Contact Us',
-  url: 'https://sakata.malaybalaycity.gov.ph/contact-us/',
-  verifiedOn: VERIFIED_ON,
-}
+const contactSource = contactDirectorySource
 
 export const departments: Department[] = [
   ['Bids and Awards Committee', '0967-016-9677', 'bacmalaybalay@gmail.com'],
@@ -292,10 +293,11 @@ export const financialSnapshot = {
 export type CivicRecord = {
   number: string
   title: string
-  kind: 'Ordinance' | 'Executive order'
+  kind: 'Ordinance' | 'Executive order' | 'Memorandum circular'
   published: string
   body: string
   attribution: string
+  attributionLevel: 'office' | 'institutional' | 'unattributed'
   source: Source
 }
 
@@ -311,35 +313,84 @@ export const civicRecords: CivicRecord[] = [
     title: 'Energy-saving protocols and fuel-reduction measures in the City Government of Malaybalay',
     kind: 'Executive order', published: '2026-03-10', body: 'Office of the City Mayor',
     attribution: 'Published as a mayoral executive issuance on the City Government website.',
-    source: announcementSource('https://sakata.malaybalaycity.gov.ph/category/public-annoucement/'),
+    attributionLevel: 'office', source: announcementSource('https://sakata.malaybalaycity.gov.ph/executive-order-no-203/'),
+  },
+  {
+    number: 'Executive Order No. 19, Series of 2026',
+    title: 'Project Monitoring and Evaluation Information System (PMEIS)',
+    kind: 'Executive order', published: '2026-03-04', body: 'Office of the City Mayor',
+    attribution: 'Published as a mayoral executive issuance; the listing attributes it to the office, not as a personal accomplishment.',
+    attributionLevel: 'office', source: announcementSource('https://sakata.malaybalaycity.gov.ph/executive-order-no-19/'),
+  },
+  {
+    number: 'Executive Order No. 18, Series of 2026',
+    title: 'Manual of operations on epidemiology and surveillance for Malaybalay City',
+    kind: 'Executive order', published: '2026', body: 'Office of the City Mayor',
+    attribution: 'Published in the official announcement archive; the page does not expose a more precise publication date.',
+    attributionLevel: 'office', source: announcementSource('https://sakata.malaybalaycity.gov.ph/executive-order-no-18/'),
+  },
+  {
+    number: 'Executive Order No. 17, Series of 2026',
+    title: 'Medical Education Subsidy Committee and its functions',
+    kind: 'Executive order', published: '2026', body: 'Office of the City Mayor',
+    attribution: 'Published in the official announcement archive; the page does not expose a more precise publication date.',
+    attributionLevel: 'office', source: announcementSource('https://sakata.malaybalaycity.gov.ph/executive-order-no-17/'),
+  },
+  {
+    number: 'Executive Order No. 15, Series of 2026',
+    title: 'Anti-Sexual Harassment Referral Network under the Safe Spaces Act',
+    kind: 'Executive order', published: '2026', body: 'Office of the City Mayor',
+    attribution: 'Published in the official announcement archive; the page does not expose a more precise publication date.',
+    attributionLevel: 'office', source: announcementSource('https://sakata.malaybalaycity.gov.ph/executive-order-no-15/'),
+  },
+  {
+    number: 'Executive Order No. 08, Series of 2026',
+    title: 'Malaybalay City Task Force Anti-Bora-Bora',
+    kind: 'Executive order', published: '2026', body: 'Office of the City Mayor',
+    attribution: 'Published in the official announcement archive; the page does not expose a more precise publication date.',
+    attributionLevel: 'office', source: announcementSource('https://sakata.malaybalaycity.gov.ph/executive-order-no-08/'),
   },
   {
     number: 'Ordinance No. 1118, Series of 2026',
     title: 'Annual SK Functionality Audit with assessment mechanisms, criteria, incentives, and funding',
     kind: 'Ordinance', published: '2026-08-18', body: '10th Sangguniang Panlungsod',
     attribution: 'Individual sponsor or author was not identified in the verified public listing.',
-    source: announcementSource('https://sakata.malaybalaycity.gov.ph/category/public-annoucement/'),
+    attributionLevel: 'institutional', source: announcementSource('https://sakata.malaybalaycity.gov.ph/ordinance-no-1118-series-of-2026/'),
   },
   {
     number: 'Ordinance No. 1092, Series of 2026',
     title: 'Adoption of the provincial ordinance declaring March as Real Property Tax Month',
     kind: 'Ordinance', published: '2026-05-19', body: '10th Sangguniang Panlungsod',
     attribution: 'Individual sponsor or author was not identified in the verified public listing.',
-    source: announcementSource('https://sakata.malaybalaycity.gov.ph/ordinance-no-1092-series-of-2026/'),
+    attributionLevel: 'institutional', source: announcementSource('https://sakata.malaybalaycity.gov.ph/ordinance-no-1092-series-of-2026/'),
   },
   {
     number: 'Ordinance No. 1095, Series of 2026',
     title: 'Amendment concerning the automatic fare matrix and pakyaw fare matrix',
     kind: 'Ordinance', published: '2026-03-25', body: '10th Sangguniang Panlungsod',
     attribution: 'Individual sponsor or author was not identified in the verified public listing.',
-    source: announcementSource('https://sakata.malaybalaycity.gov.ph/ordinance-no-1095-series-of-2026/'),
+    attributionLevel: 'institutional', source: announcementSource('https://sakata.malaybalaycity.gov.ph/ordinance-no-1095-series-of-2026/'),
   },
   {
     number: 'Ordinance No. 1083, Series of 2026',
     title: 'Institutionalization of Ms. Malaybalay with implementing guidelines',
     kind: 'Ordinance', published: '2026-03-04', body: '10th Sangguniang Panlungsod',
     attribution: 'Individual sponsor or author was not identified in the verified public listing.',
-    source: announcementSource('https://sakata.malaybalaycity.gov.ph/ordinance-no-1083-10th-sangguniang-panlungsod/'),
+    attributionLevel: 'institutional', source: announcementSource('https://sakata.malaybalaycity.gov.ph/ordinance-no-1083-10th-sangguniang-panlungsod/'),
+  },
+  {
+    number: 'Ordinance No. 1077, Series of 2026',
+    title: 'Search for Model Family Awards in Malaybalay City',
+    kind: 'Ordinance', published: '2026', body: '10th Sangguniang Panlungsod',
+    attribution: 'The official listing does not identify an individual sponsor or author.',
+    attributionLevel: 'institutional', source: announcementSource('https://sakata.malaybalaycity.gov.ph/ordinance-no-1077/'),
+  },
+  {
+    number: 'Memorandum Circular No. 38',
+    title: 'Official public announcement of Memorandum Circular No. 38',
+    kind: 'Memorandum circular', published: '2026', body: 'Issuing authority not identified in the page text',
+    attribution: 'The official page provides an image but does not expose enough text to attribute the circular to a current city official.',
+    attributionLevel: 'unattributed', source: announcementSource('https://sakata.malaybalaycity.gov.ph/annoucement-5-23/'),
   },
 ]
 
@@ -414,8 +465,8 @@ export const publicProjects = [
   ...project,
   period: '2025 Q1',
   source: {
-    label: '2025 Q1 Consolidated Quarterly Report on Government Projects, Programs or Activities',
-    url: 'https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/01/Q1_Trust_Fund_Utilization.pdf',
+    label: '2025 Full Disclosure — Trust Fund Utilization Q1 listing',
+    url: 'https://sakata.malaybalaycity.gov.ph/full-disclosure/',
     verifiedOn: VERIFIED_ON,
   } satisfies Source,
 }))

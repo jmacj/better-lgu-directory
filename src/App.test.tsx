@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import App from './App'
 
@@ -11,6 +11,8 @@ describe('BetterMC public portal', () => {
     expect(screen.getByText('Not separately reported')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /Operating income by source/i })).toBeInTheDocument()
     expect(screen.getByText('₱1,188,506,575.00')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /Current operating income/i }))
+    expect(screen.getByRole('heading', { name: 'Current operating income' })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Next image' })).not.toBeInTheDocument()
     expect(screen.getAllByText(/not affiliated with, endorsed by, or operated by/i).length).toBeGreaterThan(0)
   })
@@ -34,7 +36,18 @@ describe('BetterMC public portal', () => {
   it('separates mayoral issuances, council ordinances, and institutional recognition', () => {
     render(<MemoryRouter initialEntries={['/government?tab=records']}><App /></MemoryRouter>)
     expect(screen.getByText('Executive Order No. 23, Series of 2026')).toBeInTheDocument()
+    expect(screen.getByText('Executive Order No. 19, Series of 2026')).toBeInTheDocument()
+    expect(screen.getByText('Memorandum Circular No. 38')).toBeInTheDocument()
     expect(screen.getByText('Ordinance No. 1118, Series of 2026')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /Verified recognition/i })).toBeInTheDocument()
+  })
+
+  it('expands a leader profile with verified office contact details', () => {
+    render(<MemoryRouter initialEntries={['/government']}><App /></MemoryRouter>)
+    fireEvent.click(screen.getAllByRole('button', { name: /View verified details/i })[0])
+    expect(screen.getByText('City Mayor’s Office')).toBeInTheDocument()
+    expect(screen.getByText(/New City Hall, National Highway/i)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /0953-459-1777/ })).toHaveAttribute('href', 'tel:09534591777')
+    expect(screen.getByText(/mayoral office issuances indexed/i)).toBeInTheDocument()
   })
 })

@@ -1,6 +1,6 @@
 # BetterMC implementation status
 
-Updated: **2026-11-04**
+Updated: **2026-11-05**
 
 ## Implemented and locally testable
 
@@ -20,13 +20,17 @@ Updated: **2026-11-04**
 - Scope-labeled BAC procurement source cards that distinguish bids, awards, and completion evidence
 - Live Malaybalay date and time in the top utility bar on every page
 - Compact disclosure index rows replacing the oversized decorative disclosure card
+- Clickable financial summary and breakdown rows with definitions, percentages, and direct source verification
+- Expandable profiles for all 15 listed city leaders with official profile links, office contacts, office address, and attribution-safe record coverage
+- Expanded official archive index covering mayoral executive orders, council ordinances, and an unattributed memorandum circular
 
 ## Real limitations — not presented as completed
 
 - The supplied BetterMC logo assets and a blue-on-white favicon are implemented.
 - The D1 production database ID and Turnstile keys are deployment-owned values and are not configured in source.
 - An authenticated administration interface and server-enforced role management are not yet implemented. The schema provides versioned records and audit logs, but no production admin claim is made.
-- Procurement awards, voting records, resolutions, committee assignments, and Citizen's Charter procedures require further record-by-record extraction and verification.
+- Voting records, resolutions, committee assignments, and Citizen's Charter procedures require further record-by-record extraction and verification. The reviewed official pages did not expose a complete individual-sponsor ledger.
+- The official City Government host currently presents an expired TLS certificate. BetterMC cannot repair or guarantee the availability of external government infrastructure.
 - No production deployment, domain, analytics, search indexing, or live form delivery was verified in this implementation pass.
 - Geographic coordinates and map boundaries are not published without a verified authoritative dataset.
 
