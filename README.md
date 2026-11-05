@@ -162,6 +162,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Bauan, Batangas                       | [betterbauan.vercel.app](https://betterbauan.vercel.app)        | [GitHub](https://github.com/Arxenic/betterbauan)                                 | -                                                                                                                                                             | 🟡 Work in Progress      | [@Arxenic](https://github.com/Arxenic)                                                                                             |
 | Palo, Leyte | - | [GitHub](https://github.com/BetterPalo/BetterPalo) | - | 🟡 Work in Progress | [@Zyxavy](https://github.com/Zyxavy) |
 | Carmona, Cavite                     | [bettercarmona.org](https://bettercarmona.org)                | [GitHub](https://github.com/carlolim/bettercarmona)                            | -                                                                                                                                                           | 🟡 Work in Progress    | [@carlolim](https://github.com/carlolim)                                                                                         |
+| Iriga, Camarines Sur | [betteririga.org](https://betteririga.org) |  [GitHub](https://github.com/ronhedwigzape/betteririga) | [Facebook](https://www.facebook.com/BetterIriga.org) | 🟢 Active | [@ronhedwigzape](https://github.com/ronhedwigzape) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
