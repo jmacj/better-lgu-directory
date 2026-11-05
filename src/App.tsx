@@ -1386,15 +1386,13 @@ function GovernmentPage() {
           </>
         ) : tab === "officials" ? (
           <>
-            <div className="data-notice">
+            <div className="data-notice directory-guidance">
               <CircleAlert />
               <div>
-                <strong>Click any leader to inspect the verified record</strong>
+                <strong>Select a leader for verified details</strong>
                 <p>
-                  Every profile links to an official City Government page and a
-                  clearly labeled published contact route. City ordinances are
-                  not assigned to an individual councilor unless the source
-                  names that sponsor or author.
+                  View published contacts, assignments, records, and sources.
+                  Measures are attributed only when the source names an author.
                 </p>
               </div>
             </div>
@@ -1443,7 +1441,14 @@ function GovernmentPage() {
                       aria-hidden={!expanded}
                     >
                       <div className="leader-reveal-inner">
-                        <div className="leader-details">
+                        <div
+                          className={`leader-details${
+                            official.chairmanships?.length ||
+                            official.committeeMemberships?.length
+                              ? " has-committees"
+                              : ""
+                          }`}
+                        >
                           <div className="leader-office">
                             <span>{official.office.scope}</span>
                             <h3>{official.office.name}</h3>
@@ -1529,7 +1534,7 @@ function GovernmentPage() {
                                   issuances indexed
                                 </strong>
                                 <ul>
-                                  {officeRecords.map((record) => (
+                                  {officeRecords.slice(0, 3).map((record) => (
                                     <li key={record.number}>
                                       <a
                                         href={record.source.url}
@@ -1543,6 +1548,12 @@ function GovernmentPage() {
                                     </li>
                                   ))}
                                 </ul>
+                                {officeRecords.length > 3 && (
+                                  <Link to="/government?tab=records">
+                                    View all {officeRecords.length} published
+                                    measures <ArrowRight />
+                                  </Link>
+                                )}
                               </>
                             ) : (
                               <>
