@@ -1588,3 +1588,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@StanleyPangaruy](https://github.com/StanleyPangaruy)"
+- name: "Tayabas City, Quezon"
+  domain: "-"
+  repo: "[GitHub](https://github.com/herseyy/bettertayabas)"
+  repo_owner: "herseyy"
+  repo_name: "bettertayabas"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@herseyy](https://github.com/herseyy), [@ninnzz](https://github.com/ninnzz)"
