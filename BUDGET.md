@@ -21,7 +21,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Batangas Province            | [betterbatangas.org](https://betterbatangas.org)                                 | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal)           | [@pogicodes](https://github.com/pogicodes)                                             |
 | Pampanga Province            | [betterpampanga.vercel.app](https://betterpampanga.vercel.app)                   | 🏛️ Standalone | [GitHub](https://github.com/Pseudoman21/betterpampanga)                       | [@Pseudoman21](https://github.com/Pseudoman21)                                         |
 | Taal, Batangas               | [taal.betterbatangas.org](https://taal.betterbatangas.org)                       | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | [@pogicodes](https://github.com/pogicodes)                                             |
-| Cabanatuan City, Nueva Ecija | [transparency.bettercabanatuan.org](https://transparency.bettercabanatuan.org)   | 🧩 Integrated  | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan)                | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
+| Cabanatuan City, Nueva Ecija | [transparency.bettercabanatuan.org](https://transparency.bettercabanatuan.org)   | 🧩 Integrated  | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan-transparency-portal)                | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
 
 <!-- SYNC_BUDGET_TABLE_END -->
 
