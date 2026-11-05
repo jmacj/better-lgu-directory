@@ -87,3 +87,12 @@
   repo_owner: "pogicodes"
   repo_name: "batangas-transparency-portal"
   maintainer: "[@pogicodes](https://github.com/pogicodes)"
+- name: "Cabanatuan City, Nueva Ecija"
+  portal: "[transparency.bettercabanatuan.org](https://transparency.bettercabanatuan.org)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[bettercabanatuan.org](https://bettercabanatuan.org)"
+  repo: "[GitHub](https://github.com/BetterCabanatuan/bettercabanatuan-transparency-portal)"
+  repo_owner: "BetterCabanatuan"
+  repo_name: "bettercabanatuan-transparency-portal"
+  maintainer: "[@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll)"
