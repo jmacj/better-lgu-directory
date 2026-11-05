@@ -158,6 +158,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Ilocos Norte Province               | -                                                             | [GitHub](https://github.com/russellraed/betterilocosnorte)                         | -                                                                                                                                                           | 🟡 Work in Progress    | [@russellraed](https://github.com/russellraed)                                                                                   |
 | Bukidnon Province | [betterbukidnon.org](https://betterbukidnon.org) | [GitHub](https://github.com/Better-Bukidnon) | - | 🟢 Active | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 | Lopez, Quezon | - | [GitHub](https://github.com/StanleyPangaruy/betterlopez) | - | 🟡 Work in Progress | [@StanleyPangaruy](https://github.com/StanleyPangaruy) |
+| Tayabas City, Quezon | - | [GitHub](https://github.com/herseyy/bettertayabas) | - | 🔵 Planned | [@herseyy](https://github.com/herseyy), [@ninnzz](https://github.com/ninnzz) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
