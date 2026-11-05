@@ -1608,3 +1608,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rimzbravz](https://github.com/rimzbravz)"
+- name: "Bauan, Batangas"
+  domain: "[betterbauan.vercel.app](https://betterbauan.vercel.app)"
+  repo: "[GitHub](https://github.com/Arxenic/betterbauan)"
+  repo_owner: "Arxenic"
+  repo_name: "betterbauan"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@Arxenic](https://github.com/Arxenic)"
