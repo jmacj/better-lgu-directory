@@ -1618,3 +1618,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@Zyxavy](https://github.com/Zyxavy)"
+- name: "Carmona, Cavite"
+  domain: "[bettercarmona.org](https://bettercarmona.org)"
+  repo: "[GitHub](https://github.com/carlolim/bettercarmona)"
+  repo_owner: "carlolim"
+  repo_name: "bettercarmona"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@carlolim](https://github.com/carlolim)"
