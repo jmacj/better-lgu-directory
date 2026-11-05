@@ -1397,7 +1397,7 @@
     - platform: "facebook"
       label: "Facebook"
       url: "https://facebook.com/bettermarawi.org"
-  status: "🔵 Planned"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
   maintainer: "[@mamangcao](https://github.com/mamangcao)"
