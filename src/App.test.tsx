@@ -1,8 +1,33 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "./App";
+import {
+  barangayMicrosites,
+  MALAYBALAY_2024_POPULATION,
+} from "./barangayProfiles";
 
 describe("BetterMC public portal", () => {
+  it("provides current population context for all 46 barangay profiles", () => {
+    expect(barangayMicrosites).toHaveLength(46);
+    expect(
+      barangayMicrosites.reduce(
+        (total, barangay) => total + barangay.population,
+        0,
+      ),
+    ).toBe(MALAYBALAY_2024_POPULATION);
+    expect(
+      new Set(barangayMicrosites.map((barangay) => barangay.populationRank)),
+    ).toHaveProperty("size", 46);
+    for (const barangay of barangayMicrosites) {
+      expect(barangay.introduction).toContain(barangay.name);
+      expect(barangay.populationSummary).toContain("46 barangays");
+      expect(barangay.cityPopulationShare).toBeGreaterThan(0);
+      expect(barangay.populationReleaseSource.url).toContain(
+        "rsso10.psa.gov.ph",
+      );
+    }
+  });
+
   it("renders the independent-platform disclosure and homepage purpose", () => {
     render(
       <MemoryRouter>
@@ -86,7 +111,22 @@ describe("BetterMC public portal", () => {
       screen.getByRole("heading", { name: "Dalwangan", level: 1 }),
     ).toBeInTheDocument();
     expect(screen.getAllByText("Royville C. Pasco").length).toBeGreaterThan(0);
-    expect(screen.getByText("7,812")).toBeInTheDocument();
+    expect(screen.getAllByText("7,812").length).toBeGreaterThan(0);
+    expect(
+      screen.getByRole("heading", {
+        name: /Community profile and population context/i,
+      }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("8 of 46")).toBeInTheDocument();
+    expect(screen.getByText("4.01%")).toBeInTheDocument();
+    expect(
+      screen.getByText(/No separate official 2026 barangay population count/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
+        name: /2024 POPCEN highlights for Malaybalay City/i,
+      }),
+    ).toHaveAttribute("href", expect.stringContaining("rsso10.psa.gov.ph"));
     expect(
       screen.getByRole("heading", {
         name: /Common committee areas/i,

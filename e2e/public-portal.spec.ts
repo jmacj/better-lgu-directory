@@ -147,6 +147,16 @@ test("barangay profile exposes sourced identity, services, and emergency contact
   );
   await expect(
     page.getByRole("heading", {
+      name: /Community profile and population context/i,
+    }),
+  ).toBeVisible();
+  await expect(page.getByText("8 of 46")).toBeVisible();
+  await expect(page.getByText("4.01%", { exact: true })).toBeVisible();
+  await expect(
+    page.getByText(/No separate official 2026 barangay population count/i),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
       name: /Common committee areas/i,
     }),
   ).toBeVisible();

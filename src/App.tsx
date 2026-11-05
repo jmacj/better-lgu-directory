@@ -65,6 +65,10 @@ import {
   barangayMicrositeBySlug,
   barangayMicrosites,
   barangaySlugFromHostname,
+  BARANGAY_PROFILE_REVIEWED_ON,
+  MALAYBALAY_2024_POPULATION,
+  POPULATION_REFERENCE_DATE,
+  POPULATION_RELEASE_DATE,
   type BarangayMicrositeProfile,
 } from "./barangayProfiles";
 import {
@@ -1768,7 +1772,7 @@ function BarangaysPage() {
               <h2>{barangay.name}</h2>
               <p className="barangay-stat">
                 <strong>{barangay.population.toLocaleString("en-PH")}</strong>
-                <span>2024 POPCEN population</span>
+                <span>2024 POPCEN · released 2026</span>
               </p>
               <p className="barangay-leader">
                 <span>Punong Barangay</span>
@@ -1981,7 +1985,7 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
               <dt>Population</dt>
               <dd>
                 {profile.population.toLocaleString("en-PH")}
-                <small>2024 POPCEN</small>
+                <small>2024 POPCEN · released 2026</small>
               </dd>
             </div>
             <div>
@@ -2025,23 +2029,70 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
 
       <div className="barangay-profile-main container">
         <section id="about" className="barangay-profile-section barangay-about">
-          <div>
+          <div className="barangay-about-copy">
             <span className="eyebrow">About the barangay</span>
-            <h2>Source-backed community profile</h2>
-            <p>{profile.description}</p>
-            <p>
-              Population and classification are official PSA records. The map
-              is an indicative reference, not a surveyed boundary.
-            </p>
+            <h2>Community profile and population context</h2>
+            <p>{profile.introduction}</p>
+            <p>{profile.populationSummary}</p>
+            <p>{profile.classificationNote}</p>
+            <div className="barangay-population-note">
+              <Clock3 aria-hidden="true" />
+              <div>
+                <strong>Latest official population available in 2026</strong>
+                <p>
+                  The count refers to {POPULATION_REFERENCE_DATE} and was
+                  released by PSA on {POPULATION_RELEASE_DATE}. No separate
+                  official 2026 barangay population count was published in the
+                  reviewed PSA sources.
+                </p>
+              </div>
+            </div>
           </div>
           <aside className="barangay-source-card">
             <ShieldCheck />
             <strong>Where this information comes from</strong>
             <BarangaySourceLink source={profile.psgcSource} />
+            <BarangaySourceLink source={profile.populationReleaseSource} />
             <BarangaySourceLink source={profile.leadershipSource} />
             <BarangaySourceLink source={profile.logoSource} />
-            <small>Sources reviewed {VERIFIED_ON}</small>
+            <small>
+              Barangay sources reviewed through {BARANGAY_PROFILE_REVIEWED_ON}
+            </small>
           </aside>
+          <div
+            className="barangay-community-snapshot"
+            aria-label={`${profile.name} community data summary`}
+          >
+            <article>
+              <Users aria-hidden="true" />
+              <span>Latest official count</span>
+              <strong>{profile.population.toLocaleString("en-PH")}</strong>
+              <p>Official census count · released January 2026</p>
+            </article>
+            <article>
+              <BarChart3 aria-hidden="true" />
+              <span>Share of city population</span>
+              <strong>{profile.cityPopulationShare.toFixed(2)}%</strong>
+              <p>
+                Portal calculation from the official city total of{" "}
+                {MALAYBALAY_2024_POPULATION.toLocaleString("en-PH")}
+              </p>
+            </article>
+            <article>
+              <TrendingUp aria-hidden="true" />
+              <span>Population rank</span>
+              <strong>{profile.populationRank} of 46</strong>
+              <p>Ranked by official barangay-level census counts</p>
+            </article>
+            <article>
+              <FileText aria-hidden="true" />
+              <span>2026 BAC notices</span>
+              <strong>{profile.bids.length}</strong>
+              <p>
+                Notices naming {profile.name}; not awards or completion reports
+              </p>
+            </article>
+          </div>
         </section>
 
         <section

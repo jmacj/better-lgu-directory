@@ -20,6 +20,11 @@ type PsgcProfile = {
   population: number;
 };
 
+export const MALAYBALAY_2024_POPULATION = 195_046;
+export const POPULATION_REFERENCE_DATE = "1 July 2024";
+export const POPULATION_RELEASE_DATE = "15 January 2026";
+export const BARANGAY_PROFILE_REVIEWED_ON = "2026-11-06";
+
 const psgcRows: Array<[string, string, "Urban" | "Rural", number]> = [
   ["Aglayan", "1001312001", "Urban", 8225],
   ["Bangcud", "1001312002", "Urban", 6387],
@@ -78,6 +83,21 @@ const psgcProfiles: PsgcProfile[] = psgcRows.map(
   }),
 );
 
+const populationRankByName = new Map(
+  [...psgcProfiles]
+    .sort((left, right) => right.population - left.population)
+    .map((profile, index) => [profile.name, index + 1]),
+);
+
+const ordinal = (value: number) => {
+  const remainder = value % 100;
+  if (remainder >= 11 && remainder <= 13) return `${value}th`;
+  if (value % 10 === 1) return `${value}st`;
+  if (value % 10 === 2) return `${value}nd`;
+  if (value % 10 === 3) return `${value}rd`;
+  return `${value}th`;
+};
+
 const logoSource: Source = {
   label: "City Government of Malaybalay — Barangay directory and marks",
   url: "https://sakata.malaybalaycity.gov.ph/list-of-barangay/",
@@ -94,7 +114,13 @@ const boundarySource: Source = {
 export const psgcSource: Source = {
   label: "Philippine Statistics Authority — PSGC, City of Malaybalay",
   url: "https://psa.gov.ph/classification/psgc/barangays/1001312000",
-  verifiedOn: VERIFIED_ON,
+  verifiedOn: BARANGAY_PROFILE_REVIEWED_ON,
+};
+
+export const populationReleaseSource: Source = {
+  label: "PSA RSSO X — 2024 POPCEN highlights for Malaybalay City",
+  url: "https://rsso10.psa.gov.ph/content/highlights-population-counts-malaybalay-city-bukidnon-based-2024-census-population",
+  verifiedOn: BARANGAY_PROFILE_REVIEWED_ON,
 };
 
 const localServiceAreas = [
@@ -164,8 +190,14 @@ export type BarangayMicrositeProfile = {
   };
   leadershipSource: Source;
   psgcSource: Source;
+  populationReleaseSource: Source;
   boundarySource: Source;
   description: string;
+  introduction: string;
+  populationSummary: string;
+  classificationNote: string;
+  populationRank: number;
+  cityPopulationShare: number;
   serviceAreas: typeof localServiceAreas;
   committeeAreas: typeof committeeAreas;
   bids: BidRecord[];
@@ -184,6 +216,13 @@ export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
     if (!directory)
       throw new Error(`Missing barangay directory record for ${psgc.name}`);
     const slug = barangaySlug(psgc.name);
+    const populationRank = populationRankByName.get(psgc.name);
+    if (!populationRank)
+      throw new Error(`Missing population rank for ${psgc.name}`);
+    const cityPopulationShare =
+      (psgc.population / MALAYBALAY_2024_POPULATION) * 100;
+    const article = psgc.classification === "Urban" ? "an" : "a";
+    const formattedPopulation = psgc.population.toLocaleString("en-PH");
     return {
       ...psgc,
       slug,
@@ -203,8 +242,14 @@ export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
           : undefined,
       leadershipSource: directory.leadershipSource,
       psgcSource,
+      populationReleaseSource,
       boundarySource,
-      description: `${psgc.name} is classified by the Philippine Statistics Authority as ${psgc.classification === "Urban" ? "an" : "a"} ${psgc.classification.toLowerCase()} barangay of Malaybalay City. The 2024 POPCEN recorded ${psgc.population.toLocaleString("en-PH")} residents.`,
+      description: `${psgc.name} is ${article} ${psgc.classification.toLowerCase()} barangay of Malaybalay City with ${formattedPopulation} residents in the latest official census count.`,
+      introduction: `${psgc.name} is one of Malaybalay City’s 46 barangays. The Philippine Statistics Authority classifies it as ${article} ${psgc.classification.toLowerCase()} barangay and recorded ${formattedPopulation} residents in the 2024 Census of Population.`,
+      populationSummary: `Based on the same census, ${psgc.name} ranks ${ordinal(populationRank)} by population among the city’s 46 barangays and accounts for ${cityPopulationShare.toFixed(2)}% of Malaybalay’s ${MALAYBALAY_2024_POPULATION.toLocaleString("en-PH")} residents.`,
+      classificationNote: `The ${psgc.classification.toLowerCase()} classification is an official statistical category. It is not a rating of local services, infrastructure, or development conditions.`,
+      populationRank,
+      cityPopulationShare,
       serviceAreas: localServiceAreas,
       committeeAreas,
       bids: bidRecords2026.filter((record) =>
