@@ -28,6 +28,13 @@
   repo_owner: "betterlaspinas"
   repo_name: "budget"
   maintainer: "[@jmacj](https://github.com/jmacj), [@Martin-Enghoy](https://github.com/Martin-Enghoy)"
+- name: "Lapu Lapu City, Cebu"
+  portal: "[betterlapulapu.org/government/budget-projects](https://www.betterlapulapu.org/government/budget-projects)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[betterlapulapu.org](https://betterlapulapu.org)"
+  repo: "-"
+  maintainer: "[@iyanski](https://github.com/iyanski)"
 - name: "Catanduanes Province"
   portal: "[bettercatanduanes.org/transparency](https://bettercatanduanes.org/transparency)"
   type: "🧩 Integrated"
