@@ -313,10 +313,10 @@
   repo_owner: "Criflar"
   repo_name: "betterbinan"
   socials: []
-  status: "🔵 Planned"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@Criflar](https://github.com/Criflar), [@chiwasushuba](https://github.com/chiwasushuba)"
+  maintainer: "[@mimflar](https://github.com/mimflar), [@chiwasushuba](https://github.com/chiwasushuba)"
 - name: "Tanay, Rizal"
   domain: "[bettertanay.org](https://bettertanay.org)"
   repo: "[GitHub](https://github.com/s4burieru/bettertanay)"
