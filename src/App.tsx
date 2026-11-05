@@ -1199,6 +1199,11 @@ function GovernmentPage() {
   const visibleOfficials = officials.filter((item) =>
     `${item.name} ${item.role}`.toLowerCase().includes(deferredQuery),
   );
+  const visibleRecords = civicRecords.filter((record) =>
+    `${record.kind} ${record.number} ${record.title} ${record.body}`
+      .toLowerCase()
+      .includes(deferredQuery),
+  );
   const openOfficial = params.get("official");
   const officialId = (name: string) =>
     name
@@ -1239,30 +1244,7 @@ function GovernmentPage() {
         compact
       />
       <section className="section container government-directory-section">
-        <div
-          className="tabs"
-          role="tablist"
-          aria-label="Government directory views"
-        >
-          {(
-            [
-              ["officials", "Officials"],
-              ["records", "Published measures"],
-              ["offices", "Offices"],
-              ["hotlines", "Hotlines"],
-            ] as const
-          ).map(([value, label]) => (
-            <button
-              key={value}
-              role="tab"
-              aria-selected={tab === value}
-              onClick={() => setParams({ tab: value })}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-        {tab !== "records" && (
+        <div className="directory-toolbar">
           <label className="directory-search">
             <span className="sr-only">Search directory</span>
             <Search />
@@ -1272,7 +1254,30 @@ function GovernmentPage() {
               placeholder={`Search ${tab}`}
             />
           </label>
-        )}
+          <div
+            className="tabs"
+            role="tablist"
+            aria-label="Government directory views"
+          >
+            {(
+              [
+                ["officials", "Officials"],
+                ["records", "Published measures"],
+                ["offices", "Offices"],
+                ["hotlines", "Hotlines"],
+              ] as const
+            ).map(([value, label]) => (
+              <button
+                key={value}
+                role="tab"
+                aria-selected={tab === value}
+                onClick={() => setParams({ tab: value })}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
         {tab === "records" ? (
           <>
             <SectionHeading
@@ -1284,7 +1289,7 @@ function GovernmentPage() {
               assigned only when the source identifies its issuing authority.
             </SectionHeading>
             <div className="civic-records">
-              {civicRecords.map((record) => (
+              {visibleRecords.map((record) => (
                 <article key={record.number}>
                   <div className="record-meta">
                     <span>{record.kind}</span>
@@ -1631,8 +1636,18 @@ function BarangaysPage() {
         eyebrow="46 barangays"
         title="Every barangay, with its publicly listed leader."
         description="Barangay names come from the City Government directory. Punong Barangay names and available public contact fields come from the DILG Barangay Officials Directory."
+        compact
       />
-      <section className="section container">
+      <section className="section container government-directory-section">
+        <label className="directory-search barangay-directory-search">
+          <span className="sr-only">Search barangays</span>
+          <Search />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search a barangay or captain"
+          />
+        </label>
         <div className="data-notice barangay-contact-notice">
           <CircleAlert />
           <div>
@@ -1644,15 +1659,6 @@ function BarangaysPage() {
             </p>
           </div>
         </div>
-        <label className="directory-search">
-          <span className="sr-only">Search barangays</span>
-          <Search />
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search a barangay"
-          />
-        </label>
         <div className="barangay-grid">
           {visible.map((barangay) => (
             <article key={barangay.name}>
