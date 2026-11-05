@@ -2985,9 +2985,11 @@ kbd {
 .footer-grid {
   position: relative;
   display: grid;
-  grid-template-columns: 1.18fr 0.72fr 1.08fr 0.82fr;
+  grid-template-columns:
+    minmax(0, 1.18fr) minmax(160px, 0.72fr)
+    repeat(2, minmax(230px, 1fr));
   align-items: start;
-  gap: 48px;
+  gap: 36px;
   padding-bottom: 34px;
 }
 .footer-intro {
@@ -3062,30 +3064,35 @@ kbd {
 .footer-contact {
   font-style: normal;
 }
-.footer-contact-primary {
+.footer-action-card {
   width: 100%;
-  min-height: 68px;
-  display: flex;
+  min-height: 60px;
   align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
-  border: 1px solid rgba(153, 190, 242, 0.25);
-  border-radius: 13px;
-  background: rgba(255, 255, 255, 0.055);
+  padding: 9px 12px;
+  border: 1px solid rgba(153, 190, 242, 0.28);
+  border-radius: 11px;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  text-decoration: none !important;
   transition:
     border-color 160ms ease,
     background-color 160ms ease,
     transform 160ms var(--ease-out);
 }
-.footer-contact-primary:hover {
+.footer-action-card:hover {
   border-color: rgba(153, 190, 242, 0.5);
   background: rgba(255, 255, 255, 0.085);
 }
-.footer-contact-primary:active {
+.footer-action-card:active {
   transform: scale(0.985);
 }
+.footer-contact-primary {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
+}
 .footer-contact-primary > svg {
-  width: 20px;
+  width: 18px;
   flex: none;
   color: #8ebcff;
 }
@@ -3102,7 +3109,7 @@ kbd {
 }
 .footer-contact-primary strong {
   color: white;
-  font-size: 1.02rem;
+  font-size: 0.94rem;
   letter-spacing: -0.01em;
 }
 .footer-source-label {
@@ -3125,26 +3132,9 @@ kbd {
   flex: none;
 }
 .bettergov-link {
-  width: 100%;
   display: grid !important;
   grid-template-columns: 1fr auto;
   gap: 1px 8px !important;
-  padding: 13px 14px;
-  border: 1px solid rgba(153, 190, 242, 0.28);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  text-decoration: none !important;
-  transition:
-    border-color 160ms ease,
-    background-color 160ms ease,
-    transform 160ms var(--ease-out);
-}
-.bettergov-link:hover {
-  border-color: rgba(153, 190, 242, 0.52);
-  background: rgba(255, 255, 255, 0.09);
-}
-.bettergov-link:active {
-  transform: scale(0.985);
 }
 .bettergov-link span {
   color: #9db2d6;
@@ -3155,7 +3145,7 @@ kbd {
 }
 .bettergov-link strong {
   grid-column: 1;
-  font-size: 1rem;
+  font-size: 0.94rem;
 }
 .bettergov-link svg {
   grid-column: 2;
@@ -3243,7 +3233,7 @@ kbd {
     grid-column: 2;
   }
   .footer-grid {
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 36px 52px;
   }
   .finance-grid {
@@ -3550,10 +3540,11 @@ kbd {
     min-height: 31px;
     font-size: 0.78rem;
   }
-  .footer-contact-primary {
-    min-height: 54px;
+  .footer-action-card {
+    min-height: 52px;
     max-width: none;
-    padding: 9px 11px;
+    padding: 7px 10px;
+    border-radius: 10px;
   }
   .footer-contact-primary strong {
     font-size: 0.92rem;
@@ -3563,10 +3554,6 @@ kbd {
     grid-template-columns: 1fr 1fr;
     gap: 2px 12px;
     margin-top: 5px;
-  }
-  .bettergov-link {
-    max-width: none;
-    padding: 7px 10px;
   }
   .footer-network {
     padding: 8px 0 2px;

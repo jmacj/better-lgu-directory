@@ -396,7 +396,10 @@ function Footer() {
         </nav>
         <address className="footer-column footer-contact">
           <h2>Official city contact</h2>
-          <a className="footer-contact-primary" href="tel:09171884225">
+          <a
+            className="footer-action-card footer-contact-primary"
+            href="tel:09171884225"
+          >
             <Phone aria-hidden="true" />
             <span>
               <small>City Administrator’s Office</small>
@@ -431,7 +434,7 @@ function Footer() {
         >
           <h2 id="civic-network">Civic network</h2>
           <a
-            className="bettergov-link"
+            className="footer-action-card bettergov-link"
             href="https://lgu.bettergov.ph/"
             target="_blank"
             rel="noreferrer"
