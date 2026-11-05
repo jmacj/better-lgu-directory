@@ -58,10 +58,8 @@ import {
   officials,
   procurementSources,
   publicProjects,
-  publicServices,
   searchableRecords,
   services,
-  type ServiceCategory,
   VERIFIED_ON,
 } from "./data";
 import {
@@ -676,10 +674,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section
-        className="section container city-overview"
-        id="about-malaybalay"
-      >
+      <section className="section container city-overview" id="about-malaybalay">
         <div className="city-overview-copy">
           <span className="eyebrow">About Malaybalay City</span>
           <h2>A highland capital understood through public data.</h2>
@@ -690,31 +685,15 @@ function HomePage() {
             directories without replacing the responsible public offices.
           </p>
           <div className="city-overview-actions">
-            <Link to="/government">
-              Explore city government <ArrowRight />
-            </Link>
-            <Link to="/barangays">
-              Browse all barangays <ArrowRight />
-            </Link>
+            <Link to="/government">Explore city government <ArrowRight /></Link>
+            <Link to="/barangays">Browse all barangays <ArrowRight /></Link>
           </div>
         </div>
         <dl className="city-overview-facts">
-          <div>
-            <dt>2024 population</dt>
-            <dd>195,046</dd>
-          </div>
-          <div>
-            <dt>Barangays</dt>
-            <dd>46</dd>
-          </div>
-          <div>
-            <dt>Urban population</dt>
-            <dd>72.2%</dd>
-          </div>
-          <div>
-            <dt>Income class</dt>
-            <dd>1st class</dd>
-          </div>
+          <div><dt>2024 population</dt><dd>195,046</dd></div>
+          <div><dt>Barangays</dt><dd>46</dd></div>
+          <div><dt>Urban population</dt><dd>72.2%</dd></div>
+          <div><dt>Income class</dt><dd>1st class</dd></div>
         </dl>
         <a
           className="city-overview-source"
@@ -864,7 +843,10 @@ function HomePage() {
             </a>
           </div>
         )}
-        <div id="financial-detail" className="financial-breakdown-visible">
+        <div
+          id="financial-detail"
+          className="financial-breakdown-visible"
+        >
           <FinancialBreakdown />
         </div>
       </section>
@@ -1817,12 +1799,10 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
             weight: feature?.properties.code === profile.code ? 4 : 1,
             opacity: feature?.properties.code === profile.code ? 1 : 0.55,
             fillColor: "#1473e6",
-            fillOpacity:
-              feature?.properties.code === profile.code ? 0.24 : 0.02,
+            fillOpacity: feature?.properties.code === profile.code ? 0.24 : 0.02,
           }),
         }).addTo(map);
-        if (!selected)
-          throw new Error("Selected barangay boundary unavailable");
+        if (!selected) throw new Error("Selected barangay boundary unavailable");
         const selectedLayer = L.geoJSON(selected, {
           style: {
             color: "#ffffff",
@@ -1839,9 +1819,7 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
         map.fitBounds(bounds, { padding: [28, 28], maxZoom: 14 });
         const center = bounds.getCenter();
         setCoordinates(`${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}`);
-        L.control
-          .layers({ "Satellite view": imagery, "Street map": street })
-          .addTo(map);
+        L.control.layers({ "Satellite view": imagery, "Street map": street }).addTo(map);
       } catch {
         if (!disposed) setMapError(true);
       }
@@ -2197,183 +2175,32 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
 }
 
 function ServicesPage() {
-  const [params, setParams] = useSearchParams();
-  const query = params.get("q") ?? "";
-  const requestedCategory = params.get("category");
-  const categories: Array<"All" | ServiceCategory> = [
-    "All",
-    "Business and licensing",
-    "Agriculture",
-    "Building and construction",
-  ];
-  const category = categories.includes(
-    requestedCategory as "All" | ServiceCategory,
-  )
-    ? (requestedCategory as "All" | ServiceCategory)
-    : "All";
-  const normalizedQuery = query.trim().toLowerCase();
-  const visibleServices = publicServices.filter(
-    (service) =>
-      (category === "All" || service.category === category) &&
-      `${service.title} ${service.office} ${service.summary}`
-        .toLowerCase()
-        .includes(normalizedQuery),
-  );
-  const updateFilter = (key: "q" | "category", value: string) => {
-    const next = new URLSearchParams(params);
-    if (!value || value === "All") next.delete(key);
-    else next.set(key, value);
-    setParams(next, { replace: true });
-  };
-  const categoryIcon = (serviceCategory: ServiceCategory) =>
-    serviceCategory === "Building and construction" ? (
-      <Building2 aria-hidden="true" />
-    ) : serviceCategory === "Agriculture" ? (
-      <Landmark aria-hidden="true" />
-    ) : (
-      <FileCheck2 aria-hidden="true" />
-    );
-
   return (
     <>
       <PageHero
         eyebrow="Public services"
-        title="Find the service, then verify the requirements."
-        description="Search source-listed city services and go directly to the responsible office or original guidance before travelling. BetterMC does not accept or approve applications."
+        title="Start with the official service standard."
+        description="Open the City Government’s Citizen’s Charter, protocol manual, and official forms. BetterMC does not replace an application or official transaction channel."
       />
       <section className="section container">
-        <SectionHeading
-          eyebrow="Primary service standards"
-          title="Start with the controlling city record"
-        >
-          Requirements, processing times, fees, and forms can change. The
-          Citizen’s Charter and responsible office remain the authoritative
-          references for an actual transaction.
-        </SectionHeading>
-        <div className="service-resource-list">
+        <div className="service-grid">
           {services.map((service) => (
-            <article key={service.title} className="service-resource-row">
-              <BookOpen aria-hidden="true" />
-              <div>
-                <span>{service.office}</span>
-                <h2>{service.title}</h2>
-                <p>{service.description}</p>
-              </div>
-              <a href={service.url} target="_blank" rel="noreferrer">
-                Open source <ExternalLink aria-hidden="true" />
+            <article key={service.title}>
+              <BookOpen />
+              <span>{service.office}</span>
+              <h2>{service.title}</h2>
+              <p>{service.description}</p>
+              <a
+                className="button secondary"
+                href={service.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open official resource <ExternalLink />
               </a>
-              <small>Checked {service.verifiedOn}</small>
+              <small>Source checked {service.verifiedOn}</small>
             </article>
           ))}
-        </div>
-      </section>
-      <section className="section soft-section service-finder-section">
-        <div className="container">
-          <div className="service-finder-heading">
-            <SectionHeading
-              eyebrow="Service finder"
-              title="What do you need to do?"
-            >
-              These entries summarize services explicitly listed by the City
-              Government. They do not replace the complete Citizen’s Charter or
-              an office’s current instructions.
-            </SectionHeading>
-            <div className="service-count" aria-live="polite">
-              <strong>{visibleServices.length}</strong>
-              <span>of {publicServices.length} source-listed services</span>
-            </div>
-          </div>
-          <div className="service-toolbar">
-            <label>
-              <span>Search services</span>
-              <div className="input-wrap">
-                <Search aria-hidden="true" />
-                <input
-                  value={query}
-                  onChange={(event) => updateFilter("q", event.target.value)}
-                  placeholder="Try business permit, crops, or building form"
-                />
-              </div>
-            </label>
-            <label>
-              <span>Service category</span>
-              <select
-                value={category}
-                onChange={(event) =>
-                  updateFilter("category", event.target.value)
-                }
-              >
-                {categories.map((option) => (
-                  <option key={option}>{option}</option>
-                ))}
-              </select>
-            </label>
-          </div>
-          <div className="service-directory">
-            {visibleServices.length ? (
-              visibleServices.map((service) => {
-                const office = departments.find(
-                  (department) => department.name === service.office,
-                );
-                return (
-                  <article key={service.title}>
-                    <div className="service-entry-icon">
-                      {categoryIcon(service.category)}
-                    </div>
-                    <div className="service-entry-copy">
-                      <span>{service.category}</span>
-                      <h2>{service.title}</h2>
-                      <p>{service.summary}</p>
-                      <div className="service-office-line">
-                        <Building2 aria-hidden="true" />
-                        <strong>{service.office}</strong>
-                      </div>
-                    </div>
-                    <div className="service-entry-actions">
-                      {office?.phone && (
-                        <a href={`tel:${telephoneHref(office.phone)}`}>
-                          <Phone aria-hidden="true" />
-                          {office.phone}
-                        </a>
-                      )}
-                      <a
-                        href={service.source.url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Official guidance <ExternalLink aria-hidden="true" />
-                      </a>
-                      <small>Source checked {service.source.verifiedOn}</small>
-                    </div>
-                  </article>
-                );
-              })
-            ) : (
-              <div className="service-empty-state">
-                <Search aria-hidden="true" />
-                <h2>No matching source-listed service</h2>
-                <p>
-                  Try a broader search or select another category. This result
-                  does not mean the City Government does not provide the
-                  service.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setParams({}, { replace: true })}
-                >
-                  Clear filters
-                </button>
-              </div>
-            )}
-          </div>
-          <div className="service-verification-note">
-            <CircleAlert aria-hidden="true" />
-            <p>
-              <strong>Before visiting:</strong> confirm current requirements,
-              availability, fees, and schedules with the responsible office.
-              BetterMC only summarizes what the cited public source lists.
-            </p>
-          </div>
         </div>
       </section>
     </>

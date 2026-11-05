@@ -46,7 +46,8 @@ test("city hall background and detailed finance remain usable", async ({
     "background-image",
     /malaybalay-city-hall/,
   );
-  await expect(page.locator("#financial-detail")).toBeVisible();
+  await expect(page.locator("#financial-detail")).toBeHidden();
+  await page.getByRole("button", { name: /Show detailed breakdown/i }).click();
   await expect(page.getByText("₱1,188,506,575.00")).toBeVisible();
   await page.getByRole("button", { name: /Current operating income/i }).click();
   await expect(
@@ -102,7 +103,7 @@ test("leader profiles expose verified contacts and record scope", async ({
 }) => {
   await page.goto("/government");
   const firstDetailsButton = page
-    .getByRole("button", { name: /^Details$/i })
+    .getByRole("button", { name: /View verified details/i })
     .first();
   const leaderCard = firstDetailsButton.locator("xpath=ancestor::article");
   const closedBox = await leaderCard.boundingBox();
@@ -206,29 +207,4 @@ test("directory filters reach emergency contacts", async ({ page }) => {
   await expect(
     page.getByRole("link", { name: /0917-677-7700/ }),
   ).toHaveAttribute("href", /^tel:/);
-});
-
-test("public service finder filters verified guidance without overflow", async ({
-  page,
-}) => {
-  await page.goto("/services");
-  await expect(
-    page.getByRole("heading", { name: /What do you need to do/i }),
-  ).toBeVisible();
-  await page
-    .getByPlaceholder(/Try business permit, crops/i)
-    .fill("new or extension");
-  const result = page
-    .locator(".service-directory article")
-    .filter({ hasText: "Motorela franchise — new or extension" });
-  await expect(result).toBeVisible();
-  await expect(
-    result.getByRole("link", { name: /Official guidance/i }),
-  ).toHaveAttribute("href", /issuance-of-motorela-franchise/);
-  const overflow = await page.evaluate(
-    () =>
-      document.documentElement.scrollWidth >
-      document.documentElement.clientWidth,
-  );
-  expect(overflow).toBe(false);
 });

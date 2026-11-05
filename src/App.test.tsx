@@ -132,7 +132,9 @@ describe("BetterMC public portal", () => {
         <App />
       </MemoryRouter>,
     );
-    fireEvent.click(screen.getAllByRole("button", { name: /^Details$/i })[0]);
+    fireEvent.click(
+      screen.getAllByRole("button", { name: /^Details$/i })[0],
+    );
     const expandedProfile = document.querySelector("article.expanded");
     expect(expandedProfile).not.toBeNull();
     const profile = within(expandedProfile as HTMLElement);
@@ -191,35 +193,6 @@ describe("BetterMC public portal", () => {
     expect(
       abcProfile.getByRole("link", { name: /0951-692-1915/ }),
     ).toHaveAttribute("href", "tel:09516921915");
-  });
-
-  it("filters source-listed public services and preserves office routing", () => {
-    render(
-      <MemoryRouter initialEntries={["/services"]}>
-        <App />
-      </MemoryRouter>,
-    );
-    expect(
-      screen.getByRole("heading", { name: /What do you need to do/i }),
-    ).toBeInTheDocument();
-    expect(screen.getByText(/18 source-listed services/i)).toBeInTheDocument();
-    fireEvent.change(
-      screen.getByPlaceholderText(/Try business permit, crops/i),
-      { target: { value: "soil" } },
-    );
-    expect(
-      screen.getByRole("heading", { name: "Agricultural laboratory services" }),
-    ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /0994-957-6384/ })).toHaveAttribute(
-      "href",
-      "tel:09949576384",
-    );
-    expect(
-      screen.getByRole("link", { name: /Official guidance/i }),
-    ).toHaveAttribute(
-      "href",
-      "https://sakata.malaybalaycity.gov.ph/agriculture/",
-    );
   });
 
   it("publishes contribution, city contact, Facebook, and BetterGov links in the footer", () => {
