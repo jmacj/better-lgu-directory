@@ -157,14 +157,6 @@ test("barangay profile exposes sourced identity, services, and emergency contact
     "src",
     "/images/barangays/dalwangan.webp",
   );
-  const boundary = page.locator(".leaflet-overlay-pane path");
-  await expect(boundary).toHaveCount(1);
-  await expect(boundary).toHaveAttribute("fill-opacity", "0");
-  await expect(
-    page.getByRole("heading", {
-      name: /No barangay-specific project was found/i,
-    }),
-  ).toBeVisible();
   const overflow = await page.evaluate(
     () =>
       document.documentElement.scrollWidth >

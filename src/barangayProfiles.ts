@@ -161,88 +161,7 @@ export type BarangayMicrositeProfile = {
   description: string;
   serviceAreas: typeof localServiceAreas;
   committeeAreas: typeof committeeAreas;
-  projects: BarangayProject[];
   requestedSubdomain: string;
-};
-
-export type BarangayProject = {
-  title: string;
-  program: string;
-  amount: number;
-  period: string;
-  status: string;
-  note: string;
-  source: Source;
-};
-
-const trustFundSource: Source = {
-  label: "City Government of Malaybalay — Full Disclosure Portal, 2025 Q1 Trust Fund Utilization",
-  url: "https://sakata.malaybalaycity.gov.ph/full-disclosure/",
-  verifiedOn: VERIFIED_ON,
-};
-
-const gaa2026Source: Source = {
-  label: "DBM — FY 2026 General Appropriations Act, DPWH project details",
-  url: "https://www.dbm.gov.ph/wp-content/uploads/GAA/GAA2026/DBM-OFFICIAL-GAZETTE-FY-2026_VOLUME-1-C.pdf",
-  verifiedOn: VERIFIED_ON,
-};
-
-const projectsByBarangay: Record<string, BarangayProject[]> = {
-  silae: [
-    {
-      title: "Corn production support for Barangay Silae",
-      program: "City trust-fund project with DOE-RS",
-      amount: 500_000,
-      period: "2025 Q1 disclosure · completed June 2024",
-      status: "99.40% reported; ₱497,000 incurred",
-      note: "The report marks the project completed and leaves a ₱3,000 difference between total cost and cost incurred. That difference is not labelled as savings.",
-      source: trustFundSource,
-    },
-  ],
-  caburacanan: [
-    {
-      title: "Egg production project for Barangay Caburacanan",
-      program: "City trust-fund project with DOE-RS",
-      amount: 500_000,
-      period: "2025 Q1 disclosure",
-      status: "0.15% reported; ₱760 incurred",
-      note: "The project title names Caburacanan, while the location column says Barangay Silae. BetterMC preserves that source discrepancy and does not infer the correct site.",
-      source: trustFundSource,
-    },
-  ],
-  "san-jose": [
-    {
-      title: "Road along Jct. Malaybalay City Bypass Road–Hagua-on Road",
-      program: "DPWH FY 2026 appropriation",
-      amount: 4_719_000,
-      period: "FY 2026 GAA",
-      status: "Appropriated project · Sta. 0+000 to 0+240",
-      note: "An appropriation is an authorized budget item, not proof of award, disbursement, construction progress, or completion.",
-      source: gaa2026Source,
-    },
-  ],
-  sinanglanan: [
-    {
-      title: "Road along Sta. Rita Road",
-      program: "DPWH FY 2026 appropriation",
-      amount: 9_438_000,
-      period: "FY 2026 GAA",
-      status: "Appropriated project · Sta. 1+400 to 1+796",
-      note: "An appropriation is an authorized budget item, not proof of award, disbursement, construction progress, or completion.",
-      source: gaa2026Source,
-    },
-  ],
-  casisang: [
-    {
-      title: "Road from Jct. DEPED Malaybalay Road to Malaybalay City Senior High School Road",
-      program: "DPWH FY 2026 appropriation",
-      amount: 4_719_000,
-      period: "FY 2026 GAA",
-      status: "Appropriated project · Sta. 0+000 to 0+120",
-      note: "An appropriation is an authorized budget item, not proof of award, disbursement, construction progress, or completion.",
-      source: gaa2026Source,
-    },
-  ],
 };
 
 export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
@@ -265,7 +184,6 @@ export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
       description: `${psgc.name} is classified by the Philippine Statistics Authority as ${psgc.classification === "Urban" ? "an" : "a"} ${psgc.classification.toLowerCase()} barangay of Malaybalay City. The 2024 POPCEN recorded ${psgc.population.toLocaleString("en-PH")} residents.`,
       serviceAreas: localServiceAreas,
       committeeAreas,
-      projects: projectsByBarangay[slug] ?? [],
       requestedSubdomain: `https://${slug}.bettergov.org`,
     };
   },

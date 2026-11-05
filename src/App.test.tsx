@@ -105,40 +105,6 @@ describe("BetterMC public portal", () => {
     ).toBeGreaterThan(0);
   });
 
-  it("shows attributable barangay projects with financial context", () => {
-    render(
-      <MemoryRouter initialEntries={["/barangays/silae"]}>
-        <App />
-      </MemoryRouter>,
-    );
-    expect(
-      screen.getByRole("heading", {
-        name: "Corn production support for Barangay Silae",
-      }),
-    ).toBeInTheDocument();
-    expect(screen.getByText("₱500,000")).toBeInTheDocument();
-    expect(screen.getByText(/not labelled as savings/i)).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", {
-        name: /2025 Q1 Trust Fund Utilization/i,
-      }),
-    ).toHaveAttribute("href", expect.stringContaining("full-disclosure"));
-  });
-
-  it("does not invent a project when no attributable record was located", () => {
-    render(
-      <MemoryRouter initialEntries={["/barangays/cabangahan"]}>
-        <App />
-      </MemoryRouter>,
-    );
-    expect(
-      screen.getByRole("heading", {
-        name: /No barangay-specific project was found/i,
-      }),
-    ).toBeInTheDocument();
-    expect(screen.getByText(/does not mean no project exists/i)).toBeInTheDocument();
-  });
-
   it("separates mayoral issuances, council ordinances, and institutional recognition", () => {
     render(
       <MemoryRouter initialEntries={["/government?tab=records"]}>
