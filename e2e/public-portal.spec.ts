@@ -30,6 +30,19 @@ test('leader profiles expose verified contacts and record scope', async ({ page 
   await expect(page.getByText('City Mayor’s Office')).toBeVisible()
   await expect(page.getByRole('link', { name: /0953-459-1777/ })).toHaveAttribute('href', 'tel:09534591777')
   await expect(page.getByText(/mayoral office issuances indexed/i)).toBeVisible()
+
+  await page.goto('/government?tab=officials&official=jason-chad-j-ayala')
+  await expect(page.getByText('Shared legislative-office routing')).toBeVisible()
+  await expect(page.getByText(/No individual phone or email is published/i)).toBeVisible()
+  await expect(page.getByRole('link', { name: /0917-497-6861/ })).toHaveAttribute('href', 'tel:09174976861')
+})
+
+test('footer publishes civic contribution and verified city channels', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByRole('link', { name: /Contribute on GitHub/i })).toHaveAttribute('href', 'https://github.com/lordzxxxx/bettermalaybalay')
+  await expect(page.getByRole('link', { name: /0917 188 4225/i })).toHaveAttribute('href', 'tel:09171884225')
+  await expect(page.getByRole('link', { name: /Official Facebook page/i })).toHaveAttribute('href', /facebook\.com\/profile\.php/)
+  await expect(page.getByRole('link', { name: /Powered by\s*BetterGov/i })).toHaveAttribute('href', 'https://lgu.bettergov.ph/')
 })
 
 test('procurement sources preserve record scope', async ({ page }) => {

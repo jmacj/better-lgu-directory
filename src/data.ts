@@ -13,6 +13,7 @@ export type Official = {
   source: Source
   office: {
     name: string
+    scope: 'Direct office contact' | 'Shared legislative-office routing' | 'Published constituency contact'
     address: string
     phone: string
     email: string
@@ -26,9 +27,11 @@ const contactDirectorySource: Source = {
   url: 'https://sakata.malaybalaycity.gov.ph/contact-us/',
   verifiedOn: VERIFIED_ON,
 }
-const mayorOffice = { name: 'City Mayor’s Office', address: cityHallAddress, phone: '0953-459-1777', email: 'malaybalaycitylgu@gmail.com', source: contactDirectorySource }
-const viceMayorOffice = { name: 'City Vice Mayor’s Office', address: cityHallAddress, phone: '0917-128-8087', email: 'spmarabe@gmail.com', source: contactDirectorySource }
-const councilOffice = { name: 'Office of the Sangguniang Panlungsod', address: cityHallAddress, phone: '0917-497-6861', email: 'spmalaybalaycity@gmail.com', source: contactDirectorySource }
+const mayorOffice = { name: 'City Mayor’s Office', scope: 'Direct office contact', address: cityHallAddress, phone: '0953-459-1777', email: 'malaybalaycitylgu@gmail.com', source: contactDirectorySource } as const
+const viceMayorOffice = { name: 'City Vice Mayor’s Office', scope: 'Direct office contact', address: cityHallAddress, phone: '0917-128-8087', email: 'spmarabe@gmail.com', source: contactDirectorySource } as const
+const councilOffice = { name: 'Office of the Sangguniang Panlungsod', scope: 'Shared legislative-office routing', address: cityHallAddress, phone: '0917-497-6861', email: 'spmalaybalaycity@gmail.com', source: contactDirectorySource } as const
+const barangayEightSource: Source = { label: 'DILG Barangay Officials Directory', url: 'https://www.dilg.gov.ph/barangay-officials-directory/index', verifiedOn: VERIFIED_ON }
+const barangayEightOffice = { name: 'Barangay 8 constituency contact', scope: 'Published constituency contact', address: 'Barangay 8, Malaybalay City, 8700 Bukidnon', phone: '0951-692-1915', email: 'jnmanghano@gmail.com', source: barangayEightSource } as const
 
 const officialProfile = (url: string): Source => ({ label: 'City Government of Malaybalay — Official profile', url, verifiedOn: VERIFIED_ON })
 
@@ -45,7 +48,7 @@ export const officials: Official[] = [
   { name: 'Flaviano T. Gapol, Jr.', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-viii/') },
   { name: 'Zoltan Dindo D. Dinlayan', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-ix/') },
   { name: 'Cromwell Kiril D. Dinlayan', role: 'City Councilor', group: 'Legislative', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-x/') },
-  { name: 'Julius N. Manghano', role: 'ABC President', group: 'Sectoral', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-xi/') },
+  { name: 'Julius N. Manghano', role: 'ABC President', group: 'Sectoral', office: barangayEightOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-xi/') },
   { name: 'Datu Sumbongan', role: 'Indigenous Peoples Mandatory Representative', group: 'Sectoral', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-xii/') },
   { name: 'Christopher Tortola', role: 'SK Federation President', group: 'Sectoral', office: councilOffice, source: officialProfile('https://sakata.malaybalaycity.gov.ph/legislative-city-councilor-xiii/') },
 ]

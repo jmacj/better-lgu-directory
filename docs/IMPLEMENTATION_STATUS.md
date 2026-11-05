@@ -4,7 +4,7 @@ Updated: **2026-11-05**
 
 ## Implemented and locally testable
 
-- Public application shell, responsive navigation, footer disclaimer, metadata, and 404 state
+- Public application shell, responsive navigation, footer disclaimer, GitHub contribution link, official city channels, BetterGov attribution, metadata, and 404 state
 - Homepage with computed portal-record counts and global record search
 - Full Disclosure catalog with URL-backed year, quarter, category, and title filters
 - Searchable officials, office, hotline, barangay, and service directories
@@ -16,12 +16,13 @@ Updated: **2026-11-05**
 - Detailed 2025 Q2 financial breakdown with source-linked accounting caveats
 - Institution-scoped ordinances and executive orders, reported project status, and verified recognition
 - All 46 DILG-listed Punong Barangay names plus valid published phone/email fields
-- Layered City Hall hero background; the former image carousel has been removed
+- Layered, softened aerial City Hall hero background; the former image carousel has been removed
 - Scope-labeled BAC procurement source cards that distinguish bids, awards, and completion evidence
 - Live Malaybalay date and time in the top utility bar on every page
 - Compact disclosure index rows replacing the oversized decorative disclosure card
 - Clickable financial summary and breakdown rows with definitions, percentages, and direct source verification
-- Expandable profiles for all 15 listed city leaders with official profile links, office contacts, office address, and attribution-safe record coverage
+- Smooth, URL-addressable expandable profiles for all 15 listed city leaders with official profile links, contact-scope labels, office address, and attribution-safe record coverage
+- Compact mobile finance controls and leader details designed to reduce tall cards while preserving readable tap targets
 - Expanded official archive index covering mayoral executive orders, council ordinances, and an unattributed memorandum circular
 
 ## Real limitations — not presented as completed

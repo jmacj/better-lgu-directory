@@ -50,4 +50,24 @@ describe('BetterMC public portal', () => {
     expect(screen.getByRole('link', { name: /0953-459-1777/ })).toHaveAttribute('href', 'tel:09534591777')
     expect(screen.getByText(/mayoral office issuances indexed/i)).toBeInTheDocument()
   })
+
+  it('distinguishes direct, shared, and constituency contact routes', () => {
+    const { unmount } = render(<MemoryRouter initialEntries={['/government?tab=officials&official=jason-chad-j-ayala']}><App /></MemoryRouter>)
+    expect(screen.getByText('Shared legislative-office routing')).toBeInTheDocument()
+    expect(screen.getByText(/No individual phone or email is published/i)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /0917-497-6861/ })).toHaveAttribute('href', 'tel:09174976861')
+    unmount()
+
+    render(<MemoryRouter initialEntries={['/government?tab=officials&official=julius-n-manghano']}><App /></MemoryRouter>)
+    expect(screen.getByText('Published constituency contact')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /0951-692-1915/ })).toHaveAttribute('href', 'tel:09516921915')
+  })
+
+  it('publishes contribution, city contact, Facebook, and BetterGov links in the footer', () => {
+    render(<MemoryRouter><App /></MemoryRouter>)
+    expect(screen.getByRole('link', { name: /Contribute on GitHub/i })).toHaveAttribute('href', 'https://github.com/lordzxxxx/bettermalaybalay')
+    expect(screen.getByRole('link', { name: /0917 188 4225/i })).toHaveAttribute('href', 'tel:09171884225')
+    expect(screen.getByRole('link', { name: /Official Facebook page/i })).toHaveAttribute('href', 'https://www.facebook.com/profile.php?id=100063747444247')
+    expect(screen.getByRole('link', { name: /Powered by\s*BetterGov/i })).toHaveAttribute('href', 'https://lgu.bettergov.ph/')
+  })
 })
