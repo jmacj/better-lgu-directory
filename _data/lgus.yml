@@ -1598,3 +1598,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@herseyy](https://github.com/herseyy), [@ninnzz](https://github.com/ninnzz)"
+- name: "Lingayen, Pangasinan"
+  domain: "-"
+  repo: "[GitHub](https://github.com/rimzbravz/betterlingayen)"
+  repo_owner: "rimzbravz"
+  repo_name: "betterlingayen"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@rimzbravz](https://github.com/rimzbravz)"
