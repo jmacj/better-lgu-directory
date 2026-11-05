@@ -83,6 +83,13 @@ const logoSource: Source = {
   verifiedOn: VERIFIED_ON,
 };
 
+const boundarySource: Source = {
+  label:
+    "PSA/NAMRIA-derived Philippine barangay boundaries — 2023-11-06 snapshot",
+  url: "https://bendlikeabamboo.github.io/barangay-boundaries-repository/boundaries/barangays.html",
+  verifiedOn: VERIFIED_ON,
+};
+
 export const psgcSource: Source = {
   label: "Philippine Statistics Authority — PSGC, City of Malaybalay",
   url: "https://psa.gov.ph/classification/psgc/barangays/1001312000",
@@ -150,6 +157,7 @@ export type BarangayMicrositeProfile = {
   logoSource: Source;
   leadershipSource: Source;
   psgcSource: Source;
+  boundarySource: Source;
   description: string;
   serviceAreas: typeof localServiceAreas;
   committeeAreas: typeof committeeAreas;
@@ -172,7 +180,8 @@ export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
       logoSource,
       leadershipSource: directory.leadershipSource,
       psgcSource,
-      description: `${psgc.name} is classified by the Philippine Statistics Authority as an ${psgc.classification.toLowerCase()} barangay of Malaybalay City. The 2024 POPCEN recorded ${psgc.population.toLocaleString("en-PH")} residents.`,
+      boundarySource,
+      description: `${psgc.name} is classified by the Philippine Statistics Authority as ${psgc.classification === "Urban" ? "an" : "a"} ${psgc.classification.toLowerCase()} barangay of Malaybalay City. The 2024 POPCEN recorded ${psgc.population.toLocaleString("en-PH")} residents.`,
       serviceAreas: localServiceAreas,
       committeeAreas,
       requestedSubdomain: `https://${slug}.bettergov.org`,

@@ -4,6 +4,7 @@ import {
   useDeferredValue,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import {
@@ -24,6 +25,7 @@ import {
   Github,
   HeartPulse,
   Landmark,
+  Layers3,
   Mail,
   Menu,
   Phone,
@@ -36,6 +38,7 @@ import {
   Users,
   X,
 } from "lucide-react";
+import type { FeatureCollection, Geometry } from "geojson";
 import {
   Link,
   NavLink,
@@ -589,7 +592,6 @@ function HomePage() {
   const [financeFocus, setFinanceFocus] = useState<
     "income" | "spending" | "balance" | "savings" | null
   >(null);
-  const [financeDetailsOpen, setFinanceDetailsOpen] = useState(false);
   const [recordsOpen, setRecordsOpen] = useState(false);
   const availableDisclosures = disclosures.filter(
     (item) => item.status === "Source listed",
@@ -671,6 +673,36 @@ function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+      <section className="section container city-overview" id="about-malaybalay">
+        <div className="city-overview-copy">
+          <span className="eyebrow">About Malaybalay City</span>
+          <h2>A highland capital understood through public data.</h2>
+          <p>
+            Malaybalay is the provincial capital of Bukidnon and a first-class
+            component city composed of 46 barangays. BetterMC connects its
+            population, government, finance, legislative records, and service
+            directories without replacing the responsible public offices.
+          </p>
+          <div className="city-overview-actions">
+            <Link to="/government">Explore city government <ArrowRight /></Link>
+            <Link to="/barangays">Browse all barangays <ArrowRight /></Link>
+          </div>
+        </div>
+        <dl className="city-overview-facts">
+          <div><dt>2024 population</dt><dd>195,046</dd></div>
+          <div><dt>Barangays</dt><dd>46</dd></div>
+          <div><dt>Urban population</dt><dd>72.2%</dd></div>
+          <div><dt>Income class</dt><dd>1st class</dd></div>
+        </dl>
+        <a
+          className="city-overview-source"
+          href="https://rsso10.psa.gov.ph/content/highlights-population-counts-malaybalay-city-bukidnon-based-2024-census-population"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Population source: Philippine Statistics Authority <ExternalLink />
+        </a>
       </section>
       <section className="metrics-strip">
         <div className="container metrics-grid">
@@ -811,34 +843,11 @@ function HomePage() {
             </a>
           </div>
         )}
-        <button
-          className="home-disclosure-control"
-          type="button"
-          aria-expanded={financeDetailsOpen}
-          aria-controls="financial-detail"
-          onClick={() => setFinanceDetailsOpen((open) => !open)}
-        >
-          <span>
-            <strong>
-              {financeDetailsOpen
-                ? "Hide detailed breakdown"
-                : "Show detailed breakdown"}
-            </strong>
-            <small>
-              Income sources, service-area spending, cash movement, and exact
-              amounts
-            </small>
-          </span>
-          <ChevronDown aria-hidden="true" />
-        </button>
         <div
           id="financial-detail"
-          className={`home-reveal ${financeDetailsOpen ? "is-open" : ""}`}
-          aria-hidden={!financeDetailsOpen}
+          className="financial-breakdown-visible"
         >
-          <div className="home-reveal-inner">
-            <FinancialBreakdown />
-          </div>
+          <FinancialBreakdown />
         </div>
       </section>
       <section className="section container records-preview-section">
@@ -1417,7 +1426,7 @@ function GovernmentPage() {
                         aria-controls={`leader-details-${id}`}
                         onClick={() => toggleOfficial(official.name)}
                       >
-                        View verified details <ChevronDown />
+                        Details <ChevronDown />
                       </button>
                     </div>
                     <div
@@ -1712,6 +1721,124 @@ function BarangaySourceLink({
   );
 }
 
+type BoundaryCollection = FeatureCollection<
+  Geometry,
+  { name: string; code: string; validOn: string }
+>;
+
+function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
+  const mapElement = useRef<HTMLDivElement>(null);
+  const [coordinates, setCoordinates] = useState<string | null>(null);
+  const [mapError, setMapError] = useState(false);
+
+  useEffect(() => {
+    if (!mapElement.current || navigator.userAgent.includes("jsdom")) return;
+    let disposed = false;
+    let map: import("leaflet").Map | undefined;
+
+    const renderMap = async () => {
+      try {
+        const [leafletModule, response] = await Promise.all([
+          import("leaflet"),
+          fetch("/data/malaybalay-barangays.geojson"),
+        ]);
+        if (!response.ok) throw new Error("Boundary data unavailable");
+        const boundaries = (await response.json()) as BoundaryCollection;
+        if (disposed || !mapElement.current) return;
+
+        const L = leafletModule.default;
+        map = L.map(mapElement.current, {
+          zoomControl: true,
+          scrollWheelZoom: false,
+        });
+        const street = L.tileLayer(
+          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          {
+            maxZoom: 19,
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+          },
+        );
+        const imagery = L.tileLayer(
+          "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+          {
+            maxZoom: 19,
+            attribution:
+              "Tiles &copy; Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community",
+          },
+        ).addTo(map);
+
+        const selected = boundaries.features.find(
+          (feature) => feature.properties.code === profile.code,
+        );
+        L.geoJSON(boundaries, {
+          interactive: false,
+          style: (feature) => ({
+            color:
+              feature?.properties.code === profile.code ? "#eaf4ff" : "#bfd3e8",
+            weight: feature?.properties.code === profile.code ? 4 : 1,
+            opacity: feature?.properties.code === profile.code ? 1 : 0.55,
+            fillColor: "#1473e6",
+            fillOpacity: feature?.properties.code === profile.code ? 0.24 : 0.02,
+          }),
+        }).addTo(map);
+        if (!selected) throw new Error("Selected barangay boundary unavailable");
+        const selectedLayer = L.geoJSON(selected, {
+          style: {
+            color: "#ffffff",
+            weight: 3,
+            fillColor: "#1473e6",
+            fillOpacity: 0.25,
+          },
+        })
+          .bindPopup(
+            `<strong>${profile.name}</strong><br>Indicative outline · PSGC ${profile.code}`,
+          )
+          .addTo(map);
+        const bounds = selectedLayer.getBounds();
+        map.fitBounds(bounds, { padding: [28, 28], maxZoom: 14 });
+        const center = bounds.getCenter();
+        setCoordinates(`${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}`);
+        L.control.layers({ "Satellite view": imagery, "Street map": street }).addTo(map);
+      } catch {
+        if (!disposed) setMapError(true);
+      }
+    };
+
+    void renderMap();
+    return () => {
+      disposed = true;
+      map?.remove();
+    };
+  }, [profile]);
+
+  return (
+    <div className="barangay-map-card">
+      <div
+        ref={mapElement}
+        className="barangay-map-canvas"
+        aria-label={`Satellite and street map showing the indicative outline of ${profile.name}`}
+      />
+      {mapError ? (
+        <p role="status">
+          The interactive map could not load. Use the provenance link below to
+          inspect the boundary source.
+        </p>
+      ) : (
+        <div className="barangay-map-meta">
+          <span>
+            <MapPin aria-hidden="true" /> Map-derived center
+          </span>
+          <strong>{coordinates ?? "Loading coordinates…"}</strong>
+          <span>
+            <Layers3 aria-hidden="true" /> Satellite and street layers
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
   const { slug: routeSlug } = useParams();
   const profile = barangayMicrositeBySlug.get(slugOverride ?? routeSlug ?? "");
@@ -1789,6 +1916,7 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
       >
         <div className="container">
           <a href="#about">About</a>
+          <a href="#map">Map</a>
           <a href="#leadership">Leadership</a>
           <a href="#committees">Committees</a>
           <a href="#services">Services</a>
@@ -1805,9 +1933,9 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
             <p>{profile.description}</p>
             <p>
               The population and classification are official PSA records.
-              BetterMC does not publish an area figure or boundary map here
-              because no surveyed barangay boundary was verified for this
-              profile.
+              BetterMC does not publish an area figure because no surveyed
+              barangay boundary was verified for this profile. The map below
+              uses a clearly labelled indicative boundary for orientation only.
             </p>
           </div>
           <aside className="barangay-source-card">
@@ -1818,6 +1946,38 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
             <BarangaySourceLink source={profile.logoSource} />
             <small>Sources reviewed {VERIFIED_ON}</small>
           </aside>
+        </section>
+
+        <section
+          id="map"
+          className="barangay-profile-section barangay-map-section"
+        >
+          <SectionHeading
+            eyebrow="Location and indicative boundary"
+            title={`Explore ${profile.name} on the map`}
+          >
+            Switch between satellite imagery and OpenStreetMap. The highlighted
+            polygon is a generalized planning reference, not a surveyed legal
+            boundary.
+          </SectionHeading>
+          <BarangayMap profile={profile} />
+          <div className="barangay-map-disclaimer">
+            <CircleAlert aria-hidden="true" />
+            <p>
+              Boundary geometry is derived from the PSA/NAMRIA 2023-11-06
+              snapshot and matched to PSGC code {profile.code}. It is indicative
+              only and must not be used to decide ownership, jurisdiction, or
+              survey lines. Map imagery and roads may update independently of
+              the boundary snapshot.
+            </p>
+            <a
+              href={profile.boundarySource.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Review boundary provenance <ExternalLink aria-hidden="true" />
+            </a>
+          </div>
         </section>
 
         <section id="leadership" className="barangay-profile-section">
@@ -1933,6 +2093,13 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
                 No public email listed
               </span>
             )}
+            <a
+              href="https://www.facebook.com/profile.php?id=100063747444247"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Facebook /> City Government official Facebook
+            </a>
             <BarangaySourceLink source={profile.leadershipSource} />
           </div>
         </section>

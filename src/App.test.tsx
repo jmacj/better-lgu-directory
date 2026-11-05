@@ -18,12 +18,6 @@ describe("BetterMC public portal", () => {
     expect(screen.getByLabelText(/Malaybalay time/i)).toBeInTheDocument();
     expect(screen.getByText("Not separately reported")).toBeInTheDocument();
     expect(
-      screen.queryByRole("heading", { name: /Operating income by source/i }),
-    ).not.toBeInTheDocument();
-    fireEvent.click(
-      screen.getByRole("button", { name: /Show detailed breakdown/i }),
-    );
-    expect(
       screen.getByRole("heading", { name: /Operating income by source/i }),
     ).toBeInTheDocument();
     expect(screen.getByText("₱1,188,506,575.00")).toBeInTheDocument();
@@ -139,7 +133,7 @@ describe("BetterMC public portal", () => {
       </MemoryRouter>,
     );
     fireEvent.click(
-      screen.getAllByRole("button", { name: /View verified details/i })[0],
+      screen.getAllByRole("button", { name: /^Details$/i })[0],
     );
     const expandedProfile = document.querySelector("article.expanded");
     expect(expandedProfile).not.toBeNull();

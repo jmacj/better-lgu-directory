@@ -9,6 +9,8 @@ BetterMC is an independent public information and transparency portal for Malayb
 - Searchable city-office and emergency-contact directory
 - Complete 46-barangay name index
 - DILG-listed Punong Barangay names and valid published contact fields
+- Uniform barangay profiles with satellite/street map switching, map-derived
+  center coordinates, and indicative PSGC-matched boundary outlines
 - 2025 Q2 income, operating expenditure, non-operating expenditure, and cash-position breakdown
 - Institution-attributed ordinances, mayoral executive issuances, project reports, and verified city recognition
 - Layered, subdued Malaybalay City Hall hero background with readable foreground content
@@ -62,6 +64,19 @@ npm run test:e2e
 Every published civic fact must retain its original source, a last-verified date, a workflow state, and revision history for moderated content. Missing records are described as “Not yet available in verified public sources.” BetterMC does not infer noncompliance, misconduct, or spending from availability, absence, appropriation, or proposal data.
 
 See [docs/RESEARCH_INVENTORY.md](docs/RESEARCH_INVENTORY.md) for audited sources and [docs/IMPLEMENTATION_STATUS.md](docs/IMPLEMENTATION_STATUS.md) for delivery boundaries.
+
+### Map provenance
+
+Barangay pages load a trimmed local GeoJSON snapshot derived from the national
+PSA/NAMRIA barangay-boundary release dated 2023-11-06. These outlines are
+orientation aids, not surveyed cadastral or ownership boundaries. Satellite
+tiles are provided by Esri World Imagery and street tiles by OpenStreetMap;
+each provider is attributed in the map control. Tile imagery, roads, and the
+boundary snapshot can have different update dates.
+
+The portal links to the City Government's published contact route and official
+Facebook page. It does not invent a separate barangay Facebook account when a
+reliable public page cannot be established.
 
 ## Independence
 
