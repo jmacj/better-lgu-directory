@@ -1,0 +1,196 @@
+import {
+  barangayProfiles as directoryProfiles,
+  VERIFIED_ON,
+  type Source,
+} from "./data";
+
+export const barangaySlug = (name: string) =>
+  name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+type PsgcProfile = {
+  name: string;
+  code: string;
+  classification: "Urban" | "Rural";
+  population: number;
+};
+
+const psgcRows: Array<[string, string, "Urban" | "Rural", number]> = [
+  ["Aglayan", "1001312001", "Urban", 8225],
+  ["Bangcud", "1001312002", "Urban", 6387],
+  ["Busdi", "1001312003", "Rural", 2704],
+  ["Cabangahan", "1001312004", "Rural", 3195],
+  ["Caburacanan", "1001312007", "Rural", 1190],
+  ["Can-ayan", "1001312009", "Urban", 6643],
+  ["Capitan Angel", "1001312010", "Rural", 1570],
+  ["Casisang", "1001312012", "Urban", 29492],
+  ["Dalwangan", "1001312014", "Urban", 7812],
+  ["Imbayao", "1001312017", "Urban", 1971],
+  ["Indalasa", "1001312018", "Rural", 2096],
+  ["Kalasungay", "1001312019", "Urban", 10156],
+  ["Kibalabag", "1001312021", "Rural", 1354],
+  ["Kulaman", "1001312022", "Rural", 1363],
+  ["Laguitas", "1001312023", "Rural", 4151],
+  ["Patpat", "1001312025", "Urban", 4482],
+  ["Linabo", "1001312026", "Urban", 7501],
+  ["Apo Macote", "1001312027", "Urban", 5116],
+  ["Miglamin", "1001312028", "Rural", 3037],
+  ["Magsaysay", "1001312029", "Urban", 3186],
+  ["Maligaya", "1001312030", "Rural", 3075],
+  ["Managok", "1001312031", "Urban", 7926],
+  ["Manalog", "1001312032", "Rural", 1097],
+  ["Mapayag", "1001312034", "Rural", 1162],
+  ["Mapulo", "1001312035", "Rural", 1773],
+  ["Barangay 1", "1001312038", "Urban", 6455],
+  ["Barangay 2", "1001312045", "Urban", 606],
+  ["Barangay 3", "1001312046", "Urban", 661],
+  ["Barangay 4", "1001312047", "Urban", 382],
+  ["Barangay 5", "1001312048", "Urban", 114],
+  ["Barangay 6", "1001312049", "Urban", 629],
+  ["Barangay 7", "1001312050", "Urban", 1934],
+  ["Barangay 8", "1001312051", "Urban", 613],
+  ["Barangay 9", "1001312052", "Urban", 8625],
+  ["Barangay 10", "1001312053", "Urban", 3366],
+  ["Barangay 11", "1001312054", "Rural", 3045],
+  ["St. Peter", "1001312058", "Rural", 2835],
+  ["San Jose", "1001312059", "Urban", 9488],
+  ["San Martin", "1001312060", "Rural", 3330],
+  ["Sto. Niño", "1001312061", "Rural", 1975],
+  ["Silae", "1001312062", "Rural", 2759],
+  ["Simaya", "1001312063", "Rural", 4725],
+  ["Sinanglanan", "1001312064", "Rural", 3661],
+  ["Sumpong", "1001312065", "Urban", 9012],
+  ["Violeta", "1001312066", "Rural", 2397],
+  ["Zamboanguita", "1001312067", "Rural", 1770],
+];
+
+const psgcProfiles: PsgcProfile[] = psgcRows.map(
+  ([name, code, classification, population]) => ({
+    name,
+    code,
+    classification,
+    population,
+  }),
+);
+
+const logoSource: Source = {
+  label: "City Government of Malaybalay — Barangay directory and marks",
+  url: "https://sakata.malaybalaycity.gov.ph/list-of-barangay/",
+  verifiedOn: VERIFIED_ON,
+};
+
+export const psgcSource: Source = {
+  label: "Philippine Statistics Authority — PSGC, City of Malaybalay",
+  url: "https://psa.gov.ph/classification/psgc/barangays/1001312000",
+  verifiedOn: VERIFIED_ON,
+};
+
+const localServiceAreas = [
+  {
+    title: "Barangay certificates and clearances",
+    description:
+      "Ask the barangay hall about requirements, fees, and release schedules before visiting.",
+  },
+  {
+    title: "Community mediation",
+    description:
+      "Route neighborhood disputes and Katarungang Pambarangay inquiries through the barangay office.",
+  },
+  {
+    title: "Health and nutrition referrals",
+    description:
+      "Ask about local health-worker schedules, nutrition activities, and referrals to the City Health Office.",
+  },
+  {
+    title: "Social welfare referrals",
+    description:
+      "Request guidance for assistance programs and referral to the City Social Welfare and Development Office.",
+  },
+  {
+    title: "Disaster and incident coordination",
+    description:
+      "Report local hazards to the barangay and use citywide emergency numbers for urgent incidents.",
+  },
+  {
+    title: "Environmental and sanitation concerns",
+    description:
+      "Raise waste, drainage, cleanliness, and environmental concerns with the barangay office.",
+  },
+] as const;
+
+const committeeAreas = [
+  "Health and sanitation",
+  "Education and culture",
+  "Peace and order and public safety",
+  "Environment and solid waste",
+  "Infrastructure and public works",
+  "Livelihood and economic development",
+  "Women, family and social welfare",
+  "Youth and sports development",
+] as const;
+
+const profileByName = new Map<string, (typeof directoryProfiles)[number]>(
+  directoryProfiles.map((profile) => [profile.name, profile]),
+);
+
+export type BarangayMicrositeProfile = {
+  name: string;
+  slug: string;
+  punongBarangay: string;
+  phone?: string;
+  email?: string;
+  code: string;
+  classification: "Urban" | "Rural";
+  population: number;
+  logo: string;
+  logoSource: Source;
+  leadershipSource: Source;
+  psgcSource: Source;
+  description: string;
+  serviceAreas: typeof localServiceAreas;
+  committeeAreas: typeof committeeAreas;
+  requestedSubdomain: string;
+};
+
+export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
+  (psgc) => {
+    const directory = profileByName.get(psgc.name);
+    if (!directory)
+      throw new Error(`Missing barangay directory record for ${psgc.name}`);
+    const slug = barangaySlug(psgc.name);
+    return {
+      ...psgc,
+      slug,
+      punongBarangay: directory.punongBarangay,
+      phone: directory.phone,
+      email: directory.email,
+      logo: `/images/barangays/${slug}.webp`,
+      logoSource,
+      leadershipSource: directory.leadershipSource,
+      psgcSource,
+      description: `${psgc.name} is classified by the Philippine Statistics Authority as an ${psgc.classification.toLowerCase()} barangay of Malaybalay City. The 2024 POPCEN recorded ${psgc.population.toLocaleString("en-PH")} residents.`,
+      serviceAreas: localServiceAreas,
+      committeeAreas,
+      requestedSubdomain: `https://${slug}.bettergov.org`,
+    };
+  },
+);
+
+export const barangayMicrositeBySlug = new Map(
+  barangayMicrosites.map((profile) => [profile.slug, profile]),
+);
+
+export function barangaySlugFromHostname(hostname: string) {
+  const normalized = hostname.toLowerCase().split(":")[0];
+  const supportedSuffixes = [".bettergov.org", ".bettermc.ph"];
+  const suffix = supportedSuffixes.find((candidate) =>
+    normalized.endsWith(candidate),
+  );
+  if (!suffix) return null;
+  const slug = normalized.slice(0, -suffix.length);
+  return slug && slug !== "www" ? slug : null;
+}
