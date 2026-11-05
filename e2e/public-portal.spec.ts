@@ -9,6 +9,19 @@ test("core public routes are navigable and do not overflow", async ({
   ).toBeVisible();
   await expect(page.locator(".independence-bar .city-clock")).toBeVisible();
   await expect(page.locator(".site-footer .city-clock")).toHaveCount(0);
+  if ((page.viewportSize()?.width ?? 0) <= 960) {
+    const headerBox = await page.locator(".site-header").boundingBox();
+    await page.getByRole("button", { name: "Open menu" }).click();
+    const menu = page.locator(".mobile-nav-shell");
+    await expect(menu).toBeVisible();
+    await page.waitForTimeout(220);
+    const menuBox = await menu.boundingBox();
+    expect(headerBox).not.toBeNull();
+    expect(menuBox).not.toBeNull();
+    expect(menuBox!.y).toBeGreaterThanOrEqual(headerBox!.y + headerBox!.height);
+    await page.getByRole("button", { name: "Close menu" }).click();
+    await expect(menu).toBeHidden();
+  }
   await expect(
     page.getByRole("heading", { name: /Where the money came from/i }),
   ).toBeVisible();
@@ -92,8 +105,15 @@ test("leader profiles expose verified contacts and record scope", async ({
   const firstDetailsButton = page
     .getByRole("button", { name: /View verified details/i })
     .first();
+  const leaderCard = firstDetailsButton.locator("xpath=ancestor::article");
+  const closedBox = await leaderCard.boundingBox();
   await firstDetailsButton.click();
-  await expect(page.getByText("City Mayor’s Office")).toBeVisible();
+  const openBox = await leaderCard.boundingBox();
+  expect(closedBox).not.toBeNull();
+  expect(openBox).not.toBeNull();
+  expect(openBox!.x).toBeCloseTo(closedBox!.x, 0);
+  expect(openBox!.width).toBeCloseTo(closedBox!.width, 0);
+  await expect(leaderCard.getByText("City Mayor’s Office")).toBeVisible();
   await expect(
     page.getByRole("link", { name: /0953-459-1777/ }),
   ).toHaveAttribute("href", "tel:09534591777");
@@ -102,13 +122,16 @@ test("leader profiles expose verified contacts and record scope", async ({
   ).toBeVisible();
 
   await page.goto("/government?tab=officials&official=jason-chad-j-ayala");
-  await expect(page.getByText("Published constituency contact")).toBeVisible();
+  const councilorCard = page.locator("article.expanded");
+  await expect(
+    councilorCard.getByText("Published constituency contact"),
+  ).toBeVisible();
   await expect(
     page.getByRole("link", { name: /0994-514-3081/ }),
   ).toHaveAttribute("href", "tel:09945143081");
-  await expect(page.getByText("Quasi-Judicial")).toBeVisible();
+  await expect(councilorCard.getByText("Quasi-Judicial")).toBeVisible();
   await expect(
-    page.getByText("Environment and Natural Resources"),
+    councilorCard.getByText("Environment and Natural Resources"),
   ).toBeVisible();
 });
 

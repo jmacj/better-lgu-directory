@@ -295,6 +295,16 @@ function FinancialBreakdown() {
 
 function Header() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
+
   return (
     <>
       <a className="skip-link" href="#main">
@@ -323,13 +333,18 @@ function Header() {
             className="menu-button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen(!open)}
           >
             {open ? <X /> : <Menu />}
           </button>
         </div>
-        {open && (
-          <nav className="mobile-nav container" aria-label="Mobile navigation">
+        <div
+          id="mobile-navigation"
+          className={`mobile-nav-shell ${open ? "is-open" : ""}`}
+          aria-hidden={!open}
+        >
+          <nav className="mobile-nav" aria-label="Mobile navigation">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
@@ -341,7 +356,7 @@ function Header() {
               </NavLink>
             ))}
           </nav>
-        )}
+        </div>
       </header>
     </>
   );
@@ -815,10 +830,12 @@ function HomePage() {
         </button>
         <div
           id="financial-detail"
-          className="home-reveal"
-          hidden={!financeDetailsOpen}
+          className={`home-reveal ${financeDetailsOpen ? "is-open" : ""}`}
+          aria-hidden={!financeDetailsOpen}
         >
-          {financeDetailsOpen && <FinancialBreakdown />}
+          <div className="home-reveal-inner">
+            <FinancialBreakdown />
+          </div>
         </div>
       </section>
       <section className="section container records-preview-section">
@@ -1394,147 +1411,154 @@ function GovernmentPage() {
                         className="leader-toggle"
                         type="button"
                         aria-expanded={expanded}
+                        aria-controls={`leader-details-${id}`}
                         onClick={() => toggleOfficial(official.name)}
                       >
                         View verified details <ChevronDown />
                       </button>
                     </div>
-                    {expanded && (
-                      <div className="leader-details">
-                        <div className="leader-office">
-                          <span>{official.office.scope}</span>
-                          <h3>{official.office.name}</h3>
-                          {sharedContact && (
-                            <p className="contact-scope-note">
-                              <CircleAlert />
-                              No individual phone or email is published on this
-                              official’s City Government profile. The contact
-                              below routes inquiries through the shared
-                              legislative office.
+                    <div
+                      id={`leader-details-${id}`}
+                      className={`leader-reveal ${expanded ? "is-open" : ""}`}
+                      aria-hidden={!expanded}
+                    >
+                      <div className="leader-reveal-inner">
+                        <div className="leader-details">
+                          <div className="leader-office">
+                            <span>{official.office.scope}</span>
+                            <h3>{official.office.name}</h3>
+                            {sharedContact && (
+                              <p className="contact-scope-note">
+                                <CircleAlert />
+                                No individual phone or email is published on
+                                this official’s City Government profile. The
+                                contact below routes inquiries through the
+                                shared legislative office.
+                              </p>
+                            )}
+                            <p>
+                              <MapPin />
+                              {official.office.address}
                             </p>
-                          )}
-                          <p>
-                            <MapPin />
-                            {official.office.address}
-                          </p>
-                          <a
-                            href={`tel:${telephoneHref(official.office.phone)}`}
-                          >
-                            <Phone />
-                            {official.office.phone}
-                          </a>
-                          {official.office.email ? (
-                            <a href={`mailto:${official.office.email}`}>
-                              <Mail />
-                              {official.office.email}
+                            <a
+                              href={`tel:${telephoneHref(official.office.phone)}`}
+                            >
+                              <Phone />
+                              {official.office.phone}
                             </a>
-                          ) : (
-                            <span className="contact-unavailable">
-                              <Mail />
-                              No direct email published
-                            </span>
+                            {official.office.email ? (
+                              <a href={`mailto:${official.office.email}`}>
+                                <Mail />
+                                {official.office.email}
+                              </a>
+                            ) : (
+                              <span className="contact-unavailable">
+                                <Mail />
+                                No direct email published
+                              </span>
+                            )}
+                            <a
+                              href={official.office.source.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Verify published contact <ExternalLink />
+                            </a>
+                          </div>
+                          {(official.chairmanships?.length ||
+                            official.committeeMemberships?.length) && (
+                            <div className="leader-committees">
+                              <span>Published committee assignments</span>
+                              {official.chairmanships?.length && (
+                                <div>
+                                  <strong>Chairmanship</strong>
+                                  <ul>
+                                    {official.chairmanships.map((committee) => (
+                                      <li key={committee}>{committee}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+                              {official.committeeMemberships?.length && (
+                                <div>
+                                  <strong>Member committees</strong>
+                                  <ul>
+                                    {official.committeeMemberships.map(
+                                      (committee) => (
+                                        <li key={committee}>{committee}</li>
+                                      ),
+                                    )}
+                                  </ul>
+                                </div>
+                              )}
+                              <a
+                                href={official.source.url}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Verify committee assignments <ExternalLink />
+                              </a>
+                            </div>
                           )}
-                          <a
-                            href={official.office.source.url}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Verify published contact <ExternalLink />
-                          </a>
-                        </div>
-                        {(official.chairmanships?.length ||
-                          official.committeeMemberships?.length) && (
-                          <div className="leader-committees">
-                            <span>Published committee assignments</span>
-                            {official.chairmanships?.length && (
-                              <div>
-                                <strong>Chairmanship</strong>
+                          <div className="leader-records">
+                            <span>Published record coverage</span>
+                            {officeRecords.length ? (
+                              <>
+                                <strong>
+                                  {officeRecords.length} mayoral office
+                                  issuances indexed
+                                </strong>
                                 <ul>
-                                  {official.chairmanships.map((committee) => (
-                                    <li key={committee}>{committee}</li>
+                                  {officeRecords.map((record) => (
+                                    <li key={record.number}>
+                                      <a
+                                        href={record.source.url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                      >
+                                        <b>{record.number}</b>
+                                        {record.title}
+                                        <ExternalLink />
+                                      </a>
+                                    </li>
                                   ))}
                                 </ul>
-                              </div>
+                              </>
+                            ) : (
+                              <>
+                                <strong>
+                                  No individually attributed measure found
+                                </strong>
+                                <p>
+                                  The verified listings publish council measures
+                                  at the Sangguniang Panlungsod level and do not
+                                  name this official as sponsor or author.
+                                </p>
+                                <Link to="/government?tab=records">
+                                  Review institutional measures <ArrowRight />
+                                </Link>
+                              </>
                             )}
-                            {official.committeeMemberships?.length && (
-                              <div>
-                                <strong>Member committees</strong>
-                                <ul>
-                                  {official.committeeMemberships.map(
-                                    (committee) => (
-                                      <li key={committee}>{committee}</li>
-                                    ),
-                                  )}
-                                </ul>
-                              </div>
-                            )}
+                            <p className="award-status">
+                              <Award />
+                              No personal award is claimed because no verified
+                              source reviewed names this official as the
+                              individual recipient.
+                            </p>
+                          </div>
+                          <div className="leader-sources">
                             <a
                               href={official.source.url}
                               target="_blank"
                               rel="noreferrer"
                             >
-                              Verify committee assignments <ExternalLink />
+                              Open official profile <ExternalLink />
                             </a>
+                            <small>Sources reviewed {VERIFIED_ON}</small>
                           </div>
-                        )}
-                        <div className="leader-records">
-                          <span>Published record coverage</span>
-                          {officeRecords.length ? (
-                            <>
-                              <strong>
-                                {officeRecords.length} mayoral office issuances
-                                indexed
-                              </strong>
-                              <ul>
-                                {officeRecords.map((record) => (
-                                  <li key={record.number}>
-                                    <a
-                                      href={record.source.url}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                    >
-                                      <b>{record.number}</b>
-                                      {record.title}
-                                      <ExternalLink />
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            </>
-                          ) : (
-                            <>
-                              <strong>
-                                No individually attributed measure found
-                              </strong>
-                              <p>
-                                The verified listings publish council measures
-                                at the Sangguniang Panlungsod level and do not
-                                name this official as sponsor or author.
-                              </p>
-                              <Link to="/government?tab=records">
-                                Review institutional measures <ArrowRight />
-                              </Link>
-                            </>
-                          )}
-                          <p className="award-status">
-                            <Award />
-                            No personal award is claimed because no verified
-                            source reviewed names this official as the
-                            individual recipient.
-                          </p>
-                        </div>
-                        <div className="leader-sources">
-                          <a
-                            href={official.source.url}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Open official profile <ExternalLink />
-                          </a>
-                          <small>Sources reviewed {VERIFIED_ON}</small>
                         </div>
                       </div>
-                    )}
+                    </div>
                   </article>
                 );
               })}

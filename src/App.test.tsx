@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "./App";
 
@@ -141,16 +141,18 @@ describe("BetterMC public portal", () => {
     fireEvent.click(
       screen.getAllByRole("button", { name: /View verified details/i })[0],
     );
-    expect(screen.getByText("City Mayor’s Office")).toBeInTheDocument();
+    const expandedProfile = document.querySelector("article.expanded");
+    expect(expandedProfile).not.toBeNull();
+    const profile = within(expandedProfile as HTMLElement);
+    expect(profile.getByText("City Mayor’s Office")).toBeInTheDocument();
     expect(
-      screen.getByText(/New City Hall, National Highway/i),
+      profile.getByText(/New City Hall, National Highway/i),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /0953-459-1777/ })).toHaveAttribute(
-      "href",
-      "tel:09534591777",
-    );
     expect(
-      screen.getByText(/mayoral office issuances indexed/i),
+      profile.getByRole("link", { name: /0953-459-1777/ }),
+    ).toHaveAttribute("href", "tel:09534591777");
+    expect(
+      profile.getByText(/mayoral office issuances indexed/i),
     ).toBeInTheDocument();
   });
 
@@ -164,16 +166,18 @@ describe("BetterMC public portal", () => {
         <App />
       </MemoryRouter>,
     );
+    const expandedCouncilor = document.querySelector("article.expanded");
+    expect(expandedCouncilor).not.toBeNull();
+    const councilorProfile = within(expandedCouncilor as HTMLElement);
     expect(
-      screen.getByText("Published constituency contact"),
+      councilorProfile.getByText("Published constituency contact"),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /0994-514-3081/ })).toHaveAttribute(
-      "href",
-      "tel:09945143081",
-    );
-    expect(screen.getByText("Quasi-Judicial")).toBeInTheDocument();
     expect(
-      screen.getByText("Environment and Natural Resources"),
+      councilorProfile.getByRole("link", { name: /0994-514-3081/ }),
+    ).toHaveAttribute("href", "tel:09945143081");
+    expect(councilorProfile.getByText("Quasi-Judicial")).toBeInTheDocument();
+    expect(
+      councilorProfile.getByText("Environment and Natural Resources"),
     ).toBeInTheDocument();
     unmount();
 
@@ -186,13 +190,15 @@ describe("BetterMC public portal", () => {
         <App />
       </MemoryRouter>,
     );
+    const expandedAbcProfile = document.querySelector("article.expanded");
+    expect(expandedAbcProfile).not.toBeNull();
+    const abcProfile = within(expandedAbcProfile as HTMLElement);
     expect(
-      screen.getByText("Published constituency contact"),
+      abcProfile.getByText("Published constituency contact"),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /0951-692-1915/ })).toHaveAttribute(
-      "href",
-      "tel:09516921915",
-    );
+    expect(
+      abcProfile.getByRole("link", { name: /0951-692-1915/ }),
+    ).toHaveAttribute("href", "tel:09516921915");
   });
 
   it("publishes contribution, city contact, Facebook, and BetterGov links in the footer", () => {
