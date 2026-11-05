@@ -1,4 +1,4 @@
-export const VERIFIED_ON = "2026-11-05";
+export const VERIFIED_ON = "2026-11-06";
 
 export type Source = {
   label: string;
@@ -1237,6 +1237,25 @@ export const procurementSources = [
 
 export const publicProjects = [
   {
+    title: "Purchase of an ambulance, conversion type II",
+    location: "Malaybalay City",
+    totalCost: 2_000_000,
+    costIncurred: null,
+    reportedProgress: "Not stated",
+    status:
+      "Procurement reported ongoing; the source leaves cost incurred blank, so ₱0 is not asserted as actual spending",
+  },
+  {
+    title:
+      "Upgrade of milk-processing technology and systems of DAMAUDARIC",
+    location: "Malaybalay City / DOST-10",
+    totalCost: 761_004,
+    costIncurred: null,
+    reportedProgress: "Not stated",
+    status:
+      "Disbursements reported in process; the source leaves cost incurred blank, so ₱0 is not asserted as actual spending",
+  },
+  {
     title:
       "Digitized Emergency Tracking Alert System and GEOpindot Mobile Application",
     location: "Malaybalay City / DOST-10",
@@ -1261,6 +1280,15 @@ export const publicProjects = [
     costIncurred: 497_000,
     reportedProgress: "99.40%",
     status: "Reported completed in June 2024",
+  },
+  {
+    title: "Egg production project for Barangay Caburacanan",
+    location:
+      "Title names Caburacanan; source location column says Barangay Silae / DOE-RS",
+    totalCost: 500_000,
+    costIncurred: 760,
+    reportedProgress: "0.15%",
+    status: "Disbursements reported in process; source location discrepancy retained",
   },
   {
     title: "Development and upgrade of the swine production center",

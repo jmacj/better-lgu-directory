@@ -25,7 +25,6 @@ import {
   Github,
   HeartPulse,
   Landmark,
-  Layers3,
   Mail,
   Menu,
   Phone,
@@ -81,6 +80,14 @@ const navItems = [
 
 const telephoneHref = (value?: string) =>
   value?.split(/\s*(?:\/|\|)\s*/)[0].replace(/[^+\d]/g, "") ?? "";
+
+const peso = (value: number) =>
+  new Intl.NumberFormat("en-PH", {
+    style: "currency",
+    currency: "PHP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(value);
 
 function Brand() {
   return (
@@ -1356,10 +1363,12 @@ function GovernmentPage() {
                       <div>
                         <dt>Cost incurred</dt>
                         <dd>
-                          {new Intl.NumberFormat("en-PH", {
-                            style: "currency",
-                            currency: "PHP",
-                          }).format(project.costIncurred)}
+                          {project.costIncurred === null
+                            ? "Not stated"
+                            : new Intl.NumberFormat("en-PH", {
+                                style: "currency",
+                                currency: "PHP",
+                              }).format(project.costIncurred)}
                         </dd>
                       </div>
                     </dl>
@@ -1766,7 +1775,6 @@ type BoundaryCollection = FeatureCollection<
 
 function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
   const mapElement = useRef<HTMLDivElement>(null);
-  const [coordinates, setCoordinates] = useState<string | null>(null);
   const [mapError, setMapError] = useState(false);
 
   useEffect(() => {
@@ -1804,31 +1812,19 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
             attribution:
               "Tiles &copy; Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community",
           },
-        ).addTo(map);
+        );
 
         const selected = boundaries.features.find(
           (feature) => feature.properties.code === profile.code,
         );
-        L.geoJSON(boundaries, {
-          interactive: false,
-          style: (feature) => ({
-            color:
-              feature?.properties.code === profile.code ? "#eaf4ff" : "#bfd3e8",
-            weight: feature?.properties.code === profile.code ? 4 : 1,
-            opacity: feature?.properties.code === profile.code ? 1 : 0.55,
-            fillColor: "#1473e6",
-            fillOpacity:
-              feature?.properties.code === profile.code ? 0.24 : 0.02,
-          }),
-        }).addTo(map);
         if (!selected)
           throw new Error("Selected barangay boundary unavailable");
         const selectedLayer = L.geoJSON(selected, {
           style: {
-            color: "#ffffff",
-            weight: 3,
-            fillColor: "#1473e6",
-            fillOpacity: 0.25,
+            color: "#1259c3",
+            weight: 4,
+            opacity: 0.95,
+            fillOpacity: 0,
           },
         })
           .bindPopup(
@@ -1836,11 +1832,10 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
           )
           .addTo(map);
         const bounds = selectedLayer.getBounds();
-        map.fitBounds(bounds, { padding: [28, 28], maxZoom: 14 });
-        const center = bounds.getCenter();
-        setCoordinates(`${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}`);
+        street.addTo(map);
+        map.fitBounds(bounds, { padding: [34, 34], maxZoom: 14 });
         L.control
-          .layers({ "Satellite view": imagery, "Street map": street })
+          .layers({ "Street map": street, Satellite: imagery })
           .addTo(map);
       } catch {
         if (!disposed) setMapError(true);
@@ -1861,21 +1856,11 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
         className="barangay-map-canvas"
         aria-label={`Satellite and street map showing the indicative outline of ${profile.name}`}
       />
-      {mapError ? (
+      {mapError && (
         <p role="status">
           The interactive map could not load. Use the provenance link below to
           inspect the boundary source.
         </p>
-      ) : (
-        <div className="barangay-map-meta">
-          <span>
-            <MapPin aria-hidden="true" /> Map-derived center
-          </span>
-          <strong>{coordinates ?? "Loading coordinates…"}</strong>
-          <span>
-            <Layers3 aria-hidden="true" /> Satellite and street layers
-          </span>
-        </div>
       )}
     </div>
   );
@@ -1960,6 +1945,7 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           <a href="#about">About</a>
           <a href="#map">Map</a>
           <a href="#leadership">Leadership</a>
+          <a href="#projects">Projects</a>
           <a href="#committees">Committees</a>
           <a href="#services">Services</a>
           <a href="#contacts">Contacts</a>
@@ -1979,6 +1965,11 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
               barangay boundary was verified for this profile. The map below
               uses a clearly labelled indicative boundary for orientation only.
             </p>
+            <p>
+              The City Government directory publishes a mark for this
+              barangay, not a verified barangay hall photograph. BetterMC does
+              not substitute an unrelated or unattributed image.
+            </p>
           </div>
           <aside className="barangay-source-card">
             <ShieldCheck />
@@ -1995,22 +1986,18 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           className="barangay-profile-section barangay-map-section"
         >
           <SectionHeading
-            eyebrow="Location and indicative boundary"
-            title={`Explore ${profile.name} on the map`}
+            eyebrow="Map"
+            title={`${profile.name} boundary reference`}
           >
-            Switch between satellite imagery and OpenStreetMap. The highlighted
-            polygon is a generalized planning reference, not a surveyed legal
-            boundary.
+            Use the outlined area for orientation only. Satellite imagery is
+            available from the layer control when useful.
           </SectionHeading>
           <BarangayMap profile={profile} />
           <div className="barangay-map-disclaimer">
             <CircleAlert aria-hidden="true" />
             <p>
-              Boundary geometry is derived from the PSA/NAMRIA 2023-11-06
-              snapshot and matched to PSGC code {profile.code}. It is indicative
-              only and must not be used to decide ownership, jurisdiction, or
-              survey lines. Map imagery and roads may update independently of
-              the boundary snapshot.
+              Indicative PSA/NAMRIA-derived geometry matched to PSGC code {profile.code};
+              not a surveyed legal boundary or basis for ownership.
             </p>
             <a
               href={profile.boundarySource.url}
@@ -2054,6 +2041,76 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
               </div>
             </article>
           </div>
+        </section>
+
+        <section id="projects" className="barangay-profile-section">
+          <SectionHeading
+            eyebrow="Public project tracker"
+            title="Projects attributable to this barangay"
+          >
+            Amounts and status labels come from the linked record. Budget
+            authority, award, spending, progress, and savings are different
+            measures and are not treated as interchangeable.
+          </SectionHeading>
+          {profile.projects.length ? (
+            <div className="barangay-project-grid">
+              {profile.projects.map((project) => (
+                <article key={project.title}>
+                  <div className="barangay-project-heading">
+                    <Building2 aria-hidden="true" />
+                    <div>
+                      <span>{project.program}</span>
+                      <h3>{project.title}</h3>
+                    </div>
+                  </div>
+                  <dl>
+                    <div>
+                      <dt>Published amount</dt>
+                      <dd>{peso(project.amount)}</dd>
+                    </div>
+                    <div>
+                      <dt>Record period</dt>
+                      <dd>{project.period}</dd>
+                    </div>
+                    <div>
+                      <dt>Published status</dt>
+                      <dd>{project.status}</dd>
+                    </div>
+                  </dl>
+                  <p>{project.note}</p>
+                  <BarangaySourceLink source={project.source} />
+                </article>
+              ))}
+            </div>
+          ) : (
+            <article className="barangay-data-gap barangay-project-gap">
+              <CircleAlert aria-hidden="true" />
+              <div>
+                <span>Attributable record not located</span>
+                <h3>
+                  No barangay-specific project was found in the reviewed public
+                  datasets
+                </h3>
+                <p>
+                  This does not mean no project exists. Citywide and district
+                  records may omit a barangay, and a budget item does not prove
+                  implementation.
+                </p>
+                <div className="barangay-project-links">
+                  <a
+                    href="https://sakata.malaybalaycity.gov.ph/full-disclosure/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    City full disclosure <ExternalLink aria-hidden="true" />
+                  </a>
+                  <Link to="/participate">
+                    Submit a source <ArrowRight aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          )}
         </section>
 
         <section id="committees" className="barangay-profile-section">
