@@ -164,6 +164,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Palo, Leyte | - | [GitHub](https://github.com/BetterPalo/BetterPalo) | - | 🟡 Work in Progress | [@Zyxavy](https://github.com/Zyxavy) |
 | Carmona, Cavite                     | [bettercarmona.org](https://bettercarmona.org)                | [GitHub](https://github.com/carlolim/bettercarmona)                            | -                                                                                                                                                           | 🟡 Work in Progress    | [@carlolim](https://github.com/carlolim)                                                                                         |
 | Iriga, Camarines Sur | [betteririga.org](https://betteririga.org) |  [GitHub](https://github.com/ronhedwigzape/betteririga) | [Facebook](https://www.facebook.com/BetterIriga.org) | 🟢 Active | [@ronhedwigzape](https://github.com/ronhedwigzape) |
+| Marinduque Province | [bettermarinduque.vercel.app](https://bettermarinduque.vercel.app) | [GitHub](https://github.com/b0urbonn/bettermarinduque) | - | 🟡 Work in Progress | [@b0urbonn](https://github.com/b0urbonn) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
