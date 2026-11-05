@@ -159,6 +159,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Bukidnon Province | [betterbukidnon.org](https://betterbukidnon.org) | [GitHub](https://github.com/Better-Bukidnon) | - | 🟢 Active | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 | Lopez, Quezon | - | [GitHub](https://github.com/StanleyPangaruy/betterlopez) | - | 🟡 Work in Progress | [@StanleyPangaruy](https://github.com/StanleyPangaruy) |
 | Tayabas City, Quezon | - | [GitHub](https://github.com/herseyy/bettertayabas) | - | 🔵 Planned | [@herseyy](https://github.com/herseyy), [@ninnzz](https://github.com/ninnzz) |
+| Lingayen, Pangasinan            | -                                                             | [GitHub](https://github.com/rimzbravz/betterlingayen)                              | -                                                                                                                                                           | 🔵 Planned             | [@rimzbravz](https://github.com/rimzbravz)                                                                               |
 
 <!-- SYNC_LGU_TABLE_END -->
 
