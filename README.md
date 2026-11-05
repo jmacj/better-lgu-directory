@@ -158,11 +158,15 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Ilocos Norte Province               | -                                                             | [GitHub](https://github.com/russellraed/betterilocosnorte)                         | -                                                                                                                                                           | 🟡 Work in Progress    | [@russellraed](https://github.com/russellraed)                                                                                   |
 | Bukidnon Province | [betterbukidnon.org](https://betterbukidnon.org) | [GitHub](https://github.com/Better-Bukidnon) | - | 🟢 Active | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 | Lopez, Quezon | - | [GitHub](https://github.com/StanleyPangaruy/betterlopez) | - | 🟡 Work in Progress | [@StanleyPangaruy](https://github.com/StanleyPangaruy) |
+| Tayabas City, Quezon | - | [GitHub](https://github.com/herseyy/bettertayabas) | - | 🔵 Planned | [@herseyy](https://github.com/herseyy), [@ninnzz](https://github.com/ninnzz) |
+| Lingayen, Pangasinan            | -                                                             | [GitHub](https://github.com/rimzbravz/betterlingayen)                              | -                                                                                                                                                           | 🔵 Planned             | [@rimzbravz](https://github.com/rimzbravz)                                                                               |
 | Bauan, Batangas                       | [betterbauan.vercel.app](https://betterbauan.vercel.app)        | [GitHub](https://github.com/Arxenic/betterbauan)                                 | -                                                                                                                                                             | 🟡 Work in Progress      | [@Arxenic](https://github.com/Arxenic)                                                                                             |
 
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
+
+> 💰 Looking for budget transparency portals? See the **[Budget Portal Directory](BUDGET.md)** — LGU sites built on the [BetterGov.ph Budget API](https://budget.bettergov.ph/docs), whether part of a Better LGU portal or standalone.
 
 ---
 

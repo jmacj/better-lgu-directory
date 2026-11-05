@@ -65,12 +65,12 @@ function parseRepoCell(cell) {
     return ref ? { owner, repo, ref } : { owner, repo };
 }
 
-function parseTable(content, startMarker, endMarker) {
+function parseTable(content, startMarker, endMarker, sourceName = 'README.md') {
     const startIdx = content.indexOf(startMarker);
     const endIdx = content.indexOf(endMarker);
 
     if (startIdx === -1 || endIdx === -1) {
-        throw new Error(`Markers ${startMarker} or ${endMarker} not found in README.md`);
+        throw new Error(`Markers ${startMarker} or ${endMarker} not found in ${sourceName}`);
     }
 
     const tableContent = content.substring(startIdx + startMarker.length, endIdx).trim();
@@ -236,4 +236,7 @@ module.exports = {
     normalizeDash,
     parseRepoCell,
     validateLgu,
+    yamlStr,
+    VALID_STATUSES,
+    EMPTY_MARKERS,
 };
