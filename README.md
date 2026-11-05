@@ -161,6 +161,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tayabas City, Quezon | - | [GitHub](https://github.com/herseyy/bettertayabas) | - | 🔵 Planned | [@herseyy](https://github.com/herseyy), [@ninnzz](https://github.com/ninnzz) |
 | Lingayen, Pangasinan            | -                                                             | [GitHub](https://github.com/rimzbravz/betterlingayen)                              | -                                                                                                                                                           | 🔵 Planned             | [@rimzbravz](https://github.com/rimzbravz)                                                                               |
 | Bauan, Batangas                       | [betterbauan.vercel.app](https://betterbauan.vercel.app)        | [GitHub](https://github.com/Arxenic/betterbauan)                                 | -                                                                                                                                                             | 🟡 Work in Progress      | [@Arxenic](https://github.com/Arxenic)                                                                                             |
+| Palo, Leyte | - | [GitHub](https://github.com/BetterPalo/BetterPalo) | - | 🟡 Work in Progress | [@Zyxavy](https://github.com/Zyxavy) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
