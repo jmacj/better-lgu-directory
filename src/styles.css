@@ -1046,6 +1046,24 @@ kbd {
 .page-hero .eyebrow {
   color: var(--green-700);
 }
+.page-hero-compact {
+  padding: 42px 0 38px;
+}
+.page-hero-compact h1 {
+  max-width: 760px;
+  margin: 10px 0 12px;
+  font-size: clamp(2.35rem, 4.2vw, 3.75rem);
+  line-height: 1.02;
+}
+.page-hero-compact p {
+  max-width: 720px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.government-directory-section {
+  padding-top: 42px;
+  padding-bottom: 64px;
+}
 .data-notice {
   display: flex;
   gap: 15px;
@@ -4185,10 +4203,17 @@ kbd {
   .barangay-hero-content { min-height: auto; grid-template-columns: 112px minmax(0, 1fr); gap: 18px 24px; }
   .barangay-logo-frame { width: 108px; }
   .barangay-map-canvas { height: 380px; }
+  .page-hero-compact { padding: 34px 0 30px; }
+  .page-hero-compact h1 { font-size: clamp(2.15rem, 8vw, 3rem); }
+  .government-directory-section { padding-top: 30px; padding-bottom: 48px; }
 }
 @media (max-width: 560px) {
   .barangay-hero-content { grid-template-columns: 1fr; padding-top: 34px; padding-bottom: 36px; }
   .barangay-brand-lockup { grid-row: auto; grid-template-columns: 82px 1fr; align-items: center; }
   .barangay-logo-frame { width: 82px; }
   .barangay-map-canvas { height: 330px; }
+  .page-hero-compact { padding: 28px 0 26px; }
+  .page-hero-compact h1 { font-size: 2.15rem; }
+  .page-hero-compact p { font-size: 0.94rem; }
+  .government-directory-section { padding-top: 24px; }
 }

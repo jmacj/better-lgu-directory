@@ -986,14 +986,16 @@ function PageHero({
   title,
   description,
   children,
+  compact = false,
 }: {
   eyebrow: string;
   title: string;
   description: string;
   children?: ReactNode;
+  compact?: boolean;
 }) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero${compact ? " page-hero-compact" : ""}`}>
       <div className="container">
         <span className="eyebrow">{eyebrow}</span>
         <h1>{title}</h1>
@@ -1234,8 +1236,9 @@ function GovernmentPage() {
         eyebrow="Government directory"
         title="Know who serves, and where to reach the right office."
         description="Search source-linked leadership profiles, office contacts, and separately identified emergency and assistance numbers."
+        compact
       />
-      <section className="section container">
+      <section className="section container government-directory-section">
         <div
           className="tabs"
           role="tablist"
