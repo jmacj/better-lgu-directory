@@ -580,6 +580,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jadolation](https://github.com/jadolation)"
+- name: "Pangasinan Province"
+  domain: "-"
+  repo: "[GitHub](https://github.com/jadolation/betterPangasinan)"
+  repo_owner: "jadolation"
+  repo_name: "betterPangasinan"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jadolation](https://github.com/jadolation)"
 - name: "Taguig City, Metro Manila"
   domain: "-"
   repo: "[GitHub](https://github.com/plvzfq-rit/bettertaguig)"
