@@ -591,15 +591,15 @@
   open_for_adoption: false
   maintainer: "[@jadolation](https://github.com/jadolation)"
 - name: "Taguig City, Metro Manila"
-  domain: "-"
+  domain: "[bettertaguig.org](https://bettertaguig.org/)"
   repo: "[GitHub](https://github.com/plvzfq-rit/bettertaguig)"
   repo_owner: "plvzfq-rit"
   repo_name: "bettertaguig"
   socials: []
-  status: "🔵 Planned"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@plvzfq-rit](https://github.com/plvzfq-rit)"
+  maintainer: "[@plvzfq-rit](https://github.com/plvzfq-rit), [@OrcaDS](https://github.com/OrcaDS)"
 - name: "Sara, Iloilo"
   domain: "-"
   repo: "[GitHub](https://github.com/SaraGugmaKo/bettersara)"
