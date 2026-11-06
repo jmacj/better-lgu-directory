@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 46 432 432" role="img" aria-labelledby="t">
+  <title id="t">BetterRamon: the Philippine sun over Ramon's rolling hills, the Magat Dam and the Magat Reservoir</title>
+  <defs>
+    <clipPath id="sky"><rect x="0" y="0" width="512" height="352"/></clipPath>
+  </defs>
+  <!-- Philippine sun -->
+  <g clip-path="url(#sky)">
+    <circle cx="256" cy="314" r="132" fill="#1e4fd8"/>
+    <g stroke="#1e4fd8" stroke-width="15" stroke-linecap="round"><line x1="232.0" y1="164.0" x2="232.0" y2="94.0"/><line x1="256.0" y1="164.0" x2="256.0" y2="64.0"/><line x1="280.0" y1="164.0" x2="280.0" y2="94.0"/><line x1="345.1" y1="191.0" x2="394.6" y2="141.5"/><line x1="362.1" y1="207.9" x2="432.8" y2="137.2"/><line x1="379.0" y1="224.9" x2="428.5" y2="175.4"/><line x1="406.0" y1="290.0" x2="476.0" y2="290.0"/><line x1="406.0" y1="314.0" x2="506.0" y2="314.0"/><line x1="406.0" y1="338.0" x2="476.0" y2="338.0"/><line x1="106.0" y1="338.0" x2="36.0" y2="338.0"/><line x1="106.0" y1="314.0" x2="6.0" y2="314.0"/><line x1="106.0" y1="290.0" x2="36.0" y2="290.0"/><line x1="133.0" y1="224.9" x2="83.5" y2="175.4"/><line x1="149.9" y1="207.9" x2="79.2" y2="137.2"/><line x1="166.9" y1="191.0" x2="117.4" y2="141.5"/></g>
+  </g>
+  <!-- rolling hills, white edge separates them from the sun -->
+  <g fill="#0f172a" stroke="#fff" stroke-width="8" stroke-linejoin="round" paint-order="stroke">
+    <path d="M70 352 C96 300 132 262 168 262 C196 262 212 286 226 304 L226 352 Z"/>
+    <path d="M128 352 C150 318 182 300 212 300 C236 300 252 318 262 352 Z"/>
+  </g>
+  <path d="M110 316 C128 290 148 276 168 276" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  <!-- Magat Dam: concrete wall and deck, white edge separates it from the sun -->
+  <g fill="#0f172a" stroke="#fff" stroke-width="8" stroke-linejoin="round" paint-order="stroke">
+    <path d="M244 352 L262 262 H438 L452 352 Z"/>
+    <rect x="252" y="240" width="194" height="24" rx="5"/>
+  </g>
+  <!-- four gate openings releasing water down the face -->
+  <g fill="#fff">
+    <path d="M276 306 V284 Q290 268 304 284 V306 Z"/>
+    <path d="M318 306 V284 Q332 268 346 284 V306 Z"/>
+    <path d="M360 306 V284 Q374 268 388 284 V306 Z"/>
+    <path d="M402 306 V284 Q416 268 430 284 V306 Z"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round">
+    <path d="M284 314 L278 340"/><path d="M296 314 L294 340"/>
+    <path d="M326 314 L322 340"/><path d="M338 314 L338 340"/>
+    <path d="M368 314 L368 340"/><path d="M380 314 L384 340"/>
+    <path d="M410 314 L412 340"/><path d="M422 314 L428 340"/>
+  </g>
+  <!-- base line -->
+  <line x1="58" y1="352" x2="458" y2="352" stroke="#0f172a" stroke-width="12" stroke-linecap="round"/>
+  <!-- Magat Reservoir -->
+  <g stroke-width="11" stroke-linecap="round"><line x1="92" y1="382" x2="168" y2="382" stroke="#1e4fd8"/><line x1="190" y1="382" x2="300" y2="382" stroke="#1e4fd8"/><line x1="322" y1="382" x2="420" y2="382" stroke="#1e4fd8"/><line x1="124" y1="410" x2="200" y2="410" stroke="#7ea2ff"/><line x1="236" y1="410" x2="276" y2="410" stroke="#7ea2ff"/><line x1="312" y1="410" x2="388" y2="410" stroke="#7ea2ff"/><line x1="168" y1="438" x2="232" y2="438" stroke="#1e4fd8"/><line x1="280" y1="438" x2="344" y2="438" stroke="#1e4fd8"/></g>
+  <!-- bangka and tilapia on the reservoir -->
+  <g fill="#0f172a" stroke="#fff" stroke-width="6" stroke-linejoin="round" paint-order="stroke">
+    <path d="M150 400 H222 L210 414 H162 Z"/>
+    <path d="M186 400 V370 L206 396 Z"/>
+  </g>
+  <path fill="#0f172a" d="M292 438 c10 -11 30 -11 40 0 c-10 11 -30 11 -40 0 Z M332 438 l12 -9 v18 Z"/>
+  <circle cx="302" cy="435" r="2.6" fill="#fff"/>
+</svg>
