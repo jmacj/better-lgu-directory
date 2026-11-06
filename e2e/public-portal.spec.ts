@@ -256,13 +256,16 @@ test("procurement sources preserve record scope", async ({ page }) => {
   ).toBeVisible();
   await expect(
     page.getByRole("link", { name: /Infrastructure/i }),
-  ).toHaveAttribute("href", /infrastructure/);
+  ).toHaveAttribute("href", "/procurement/infrastructure-awards");
   await expect(
     page.getByText(/does not relabel them as awarded projects/i),
   ).toBeVisible();
+
+  await page.getByRole("link", { name: /2026 BAC opportunity index/i }).click();
+  await expect(page).toHaveURL(/\/procurement\/bidding-opportunities$/);
   await expect(
     page.getByRole("heading", {
-      name: /Search published bidding opportunities/i,
+      name: /2026 bidding opportunities/i,
     }),
   ).toBeVisible();
   await expect(
@@ -277,6 +280,15 @@ test("procurement sources preserve record scope", async ({ page }) => {
   await expect(page.locator(".bid-record-list a").first()).toContainText(
     /Cabangahan/i,
   );
+
+  await page
+    .getByRole("link", { name: /Infrastructure awards/i })
+    .click();
+  await expect(page).toHaveURL(/\/procurement\/infrastructure-awards$/);
+  await expect(page.getByText("ITB-2024-012")).toBeVisible();
+  await expect(
+    page.getByText(/does not by itself prove payment/i),
+  ).toBeVisible();
 });
 
 test("directory filters reach emergency contacts", async ({ page }) => {

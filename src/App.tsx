@@ -96,6 +96,14 @@ import {
   bidRecords2026,
 } from "./bidRecords";
 import {
+  goodsServicesAwardRecords,
+  GOODS_SERVICES_AWARDS_SOURCE,
+  infrastructureAwardRecords,
+  INFRASTRUCTURE_AWARDS_SOURCE,
+  SMALL_VALUE_PROCUREMENT_SOURCE,
+  type ProcurementAwardRecord,
+} from "./procurementRecords";
+import {
   betterGovServiceUrl,
   localServicePathways,
   serviceCategories,
@@ -1174,31 +1182,114 @@ function PageHero({
   );
 }
 
-function ProcurementIndex() {
+type ProcurementDisplayRecord = {
+  number: string;
+  title: string;
+  year: number;
+  stage: string;
+  url: string;
+};
+
+const awardRecordsForDisplay = (
+  records: ProcurementAwardRecord[],
+): ProcurementDisplayRecord[] =>
+  records.map((record) => ({
+    number: record.number,
+    title: record.title,
+    year: record.year,
+    stage: "Award notice",
+    url: record.sourceUrl,
+  }));
+
+const procurementPageContent = {
+  "bidding-opportunities": {
+    title: "2026 bidding opportunities",
+    description:
+      "Search the notices indexed from the City BAC page. Each entry opens its published procurement document for requirements, schedules, and approved-budget details.",
+    records: bidRecords2026.map((record) => ({
+      ...record,
+      year: 2026,
+    })),
+    sourceUrl: BAC_2026_SOURCE,
+    sourceLabel: "City BAC opportunity hub",
+    scope: "Bidding notices",
+    notice:
+      "A bidding opportunity is not an award and does not establish payment, delivery, or project completion.",
+  },
+  "infrastructure-awards": {
+    title: "Infrastructure award notices",
+    description:
+      "Browse a source-linked extract of the 2024 infrastructure entries currently leading the City BAC award page.",
+    records: awardRecordsForDisplay(infrastructureAwardRecords),
+    sourceUrl: INFRASTRUCTURE_AWARDS_SOURCE,
+    sourceLabel: "City BAC infrastructure awards",
+    scope: "Award notices",
+    notice:
+      "An award notice records a procurement-stage result. It does not by itself prove payment, delivery, construction progress, or project completion.",
+  },
+  "goods-services-awards": {
+    title: "Goods and services award notices",
+    description:
+      "Review the source-linked 2024 entries currently leading the City BAC goods-and-services award page.",
+    records: awardRecordsForDisplay(goodsServicesAwardRecords),
+    sourceUrl: GOODS_SERVICES_AWARDS_SOURCE,
+    sourceLabel: "City BAC goods and services awards",
+    scope: "Award notices",
+    notice:
+      "The listed notice identifies an award-stage publication. Confirm supplier, amount, line item, and notice status in the linked PhilGEPS record.",
+  },
+  "small-value-procurement": {
+    title: "Small-value procurement notices",
+    description:
+      "Search 2026 BAC entries explicitly labeled as small-value procurement, separated here from the broader mixed source page.",
+    records: bidRecords2026
+      .filter((record) => record.stage === "Small value procurement")
+      .map((record) => ({ ...record, year: 2026 })),
+    sourceUrl: SMALL_VALUE_PROCUREMENT_SOURCE,
+    sourceLabel: "City BAC small-value procurement page",
+    scope: "Method-filtered notices",
+    notice:
+      "The official source page also displays broader bidding opportunities. BetterMC includes only entries explicitly labeled as small-value procurement in this view.",
+  },
+} satisfies Record<
+  string,
+  {
+    title: string;
+    description: string;
+    records: ProcurementDisplayRecord[];
+    sourceUrl: string;
+    sourceLabel: string;
+    scope: string;
+    notice: string;
+  }
+>;
+
+function ProcurementRecordIndex({
+  records,
+  sourceUrl,
+}: {
+  records: ProcurementDisplayRecord[];
+  sourceUrl: string;
+}) {
   const [query, setQuery] = useState("");
   const [expanded, setExpanded] = useState(false);
   const normalizedQuery = query.trim().toLowerCase();
-  const filtered = bidRecords2026.filter((record) =>
-    `${record.number} ${record.title} ${record.stage}`
+  const filtered = records.filter((record) =>
+    `${record.number} ${record.title} ${record.stage} ${record.year}`
       .toLowerCase()
       .includes(normalizedQuery),
   );
-  const visible = expanded || normalizedQuery ? filtered : filtered.slice(0, 18);
+  const visible = expanded || normalizedQuery ? filtered : filtered.slice(0, 16);
 
   return (
     <div className="procurement-index">
       <div className="procurement-index-head">
         <div>
-          <span className="eyebrow">2026 BAC index</span>
-          <h2>Search published bidding opportunities</h2>
-          <p>
-            These are procurement notices, not awards or proof of payment. Open
-            the linked document for the approved budget, schedule, eligibility,
-            and technical requirements.
-          </p>
+          <span className="eyebrow">Source-linked records</span>
+          <h2>Search this procurement page</h2>
         </div>
         <label className="procurement-search">
-          <span className="sr-only">Search 2026 bid records</span>
+          <span className="sr-only">Search procurement records</span>
           <Search aria-hidden="true" />
           <input
             value={query}
@@ -1220,12 +1311,12 @@ function ProcurementIndex() {
           >
             <span>{record.stage}</span>
             <strong>{record.number}</strong>
-            <p>{record.title.replace(/^ITB-2026-\d+\.?\s*/i, "")}</p>
+            <p>{record.title.replace(/^ITB-\d{4}-\d+\.?\s*/i, "")}</p>
             <ExternalLink aria-hidden="true" />
           </a>
         ))}
       </div>
-      {!normalizedQuery && filtered.length > 18 && (
+      {!normalizedQuery && filtered.length > 16 && (
         <button
           className="bid-record-toggle"
           type="button"
@@ -1238,13 +1329,90 @@ function ProcurementIndex() {
       )}
       <a
         className="procurement-index-source"
-        href={BAC_2026_SOURCE}
+        href={sourceUrl}
         target="_blank"
         rel="noreferrer"
       >
-        Open the City BAC source page <ExternalLink aria-hidden="true" />
+        Open the original City BAC page <ExternalLink aria-hidden="true" />
       </a>
     </div>
+  );
+}
+
+function ProcurementPage() {
+  const { category } = useParams<{ category: string }>();
+  const page =
+    category && category in procurementPageContent
+      ? procurementPageContent[
+          category as keyof typeof procurementPageContent
+        ]
+      : undefined;
+
+  if (!page) return <NotFoundPage />;
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Procurement records"
+        title={page.title}
+        description={page.description}
+        compact
+      />
+      <section className="section container procurement-page">
+        <nav className="procurement-page-nav" aria-label="Procurement record types">
+          {procurementSources.map((source) => (
+            <NavLink key={source.path} to={source.path}>
+              {source.title}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="procurement-page-summary">
+          <div>
+            <span>Records in this view</span>
+            <strong>{page.records.length}</strong>
+          </div>
+          <div>
+            <span>Record scope</span>
+            <strong>{page.scope}</strong>
+          </div>
+          <div>
+            <span>Source reviewed</span>
+            <strong>{BAC_2026_VERIFIED_ON}</strong>
+          </div>
+        </div>
+
+        <div className="data-notice procurement-scope-notice">
+          <CircleAlert aria-hidden="true" />
+          <div>
+            <strong>Read the record at the correct procurement stage</strong>
+            <p>{page.notice}</p>
+          </div>
+        </div>
+
+        <ProcurementRecordIndex
+          key={category}
+          records={page.records}
+          sourceUrl={page.sourceUrl}
+        />
+
+        <div className="procurement-source-ledger">
+          <ShieldCheck aria-hidden="true" />
+          <div>
+            <strong>Source and coverage</strong>
+            <p>
+              Titles are transcribed for readability and retain their source
+              notice. This is a navigable public-information index, not a
+              substitute for the official procurement record or a claim that
+              the source page is a complete archive.
+            </p>
+          </div>
+          <a href={page.sourceUrl} target="_blank" rel="noreferrer">
+            {page.sourceLabel} <ExternalLink aria-hidden="true" />
+          </a>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -1297,20 +1465,18 @@ function TransparencyPage() {
           </SectionHeading>
           <div className="procurement-grid">
             {procurementSources.map((source) => (
-              <a
+              <Link
                 key={source.title}
-                href={source.url}
-                target="_blank"
-                rel="noreferrer"
+                to={source.path}
               >
                 <span>{source.kind}</span>
                 <h2>{source.title}</h2>
                 <p>{source.description}</p>
                 <small>{source.coverage}</small>
                 <strong>
-                  Open BAC source <ExternalLink />
+                  Browse BetterMC records <ArrowRight aria-hidden="true" />
                 </strong>
-              </a>
+              </Link>
             ))}
           </div>
           <p className="procurement-review">
@@ -1319,7 +1485,6 @@ function TransparencyPage() {
             other records; BetterMC does not relabel them as awarded projects.
           </p>
         </div>
-        <ProcurementIndex />
         <div className="toolbar">
           <label>
             <span>Search records</span>
@@ -3419,6 +3584,7 @@ export default function App() {
           }
         />
         <Route path="/transparency" element={<TransparencyPage />} />
+        <Route path="/procurement/:category" element={<ProcurementPage />} />
         <Route
           path="/transparency/:year/:quarter/:slug"
           element={<DisclosureDetailPage />}

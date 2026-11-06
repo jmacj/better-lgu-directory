@@ -166,17 +166,37 @@ describe("BetterMC public portal", () => {
 
   it("indexes searchable 2026 BAC notices without calling them awards", () => {
     render(
-      <MemoryRouter initialEntries={["/transparency"]}>
+      <MemoryRouter initialEntries={["/procurement/bidding-opportunities"]}>
         <App />
       </MemoryRouter>,
     );
     expect(
       screen.getByRole("heading", {
-        name: /Search published bidding opportunities/i,
+        name: /2026 bidding opportunities/i,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/These are procurement notices, not awards/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/A bidding opportunity is not an award/i),
+    ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Show all 212 records/i })).toBeInTheDocument();
+  });
+
+  it("keeps award notices on dedicated internal procurement pages", () => {
+    render(
+      <MemoryRouter initialEntries={["/procurement/infrastructure-awards"]}>
+        <App />
+      </MemoryRouter>,
+    );
+    expect(
+      screen.getByRole("heading", { name: /Infrastructure award notices/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("ITB-2024-012")).toBeInTheDocument();
+    expect(
+      screen.getByText(/does not by itself prove payment/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /Goods and services awards/i }),
+    ).toHaveAttribute("href", "/procurement/goods-services-awards");
   });
 
   it("separates mayoral issuances, council ordinances, and institutional recognition", () => {

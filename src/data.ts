@@ -1114,36 +1114,44 @@ export const governanceHighlights = [
 
 export const procurementSources = [
   {
-    kind: "Record hub",
-    title: "BAC awarded-projects hub",
+    kind: "Bidding opportunities",
+    title: "2026 BAC opportunity index",
     description:
-      "Central BAC page that currently includes dated 2026 bidding opportunities alongside procurement links.",
-    coverage: "Mixed record types · verify each linked notice",
-    url: "https://sites.google.com/site/malaybalay221/awarded-projects?authuser=0",
+      "Search the notices published on the central BAC page by project, office, barangay, or ITB number.",
+    coverage: "212 source-linked notices indexed",
+    path: "/procurement/bidding-opportunities",
+    sourceUrl:
+      "https://sites.google.com/site/malaybalay221/awarded-projects?authuser=0",
   },
   {
-    kind: "Award records",
-    title: "Infrastructure",
+    kind: "Award notices",
+    title: "Infrastructure awards",
     description:
-      "Infrastructure award listings with project titles and links to PhilGEPS notices.",
-    coverage: "Page currently leads with 2024 awards",
-    url: "https://sites.google.com/site/malaybalay221/awarded-projects/infrastructure",
+      "Browse transcribed infrastructure entries with direct links to their published PhilGEPS notices.",
+    coverage: "2024 source extract",
+    path: "/procurement/infrastructure-awards",
+    sourceUrl:
+      "https://sites.google.com/site/malaybalay221/awarded-projects/infrastructure",
   },
   {
-    kind: "Award records",
-    title: "Goods and services",
+    kind: "Award notices",
+    title: "Goods and services awards",
     description:
-      "Award listings for supplies, equipment, medicines, vehicles, and contracted services.",
-    coverage: "Page currently includes 2024 and earlier records",
-    url: "https://sites.google.com/site/malaybalay221/awarded-projects/goods-and-services",
+      "Review published purchases of medicines, equipment, supplies, vehicles, and contracted services.",
+    coverage: "2024 source extract",
+    path: "/procurement/goods-services-awards",
+    sourceUrl:
+      "https://sites.google.com/site/malaybalay221/awarded-projects/goods-and-services",
   },
   {
-    kind: "Mixed procurement page",
-    title: "Small value procurement",
+    kind: "Procurement method",
+    title: "Small-value procurement",
     description:
-      "BAC page labeled for SVP that currently also displays broader 2026 bidding opportunities.",
-    coverage: "Mixed record types · verify each linked notice",
-    url: "https://sites.google.com/site/malaybalay221/awarded-projects/svp-small-value-procurement",
+      "View notices explicitly labeled as small-value procurement in the 2026 BAC index.",
+    coverage: "Filtered from the mixed BAC source",
+    path: "/procurement/small-value-procurement",
+    sourceUrl:
+      "https://sites.google.com/site/malaybalay221/awarded-projects/svp-small-value-procurement",
   },
 ] as const;
 

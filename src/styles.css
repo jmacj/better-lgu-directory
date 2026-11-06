@@ -8074,3 +8074,220 @@ kbd {
     transform: none !important;
   }
 }
+
+/* First-party procurement record pages */
+.procurement-page {
+  display: grid;
+  gap: 18px;
+}
+
+.procurement-page-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid var(--civic-material-border);
+  border-radius: var(--civic-radius);
+  background: var(--civic-material-soft);
+  box-shadow: var(--civic-shadow);
+  backdrop-filter: blur(18px) saturate(118%);
+  -webkit-backdrop-filter: blur(18px) saturate(118%);
+}
+
+.procurement-page-nav a {
+  min-height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--navy);
+  font-size: 0.84rem;
+  font-weight: 750;
+  line-height: 1.2;
+  text-align: center;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.procurement-page-nav a:hover,
+.procurement-page-nav a:focus-visible {
+  border-color: rgba(37, 99, 235, 0.26);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.procurement-page-nav a.active {
+  border-color: rgba(37, 99, 235, 0.32);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--blue);
+  box-shadow: 0 8px 20px rgba(40, 99, 168, 0.08);
+}
+
+.procurement-page-summary {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr 1fr;
+  overflow: hidden;
+  border: 1px solid var(--civic-material-border);
+  border-radius: var(--civic-radius);
+  background: var(--civic-material);
+  box-shadow: var(--civic-shadow);
+  backdrop-filter: blur(20px) saturate(116%);
+  -webkit-backdrop-filter: blur(20px) saturate(116%);
+}
+
+.procurement-page-summary > div {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  align-content: center;
+  min-height: 86px;
+  padding: 16px 18px;
+  border-left: 1px solid rgba(72, 124, 184, 0.17);
+}
+
+.procurement-page-summary > div:first-child {
+  border-left: 0;
+}
+
+.procurement-page-summary span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.procurement-page-summary strong {
+  color: var(--navy);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.15;
+}
+
+.procurement-page .procurement-index {
+  margin-top: 0;
+}
+
+.procurement-page .procurement-index-head {
+  align-items: end;
+}
+
+.procurement-page .bid-record-list {
+  border-top: 1px solid rgba(72, 124, 184, 0.15);
+}
+
+.procurement-source-ledger {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid var(--civic-material-border);
+  border-radius: var(--civic-radius);
+  background: var(--civic-material-soft);
+  backdrop-filter: blur(16px) saturate(112%);
+  -webkit-backdrop-filter: blur(16px) saturate(112%);
+}
+
+.procurement-source-ledger > svg {
+  width: 22px;
+  color: var(--blue);
+}
+
+.procurement-source-ledger strong {
+  color: var(--navy);
+}
+
+.procurement-source-ledger p {
+  max-width: 76ch;
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.procurement-source-ledger a {
+  min-height: 44px;
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border: 1px solid rgba(37, 99, 235, 0.24);
+  border-radius: 11px;
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-align: center;
+}
+
+.procurement-source-ledger a svg {
+  width: 15px;
+}
+
+@media (max-width: 900px) {
+  .procurement-page-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .procurement-source-ledger {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .procurement-source-ledger a {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .procurement-page {
+    gap: 12px;
+  }
+
+  .procurement-page-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .procurement-page-nav a {
+    min-height: 44px;
+    padding: 9px;
+    font-size: 0.76rem;
+  }
+
+  .procurement-page-summary {
+    grid-template-columns: 0.72fr 1.28fr;
+  }
+
+  .procurement-page-summary > div {
+    min-height: 72px;
+    padding: 12px;
+  }
+
+  .procurement-page-summary > div:nth-child(3) {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(72, 124, 184, 0.17);
+    border-left: 0;
+  }
+
+  .procurement-page .procurement-index-head {
+    gap: 12px;
+  }
+
+  .procurement-source-ledger {
+    padding: 14px;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .procurement-page-nav,
+  .procurement-page-summary,
+  .procurement-source-ledger {
+    background: #f7fbff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
