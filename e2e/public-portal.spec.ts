@@ -139,6 +139,22 @@ test("transparency and legislation retain local context pages", async ({ page })
   await expect(
     page.getByRole("button", { name: "Ordinance", exact: true }),
   ).toBeVisible();
+  const eo19 = page
+    .locator(".legislation-records article")
+    .filter({ hasText: "Executive Order No. 19, Series of 2026" });
+  await eo19.getByRole("link", { name: /Read BetterMC record page/i }).click();
+  await expect(page).toHaveURL(
+    /\/legislation\/executive-order-no-19-series-of-2026$/,
+  );
+  await expect(
+    page.getByRole("heading", { name: /What this published measure does/i }),
+  ).toBeVisible();
+  await expect(
+    page.getByText(/not evidence that a particular project was completed/i),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /Open official source/i }),
+  ).toHaveAttribute("href", /malaybalaycity\.gov\.ph/);
 });
 
 test("leader profiles expose verified contacts and record scope", async ({
@@ -188,6 +204,10 @@ test("barangay profile exposes sourced identity, services, and emergency contact
   await expect(page.getByText("Royville C. Pasco").first()).toBeVisible();
   await expect(page.locator(".barangay-facts dd").first()).toContainText(
     "7,812",
+  );
+  await expect(page.locator(".barangay-facts")).toHaveCSS(
+    "background-color",
+    "rgba(255, 255, 255, 0.9)",
   );
   await expect(
     page.getByRole("heading", {

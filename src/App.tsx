@@ -22,6 +22,7 @@ import {
   Check,
   ChevronDown,
   CircleAlert,
+  CloudSun,
   Clock3,
   Database,
   ExternalLink,
@@ -45,7 +46,7 @@ import {
   Search,
   Scale,
   ShieldCheck,
-  Siren,
+  ShieldAlert,
   TrendingUp,
   Users,
   WalletCards,
@@ -108,6 +109,7 @@ import {
   localServicePathways,
   serviceCategories,
 } from "./serviceCatalog";
+import { civicRecordContext } from "./civicRecordContext";
 
 const navItems = [
   { label: "Transparency", to: "/transparency" },
@@ -633,7 +635,7 @@ function ServiceCategoryIcon({ slug }: { slug: string }) {
     "business-trade": <BriefcaseBusiness aria-hidden="true" />,
     "certificates-ids": <IdCard aria-hidden="true" />,
     contributions: <WalletCards aria-hidden="true" />,
-    "disaster-weather": <Siren aria-hidden="true" />,
+    "disaster-weather": <CloudSun aria-hidden="true" />,
     education: <GraduationCap aria-hidden="true" />,
     employment: <Users aria-hidden="true" />,
     health: <HeartPulse aria-hidden="true" />,
@@ -665,7 +667,7 @@ function LocalServiceIcon({ title }: { title: string }) {
     "Health and dental assistance": <HeartPulse aria-hidden="true" />,
     "Social welfare and assistance": <HandHeart aria-hidden="true" />,
     "Building forms and permits": <Building2 aria-hidden="true" />,
-    "Emergency and incident response": <Siren aria-hidden="true" />,
+    "Emergency and incident response": <ShieldAlert aria-hidden="true" />,
   };
   return <>{icons[title] ?? <BookOpen aria-hidden="true" />}</>;
 }
@@ -802,7 +804,7 @@ function HomePage() {
                 </span>
               </Link>
               <Link to="/government?tab=hotlines">
-                <Siren />
+                <ShieldAlert />
                 <span>
                   Emergency contacts<small>Tap to call</small>
                 </span>
@@ -891,7 +893,7 @@ function HomePage() {
         <ServiceCategoryGrid compact />
         <div className="service-access-bar">
           <span className="service-category-icon is-emergency">
-            <Siren aria-hidden="true" />
+            <ShieldAlert aria-hidden="true" />
           </span>
           <div>
             <strong>Need urgent help in Malaybalay?</strong>
@@ -1043,7 +1045,7 @@ function HomePage() {
               <h3>{record.number}</h3>
               <p>{record.title}</p>
               <small>{record.body}</small>
-              <Link to={`/legislation#${civicRecordId(record.number)}`}>
+              <Link to={`/legislation/${civicRecordId(record.number)}`}>
                 Read record context <ArrowRight />
               </Link>
             </article>
@@ -1791,9 +1793,9 @@ function LegislationPage() {
                   <dd>{record.attribution}</dd>
                 </div>
               </dl>
-              <a href={record.source.url} target="_blank" rel="noreferrer">
-                Verify on the official source <ExternalLink />
-              </a>
+              <Link to={`/legislation/${civicRecordId(record.number)}`}>
+                Read BetterMC record page <ArrowRight />
+              </Link>
             </article>
           ))}
         </div>
@@ -1804,6 +1806,123 @@ function LegislationPage() {
             <p>Try a broader number, title, or institution.</p>
           </div>
         )}
+      </section>
+    </>
+  );
+}
+
+function LegislationDetailPage() {
+  const { slug } = useParams<{ slug: string }>();
+  const record = civicRecords.find(
+    (item) => civicRecordId(item.number) === slug,
+  );
+
+  useEffect(() => {
+    if (!record) return;
+    const previousTitle = document.title;
+    document.title = `${record.number} — BetterMC`;
+    return () => {
+      document.title = previousTitle;
+    };
+  }, [record]);
+
+  if (!record) return <NotFoundPage />;
+
+  const context = civicRecordContext[record.number];
+  const publishedLabel = /^\d{4}-\d{2}-\d{2}$/.test(record.published)
+    ? new Intl.DateTimeFormat("en-PH", {
+        dateStyle: "long",
+        timeZone: "Asia/Manila",
+      }).format(new Date(`${record.published}T00:00:00+08:00`))
+    : record.published;
+
+  return (
+    <>
+      <PageHero
+        eyebrow={record.kind}
+        title={record.number}
+        description={record.title}
+        compact
+      >
+        <Link className="page-hero-backlink" to="/legislation">
+          Return to all published measures <ArrowRight aria-hidden="true" />
+        </Link>
+      </PageHero>
+      <section className="section container legislation-detail-page">
+        <article className="legislation-detail-main">
+          <div className="record-meta">
+            <span>{record.kind}</span>
+            <span>{publishedLabel}</span>
+            <span>{record.attributionLevel}</span>
+          </div>
+
+          <section>
+            <span className="eyebrow">Plain-language summary</span>
+            <h2>What this published measure does</h2>
+            <p>{context.summary}</p>
+          </section>
+
+          <div className="legislation-explanation-grid">
+            <section>
+              <Landmark aria-hidden="true" />
+              <h3>Why it matters to the public</h3>
+              <p>{context.publicRelevance}</p>
+            </section>
+            <section>
+              <CircleAlert aria-hidden="true" />
+              <h3>What this page does not claim</h3>
+              <p>{context.limits}</p>
+            </section>
+          </div>
+
+          <dl className="legislation-detail-facts">
+            <div>
+              <dt>Responsible institution</dt>
+              <dd>{record.body}</dd>
+            </div>
+            <div>
+              <dt>Publication date shown</dt>
+              <dd>{publishedLabel}</dd>
+            </div>
+            <div>
+              <dt>Attribution</dt>
+              <dd>{record.attribution}</dd>
+            </div>
+          </dl>
+        </article>
+
+        <aside className="legislation-source-card">
+          <ShieldCheck aria-hidden="true" />
+          <span className="eyebrow">Source ledger</span>
+          <h2>Verify the authoritative publication</h2>
+          <p>
+            BetterMC keeps the explanation and route available locally. The
+            City Government listing remains the authoritative source for the
+            complete legal text and attachments.
+          </p>
+          <dl>
+            <div>
+              <dt>Publisher</dt>
+              <dd>{record.source.label}</dd>
+            </div>
+            <div>
+              <dt>Source reviewed</dt>
+              <dd>{record.source.verifiedOn}</dd>
+            </div>
+          </dl>
+          <a
+            className="button primary"
+            href={record.source.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open official source <ExternalLink aria-hidden="true" />
+          </a>
+          <p className="source-availability-note">
+            If the official website is temporarily unavailable, this BetterMC
+            summary remains accessible but does not replace the original text.
+          </p>
+        </aside>
       </section>
     </>
   );
@@ -2243,7 +2362,7 @@ function GovernmentPage() {
             {visibleOffices.map((office) => (
               <article key={office.name}>
                 <div className="office-symbol">
-                  {office.emergency ? <Siren /> : <Building2 />}
+                  {office.emergency ? <ShieldAlert /> : <Building2 />}
                 </div>
                 <div>
                   <span>
@@ -2320,6 +2439,7 @@ function BarangaysPage() {
                   width="56"
                   height="56"
                   loading="lazy"
+                  decoding="async"
                   alt={`${barangay.name} mark published by the City Government`}
                 />
                 <span className="barangay-card-context">
@@ -2391,7 +2511,7 @@ function BarangayServiceIcon({ title }: { title: string }) {
   if (service.includes("mediation")) return <Scale aria-hidden="true" />;
   if (service.includes("health")) return <HeartPulse aria-hidden="true" />;
   if (service.includes("social welfare")) return <HandHeart aria-hidden="true" />;
-  if (service.includes("disaster")) return <Siren aria-hidden="true" />;
+  if (service.includes("disaster")) return <ShieldAlert aria-hidden="true" />;
   if (service.includes("environment")) return <Leaf aria-hidden="true" />;
   return <FileCheck2 aria-hidden="true" />;
 }
@@ -2404,6 +2524,7 @@ type BoundaryCollection = FeatureCollection<
 function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
   const mapElement = useRef<HTMLDivElement>(null);
   const [mapError, setMapError] = useState(false);
+  const [mapLoading, setMapLoading] = useState(true);
 
   useEffect(() => {
     if (!mapElement.current || navigator.userAgent.includes("jsdom")) return;
@@ -2411,6 +2532,8 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
     let map: import("leaflet").Map | undefined;
 
     const renderMap = async () => {
+      setMapLoading(true);
+      setMapError(false);
       try {
         const [leafletModule, response] = await Promise.all([
           import("leaflet"),
@@ -2462,8 +2585,12 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
         street.addTo(map);
         map.fitBounds(bounds, { padding: [34, 34], maxZoom: 14 });
         L.control.layers({ "Street map": street, Satellite: imagery }).addTo(map);
+        if (!disposed) setMapLoading(false);
       } catch {
-        if (!disposed) setMapError(true);
+        if (!disposed) {
+          setMapLoading(false);
+          setMapError(true);
+        }
       }
     };
 
@@ -2476,6 +2603,12 @@ function BarangayMap({ profile }: { profile: BarangayMicrositeProfile }) {
 
   return (
     <div className="barangay-map-card">
+      {mapLoading && (
+        <div className="map-loading-skeleton" role="status" aria-live="polite">
+          <span className="skeleton-block" />
+          <span>Preparing the interactive barangay map…</span>
+        </div>
+      )}
       <div
         ref={mapElement}
         className="barangay-map-canvas"
@@ -2531,11 +2664,19 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
             <div className="barangay-logo-frame">
               <img
                 src={profile.logo}
+                width="124"
+                height="124"
+                decoding="async"
                 alt={`${profile.name} mark published by the City Government`}
               />
             </div>
             <div className="barangay-bettermc-mark">
-              <img src="/bettermc1.png" alt="" aria-hidden="true" />
+              <img
+                src="/bettermc1.png"
+                alt=""
+                aria-hidden="true"
+                decoding="async"
+              />
               <span>Barangay profile by BetterMC</span>
             </div>
           </div>
@@ -2553,7 +2694,7 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
                 </a>
               )}
               <a className="button secondary" href="#emergency">
-                <Siren /> Emergency
+                  <ShieldAlert /> Emergency
               </a>
             </div>
           </div>
@@ -3188,7 +3329,7 @@ function ServiceCategoryPage() {
         </div>
         <div className="service-access-bar">
           <span className="service-category-icon is-emergency">
-            <Siren aria-hidden="true" />
+            <ShieldAlert aria-hidden="true" />
           </span>
           <div>
             <strong>Emergency contacts remain local and immediately accessible.</strong>
@@ -3590,6 +3731,7 @@ export default function App() {
           element={<DisclosureDetailPage />}
         />
         <Route path="/legislation" element={<LegislationPage />} />
+        <Route path="/legislation/:slug" element={<LegislationDetailPage />} />
         <Route path="/government" element={<GovernmentPage />} />
         <Route path="/barangays" element={<BarangaysPage />} />
         <Route path="/barangays/:slug" element={<BarangayProfilePage />} />

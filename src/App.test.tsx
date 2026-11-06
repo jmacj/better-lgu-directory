@@ -5,6 +5,8 @@ import {
   barangayMicrosites,
   MALAYBALAY_2024_POPULATION,
 } from "./barangayProfiles";
+import { civicRecords } from "./data";
+import { civicRecordContext } from "./civicRecordContext";
 
 describe("BetterMC public portal", () => {
   it("provides current population context for all 46 barangay profiles", () => {
@@ -218,6 +220,40 @@ describe("BetterMC public portal", () => {
     expect(
       screen.getByRole("heading", { name: /Verified recognition/i }),
     ).toBeInTheDocument();
+  });
+
+  it("keeps a sourced plain-language page for each published measure", () => {
+    expect(Object.keys(civicRecordContext).sort()).toEqual(
+      civicRecords.map((record) => record.number).sort(),
+    );
+    render(
+      <MemoryRouter
+        initialEntries={[
+          "/legislation/executive-order-no-19-series-of-2026",
+        ]}
+      >
+        <App />
+      </MemoryRouter>,
+    );
+    expect(
+      screen.getByRole("heading", {
+        name: "Executive Order No. 19, Series of 2026",
+        level: 1,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /What this published measure does/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByText(/Project Monitoring and Evaluation Information System/i)
+        .length,
+    ).toBeGreaterThan(0);
+    expect(
+      screen.getByText(/not evidence that a particular project was completed/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /Open official source/i }),
+    ).toHaveAttribute("href", expect.stringContaining("malaybalaycity.gov.ph"));
   });
 
   it("expands a leader profile with verified office contact details", () => {
