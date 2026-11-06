@@ -100,10 +100,14 @@ test("homepage adapts collection density to the viewport", async ({ page }) => {
 test("homepage exposes local and national service pathways", async ({ page }) => {
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: /Start with the right level/i }),
+    page.getByRole("heading", { name: /Find the right public service/i }),
   ).toBeVisible();
   await expect(page.locator(".service-category-grid.is-compact article")).toHaveCount(12);
-  await page.getByRole("link", { name: /View health guide/i }).click();
+  await page
+    .locator(".service-category-grid article")
+    .filter({ hasText: "Health" })
+    .getByRole("link", { name: /Open guide/i })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Health", level: 1 }),
   ).toBeVisible();
@@ -187,13 +191,13 @@ test("barangay profile exposes sourced identity, services, and emergency contact
   );
   await expect(
     page.getByRole("heading", {
-      name: /Community profile and population context/i,
+      name: /Barangay overview/i,
     }),
   ).toBeVisible();
   await expect(page.getByText("8 of 46")).toBeVisible();
   await expect(page.getByText("4.01%", { exact: true })).toBeVisible();
   await expect(
-    page.getByText(/No separate official 2026 barangay population count/i),
+    page.getByText(/Latest official count available in 2026/i),
   ).toBeVisible();
   await expect(
     page.getByRole("heading", {

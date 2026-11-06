@@ -110,7 +110,7 @@ describe("BetterMC public portal", () => {
       "tel:0888131357",
     );
     expect(
-      screen.getAllByRole("link", { name: /View barangay details/i }).length,
+      screen.getAllByRole("link", { name: /Open profile/i }).length,
     ).toBe(46);
   });
 
@@ -127,13 +127,13 @@ describe("BetterMC public portal", () => {
     expect(screen.getAllByText("7,812").length).toBeGreaterThan(0);
     expect(
       screen.getByRole("heading", {
-        name: /Community profile and population context/i,
+        name: /Barangay overview/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getByText("8 of 46")).toBeInTheDocument();
     expect(screen.getByText("4.01%")).toBeInTheDocument();
     expect(
-      screen.getByText(/No separate official 2026 barangay population count/i),
+      screen.getByText(/Latest official count available in 2026/i),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", {

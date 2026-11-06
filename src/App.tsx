@@ -638,6 +638,30 @@ function ServiceCategoryIcon({ slug }: { slug: string }) {
   return <>{icons[slug] ?? <BookOpen aria-hidden="true" />}</>;
 }
 
+function DisclosureCategoryIcon({ category }: { category: Disclosure["category"] }) {
+  const icons: Record<Disclosure["category"], ReactNode> = {
+    Budget: <Landmark aria-hidden="true" />,
+    Procurement: <BriefcaseBusiness aria-hidden="true" />,
+    Financial: <ReceiptText aria-hidden="true" />,
+    Utilization: <BarChart3 aria-hidden="true" />,
+    Staffing: <Users aria-hidden="true" />,
+    GAD: <HandHeart aria-hidden="true" />,
+  };
+  return <>{icons[category]}</>;
+}
+
+function LocalServiceIcon({ title }: { title: string }) {
+  const icons: Record<string, ReactNode> = {
+    "Business permits and local compliance": <BriefcaseBusiness aria-hidden="true" />,
+    "Civil registry and certificates": <IdCard aria-hidden="true" />,
+    "Health and dental assistance": <HeartPulse aria-hidden="true" />,
+    "Social welfare and assistance": <HandHeart aria-hidden="true" />,
+    "Building forms and permits": <Building2 aria-hidden="true" />,
+    "Emergency and incident response": <Siren aria-hidden="true" />,
+  };
+  return <>{icons[title] ?? <BookOpen aria-hidden="true" />}</>;
+}
+
 function ServiceCategoryGrid({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`service-category-grid${compact ? " is-compact" : ""}`}>
@@ -670,7 +694,7 @@ function ServiceCategoryGrid({ compact = false }: { compact?: boolean }) {
             </ul>
           )}
           <Link to={`/services/${category.slug}`}>
-            View {category.title.toLowerCase()} guide
+            Open guide
             <ArrowRight aria-hidden="true" />
           </Link>
         </article>
@@ -847,11 +871,10 @@ function HomePage() {
         <div className="home-services-heading">
           <SectionHeading
             eyebrow="Government services"
-            title="Start with the right level of government."
+            title="Find the right public service."
           >
-            Browse service areas relevant to Malaybalay residents. City
-            transactions stay with the responsible city office; national
-            services open the corresponding BetterGov directory.
+            City transactions stay with the responsible Malaybalay office.
+            National services open the corresponding BetterGov directory.
           </SectionHeading>
           <Link className="button secondary" to="/services">
             Open the complete service guide <ArrowRight />
@@ -865,8 +888,7 @@ function HomePage() {
           <div>
             <strong>Need urgent help in Malaybalay?</strong>
             <p>
-              City emergency numbers are available as tap-to-call links with
-              the responsible response office identified.
+              Tap to call the appropriate city response office.
             </p>
           </div>
           <Link to="/government?tab=hotlines">
@@ -1359,8 +1381,8 @@ function TransparencyPage() {
         <div className="records-list">
           {rows.map((record) => (
             <article key={`${record.year}-${record.quarter}-${record.title}`}>
-              <div className="record-icon">
-                <FileText />
+              <div className="record-icon" aria-hidden="true">
+                <DisclosureCategoryIcon category={record.category} />
               </div>
               <div className="record-main">
                 <div className="record-meta">
@@ -2102,7 +2124,7 @@ function BarangaysPage() {
       <PageHero
         eyebrow="Malaybalay barangay directory"
         title="Explore all 46 barangays."
-        description="Find the latest official population count, publicly listed Punong Barangay, available contact channels, and a source-linked profile for every community."
+        description="Search official population, local leadership, contacts, and source-linked community profiles."
         compact
       />
       <section className="section container government-directory-section">
@@ -2120,8 +2142,7 @@ function BarangaysPage() {
           <div>
             <strong>About contact availability</strong>
             <p>
-              Contact details appear only when published in the reviewed DILG
-              directory. Missing or incomplete entries are clearly marked.
+              Only contacts published in the reviewed DILG directory are shown.
             </p>
           </div>
         </div>
@@ -2137,18 +2158,16 @@ function BarangaysPage() {
                   alt={`${barangay.name} mark published by the City Government`}
                 />
                 <span className="barangay-card-context">
-                  <small>Barangay profile</small>
-                  <strong>
-                    {barangay.classification} · Malaybalay City
-                  </strong>
+                  <strong>{barangay.classification} barangay</strong>
+                  <small>Malaybalay City</small>
                 </span>
               </div>
               <h2>{barangay.name}</h2>
               <dl className="barangay-card-facts">
                 <div>
-                  <dt>Latest official population</dt>
+                  <dt>Population</dt>
                   <dd>{barangay.population.toLocaleString("en-PH")}</dd>
-                  <small>2024 POPCEN · released 2026</small>
+                  <small>2024 POPCEN · 2026 release</small>
                 </div>
                 <div>
                   <dt>Punong Barangay</dt>
@@ -2179,7 +2198,7 @@ function BarangaysPage() {
                 className="barangay-profile-link"
                 to={`/barangays/${barangay.slug}`}
               >
-                View barangay details <ArrowRight />
+                Open profile <ArrowRight />
               </Link>
             </article>
           ))}
@@ -2365,11 +2384,11 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
                   className="button primary"
                   href={`tel:${telephoneHref(profile.phone)}`}
                 >
-                  <Phone /> Call barangay contact
+                  <Phone /> Call barangay
                 </a>
               )}
               <a className="button secondary" href="#emergency">
-                <Siren /> Emergency numbers
+                <Siren /> Emergency
               </a>
             </div>
           </div>
@@ -2424,19 +2443,15 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
         <section id="about" className="barangay-profile-section barangay-about">
           <div className="barangay-about-copy">
             <span className="eyebrow">About the barangay</span>
-            <h2>Community profile and population context</h2>
+            <h2>Barangay overview</h2>
             <p>{profile.introduction}</p>
-            <p>{profile.populationSummary}</p>
-            <p>{profile.classificationNote}</p>
             <div className="barangay-population-note">
               <Clock3 aria-hidden="true" />
               <div>
-                <strong>Latest official population available in 2026</strong>
+                <strong>Latest official count available in 2026</strong>
                 <p>
-                  The count refers to {POPULATION_REFERENCE_DATE} and was
-                  released by PSA on {POPULATION_RELEASE_DATE}. No separate
-                  official 2026 barangay population count was published in the
-                  reviewed PSA sources.
+                  Reference date {POPULATION_REFERENCE_DATE}; released by PSA
+                  on {POPULATION_RELEASE_DATE}.
                 </p>
               </div>
             </div>
@@ -2816,16 +2831,21 @@ function ServicesPage() {
           <div className="local-service-grid">
             {localServicePathways.map((service) => (
               <article key={service.title}>
-                <span>{service.office}</span>
-                <h3>{service.title}</h3>
+                <span className="service-category-icon">
+                  <LocalServiceIcon title={service.title} />
+                </span>
+                <div className="local-service-copy">
+                  <small>{service.office}</small>
+                  <h3>{service.title}</h3>
+                </div>
                 <p>{service.description}</p>
                 {service.external ? (
                   <a href={service.href} target="_blank" rel="noreferrer">
-                    Open official city resource <ExternalLink />
+                    Open city resource <ExternalLink />
                   </a>
                 ) : (
                   <Link to={service.href}>
-                    Open BetterMC directory <ArrowRight />
+                    Open directory <ArrowRight />
                   </Link>
                 )}
               </article>
