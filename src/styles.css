@@ -184,7 +184,7 @@
 /* Focused civic portal refinement — image-led hero, compact resources, clear forms */
 .hero {
   background-image:
-    linear-gradient(90deg, rgba(241, 248, 255, 0.76) 0%, rgba(231, 243, 255, 0.58) 46%, rgba(211, 232, 250, 0.32) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0.56) 46%, rgba(255, 255, 255, 0.44) 100%),
     url("/images/malaybalay-city-hall-background.webp");
   background-position: center 48%;
 }
@@ -5666,7 +5666,7 @@ kbd {
 /* Final cascade overrides for the 2026 civic resource refresh. */
 .hero {
   background-image:
-    linear-gradient(90deg, rgba(241, 248, 255, 0.76) 0%, rgba(231, 243, 255, 0.58) 46%, rgba(211, 232, 250, 0.32) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0.56) 46%, rgba(255, 255, 255, 0.44) 100%),
     url("/images/malaybalay-city-hall-background.webp");
   background-position: center 48%;
 }
