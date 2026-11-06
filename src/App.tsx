@@ -1,9 +1,11 @@
 import {
   type CSSProperties,
   FormEvent,
+  type KeyboardEvent as ReactKeyboardEvent,
   ReactNode,
   useDeferredValue,
   useEffect,
+  useId,
   useMemo,
   useRef,
   useState,
@@ -53,13 +55,17 @@ import {
   civicRecords,
   departments,
   disclosures,
+  economicProfile,
   financialSnapshot,
+  gadResources,
   governanceHighlights,
   officials,
+  officialPortraits,
   procurementSources,
   publicProjects,
   searchableRecords,
   services,
+  specialBodyOrders,
   VERIFIED_ON,
 } from "./data";
 import {
@@ -637,7 +643,7 @@ function HomePage() {
               <ShieldCheck />
               <span>
                 Records show their original source and verification date.
-                <strong>Last research review: November 5, 2026</strong>
+                <strong>Last research review: November 6, 2026</strong>
               </span>
             </div>
           </div>
@@ -1249,12 +1255,13 @@ function TransparencyPage() {
               </div>
               <a
                 className="record-link"
-                href={record.source.url}
+                href={record.downloadUrl ?? record.source.url}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`Open official source for ${record.title}`}
+                aria-label={`${record.downloadUrl ? "Download" : "Open official source for"} ${record.title}`}
               >
-                Official source <ExternalLink />
+                {record.downloadUrl ? "Download PDF" : "Official catalog"}{" "}
+                <ExternalLink />
               </a>
             </article>
           ))}
@@ -1483,6 +1490,7 @@ function GovernmentPage() {
             <div className="people-grid">
               {visibleOfficials.map((official) => {
                 const id = officialId(official.name);
+                const portrait = officialPortraits[official.name];
                 const expanded = openOfficial === id;
                 const officeRecords =
                   official.role === "City Mayor"
@@ -1499,12 +1507,24 @@ function GovernmentPage() {
                     key={official.name}
                   >
                     <div className="official-summary">
-                      <div className="avatar" aria-hidden="true">
-                        {official.name
-                          .split(" ")
-                          .map((part) => part[0])
-                          .slice(0, 2)
-                          .join("")}
+                      <div className="avatar">
+                        {portrait ? (
+                          <img
+                            src={portrait.src}
+                            alt={`${official.name}, ${official.role}`}
+                            loading="lazy"
+                            decoding="async"
+                            style={{ objectPosition: portrait.position }}
+                          />
+                        ) : (
+                          <span aria-hidden="true">
+                            {official.name
+                              .split(" ")
+                              .map((part) => part[0])
+                              .slice(0, 2)
+                              .join("")}
+                          </span>
+                        )}
                       </div>
                       <span>{official.group}</span>
                       <h2>{official.name}</h2>
@@ -1670,6 +1690,11 @@ function GovernmentPage() {
                               Open official profile <ExternalLink />
                             </a>
                             <small>Sources reviewed {VERIFIED_ON}</small>
+                            {portrait && (
+                              <small className="portrait-note">
+                                {portrait.note}
+                              </small>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -2351,6 +2376,7 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
 }
 
 function ServicesPage() {
+  const [allBodiesVisible, setAllBodiesVisible] = useState(false);
   return (
     <>
       <PageHero
@@ -2359,6 +2385,55 @@ function ServicesPage() {
         description="Open the City Government’s Citizen’s Charter, protocol manual, and official forms. BetterMC does not replace an application or official transaction channel."
       />
       <section className="section container">
+        <div className="service-intro-grid">
+          <article className="economic-brief">
+            <span className="eyebrow">Economic context</span>
+            <div className="economic-ranks">
+              <div>
+                <strong>{economicProfile.rank}</strong>
+                <span>{economicProfile.rankPeriod}</span>
+              </div>
+              <div>
+                <strong>{economicProfile.growthRank}</strong>
+                <span>2023 economic-growth rank</span>
+              </div>
+            </div>
+            <p>{economicProfile.description}</p>
+            <p>{economicProfile.structure}</p>
+            <div className="inline-sources">
+              <a href={economicProfile.source.url} target="_blank" rel="noreferrer">
+                Ranking source <ExternalLink />
+              </a>
+              <a href={economicProfile.citySource.url} target="_blank" rel="noreferrer">
+                City profile <ExternalLink />
+              </a>
+            </div>
+          </article>
+          <article className="resource-guide">
+            <span className="eyebrow">How to use this page</span>
+            <h2>Find the standard before starting a transaction.</h2>
+            <p>
+              Check the current Citizen’s Charter for requirements, fees,
+              processing times, responsible offices, and complaint channels.
+              Confirm time-sensitive details with the office itself.
+            </p>
+            <a
+              className="button primary"
+              href="https://sakata.malaybalaycity.gov.ph/citizens-charter/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Browse all charter editions <ExternalLink />
+            </a>
+          </article>
+        </div>
+        <SectionHeading
+          eyebrow="Service standards and forms"
+          title="Official resources, ready to open"
+        >
+          Each item opens the City Government source or the document published
+          by that source. BetterMC does not receive or process applications.
+        </SectionHeading>
         <div className="service-grid">
           {services.map((service) => (
             <article key={service.title}>
@@ -2377,6 +2452,61 @@ function ServicesPage() {
               <small>Source checked {service.verifiedOn}</small>
             </article>
           ))}
+        </div>
+        <div className="service-resource-section">
+          <SectionHeading
+            eyebrow="Gender and Development"
+            title="Plans, reports, and local protective codes"
+          >
+            Direct files are reproduced from the official GAD Corner. The
+            source currently serves some downloads from its staging file host.
+          </SectionHeading>
+          <div className="document-link-grid">
+            {gadResources.map((resource) => (
+              <a key={resource.title} href={resource.url} target="_blank" rel="noreferrer">
+                <FileCheck2 />
+                <span>{resource.kind}</span>
+                <strong>{resource.title}</strong>
+                <small>PDF · checked {resource.verifiedOn}</small>
+                <ExternalLink />
+              </a>
+            ))}
+          </div>
+          <a className="section-source-link" href="https://sakata.malaybalaycity.gov.ph/gad-corner/" target="_blank" rel="noreferrer">
+            Open the complete official GAD Corner <ExternalLink />
+          </a>
+        </div>
+        <div className="service-resource-section">
+          <SectionHeading
+            eyebrow="Local special bodies"
+            title="Boards and committees with source-listed constituting orders"
+          >
+            This is a selected index of readable orders on the official catalog,
+            not a claim that every local body or later amendment is represented.
+          </SectionHeading>
+          <div className={`special-body-grid${allBodiesVisible ? " show-all" : ""}`}>
+            {specialBodyOrders.map((body) => (
+              <a key={`${body.number}-${body.title}`} href={body.url} target="_blank" rel="noreferrer">
+                <span>{body.number}</span>
+                <strong>{body.title}</strong>
+                <ExternalLink />
+              </a>
+            ))}
+          </div>
+          <div className="collection-actions">
+            <button
+              className="button secondary mobile-resource-toggle"
+              type="button"
+              aria-expanded={allBodiesVisible}
+              onClick={() => setAllBodiesVisible((visible) => !visible)}
+            >
+              {allBodiesVisible ? "Show fewer bodies" : "Show all bodies"}
+              <ChevronDown />
+            </button>
+            <a className="section-source-link" href="https://sakata.malaybalaycity.gov.ph/local-special-bodies-and-special-committees/" target="_blank" rel="noreferrer">
+              Open the official catalog <ExternalLink />
+            </a>
+          </div>
         </div>
       </section>
     </>
@@ -2413,8 +2543,122 @@ const feedbackSchema = z.object({
   website: z.string().max(0),
 });
 
+const requestTypeOptions = [
+  { value: "correction", label: "Suggest a correction" },
+  { value: "broken-link", label: "Report a broken link" },
+  { value: "document-request", label: "Suggest a public document" },
+  { value: "website-feedback", label: "Website feedback" },
+] as const;
+type RequestType = (typeof requestTypeOptions)[number]["value"];
+
+function RequestTypeSelect({
+  value,
+  onChange,
+}: {
+  value: RequestType;
+  onChange: (value: RequestType) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const listboxId = useId();
+  const selectedIndex = requestTypeOptions.findIndex(
+    (option) => option.value === value,
+  );
+
+  useEffect(() => {
+    if (!open) return;
+    const closeOnOutsideClick = (event: MouseEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    window.requestAnimationFrame(() => optionRefs.current[selectedIndex]?.focus());
+    return () => document.removeEventListener("pointerdown", closeOnOutsideClick);
+  }, [open, selectedIndex]);
+
+  const moveFocus = (index: number) => {
+    const normalized =
+      (index + requestTypeOptions.length) % requestTypeOptions.length;
+    optionRefs.current[normalized]?.focus();
+  };
+  const handleTriggerKeyDown = (event: ReactKeyboardEvent<HTMLButtonElement>) => {
+    if (["ArrowDown", "ArrowUp", "Enter", " "].includes(event.key)) {
+      event.preventDefault();
+      setOpen(true);
+    }
+  };
+  const handleOptionKeyDown = (
+    event: ReactKeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      moveFocus(index + 1);
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      moveFocus(index - 1);
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      moveFocus(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      moveFocus(requestTypeOptions.length - 1);
+    } else if (event.key === "Escape") {
+      event.preventDefault();
+      setOpen(false);
+      triggerRef.current?.focus();
+    }
+  };
+
+  return (
+    <div className="request-select" ref={rootRef}>
+      <input type="hidden" name="category" value={value} />
+      <button
+        ref={triggerRef}
+        className="request-select-trigger"
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls={listboxId}
+        aria-label={`Request type: ${requestTypeOptions[selectedIndex].label}`}
+        onClick={() => setOpen((current) => !current)}
+        onKeyDown={handleTriggerKeyDown}
+      >
+        {requestTypeOptions[selectedIndex].label}
+        <ChevronDown aria-hidden="true" />
+      </button>
+      {open && (
+        <div className="request-select-menu" id={listboxId} role="listbox">
+          {requestTypeOptions.map((option, index) => (
+            <button
+              key={option.value}
+              ref={(element) => {
+                optionRefs.current[index] = element;
+              }}
+              type="button"
+              role="option"
+              aria-selected={option.value === value}
+              onKeyDown={(event) => handleOptionKeyDown(event, index)}
+              onClick={() => {
+                onChange(option.value);
+                setOpen(false);
+                triggerRef.current?.focus();
+              }}
+            >
+              <span>{option.label}</span>
+              {option.value === value && <Check aria-hidden="true" />}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 type FeedbackState = "idle" | "submitting" | "success" | "error";
 function ParticipatePage() {
+  const [requestType, setRequestType] = useState<RequestType>("correction");
   const [state, setState] = useState<FeedbackState>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [serverMessage, setServerMessage] = useState("");
@@ -2450,6 +2694,7 @@ function ParticipatePage() {
       setState("success");
       setServerMessage(result.message ?? "Your submission was received.");
       event.currentTarget.reset();
+      setRequestType("correction");
     } catch (error) {
       setState("error");
       setServerMessage(
@@ -2509,14 +2754,7 @@ function ParticipatePage() {
           )}
           <label>
             Request type
-            <select name="category" defaultValue="correction">
-              <option value="correction">Suggest a correction</option>
-              <option value="broken-link">Report a broken link</option>
-              <option value="document-request">
-                Suggest a public document
-              </option>
-              <option value="website-feedback">Website feedback</option>
-            </select>
+            <RequestTypeSelect value={requestType} onChange={setRequestType} />
           </label>
           <label>
             Subject

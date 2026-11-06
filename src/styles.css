@@ -181,6 +181,216 @@
   }
 }
 
+/* Focused civic portal refinement — image-led hero, compact resources, clear forms */
+.hero {
+  background-image:
+    linear-gradient(90deg, rgba(241, 248, 255, 0.76) 0%, rgba(231, 243, 255, 0.58) 46%, rgba(211, 232, 250, 0.32) 100%),
+    url("/images/malaybalay-city-hall-background.webp");
+  background-position: center 48%;
+}
+.hero::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(193, 221, 246, 0.14));
+  backdrop-filter: blur(1.5px);
+}
+.hero::after { display: none; }
+.hero-panel {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: linear-gradient(145deg, rgba(246, 251, 255, 0.56), rgba(214, 235, 253, 0.38));
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.78), 0 18px 42px rgba(25, 76, 134, 0.12);
+  backdrop-filter: blur(18px) saturate(112%);
+}
+.hero-copy > p { color: #364d6e; }
+.hero-panel .global-search { background: rgba(255, 255, 255, 0.68); }
+.hero-panel .quick-grid a { background: rgba(239, 248, 255, 0.52); }
+
+.avatar {
+  overflow: hidden;
+  border: 1px solid rgba(118, 161, 211, 0.7);
+  background: #dceaff;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.portrait-note { display: block; max-width: 480px; color: #70819b; line-height: 1.45; }
+
+.service-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 14px;
+  margin-bottom: 48px;
+}
+.economic-brief,
+.resource-guide {
+  padding: 24px;
+  border: 1px solid #bfd5e9;
+  border-radius: 18px;
+  background: rgba(239, 248, 255, 0.78);
+  box-shadow: inset 0 1px white, 0 12px 28px rgba(35, 91, 169, 0.07);
+}
+.economic-ranks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+.economic-ranks div { padding: 14px; border: 1px solid #c9ddef; border-radius: 12px; background: rgba(255, 255, 255, 0.58); }
+.economic-ranks strong { display: block; color: #123e78; font-size: 1.2rem; }
+.economic-ranks span { display: block; margin-top: 3px; color: #5a6e8b; font-size: 0.74rem; }
+.economic-brief p,
+.resource-guide p { color: var(--muted); line-height: 1.55; }
+.resource-guide h2 { margin: 10px 0 8px; font-size: 1.5rem; }
+.inline-sources { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 16px; }
+.inline-sources a,
+.section-source-link { display: inline-flex; align-items: center; gap: 6px; color: #1458b8; font-size: 0.84rem; font-weight: 700; }
+.inline-sources svg,
+.section-source-link svg { width: 15px; }
+.service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.service-grid article { padding: 20px; border-radius: 17px; }
+.service-grid article > svg { width: 22px; margin-bottom: 14px; }
+.service-grid h2 { font-size: 1.08rem; }
+.service-grid p { font-size: 0.88rem; }
+.service-grid .button { min-height: 42px; padding: 9px 12px; font-size: 0.8rem; }
+.mobile-resource-toggle { display: none; }
+.service-resource-section { margin-top: 54px; }
+.document-link-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.document-link-grid > a {
+  position: relative;
+  min-height: 142px;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 18px;
+  grid-template-areas: "icon kind external" "icon title external" "icon meta external";
+  align-content: center;
+  gap: 3px 10px;
+  padding: 16px;
+  border: 1px solid #bed5ea;
+  border-radius: 15px;
+  background: rgba(242, 249, 255, 0.78);
+  transition: transform 150ms var(--ease-out), border-color 150ms ease, background-color 150ms ease;
+}
+.document-link-grid > a:hover { transform: translateY(-2px); border-color: #78a9dc; background: #f7fbff; }
+.document-link-grid > a > svg:first-child { grid-area: icon; width: 24px; color: #1d5fd1; }
+.document-link-grid > a > svg:last-child { grid-area: external; width: 15px; color: #547294; }
+.document-link-grid span { grid-area: kind; color: #1d5fd1; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.document-link-grid strong { grid-area: title; font-size: 0.95rem; line-height: 1.25; }
+.document-link-grid small { grid-area: meta; color: #657894; font-size: 0.7rem; }
+.service-resource-section > .section-source-link { margin-top: 16px; }
+.special-body-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+.special-body-grid a {
+  min-height: 74px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 14px;
+  border: 1px solid #c0d6e9;
+  border-radius: 13px;
+  background: rgba(247, 251, 255, 0.66);
+}
+.special-body-grid a:hover { border-color: #78a9dc; background: #f8fcff; }
+.special-body-grid span { color: #1b5cca; font-size: 0.72rem; font-weight: 700; }
+.special-body-grid strong { font-size: 0.86rem; line-height: 1.3; }
+.special-body-grid svg { width: 14px; color: #607694; }
+.collection-actions { display: flex; align-items: center; gap: 16px; margin-top: 16px; }
+.mobile-resource-toggle { display: none; }
+
+.request-select { position: relative; }
+.request-select-trigger {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #aebfd5;
+  border-radius: 10px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.9);
+  text-align: left;
+}
+.request-select-trigger svg { width: 18px; transition: transform 150ms var(--ease-out); }
+.request-select-trigger[aria-expanded="true"] { border-color: #1d5fd1; box-shadow: 0 0 0 3px rgba(29, 95, 209, 0.12); }
+.request-select-trigger[aria-expanded="true"] svg { transform: rotate(180deg); }
+.request-select-menu {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 7px);
+  left: 0;
+  right: 0;
+  display: grid;
+  gap: 3px;
+  padding: 6px;
+  border: 1px solid #afc5dd;
+  border-radius: 13px;
+  background: rgba(248, 252, 255, 0.97);
+  box-shadow: 0 18px 40px rgba(15, 48, 92, 0.2);
+  backdrop-filter: blur(18px);
+}
+.request-select-menu button {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 11px;
+  border: 0;
+  border-radius: 8px;
+  color: #263c5c;
+  background: transparent;
+  text-align: left;
+}
+.request-select-menu button:hover,
+.request-select-menu button:focus-visible { color: #0f408f; background: #e5f1ff; outline: 2px solid #6ca3e6; outline-offset: -2px; }
+.request-select-menu button[aria-selected="true"] { color: #0f408f; background: #edf6ff; font-weight: 700; }
+.request-select-menu svg { width: 17px; }
+
+@media (max-width: 900px) {
+  .service-intro-grid { grid-template-columns: 1fr; }
+  .document-link-grid,
+  .special-body-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+    background-position: 58% center;
+    background-image:
+      linear-gradient(180deg, rgba(245, 250, 255, 0.83), rgba(222, 238, 252, 0.65)),
+      url("/images/malaybalay-city-hall-background.webp");
+  }
+  .hero::before { backdrop-filter: blur(1px); }
+  .hero-panel {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  .hero-panel .global-search { border-color: rgba(155, 185, 216, 0.72); background: rgba(248, 252, 255, 0.76); }
+  .hero-panel .quick-grid a { border-color: rgba(164, 191, 218, 0.74); background: rgba(240, 248, 255, 0.68); }
+  .service-intro-grid { margin-bottom: 38px; }
+  .economic-brief,
+  .resource-guide { padding: 18px; border-radius: 15px; }
+  .economic-ranks { grid-template-columns: 1fr; }
+  .service-grid,
+  .document-link-grid,
+  .special-body-grid { grid-template-columns: 1fr; }
+  .service-grid article { padding: 17px; }
+  .document-link-grid > a { min-height: 108px; }
+  .special-body-grid:not(.show-all) a:nth-child(n + 5) { display: none; }
+  .mobile-resource-toggle { display: inline-flex; }
+  .collection-actions { align-items: stretch; flex-direction: column; }
+  .collection-actions .section-source-link { min-height: 44px; }
+  .participation-grid { gap: 32px; }
+  .process-list { gap: 14px; }
+  .process-list li > span { width: 28px; height: 28px; }
+  .feedback-form { gap: 15px; padding: 18px; border-radius: 18px; }
+  .feedback-form h2 { font-size: 1.25rem; }
+  .request-select-menu { position: static; margin-top: 6px; box-shadow: 0 12px 28px rgba(15, 48, 92, 0.13); }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .hero-panel,
+  .economic-brief,
+  .resource-guide,
+  .document-link-grid > a,
+  .request-select-menu { background: #f4f9ff; backdrop-filter: none; }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5451,4 +5661,57 @@ kbd {
   .barangay-site .barangay-hero-actions .button.secondary {
     backdrop-filter: none;
   }
+}
+
+/* Final cascade overrides for the 2026 civic resource refresh. */
+.hero {
+  background-image:
+    linear-gradient(90deg, rgba(241, 248, 255, 0.76) 0%, rgba(231, 243, 255, 0.58) 46%, rgba(211, 232, 250, 0.32) 100%),
+    url("/images/malaybalay-city-hall-background.webp");
+  background-position: center 48%;
+}
+.hero::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(193, 221, 246, 0.14));
+  backdrop-filter: blur(1.5px);
+}
+.hero::after { display: none; }
+.hero-panel {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: linear-gradient(145deg, rgba(246, 251, 255, 0.56), rgba(214, 235, 253, 0.38));
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.78), 0 18px 42px rgba(25, 76, 134, 0.12);
+  backdrop-filter: blur(18px) saturate(112%);
+}
+.hero-copy > p { color: #364d6e; }
+.hero-panel .global-search { background: rgba(255, 255, 255, 0.68); }
+.hero-panel .quick-grid a { background: rgba(239, 248, 255, 0.52); }
+.official-summary .avatar { overflow: hidden; border: 1px solid rgba(118, 161, 211, 0.7); border-radius: 50%; background: #dceaff; }
+.official-summary .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.portrait-note { display: block; max-width: 480px; color: #70819b; line-height: 1.45; }
+.service-grid article { padding: 20px; border-radius: 17px; }
+.service-grid article > svg { width: 22px; margin-bottom: 14px; }
+.service-grid h2 { font-size: 1.08rem; }
+.service-grid p { font-size: 0.88rem; }
+.service-grid .button { min-height: 42px; padding: 9px 12px; font-size: 0.8rem; }
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+    background-position: 58% center;
+    background-image:
+      linear-gradient(180deg, rgba(245, 250, 255, 0.83), rgba(222, 238, 252, 0.65)),
+      url("/images/malaybalay-city-hall-background.webp");
+  }
+  .hero::before { backdrop-filter: blur(1px); }
+  .hero-panel {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  .hero-panel .global-search { border-color: rgba(155, 185, 216, 0.72); background: rgba(248, 252, 255, 0.76); }
+  .hero-panel .quick-grid a { border-color: rgba(164, 191, 218, 0.74); background: rgba(240, 248, 255, 0.68); }
+  .service-grid article { padding: 17px; }
+  .mobile-resource-toggle { display: inline-flex; }
 }

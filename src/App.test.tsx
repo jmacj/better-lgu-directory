@@ -291,4 +291,48 @@ describe("BetterMC public portal", () => {
       screen.getByRole("link", { name: /Powered by\s*BetterGov/i }),
     ).toHaveAttribute("href", "https://lgu.bettergov.ph/");
   });
+
+  it("uses an accessible request-type menu with keyboard selection", () => {
+    render(
+      <MemoryRouter initialEntries={["/participate"]}>
+        <App />
+      </MemoryRouter>,
+    );
+    const trigger = screen.getByRole("button", { name: /Request type/i });
+    fireEvent.keyDown(trigger, { key: "ArrowDown" });
+    expect(trigger).toHaveAttribute("aria-expanded", "true");
+    const brokenLink = screen.getByRole("option", {
+      name: "Report a broken link",
+    });
+    fireEvent.click(brokenLink);
+    expect(trigger).toHaveTextContent("Report a broken link");
+    expect(trigger).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("publishes current service documents and locally stored official portraits", () => {
+    const { unmount } = render(
+      <MemoryRouter initialEntries={["/services"]}>
+        <App />
+      </MemoryRouter>,
+    );
+    expect(
+      screen.getByRole("link", { name: /2026 GAD Plan and Budget/i }),
+    ).toHaveAttribute("href", expect.stringContaining("GPB-2026.pdf"));
+    expect(screen.getByText("35th of 114 component cities")).toBeInTheDocument();
+    unmount();
+
+    render(
+      <MemoryRouter initialEntries={["/government"]}>
+        <App />
+      </MemoryRouter>,
+    );
+    expect(
+      screen.getByRole("img", {
+        name: /Jay Warren R. Pabillaran, City Mayor/i,
+      }),
+    ).toHaveAttribute(
+      "src",
+      "/images/officials/mayor-jay-warren-pabillaran.webp",
+    );
+  });
 });

@@ -1,4 +1,4 @@
-export const VERIFIED_ON = "2026-11-05";
+export const VERIFIED_ON = "2026-11-06";
 
 export type Source = {
   label: string;
@@ -24,6 +24,27 @@ export type Official = {
     email?: string;
     source: Source;
   };
+};
+
+export const officialPortraits: Record<
+  string,
+  { src: string; position?: string; note: string }
+> = {
+  "Jay Warren R. Pabillaran": { src: "/images/officials/mayor-jay-warren-pabillaran.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Estelito “Litoy” R. Marabe": { src: "/images/officials/vice-mayor-estelito-marabe.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Jason Chad J. Ayala": { src: "/images/officials/jason-ayala.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Brian Nelson T. Flores": { src: "/images/officials/brian-flores.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Rendon P. Sangalang": { src: "/images/officials/rendon-sangalang.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Niko P. Aldeguer": { src: "/images/officials/niko-aldeguer.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Kathleen Cecille C. Pagaling": { src: "/images/officials/kathleen-pagaling.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Alan Ryann O. Legaspi": { src: "/images/officials/alan-legaspi.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Erwin A. Damasco": { src: "/images/officials/erwin-damasco.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Flaviano T. Gapol, Jr.": { src: "/images/officials/flaviano-gapol.webp", position: "50% 30%", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Zoltan Dindo D. Dinlayan": { src: "/images/officials/zoltan-dindo-dinlayan.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Cromwell Kiril D. Dinlayan": { src: "/images/officials/cromwell-dinlayan.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Julius N. Manghano": { src: "/images/officials/julius-manghano.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Datu Sumbongan": { src: "/images/officials/datu-sumbongan.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
+  "Christopher Tortola": { src: "/images/officials/christopher-tortola.webp", note: "Portrait reference supplied to BetterMC; rights not independently verified." },
 };
 
 const cityHallAddress =
@@ -667,6 +688,7 @@ export type Disclosure = {
     "Budget" | "Procurement" | "Financial" | "Utilization" | "Staffing" | "GAD";
   status: "Source listed" | "Not yet available in verified public sources";
   source: Source;
+  downloadUrl?: string;
 };
 
 const disclosureSource: Source = {
@@ -692,6 +714,27 @@ const quarterlyDisclosureTitles = [
   ["20% National Tax Allotment Utilization", "Utilization"],
 ] as const;
 
+const currentDisclosureDownloads: Record<string, string> = {
+  "Annual|Annual Procurement Plan": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/ANNUAL-PROCUREMENT-PLAN-2026.pdf",
+  "Q1|Statement of Indebtedness, Payments and Balances": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/STATEMENT-OF-INDEBTEDNESS-PAYMENTS-AND-BALANCES2026-q1.pdf",
+  "Q1|Quarterly Statement of Cash Flow": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/QUARTERLY-STATEMENT-OF-CASH-FLOW2026-Q1.pdf",
+  "Q1|Local DRRM Fund Utilization": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/LOCAL-DISASTER-RISK-REDUCTION-AND-MANAGEMENT-FUND-UTILIZATION2026-Q1.pdf",
+  "Q1|Special Education Fund Utilization": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/REPORT-OF-SPECIAL-EDUCATION-FUND-UTILIZATION2026-Q1.pdf",
+  "Q1|Unliquidated Cash Advances": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/UNLIQUIDATED-CASH-ADVANCES2026-Q1.pdf",
+  "Q1|Trust Fund Utilization": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/TRUST-FUND-UTILIZATION2026-Q1.pdf",
+  "Q1|Bid Results — Civil Works, Goods, Services and Consulting": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/BID-RESULTS-ON-CIVIL-WORKS-GOOD-AND-SERVICES-AND-CONSULTING-SERVICES2026-Q1.pdf",
+  "Q1|Manpower Complement": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/MANPOWER-COMPLEMENT2026-Q1.pdf",
+  "Q1|20% National Tax Allotment Utilization": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/20-OF-THE-NATIONAL-TAX-ALLOTMENT-UTILIZATION2026-Q1.pdf",
+  "Q2|Statement of Receipts and Expenditures": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/STATEMENT-OF-RECEIPTS-AND-EXPENDITURES2026-Q2.pdf",
+  "Q2|Quarterly Statement of Cash Flow": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/QUARTERLY-STATEMENT-OF-CASH-FLOW2026-Q2.pdf",
+  "Q2|Local DRRM Fund Utilization": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/LOCAL-DISASTER-RISK-REDUCTION-AND-MANAGEMENT-FUND-UTILIZATION2026-Q2.pdf",
+  "Q2|Special Education Fund Utilization": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/REPORT-OF-SPECIAL-EDUCATION-FUND-UTILIZATION2026-Q2.pdf",
+  "Q2|Unliquidated Cash Advances": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/UNLIQUIDATED-CASH-ADVANCES2026-Q2.pdf",
+  "Q2|Trust Fund Utilization": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/TRUST-FUND-UTILIZATION2026-Q2.pdf",
+  "Q2|Bid Results — Civil Works, Goods, Services and Consulting": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/BID-RESULTS-ON-CIVIL-WORKS-GOOD-AND-SERVICES-AND-CONSULTING-SERVICES2026-Q2.pdf",
+  "Q2|Manpower Complement": "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/09/MANPOWER-COMPLEMENT2026-Q2.pdf",
+};
+
 export const disclosures: Disclosure[] = [2026, 2025, 2024, 2023, 2022].flatMap(
   (year) => [
     ...annualDisclosureTitles.map(([title, category]): Disclosure => ({
@@ -701,6 +744,10 @@ export const disclosures: Disclosure[] = [2026, 2025, 2024, 2023, 2022].flatMap(
       category,
       status: "Source listed",
       source: disclosureSource,
+      downloadUrl:
+        year === 2026
+          ? currentDisclosureDownloads[`Annual|${title}`]
+          : undefined,
     })),
     ...(["Q1", "Q2", "Q3", "Q4"] as const).flatMap((quarter) =>
       quarterlyDisclosureTitles.map(([title, category]): Disclosure => ({
@@ -714,6 +761,10 @@ export const disclosures: Disclosure[] = [2026, 2025, 2024, 2023, 2022].flatMap(
             ? "Not yet available in verified public sources"
             : "Source listed",
         source: disclosureSource,
+        downloadUrl:
+          year === 2026
+            ? currentDisclosureDownloads[`${quarter}|${title}`]
+            : undefined,
       })),
     ),
   ],
@@ -721,11 +772,19 @@ export const disclosures: Disclosure[] = [2026, 2025, 2024, 2023, 2022].flatMap(
 
 export const services = [
   {
-    title: "2024 Citizen’s Charter",
+    title: "2026 Citizen’s Charter",
     office: "City Government of Malaybalay",
     description:
       "Official service standards, requirements, processing times and fees published by the city government.",
-    url: "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2025/03/CITIZENS-CHARTER-2024-1.pdf",
+    url: "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/10/CITIZENS_CHARTER_2026.pdf",
+    verifiedOn: VERIFIED_ON,
+  },
+  {
+    title: "2025 Citizen’s Charter",
+    office: "City Government of Malaybalay",
+    description:
+      "The preceding service-standard edition remains available for comparison and reference.",
+    url: "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/10/CITIZENS_CHARTER_2025.pdf",
     verifiedOn: VERIFIED_ON,
   },
   {
@@ -743,7 +802,66 @@ export const services = [
     url: "https://sakata.malaybalaycity.gov.ph/obo-printables/",
     verifiedOn: VERIFIED_ON,
   },
+  {
+    title: "City Civil Registry services",
+    office: "City Civil Registry Office",
+    description:
+      "Confirm documentary requirements and contact the responsible office before visiting.",
+    url: "https://sakata.malaybalaycity.gov.ph/",
+    verifiedOn: VERIFIED_ON,
+  },
+  {
+    title: "Health and dental services",
+    office: "City Health Office",
+    description:
+      "Official city entry point for public-health and dental assistance information.",
+    url: "https://sakata.malaybalaycity.gov.ph/",
+    verifiedOn: VERIFIED_ON,
+  },
 ];
+
+export const gadResources = [
+  ["2026 GAD Plan and Budget", "Planning and budget", "https://staging.malaybalaycity.gov.ph/wp-content/uploads/2026/06/GPB-2026.pdf"],
+  ["2025 GAD Accomplishment Report", "Accomplishment report", "https://staging.malaybalaycity.gov.ph/wp-content/uploads/2026/06/GAD-ACCOMPLISHMENT-REPORT-2024-2025-pages-1.pdf"],
+  ["Revised Gender and Development Code", "Ordinance 992-S-2022", "https://staging.malaybalaycity.gov.ph/wp-content/uploads/2026/06/992-S-2022-REVISED-GENDER-AND-DEVELOPMENT-CODE.pdf"],
+  ["Revised Children and Family Code", "Ordinance 993-S-2022", "https://staging.malaybalaycity.gov.ph/wp-content/uploads/2026/06/993-S-2022-REVISED-CHILDREN-AND-FAMILY-CODE.pdf"],
+  ["Anti-Discrimination Ordinance", "Ordinance 982-S-2021", "https://staging.malaybalaycity.gov.ph/wp-content/uploads/2026/06/982-S-2021-ANTI-DISCRIMINATION-ORDINANCE-ADO-ON-LGBTQIA.pdf"],
+].map(([title, kind, url]) => ({ title, kind, url, verifiedOn: VERIFIED_ON }));
+
+export const specialBodyOrders = [
+  ["EO 60", "City Housing and Resettlement Committee", "https://drive.google.com/file/d/1y0xJt-LQBhD71ffDxpHEd70b55jxHHGw/view?usp=drive_link"],
+  ["EO 59", "City Nutrition Committee", "https://drive.google.com/file/d/1iscYKttOh1I0pgqhnl6e4SJLFBrI7-S9/view?usp=drive_link"],
+  ["EO 50", "City Competitiveness Index Team", "https://drive.google.com/file/d/1tdeQArzds7OunVvMDGUaI3IQm71_7MWF/view?usp=drive_link"],
+  ["EO 37", "Emergency Operations Center", "https://drive.google.com/file/d/1iGoKdIKznxeu-t7lyZtCcUFfRiaQrqj_/view?usp=drive_link"],
+  ["EO 29", "ICT Innovation Council", "https://drive.google.com/file/d/11pbhtuoay9kLZQoapgvtu6pO-A8PH7cq/view?usp=drive_link"],
+  ["EO 24", "City Solid Waste Management Board", "https://drive.google.com/file/d/1rZsUFxk7Nvi8bXHUzF6VHryaY186HliD/view?usp=drive_link"],
+  ["EO 18", "Local Investment and Incentives Board", "https://drive.google.com/file/d/1c-fDjWuvgcaiovEqvB9un_MFOeSyqd-g/view?usp=drive_link"],
+  ["EO 16", "Water Safety Board", "https://drive.google.com/file/d/1GSxpGNBydU0_WxaWpw8ckDXJ8lN6K4Lo/view?usp=drive_link"],
+  ["EO 14", "Anti-Red Tape Committee and Citizen’s Charter", "https://drive.google.com/file/d/1tztTOuFOQmgY8o56issCqMHFSbtPsjN3/view?usp=drive_link"],
+  ["EO 12", "Gender and Development Focal Point System", "https://drive.google.com/file/d/1D8ec9BkY4_nDP9Fby5SothigwVNGq3oG/view?usp=drive_link"],
+  ["EO 7", "City Peace and Order Council", "https://drive.google.com/file/d/1U9rJETVqr6LtZTruwBhcIrEmkx6Q8qHb/view?usp=drive_link"],
+  ["EO 5", "City Health Board", "https://drive.google.com/file/d/1-6mqm2fcK3HVSEpVEX9u_0ERGFTGvEKF/view?usp=drive_link"],
+].map(([number, title, url]) => ({ number, title, url, verifiedOn: VERIFIED_ON }));
+
+export const economicProfile = {
+  rank: "35th of 114 component cities",
+  rankPeriod: "2023 CMCI economic dynamism",
+  growthRank: "29th of 114 component cities",
+  description:
+    "A 2026 academic paper reports these 2023 DTI Cities and Municipalities Competitiveness Index positions. They are historical rankings, not a 2026 score.",
+  structure:
+    "The City Government’s socio-economic profile describes an agriculture-led production base and a service-heavy establishment mix. Its page does not display a clear reference year, so these shares are structural context rather than current 2026 measurements.",
+  source: {
+    label: "2026 academic paper citing DTI 2023 CMCI",
+    url: "https://rsisinternational.org/journals/ijriss/uploads/vol10-iss3-pg3587-3606-202604_pdf.pdf",
+    verifiedOn: VERIFIED_ON,
+  } satisfies Source,
+  citySource: {
+    label: "City Government socio-economic profile",
+    url: "https://sakata.malaybalaycity.gov.ph/socio-economic-profile/",
+    verifiedOn: VERIFIED_ON,
+  } satisfies Source,
+};
 
 export const financialSnapshot = {
   period: "2025 Q2",
