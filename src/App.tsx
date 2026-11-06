@@ -26,14 +26,17 @@ import {
   FileCheck2,
   FileText,
   Github,
+  HandHeart,
   HeartPulse,
   Landmark,
+  Leaf,
   Mail,
   Menu,
   Phone,
   MapPin,
   ReceiptText,
   Search,
+  Scale,
   ShieldCheck,
   Siren,
   TrendingUp,
@@ -1854,6 +1857,17 @@ function BarangaySourceLink({
   );
 }
 
+function BarangayServiceIcon({ title }: { title: string }) {
+  const service = title.toLowerCase();
+
+  if (service.includes("mediation")) return <Scale aria-hidden="true" />;
+  if (service.includes("health")) return <HeartPulse aria-hidden="true" />;
+  if (service.includes("social welfare")) return <HandHeart aria-hidden="true" />;
+  if (service.includes("disaster")) return <Siren aria-hidden="true" />;
+  if (service.includes("environment")) return <Leaf aria-hidden="true" />;
+  return <FileCheck2 aria-hidden="true" />;
+}
+
 type BoundaryCollection = FeatureCollection<
   Geometry,
   { name: string; code: string; validOn: string }
@@ -2084,7 +2098,9 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
             </div>
           </div>
           <aside className="barangay-source-card">
-            <ShieldCheck />
+            <span className="barangay-icon-tile">
+              <ShieldCheck aria-hidden="true" />
+            </span>
             <strong>Where this information comes from</strong>
             <BarangaySourceLink source={profile.psgcSource} />
             <BarangaySourceLink source={profile.populationReleaseSource} />
@@ -2099,13 +2115,17 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
             aria-label={`${profile.name} community data summary`}
           >
             <article>
-              <Users aria-hidden="true" />
+              <span className="barangay-icon-tile">
+                <Users aria-hidden="true" />
+              </span>
               <span>Latest official count</span>
               <strong>{profile.population.toLocaleString("en-PH")}</strong>
               <p>Official census count · released January 2026</p>
             </article>
             <article>
-              <BarChart3 aria-hidden="true" />
+              <span className="barangay-icon-tile">
+                <BarChart3 aria-hidden="true" />
+              </span>
               <span>Share of city population</span>
               <strong>{profile.cityPopulationShare.toFixed(2)}%</strong>
               <p>
@@ -2114,13 +2134,17 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
               </p>
             </article>
             <article>
-              <TrendingUp aria-hidden="true" />
+              <span className="barangay-icon-tile">
+                <TrendingUp aria-hidden="true" />
+              </span>
               <span>Population rank</span>
               <strong>{profile.populationRank} of 46</strong>
               <p>Ranked by official barangay-level census counts</p>
             </article>
             <article>
-              <FileText aria-hidden="true" />
+              <span className="barangay-icon-tile">
+                <FileText aria-hidden="true" />
+              </span>
               <span>2026 BAC notices</span>
               <strong>{profile.bids.length}</strong>
               <p>
@@ -2226,14 +2250,18 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           </SectionHeading>
           <div className="barangay-leadership-grid">
             <article className="barangay-captain-card">
-              <Users />
+              <span className="barangay-icon-tile">
+                <Users aria-hidden="true" />
+              </span>
               <span>Punong Barangay</span>
               <h3>{profile.punongBarangay}</h3>
               <p>Leader listed in the DILG Barangay Officials Directory.</p>
               <BarangaySourceLink source={profile.leadershipSource} />
             </article>
             <article className="barangay-data-gap">
-              <CircleAlert />
+              <span className="barangay-icon-tile is-neutral">
+                <CircleAlert aria-hidden="true" />
+              </span>
               <div>
                 <span>Barangay council roster</span>
                 <h3>Complete roster not published in the reviewed sources</h3>
@@ -2261,7 +2289,9 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           <div className="barangay-committee-grid">
             {profile.committeeAreas.map((committee) => (
               <article key={committee}>
-                <Check />
+                <span className="barangay-icon-tile is-compact">
+                  <Check aria-hidden="true" />
+                </span>
                 <div>
                   <h3>{committee}</h3>
                 </div>
@@ -2281,7 +2311,9 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           <div className="barangay-services-grid">
             {profile.serviceAreas.map((service) => (
               <article key={service.title}>
-                <BookOpen />
+                <span className="barangay-icon-tile">
+                  <BarangayServiceIcon title={service.title} />
+                </span>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
               </article>
@@ -2350,7 +2382,9 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           <div className="barangay-emergency-grid">
             {emergencyContacts.map((office) => (
               <article key={office.name}>
-                <HeartPulse />
+                <span className="barangay-icon-tile is-emergency">
+                  <HeartPulse aria-hidden="true" />
+                </span>
                 <div>
                   <h3>{office.name}</h3>
                   <a href={`tel:${telephoneHref(office.phone)}`}>
