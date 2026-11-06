@@ -920,10 +920,10 @@
   repo_owner: "average04"
   repo_name: "bettersurallah"
   socials: []
-  status: "🔵 Planned"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@average4](https://github.com/average04)"
+  maintainer: "[@average04](https://github.com/average04)"
 - name: "Malolos, Bulacan"
   domain: "[bettermalolos.org](https://bettermalolos.org/)"
   repo: "[GitHub](https://github.com/francisdiaz22/bettermalolos)"
