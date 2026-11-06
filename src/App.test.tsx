@@ -79,6 +79,35 @@ describe("BetterMC public portal", () => {
     ).toHaveAttribute("href", "/barangays");
   });
 
+  it("searches direct portal destinations across record types", () => {
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    );
+    const search = screen.getByLabelText(/Search all BetterMC/i);
+
+    fireEvent.change(search, { target: { value: "Busdi" } });
+    expect(
+      screen
+        .getAllByRole("link", { name: /Busdi/i })
+        .find((link) => link.getAttribute("href") === "/barangays/busdi"),
+    ).toBeDefined();
+
+    fireEvent.change(search, { target: { value: "Executive Order No. 19" } });
+    expect(
+      screen.getByRole("link", { name: /Executive Order No. 19/i }),
+    ).toHaveAttribute(
+      "href",
+      "/legislation/executive-order-no-19-series-of-2026",
+    );
+
+    fireEvent.change(search, { target: { value: "ITB-2026-206" } });
+    expect(
+      screen.getByRole("link", { name: /ITB-2026-206/i }),
+    ).toHaveAttribute("href", "/procurement/bidding-opportunities");
+  });
+
   it("lists source-linked transparency records", () => {
     render(
       <MemoryRouter initialEntries={["/transparency"]}>

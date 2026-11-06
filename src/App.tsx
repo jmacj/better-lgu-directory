@@ -74,7 +74,6 @@ import {
   officialPortraits,
   procurementSources,
   publicProjects,
-  searchableRecords,
   services,
   specialBodyOrders,
   type CivicRecord,
@@ -110,6 +109,8 @@ import {
   serviceCategories,
 } from "./serviceCatalog";
 import { civicRecordContext } from "./civicRecordContext";
+import { searchPortal } from "./searchIndex";
+import WeatherPanel from "./WeatherPanel";
 
 const navItems = [
   { label: "Transparency", to: "/transparency" },
@@ -576,42 +577,68 @@ function SectionHeading({
 function GlobalSearch() {
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const resultsId = useId();
   const results = useMemo(() => {
-    const value = deferredQuery.trim().toLowerCase();
-    if (!value) return [];
-    return searchableRecords
-      .filter((record) =>
-        `${record.title} ${record.detail} ${record.type}`
-          .toLowerCase()
-          .includes(value),
-      )
-      .slice(0, 7);
+    return searchPortal(deferredQuery);
   }, [deferredQuery]);
+
+  useEffect(() => {
+    const focusSearch = (event: globalThis.KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        inputRef.current?.focus();
+        inputRef.current?.select();
+      }
+      if (event.key === "Escape" && document.activeElement === inputRef.current) {
+        setQuery("");
+        inputRef.current?.blur();
+      }
+    };
+    window.addEventListener("keydown", focusSearch);
+    return () => window.removeEventListener("keydown", focusSearch);
+  }, []);
+
+  const visibleResults = results.slice(0, 10);
+  const hasQuery = query.trim().length > 0;
   return (
-    <div className="global-search">
-      <Search aria-hidden="true" />
+    <div className="global-search" role="search">
+      <span className="global-search-icon" aria-hidden="true">
+        <Search />
+      </span>
       <label htmlFor="site-search" className="sr-only">
-        Search officials, offices, barangays and services
+        Search all BetterMC public information
       </label>
       <input
+        ref={inputRef}
         id="site-search"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Search officials, offices, barangays, services…"
+        placeholder="Search records, officials, offices, barangays, services…"
         autoComplete="off"
+        aria-controls={hasQuery ? resultsId : undefined}
+        aria-expanded={hasQuery}
       />
-      {query && (
+      {hasQuery && (
         <div
+          id={resultsId}
           className="search-results"
-          role="listbox"
+          role="region"
           aria-label="Search results"
         >
-          {results.length ? (
-            results.map((result) => (
+          {visibleResults.length ? (
+            <>
+              <p className="search-results-count" role="status">
+                {results.length} {results.length === 1 ? "match" : "matches"}
+                {results.length > visibleResults.length
+                  ? ` · showing first ${visibleResults.length}`
+                  : ""}
+              </p>
+              {visibleResults.map((result) => (
               <Link
-                key={`${result.type}-${result.title}`}
+                key={`${result.href}-${result.type}-${result.title}`}
                 to={result.href}
-                role="option"
+                onClick={() => setQuery("")}
               >
                 <small>{result.type}</small>
                 <span>
@@ -620,9 +647,10 @@ function GlobalSearch() {
                 </span>
                 <ArrowRight />
               </Link>
-            ))
+              ))}
+            </>
           ) : (
-            <p>No matching verified record found.</p>
+            <p>No matching page or indexed public record was found.</p>
           )}
         </div>
       )}
@@ -811,6 +839,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+      <WeatherPanel />
       <section className="section container city-overview" id="about-malaybalay">
         <div className="city-overview-copy">
           <span className="eyebrow">About Malaybalay City</span>

@@ -1,5 +1,75 @@
 import { expect, test } from "@playwright/test";
 
+const weatherFixture = {
+  timezone: "Asia/Manila",
+  current: {
+    time: "2026-11-07T09:00",
+    temperature_2m: 24,
+    apparent_temperature: 26,
+    relative_humidity_2m: 82,
+    precipitation: 0,
+    weather_code: 2,
+    wind_speed_10m: 5,
+  },
+  current_units: {
+    temperature_2m: "°C",
+    apparent_temperature: "°C",
+    relative_humidity_2m: "%",
+    precipitation: "mm",
+    wind_speed_10m: "km/h",
+  },
+  hourly: {
+    time: Array.from({ length: 24 }, (_, index) => {
+      const hour = (9 + index) % 24;
+      const day = index < 15 ? "07" : "08";
+      return `2026-11-${day}T${String(hour).padStart(2, "0")}:00`;
+    }),
+    temperature_2m: Array.from({ length: 24 }, (_, index) => 24 + (index % 6)),
+    precipitation_probability: Array.from({ length: 24 }, (_, index) => index === 5 ? 65 : 15),
+    weather_code: Array.from({ length: 24 }, () => 2),
+    wind_speed_10m: Array.from({ length: 24 }, () => 5),
+  },
+  hourly_units: {
+    temperature_2m: "°C",
+    precipitation_probability: "%",
+    wind_speed_10m: "km/h",
+  },
+};
+
+test("global search uses one surface and reaches specific portal records", async ({ page }) => {
+  await page.route("https://api.open-meteo.com/**", (route) =>
+    route.fulfill({ json: weatherFixture }),
+  );
+  await page.goto("/");
+  const search = page.getByLabel(/Search all BetterMC/i);
+  await expect(search).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+  await search.fill("Executive Order No. 19");
+  await page.getByRole("link", { name: /Executive Order No. 19/i }).click();
+  await expect(page).toHaveURL(/\/legislation\/executive-order-no-19-series-of-2026$/);
+
+  await page.goto("/");
+  await search.fill("ITB-2026-206");
+  await page.getByRole("link", { name: /ITB-2026-206/i }).click();
+  await expect(page).toHaveURL(/\/procurement\/bidding-opportunities$/);
+});
+
+test("homepage presents current Malaybalay conditions and a 24-hour forecast", async ({ page }) => {
+  await page.route("https://api.open-meteo.com/**", (route) =>
+    route.fulfill({ json: weatherFixture }),
+  );
+  await page.goto("/");
+  await expect(
+    page.getByRole("heading", { name: /Current conditions and the next 24 hours/i }),
+  ).toBeVisible();
+  await expect(page.getByText("Partly cloudy")).toBeVisible();
+  await expect(page.locator(".weather-hourly article")).toHaveCount(8);
+  await expect(page.getByText(/model-based and may change/i)).toBeVisible();
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+  );
+  expect(overflow).toBe(false);
+});
+
 test("core public routes are navigable and do not overflow", async ({
   page,
 }) => {
