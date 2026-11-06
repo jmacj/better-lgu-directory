@@ -1,4 +1,5 @@
 import {
+  type CSSProperties,
   FormEvent,
   ReactNode,
   useDeferredValue,
@@ -1727,9 +1728,9 @@ function BarangaysPage() {
   return (
     <>
       <PageHero
-        eyebrow="46 barangays"
-        title="Every barangay, with its publicly listed leader."
-        description="Barangay names come from the City Government directory. Punong Barangay names and available public contact fields come from the DILG Barangay Officials Directory."
+        eyebrow="Malaybalay barangay directory"
+        title="Explore all 46 barangays."
+        description="Find the latest official population count, publicly listed Punong Barangay, available contact channels, and a source-linked profile for every community."
         compact
       />
       <section className="section container government-directory-section">
@@ -1739,17 +1740,16 @@ function BarangaysPage() {
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search a barangay or captain"
+            placeholder="Search by barangay or Punong Barangay"
           />
         </label>
         <div className="data-notice barangay-contact-notice">
           <CircleAlert />
           <div>
-            <strong>Public contact data is shown as published</strong>
+            <strong>About contact availability</strong>
             <p>
-              Incomplete or malformed DILG contact entries are treated as
-              unavailable. Contact the City Government or DILG Malaybalay office
-              when a barangay has no complete public number here.
+              Contact details appear only when published in the reviewed DILG
+              directory. Missing or incomplete entries are clearly marked.
             </p>
           </div>
         </div>
@@ -1764,20 +1764,25 @@ function BarangaysPage() {
                   loading="lazy"
                   alt={`${barangay.name} mark published by the City Government`}
                 />
-                <span>
-                  Malaybalay City
-                  <small>{barangay.classification} barangay</small>
+                <span className="barangay-card-context">
+                  <small>Barangay profile</small>
+                  <strong>
+                    {barangay.classification} · Malaybalay City
+                  </strong>
                 </span>
               </div>
               <h2>{barangay.name}</h2>
-              <p className="barangay-stat">
-                <strong>{barangay.population.toLocaleString("en-PH")}</strong>
-                <span>2024 POPCEN · released 2026</span>
-              </p>
-              <p className="barangay-leader">
-                <span>Punong Barangay</span>
-                <strong>{barangay.punongBarangay}</strong>
-              </p>
+              <dl className="barangay-card-facts">
+                <div>
+                  <dt>Latest official population</dt>
+                  <dd>{barangay.population.toLocaleString("en-PH")}</dd>
+                  <small>2024 POPCEN · released 2026</small>
+                </div>
+                <div>
+                  <dt>Punong Barangay</dt>
+                  <dd>{barangay.punongBarangay}</dd>
+                </div>
+              </dl>
               <div className="barangay-contacts">
                 {barangay.phone && (
                   <a href={`tel:${telephoneHref(barangay.phone)}`}>
@@ -1802,7 +1807,7 @@ function BarangaysPage() {
                 className="barangay-profile-link"
                 to={`/barangays/${barangay.slug}`}
               >
-                Open barangay profile <ArrowRight />
+                View barangay details <ArrowRight />
               </Link>
             </article>
           ))}
@@ -1943,12 +1948,17 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
           style={
             profile.heroImage
               ? {
-                  backgroundImage: `linear-gradient(90deg, rgba(5, 30, 70, 0.94), rgba(14, 63, 130, 0.68) 62%, rgba(30, 98, 166, 0.42)), url("${profile.heroImage.url}")`,
-                }
+                  "--barangay-hero-url": `url("${profile.heroImage.url}")`,
+                  "--barangay-hero-position":
+                    profile.heroImage.position ?? "center",
+                } as CSSProperties
               : undefined
           }
           aria-hidden="true"
-        />
+        >
+          <span className="barangay-hero-image-blur" />
+          <span className="barangay-hero-image-sharp" />
+        </div>
         <div className="container barangay-hero-content">
           <div className="barangay-brand-lockup">
             <div className="barangay-logo-frame">
@@ -1997,14 +2007,14 @@ function BarangayProfilePage({ slugOverride }: { slugOverride?: string }) {
               <dd>{profile.punongBarangay}</dd>
             </div>
           </dl>
-          {profile.heroImage && (
+          {profile.heroImage?.source && profile.heroImage.credit && (
             <a
               className="barangay-photo-credit"
               href={profile.heroImage.source.url}
               target="_blank"
               rel="noreferrer"
             >
-              {profile.heroImage.alt} · {profile.heroImage.license}
+              {profile.heroImage.credit}
               <ExternalLink aria-hidden="true" />
             </a>
           )}

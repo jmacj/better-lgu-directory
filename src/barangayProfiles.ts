@@ -185,8 +185,9 @@ export type BarangayMicrositeProfile = {
   heroImage?: {
     url: string;
     alt: string;
-    source: Source;
-    license: string;
+    source?: Source;
+    credit?: string;
+    position?: string;
   };
   leadershipSource: Source;
   psgcSource: Source;
@@ -210,6 +211,111 @@ const sumpongHallSource: Source = {
   verifiedOn: VERIFIED_ON,
 };
 
+const suppliedHeroImageUrls: Record<string, string> = {
+  aglayan:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIMp8JxgjXTSuVN4RIozxWLK61qwc-hhneMIuv4fAkCtu14wUyR_I-Lpha&s=10",
+  "apo-macote":
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTIGe_2glFXqY5v_1UlBgf3dU2Qv0QG3iLUDoOU2fWzyQWwWNCSVML3c0&s=10",
+  bangcud:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAcSoU2HLU7m2j_saIf4H_Lujy7g5wB6uq3yr8U1uTQDXVt1otbz0Mgiw&s=10",
+  "barangay-6":
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO9lKNiMfrhEHWl4CwkfbsPiVvmRgsp5vek03dLKsICttLXGstCJ2WntA&s=10",
+  "barangay-9":
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTJ87z6DLn8LSHzVhgCOCHiEzMPTwpRpCjqhujU9-ZMF9bLBWehZjqhdI&s=10",
+  busdi:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52TFYFkon2cBKw46hHInj6U5o9LzfuKWu2GHFbl3wQxbkNvOTfS_kco8&s=10",
+  cabangahan:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH0E5eoavdqsoRAdqHComnAEw6VV1Iqyz0TtaBCPEJZzmTLAXk3-6Jh_c&s=10",
+  caburacanan:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6i_TGhDddXRYlCLCnWfQ3y3JfhJnNCqHzoxGcxzxFfmNa6ykdG4-gSWU&s=10",
+  "can-ayan":
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrk3R6lARWFyQXdr00uI3azZKWDglzEdwAUWYjhZ-SfQJ3jmLdhHYg6ZA&s=10",
+  "capitan-angel":
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT-aAy77_N5ASFN6tuezd6O3NLTFzJ1geFe5p3WsEC2A&s=10",
+  casisang:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiU-G_YxCl2Yc3OLzo3aO-gk91mX9EPWavDCkKoJ1WNbFRAPqyPBN7YAs&s=10",
+  dalwangan:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRbMohT9St6ON5zOysMpi1NELIoxOLfI0Fv2crjRW1hAOygUS48wlpzoO1&s=10",
+  indalasa:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUj30HnXsldf-LEJZRHq6Z0nP7gx-EzjiqnwqP2EeMY_7h6PxnOUDKpSl3&s=10",
+  kalasungay:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSEEe47ue5HD7_eRC4bvjxoJySp_wRMaFwei9twLfPXNb_h_i0EIwPzaA&s=10",
+  kulaman:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrggvZmo9h4L_T7DDL0SumO-hcGJca8UooLEqkTI7YMySfz7Oe8PAYUPo&s=10",
+  laguitas:
+    "https://upload.wikimedia.org/wikipedia/commons/4/44/New-Bukidnon-Sports-and-Cultural-Complex-July-2023-Copyright-to-Project-LUPAD-1-1024x576.jpg",
+  magsaysay:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhMCEg4sIiPMvcjSPLAsEYue8CR-kY91wiKfAaOLEiGADrU4n4TcBqxSo&s=10",
+  managok:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMsCvfvBr__wVpH9EvR62JvZzul_GHpYEhaKfnMvsIaQ&s=10",
+  miglamin:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrrdyoOcMKHmAl23xUuOfTvtoAE8rdgpasd5iJvY_YyZVdc43IllNj1hc&s=10",
+  patpat:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHSWlbSFO_U3dRXEaug2h4pUCkqxshKZ6gYHiL6eMfnMv6JU9hVBijjS-F&s=10",
+  silae:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5R6mWesOo_AiYd1eM4eTkr7a_UoHt3QaS4ZlzoMQdnA&s=10",
+  simaya:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRni4P3pcmDk7Tei_nqLUgw6LqVIIrx7rNAn2j6piuSTdabKvwDZNITwpzR&s=10",
+  sinanglanan:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjB-LnfC7oNvn-lRQSta3qUIaKvpfyVhTPrZRjZ612uA&s=10",
+  sumpong:
+    "https://upload.wikimedia.org/wikipedia/commons/6/6c/Sumpong_Barangay_Hall.jpg",
+  zamboanguita:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCtdLTznCeAcvwA0dD2wzCXDH-x0cLAkRqsFLmVScyOA&s=10",
+};
+
+const heroImagePositionBySlug: Record<string, string> = {
+  "apo-macote": "72% center",
+  bangcud: "72% center",
+  busdi: "72% center",
+  caburacanan: "72% center",
+  kalasungay: "72% center",
+  magsaysay: "72% center",
+  managok: "72% center",
+  miglamin: "72% center",
+  patpat: "72% center",
+  sinanglanan: "72% center",
+  zamboanguita: "72% center",
+};
+
+const suppliedHeroSource = (slug: string): Source => ({
+  label: "Image reference supplied to BetterMC",
+  url: suppliedHeroImageUrls[slug],
+  verifiedOn: BARANGAY_PROFILE_REVIEWED_ON,
+});
+
+const heroImageFor = (
+  name: string,
+  slug: string,
+): NonNullable<BarangayMicrositeProfile["heroImage"]> => {
+  const suppliedUrl = suppliedHeroImageUrls[slug];
+  if (!suppliedUrl) {
+    return {
+      url: "/images/malaybalay-city-hall-background.webp",
+      alt: `Malaybalay City Hall used as the fallback image for ${name}`,
+      position: "center",
+    };
+  }
+
+  if (slug === "sumpong") {
+    return {
+      url: "/images/barangay-heroes/sumpong.webp",
+      alt: "Sumpong Barangay Administration Building",
+      source: sumpongHallSource,
+      credit: "Sumpong Barangay Hall · CC BY-SA 4.0",
+      position: "center 52%",
+    };
+  }
+
+  return {
+    url: `/images/barangay-heroes/${slug}.webp`,
+    alt: `${name} community image supplied to BetterMC`,
+    source: suppliedHeroSource(slug),
+    credit: "Supplied image reference · rights not independently verified",
+    position: heroImagePositionBySlug[slug] ?? "center",
+  };
+};
+
 export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
   (psgc) => {
     const directory = profileByName.get(psgc.name);
@@ -231,15 +337,7 @@ export const barangayMicrosites: BarangayMicrositeProfile[] = psgcProfiles.map(
       email: directory.email,
       logo: `/images/barangays/${slug}.webp`,
       logoSource,
-      heroImage:
-        slug === "sumpong"
-          ? {
-              url: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Sumpong_Barangay_Hall.jpg",
-              alt: "Sumpong Barangay Administration Building",
-              source: sumpongHallSource,
-              license: "CC BY-SA 4.0",
-            }
-          : undefined,
+      heroImage: heroImageFor(psgc.name, slug),
       leadershipSource: directory.leadershipSource,
       psgcSource,
       populationReleaseSource,

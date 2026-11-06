@@ -25,7 +25,20 @@ describe("BetterMC public portal", () => {
       expect(barangay.populationReleaseSource.url).toContain(
         "rsso10.psa.gov.ph",
       );
+      expect(barangay.heroImage?.url).toMatch(/^\/images\//);
     }
+    expect(
+      barangayMicrosites.filter((barangay) =>
+        barangay.heroImage?.url.includes("/barangay-heroes/"),
+      ),
+    ).toHaveLength(25);
+    expect(
+      barangayMicrosites.filter(
+        (barangay) =>
+          barangay.heroImage?.url ===
+          "/images/malaybalay-city-hall-background.webp",
+      ),
+    ).toHaveLength(21);
   });
 
   it("renders the independent-platform disclosure and homepage purpose", () => {
@@ -89,7 +102,7 @@ describe("BetterMC public portal", () => {
       </MemoryRouter>,
     );
     expect(
-      screen.getByRole("heading", { name: /Every barangay/i }),
+      screen.getByRole("heading", { name: /Explore all 46 barangays/i }),
     ).toBeInTheDocument();
     expect(screen.getByText("Gregorio D. Jaroy")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /088-813-1357/ })).toHaveAttribute(
@@ -97,7 +110,7 @@ describe("BetterMC public portal", () => {
       "tel:0888131357",
     );
     expect(
-      screen.getAllByRole("link", { name: /Open barangay profile/i }).length,
+      screen.getAllByRole("link", { name: /View barangay details/i }).length,
     ).toBe(46);
   });
 
