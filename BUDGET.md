@@ -25,6 +25,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Taal, Batangas               | [taal.betterbatangas.org](https://taal.betterbatangas.org)                       | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | [@pogicodes](https://github.com/pogicodes)                                             |
 | Rosario, Batangas            | [rosario-betterbatangas.vercel.app](https://rosario-betterbatangas.vercel.app)   | 🏛️ Standalone | [GitHub](https://github.com/BetterWatchMen/better-rosario)                     | [@BetterWatchMen](https://github.com/BetterWatchMen)                                   |
 | Cabanatuan City, Nueva Ecija | [transparency.bettercabanatuan.org](https://transparency.bettercabanatuan.org)   | 🧩 Integrated  | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan-transparency-portal)                | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
+| Marinduque Province          | [budget-bettermarinduque.vercel.app](https://budget-bettermarinduque.vercel.app) | 🧩 Integrated  | [GitHub](https://github.com/b0urbonn/transparency-portal)                                        | [@b0urbonn](https://github.com/b0urbonn)                                                     |
 
 <!-- SYNC_BUDGET_TABLE_END -->
 
