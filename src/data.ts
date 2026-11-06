@@ -772,19 +772,11 @@ export const disclosures: Disclosure[] = [2026, 2025, 2024, 2023, 2022].flatMap(
 
 export const services = [
   {
-    title: "2026 Citizen’s Charter",
+    title: "Citizen’s Charter catalog",
     office: "City Government of Malaybalay",
     description:
-      "Official service standards, requirements, processing times and fees published by the city government.",
-    url: "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/10/CITIZENS_CHARTER_2026.pdf",
-    verifiedOn: VERIFIED_ON,
-  },
-  {
-    title: "2025 Citizen’s Charter",
-    office: "City Government of Malaybalay",
-    description:
-      "The preceding service-standard edition remains available for comparison and reference.",
-    url: "https://sakata.malaybalaycity.gov.ph/wp-content/uploads/2026/10/CITIZENS_CHARTER_2025.pdf",
+      "Official archive of published service standards. The reviewed city page currently exposes the 2024 edition and earlier editions; BetterMC does not relabel an older edition as 2026.",
+    url: "https://sakata.malaybalaycity.gov.ph/citizens-charter/",
     verifiedOn: VERIFIED_ON,
   },
   {
@@ -806,16 +798,16 @@ export const services = [
     title: "City Civil Registry services",
     office: "City Civil Registry Office",
     description:
-      "Confirm documentary requirements and contact the responsible office before visiting.",
-    url: "https://sakata.malaybalaycity.gov.ph/",
+      "Use the official city directory to confirm documentary requirements and contact the responsible office before visiting.",
+    url: "https://sakata.malaybalaycity.gov.ph/contact-us/",
     verifiedOn: VERIFIED_ON,
   },
   {
     title: "Health and dental services",
     office: "City Health Office",
     description:
-      "Official city entry point for public-health and dental assistance information.",
-    url: "https://sakata.malaybalaycity.gov.ph/",
+      "Use the published city directory for public-health, dental, and referral contacts.",
+    url: "https://sakata.malaybalaycity.gov.ph/contact-us/",
     verifiedOn: VERIFIED_ON,
   },
 ];

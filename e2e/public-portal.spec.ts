@@ -97,6 +97,46 @@ test("homepage adapts collection density to the viewport", async ({ page }) => {
   }
 });
 
+test("homepage exposes local and national service pathways", async ({ page }) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("heading", { name: /Start with the right level/i }),
+  ).toBeVisible();
+  await expect(page.locator(".service-category-grid.is-compact article")).toHaveCount(12);
+  await page.getByRole("link", { name: /View health guide/i }).click();
+  await expect(
+    page.getByRole("heading", { name: "Health", level: 1 }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /Health programs/i }),
+  ).toHaveAttribute("href", /bettergov\.ph\/services\?category=health/);
+  await expect(
+    page.getByRole("link", { name: /Open emergency contacts/i }),
+  ).toHaveAttribute("href", "/government?tab=hotlines");
+});
+
+test("transparency and legislation retain local context pages", async ({ page }) => {
+  await page.goto("/transparency?year=2026&quarter=Q2");
+  const detailLink = page.getByRole("link", {
+    name: /View context for Statement of Receipts and Expenditures/i,
+  });
+  await expect(detailLink).toHaveAttribute("href", /\/transparency\/2026\/q2\//);
+  await detailLink.click();
+  await expect(
+    page.getByRole("heading", { name: "Record availability" }),
+  ).toBeVisible();
+  await expect(page).toHaveURL(/\/transparency\/2026\/q2\//);
+
+  await page.goto("/legislation");
+  await expect(
+    page.getByRole("heading", { name: /Published measures, readable/i }),
+  ).toBeVisible();
+  await expect(page.locator(".legislation-records article")).not.toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Ordinance", exact: true }),
+  ).toBeVisible();
+});
+
 test("leader profiles expose verified contacts and record scope", async ({
   page,
 }) => {

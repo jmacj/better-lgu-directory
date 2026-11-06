@@ -4403,6 +4403,663 @@ kbd {
   }
 }
 
+/* Service, legislation, and record-detail pages. */
+.city-overview-source-secondary {
+  margin-top: -12px;
+}
+
+.home-services {
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+.home-services-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+
+.home-services-heading .section-heading {
+  margin-bottom: 0;
+}
+
+.home-services-heading .button {
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.service-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.service-category-grid article {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-content: start;
+  gap: 6px 12px;
+  padding: 18px;
+  border: 1px solid #cfdeeb;
+  border-radius: 16px;
+  background: rgba(250, 253, 255, 0.96);
+  box-shadow: 0 8px 24px rgba(23, 60, 103, 0.06);
+}
+
+.service-category-icon {
+  width: 38px;
+  height: 38px;
+  display: inline-grid;
+  flex: 0 0 38px;
+  place-items: center;
+  border: 1px solid #cfe0f2;
+  border-radius: 10px;
+  color: #1458b8;
+  background: #eaf3fc;
+}
+
+.service-category-icon svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.9;
+}
+
+.service-category-icon.is-emergency {
+  color: #a73535;
+  border-color: #efd0d0;
+  background: #fff1f1;
+}
+
+.service-category-grid h3 {
+  margin: 1px 0 4px;
+  color: #10213b;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.service-category-grid p {
+  margin: 0;
+  color: #526986;
+  font-size: 0.82rem;
+  line-height: 1.48;
+}
+
+.service-category-grid ul,
+.service-category-grid article > a {
+  grid-column: 1 / -1;
+}
+
+.service-category-grid ul {
+  display: grid;
+  gap: 3px;
+  margin: 8px 0 2px;
+  padding: 0;
+  list-style: none;
+}
+
+.service-category-grid li a {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  color: #284d78;
+  font-size: 0.8rem;
+}
+
+.service-category-grid li a svg {
+  width: 14px;
+  flex: none;
+}
+
+.service-category-grid li a:hover,
+.service-category-grid li a:focus-visible {
+  color: #0d4fa8;
+  background: #edf5fc;
+}
+
+.service-category-grid article > a {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px solid #bfd5e8;
+  border-radius: 9px;
+  color: #0f4f9f;
+  background: #edf5fc;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.service-category-grid article > a svg {
+  width: 16px;
+  flex: none;
+}
+
+.service-category-grid article > a:hover,
+.service-category-grid article > a:focus-visible {
+  border-color: #0d4c9f;
+  color: #ffffff;
+  background: #0d4c9f;
+}
+
+.service-category-grid.is-compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.service-category-grid.is-compact article {
+  min-height: 164px;
+  padding: 15px;
+}
+
+.service-category-grid.is-compact article > a {
+  align-self: end;
+}
+
+.service-access-bar {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid #cfdeeb;
+  border-radius: 14px;
+  background: #f8fbfe;
+}
+
+.service-access-bar strong {
+  display: block;
+  color: #10213b;
+}
+
+.service-access-bar p {
+  margin: 2px 0 0;
+  color: #526986;
+  font-size: 0.84rem;
+}
+
+.service-access-bar > a {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border-radius: 9px;
+  color: #ffffff;
+  background: #0d4c9f;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.service-access-bar > a svg {
+  width: 16px;
+}
+
+.service-scope-card h2 {
+  margin: 8px 0 12px;
+  color: #10213b;
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  line-height: 1.08;
+}
+
+.service-local-section {
+  margin-top: 0;
+}
+
+.local-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.local-service-grid article {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid #cfdeeb;
+  border-radius: 16px;
+  background: #fbfdff;
+  box-shadow: 0 8px 24px rgba(23, 60, 103, 0.05);
+}
+
+.local-service-grid article > span {
+  color: #1458b8;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.local-service-grid h3 {
+  margin: 7px 0 8px;
+  color: #10213b;
+  font-size: 1rem;
+}
+
+.local-service-grid p {
+  margin: 0 0 14px;
+  color: #526986;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.local-service-grid article > a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  color: #0f4f9f;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.local-service-grid article > a svg {
+  width: 15px;
+}
+
+.national-service-section {
+  padding-top: 54px;
+}
+
+.service-category-layout,
+.disclosure-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+  align-items: start;
+  gap: 28px;
+}
+
+.service-subcategory-list {
+  display: grid;
+  gap: 10px;
+}
+
+.service-subcategory-list > a {
+  min-height: 72px;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #cfdeeb;
+  border-radius: 14px;
+  color: #10213b;
+  background: #fbfdff;
+}
+
+.service-subcategory-list > a > svg {
+  width: 17px;
+  color: #1458b8;
+}
+
+.service-subcategory-list strong,
+.service-subcategory-list small {
+  display: block;
+}
+
+.service-subcategory-list small {
+  margin-top: 3px;
+  color: #607393;
+  font-size: 0.76rem;
+}
+
+.service-subcategory-list > a:hover,
+.service-subcategory-list > a:focus-visible {
+  border-color: #8fb6d9;
+  background: #f1f7fd;
+}
+
+.service-responsibility-note,
+.disclosure-action-card {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid #c6d9eb;
+  border-radius: 16px;
+  background: #f4f8fc;
+}
+
+.service-responsibility-note > svg,
+.disclosure-action-card > svg {
+  width: 24px;
+  color: #1458b8;
+}
+
+.service-responsibility-note h2,
+.disclosure-action-card h2 {
+  margin: 2px 0 0;
+  font-size: 1.2rem;
+}
+
+.service-responsibility-note p,
+.disclosure-action-card p {
+  margin: 0 0 6px;
+  color: #526986;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.service-responsibility-note a {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  color: #0f4f9f;
+  background: #eaf3fc;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.legislation-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 1px solid #cfdeeb;
+  border-radius: 14px;
+  background: #f8fbfe;
+}
+
+.legislation-summary > div {
+  padding: 16px;
+  border-left: 1px solid #cfdeeb;
+}
+
+.legislation-summary > div:first-child {
+  border-left: 0;
+}
+
+.legislation-summary strong,
+.legislation-summary span {
+  display: block;
+}
+
+.legislation-summary strong {
+  color: #10213b;
+  font-size: 1.65rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.legislation-summary span {
+  margin-top: 2px;
+  color: #526986;
+  font-size: 0.8rem;
+}
+
+.legislation-toolbar {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.legislation-toolbar .directory-search {
+  margin: 0;
+}
+
+.legislation-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.legislation-filters button {
+  min-height: 42px;
+  padding: 8px 11px;
+  border: 1px solid #bfd2e5;
+  border-radius: 9px;
+  color: #3f5878;
+  background: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.legislation-filters button[aria-pressed="true"] {
+  border-color: #0d4c9f;
+  color: #ffffff;
+  background: #0d4c9f;
+}
+
+.legislation-records {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.legislation-records article {
+  min-width: 0;
+  padding: 18px;
+  scroll-margin-top: 110px;
+  border: 1px solid #cfdeeb;
+  border-radius: 16px;
+  background: #fbfdff;
+  box-shadow: 0 8px 24px rgba(23, 60, 103, 0.05);
+}
+
+.legislation-records h2 {
+  margin: 12px 0 7px;
+  font-size: 1.15rem;
+}
+
+.legislation-records > article > p {
+  min-height: 48px;
+  color: #40597e;
+  line-height: 1.5;
+}
+
+.legislation-records dl {
+  display: grid;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.legislation-records dl > div {
+  padding: 10px;
+  border-radius: 9px;
+  background: #f1f6fb;
+}
+
+.legislation-records dt {
+  color: #607393;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.legislation-records dd {
+  margin: 3px 0 0;
+  color: #203c61;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.legislation-records article > a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #0f4f9f;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.legislation-records article > a svg {
+  width: 15px;
+}
+
+.disclosure-context-card {
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid #cfdeeb;
+  border-radius: 16px;
+  background: #fbfdff;
+}
+
+.disclosure-context-card h2 {
+  margin: 4px 0 0;
+  font-size: 1.35rem;
+}
+
+.disclosure-context-card > p:not(.available):not(.unavailable) {
+  margin: 0;
+  color: #40597e;
+  line-height: 1.6;
+}
+
+.disclosure-context-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 4px 0 0;
+}
+
+.disclosure-context-card dl > div {
+  padding: 11px;
+  border-radius: 9px;
+  background: #f1f6fb;
+}
+
+.disclosure-context-card dt {
+  color: #607393;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.disclosure-context-card dd {
+  margin: 4px 0 0;
+  color: #203c61;
+  font-size: 0.85rem;
+}
+
+.disclosure-action-card .button {
+  width: 100%;
+  min-height: 44px;
+}
+
+@media (max-width: 1024px) {
+  .service-category-grid.is-compact,
+  .service-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .local-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .legislation-toolbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-services {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .home-services-heading,
+  .service-category-layout,
+  .disclosure-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .home-services-heading {
+    align-items: start;
+    gap: 16px;
+  }
+
+  .home-services-heading .button {
+    width: 100%;
+  }
+
+  .service-access-bar {
+    grid-template-columns: 38px minmax(0, 1fr);
+  }
+
+  .service-access-bar > a {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .legislation-records {
+    grid-template-columns: 1fr;
+  }
+
+  .legislation-records > article > p {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .service-category-grid.is-compact,
+  .service-category-grid,
+  .local-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-category-grid.is-compact article {
+    min-height: 0;
+  }
+
+  .service-category-grid article {
+    padding: 14px;
+  }
+
+  .legislation-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .legislation-summary > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border-top: 1px solid #cfdeeb;
+    border-left: 0;
+  }
+
+  .legislation-summary > div:first-child {
+    border-top: 0;
+  }
+
+  .legislation-summary strong {
+    font-size: 1.25rem;
+  }
+
+  .legislation-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .legislation-filters button {
+    min-width: 0;
+    font-size: 0.78rem;
+  }
+
+  .disclosure-context-card dl {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (prefers-reduced-transparency: reduce) {
   .site-header {
     background: white;

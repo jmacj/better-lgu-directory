@@ -13,9 +13,12 @@ import {
 import {
   ArrowRight,
   Award,
+  BadgeDollarSign,
   BarChart3,
   BookOpen,
+  BriefcaseBusiness,
   Building2,
+  Car,
   Check,
   ChevronDown,
   CircleAlert,
@@ -25,15 +28,19 @@ import {
   Facebook,
   FileCheck2,
   FileText,
+  GraduationCap,
   Github,
   HandHeart,
   HeartPulse,
+  House,
+  IdCard,
   Landmark,
   Leaf,
   Mail,
   Menu,
   Phone,
   MapPin,
+  Plane,
   ReceiptText,
   Search,
   Scale,
@@ -41,6 +48,7 @@ import {
   Siren,
   TrendingUp,
   Users,
+  WalletCards,
   X,
 } from "lucide-react";
 import type { FeatureCollection, Geometry } from "geojson";
@@ -58,7 +66,6 @@ import {
   civicRecords,
   departments,
   disclosures,
-  economicProfile,
   financialSnapshot,
   gadResources,
   governanceHighlights,
@@ -69,6 +76,8 @@ import {
   searchableRecords,
   services,
   specialBodyOrders,
+  type CivicRecord,
+  type Disclosure,
   VERIFIED_ON,
 } from "./data";
 import {
@@ -86,6 +95,11 @@ import {
   BAC_2026_VERIFIED_ON,
   bidRecords2026,
 } from "./bidRecords";
+import {
+  betterGovServiceUrl,
+  localServicePathways,
+  serviceCategories,
+} from "./serviceCatalog";
 
 const navItems = [
   { label: "Transparency", to: "/transparency" },
@@ -606,6 +620,79 @@ function GlobalSearch() {
   );
 }
 
+function ServiceCategoryIcon({ slug }: { slug: string }) {
+  const icons: Record<string, ReactNode> = {
+    "business-trade": <BriefcaseBusiness aria-hidden="true" />,
+    "certificates-ids": <IdCard aria-hidden="true" />,
+    contributions: <WalletCards aria-hidden="true" />,
+    "disaster-weather": <Siren aria-hidden="true" />,
+    education: <GraduationCap aria-hidden="true" />,
+    employment: <Users aria-hidden="true" />,
+    health: <HeartPulse aria-hidden="true" />,
+    housing: <House aria-hidden="true" />,
+    "passport-travel": <Plane aria-hidden="true" />,
+    "social-services": <HandHeart aria-hidden="true" />,
+    tax: <BadgeDollarSign aria-hidden="true" />,
+    "transport-driving": <Car aria-hidden="true" />,
+  };
+  return <>{icons[slug] ?? <BookOpen aria-hidden="true" />}</>;
+}
+
+function ServiceCategoryGrid({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`service-category-grid${compact ? " is-compact" : ""}`}>
+      {serviceCategories.map((category) => (
+        <article key={category.slug}>
+          <span className="service-category-icon">
+            <ServiceCategoryIcon slug={category.slug} />
+          </span>
+          <div>
+            <h3>{category.title}</h3>
+            <p>{category.summary}</p>
+          </div>
+          {!compact && (
+            <ul>
+              {category.subcategories.map((subcategory) => (
+                <li key={subcategory.slug}>
+                  <a
+                    href={betterGovServiceUrl(
+                      category.slug,
+                      subcategory.slug,
+                    )}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {subcategory.title}
+                    <ExternalLink aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+          <Link to={`/services/${category.slug}`}>
+            View {category.title.toLowerCase()} guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function civicRecordId(number: string) {
+  return number
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function disclosureSlug(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 function HomePage() {
   const [financeFocus, setFinanceFocus] = useState<
     "income" | "spending" | "balance" | "savings" | null
@@ -708,10 +795,10 @@ function HomePage() {
           </div>
         </div>
         <dl className="city-overview-facts">
-          <div><dt>2024 population</dt><dd>195,046</dd></div>
+          <div><dt>Population · released 2026</dt><dd>195,046</dd></div>
           <div><dt>Barangays</dt><dd>46</dd></div>
-          <div><dt>Urban population</dt><dd>72.2%</dd></div>
-          <div><dt>Income class</dt><dd>1st class</dd></div>
+          <div><dt>Urban residents · released 2026</dt><dd>140,782</dd></div>
+          <div><dt>2020–2024 annual growth</dt><dd>0.54%</dd></div>
         </dl>
         <a
           className="city-overview-source"
@@ -719,7 +806,17 @@ function HomePage() {
           target="_blank"
           rel="noreferrer"
         >
-          Population source: Philippine Statistics Authority <ExternalLink />
+          PSA 2024 POPCEN · city release dated January 15, 2026
+          <ExternalLink />
+        </a>
+        <a
+          className="city-overview-source city-overview-source-secondary"
+          href="https://rsso10.psa.gov.ph/special-release/node/1684058515"
+          target="_blank"
+          rel="noreferrer"
+        >
+          PSA urban-population release dated November 4, 2026
+          <ExternalLink />
         </a>
       </section>
       <section className="metrics-strip">
@@ -745,6 +842,37 @@ function HomePage() {
           Counts reflect records in this portal, not a legal-compliance
           assessment.
         </p>
+      </section>
+      <section className="section container home-services" id="government-services">
+        <div className="home-services-heading">
+          <SectionHeading
+            eyebrow="Government services"
+            title="Start with the right level of government."
+          >
+            Browse service areas relevant to Malaybalay residents. City
+            transactions stay with the responsible city office; national
+            services open the corresponding BetterGov directory.
+          </SectionHeading>
+          <Link className="button secondary" to="/services">
+            Open the complete service guide <ArrowRight />
+          </Link>
+        </div>
+        <ServiceCategoryGrid compact />
+        <div className="service-access-bar">
+          <span className="service-category-icon is-emergency">
+            <Siren aria-hidden="true" />
+          </span>
+          <div>
+            <strong>Need urgent help in Malaybalay?</strong>
+            <p>
+              City emergency numbers are available as tap-to-call links with
+              the responsible response office identified.
+            </p>
+          </div>
+          <Link to="/government?tab=hotlines">
+            View emergency contacts <ArrowRight aria-hidden="true" />
+          </Link>
+        </div>
       </section>
       <section
         className="section container finance-section"
@@ -885,9 +1013,9 @@ function HomePage() {
               <h3>{record.number}</h3>
               <p>{record.title}</p>
               <small>{record.body}</small>
-              <a href={record.source.url} target="_blank" rel="noreferrer">
-                Open official listing <ExternalLink />
-              </a>
+              <Link to={`/legislation#${civicRecordId(record.number)}`}>
+                Read record context <ArrowRight />
+              </Link>
             </article>
           ))}
         </div>
@@ -901,7 +1029,7 @@ function HomePage() {
             {recordsOpen ? "Show fewer measures" : "Show 2 more measures"}{" "}
             <ChevronDown aria-hidden="true" />
           </button>
-          <Link className="button secondary" to="/government?tab=records">
+          <Link className="button secondary" to="/legislation">
             View all published measures <ArrowRight />
           </Link>
         </div>
@@ -1256,16 +1384,13 @@ function TransparencyPage() {
                   {record.status}
                 </p>
               </div>
-              <a
+              <Link
                 className="record-link"
-                href={record.downloadUrl ?? record.source.url}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`${record.downloadUrl ? "Download" : "Open official source for"} ${record.title}`}
+                to={`/transparency/${record.year}/${record.quarter.toLowerCase()}/${disclosureSlug(record.title)}`}
+                aria-label={`View context for ${record.title}`}
               >
-                {record.downloadUrl ? "Download PDF" : "Official catalog"}{" "}
-                <ExternalLink />
-              </a>
+                View record details <ArrowRight />
+              </Link>
             </article>
           ))}
         </div>
@@ -1273,6 +1398,225 @@ function TransparencyPage() {
           url="https://sakata.malaybalaycity.gov.ph/full-disclosure/"
           label="Malaybalay City Full Disclosure"
         />
+      </section>
+    </>
+  );
+}
+
+const disclosureContext: Record<Disclosure["category"], string> = {
+  Budget:
+    "Budget records describe authorized financial plans. An appropriation is not, by itself, proof that the full amount was spent.",
+  Procurement:
+    "Procurement records can represent plans, invitations, bid results, or awards. Each stage has a different meaning and should not be treated as proof of payment or completion.",
+  Financial:
+    "Financial statements report specific accounting periods and measures. Compare like-for-like periods and use the document’s own definitions.",
+  Utilization:
+    "Utilization reports describe reported fund use for a stated period. They do not automatically establish physical project completion.",
+  Staffing:
+    "Staffing records describe the published manpower complement for a reporting period and may not represent real-time personnel status.",
+  GAD:
+    "Gender and Development records should be read with their stated plan, budget, accomplishment, and reporting period.",
+};
+
+function DisclosureDetailPage() {
+  const { year: yearParam, quarter: quarterParam, slug } = useParams();
+  const record = disclosures.find(
+    (item) =>
+      item.year === Number(yearParam) &&
+      item.quarter.toLowerCase() === quarterParam?.toLowerCase() &&
+      disclosureSlug(item.title) === slug,
+  );
+
+  if (!record) return <NotFoundPage />;
+
+  return (
+    <>
+      <PageHero
+        eyebrow={`${record.category} disclosure · ${record.year} ${record.quarter}`}
+        title={record.title}
+        description={disclosureContext[record.category]}
+        compact
+      />
+      <section className="section container disclosure-detail-page">
+        <div className="disclosure-detail-layout">
+          <article className="disclosure-context-card">
+            <span className="service-category-icon">
+              <FileText aria-hidden="true" />
+            </span>
+            <div className="record-meta">
+              <span>{record.category}</span>
+              <span>{record.year}</span>
+              <span>{record.quarter}</span>
+            </div>
+            <h2>Record availability</h2>
+            <p className={record.status.startsWith("Not") ? "unavailable" : "available"}>
+              {record.status.startsWith("Not") ? (
+                <CircleAlert aria-hidden="true" />
+              ) : (
+                <Check aria-hidden="true" />
+              )}
+              {record.status}
+            </p>
+            <p>{disclosureContext[record.category]}</p>
+            <dl>
+              <div>
+                <dt>Official catalog</dt>
+                <dd>{record.source.label}</dd>
+              </div>
+              <div>
+                <dt>Source review date</dt>
+                <dd>{record.source.verifiedOn}</dd>
+              </div>
+            </dl>
+          </article>
+          <aside className="disclosure-action-card">
+            <ShieldCheck aria-hidden="true" />
+            <h2>Verify the original record</h2>
+            <p>
+              BetterMC provides context and a stable local page. The official
+              file or catalog remains the authoritative publication.
+            </p>
+            <a
+              className="button primary"
+              href={record.downloadUrl ?? record.source.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {record.downloadUrl ? "Open official PDF" : "Open official catalog"}
+              <ExternalLink />
+            </a>
+            <Link className="button secondary" to={`/transparency?year=${record.year}&quarter=${record.quarter}`}>
+              Return to disclosure records
+            </Link>
+          </aside>
+        </div>
+      </section>
+    </>
+  );
+}
+
+type LegislationFilter = "All" | CivicRecord["kind"];
+
+function LegislationPage() {
+  const [params, setParams] = useSearchParams();
+  const requestedKind = params.get("kind");
+  const kind: LegislationFilter =
+    requestedKind === "Ordinance" ||
+    requestedKind === "Executive order" ||
+    requestedKind === "Memorandum circular"
+      ? requestedKind
+      : "All";
+  const [query, setQuery] = useState("");
+  const deferredQuery = useDeferredValue(query.toLowerCase());
+  const records = civicRecords.filter(
+    (record) =>
+      (kind === "All" || record.kind === kind) &&
+      `${record.number} ${record.title} ${record.body}`
+        .toLowerCase()
+        .includes(deferredQuery),
+  );
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Legislative and executive records"
+        title="Published measures, readable inside BetterMC."
+        description="Review ordinances, executive orders, and memorandum circulars with institutional attribution and source context before opening the official listing for verification."
+        compact
+      />
+      <section className="section container legislation-page">
+        <div className="legislation-summary" aria-label="Indexed record summary">
+          {(["Ordinance", "Executive order", "Memorandum circular"] as const).map(
+            (recordKind) => (
+              <div key={recordKind}>
+                <strong>
+                  {civicRecords.filter((record) => record.kind === recordKind).length}
+                </strong>
+                <span>{recordKind}s indexed</span>
+              </div>
+            ),
+          )}
+        </div>
+        <div className="data-notice">
+          <CircleAlert aria-hidden="true" />
+          <div>
+            <strong>Published record does not always mean named authorship</strong>
+            <p>
+              BetterMC attributes a measure to an individual only when the
+              reviewed official source names that author or sponsor. Otherwise,
+              the responsible office or legislative institution is shown.
+            </p>
+          </div>
+        </div>
+        <div className="legislation-toolbar">
+          <label className="directory-search">
+            <span className="sr-only">Search published measures</span>
+            <Search aria-hidden="true" />
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search number, subject, or institution"
+            />
+          </label>
+          <div className="legislation-filters" aria-label="Filter record type">
+            {(
+              [
+                "All",
+                "Ordinance",
+                "Executive order",
+                "Memorandum circular",
+              ] as const
+            ).map((value) => (
+              <button
+                key={value}
+                type="button"
+                aria-pressed={kind === value}
+                onClick={() =>
+                  setParams(value === "All" ? {} : { kind: value })
+                }
+              >
+                {value}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="results-summary">
+          <strong>{records.length} published records</strong>
+          <span>Sources reviewed {VERIFIED_ON}</span>
+        </div>
+        <div className="legislation-records">
+          {records.map((record) => (
+            <article id={civicRecordId(record.number)} key={record.number}>
+              <div className="record-meta">
+                <span>{record.kind}</span>
+                <span>{record.published}</span>
+                <span>{record.attributionLevel}</span>
+              </div>
+              <h2>{record.number}</h2>
+              <p>{record.title}</p>
+              <dl>
+                <div>
+                  <dt>Responsible institution</dt>
+                  <dd>{record.body}</dd>
+                </div>
+                <div>
+                  <dt>Attribution note</dt>
+                  <dd>{record.attribution}</dd>
+                </div>
+              </dl>
+              <a href={record.source.url} target="_blank" rel="noreferrer">
+                Verify on the official source <ExternalLink />
+              </a>
+            </article>
+          ))}
+        </div>
+        {!records.length && (
+          <div className="empty-state" role="status">
+            <Search aria-hidden="true" />
+            <strong>No matching published measure</strong>
+            <p>Try a broader number, title, or institution.</p>
+          </div>
+        )}
       </section>
     </>
   );
@@ -2420,26 +2764,26 @@ function ServicesPage() {
       />
       <section className="section container">
         <div className="service-intro-grid">
-          <article className="economic-brief">
-            <span className="eyebrow">Economic context</span>
-            <div className="economic-ranks">
-              <div>
-                <strong>{economicProfile.rank}</strong>
-                <span>{economicProfile.rankPeriod}</span>
-              </div>
-              <div>
-                <strong>{economicProfile.growthRank}</strong>
-                <span>2023 economic-growth rank</span>
-              </div>
-            </div>
-            <p>{economicProfile.description}</p>
-            <p>{economicProfile.structure}</p>
+          <article className="economic-brief service-scope-card">
+            <span className="eyebrow">Current city context</span>
+            <h2>195,046 residents across 46 barangays</h2>
+            <p>
+              This is the latest official city population available in 2026.
+              It comes from the 2024 POPCEN, refers to July 1, 2024, and was
+              released by PSA on January 15, 2026.
+            </p>
+            <p>
+              Service demand cannot be inferred from population alone. Always
+              confirm requirements, availability, and schedules with the
+              responsible office.
+            </p>
             <div className="inline-sources">
-              <a href={economicProfile.source.url} target="_blank" rel="noreferrer">
-                Ranking source <ExternalLink />
-              </a>
-              <a href={economicProfile.citySource.url} target="_blank" rel="noreferrer">
-                City profile <ExternalLink />
+              <a
+                href="https://rsso10.psa.gov.ph/content/highlights-population-counts-malaybalay-city-bukidnon-based-2024-census-population"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Verify the PSA release <ExternalLink />
               </a>
             </div>
           </article>
@@ -2460,6 +2804,52 @@ function ServicesPage() {
               Browse all charter editions <ExternalLink />
             </a>
           </article>
+        </div>
+        <div className="service-resource-section service-local-section">
+          <SectionHeading
+            eyebrow="Malaybalay City services"
+            title="Local starting points"
+          >
+            These pathways identify the responsible city office or official
+            city resource. BetterMC does not accept applications or payments.
+          </SectionHeading>
+          <div className="local-service-grid">
+            {localServicePathways.map((service) => (
+              <article key={service.title}>
+                <span>{service.office}</span>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                {service.external ? (
+                  <a href={service.href} target="_blank" rel="noreferrer">
+                    Open official city resource <ExternalLink />
+                  </a>
+                ) : (
+                  <Link to={service.href}>
+                    Open BetterMC directory <ArrowRight />
+                  </Link>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+        <div className="service-resource-section national-service-section">
+          <SectionHeading
+            eyebrow="National government services"
+            title="BetterGov categories for Malaybalay residents"
+          >
+            These links open BetterGov’s national service directory. A service
+            listed here is not necessarily delivered by the City Government of
+            Malaybalay.
+          </SectionHeading>
+          <ServiceCategoryGrid />
+          <a
+            className="section-source-link"
+            href="https://bettergov.ph/services"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View all services on BetterGov <ExternalLink />
+          </a>
         </div>
         <SectionHeading
           eyebrow="Service standards and forms"
@@ -2541,6 +2931,87 @@ function ServicesPage() {
               Open the official catalog <ExternalLink />
             </a>
           </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ServiceCategoryPage() {
+  const { category: categorySlug } = useParams();
+  const category = serviceCategories.find(
+    (item) => item.slug === categorySlug,
+  );
+
+  if (!category) return <NotFoundPage />;
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Government service guide"
+        title={category.title}
+        description={category.localContext}
+        compact
+      />
+      <section className="section container service-category-page">
+        <div className="service-category-layout">
+          <div>
+            <SectionHeading
+              eyebrow="National service paths"
+              title={`Browse ${category.title.toLowerCase()} services`}
+            >
+              BetterGov organizes these national pathways. Each link opens the
+              matching directory results and the responsible agency’s service
+              entry where available.
+            </SectionHeading>
+            <div className="service-subcategory-list">
+              {category.subcategories.map((subcategory) => (
+                <a
+                  key={subcategory.slug}
+                  href={betterGovServiceUrl(category.slug, subcategory.slug)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="service-category-icon">
+                    <ServiceCategoryIcon slug={category.slug} />
+                  </span>
+                  <span>
+                    <strong>{subcategory.title}</strong>
+                    <small>BetterGov national service directory</small>
+                  </span>
+                  <ExternalLink aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
+          <aside className="service-responsibility-note">
+            <ShieldCheck aria-hidden="true" />
+            <h2>Check who owns the transaction</h2>
+            <p>
+              City services, barangay services, and national government
+              services have different requirements and offices. Confirm the
+              responsible institution before submitting documents or making a
+              payment.
+            </p>
+            <Link to="/services">
+              Return to all service categories <ArrowRight />
+            </Link>
+            <Link to="/government?tab=offices">
+              Find a Malaybalay office <ArrowRight />
+            </Link>
+          </aside>
+        </div>
+        <div className="service-access-bar">
+          <span className="service-category-icon is-emergency">
+            <Siren aria-hidden="true" />
+          </span>
+          <div>
+            <strong>Emergency contacts remain local and immediately accessible.</strong>
+            <p>Open the Malaybalay hotline directory for tap-to-call numbers.</p>
+          </div>
+          <Link to="/government?tab=hotlines">
+            Open emergency contacts <ArrowRight />
+          </Link>
         </div>
       </section>
     </>
@@ -2928,10 +3399,16 @@ export default function App() {
           }
         />
         <Route path="/transparency" element={<TransparencyPage />} />
+        <Route
+          path="/transparency/:year/:quarter/:slug"
+          element={<DisclosureDetailPage />}
+        />
+        <Route path="/legislation" element={<LegislationPage />} />
         <Route path="/government" element={<GovernmentPage />} />
         <Route path="/barangays" element={<BarangaysPage />} />
         <Route path="/barangays/:slug" element={<BarangayProfilePage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/:category" element={<ServiceCategoryPage />} />
         <Route path="/participate" element={<ParticipatePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />

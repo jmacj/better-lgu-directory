@@ -91,7 +91,7 @@ describe("BetterMC public portal", () => {
       screen.getByRole("link", { name: /Infrastructure/i }),
     ).toHaveAttribute("href", expect.stringContaining("/infrastructure"));
     expect(
-      screen.getAllByRole("link", { name: /Official source/i }).length,
+      screen.getAllByRole("link", { name: /View context for/i }).length,
     ).toBeGreaterThan(0);
   });
 
@@ -318,7 +318,17 @@ describe("BetterMC public portal", () => {
     expect(
       screen.getByRole("link", { name: /2026 GAD Plan and Budget/i }),
     ).toHaveAttribute("href", expect.stringContaining("GPB-2026.pdf"));
-    expect(screen.getByText("35th of 114 component cities")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: /195,046 residents across 46 barangays/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /Browse all charter editions/i }),
+    ).toHaveAttribute(
+      "href",
+      "https://sakata.malaybalaycity.gov.ph/citizens-charter/",
+    );
     unmount();
 
     render(
