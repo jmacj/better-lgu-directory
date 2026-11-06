@@ -5,7 +5,7 @@ test("core public routes are navigable and do not overflow", async ({
 }) => {
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: /Malaybalay public information/i }),
+    page.getByRole("heading", { name: /Welcome to BetterMC/i }),
   ).toBeVisible();
   await expect(page.locator(".independence-bar .city-clock")).toBeVisible();
   await expect(page.locator(".site-footer .city-clock")).toHaveCount(0);
@@ -37,14 +37,18 @@ test("core public routes are navigable and do not overflow", async ({
   expect(overflow).toBe(false);
 });
 
-test("city hall background and detailed finance remain usable", async ({
+test("blue homepage hero and detailed finance remain usable", async ({
   page,
 }) => {
   await page.goto("/");
   await expect(page.getByRole("button", { name: "Next image" })).toHaveCount(0);
   await expect(page.locator(".hero")).toHaveCSS(
     "background-image",
-    /malaybalay-city-hall/,
+    "none",
+  );
+  await expect(page.locator(".hero")).toHaveCSS(
+    "background-color",
+    "rgb(18, 88, 182)",
   );
   await expect(page.locator("#financial-detail")).toBeVisible();
   await expect(page.getByText("₱1,188,506,575.00")).toBeVisible();

@@ -53,7 +53,7 @@ describe("BetterMC public portal", () => {
       screen.getByText(/Independent public information platform/),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /Malaybalay public information/i }),
+      screen.getByRole("heading", { name: /Welcome to BetterMC/i }),
     ).toBeInTheDocument();
     expect(screen.getByLabelText(/Malaybalay time/i)).toBeInTheDocument();
     expect(screen.getByText("Not separately reported")).toBeInTheDocument();

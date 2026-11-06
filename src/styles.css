@@ -8613,3 +8613,81 @@ kbd {
     -webkit-backdrop-filter: none;
   }
 }
+
+/* Homepage welcome: restrained blue field with readable civic actions. */
+.hero,
+.home-page .hero {
+  background: #1258b6;
+  background-image: none;
+}
+
+.hero::before,
+.home-page .hero::before {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.hero-copy h1,
+.hero-copy > p,
+.hero-verification,
+.hero-verification strong {
+  color: #ffffff;
+}
+
+.hero-verification {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.hero-verification svg {
+  color: #d8eaff;
+}
+
+.hero-copy .button.primary {
+  color: #0d4699;
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(4, 35, 83, 0.2);
+}
+
+.hero-copy .button.primary:hover {
+  background: #edf6ff;
+}
+
+.hero-copy .button.secondary {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.74);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hero-copy .button.secondary:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-panel {
+  border-color: rgba(255, 255, 255, 0.78);
+  background: rgba(242, 249, 255, 0.86);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.96),
+    0 22px 52px rgba(4, 34, 79, 0.2);
+  backdrop-filter: blur(24px) saturate(112%);
+  -webkit-backdrop-filter: blur(24px) saturate(112%);
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .home-page .hero {
+    background: #1258b6;
+    background-image: none;
+  }
+
+  .hero-panel {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 20px;
+    background: rgba(238, 247, 255, 0.9);
+    box-shadow: 0 16px 36px rgba(4, 34, 79, 0.18);
+    backdrop-filter: blur(20px) saturate(110%);
+    -webkit-backdrop-filter: blur(20px) saturate(110%);
+  }
+}

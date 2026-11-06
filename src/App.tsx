@@ -747,13 +747,11 @@ function HomePage() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <h1>
-              Malaybalay public information, <em>made clear.</em>
-            </h1>
+            <h1>Welcome to BetterMC.</h1>
             <p>
-              Understand city finances, public records, leadership, barangays,
-              and services through a source-linked platform built for
-              accountability.
+              Your independent guide to source-linked Malaybalay records,
+              services, public offices, and barangays—organized for clearer
+              understanding and stronger accountability.
             </p>
             <div className="hero-actions">
               <Link className="button primary" to="/transparency">
