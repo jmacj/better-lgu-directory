@@ -28,6 +28,8 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Marinduque Province          | [budget-bettermarinduque.vercel.app](https://budget-bettermarinduque.vercel.app) | 🧩 Integrated  | [GitHub](https://github.com/b0urbonn/transparency-portal)                                        | [@b0urbonn](https://github.com/b0urbonn)                                                     |
 | Bulacan Province | [budget-betterbulacan.vercel.app](https://budget-betterbulacan.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/KyneLaggui/transparency-portal-bulacan) | [@KyneLaggui](https://github.com/KyneLaggui) |
 
+| Sorsogon Province | [sorsogon-province-transparency-portal.vercel.app](https://sorsogon-province-transparency-portal.vercel.app/) | 🏛️ Standalone | [GitHub](https://github.com/jill1214/sorsogon-province-transparency-portal) | [@jill1214](https://github.com/jill1214) |
+
 <!-- SYNC_BUDGET_TABLE_END -->
 
 > Want to add your budget portal? See [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal).
