@@ -1298,8 +1298,11 @@
   repo: "[GitHub](https://github.com/JeremyDFabian/bettervalenzuela)"
   repo_owner: "JeremyDFabian"
   repo_name: "bettervalenzuela"
-  socials: []
-  status: "🔵 Planned"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterval.org"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
   maintainer: "[@JeremyDFabian](https://github.com/JeremyDFabian)"
