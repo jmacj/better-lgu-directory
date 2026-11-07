@@ -169,6 +169,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Ocampo, Camarines Sur | - | [GitHub](https://github.com/ejsinfuego/betterocampo) | - | 🟡 Work in Progress | [@ejsinfuego](https://github.com/ejsinfuego) |
 | Angono, Rizal | - | [GitHub](https://github.com/cj-catacutan/betterangono) | - | 🟡 Work in Progress | [@cj-catacutan](https://github.com/cj-catacutan) |
 
+| Your LGU Name | [betterhilongos.org](https://betterhilongos.org) | [GitHub]([https://github.com/you/repo](https://github.com/fgelsano/betterhilongos)) | 🔵 Planned | [@fgelsano]([https://github.com/yourhandle](https://github.com/fgelsano)) |
+
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
