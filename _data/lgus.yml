@@ -1683,3 +1683,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ejsinfuego](https://github.com/ejsinfuego)"
+- name: "Angono, Rizal"
+  domain: "-"
+  repo: "[GitHub](https://github.com/cj-catacutan/betterangono)"
+  repo_owner: "cj-catacutan"
+  repo_name: "betterangono"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@cj-catacutan](https://github.com/cj-catacutan)"
