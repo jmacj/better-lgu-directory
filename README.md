@@ -168,6 +168,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Talavera, Nueva Ecija               | -                                                             | [GitHub](https://github.com/jcparucha/bettertalavera)                          | -                                                                                                                                                           | 🟡 Work in Progress    | [@jcparucha](https://github.com/jcparucha)                                                                                       |
 | Ocampo, Camarines Sur | - | [GitHub](https://github.com/ejsinfuego/betterocampo) | - | 🟡 Work in Progress | [@ejsinfuego](https://github.com/ejsinfuego) |
 | Angono, Rizal | - | [GitHub](https://github.com/cj-catacutan/betterangono) | - | 🟡 Work in Progress | [@cj-catacutan](https://github.com/cj-catacutan) |
+| Batangas City, Batangas | - | [GitHub](https://github.com/jrbenriquez/betterbatangascity/) | - | 🔵 Planned | [@jrbenriquez](https://github.com/jrbenriquez) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
