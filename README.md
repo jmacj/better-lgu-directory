@@ -167,6 +167,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Marinduque Province | [bettermarinduque.vercel.app](https://bettermarinduque.vercel.app) | [GitHub](https://github.com/b0urbonn/bettermarinduque) | - | 🟡 Work in Progress | [@b0urbonn](https://github.com/b0urbonn) |
 | Talavera, Nueva Ecija               | -                                                             | [GitHub](https://github.com/jcparucha/bettertalavera)                          | -                                                                                                                                                           | 🟡 Work in Progress    | [@jcparucha](https://github.com/jcparucha)                                                                                       |
 | Ocampo, Camarines Sur | - | [GitHub](https://github.com/ejsinfuego/betterocampo) | - | 🟡 Work in Progress | [@ejsinfuego](https://github.com/ejsinfuego) |
+| Angono, Rizal | - | [GitHub](https://github.com/cj-catacutan/betterangono) | - | 🟡 Work in Progress | [@cj-catacutan](https://github.com/cj-catacutan) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
