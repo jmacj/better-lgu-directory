@@ -706,9 +706,11 @@
   maintainer: "[@ericksondelacruz](https://github.com/ericksondelacruz)"
 - name: "General Mariano Alvarez, Cavite"
   domain: "-"
-  repo: "-"
+  repo: "[GitHub](https://github.com/bettergma/bettergma-gov)"
+  repo_owner: "bettergma"
+  repo_name: "bettergma-gov"
   socials: []
-  status: "🔵 Planned"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
   maintainer: "[@izxclyde](https://github.com/izxclyde)"
