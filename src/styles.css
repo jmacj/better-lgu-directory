@@ -3861,7 +3861,7 @@ kbd {
 
 .weather-current,
 .weather-outlook,
-.weather-hourly article,
+.weather-hourly button,
 .weather-error,
 .weather-skeleton {
   border: 1px solid rgba(123, 166, 210, 0.34);
@@ -3992,35 +3992,82 @@ kbd {
   gap: 8px;
 }
 
-.weather-hourly article {
+.weather-hourly button {
+  position: relative;
   display: grid;
   justify-items: center;
   gap: 5px;
   min-width: 0;
   padding: 11px 7px;
+  border: 1px solid rgba(123, 166, 210, 0.34);
   border-radius: 14px;
+  color: inherit;
   text-align: center;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.weather-hourly button:hover {
+  border-color: rgba(36, 108, 193, 0.58);
+  background: rgba(255, 255, 255, 0.98);
+  transform: translateY(-2px);
+}
+
+.weather-hourly button:focus-visible {
+  z-index: 1;
+  outline: 3px solid rgba(22, 98, 202, 0.32);
+  outline-offset: 2px;
+}
+
+.weather-hourly button.is-current {
+  border-color: #1258b6;
+  color: #ffffff;
+  background: #1258b6;
+  box-shadow: 0 12px 25px rgba(18, 88, 182, 0.22);
+}
+
+.weather-hourly button.is-current:hover {
+  border-color: #0d4898;
+  background: #0d4898;
+}
+
+.weather-hourly button.is-selected {
+  border-color: #1766cc;
+  box-shadow:
+    0 0 0 3px rgba(23, 102, 204, 0.16),
+    0 12px 25px rgba(18, 88, 182, 0.12);
+}
+
+.weather-hourly button.is-current.is-selected {
+  box-shadow:
+    0 0 0 3px rgba(18, 88, 182, 0.2),
+    0 12px 25px rgba(18, 88, 182, 0.24);
 }
 
 .weather-hourly time,
-.weather-hourly small {
+.weather-hourly button small {
   color: #60738e;
   font-size: 0.66rem;
   font-weight: 700;
 }
 
-.weather-hourly svg {
+.weather-hourly button > svg {
   width: 21px;
   height: 21px;
   color: #1462cb;
 }
 
-.weather-hourly strong {
+.weather-hourly button > strong {
   color: #123868;
   font-size: 0.88rem;
 }
 
-.weather-hourly span {
+.weather-hourly button > span {
   display: flex;
   align-items: center;
   gap: 3px;
@@ -4029,9 +4076,98 @@ kbd {
   font-weight: 700;
 }
 
-.weather-hourly span svg {
+.weather-hourly button > span svg {
   width: 11px;
   height: 11px;
+}
+
+.weather-hourly button.is-current time,
+.weather-hourly button.is-current small,
+.weather-hourly button.is-current > strong,
+.weather-hourly button.is-current > span,
+.weather-hourly button.is-current > svg {
+  color: #ffffff;
+}
+
+.weather-hour-badge {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: #1258b6;
+  background: #ffffff;
+  font-size: 0.52rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.weather-selected-detail {
+  display: grid;
+  grid-template-columns: auto minmax(170px, 1fr) minmax(360px, 0.9fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 11px 15px;
+  border: 1px solid rgba(117, 162, 205, 0.34);
+  border-radius: 15px;
+  color: #173b6b;
+  background: rgba(240, 248, 255, 0.78);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.weather-selected-detail > svg {
+  width: 22px;
+  height: 22px;
+  color: #145fc7;
+}
+
+.weather-selected-detail > div {
+  display: grid;
+  gap: 2px;
+}
+
+.weather-selected-detail > div span {
+  color: #677b96;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.weather-selected-detail > div strong {
+  color: var(--navy);
+  font-size: 0.84rem;
+}
+
+.weather-selected-detail dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+}
+
+.weather-selected-detail dl > div {
+  padding: 0 11px;
+  border-left: 1px solid #d4e2f1;
+}
+
+.weather-selected-detail dt {
+  color: #687c97;
+  font-size: 0.58rem;
+  font-weight: 700;
+}
+
+.weather-selected-detail dd {
+  margin: 3px 0 0;
+  color: #153a6c;
+  font-size: 0.75rem;
+  font-weight: 800;
 }
 
 .weather-source {
@@ -4246,9 +4382,24 @@ kbd {
     display: none;
   }
 
-  .weather-hourly article {
+  .weather-hourly button {
     flex: 0 0 92px;
     scroll-snap-align: start;
+  }
+
+  .weather-selected-detail {
+    grid-template-columns: auto 1fr;
+    gap: 8px 10px;
+    padding: 11px 12px;
+  }
+
+  .weather-selected-detail dl {
+    grid-column: 1 / -1;
+  }
+
+  .weather-selected-detail dl > div:first-child {
+    padding-left: 0;
+    border-left: 0;
   }
 
   .weather-source {
@@ -4272,6 +4423,14 @@ kbd {
 @media (prefers-reduced-motion: reduce) {
   .weather-skeleton i {
     animation: none;
+  }
+
+  .weather-hourly button {
+    transition: none;
+  }
+
+  .weather-hourly button:hover {
+    transform: none;
   }
 }
 

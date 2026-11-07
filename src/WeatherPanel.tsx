@@ -5,6 +5,7 @@ import {
   CloudLightning,
   CloudRain,
   CloudSun,
+  Clock3,
   Droplets,
   ExternalLink,
   RefreshCw,
@@ -63,6 +64,7 @@ function WeatherSkeleton() {
 export default function WeatherPanel() {
   const [state, setState] = useState<WeatherState>({ status: "loading" });
   const [attempt, setAttempt] = useState(0);
+  const [selectedHourTime, setSelectedHourTime] = useState<string | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -132,6 +134,15 @@ export default function WeatherPanel() {
       wind: hourly.wind_speed_10m[index],
     }))
     .filter((_, index) => index % 3 === 0);
+  const currentTimestamp = localDate(current.time).getTime();
+  const activeHourIndex = hourlySamples.reduce(
+    (activeIndex, hour, index) =>
+      localDate(hour.time).getTime() <= currentTimestamp ? index : activeIndex,
+    0,
+  );
+  const selectedHour =
+    hourlySamples.find((hour) => hour.time === selectedHourTime) ??
+    hourlySamples[activeHourIndex];
 
   return (
     <section className="section container weather-section" aria-labelledby="weather-title">
@@ -172,15 +183,41 @@ export default function WeatherPanel() {
       </div>
 
       <div className="weather-hourly" aria-label="Three-hour weather forecast intervals">
-        {hourlySamples.map((hour) => (
-          <article key={hour.time}>
-            <time dateTime={hour.time}>{formatHour(hour.time)}</time>
-            <WeatherIcon code={hour.code} />
-            <strong>{Math.round(hour.temperature)}{hourlyUnits.temperature_2m}</strong>
-            <span><Droplets aria-hidden="true" /> {hour.rain}{hourlyUnits.precipitation_probability}</span>
-            <small>{Math.round(hour.wind)} {hourlyUnits.wind_speed_10m}</small>
-          </article>
-        ))}
+        {hourlySamples.map((hour, index) => {
+          const isCurrent = index === activeHourIndex;
+          const isSelected = hour.time === selectedHour.time;
+          return (
+            <button
+              type="button"
+              key={hour.time}
+              className={`${isCurrent ? "is-current " : ""}${isSelected ? "is-selected" : ""}`.trim()}
+              aria-current={isCurrent ? "time" : undefined}
+              aria-pressed={isSelected}
+              aria-label={`${formatHour(hour.time)} forecast: ${weatherCondition(hour.code)}, ${Math.round(hour.temperature)}${hourlyUnits.temperature_2m}, ${hour.rain}${hourlyUnits.precipitation_probability} chance of rain, wind ${Math.round(hour.wind)} ${hourlyUnits.wind_speed_10m}${isCurrent ? ", current hour" : ""}`}
+              onClick={() => setSelectedHourTime(hour.time)}
+            >
+              <time dateTime={hour.time}>{formatHour(hour.time)}</time>
+              {isCurrent && <em className="weather-hour-badge">Now</em>}
+              <WeatherIcon code={hour.code} />
+              <strong>{Math.round(hour.temperature)}{hourlyUnits.temperature_2m}</strong>
+              <span><Droplets aria-hidden="true" /> {hour.rain}{hourlyUnits.precipitation_probability}</span>
+              <small>{Math.round(hour.wind)} {hourlyUnits.wind_speed_10m}</small>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="weather-selected-detail" role="status" aria-live="polite">
+        <Clock3 aria-hidden="true" />
+        <div>
+          <span>{selectedHour.time === hourlySamples[activeHourIndex].time ? "Current-hour details" : "Selected forecast"}</span>
+          <strong>{formatHour(selectedHour.time)} · {weatherCondition(selectedHour.code)}</strong>
+        </div>
+        <dl>
+          <div><dt>Temperature</dt><dd>{Math.round(selectedHour.temperature)}{hourlyUnits.temperature_2m}</dd></div>
+          <div><dt>Rain chance</dt><dd>{selectedHour.rain}{hourlyUnits.precipitation_probability}</dd></div>
+          <div><dt>Wind</dt><dd>{Math.round(selectedHour.wind)} {hourlyUnits.wind_speed_10m}</dd></div>
+        </dl>
       </div>
 
       <p className="weather-source">

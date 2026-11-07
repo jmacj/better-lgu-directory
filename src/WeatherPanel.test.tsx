@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import WeatherPanel from "./WeatherPanel";
 
 const forecast = {
@@ -64,10 +64,25 @@ describe("Malaybalay weather", () => {
     expect(screen.getByText("Mainly clear")).toBeInTheDocument();
     expect(screen.getByText(/Rain is likely/i)).toBeInTheDocument();
     expect(screen.getAllByText(/km\/h/i).length).toBeGreaterThan(1);
-    expect(
-      screen.getByLabelText(/Three-hour weather forecast intervals/i)
-        .children,
-    ).toHaveLength(8);
+    const forecastRail = screen.getByLabelText(
+      /Three-hour weather forecast intervals/i,
+    );
+    expect(forecastRail.children).toHaveLength(8);
+    const currentHour = screen.getByRole("button", {
+      name: /1 AM forecast.*current hour/i,
+    });
+    expect(currentHour).toHaveAttribute("aria-current", "time");
+    expect(currentHour).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText("Now")).toBeInTheDocument();
+
+    const laterHour = screen.getByRole("button", {
+      name: /4 AM forecast/i,
+    });
+    fireEvent.click(laterHour);
+    expect(laterHour).toHaveAttribute("aria-pressed", "true");
+    expect(currentHour).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByText("Selected forecast")).toBeInTheDocument();
+    expect(screen.getByText(/4 AM · Partly cloudy/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Forecast methodology/i }),
     ).toHaveAttribute("href", "https://open-meteo.com/en/docs");

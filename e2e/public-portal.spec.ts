@@ -61,8 +61,17 @@ test("homepage presents current Malaybalay conditions and a 24-hour forecast", a
   await expect(
     page.getByRole("heading", { name: /Current conditions and the next 24 hours/i }),
   ).toBeVisible();
-  await expect(page.getByText("Partly cloudy")).toBeVisible();
-  await expect(page.locator(".weather-hourly article")).toHaveCount(8);
+  await expect(page.getByRole("heading", { name: "Partly cloudy", exact: true })).toBeVisible();
+  await expect(page.locator(".weather-hourly button")).toHaveCount(8);
+  const currentHour = page.locator(".weather-hourly button.is-current");
+  await expect(currentHour).toHaveCount(1);
+  await expect(currentHour).toHaveAttribute("aria-current", "time");
+  const laterHour = page.locator(".weather-hourly button").nth(1);
+  await laterHour.click();
+  await expect(laterHour).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".weather-selected-detail")).toContainText(
+    "Selected forecast",
+  );
   await expect(page.getByText(/model-based and may change/i)).toBeVisible();
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
