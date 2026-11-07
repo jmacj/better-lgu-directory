@@ -1673,3 +1673,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jcparucha](https://github.com/jcparucha)"
+- name: "Ocampo, Camarines Sur"
+  domain: "-"
+  repo: "[GitHub](https://github.com/ejsinfuego/betterocampo)"
+  repo_owner: "ejsinfuego"
+  repo_name: "betterocampo"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ejsinfuego](https://github.com/ejsinfuego)"
