@@ -1663,3 +1663,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@b0urbonn](https://github.com/b0urbonn)"
+- name: "Talavera, Nueva Ecija"
+  domain: "-"
+  repo: "[GitHub](https://github.com/jcparucha/bettertalavera)"
+  repo_owner: "jcparucha"
+  repo_name: "bettertalavera"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jcparucha](https://github.com/jcparucha)"
