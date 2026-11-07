@@ -118,9 +118,10 @@ The tags are applied by the repository maintainers during periodic reviews, neve
 
 If you have built a reusable starter template:
 
-1. Fork this repository.
-2. Add a row to the templates table in both `README.md` and `TEMPLATES.md`. Budget portal templates go in [`BUDGET_TEMPLATES.md`](BUDGET_TEMPLATES.md) only.
-3. Open a PR with the title format:
+1. Make your repository public and turn on **Template repository** under **Settings → General** on GitHub. See [creating a template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository). Budget portal templates follow the rules in [`BUDGET_TEMPLATES.md`](BUDGET_TEMPLATES.md) instead.
+2. Fork this repository.
+3. Add a row to the templates table in both `README.md` and `TEMPLATES.md`. Budget portal templates go in [`BUDGET_TEMPLATES.md`](BUDGET_TEMPLATES.md) only.
+4. Open a PR with the title format:
 
    ```
    Add template — [Template Name]

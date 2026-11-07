@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed the `Facebook` column to `Socials`, and updated `CONTRIBUTING.md`, the pull request template, and the update-entry issue template to match (socials are comma-separated).
 - Reframed the directory introduction toward a builder audience.
 - Expanded the Getting Started steps and added a directory deduplication gate to the guide; refreshed the tech stack and examples.
+- Community templates must now be public and marked as a GitHub template repository to be listed in `TEMPLATES.md`.
 - Numerous LGU status transitions as portals progressed (Planned → Work in Progress → Active), including Aparri, Allen, San Pablo, Libmanan, Iligan City, Cabanatuan City, Atimonan, San Pascual, and Calamba.
 
 ### Fixed
