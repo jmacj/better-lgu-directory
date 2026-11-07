@@ -166,6 +166,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Iriga, Camarines Sur | [betteririga.org](https://betteririga.org) |  [GitHub](https://github.com/ronhedwigzape/betteririga) | [Facebook](https://www.facebook.com/BetterIriga.org) | 🟢 Active | [@ronhedwigzape](https://github.com/ronhedwigzape) |
 | Marinduque Province | [bettermarinduque.vercel.app](https://bettermarinduque.vercel.app) | [GitHub](https://github.com/b0urbonn/bettermarinduque) | - | 🟡 Work in Progress | [@b0urbonn](https://github.com/b0urbonn) |
 | Talavera, Nueva Ecija               | -                                                             | [GitHub](https://github.com/jcparucha/bettertalavera)                          | -                                                                                                                                                           | 🟡 Work in Progress    | [@jcparucha](https://github.com/jcparucha)                                                                                       |
+| Ocampo, Camarines Sur | - | [GitHub](https://github.com/ejsinfuego/betterocampo) | - | 🟡 Work in Progress | [@ejsinfuego](https://github.com/ejsinfuego) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
