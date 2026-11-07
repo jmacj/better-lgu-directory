@@ -27,6 +27,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Cabanatuan City, Nueva Ecija | [transparency.bettercabanatuan.org](https://transparency.bettercabanatuan.org)   | 🧩 Integrated  | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan-transparency-portal)                | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
 | Marinduque Province          | [budget-bettermarinduque.vercel.app](https://budget-bettermarinduque.vercel.app) | 🧩 Integrated  | [GitHub](https://github.com/b0urbonn/transparency-portal)                                        | [@b0urbonn](https://github.com/b0urbonn)                                                     |
 | Bulacan Province | [budget-betterbulacan.vercel.app](https://budget-betterbulacan.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/KyneLaggui/transparency-portal-bulacan) | [@KyneLaggui](https://github.com/KyneLaggui) |
+| City of Manila, Metro Manila    | [transparency-portal.bettermanila.workers.dev](budget-betterbulacan.vercel.app)                            | 🏛️ Standalone | [GitHub](https://github.com/aeschyllus/transparency-portal-manila)                 | [@aeschyllus](https://github.com/aeschyllus)                                                     |
 
 <!-- SYNC_BUDGET_TABLE_END -->
 
