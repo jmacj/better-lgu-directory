@@ -1696,3 +1696,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@cj-catacutan](https://github.com/cj-catacutan)"
+- name: "Batangas City, Batangas"
+  domain: "-"
+  repo: "[GitHub](https://github.com/jrbenriquez/betterbatangascity/)"
+  repo_owner: "jrbenriquez"
+  repo_name: "betterbatangascity"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jrbenriquez](https://github.com/jrbenriquez)"
