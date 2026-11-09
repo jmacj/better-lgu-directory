@@ -123,3 +123,12 @@
   repo_owner: "KyneLaggui"
   repo_name: "transparency-portal-bulacan"
   maintainer: "[@KyneLaggui](https://github.com/KyneLaggui)"
+- name: "Calapan, Oriental Mindoro"
+  portal: "[budget.bettercalapan.org](https://budget.bettercalapan.org)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[bettercalapan.org](https://bettercalapan.org)"
+  repo: "[GitHub](https://github.com/bettercalapan/transparency)"
+  repo_owner: "bettercalapan"
+  repo_name: "transparency"
+  maintainer: "[@arvingarciabtw](https://github.com/arvingarciabtw)"
