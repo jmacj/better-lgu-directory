@@ -169,9 +169,9 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Ocampo, Camarines Sur | - | [GitHub](https://github.com/ejsinfuego/betterocampo) | - | 🟡 Work in Progress | [@ejsinfuego](https://github.com/ejsinfuego) |
 | Angono, Rizal | - | [GitHub](https://github.com/cj-catacutan/betterangono) | - | 🟡 Work in Progress | [@cj-catacutan](https://github.com/cj-catacutan) |
 
-| San Miguel, Bulacan | [bettersanmiguelbulacan.vercel.app](https://bettersanmiguelbulacan.vercel.app/) | [GitHub](https://github.com/zerozepol/bettersanmiguelbulacan) | - | 🟡 Work in Progress | [@zerozepol](https://github.com/zerozepol) |
-| Tanauan City, Batangas | [bettertanauanbatangas.vercel.app](https://bettertanauanbatangas.vercel.app/) | [GitHub](https://github.com/zerozepol/bettertanauanbatangas) | - | 🟡 Work in Progress | [@zerozepol](https://github.com/zerozepol) |
-| Dumangas, Iloilo | [betterdumangas.vercel.app](https://betterdumangas.vercel.app/) | [GitHub](https://github.com/zerozepol/betterdumangas) | - | 🟡 Work in Progress | [@zerozepol](https://github.com/zerozepol) |
+| San Miguel, Bulacan | [bettersanmiguelbulacan.vercel.app](https://bettersanmiguelbulacan.vercel.app/) | [GitHub](https://github.com/zerozepol/bettersanmiguelbulacan) | - | 🟢 Active | [@zerozepol](https://github.com/zerozepol) |
+| Tanauan City, Batangas | [bettertanauanbatangas.vercel.app](https://bettertanauanbatangas.vercel.app/) | [GitHub](https://github.com/zerozepol/bettertanauanbatangas) | - | 🟢 Active | [@zerozepol](https://github.com/zerozepol) |
+| Dumangas, Iloilo | [betterdumangas.vercel.app](https://betterdumangas.vercel.app/) | [GitHub](https://github.com/zerozepol/betterdumangas) | - | 🟢 Active | [@zerozepol](https://github.com/zerozepol) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
