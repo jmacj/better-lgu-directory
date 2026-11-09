@@ -27,6 +27,9 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Cabanatuan City, Nueva Ecija | [transparency.bettercabanatuan.org](https://transparency.bettercabanatuan.org)   | 🧩 Integrated  | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan-transparency-portal)                | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
 | Marinduque Province          | [budget-bettermarinduque.vercel.app](https://budget-bettermarinduque.vercel.app) | 🧩 Integrated  | [GitHub](https://github.com/b0urbonn/transparency-portal)                                        | [@b0urbonn](https://github.com/b0urbonn)                                                     |
 | Bulacan Province | [budget-betterbulacan.vercel.app](https://budget-betterbulacan.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/KyneLaggui/transparency-portal-bulacan) | [@KyneLaggui](https://github.com/KyneLaggui) |
+| Morong, Rizal | [budget.bettermorong.org](https://budget.bettermorong.org) | 🧩 Integrated | [GitHub](https://github.com/carlodandan/transparency-portal-morong) | [@carlodandan](https://github.com/carlodandan) |
+| Puerto Princesa City, Palawan | [budget.betterpuertoprincesa.org](https:/budget.betterpuertoprincesa.org) | 🧩 Integrated | [GitHub](https://github.com/BetterPuertoPrincesa/transparency-portal) | [@hmcldryl](https://github.com/hmcldryl) |
+| Calapan, Oriental Mindoro | [budget.bettercalapan.org](https://budget.bettercalapan.org) | 🧩 Integrated | [GitHub](https://github.com/bettercalapan/transparency) | [@arvingarciabtw](https://github.com/arvingarciabtw) |
 
 <!-- SYNC_BUDGET_TABLE_END -->
 
