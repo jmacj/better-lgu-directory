@@ -1327,12 +1327,12 @@
   open_for_adoption: false
   maintainer: "[@hplarozner](https://github.com/hplarozner)"
 - name: "Bagac, Bataan"
-  domain: "-"
+  domain: "[betterbagac.org](https://betterbagac.org)"
   repo: "[GitHub](https://github.com/betterbagac/betterbagac)"
   repo_owner: "betterbagac"
   repo_name: "betterbagac"
   socials: []
-  status: "🔵 Planned"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@jmrec](https://github.com/jmrec)"
