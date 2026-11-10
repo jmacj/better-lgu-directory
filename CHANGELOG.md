@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Budget Portal Directory**: a second directory at `lgu.bettergov.ph/BUDGET` for LGU budget transparency portals built on the BetterGov.ph Budget API. Its source is the table in `BUDGET.md`, synced to the website the same way `README.md` is. Each portal is `🧩 Integrated` (part of a Better LGU portal, linked to that LGU's directory entry) or `🏛️ Standalone`. There is no status column: portals are listed once they are live, with no advance registration. Seeded with Los Baños, Ilocos Norte, Bukidnon, Las Piñas City, Catanduanes, Silang, Batangas, Pampanga, and Taal. Integrated portals list the maintainers from their LGU's directory entry.
+- **Budget portal guide and templates**: `BUDGET_GUIDE.md` walks through the fork, `npm run setup`, and deploy steps of the official `bettergovph/transparency-portal` template, and `BUDGET_TEMPLATES.md` lists budget portal templates.
 - **Multi-platform Socials**: the directory's `Facebook` column is now a `Socials` column that supports multiple social links per LGU — Facebook, X, Instagram, LinkedIn, YouTube, TikTok, and Bluesky — rendered as platform icons on the website, with a generic fallback for any other link.
 - **Automated README → website sync**: a GitHub Actions workflow keeps the published website data in sync with the directory table in `README.md`.
 - **Discord reporting integration guide**: `GUIDE.md` now documents how maintainers can funnel citizen reports, feedback, or logs into the BetterGov.ph Discord via webhook — including the bot-protection prerequisite (reCAPTCHA, Turnstile, or rate-limiting) required before the mods issue a webhook URL.
@@ -22,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed the `Facebook` column to `Socials`, and updated `CONTRIBUTING.md`, the pull request template, and the update-entry issue template to match (socials are comma-separated).
 - Reframed the directory introduction toward a builder audience.
 - Expanded the Getting Started steps and added a directory deduplication gate to the guide; refreshed the tech stack and examples.
+- Community templates must now be public and marked as a GitHub template repository to be listed in `TEMPLATES.md`.
 - Numerous LGU status transitions as portals progressed (Planned → Work in Progress → Active), including Aparri, Allen, San Pablo, Libmanan, Iligan City, Cabanatuan City, Atimonan, San Pascual, and Calamba.
 
 ### Fixed
