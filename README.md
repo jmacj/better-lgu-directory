@@ -170,6 +170,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Angono, Rizal | - | [GitHub](https://github.com/cj-catacutan/betterangono) | - | 🟡 Work in Progress | [@cj-catacutan](https://github.com/cj-catacutan) |
 | Batangas City, Batangas | - | [GitHub](https://github.com/jrbenriquez/betterbatangascity/) | - | 🔵 Planned | [@jrbenriquez](https://github.com/jrbenriquez) |
 | Baao, Camarines Sur | - | [GitHub](https://github.com/alvagenesis/betterbaao/) | - | 🔵 Planned | [@alvagenesis](https://github.com/alvagenesis) |
+| Oriental Mindoro Province | [betterorientalmindoro.vercel.app](https://betterorientalmindoro.vercel.app) | [GitHub](https://github.com/renthelautomations/betterorientalmindoro) | - | 🟢 Active | [@renthelautomations](https://github.com/renthelautomations) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
