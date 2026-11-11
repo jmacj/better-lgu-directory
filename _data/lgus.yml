@@ -1706,3 +1706,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jrbenriquez](https://github.com/jrbenriquez)"
+- name: "Oriental Mindoro Province"
+  domain: "[betterorientalmindoro.vercel.app](https://betterorientalmindoro.vercel.app)"
+  repo: "[GitHub](https://github.com/renthelautomations/betterorientalmindoro)"
+  repo_owner: "renthelautomations"
+  repo_name: "betterorientalmindoro"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@renthelautomations](https://github.com/renthelautomations)"
