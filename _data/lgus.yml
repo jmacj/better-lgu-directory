@@ -1706,6 +1706,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jrbenriquez](https://github.com/jrbenriquez)"
+- name: "Baao, Camarines Sur"
+  domain: "-"
+  repo: "[GitHub](https://github.com/alvagenesis/betterbaao/)"
+  repo_owner: "alvagenesis"
+  repo_name: "betterbaao"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@alvagenesis](https://github.com/alvagenesis)"
 - name: "Oriental Mindoro Province"
   domain: "[betterorientalmindoro.vercel.app](https://betterorientalmindoro.vercel.app)"
   repo: "[GitHub](https://github.com/renthelautomations/betterorientalmindoro)"
