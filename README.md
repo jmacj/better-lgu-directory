@@ -170,6 +170,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Angono, Rizal | - | [GitHub](https://github.com/cj-catacutan/betterangono) | - | 🟡 Work in Progress | [@cj-catacutan](https://github.com/cj-catacutan) |
 | Batangas City, Batangas | - | [GitHub](https://github.com/jrbenriquez/betterbatangascity/) | - | 🔵 Planned | [@jrbenriquez](https://github.com/jrbenriquez) |
 
+| Miagao, Iloilo | [bettermiagao.org](https://bettermiagao.org) | [GitHub](https://github.com/joebertj/bettermiagao) | - | 🟢 Active | [@joebertj](https://github.com/joebertj) |
+
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
