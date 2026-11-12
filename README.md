@@ -171,7 +171,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Batangas City, Batangas | - | [GitHub](https://github.com/jrbenriquez/betterbatangascity/) | - | 🔵 Planned | [@jrbenriquez](https://github.com/jrbenriquez) |
 | Baao, Camarines Sur | - | [GitHub](https://github.com/alvagenesis/betterbaao/) | - | 🔵 Planned | [@alvagenesis](https://github.com/alvagenesis) |
 | Oriental Mindoro Province | [betterorientalmindoro.vercel.app](https://betterorientalmindoro.vercel.app) | [GitHub](https://github.com/renthelautomations/betterorientalmindoro) | - | 🟢 Active | [@renthelautomations](https://github.com/renthelautomations) |
-
+| Botolan, Zambales | - | - | - | 🔵 Planned | [Github](https://github.com/SilentPing) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
