@@ -172,6 +172,9 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Baao, Camarines Sur | - | [GitHub](https://github.com/alvagenesis/betterbaao/) | - | 🔵 Planned | [@alvagenesis](https://github.com/alvagenesis) |
 | Oriental Mindoro Province | [betterorientalmindoro.org](https://betterorientalmindoro.org) | [GitHub](https://github.com/renthelautomations/betterorientalmindoro) | - | 🟢 Active | [@renthelautomations](https://github.com/renthelautomations) |
 
+| San Miguel, Bulacan | [bettersanmiguelbulacan.vercel.app](https://bettersanmiguelbulacan.vercel.app/) | [GitHub](https://github.com/zerozepol/bettersanmiguelbulacan) | - | 🟢 Active | [@zerozepol](https://github.com/zerozepol) |
+| Tanauan City, Batangas | [bettertanauanbatangas.vercel.app](https://bettertanauanbatangas.vercel.app/) | [GitHub](https://github.com/zerozepol/bettertanauanbatangas) | - | 🟢 Active | [@zerozepol](https://github.com/zerozepol) |
+| Dumangas, Iloilo | [betterdumangas.vercel.app](https://betterdumangas.vercel.app/) | [GitHub](https://github.com/zerozepol/betterdumangas) | - | 🟢 Active | [@zerozepol](https://github.com/zerozepol) |
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
