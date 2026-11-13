@@ -1196,7 +1196,9 @@
   maintainer: "[@derkandre](https://github.com/derkandre)"
 - name: "Tacloban City, Leyte"
   domain: "-"
-  repo: "-"
+  repo: "[GitHub](https://github.com/zenabus/better-tacloban)"
+  repo_owner: "zenabus"
+  repo_name: "better-tacloban"
   socials: []
   status: "🔵 Planned"
   stale: false
