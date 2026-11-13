@@ -172,6 +172,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Baao, Camarines Sur | - | [GitHub](https://github.com/alvagenesis/betterbaao/) | - | 🔵 Planned | [@alvagenesis](https://github.com/alvagenesis) |
 | Oriental Mindoro Province | [betterorientalmindoro.org](https://betterorientalmindoro.org) | [GitHub](https://github.com/renthelautomations/betterorientalmindoro) | - | 🟢 Active | [@renthelautomations](https://github.com/renthelautomations) |
 
+| Miagao, Iloilo | [bettermiagao.org](https://bettermiagao.org) | [GitHub](https://github.com/joebertj/bettermiagao) | - | 🟢 Active | [@joebertj](https://github.com/joebertj) |
+
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
