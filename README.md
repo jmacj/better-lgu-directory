@@ -170,7 +170,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Angono, Rizal | - | [GitHub](https://github.com/cj-catacutan/betterangono) | - | 🟡 Work in Progress | [@cj-catacutan](https://github.com/cj-catacutan) |
 | Batangas City, Batangas | - | [GitHub](https://github.com/jrbenriquez/betterbatangascity/) | - | 🔵 Planned | [@jrbenriquez](https://github.com/jrbenriquez) |
 | Baao, Camarines Sur | - | [GitHub](https://github.com/alvagenesis/betterbaao/) | - | 🔵 Planned | [@alvagenesis](https://github.com/alvagenesis) |
-| Oriental Mindoro Province | [betterorientalmindoro.org](https://betterorientalmindoro.org) | [GitHub](https://github.com/renthelautomations/betterorientalmindoro) | - | 🟢 Active | [@renthelautomations](https://github.com/renthelautomations) |
+| Oriental Mindoro Province | [betterorientalmindoro.org](https://betterorientalmindoro.org) | [GitHub](https://github.com/renthelautomations/betterorientalmindoro) | [Facebook](https://www.facebook.com/betterorientalmindoro) | 🟢 Active | [@renthelautomations](https://github.com/renthelautomations) |
 | Miagao, Iloilo | [bettermiagao.org](https://bettermiagao.org) | [GitHub](https://github.com/joebertj/bettermiagao) | - | 🟢 Active | [@joebertj](https://github.com/joebertj) |
 | Malaybalay City, Bukidnon | [bettermalaybalay.cloud](https://www.bettermalaybalay.cloud) | [GitHub](https://github.com/lordzxxxx/BetterMC) | [Facebook](https://www.facebook.com/profile.php?id=61596547555480) | 🟢 Active | [@lordzxxxx](https://github.com/lordzxxxx) |
 | Magallanes, Sorsogon | - | [Github](https://github.com/the-name-romel/bettermagallanes)| - | 🔵 Planned | [@the-name-romel](https://github.com/the-name-romel) |
