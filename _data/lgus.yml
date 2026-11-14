@@ -393,12 +393,12 @@
   open_for_adoption: false
   maintainer: "[@AstroMC98](https://github.com/AstroMC98)"
 - name: "Bulakan, Bulacan"
-  domain: "[betterbulakan.vercel.app](https://betterbulakan.vercel.app)"
+  domain: "[betterbulakan.org](https://betterbulakan.org/)"
   repo: "[GitHub](https://github.com/kuyacarlo/betterbulakan)"
   repo_owner: "kuyacarlo"
   repo_name: "betterbulakan"
   socials: []
-  status: "🟡 Work in Progress"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@kuyacarlo](https://github.com/kuyacarlo)"
