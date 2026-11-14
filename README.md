@@ -206,11 +206,12 @@ Tags are applied by the repository maintainers during periodic reviews, never au
 
 These templates are provided by the community to help you get started quickly.
 
-| Template                 | Stack              | Repository                                             | Description                                                 |
-|--------------------------|--------------------|--------------------------------------------------------|-------------------------------------------------------------|
-| Better Solano Starter    | React + TypeScript | [GitHub](https://github.com/BetterSolano/bettersolano) | Starter template based on the BetterSolano implementation   |
-| Better Los Baños Starter | React + TypeScript | [GitHub](https://github.com/BetterLosBanos/betterlb)   | Starter template based on the BetterLosBaños implementation |
-| Better Local Gov         | React + TypeScript | [GitHub](https://github.com/iyanski/betterlocalgov)    | Local Government Website Starter Kit                        |
+| Template                 | Stack              | Repository                                             | Description                                                                 |
+|--------------------------|--------------------|--------------------------------------------------------|-----------------------------------------------------------------------------|
+| Better Solano Starter    | React + TypeScript | [GitHub](https://github.com/BetterSolano/bettersolano) | Starter template based on the BetterSolano implementation                   |
+| Better Los Baños Starter | React + TypeScript | [GitHub](https://github.com/BetterLosBanos/betterlb)   | Starter template based on the BetterLosBaños implementation                 |
+| Better Local Gov         | React + TypeScript | [GitHub](https://github.com/iyanski/betterlocalgov)    | Local Government Website Starter Kit                                        |
+| Better Palo Starter      | Astro + TypeScript | [GitHub](https://github.com/BetterPalo/BetterPalo)     | Starter template based on the BetterPalo implementation |
 
 > Have a template to contribute? Open a PR and add it to this table and to [TEMPLATES.md](TEMPLATES.md).
 
