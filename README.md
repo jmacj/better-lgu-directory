@@ -175,6 +175,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Malaybalay City, Bukidnon | [bettermalaybalay.cloud](https://www.bettermalaybalay.cloud) | [GitHub](https://github.com/lordzxxxx/BetterMC) | [Facebook](https://www.facebook.com/profile.php?id=61596547555480) | 🟢 Active | [@lordzxxxx](https://github.com/lordzxxxx) |
 | Magallanes, Sorsogon | - | [Github](https://github.com/the-name-romel/bettermagallanes)| - | 🔵 Planned | [@the-name-romel](https://github.com/the-name-romel) |
 | Corella, Bohol | - | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🔵 Planned | [@ashdroidcmd](https://github.com/ashdroidcmd) |
+| Candaba, Pampanga | - | [GitHub](https://github.com/bulsu-kpdeguzman/bettercandaba) | - | 🟡 Work in Progress | [@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
