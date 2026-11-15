@@ -661,8 +661,8 @@
   repo: "-"
   socials: []
   status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
+  stale: true
+  open_for_adoption: true
   maintainer: "[@eljohn2001](https://github.com/eljohn2001)"
 - name: "Agoo, La Union"
   domain: "[betteragoo.org](https://betteragoo.org/)"
@@ -742,8 +742,8 @@
   repo: "-"
   socials: []
   status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
+  stale: true
+  open_for_adoption: true
   maintainer: "[@PostNZT](https://github.com/PostNZT)"
 - name: "Tandag City, Surigao del Sur"
   domain: "-"
@@ -780,8 +780,8 @@
   repo: "-"
   socials: []
   status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
+  stale: true
+  open_for_adoption: true
   maintainer: "[@stinkymonkeyph](https://github.com/stinkymonkeyph)"
 - name: "Aborlan, Palawan"
   domain: "[betteraborlan.org](https://betteraborlan.org)"
@@ -803,8 +803,8 @@
   repo_name: "betterquezoncity"
   socials: []
   status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
+  stale: true
+  open_for_adoption: true
   maintainer: "[@brixavengoza](https://github.com/brixavengoza)"
 - name: "Kabugao, Apayao"
   domain: "[betterkabugao.org](https://betterkabugao.org)"
@@ -840,9 +840,9 @@
   repo: "-"
   socials: []
   status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@yazunom](https://github.com/yazunom)"
+  stale: true
+  open_for_adoption: true
+  maintainer: "[@yazunomii](https://github.com/yazunomii)"
 - name: "Pasig City, Metro Manila"
   domain: "-"
   repo: "[GitHub](https://github.com/ericvelasco-dev/betterpasig)"
@@ -900,8 +900,8 @@
   repo: "-"
   socials: []
   status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
+  stale: true
+  open_for_adoption: true
   maintainer: "[@denvdev](https://github.com/denvdev)"
 - name: "City of Mati, Davao Oriental"
   domain: "-"
@@ -1053,8 +1053,8 @@
   repo: "-"
   socials: []
   status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
+  stale: true
+  open_for_adoption: true
   maintainer: "[@gab26g](https://github.com/gab26g)"
 - name: "Makati City, Metro Manila"
   domain: "[bettermakati.org](https://bettermakati.org)"
@@ -1178,8 +1178,8 @@
   repo: "-"
   socials: []
   status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
+  stale: true
+  open_for_adoption: true
   maintainer: "[@theheavenlyhacker](https://github.com/theheavenlyhacker)"
 - name: "Maasin City, Southern Leyte"
   domain: "[bettermaasin.netlify.app](https://bettermaasin.netlify.app)"
