@@ -1238,10 +1238,12 @@
   open_for_adoption: false
   maintainer: "[@byrai](https://github.com/byrai), [@Vhyron](https://github.com/Vhyron), [@Oniely](https://github.com/Oniely)"
 - name: "San Jose City, Nueva Ecija"
-  domain: "-"
-  repo: "-"
+  domain: "[sanjose.betternuevaecija.org](https://sanjose.betternuevaecija.org)"
+  repo: "[GitHub](https://github.com/denver6000/bettersanjosecity-ne)"
+  repo_owner: "denver6000"
+  repo_name: "bettersanjosecity-ne"
   socials: []
-  status: "🔵 Planned"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
   maintainer: "[@denver6000](https://github.com/denver6000), [@kurt-farinas](https://github.com/kurt-farinas)"
