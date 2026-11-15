@@ -1628,7 +1628,7 @@
   open_for_adoption: false
   maintainer: "[@Arxenic](https://github.com/Arxenic)"
 - name: "Palo, Leyte"
-  domain: "-"
+  domain: "[betterpalo.betterpalogov.workers.dev](https://betterpalo.betterpalogov.workers.dev)"
   repo: "[GitHub](https://github.com/BetterPalo/BetterPalo)"
   repo_owner: "BetterPalo"
   repo_name: "BetterPalo"
@@ -1636,7 +1636,7 @@
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@Zyxavy](https://github.com/Zyxavy)"
+  maintainer: "[@Zyxavy](https://github.com/Zyxavy), [@khalmahi](https://github.com/khalmahi), [@jaimedesu](https://github.com/jaimedesu), [@Rurur8](https://github.com/Rurur8), [@STR4T-coder](https://github.com/STR4T-coder)"
 - name: "Carmona, Cavite"
   domain: "[bettercarmona.org](https://bettercarmona.org)"
   repo: "[GitHub](https://github.com/carlolim/bettercarmona)"
