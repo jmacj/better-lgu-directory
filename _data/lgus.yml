@@ -1773,3 +1773,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ashdroidcmd](https://github.com/ashdroidcmd)"
+- name: "Candaba, Pampanga"
+  domain: "-"
+  repo: "[GitHub](https://github.com/bulsu-kpdeguzman/bettercandaba)"
+  repo_owner: "bulsu-kpdeguzman"
+  repo_name: "bettercandaba"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman)"
