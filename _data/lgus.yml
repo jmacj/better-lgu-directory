@@ -1751,3 +1751,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@lordzxxxx](https://github.com/lordzxxxx)"
+- name: "Magallanes, Sorsogon"
+  domain: "-"
+  repo: "[Github](https://github.com/the-name-romel/bettermagallanes)"
+  repo_owner: "the-name-romel"
+  repo_name: "bettermagallanes"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@the-name-romel](https://github.com/the-name-romel)"
