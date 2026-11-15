@@ -1763,3 +1763,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@the-name-romel](https://github.com/the-name-romel)"
+- name: "Corella, Bohol"
+  domain: "-"
+  repo: "[GitHub](https://github.com/ashdroidcmd/bettercorella)"
+  repo_owner: "ashdroidcmd"
+  repo_name: "bettercorella"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ashdroidcmd](https://github.com/ashdroidcmd)"
