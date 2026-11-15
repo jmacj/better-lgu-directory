@@ -1738,3 +1738,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@joebertj](https://github.com/joebertj)"
+- name: "Malaybalay City, Bukidnon"
+  domain: "[bettermalaybalay.cloud](https://www.bettermalaybalay.cloud)"
+  repo: "[GitHub](https://github.com/lordzxxxx/BetterMC)"
+  repo_owner: "lordzxxxx"
+  repo_name: "BetterMC"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/profile.php?id=61596547555480"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@lordzxxxx](https://github.com/lordzxxxx)"
