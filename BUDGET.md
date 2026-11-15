@@ -32,6 +32,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Morong, Rizal | [budget.bettermorong.org](https://budget.bettermorong.org) | 🧩 Integrated | [GitHub](https://github.com/carlodandan/transparency-portal-morong) | [@carlodandan](https://github.com/carlodandan) |
 | Puerto Princesa City, Palawan | [budget.betterpuertoprincesa.org](https:/budget.betterpuertoprincesa.org) | 🧩 Integrated | [GitHub](https://github.com/BetterPuertoPrincesa/transparency-portal) | [@hmcldryl](https://github.com/hmcldryl) |
 | Calapan, Oriental Mindoro | [budget.bettercalapan.org](https://budget.bettercalapan.org) | 🧩 Integrated | [GitHub](https://github.com/bettercalapan/transparency) | [@arvingarciabtw](https://github.com/arvingarciabtw) |
+| Liloan, Cebu | [budget.betterliloan.org](https://budget.betterliloan.org) | 🧩 Integrated | [GitHub](https://github.com/Neil-urk12/liloan-transparency-portal) | [@Neil-urk12](https://github.com/Neil-urk12) |
 
 <!-- SYNC_BUDGET_TABLE_END -->
 
