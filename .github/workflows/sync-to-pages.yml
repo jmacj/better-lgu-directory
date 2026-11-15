@@ -47,6 +47,10 @@ jobs:
         run: |
           node scripts/sync-to-data.js
 
+      - name: Generate Budget Portal Data
+        run: |
+          node scripts/sync-budget-to-data.js
+
       - name: Generate Featured Portal Metadata
         run: |
           node scripts/crawl-lgu-meta.js
