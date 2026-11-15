@@ -168,3 +168,12 @@
   repo_owner: "bettercalapan"
   repo_name: "transparency"
   maintainer: "[@arvingarciabtw](https://github.com/arvingarciabtw)"
+- name: "Miagao, Iloilo"
+  portal: "[bettermiagao.org/budget](https://bettermiagao.org/budget)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[bettermiagao.org](https://bettermiagao.org)"
+  repo: "[GitHub](https://github.com/joebertj/bettermiagao)"
+  repo_owner: "joebertj"
+  repo_name: "bettermiagao"
+  maintainer: "[@joebertj](https://github.com/joebertj)"
