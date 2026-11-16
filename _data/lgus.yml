@@ -1783,3 +1783,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman)"
+- name: "Catarman, Northern Samar"
+  domain: "[bettercatarman.org](https://bettercatarman.org/)"
+  repo: "[GitHub](https://github.com/jpdevdotcom/better-catarman-northsamar)"
+  repo_owner: "jpdevdotcom"
+  repo_name: "better-catarman-northsamar"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jpdevdotcom](https://github.com/jpdevdotcom)"
