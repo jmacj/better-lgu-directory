@@ -176,6 +176,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Magallanes, Sorsogon | - | [Github](https://github.com/the-name-romel/bettermagallanes)| - | 🔵 Planned | [@the-name-romel](https://github.com/the-name-romel) |
 | Corella, Bohol | - | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🔵 Planned | [@ashdroidcmd](https://github.com/ashdroidcmd) |
 | Candaba, Pampanga | - | [GitHub](https://github.com/bulsu-kpdeguzman/bettercandaba) | - | 🟡 Work in Progress | [@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman) |
+| Santo Domingo, Ilocos Sur | - | [GitHub](https://github.com/tanojericko/bettersantodomingo-ilocossur) | - | 🔵 Planned | [@tanojericko](https://github.com/tanojericko) |
 | Catarman, Northern Samar | [bettercatarman.org](https://bettercatarman.org/) | [GitHub](https://github.com/jpdevdotcom/better-catarman-northsamar) | - | 🟢 Active | [@jpdevdotcom](https://github.com/jpdevdotcom) |
 
 <!-- SYNC_LGU_TABLE_END -->
