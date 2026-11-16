@@ -13,6 +13,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const { syncLgus, lgusToYaml } = require('./sync-to-data.js');
+const { listedHandles } = require('./sync-budget-to-data.js');
 
 let failures = 0;
 function test(name, fn) {
@@ -90,6 +91,26 @@ test('the real README.md syncs, and every listed Maintainer gets a link', () => 
             assert.ok(lgu.maintainers.length > 0, `${lgu.name} has a Maintainer/s cell but no resolved links`);
         }
     }
+});
+
+console.log('sync-budget-to-data: listedHandles');
+
+test('collects every Maintainer handle from both tables', () => {
+    const budget = [
+        '<!-- SYNC_BUDGET_TABLE_START -->',
+        '| LGU | Portal | Type | Repository | Maintainer/s |',
+        '|-----|--------|------|------------|--------------|',
+        '| Silang, Cavite | [s.org](https://s.org) | 🏛️ Standalone | - | [@maria](https://github.com/maria) |',
+        '<!-- SYNC_BUDGET_TABLE_END -->',
+    ].join('\n');
+    const handles = listedHandles(readme(
+        '| Alpha, Laguna | - | - | - | 🔵 Planned | [@juan](https://github.com/juan), @pedro |',
+    ), budget);
+    assert.deepStrictEqual(handles, ['juan', 'pedro', 'maria']);
+});
+
+test('a missing or marker-less file contributes no handles instead of failing', () => {
+    assert.deepStrictEqual(listedHandles('', 'no markers'), []);
 });
 
 if (failures > 0) {

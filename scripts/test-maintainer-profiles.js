@@ -345,6 +345,15 @@ test('a filename that is not a GitHub handle is flagged', () => {
     assert.ok(problems.some(p => /filename/.test(p.message)), JSON.stringify(problems));
 });
 
+test('a file nested below the profiles folder is flagged, not skipped', () => {
+    const problems = review({
+        changes: [{ status: 'A', path: 'maintainers/juan/profile.md' }],
+        headFiles: new Map([['maintainers/juan/profile.md', profile('name: Juan')]]),
+    });
+    assert.ok(Array.isArray(problems), 'expected the PR to be reviewed');
+    assert.ok(problems.some(p => p.path === 'maintainers/juan/profile.md' && /directly in/.test(p.message)), JSON.stringify(problems));
+});
+
 test('an opt-in that forgets the index bullet is flagged', () => {
     const problems = review({ headIndex: index() });
     assert.ok(problems.some(p => p.path === 'maintainers/README.md' && /no bullet/.test(p.message)), JSON.stringify(problems));

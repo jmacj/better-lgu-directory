@@ -26,6 +26,7 @@ const {
     validateLgu,
     yamlStr,
 } = require('./sync-to-data');
+const { extractHandles } = require('./maintainer-profiles');
 
 const BUDGET_PATH = path.join(__dirname, '../BUDGET.md');
 const BUDGET_DATA_PATH = process.argv[2] || path.join(__dirname, '../_data/budget_portals.yml');
@@ -151,6 +152,24 @@ function syncBudget(budgetContent, readmeContent, profilePaths = []) {
     return portals;
 }
 
+// Every handle in a Maintainer/s cell of README.md (column 6) or BUDGET.md
+// (column 5) — the Maintainers allowed a Maintainer Profile (#426). A file
+// that is empty or has lost its markers contributes nothing rather than
+// failing: callers (triage, the orphan report) are advisory.
+function listedHandles(readmeContent, budgetContent) {
+    const column = (content, start, end, source, index) => {
+        try {
+            return parseTable(content, start, end, source).map(cells => cells[index] || '');
+        } catch {
+            return [];
+        }
+    };
+    return [
+        ...column(readmeContent, LGU_START, LGU_END, 'README.md', 5),
+        ...column(budgetContent, BUDGET_START, BUDGET_END, 'BUDGET.md', 4),
+    ].flatMap(extractHandles);
+}
+
 function main() {
     console.log('🚀 Starting sync from BUDGET.md to Budget Portal Data...');
     let readmeContent = '';
@@ -178,8 +197,7 @@ if (require.main === module) {
 
 module.exports = {
     BUDGET_PATH,
-    BUDGET_START,
-    BUDGET_END,
+    listedHandles,
     INTEGRATED,
     STANDALONE,
     validateBudgetPortal,

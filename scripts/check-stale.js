@@ -23,8 +23,8 @@
 const fs = require('fs');
 const { execFileSync } = require('child_process');
 
-const { extractHandles, findOrphans } = require('./maintainer-profiles.js');
-const { BUDGET_PATH, BUDGET_START, BUDGET_END } = require('./sync-budget-to-data.js');
+const { findOrphans } = require('./maintainer-profiles.js');
+const { BUDGET_PATH, listedHandles } = require('./sync-budget-to-data.js');
 const {
     README_PATH,
     readProfilePaths,
@@ -237,7 +237,6 @@ function main() {
     reportOrphanedProfiles(readme);
 }
 
-// Maintainer/s cells live in column 6 of README.md and column 5 of BUDGET.md.
 function reportOrphanedProfiles(readme) {
     let budget = '';
     try {
@@ -245,12 +244,8 @@ function reportOrphanedProfiles(readme) {
     } catch {
         console.warn('⚠️  BUDGET.md not found — Budget Portal Maintainers are not counted as listed.');
     }
-    const listed = [
-        ...parseTable(readme, TABLE_START, TABLE_END).map(cells => cells[5] || ''),
-        ...(budget ? parseTable(budget, BUDGET_START, BUDGET_END, 'BUDGET.md').map(cells => cells[4] || '') : []),
-    ].flatMap(extractHandles);
 
-    const orphans = findOrphans(listed, readProfilePaths());
+    const orphans = findOrphans(listedHandles(readme, budget), readProfilePaths());
     if (orphans.length === 0) {
         console.log('✅ No orphaned Maintainer Profiles.');
         return;

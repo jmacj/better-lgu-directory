@@ -280,8 +280,12 @@ function indexMismatches(indexContent, profilePaths) {
 
 const INDEX_PATH = `${PROFILES_DIR}/README.md`;
 
-function inProfilesDir(path) {
-    return path.startsWith(`${PROFILES_DIR}/`) && !path.slice(PROFILES_DIR.length + 1).includes('/');
+function underProfilesDir(path) {
+    return path.startsWith(`${PROFILES_DIR}/`);
+}
+
+function nestedInProfilesDir(path) {
+    return path.slice(PROFILES_DIR.length + 1).includes('/');
 }
 
 function isIndexPath(path) {
@@ -309,7 +313,7 @@ function isTemplatePath(path) {
  * profile. Adding or editing one is the owner's act only.
  */
 function reviewProfileChanges({ author, changes, headFiles, headProfilePaths, headIndex, listedHandles }) {
-    const touched = changes.filter(change => inProfilesDir(change.path));
+    const touched = changes.filter(change => underProfilesDir(change.path));
     if (touched.length === 0) {
         return null;
     }
@@ -318,7 +322,15 @@ function reviewProfileChanges({ author, changes, headFiles, headProfilePaths, he
     const listed = new Set(listedHandles.map(handle => handle.toLowerCase()));
 
     for (const { status, path } of touched) {
-        if (status === 'D' || isIndexPath(path) || isTemplatePath(path)) {
+        if (status === 'D') {
+            continue;
+        }
+        if (nestedInProfilesDir(path)) {
+            // Jekyll would still publish it, so it can't be silently skipped.
+            problems.push({ path, message: `Maintainer Profiles go directly in \`${PROFILES_DIR}/\`, as \`${PROFILES_DIR}/your-handle.md\` — no subfolders` });
+            continue;
+        }
+        if (isIndexPath(path) || isTemplatePath(path)) {
             continue;
         }
         const handle = profileHandle(path);

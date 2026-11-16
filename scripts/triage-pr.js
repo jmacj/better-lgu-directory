@@ -29,12 +29,8 @@
 
 const fs = require('fs');
 const { execFileSync } = require('child_process');
-const {
-    PROFILES_DIR,
-    INDEX_PATH,
-    extractHandles,
-    reviewProfileChanges,
-} = require('./maintainer-profiles');
+const { PROFILES_DIR, INDEX_PATH, reviewProfileChanges } = require('./maintainer-profiles');
+const { listedHandles } = require('./sync-budget-to-data');
 
 const START_MARKER = '<!-- SYNC_LGU_TABLE_START -->';
 const END_MARKER = '<!-- SYNC_LGU_TABLE_END -->';
@@ -411,33 +407,14 @@ function profileReviewFromGit({ headRef, mergeBase, author }) {
     const headFiles = new Map(changes
         .filter(change => change.status !== 'D')
         .map(change => [change.path, showAt(headRef, change.path)]));
-    const listedHandles = [
-        ...cellsInTable(showAt(headRef, 'README.md'), '<!-- SYNC_LGU_TABLE_START -->', '<!-- SYNC_LGU_TABLE_END -->', 5),
-        ...cellsInTable(showAt(headRef, 'BUDGET.md'), '<!-- SYNC_BUDGET_TABLE_START -->', '<!-- SYNC_BUDGET_TABLE_END -->', 4),
-    ].flatMap(extractHandles);
-
     return reviewProfileChanges({
         author,
         changes,
         headFiles,
         headProfilePaths,
         headIndex: showAt(headRef, INDEX_PATH),
-        listedHandles,
+        listedHandles: listedHandles(showAt(headRef, 'README.md'), showAt(headRef, 'BUDGET.md')),
     });
-}
-
-// One column's cells from a marker-delimited table; [] when the markers are missing.
-function cellsInTable(content, start, end, column) {
-    const startIdx = content.indexOf(start);
-    const endIdx = content.indexOf(end);
-    if (startIdx === -1 || endIdx === -1 || endIdx < startIdx) {
-        return [];
-    }
-    return content.substring(startIdx + start.length, endIdx)
-        .split('\n')
-        .filter(line => line.trim().startsWith('|'))
-        .slice(2)
-        .map(line => line.split('|').map(cell => cell.trim()).slice(1, -1)[column] || '');
 }
 
 function profileNotes(problems) {

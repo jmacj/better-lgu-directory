@@ -1,8 +1,9 @@
 name: Triage Directory PR
 
 # pull_request_target so forks get a write-scoped token. The job checks out the
-# base branch and only ever reads the pull request's README.md as data — no
-# contributor code is executed.
+# base branch and only ever reads the pull request's files as data — README.md,
+# plus BUDGET.md and maintainers/ as git blobs for the Maintainer Profile
+# review — so no contributor code is executed.
 #
 # workflow_dispatch exists to triage a pull request that was already open when
 # this workflow landed, since nothing re-fires for those on its own.
