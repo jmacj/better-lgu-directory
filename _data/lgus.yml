@@ -1783,6 +1783,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman)"
+- name: "Santo Domingo, Ilocos Sur"
+  domain: "-"
+  repo: "[GitHub](https://github.com/tanojericko/bettersantodomingo-ilocossur)"
+  repo_owner: "tanojericko"
+  repo_name: "bettersantodomingo-ilocossur"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@tanojericko](https://github.com/tanojericko)"
 - name: "Catarman, Northern Samar"
   domain: "[bettercatarman.org](https://bettercatarman.org/)"
   repo: "[GitHub](https://github.com/jpdevdotcom/better-catarman-northsamar)"
