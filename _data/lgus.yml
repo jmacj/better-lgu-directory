@@ -189,12 +189,15 @@
   open_for_adoption: false
   maintainer: "[@manalilib](https://github.com/manalilib)"
 - name: "San Pedro, Laguna"
-  domain: "-"
+  domain: "[bettersanpedro.org](https://bettersanpedro.org)"
   repo: "[GitHub](https://github.com/sechipeanut/BetterSanPedro)"
   repo_owner: "sechipeanut"
   repo_name: "BetterSanPedro"
-  socials: []
-  status: "🟡 Work in Progress"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettersanpedro.org"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@sechipeanut](https://github.com/sechipeanut)"
