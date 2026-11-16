@@ -28,11 +28,9 @@ Examples of unacceptable behavior include:
 
 Some Maintainers publish a [Maintainer Profile](maintainers/README.md) saying how they want to be reached. A Maintainer Profile is an invitation to get in touch about the portal they maintain, on their terms. If you use one:
 
-* Contact a Maintainer only about their portal or this directory. No spam, recruiting, sales pitches, or unrelated requests.
-* Respect what their profile says they're **not a fit for**, and the channels and languages they prefer.
-* Do not scrape, compile, or republish Maintainer Profile contact details, whether into a list, a mailing list, a dataset, or another site.
-* Do not look for contact details of Maintainers who haven't published a profile. Being listed as a Maintainer is not consent to be contacted.
-* Take no for an answer, and don't follow up on a channel they didn't offer.
+* No spam, recruiting, or sales pitches.
+* Do not scrape or compile Maintainer Profile contact data.
+* Respect what each profile says the Maintainer is **not a fit for**.
 
 Misuse of Maintainer Profiles is a violation of this Code of Conduct and is handled under the enforcement process below. See also the [privacy notice](PRIVACY.md).
 
