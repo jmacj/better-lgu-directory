@@ -7,7 +7,7 @@ This notice covers the BetterLGU Directory: this repository and the website buil
 
 ## What the directory publishes
 
-**GitHub handles of Maintainers.** Each LGU and budget portal lists the GitHub handles of the people who build or run it, in its Maintainer/s column. Those handles are added in public pull requests, usually by the Maintainers themselves. Being listed doesn't mean a Maintainer wants to be contacted.
+**GitHub handles of Maintainers.** Each LGU and budget portal lists the GitHub handles of the people who build or run it, in its Maintainer/s column. Those handles are added in public pull requests, usually by the Maintainers themselves.
 
 **Maintainer Profiles, only if a Maintainer adds one.** A Maintainer can opt in by publishing a [Maintainer Profile](maintainers/README.md): a file they write themselves, saying how contributors may reach them (for example an email address, Messenger, Discord, Telegram, LinkedIn, or a website), what they're open to, and what they're not a fit for. The directory publishes only what the Maintainer puts in their own profile. It never collects contact details from GitHub profiles, commits, or anywhere else on anyone's behalf.
 

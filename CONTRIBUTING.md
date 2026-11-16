@@ -112,7 +112,7 @@ The tags are applied by Directory Maintainers during periodic reviews, never by 
 
 ## Publishing a Maintainer Profile
 
-If you're listed as a Maintainer of an LGU in `README.md` or a budget portal in `BUDGET.md`, you can publish a **Maintainer Profile**: one markdown file saying how contributors may reach you, what you're open to (collaborators, mentoring, code review), and what you're not a fit for. It's opt-in. Being listed as a Maintainer doesn't mean you want to be contacted, and nobody publishes a profile for you.
+If you're listed as a Maintainer of an LGU in `README.md` or a budget portal in `BUDGET.md`, you can publish a **Maintainer Profile**: one markdown file saying how contributors may reach you, what you're open to (collaborators, mentoring, code review), and what you're not a fit for. It's opt-in, and nobody publishes a profile for you.
 
 1. Read the [privacy notice](PRIVACY.md). Everything in your profile is public, and removing it later doesn't erase git history or forks.
 2. Copy [`maintainers/_template.md`](maintainers/_template.md) to `maintainers/<your-github-handle>.md`. The filename is the only record of whose profile it is.
