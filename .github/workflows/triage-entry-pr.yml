@@ -44,6 +44,7 @@ jobs:
           fetch-depth: 0
 
       - name: Read both sides of the diff
+        id: read
         if: steps.guard.outputs.open == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -63,6 +64,12 @@ jobs:
           git show "${merge_base}:README.md" > "${RUNNER_TEMP}/base-README.md"
           git show refs/remotes/pr/head:README.md > "${RUNNER_TEMP}/head-README.md"
 
+          # For the Maintainer Profile review (#426): triage-pr.js reads the
+          # profile files as git blobs between these two points, and checks
+          # the author against each profile's handle.
+          echo "merge_base=${merge_base}" >> "$GITHUB_OUTPUT"
+          echo "author=$(gh pr view "$PR" --json author --jq .author.login)" >> "$GITHUB_OUTPUT"
+
       - uses: actions/setup-node@v7
         if: steps.guard.outputs.open == 'true'
         with:
@@ -73,6 +80,9 @@ jobs:
         if: steps.guard.outputs.open == 'true'
         env:
           COMMENT_FILE: ${{ runner.temp }}/triage-comment.md
+          PR_HEAD_REF: refs/remotes/pr/head
+          MERGE_BASE: ${{ steps.read.outputs.merge_base }}
+          PR_AUTHOR: ${{ steps.read.outputs.author }}
         run: node scripts/triage-pr.js "${RUNNER_TEMP}/base-README.md" "${RUNNER_TEMP}/head-README.md"
 
       - name: Apply labels

@@ -63,6 +63,29 @@ test('Maintainer/s cell is taken as written, for both types', () => {
     assert.strictEqual(s.maintainer, '[@x](https://github.com/x)');
 });
 
+test('Maintainers carry resolved links, given the profile paths (#426)', () => {
+    const [p] = syncBudget(budget(
+        `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | [@Juan](https://github.com/Juan), [@x](https://github.com/x) |`,
+    ), README, ['maintainers/README.md', 'maintainers/juan.md']);
+    assert.strictEqual(p.maintainer, '[@Juan](https://github.com/Juan), [@x](https://github.com/x)');
+    assert.deepStrictEqual(p.maintainers, [
+        { handle: 'Juan', url: '/maintainers/juan/', profile: true },
+        { handle: 'x', url: 'https://github.com/x', profile: false },
+    ]);
+    const yaml = toYaml([p]);
+    assert.ok(yaml.includes('  maintainers:\n    - handle: "Juan"\n      url: "/maintainers/juan/"\n      profile: true'), yaml);
+});
+
+test('without profile paths, Maintainers link to GitHub and an empty cell has none', () => {
+    const [a, b] = syncBudget(budget(
+        `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | @x |`,
+        `| Taal, Batangas | [t.org](https://t.org) | ${STANDALONE} | - | - |`,
+    ), README);
+    assert.deepStrictEqual(a.maintainers, [{ handle: 'x', url: 'https://github.com/x', profile: false }]);
+    assert.deepStrictEqual(b.maintainers, []);
+    assert.ok(toYaml([b]).includes('  maintainers: []'));
+});
+
 test('integrated row whose Entry has no domain gets "-"', () => {
     const [p] = syncBudget(budget(
         `| Ilocos Norte Province | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | - |`,

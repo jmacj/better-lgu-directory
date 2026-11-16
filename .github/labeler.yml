@@ -26,6 +26,8 @@ site:
           - assets/**
           - scripts/sync-to-data.js
           - scripts/sync-budget-to-data.js
+          - scripts/sync-profiles-to-data.js
+          - scripts/maintainer-profiles.js
           - "**/*.html"
 
 ci:
@@ -46,3 +48,4 @@ docs:
           - CONTRIBUTING.md
           - GUIDE.md
           - BUDGET_GUIDE.md
+          - PRIVACY.md

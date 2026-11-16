@@ -6,8 +6,9 @@
 // Better LGU Entry: its LGU cell must match that Entry's name in README.md
 // exactly, and the Entry's Domain is copied in as `parent_domain` — falling
 // back to "-" with a warning if the Entry or README can't be found. Its
-// Maintainer/s cell is copied by hand from the Entry's README row. Offline,
-// no network calls.
+// Maintainer/s cell is copied by hand from the Entry's README row, and each
+// Maintainer's link is resolved against the Maintainer Profiles folder
+// (#426). Offline, no network calls.
 //
 // Usage: node scripts/sync-budget-to-data.js [output-path]
 
@@ -16,6 +17,9 @@ const path = require('path');
 const {
     README_PATH,
     EMPTY_MARKERS,
+    readProfilePaths,
+    maintainerLinks,
+    formatMaintainersYaml,
     parseTable,
     normalizeDash,
     parseRepoCell,
@@ -124,13 +128,18 @@ function toYaml(portals) {
             ? [`  repo_owner: "${yamlStr(p.repoOwner)}"`, `  repo_name: "${yamlStr(p.repoName)}"`]
             : []),
         `  maintainer: "${yamlStr(p.maintainer)}"`,
+        formatMaintainersYaml(p.maintainers),
     ].join('\n')).join('\n');
 }
 
-function syncBudget(budgetContent, readmeContent) {
+// `profilePaths` lists the Maintainer Profiles folder (#426), so each
+// Maintainer's link can be resolved; omitted, every Maintainer links to GitHub.
+function syncBudget(budgetContent, readmeContent, profilePaths = []) {
     const entriesByName = indexEntries(readmeContent);
     const rows = parseTable(budgetContent, BUDGET_START, BUDGET_END, 'BUDGET.md');
-    const portals = rows.map((cells, i) => validateBudgetPortal(cells, i, entriesByName));
+    const portals = rows
+        .map((cells, i) => validateBudgetPortal(cells, i, entriesByName))
+        .map(p => ({ ...p, maintainers: maintainerLinks(p.maintainer, profilePaths) }));
 
     const seen = new Set();
     for (const p of portals) {
@@ -150,7 +159,7 @@ function main() {
     } catch (error) {
         // indexEntries() then warns and every parent falls back to "-".
     }
-    const portals = syncBudget(fs.readFileSync(BUDGET_PATH, 'utf8'), readmeContent);
+    const portals = syncBudget(fs.readFileSync(BUDGET_PATH, 'utf8'), readmeContent, readProfilePaths());
     console.log(`✅ Validated ${portals.length} Budget Portal entries.`);
 
     fs.mkdirSync(path.dirname(BUDGET_DATA_PATH), { recursive: true });
@@ -168,6 +177,9 @@ if (require.main === module) {
 }
 
 module.exports = {
+    BUDGET_PATH,
+    BUDGET_START,
+    BUDGET_END,
     INTEGRATED,
     STANDALONE,
     validateBudgetPortal,

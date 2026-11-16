@@ -13,13 +13,21 @@
 // deliberately not wired into CI. Elapsed time is a prompt to look, not the only
 // thing that makes an entry stale, so tagging stays a manual judgement call.
 //
+// It also reports orphaned Maintainer Profiles (#426): profile files whose
+// handle no longer appears in any Maintainer/s cell of README.md or BUDGET.md
+// — after an adoption hand-off, or a renamed or deleted GitHub account. Those
+// are reported too, never deleted: removal is a Directory Maintainer's call.
+//
 // Usage: node scripts/check-stale.js [--days 30]
 
 const fs = require('fs');
 const { execFileSync } = require('child_process');
 
+const { extractHandles, findOrphans } = require('./maintainer-profiles.js');
+const { BUDGET_PATH, BUDGET_START, BUDGET_END } = require('./sync-budget-to-data.js');
 const {
     README_PATH,
+    readProfilePaths,
     STALE_TAG,
     ADOPTION_TAG,
     STALE_AFTER_DAYS,
@@ -212,19 +220,46 @@ function main() {
 
     if (shouldTag.length === 0 && shouldUntag.length === 0) {
         console.log('\n✅ Tags match the threshold — nothing to change.');
+    } else {
+        console.log('\nSuggested changes — your call, not the script\'s:');
+
+        for (const { name, ageDays, updatedAt } of shouldTag) {
+            console.log(`  ➕ ${name} — last updated ${updatedAt} (${ageDays} days ago); consider adding "${STALE_TAG}" and "${ADOPTION_TAG}".`);
+        }
+
+        for (const { name, ageDays, updatedAt } of shouldUntag) {
+            console.log(`  ➖ ${name} — last updated ${updatedAt} (${ageDays} days ago); consider removing "${STALE_TAG}" and "${ADOPTION_TAG}".`);
+        }
+
+        process.exitCode = 1;
+    }
+
+    reportOrphanedProfiles(readme);
+}
+
+// Maintainer/s cells live in column 6 of README.md and column 5 of BUDGET.md.
+function reportOrphanedProfiles(readme) {
+    let budget = '';
+    try {
+        budget = fs.readFileSync(BUDGET_PATH, 'utf8');
+    } catch {
+        console.warn('⚠️  BUDGET.md not found — Budget Portal Maintainers are not counted as listed.');
+    }
+    const listed = [
+        ...parseTable(readme, TABLE_START, TABLE_END).map(cells => cells[5] || ''),
+        ...(budget ? parseTable(budget, BUDGET_START, BUDGET_END, 'BUDGET.md').map(cells => cells[4] || '') : []),
+    ].flatMap(extractHandles);
+
+    const orphans = findOrphans(listed, readProfilePaths());
+    if (orphans.length === 0) {
+        console.log('✅ No orphaned Maintainer Profiles.');
         return;
     }
 
-    console.log('\nSuggested changes — your call, not the script\'s:');
-
-    for (const { name, ageDays, updatedAt } of shouldTag) {
-        console.log(`  ➕ ${name} — last updated ${updatedAt} (${ageDays} days ago); consider adding "${STALE_TAG}" and "${ADOPTION_TAG}".`);
+    console.log('\nOrphaned Maintainer Profiles — handle no longer in any Maintainer/s cell of README.md or BUDGET.md. Your call, not the script\'s:');
+    for (const path of orphans) {
+        console.log(`  👤 ${path} — check for a renamed account or a hand-off; ask the owner, then remove it if it should go.`);
     }
-
-    for (const { name, ageDays, updatedAt } of shouldUntag) {
-        console.log(`  ➖ ${name} — last updated ${updatedAt} (${ageDays} days ago); consider removing "${STALE_TAG}" and "${ADOPTION_TAG}".`);
-    }
-
     process.exitCode = 1;
 }
 

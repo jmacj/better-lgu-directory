@@ -11,14 +11,30 @@
  *   docs                README changed, but no directory row did
  *
  * Collisions are reported, never acted on: two municipalities in different
- * provinces can share a name, so a maintainer makes the duplicate vs.
- * coordination call.
+ * provinces can share a name, so a Directory Maintainer makes the duplicate
+ * vs. coordination call.
+ *
+ * Pull requests that touch the Maintainer Profiles folder (#426) also get an
+ * advisory review — author ≠ the profile's handle, invalid front matter or a
+ * phone number, a handle in no Maintainer/s cell, the index out of step with
+ * the files. Problems add `needs-verification` and a comment section; never a
+ * failing check. That review needs git, not just the two READMEs, so it runs
+ * only when $PR_HEAD_REF, $MERGE_BASE and $PR_AUTHOR are set. It reads the
+ * pull request's files as git blobs (`git show`), never from a checkout, so
+ * nothing in the pull request is executed or followed as a symlink.
  *
  * Usage: node scripts/triage-pr.js <base-readme> <head-readme>
  * Writes `labels` to $GITHUB_OUTPUT and a comment body to $COMMENT_FILE.
  */
 
 const fs = require('fs');
+const { execFileSync } = require('child_process');
+const {
+    PROFILES_DIR,
+    INDEX_PATH,
+    extractHandles,
+    reviewProfileChanges,
+} = require('./maintainer-profiles');
 
 const START_MARKER = '<!-- SYNC_LGU_TABLE_START -->';
 const END_MARKER = '<!-- SYNC_LGU_TABLE_END -->';
@@ -250,17 +266,10 @@ function describe(result) {
     return `HTTP ${result.status}${redirected}`;
 }
 
-async function main() {
-    const [basePath, headPath] = process.argv.slice(2);
-    if (!basePath || !headPath) {
-        throw new Error('Usage: node scripts/triage-pr.js <base-readme> <head-readme>');
-    }
-
-    const baseContent = fs.readFileSync(basePath, 'utf8');
-    const headContent = fs.readFileSync(headPath, 'utf8');
-
+// The README.md directory-table review. Returns { labels, notes }.
+async function triageDirectory(baseContent, headContent) {
     if (baseContent === headContent) {
-        return { labels: [], comment: '' };
+        return { labels: [], notes: [] };
     }
 
     const baseRows = parseRows(baseContent);
@@ -269,7 +278,7 @@ async function main() {
     if (!baseRows || !headRows) {
         // Table markers are missing on one side — that is a review problem, not
         // something to guess about.
-        return { labels: [], comment: '' };
+        return { labels: [], notes: [] };
     }
 
     const { added, changed, removed, basePools } = diffRows(baseRows, headRows);
@@ -362,6 +371,108 @@ async function main() {
         notes.push('- **Socials** — the Better LGU project\'s own page, not the local government\'s official account and not a personal profile.');
         notes.push('- **Maintainer** — the GitHub account of the person or people listed.');
         notes.push('\nOnce they all check out, remove `needs-verification`.\n');
+    }
+
+    return { labels: [...labels], notes };
+}
+
+function git(args) {
+    return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+}
+
+// A file's text at a ref, or '' when it doesn't exist there.
+function showAt(ref, path) {
+    try {
+        return git(['show', `${ref}:${path}`]);
+    } catch {
+        return '';
+    }
+}
+
+// Gathers the Maintainer Profile review's inputs from git — the changed paths
+// since the merge base, and the head's profiles, index and Maintainer/s cells
+// — and runs the pure review. Returns null when the PR touches no profiles.
+function profileReviewFromGit({ headRef, mergeBase, author }) {
+    // -z output alternates status and path: "A\0maintainers/x.md\0M\0…"
+    const tokens = git(['diff', '--name-status', '--no-renames', '-z', mergeBase, headRef, '--', `${PROFILES_DIR}/`])
+        .split('\0')
+        .filter(Boolean);
+    const changes = [];
+    for (let i = 0; i + 1 < tokens.length; i += 2) {
+        changes.push({ status: tokens[i][0], path: tokens[i + 1] });
+    }
+    if (changes.length === 0) {
+        return null;
+    }
+
+    const headProfilePaths = git(['ls-tree', '-z', '--name-only', headRef, '--', `${PROFILES_DIR}/`])
+        .split('\0')
+        .filter(Boolean);
+    const headFiles = new Map(changes
+        .filter(change => change.status !== 'D')
+        .map(change => [change.path, showAt(headRef, change.path)]));
+    const listedHandles = [
+        ...cellsInTable(showAt(headRef, 'README.md'), '<!-- SYNC_LGU_TABLE_START -->', '<!-- SYNC_LGU_TABLE_END -->', 5),
+        ...cellsInTable(showAt(headRef, 'BUDGET.md'), '<!-- SYNC_BUDGET_TABLE_START -->', '<!-- SYNC_BUDGET_TABLE_END -->', 4),
+    ].flatMap(extractHandles);
+
+    return reviewProfileChanges({
+        author,
+        changes,
+        headFiles,
+        headProfilePaths,
+        headIndex: showAt(headRef, INDEX_PATH),
+        listedHandles,
+    });
+}
+
+// One column's cells from a marker-delimited table; [] when the markers are missing.
+function cellsInTable(content, start, end, column) {
+    const startIdx = content.indexOf(start);
+    const endIdx = content.indexOf(end);
+    if (startIdx === -1 || endIdx === -1 || endIdx < startIdx) {
+        return [];
+    }
+    return content.substring(startIdx + start.length, endIdx)
+        .split('\n')
+        .filter(line => line.trim().startsWith('|'))
+        .slice(2)
+        .map(line => line.split('|').map(cell => cell.trim()).slice(1, -1)[column] || '');
+}
+
+function profileNotes(problems) {
+    const notes = ['### Maintainer Profile\n'];
+    if (problems.length === 0) {
+        notes.push('This pull request touches Maintainer Profiles, and the automated checks found nothing to flag. Still confirm it was opened by the person whose profile it is.\n');
+        return notes;
+    }
+    for (const { path, message } of problems) {
+        notes.push(`- \`${path}\` — ${message}`);
+    }
+    const repo = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'jmacj/better-lgu-directory'}/blob/main`;
+    notes.push(`\nA Maintainer Profile publishes someone's contact details, so only its owner may add or edit it — a Directory Maintainer may only delete one. See [\`maintainers/README.md\`](${repo}/maintainers/README.md) and [\`PRIVACY.md\`](${repo}/PRIVACY.md). Once these are resolved, remove \`needs-verification\`.\n`);
+    return notes;
+}
+
+async function main() {
+    const [basePath, headPath] = process.argv.slice(2);
+    if (!basePath || !headPath) {
+        throw new Error('Usage: node scripts/triage-pr.js <base-readme> <head-readme>');
+    }
+
+    const directory = await triageDirectory(fs.readFileSync(basePath, 'utf8'), fs.readFileSync(headPath, 'utf8'));
+    const labels = new Set(directory.labels);
+    const notes = [...directory.notes];
+
+    const { PR_HEAD_REF, MERGE_BASE, PR_AUTHOR } = process.env;
+    if (PR_HEAD_REF && MERGE_BASE && PR_AUTHOR) {
+        const problems = profileReviewFromGit({ headRef: PR_HEAD_REF, mergeBase: MERGE_BASE, author: PR_AUTHOR });
+        if (problems !== null) {
+            notes.push(...profileNotes(problems));
+            if (problems.length > 0) {
+                labels.add('needs-verification');
+            }
+        }
     }
 
     return {
