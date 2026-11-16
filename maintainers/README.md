@@ -1,7 +1,3 @@
----
-title: Maintainers
-permalink: /maintainers/
----
 # Maintainer Profiles
 
 Maintainers who are happy to hear from contributors. Each person listed here added their own Maintainer Profile, which says how to reach them, what they're open to, and what they're not a fit for. **Being listed here means they want to be contacted.**
