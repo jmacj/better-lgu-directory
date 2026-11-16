@@ -1,6 +1,3 @@
----
-title: Privacy
----
 # Privacy Notice
 
 This notice covers the BetterLGU Directory: this repository and the website built from it at [lgu.bettergov.ph](https://lgu.bettergov.ph). It explains what the directory publishes about people, why, and what your browser loads when you visit the site.
