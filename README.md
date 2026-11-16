@@ -177,6 +177,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Corella, Bohol | - | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🔵 Planned | [@ashdroidcmd](https://github.com/ashdroidcmd) |
 | Candaba, Pampanga | - | [GitHub](https://github.com/bulsu-kpdeguzman/bettercandaba) | - | 🟡 Work in Progress | [@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman) |
 | Catarman, Northern Samar | [bettercatarman.org](https://bettercatarman.org/) | [GitHub](https://github.com/jpdevdotcom/better-catarman-northsamar) | - | 🟢 Active | [@jpdevdotcom](https://github.com/jpdevdotcom) |
+| Antipolo City, Rizal | - | - | - | 🔵 Planned | [@frvfrvr](https://github.com/frvfrvr) | [Github](https://github.com/frvfrvr/betterantipolo) | -
 
 <!-- SYNC_LGU_TABLE_END -->
 
