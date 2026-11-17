@@ -34,57 +34,52 @@ function check(condition, message) {
     assert.ok(condition, message);
 }
 
-// The settled URL map from #429: source file -> [new URL, old URL].
-const FROM_MAIN = {
-    'GUIDE.md': ['/guide', '/GUIDE'],
-    'TEMPLATES.md': ['/templates', '/TEMPLATES'],
-    'CONTRIBUTING.md': ['/contributing', '/CONTRIBUTING'],
-    'CODE_OF_CONDUCT.md': ['/code-of-conduct', '/CODE_OF_CONDUCT'],
-    'CHANGELOG.md': ['/changelog', '/CHANGELOG'],
-    'BUDGET_GUIDE.md': ['/budget-guide', '/BUDGET_GUIDE'],
-    'BUDGET_TEMPLATES.md': ['/budget-templates', '/BUDGET_TEMPLATES'],
-    'PRIVACY.md': ['/privacy', '/PRIVACY'],
-};
+// The settled URL map from #429: source file -> new URL, old URL, and
+// whether the file comes from main (URL set in _config.yml defaults).
+const PAGES = [
+    { file: 'GUIDE.md', url: '/guide', oldUrl: '/GUIDE', fromMain: true },
+    { file: 'TEMPLATES.md', url: '/templates', oldUrl: '/TEMPLATES', fromMain: true },
+    { file: 'CONTRIBUTING.md', url: '/contributing', oldUrl: '/CONTRIBUTING', fromMain: true },
+    { file: 'CODE_OF_CONDUCT.md', url: '/code-of-conduct', oldUrl: '/CODE_OF_CONDUCT', fromMain: true },
+    { file: 'CHANGELOG.md', url: '/changelog', oldUrl: '/CHANGELOG', fromMain: true },
+    { file: 'BUDGET_GUIDE.md', url: '/budget-guide', oldUrl: '/BUDGET_GUIDE', fromMain: true },
+    { file: 'BUDGET_TEMPLATES.md', url: '/budget-templates', oldUrl: '/BUDGET_TEMPLATES', fromMain: true },
+    { file: 'PRIVACY.md', url: '/privacy', oldUrl: '/PRIVACY', fromMain: true },
+    { file: 'budget-directory.md', url: '/budget', oldUrl: '/BUDGET', fromMain: false },
+];
 
-// Reads the `values` of the _config.yml defaults entry scoped to exactly
-// `scopePath`. Handles the flat shape this config uses: scalar values and
-// one-level lists, two-space indentation.
+// Parses the flat YAML this repo uses (scalars and one-level lists) from
+// lines whose keys sit at `indent` spaces.
+function parseFlatYaml(lines, indent) {
+    const pad = ' '.repeat(indent);
+    const values = {};
+    let listKey = null;
+    for (const line of lines) {
+        if (!line.startsWith(pad)) break;
+        const item = line.slice(indent).match(/^ {2}- "?([^"]*)"?$/);
+        if (item && listKey) { values[listKey].push(item[1]); continue; }
+        const kv = line.slice(indent).match(/^([a-z_]+):\s*(.*)$/);
+        if (!kv) continue;
+        if (kv[2] === '') { listKey = kv[1]; values[listKey] = []; }
+        else { listKey = null; values[kv[1]] = kv[2].replace(/^"|"$/g, ''); }
+    }
+    return values;
+}
+
+// The `values` of the _config.yml defaults entry scoped to exactly `scopePath`.
 function defaultsFor(config, scopePath) {
-    const entries = config.split(/\n  - scope:\n/).slice(1);
-    for (const entry of entries) {
+    for (const entry of config.split(/\n  - scope:\n/).slice(1)) {
         const lines = entry.split('\n');
         const pathLine = lines.find((l) => /^ {6}path:/.test(l));
         if (!pathLine || pathLine.replace(/^ {6}path:\s*/, '').replace(/"/g, '') !== scopePath) continue;
-        const values = {};
-        let listKey = null;
-        for (const line of lines.slice(lines.indexOf('    values:') + 1)) {
-            if (!/^ {6}/.test(line)) break;
-            const item = line.match(/^ {8}- "?([^"]*)"?$/);
-            if (item && listKey) { values[listKey].push(item[1]); continue; }
-            const kv = line.match(/^ {6}([a-z_]+):\s*(.*)$/);
-            if (!kv) continue;
-            if (kv[2] === '') { listKey = kv[1]; values[listKey] = []; }
-            else { listKey = null; values[kv[1]] = kv[2].replace(/^"|"$/g, ''); }
-        }
-        return values;
+        return parseFlatYaml(lines.slice(lines.indexOf('    values:') + 1), 6);
     }
     return null;
 }
 
 function frontMatter(text) {
     const block = text.match(/^---\n([\s\S]*?)\n---/);
-    const values = {};
-    if (!block) return values;
-    let listKey = null;
-    for (const line of block[1].split('\n')) {
-        const item = line.match(/^ {2}- "?([^"]*)"?$/);
-        if (item && listKey) { values[listKey].push(item[1]); continue; }
-        const kv = line.match(/^([a-z_]+):\s*(.*)$/);
-        if (!kv) continue;
-        if (kv[2] === '') { listKey = kv[1]; values[listKey] = []; }
-        else { listKey = null; values[kv[1]] = kv[2].replace(/^"|"$/g, ''); }
-    }
-    return values;
+    return block ? parseFlatYaml(block[1].split('\n').filter((l) => !l.startsWith('#')), 0) : {};
 }
 
 // --- URL map -------------------------------------------------------------
@@ -94,34 +89,42 @@ const config = read('_config.yml');
 check(/^plugins:\n(?: {2}- .*\n)*? {2}- jekyll-redirect-from$/m.test(config),
     '_config.yml enables the jekyll-redirect-from plugin');
 
-for (const [file, [url, oldUrl]] of Object.entries(FROM_MAIN)) {
-    const values = defaultsFor(config, file);
-    check(values, `${file} has a _config.yml defaults entry`);
-    check(values.permalink === url, `${file} is served at ${url} (got ${values.permalink})`);
-    check(!/^permalink:|^redirect_from:/m.test(read(file).split(/\n---\n/)[0]),
-        `${file} sets its URL in _config.yml, not front matter`);
+for (const { file, url, fromMain } of PAGES) {
+    if (fromMain) {
+        const values = defaultsFor(config, file);
+        check(values, `${file} has a _config.yml defaults entry`);
+        check(values.permalink === url, `${file} is served at ${url} (got ${values.permalink})`);
+        check(!/^permalink:/m.test(read(file).split(/\n---\n/)[0]),
+            `${file} sets its URL in _config.yml, not front matter`);
+    } else {
+        const permalink = frontMatter(read(file)).permalink;
+        check(permalink === url, `${file} is served at ${url} (got ${permalink})`);
+    }
 }
 
-const budget = frontMatter(read('budget-directory.md'));
-check(budget.permalink === '/budget', `budget-directory.md is served at /budget (got ${budget.permalink})`);
+// --- Redirects -------------------------------------------------------------
 
 // Every old URL has exactly one redirect stub pointing at its new URL.
-const REDIRECTS = { ...Object.fromEntries(Object.values(FROM_MAIN).map(([url, oldUrl]) => [oldUrl, url])), '/BUDGET': '/budget' };
 const stubs = fs.readdirSync(path.join(ROOT, 'redirects'))
     .map((f) => frontMatter(read(`redirects/${f}`)));
-for (const [oldUrl, url] of Object.entries(REDIRECTS)) {
+for (const { url, oldUrl } of PAGES) {
     const matching = stubs.filter((stub) => stub.permalink === oldUrl);
     check(matching.length === 1, `exactly one redirects/ stub serves ${oldUrl} (found ${matching.length})`);
     check(matching[0].redirect_to === url, `${oldUrl} redirects to ${url} (got ${matching[0].redirect_to})`);
 }
-check(stubs.length === Object.keys(REDIRECTS).length, 'redirects/ holds only the #429 stubs');
+check(stubs.length === PAGES.length, 'redirects/ holds only the #429 stubs');
+
+// Redirects stay on the host that served them. jekyll-redirect-from prefixes
+// redirect_to with site.url, and _config.yml's url is not the live domain
+// (CNAME), so the site's redirect layout must strip it.
+check(/remove_first: site\.url/.test(read('_layouts/redirect.html')),
+    '_layouts/redirect.html strips site.url from the redirect target');
 
 // --- Template links --------------------------------------------------------
 // Nav, footer and in-page links built with relative_url point at the
 // lowercase URLs. (Relative .md links in content need nothing: the
 // jekyll-relative-links plugin rewrites them to the target's permalink.)
 
-const OLD_URLS = [...Object.values(FROM_MAIN).map(([, oldUrl]) => oldUrl), '/BUDGET'];
 const templates = [
     ...fs.readdirSync(path.join(ROOT, '_layouts')).map((f) => `_layouts/${f}`),
     ...fs.readdirSync(path.join(ROOT, '_includes')).map((f) => `_includes/${f}`),
@@ -129,9 +132,9 @@ const templates = [
 ];
 for (const file of templates) {
     const text = read(file);
-    for (const oldUrl of OLD_URLS) {
+    for (const { oldUrl } of PAGES) {
         check(!text.includes(`'${oldUrl}'`), `${file} links to ${oldUrl}; use the lowercase URL`);
     }
 }
 
-console.log(`ok -${assertions} assertions passed`);
+console.log(`✅ ${assertions} assertions passed.`);

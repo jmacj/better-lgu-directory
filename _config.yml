@@ -39,7 +39,10 @@ defaults:
   # Lowercase URLs (#429). The filenames on main stay uppercase (GitHub
   # conventions), so the published URL is set here rather than in their front
   # matter, which keeps the sync merge conflict-free. The redirects from the
-  # old uppercase URLs are the stub pages in redirects/.
+  # old uppercase URLs are the stub pages in redirects/. Each old/new pair
+  # builds two files differing only in case (GUIDE.html, guide.html), so a
+  # local build on a case-insensitive filesystem (macOS, Windows) overwrites
+  # one with the other. GitHub Pages builds on Linux and is unaffected.
   - scope:
       path: "GUIDE.md"
     values:
@@ -75,7 +78,7 @@ exclude:
   # GitHub index for Maintainer Profiles (#426). The site's /maintainers/ page
   # is maintainers.md, rendered from _data/maintainer_profiles.yml.
   - "maintainers/README.md"
-  # Source table for /BUDGET (budget-directory.md renders it from _data).
+  # Source table for /budget (budget-directory.md renders it from _data).
   - "BUDGET.md"
   - ".github"
   - ".idea"
