@@ -31,6 +31,7 @@ const fs = require('fs');
 const { execFileSync } = require('child_process');
 const { PROFILES_DIR, INDEX_PATH, reviewProfileChanges } = require('./maintainer-profiles');
 const { listedHandles } = require('./sync-budget-to-data');
+const { parseLguName, compareLguNames, placement } = require('./lgu-name');
 
 const START_MARKER = '<!-- SYNC_LGU_TABLE_START -->';
 const END_MARKER = '<!-- SYNC_LGU_TABLE_END -->';
@@ -262,6 +263,56 @@ function describe(result) {
     return `HTTP ${result.status}${redirected}`;
 }
 
+const NAMING_GUIDE = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'jmacj/better-lgu-directory'}/blob/main/CONTRIBUTING.md#naming-your-lgu`;
+
+// LGU Name warnings (#307) for the added and changed rows: a name outside the
+// grammar or with an unknown province, and a row out of sort order, with
+// where it belongs. Warnings only — no label, never blocking; the sync is
+// what refuses a bad name after merge.
+function nameNotes(headRows, touchedRows) {
+    const invalid = [];
+    const misplaced = [];
+    for (const row of touchedRows) {
+        const name = row.cells[0];
+        try {
+            parseLguName(name);
+        } catch (error) {
+            invalid.push(`- **${name}** — ${error.detail || error.message}`);
+            continue;
+        }
+        const index = headRows.indexOf(row);
+        const neighbour = (step) => {
+            for (let i = index + step; i >= 0 && i < headRows.length; i += step) {
+                try {
+                    parseLguName(headRows[i].cells[0]);
+                    return headRows[i].cells[0];
+                } catch {
+                    // skip rows that don't parse
+                }
+            }
+            return null;
+        };
+        const previous = neighbour(-1);
+        const next = neighbour(1);
+        if ((previous && compareLguNames(previous, name) > 0) || (next && compareLguNames(name, next) > 0)) {
+            const { after, before } = placement(name, headRows.filter(other => other !== row).map(other => other.cells[0]));
+            const where = [after && `after **${after}**`, before && `before **${before}**`].filter(Boolean).join(' and ');
+            misplaced.push(`- **${name}** belongs ${where}.`);
+        }
+    }
+
+    const notes = [];
+    if (invalid.length > 0) {
+        notes.push('### LGU name format\n', ...invalid);
+        notes.push(`\nEvery LGU name follows one format, so the directory can be sorted and filtered. See [Naming your LGU](${NAMING_GUIDE}).\n`);
+    }
+    if (misplaced.length > 0) {
+        notes.push('### Row order\n', ...misplaced);
+        notes.push(`\nThe table is sorted A–Z by place name. See [Naming your LGU](${NAMING_GUIDE}) for where a row goes.\n`);
+    }
+    return notes;
+}
+
 // The README.md directory-table review. Returns { labels, notes }.
 async function triageDirectory(baseContent, headContent) {
     if (baseContent === headContent) {
@@ -329,6 +380,8 @@ async function triageDirectory(baseContent, headContent) {
         }
         notes.push('');
     }
+
+    notes.push(...nameNotes(headRows, [...added, ...changed.map(entry => entry.row)]));
 
     if (removed.length > 0) {
         notes.push('### Rows removed\n');

@@ -27,6 +27,7 @@ const {
     yamlStr,
 } = require('./sync-to-data');
 const { extractHandles } = require('./maintainer-profiles');
+const { parseLguName } = require('./lgu-name');
 
 const BUDGET_PATH = path.join(__dirname, '../BUDGET.md');
 const BUDGET_DATA_PATH = process.argv[2] || path.join(__dirname, '../_data/budget_portals.yml');
@@ -85,6 +86,14 @@ function validateBudgetPortal(cells, index, entriesByName) {
 
     if (EMPTY_MARKERS.includes(name)) {
         throw new Error(`${row} is missing an LGU name.`);
+    }
+
+    // Same grammar as README.md (#307). The Integrated join below stays an
+    // exact `name` match.
+    try {
+        parseLguName(name);
+    } catch (error) {
+        throw new Error(`${row}: ${error.message} See CONTRIBUTING.md, "Naming Your LGU".`);
     }
 
     const type = typeCell.trim();

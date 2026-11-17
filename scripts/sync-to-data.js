@@ -1,10 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 const { PROFILES_DIR, extractHandles, resolveMaintainerLink } = require('./maintainer-profiles');
+const { parseLguName } = require('./lgu-name');
+const { REGIONS } = require('./psgc-regions');
 
 const REPO_ROOT = path.join(__dirname, '..');
 const README_PATH = path.join(REPO_ROOT, 'README.md');
 const LGUS_DATA_PATH = process.argv[2] || path.join(__dirname, '../_data/lgus.yml');
+// Generated from scripts/psgc-regions.js beside lgus.yml (#307), never edited
+// by hand: the website reads region names and ranks from here.
+const REGIONS_DATA_PATH = path.join(path.dirname(LGUS_DATA_PATH), 'regions.yml');
 
 const VALID_STATUSES = ['🟢 Active', '🟡 Work in Progress', '🔴 Unmaintained', '🔵 Planned'];
 
@@ -67,6 +72,29 @@ function parseRepoCell(cell) {
     return ref ? { owner, repo, ref } : { owner, repo };
 }
 
+// README domain cells are markdown links — e.g. "[bettersolano.org]
+// (https://bettersolano.org)" — the same raw form validateLgu() stores
+// (sync-to-data.js relies on kramdown re-processing that text at render
+// time; see index.md's `markdown="1"` table wrapper). Extract the real URL
+// to crawl and the bare hostname to display, falling back to treating the
+// whole cell as a bare hostname if it isn't a markdown link. Shared by the
+// crawler (Featured/Logo `domain`) and the Entry's `host` (#307), so the two
+// always match.
+function extractDomainLink(rawCell) {
+    const match = /\[([^\]]+)\]\(([^)]+)\)/.exec(rawCell || '');
+    if (match) {
+        return { label: match[1].trim(), url: match[2].trim() };
+    }
+    const bare = String(rawCell || '').trim();
+    return { label: bare, url: /^https?:\/\//i.test(bare) ? bare : `https://${bare}` };
+}
+
+// The portal's plain hostname, for matching Entries to Featured and Logo data
+// by domain (#307). Empty when the Domain cell is empty.
+function hostOf(domainCell) {
+    return EMPTY_MARKERS.includes((domainCell || '').trim()) ? '' : extractDomainLink(domainCell).label;
+}
+
 function parseTable(content, startMarker, endMarker, sourceName = 'README.md') {
     const startIdx = content.indexOf(startMarker);
     const endIdx = content.indexOf(endMarker);
@@ -117,6 +145,13 @@ function validateLgu(cells, index) {
         throw new Error(`LGU Table Row ${index + 1} is missing a name.`);
     }
 
+    let lguName;
+    try {
+        lguName = parseLguName(name);
+    } catch (error) {
+        throw new Error(`LGU Table Row ${index + 1}: ${error.message} See CONTRIBUTING.md, "Naming Your LGU".`);
+    }
+
     const [status, ...statusTags] = splitCellLines(statusCell);
 
     if (!VALID_STATUSES.includes(status)) {
@@ -152,6 +187,8 @@ function validateLgu(cells, index) {
 
     return {
         name,
+        ...lguName,
+        host: hostOf(domain),
         domain: normalizeDash(domain),
         repo: normalizeDash(repo),
         repoOwner: repoInfo ? repoInfo.owner : null,
@@ -192,6 +229,7 @@ function main() {
     }
 
     fs.writeFileSync(LGUS_DATA_PATH, lgusToYaml(lgus));
+    fs.writeFileSync(REGIONS_DATA_PATH, regionsToYaml());
     console.log(`🎉 Success! Data synchronized to ${LGUS_DATA_PATH}`);
 }
 
@@ -248,6 +286,12 @@ function lgusToYaml(lgus) {
             : [];
         return [
             `- name: "${yamlStr(l.name)}"`,
+            `  place: "${yamlStr(l.place)}"`,
+            `  kind: "${yamlStr(l.kind)}"`,
+            `  province: "${yamlStr(l.province)}"`,
+            `  region: "${yamlStr(l.region)}"`,
+            `  region_rank: ${l.regionRank}`,
+            `  host: "${yamlStr(l.host)}"`,
             `  domain: "${yamlStr(l.domain)}"`,
             `  repo: "${yamlStr(l.repo)}"`,
             ...repoIdentityLines,
@@ -259,6 +303,12 @@ function lgusToYaml(lgus) {
             formatMaintainersYaml(l.maintainers),
         ].join('\n');
     }).join('\n');
+}
+
+// _data/regions.yml: the ordered region names and ranks, from the PSGC
+// regions module.
+function regionsToYaml() {
+    return REGIONS.map((region, rank) => `- name: "${yamlStr(region.name)}"\n  rank: ${rank}`).join('\n') + '\n';
 }
 
 if (require.main === module) {
@@ -278,6 +328,9 @@ module.exports = {
     formatMaintainersYaml,
     syncLgus,
     lgusToYaml,
+    regionsToYaml,
+    extractDomainLink,
+    hostOf,
     STALE_TAG,
     ADOPTION_TAG,
     STALE_AFTER_DAYS,

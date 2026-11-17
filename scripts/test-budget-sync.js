@@ -108,10 +108,10 @@ function withWarnings(fn) {
 
 test('integrated row with no matching README Entry falls back to "-" with a warning', () => {
     const { result: [p], warnings } = withWarnings(() => syncBudget(budget(
-        `| Nowhere City | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | - |`,
+        `| Taal, Batangas | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | - |`,
     ), README));
     assert.strictEqual(p.parentDomain, '-');
-    assert.ok(warnings.some(w => w.includes('Nowhere City')), 'expected a warning naming the LGU');
+    assert.ok(warnings.some(w => w.includes('Taal, Batangas')), 'expected a warning naming the LGU');
 });
 
 test('unreadable or empty README falls back to "-" for every parent', () => {
@@ -152,6 +152,13 @@ test('a leftover Status column fails with the expected column list', () => {
     assert.throws(() => syncBudget(budget(
         `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | 🟢 Active | - |`,
     ), README), /must have 5 columns/);
+});
+
+test('an LGU cell outside the naming grammar fails, naming the row (#307)', () => {
+    assert.throws(() => syncBudget(budget(
+        `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | - |`,
+        `| Lapu Lapu City, Cebu Island | [l.org](https://l.org) | ${STANDALONE} | - | - |`,
+    ), README), /Budget Table Row 2.*Cebu Island/);
 });
 
 test('duplicate LGU fails', () => {
