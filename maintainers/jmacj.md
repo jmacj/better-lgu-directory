@@ -6,11 +6,11 @@ email: jan@betterlaspinas.org
 linkedin: https://linkedin.jmacj.dev
 ---
 
+Web developer working mostly with Vue, Nuxt, and Laravel. I build and maintain civic tech for Las Piñas and the wider BetterGov.ph community: I'm one of the Maintainers of [Better Las Piñas](https://betterlaspinas.org), and I also maintain this directory, the [BetterLGU Directory](https://lgu.bettergov.ph).
+
 ## How I can help
 
-I'm one of the Maintainers of [Better Las Piñas](https://betterlaspinas.org). Reach out if you'd like to collaborate on it, or if you have a feature request for it.
-
-I also maintain this directory, the [BetterLGU Directory](https://lgu.bettergov.ph).
+Reach out if you'd like to collaborate on Better Las Piñas, or if you have a feature request for it.
 
 ## Reaching out
 
