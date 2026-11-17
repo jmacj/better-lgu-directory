@@ -28,6 +28,18 @@ _Avoid_: network, provider, site.
 A Philippine LGU's budget transparency site, built on the BetterGov.ph Budget API — one row in the Budget Portal table in `BUDGET.md`, rendered at `lgu.bettergov.ph/BUDGET`. Either `🧩 Integrated` (a subdomain or path of an Entry's portal; its LGU cell must match that Entry's name in `README.md`, the Entry's Domain is derived as `parent_domain`, and its Maintainer/s are copied from the Entry's README row) or `🏛️ Standalone` (no Entry behind it). Separate from Entries: no Socials, no `⚠️ Stale`/`🤝 Open for Adoption` tags, and no Status — a Budget Portal is listed only while it's live (Portal link required), with no advance registration.
 _Avoid_: budget entry, transparency entry (an Entry is always a README row).
 
+**Maintainer**:
+A person listed, by GitHub handle, in the Maintainer/s cell of an Entry or a Budget Portal — someone who builds or runs that portal. Unqualified, "Maintainer" always means this. Being listed does not mean a Maintainer wants to be contacted; only a Maintainer Profile says that.
+_Avoid_: owner, author, contributor; "maintainer" for the directory team (that is a Directory Maintainer).
+
+**Directory Maintainer**:
+A member of the team that runs this directory itself: reviews and merges PRs, applies the `⚠️ Stale` / `🤝 Open for Adoption` tags, and handles removal and privacy requests. Always written out in full. One person can be both a Maintainer (of a portal) and a Directory Maintainer.
+_Avoid_: maintainer (unqualified), curator, admin, moderator.
+
+**Maintainer Profile**:
+A Maintainer's opt-in, self-published statement of how and why contributors may reach them — their channels, what they are open to, and what they are not. Only the Maintainer themself adds or edits it; a Directory Maintainer may only remove it. A Maintainer Profile whose handle no longer appears in any Maintainer/s cell is an **orphaned** Maintainer Profile. Design rationale: decision record in #426.
+_Avoid_: contact, contact card, maintainer page, bio.
+
 **Sync pipeline**:
 The `main` → `main-pages` projection, run by `sync-to-pages.yml` on every push to `main` and monthly on a schedule (#179). It generates data files, all written into the same `chore(data): auto-sync` commit and never hand-edited: `scripts/sync-to-data.js` parses the `README.md` table into `_data/lgus.yml`, which `index.md` renders as the directory table. `scripts/crawl-lgu-meta.js` fetches each `🟢 Active` Entry's portal exactly once (#179) and judges the fetched page against two independent predicates: the Featured Portal predicate writes `_data/lgu-meta.yml` (image, title, description, domain, and a stable `order_key`) for every Entry that passes it, read by the hero's Featured card partial; the Logo predicate writes `_data/lgu-logos.yml` (domain, resolved icon source/size/bytes) plus the resolved icon bytes themselves at `assets/images/lgu-logos/<domain>.<ext>`, for every Entry that resolves a Logo per the chain in `scripts/crawl-lgu-meta.js`, read by the home page's Logo band. `scripts/sync-budget-to-data.js` parses the `BUDGET.md` table into `_data/budget_portals.yml`, rendered by `budget-directory.md` at `/BUDGET`. `README.md` remains the sole source of truth for Entries, and `BUDGET.md` for Budget Portals; all generated files/assets are derived data.
 _Avoid_: build, import.
@@ -44,7 +56,7 @@ stale (a different clock — see below).
 
 The existing `⚠️ Stale` tag means *no directory activity on the Entry row*
 (the README table itself hasn't been touched) for over 30 days, judged by
-hand during a maintainer review. Repository activity measures the *linked
+hand during a Directory Maintainer review. Repository activity measures the *linked
 repo's* commit history instead, is computed automatically at view time, and
 is informational only — it must never be conflated with `⚠️ Stale` or drive
 it.
