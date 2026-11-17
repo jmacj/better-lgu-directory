@@ -17,8 +17,11 @@ layout: default
 
   The prose below is the Maintainer's own markdown, rendered like any other
   page. Liquid and raw HTML in it are not sanitized here, and Jekyll 3 can't
-  turn Liquid off per page, so a stray `{{` or `{%` in a profile breaks the
+  turn Liquid off per page, so a stray Liquid opening delimiter (double
+  curly brace, or curly brace plus percent sign) in a profile breaks the
   site build. Reviewers must catch that on main before merging a profile.
+  Don't write those delimiters literally in this comment either: Liquid
+  still parses comment bodies, which is what broke the build once.
   Emails are plain mailto: links with no obfuscation, by design: the source
   file is public on GitHub anyway.
 {%- endcomment -%}
