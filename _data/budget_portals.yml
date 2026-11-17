@@ -80,8 +80,8 @@
   maintainer: "[@KishonShrill](https://github.com/KishonShrill)"
   maintainers:
     - handle: "KishonShrill"
-      url: "https://github.com/KishonShrill"
-      profile: false
+      url: "/maintainers/KishonShrill/"
+      profile: true
 - name: "Silang, Cavite"
   portal: "[bettersilang.org](https://www.bettersilang.org)"
   type: "🏛️ Standalone"

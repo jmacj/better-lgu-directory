@@ -499,8 +499,8 @@
   maintainer: "[@KishonShrill](https://github.com/KishonShrill), [@Vantalim12](https://github.com/Vantalim12)"
   maintainers:
     - handle: "KishonShrill"
-      url: "https://github.com/KishonShrill"
-      profile: false
+      url: "/maintainers/KishonShrill/"
+      profile: true
     - handle: "Vantalim12"
       url: "https://github.com/Vantalim12"
       profile: false

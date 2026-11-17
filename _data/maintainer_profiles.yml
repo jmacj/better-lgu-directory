@@ -18,3 +18,24 @@
     - name: "Las Piñas City, Metro Manila"
       kind: "budget"
       domain: "[budget.betterlaspinas.org](https://budget.betterlaspinas.org)"
+- handle: "KishonShrill"
+  url: "/maintainers/KishonShrill/"
+  github: "https://github.com/KishonShrill"
+  name: "Chriscent Pingol"
+  open_to:
+    - "collaborators"
+    - "feature requests"
+  languages:
+    - "English"
+  channels:
+    email: "chriscent@betteriligancity.org"
+    discord: "perseque_shrills"
+    linkedin: "https://www.linkedin.com/in/chriscent-louis-june-pingol"
+    website: "https://chriscent.is-a.dev/"
+  portals:
+    - name: "Iligan City, Lanao del Norte"
+      kind: "entry"
+      domain: "[betteriligancity.org](https://betteriligancity.org/)"
+    - name: "Iligan City, Lanao del Norte"
+      kind: "budget"
+      domain: "[budget.betteriligancity.org](https://budget.betteriligancity.org)"
