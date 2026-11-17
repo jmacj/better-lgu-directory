@@ -10,6 +10,7 @@ Read a profile before you reach out, and follow the [Code of Conduct](../CODE_OF
 - [@jmrec](jmrec.md) · Juan Miguel Recondo
 - [@jpdevdotcom](jpdevdotcom.md) · Jan Phillip Dacallos
 - [@KishonShrill](KishonShrill.md) · Chriscent Pingol
+- [@sechipeanut](sechipeanut.md) · Franz Valles
 <!-- MAINTAINER_PROFILES_END -->
 
 ## Add yourself
