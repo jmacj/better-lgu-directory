@@ -14,8 +14,9 @@ layout: default
   profile can't inject another scheme.
 
   The prose below is the Maintainer's own markdown, rendered like any other
-  page: Liquid and raw HTML in it are not sanitized here. That is guarded at
-  review time on main (triage), not in this layout.
+  page. Liquid and raw HTML in it are not sanitized here, and Jekyll 3 can't
+  turn Liquid off per page, so a stray `{{` or `{%` in a profile breaks the
+  site build. Reviewers must catch that on main before merging a profile.
   Emails are plain mailto: links with no obfuscation, by design: the source
   file is public on GitHub anyway.
 {%- endcomment -%}
