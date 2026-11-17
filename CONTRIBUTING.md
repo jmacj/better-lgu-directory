@@ -115,9 +115,9 @@ The tags are applied by Directory Maintainers during periodic reviews, never by 
 If you're listed as a Maintainer of an LGU in `README.md` or a budget portal in `BUDGET.md`, you can publish a **Maintainer Profile**: one markdown file saying how contributors may reach you, what you're open to (collaborators, mentoring, code review), and what you're not a fit for. It's opt-in, and nobody publishes a profile for you.
 
 1. Read the [privacy notice](PRIVACY.md). Everything in your profile is public, and removing it later doesn't erase git history or forks.
-2. Copy [`maintainers/_template.md`](maintainers/_template.md) to `maintainers/<your-github-handle>.md`. The filename is the only record of whose profile it is.
+2. Copy [`maintainers/_template.md`](https://github.com/jmacj/better-lgu-directory/blob/main/maintainers/_template.md) to `maintainers/<your-github-handle>.md`. The filename is the only record of whose profile it is.
 3. Keep what you want to share and delete the rest. Every field is optional. Channels can be `email`, `messenger`, `discord`, `telegram`, `linkedin`, and `website`. Prefer project or team channels over personal ones; if you're under 18, use only those. Phone numbers aren't accepted.
-4. Add yourself to the list in [`maintainers/README.md`](maintainers/README.md).
+4. Add yourself to the list in [`maintainers/README.md`](https://github.com/jmacj/better-lgu-directory/blob/main/maintainers/README.md).
 5. Open the pull request **from your own GitHub account**, titled:
 
    ```

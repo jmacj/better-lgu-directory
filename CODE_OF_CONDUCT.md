@@ -26,7 +26,7 @@ Examples of unacceptable behavior include:
 
 ## Contacting Maintainers
 
-Some Maintainers publish a [Maintainer Profile](maintainers/README.md) saying how they want to be reached. A Maintainer Profile is an invitation to get in touch about the portal they maintain, on their terms. If you use one:
+Some Maintainers publish a [Maintainer Profile](https://lgu.bettergov.ph/maintainers/) saying how they want to be reached. A Maintainer Profile is an invitation to get in touch about the portal they maintain, on their terms. If you use one:
 
 * No spam, recruiting, or sales pitches.
 * Do not scrape or compile Maintainer Profile contact data.
