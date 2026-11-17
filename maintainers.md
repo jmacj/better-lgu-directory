@@ -23,16 +23,16 @@ Read a profile before you reach out, and follow the [Code of Conduct]({{ '/CODE_
 {%- if profiles and profiles.size > 0 -%}
 <div class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
 {%- for p in profiles %}
-  <a href="{{ p.url | relative_url }}" class="block bg-white border border-gray-100 rounded-2xl shadow-sm p-6 hover:border-blue-300 hover:shadow-md transition-all no-underline">
+  <a href="{{ p.url | relative_url }}" class="maintainer-card block bg-white border border-gray-100 rounded-2xl shadow-sm p-6 hover:border-blue-300 hover:shadow-md transition-all no-underline">
     <div class="text-lg font-bold text-gray-900">{{ p.name | escape }}</div>
     <div class="text-sm text-gray-500 mb-4">@{{ p.handle }}</div>
     <div class="text-sm text-gray-700 mb-3">
       <span class="font-semibold text-gray-500">Maintains:</span>
-      {% if p.portals.size > 0 %}{% for portal in p.portals %}{{ portal.name | escape }}{% if portal.kind == 'budget' %} (Budget Portal){% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}No portals currently listed{% endif %}
+      {% if p.portals.size > 0 %}{% for portal in p.portals %}{{ portal.name | escape }}{% if portal.kind == 'budget' %} (Budget Portal){% endif %}{% unless forloop.last %} · {% endunless %}{% endfor %}{% else %}No portals currently listed{% endif %}
     </div>
     {%- if p.open_to.size > 0 %}
     <div class="flex flex-wrap gap-2 mb-3">
-      {%- for item in p.open_to %}<span class="lgu-tag">{{ item | escape }}</span>{% endfor -%}
+      {%- for item in p.open_to %}<span class="lgu-tag lgu-tag-open">{{ item | escape }}</span>{% endfor -%}
     </div>
     {%- endif %}
     {%- if p.languages.size > 0 %}

@@ -98,7 +98,7 @@ layout: default
       <dt class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Open to</dt>
       <dd class="flex flex-wrap gap-2">
         {%- for item in profile.open_to %}
-        <span class="lgu-tag">{{ item | escape }}</span>
+        <span class="lgu-tag lgu-tag-open">{{ item | escape }}</span>
         {%- endfor %}
       </dd>
     </div>

@@ -614,3 +614,30 @@ main tr:last-child td {
     display: flex;
   }
 }
+
+/* Maintainer Profiles (#426). The profile card and the /maintainers/ index
+   sit inside .prose, whose list, paragraph, and link rules are this file's
+   own (not Tailwind Typography), so `not-prose` needs real rules here. */
+.prose .not-prose ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.prose .not-prose li {
+  padding-left: 0;
+}
+
+.prose a.maintainer-card,
+.prose a.maintainer-card:hover {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+/* "Open to" pills on profiles: the generic .lgu-tag pill has no colors. */
+.lgu-tag-open {
+  background-color: var(--color-primary-50);
+  border-color: #9dc4f7;
+  color: var(--color-primary-700);
+}
