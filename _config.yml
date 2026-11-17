@@ -48,3 +48,20 @@ exclude:
   - ".idea"
   - ".gitignore"
   - "LICENSE"
+# Links in docs from main to repo files the site doesn't publish (excluded,
+# underscore-prefixed, or README.md, which index.md replaces). On GitHub the
+# relative link is right, so main keeps it; the default layout rewrites the
+# href on the site. `page` is the source path of the site page to link
+# instead, so the link follows that page's permalink; `url` is used as-is.
+# scripts/test-github-only-links-site.js fails when a link is missing here.
+github_only_links:
+  - href: README.md
+    page: index.md
+  - href: BUDGET.md
+    page: budget-directory.md
+  - href: maintainers/README.md
+    page: maintainers.md
+  - href: maintainers/_template.md
+    url: https://github.com/jmacj/better-lgu-directory/blob/main/maintainers/_template.md
+  - href: LICENSE
+    url: https://github.com/jmacj/better-lgu-directory/blob/main/LICENSE

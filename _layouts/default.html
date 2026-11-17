@@ -128,7 +128,24 @@
     <main class="max-w-7xl mx-auto px-4 py-8 md:py-16">
         <div class="prose max-w-none prose-lg md:prose-xl">
             <div id="directory">
-                {{ content }}
+                {%- comment -%}
+                  Rewrite links to repo files the site doesn't publish
+                  (site.github_only_links in _config.yml). The docs on main
+                  keep their relative links, which are right on GitHub.
+                {%- endcomment -%}
+                {%- assign page_content = content -%}
+                {%- for link in site.github_only_links -%}
+                  {%- if link.page -%}
+                    {%- assign target_page = site.pages | where: 'path', link.page | first -%}
+                    {%- assign target = target_page.url | relative_url -%}
+                  {%- else -%}
+                    {%- assign target = link.url -%}
+                  {%- endif -%}
+                  {%- assign from = 'href="' | append: link.href -%}
+                  {%- assign to = 'href="' | append: target -%}
+                  {%- assign page_content = page_content | replace: from, to -%}
+                {%- endfor %}
+                {{ page_content }}
             </div>
         </div>
     </main>
