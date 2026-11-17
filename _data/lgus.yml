@@ -11,6 +11,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ramonloganjr](https://github.com/ramonloganjr)"
+  maintainers:
+    - handle: "ramonloganjr"
+      url: "https://github.com/ramonloganjr"
+      profile: false
 - name: "Bacolod City, Negros Occidental"
   domain: "[betterbacolod.org](https://betterbacolod.org)"
   repo: "[GitHub](https://github.com/betterbacolod/betterbacolod)"
@@ -24,6 +28,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@mattenarle10](https://github.com/mattenarle10)"
+  maintainers:
+    - handle: "mattenarle10"
+      url: "https://github.com/mattenarle10"
+      profile: false
 - name: "Calauan, Laguna"
   domain: "[bettercalauan.org](https://bettercalauan.org)"
   repo: "[GitHub](https://github.com/bettercalauan/bettercalauan/tree/react-typescript)"
@@ -38,6 +46,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@xpall](https://github.com/xpall)"
+  maintainers:
+    - handle: "xpall"
+      url: "https://github.com/xpall"
+      profile: false
 - name: "Cavinti, Laguna"
   domain: "[bettercavinti.org](https://bettercavinti.org)"
   repo: "[GitHub](https://github.com/klnwlks/bettercavinti)"
@@ -48,6 +60,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@klnwlks](https://github.com/klnwlks)"
+  maintainers:
+    - handle: "klnwlks"
+      url: "https://github.com/klnwlks"
+      profile: false
 - name: "Pila, Laguna"
   domain: "-"
   repo: "[GitHub](https://github.com/Necookie/betterpila)"
@@ -58,6 +74,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@Necookie](https://github.com/Necookie)"
+  maintainers:
+    - handle: "Necookie"
+      url: "https://github.com/Necookie"
+      profile: false
 - name: "Ormoc City, Leyte"
   domain: "[betterormoc.org](https://www.betterormoc.org/en)"
   repo: "-"
@@ -69,6 +89,7 @@
   stale: false
   open_for_adoption: false
   maintainer: "-"
+  maintainers: []
 - name: "Los Baños, Laguna"
   domain: "[betterlb.org](https://betterlb.org)"
   repo: "[GitHub](https://github.com/BetterLosBanos/betterlb)"
@@ -82,6 +103,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@miconficker](https://github.com/miconficker)"
+  maintainers:
+    - handle: "miconficker"
+      url: "https://github.com/miconficker"
+      profile: false
 - name: "Las Piñas City, Metro Manila"
   domain: "[betterlaspinas.org](https://betterlaspinas.org)"
   repo: "[GitHub](https://github.com/betterlaspinas/betterlaspinas)"
@@ -95,6 +120,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jmacj](https://github.com/jmacj), [@Martin-Enghoy](https://github.com/Martin-Enghoy)"
+  maintainers:
+    - handle: "jmacj"
+      url: "/maintainers/jmacj/"
+      profile: true
+    - handle: "Martin-Enghoy"
+      url: "https://github.com/Martin-Enghoy"
+      profile: false
 - name: "Cainta, Rizal"
   domain: "[bettercainta.org](https://bettercainta.org)"
   repo: "-"
@@ -103,6 +135,7 @@
   stale: false
   open_for_adoption: false
   maintainer: "-"
+  maintainers: []
 - name: "Tagaytay City, Cavite"
   domain: "[bettertagaytay.org](https://www.bettertagaytay.org/)"
   repo: "[GitHub](https://github.com/Arlovzki/bettertagaytay)"
@@ -116,6 +149,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@Arlovzki](https://github.com/Arlovzki)"
+  maintainers:
+    - handle: "Arlovzki"
+      url: "https://github.com/Arlovzki"
+      profile: false
 - name: "Indang, Cavite"
   domain: "[betterindang.org](https://betterindang.org)"
   repo: "[GitHub](https://github.com/michaustriaqa/betterindang)"
@@ -129,6 +166,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@michaustriaqa](https://github.com/michaustriaqa)"
+  maintainers:
+    - handle: "michaustriaqa"
+      url: "https://github.com/michaustriaqa"
+      profile: false
 - name: "General Santos City, South Cotabato"
   domain: "[bettergensan.org](https://bettergensan.org)"
   repo: "[GitHub](https://github.com/psalmcatulpos/bettergensan)"
@@ -139,6 +180,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@psalmcatulpos](https://github.com/psalmcatulpos)"
+  maintainers:
+    - handle: "psalmcatulpos"
+      url: "https://github.com/psalmcatulpos"
+      profile: false
 - name: "Koronadal City, South Cotabato"
   domain: "[betterkoronadal.org](https://betterkoronadal.org)"
   repo: "[GitHub](https://github.com/janineooak/betterkoronadal)"
@@ -149,6 +194,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@janineooak](https://github.com/janineooak)"
+  maintainers:
+    - handle: "janineooak"
+      url: "https://github.com/janineooak"
+      profile: false
 - name: "Dasmariñas City, Cavite"
   domain: "[betterdasmarinas.org](https://betterdasmarinas.org)"
   repo: "[GitHub](https://github.com/Shuashuaa/BetterDasmarinas)"
@@ -162,6 +211,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@Shuashuaa](https://github.com/Shuashuaa)"
+  maintainers:
+    - handle: "Shuashuaa"
+      url: "https://github.com/Shuashuaa"
+      profile: false
 - name: "General Trias, Cavite"
   domain: "[bettergeneraltrias.org](https://www.bettergeneraltrias.org/)"
   repo: "[GitHub](https://github.com/kenhehe/betterGeneraltrias)"
@@ -175,6 +228,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@kenhehe](https://github.com/kenhehe)"
+  maintainers:
+    - handle: "kenhehe"
+      url: "https://github.com/kenhehe"
+      profile: false
 - name: "Tanza, Cavite"
   domain: "-"
   repo: "[GitHub](https://github.com/manalilib/betterTanza)"
@@ -188,6 +245,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@manalilib](https://github.com/manalilib)"
+  maintainers:
+    - handle: "manalilib"
+      url: "https://github.com/manalilib"
+      profile: false
 - name: "San Pedro, Laguna"
   domain: "[bettersanpedro.org](https://bettersanpedro.org)"
   repo: "[GitHub](https://github.com/sechipeanut/BetterSanPedro)"
@@ -201,6 +262,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@sechipeanut](https://github.com/sechipeanut)"
+  maintainers:
+    - handle: "sechipeanut"
+      url: "https://github.com/sechipeanut"
+      profile: false
 - name: "Cabuyao City, Laguna"
   domain: "[bettercabuyao.org](https://bettercabuyao.org/)"
   repo: "[GitHub](https://github.com/johnrommeloctaviano/better-cabuyao)"
@@ -211,6 +276,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@johnrommeloctaviano](https://github.com/johnrommeloctaviano)"
+  maintainers:
+    - handle: "johnrommeloctaviano"
+      url: "https://github.com/johnrommeloctaviano"
+      profile: false
 - name: "Tuguegarao, Cagayan Valley"
   domain: "-"
   repo: "[GitHub](https://github.com/JDgayagoy/BetterTuguegarao)"
@@ -221,6 +290,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@JDgayagoy](https://github.com/JDgayagoy), [@sidj28](https://github.com/sidj28), [@geneconceja](https://github.com/geneconceja)"
+  maintainers:
+    - handle: "JDgayagoy"
+      url: "https://github.com/JDgayagoy"
+      profile: false
+    - handle: "sidj28"
+      url: "https://github.com/sidj28"
+      profile: false
+    - handle: "geneconceja"
+      url: "https://github.com/geneconceja"
+      profile: false
 - name: "Davao City, Davao Del Sur"
   domain: "-"
   repo: "[GitHub](https://github.com/johnloydlao/betterdavao)"
@@ -231,6 +310,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@johnloydlao](https://github.com/johnloydlao)"
+  maintainers:
+    - handle: "johnloydlao"
+      url: "https://github.com/johnloydlao"
+      profile: false
 - name: "Allen, Northern Samar"
   domain: "[betterallen.org](https://betterallen.org)"
   repo: "[GitHub](https://github.com/xandreiAThome/betterallen)"
@@ -244,6 +327,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@xandreiAThome](https://github.com/xandreiAThome)"
+  maintainers:
+    - handle: "xandreiAThome"
+      url: "https://github.com/xandreiAThome"
+      profile: false
 - name: "Aparri, Cagayan Valley"
   domain: "[betteraparri.org](https://betteraparri.org/)"
   repo: "[GitHub](https://github.com/egiebk/betteraparri)"
@@ -257,6 +344,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@egiebk](https://github.com/egiebk)"
+  maintainers:
+    - handle: "egiebk"
+      url: "https://github.com/egiebk"
+      profile: false
 - name: "Lal-lo, Cagayan Valley"
   domain: "[betterlallo.org](https://betterlallo.org)"
   repo: "[GitHub](https://github.com/ianlabicani/betterlallo)"
@@ -267,6 +358,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ianlabicani](https://github.com/ianlabicani)"
+  maintainers:
+    - handle: "ianlabicani"
+      url: "https://github.com/ianlabicani"
+      profile: false
 - name: "San Pablo, Laguna"
   domain: "[bettersanpablo.org](https://www.bettersanpablo.org/)"
   repo: "[GitHub](https://github.com/ChristiannWick/bettersanpablo)"
@@ -277,6 +372,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ChristiannWick](https://github.com/ChristiannWick)"
+  maintainers:
+    - handle: "ChristiannWick"
+      url: "https://github.com/ChristiannWick"
+      profile: false
 - name: "Binangonan, Rizal"
   domain: "[betterbinangonan.org](https://betterbinangonan.org)"
   repo: "[GitHub](https://github.com/betterbinangonan-devs/betterbinangonan)"
@@ -290,6 +389,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals)"
+  maintainers:
+    - handle: "emmanpbarrameda"
+      url: "https://github.com/emmanpbarrameda"
+      profile: false
+    - handle: "chaaals"
+      url: "https://github.com/chaaals"
+      profile: false
 - name: "Taytay, Rizal"
   domain: "-"
   repo: "[GitHub](https://github.com/zzelif/bettertaytay)"
@@ -300,6 +406,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@zzelif](https://github.com/zzelif)"
+  maintainers:
+    - handle: "zzelif"
+      url: "https://github.com/zzelif"
+      profile: false
 - name: "Olongapo City, Zambales"
   domain: "[betterolongapo.org](https://betterolongapo.org/)"
   repo: "[GitHub](https://github.com/eyronjohn/betterolongapo)"
@@ -310,6 +420,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@eyronjohn](https://github.com/eyronjohn)"
+  maintainers:
+    - handle: "eyronjohn"
+      url: "https://github.com/eyronjohn"
+      profile: false
 - name: "Biñan, Laguna"
   domain: "[betterbinan.vercel.app](https://betterbinan.vercel.app/)"
   repo: "[GitHub](https://github.com/mimflar/betterbinan)"
@@ -320,6 +434,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@mimflar](https://github.com/mimflar), [@chiwasushuba](https://github.com/chiwasushuba), [@smmariquit](https://github.com/smmariquit)"
+  maintainers:
+    - handle: "mimflar"
+      url: "https://github.com/mimflar"
+      profile: false
+    - handle: "chiwasushuba"
+      url: "https://github.com/chiwasushuba"
+      profile: false
+    - handle: "smmariquit"
+      url: "https://github.com/smmariquit"
+      profile: false
 - name: "Tanay, Rizal"
   domain: "[bettertanay.org](https://bettertanay.org)"
   repo: "[GitHub](https://github.com/s4burieru/bettertanay)"
@@ -333,6 +457,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@s4burieru](https://github.com/s4burieru)"
+  maintainers:
+    - handle: "s4burieru"
+      url: "https://github.com/s4burieru"
+      profile: false
 - name: "Puerto Princesa City, Palawan"
   domain: "[betterpuertoprincesa.org](https://betterpuertoprincesa.org)"
   repo: "[GitHub](https://github.com/BetterPuertoPrincesa/betterpuertoprincesa)"
@@ -346,6 +474,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@kelxety](https://github.com/kelxety), [@hmcldryl](https://github.com/hmcldryl), [@atualariao](https://github.com/atualariao)"
+  maintainers:
+    - handle: "kelxety"
+      url: "https://github.com/kelxety"
+      profile: false
+    - handle: "hmcldryl"
+      url: "https://github.com/hmcldryl"
+      profile: false
+    - handle: "atualariao"
+      url: "https://github.com/atualariao"
+      profile: false
 - name: "Iligan City, Lanao del Norte"
   domain: "[betteriligancity.org](https://betteriligancity.org/)"
   repo: "[GitHub](https://github.com/KishonShrill/BetterIligan)"
@@ -359,6 +497,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@KishonShrill](https://github.com/KishonShrill), [@Vantalim12](https://github.com/Vantalim12)"
+  maintainers:
+    - handle: "KishonShrill"
+      url: "https://github.com/KishonShrill"
+      profile: false
+    - handle: "Vantalim12"
+      url: "https://github.com/Vantalim12"
+      profile: false
 - name: "Hilongos, Leyte"
   domain: "-"
   repo: "[GitHub](https://github.com/rolpppp/betterhilongos)"
@@ -369,6 +514,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rolpppp](https://github.com/rolpppp)"
+  maintainers:
+    - handle: "rolpppp"
+      url: "https://github.com/rolpppp"
+      profile: false
 - name: "Limay, Bataan"
   domain: "[betterlimay.org](https://betterlimay.org/)"
   repo: "[GitHub](https://github.com/AstroMC98/BetterLimay-Prod)"
@@ -382,6 +531,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@AstroMC98](https://github.com/AstroMC98)"
+  maintainers:
+    - handle: "AstroMC98"
+      url: "https://github.com/AstroMC98"
+      profile: false
 - name: "Balanga, Bataan"
   domain: "[betterbalanga.org](https://betterbalanga.org/)"
   repo: "[GitHub](https://github.com/AstroMC98/betterbalanga)"
@@ -395,6 +548,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@AstroMC98](https://github.com/AstroMC98)"
+  maintainers:
+    - handle: "AstroMC98"
+      url: "https://github.com/AstroMC98"
+      profile: false
 - name: "Bulakan, Bulacan"
   domain: "[betterbulakan.org](https://betterbulakan.org/)"
   repo: "[GitHub](https://github.com/kuyacarlo/betterbulakan)"
@@ -405,6 +562,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@kuyacarlo](https://github.com/kuyacarlo)"
+  maintainers:
+    - handle: "kuyacarlo"
+      url: "https://github.com/kuyacarlo"
+      profile: false
 - name: "San Jose, Antique"
   domain: "-"
   repo: "[GitHub](https://github.com/bonfire404/bettersanjose)"
@@ -415,6 +576,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@bonfire404](https://github.com/bonfire404)"
+  maintainers:
+    - handle: "bonfire404"
+      url: "https://github.com/bonfire404"
+      profile: false
 - name: "Libmanan, Camarines Sur"
   domain: "[betterlibmanan.org](https://betterlibmanan.org)"
   repo: "[GitHub](https://github.com/enzox0/betterlibmanan)"
@@ -428,6 +593,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@enzox0](https://github.com/enzox0)"
+  maintainers:
+    - handle: "enzox0"
+      url: "https://github.com/enzox0"
+      profile: false
 - name: "San Pascual, Masbate"
   domain: "-"
   repo: "[GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate)"
@@ -438,6 +607,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@marcuwynu23](https://github.com/marcuwynu23)"
+  maintainers:
+    - handle: "marcuwynu23"
+      url: "https://github.com/marcuwynu23"
+      profile: false
 - name: "Teresa, Rizal"
   domain: "-"
   repo: "[GitHub](https://github.com/MewSeiren/betterteresa.org)"
@@ -448,6 +621,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@MewSeiren](https://github.com/MewSeiren)"
+  maintainers:
+    - handle: "MewSeiren"
+      url: "https://github.com/MewSeiren"
+      profile: false
 - name: "Atimonan, Quezon"
   domain: "-"
   repo: "[GitHub](https://github.com/EmsiPrds/betteratimonan)"
@@ -458,6 +635,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@EmsiPrds](https://github.com/EmsiPrds)"
+  maintainers:
+    - handle: "EmsiPrds"
+      url: "https://github.com/EmsiPrds"
+      profile: false
 - name: "Dinalupihan, Bataan"
   domain: "-"
   repo: "-"
@@ -466,6 +647,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@villenaderic](https://github.com/villenaderic)"
+  maintainers:
+    - handle: "villenaderic"
+      url: "https://github.com/villenaderic"
+      profile: false
 - name: "Calamba, Laguna"
   domain: "-"
   repo: "[GitHub](https://github.com/apajuan/bettercalamba)"
@@ -476,6 +661,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@apajuan](https://github.com/apajuan)"
+  maintainers:
+    - handle: "apajuan"
+      url: "https://github.com/apajuan"
+      profile: false
 - name: "Cabanatuan City, Nueva Ecija"
   domain: "[bettercabanatuan.org](https://bettercabanatuan.org)"
   repo: "[GitHub](https://github.com/BetterCabanatuan/bettercabanatuan)"
@@ -489,6 +678,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll)"
+  maintainers:
+    - handle: "joshuagemvicente"
+      url: "https://github.com/joshuagemvicente"
+      profile: false
+    - handle: "iampoll"
+      url: "https://github.com/iampoll"
+      profile: false
 - name: "Angeles City, Pampanga"
   domain: "-"
   repo: "[GitHub](https://github.com/ongods/betterangeles)"
@@ -499,6 +695,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ongods](https://github.com/ongods)"
+  maintainers:
+    - handle: "ongods"
+      url: "https://github.com/ongods"
+      profile: false
 - name: "Cebu City, Cebu"
   domain: "-"
   repo: "[GitHub](https://github.com/kyrenmearr/bettercebucity)"
@@ -509,6 +709,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@kyrenmearr](https://github.com/kyrenmearr)"
+  maintainers:
+    - handle: "kyrenmearr"
+      url: "https://github.com/kyrenmearr"
+      profile: false
 - name: "Piat, Cagayan Valley"
   domain: "-"
   repo: "[GitHub](https://github.com/JoScripty/betterpiat)"
@@ -519,6 +723,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@JoScripty](https://github.com/JoScripty)"
+  maintainers:
+    - handle: "JoScripty"
+      url: "https://github.com/JoScripty"
+      profile: false
 - name: "Alaminos City, Pangasinan"
   domain: "[betteralaminoscity.org](https://betteralaminoscity.org)"
   repo: "[GitHub](https://github.com/BetterAlaminosCity/betteralaminoscity)"
@@ -532,6 +740,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ljsalcedo-dev](https://github.com/ljsalcedo-dev)"
+  maintainers:
+    - handle: "ljsalcedo-dev"
+      url: "https://github.com/ljsalcedo-dev"
+      profile: false
 - name: "Santo Tomas, Pangasinan"
   domain: "-"
   repo: "-"
@@ -540,6 +752,10 @@
   stale: true
   open_for_adoption: true
   maintainer: "[@PatrickTomas2](https://github.com/PatrickTomas2)"
+  maintainers:
+    - handle: "PatrickTomas2"
+      url: "https://github.com/PatrickTomas2"
+      profile: false
 - name: "Legazpi, Albay"
   domain: "[betterlegazpi.org](https://www.betterlegazpi.org/)"
   repo: "[GitHub](https://github.com/bpbelen/betterlegazpi)"
@@ -553,6 +769,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@bpbelen](https://github.com/bpbelen)"
+  maintainers:
+    - handle: "bpbelen"
+      url: "https://github.com/bpbelen"
+      profile: false
 - name: "Santa Barbara, Pangasinan"
   domain: "-"
   repo: "[GitHub](https://github.com/JericoGarcia21/better-santabarbara)"
@@ -563,6 +783,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@JericoGarcia21](https://github.com/JericoGarcia21)"
+  maintainers:
+    - handle: "JericoGarcia21"
+      url: "https://github.com/JericoGarcia21"
+      profile: false
 - name: "Mapandan, Pangasinan"
   domain: "[bettermapandan.org](https://www.bettermapandan.org/)"
   repo: "[GitHub](https://github.com/jadolation/bettermapandan)"
@@ -573,6 +797,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jadolation](https://github.com/jadolation), [@Gel81](https://github.com/Gel81)"
+  maintainers:
+    - handle: "jadolation"
+      url: "https://github.com/jadolation"
+      profile: false
+    - handle: "Gel81"
+      url: "https://github.com/Gel81"
+      profile: false
 - name: "Basista, Pangasinan"
   domain: "-"
   repo: "[GitHub](https://github.com/jadolation/betterbasista)"
@@ -583,6 +814,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jadolation](https://github.com/jadolation)"
+  maintainers:
+    - handle: "jadolation"
+      url: "https://github.com/jadolation"
+      profile: false
 - name: "Pangasinan Province"
   domain: "-"
   repo: "[GitHub](https://github.com/jadolation/betterPangasinan)"
@@ -593,6 +828,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jadolation](https://github.com/jadolation)"
+  maintainers:
+    - handle: "jadolation"
+      url: "https://github.com/jadolation"
+      profile: false
 - name: "Taguig City, Metro Manila"
   domain: "[bettertaguig.org](https://bettertaguig.org/)"
   repo: "[GitHub](https://github.com/plvzfq-rit/bettertaguig)"
@@ -603,6 +842,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@plvzfq-rit](https://github.com/plvzfq-rit), [@OrcaDS](https://github.com/OrcaDS)"
+  maintainers:
+    - handle: "plvzfq-rit"
+      url: "https://github.com/plvzfq-rit"
+      profile: false
+    - handle: "OrcaDS"
+      url: "https://github.com/OrcaDS"
+      profile: false
 - name: "Sara, Iloilo"
   domain: "-"
   repo: "[GitHub](https://github.com/SaraGugmaKo/bettersara)"
@@ -613,6 +859,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@SaraGugmaKo](https://github.com/SaraGugmaKo)"
+  maintainers:
+    - handle: "SaraGugmaKo"
+      url: "https://github.com/SaraGugmaKo"
+      profile: false
 - name: "Bayawan, Negros Oriental"
   domain: "[betterbayawan.org](https://betterbayawan.org/)"
   repo: "[GitHub](https://github.com/rodneydelacruz/betterbayawan)"
@@ -626,6 +876,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rodneydelacruz](https://github.com/rodneydelacruz)"
+  maintainers:
+    - handle: "rodneydelacruz"
+      url: "https://github.com/rodneydelacruz"
+      profile: false
 - name: "Bacoor City, Cavite"
   domain: "[betterbacoor.org](https://www.betterbacoor.org/)"
   repo: "[GitHub](https://github.com/0phl/betterbacoor)"
@@ -639,6 +893,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@0phl](https://github.com/0phl)"
+  maintainers:
+    - handle: "0phl"
+      url: "https://github.com/0phl"
+      profile: false
 - name: "Lucena City, Quezon"
   domain: "-"
   repo: "[GitHub](https://github.com/RyannKim327/BetterLucenaCity)"
@@ -649,6 +907,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@RyannKim327](https://github.com/RyannKim327), [@marrrkkk](https://github.com/marrrkkk)"
+  maintainers:
+    - handle: "RyannKim327"
+      url: "https://github.com/RyannKim327"
+      profile: false
+    - handle: "marrrkkk"
+      url: "https://github.com/marrrkkk"
+      profile: false
 - name: "Carigara, Leyte"
   domain: "[bettercarigara.org](https://bettercarigara.org)"
   repo: "[GitHub](https://github.com/severinolorillajr/bettercarigara)"
@@ -659,6 +924,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@dauganz09](https://github.com/dauganz09), [@severinolorillajr](https://github.com/severinolorillajr)"
+  maintainers:
+    - handle: "dauganz09"
+      url: "https://github.com/dauganz09"
+      profile: false
+    - handle: "severinolorillajr"
+      url: "https://github.com/severinolorillajr"
+      profile: false
 - name: "Claver, Surigao del Norte"
   domain: "-"
   repo: "-"
@@ -667,6 +939,10 @@
   stale: true
   open_for_adoption: true
   maintainer: "[@eljohn2001](https://github.com/eljohn2001)"
+  maintainers:
+    - handle: "eljohn2001"
+      url: "https://github.com/eljohn2001"
+      profile: false
 - name: "Agoo, La Union"
   domain: "[betteragoo.org](https://betteragoo.org/)"
   repo: "[GitHub](https://github.com/glennmarkgarcia/betteragoo)"
@@ -677,6 +953,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@glennmarkgarcia](https://github.com/glennmarkgarcia)"
+  maintainers:
+    - handle: "glennmarkgarcia"
+      url: "https://github.com/glennmarkgarcia"
+      profile: false
 - name: "Aurora, Zamboanga del Sur"
   domain: "[betteraurora.org](https://betteraurora.org)"
   repo: "[GitHub](https://github.com/Jayke770/betteraurora)"
@@ -687,6 +967,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jayke770](https://github.com/jayke770)"
+  maintainers:
+    - handle: "jayke770"
+      url: "https://github.com/jayke770"
+      profile: false
 - name: "Infanta, Quezon"
   domain: "[betterinfantaquezon.org](https://betterinfantaquezon.org/)"
   repo: "[GitHub](https://github.com/davisolpruvnik/better-infanta)"
@@ -697,6 +981,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@davisolpruvnik](https://github.com/davisolpruvnik)"
+  maintainers:
+    - handle: "davisolpruvnik"
+      url: "https://github.com/davisolpruvnik"
+      profile: false
 - name: "Bocaue, Bulacan"
   domain: "-"
   repo: "[GitHub](https://github.com/ericksondelacruz/betterbocaue)"
@@ -707,6 +995,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ericksondelacruz](https://github.com/ericksondelacruz)"
+  maintainers:
+    - handle: "ericksondelacruz"
+      url: "https://github.com/ericksondelacruz"
+      profile: false
 - name: "General Mariano Alvarez, Cavite"
   domain: "-"
   repo: "[GitHub](https://github.com/bettergma/bettergma-gov)"
@@ -717,6 +1009,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@izxclyde](https://github.com/izxclyde)"
+  maintainers:
+    - handle: "izxclyde"
+      url: "https://github.com/izxclyde"
+      profile: false
 - name: "Meycauayan, Bulacan"
   domain: "[bettermeycauayan.org](https://bettermeycauayan.org)"
   repo: "[GitHub](https://github.com/shnflrsc/bettermeycauayan)"
@@ -727,6 +1023,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@shnflrsc](https://github.com/shnflrsc)"
+  maintainers:
+    - handle: "shnflrsc"
+      url: "https://github.com/shnflrsc"
+      profile: false
 - name: "Calapan, Oriental Mindoro"
   domain: "[bettercalapan.org](https://bettercalapan.org)"
   repo: "[GitHub](https://github.com/bettercalapan/portal)"
@@ -740,6 +1040,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@arvingarciabtw](https://github.com/arvingarciabtw)"
+  maintainers:
+    - handle: "arvingarciabtw"
+      url: "https://github.com/arvingarciabtw"
+      profile: false
 - name: "Midsayap, North Cotabato"
   domain: "-"
   repo: "-"
@@ -748,6 +1052,10 @@
   stale: true
   open_for_adoption: true
   maintainer: "[@PostNZT](https://github.com/PostNZT)"
+  maintainers:
+    - handle: "PostNZT"
+      url: "https://github.com/PostNZT"
+      profile: false
 - name: "Tandag City, Surigao del Sur"
   domain: "-"
   repo: "[GitHub](https://github.com/BetterTandag/better-tandag)"
@@ -758,6 +1066,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ikmespinoza](https://github.com/ikmespinoza)"
+  maintainers:
+    - handle: "ikmespinoza"
+      url: "https://github.com/ikmespinoza"
+      profile: false
 - name: "Baler, Aurora"
   domain: "[betterbaler.org](https://betterbaler.org/)"
   repo: "[GitHub](https://github.com/tekwicks/betterbaler)"
@@ -768,6 +1080,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@tekwicks](https://github.com/tekwicks)"
+  maintainers:
+    - handle: "tekwicks"
+      url: "https://github.com/tekwicks"
+      profile: false
 - name: "City of Manila, Metro Manila"
   domain: "[bettermanila.org](https://bettermanila.org)"
   repo: "[GitHub](https://github.com/grgdlm/bettermanila)"
@@ -778,6 +1094,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@grgdlm](https://github.com/grgdlm)"
+  maintainers:
+    - handle: "grgdlm"
+      url: "https://github.com/grgdlm"
+      profile: false
 - name: "Butuan City, Agusan del Norte"
   domain: "-"
   repo: "-"
@@ -786,6 +1106,10 @@
   stale: true
   open_for_adoption: true
   maintainer: "[@stinkymonkeyph](https://github.com/stinkymonkeyph)"
+  maintainers:
+    - handle: "stinkymonkeyph"
+      url: "https://github.com/stinkymonkeyph"
+      profile: false
 - name: "Aborlan, Palawan"
   domain: "[betteraborlan.org](https://betteraborlan.org)"
   repo: "[GitHub](https://github.com/BetterAborlan/betteraborlan)"
@@ -799,6 +1123,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@hmcldryl](https://github.com/hmcldryl)"
+  maintainers:
+    - handle: "hmcldryl"
+      url: "https://github.com/hmcldryl"
+      profile: false
 - name: "Quezon City, Metro Manila"
   domain: "-"
   repo: "[GitHub](https://github.com/brixavengoza/betterquezoncity)"
@@ -809,6 +1137,10 @@
   stale: true
   open_for_adoption: true
   maintainer: "[@brixavengoza](https://github.com/brixavengoza)"
+  maintainers:
+    - handle: "brixavengoza"
+      url: "https://github.com/brixavengoza"
+      profile: false
 - name: "Kabugao, Apayao"
   domain: "[betterkabugao.org](https://betterkabugao.org)"
   repo: "[GitHub](https://github.com/KuyaLoy/betterkabugao)"
@@ -828,6 +1160,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@KuyaLoy](https://github.com/KuyaLoy)"
+  maintainers:
+    - handle: "KuyaLoy"
+      url: "https://github.com/KuyaLoy"
+      profile: false
 - name: "Tago, Surigao del Sur"
   domain: "[bettertago.org](https://www.bettertago.org)"
   repo: "[Github](https://github.com/BetterTago/better-tago)"
@@ -838,6 +1174,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ikmespinoza](https://github.com/ikmespinoza)"
+  maintainers:
+    - handle: "ikmespinoza"
+      url: "https://github.com/ikmespinoza"
+      profile: false
 - name: "San Mariano, Isabela"
   domain: "-"
   repo: "-"
@@ -846,6 +1186,10 @@
   stale: true
   open_for_adoption: true
   maintainer: "[@yazunomii](https://github.com/yazunomii)"
+  maintainers:
+    - handle: "yazunomii"
+      url: "https://github.com/yazunomii"
+      profile: false
 - name: "Pasig City, Metro Manila"
   domain: "-"
   repo: "[GitHub](https://github.com/ericvelasco-dev/betterpasig)"
@@ -856,6 +1200,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ericvelasco-dev](https://github.com/ericvelasco-dev)"
+  maintainers:
+    - handle: "ericvelasco-dev"
+      url: "https://github.com/ericvelasco-dev"
+      profile: false
 - name: "Cavite City, Cavite"
   domain: "[bettercavitecity.org](https://bettercavitecity.org)"
   repo: "-"
@@ -867,6 +1215,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jdsatsatin](https://github.com/jdsatsatin)"
+  maintainers:
+    - handle: "jdsatsatin"
+      url: "https://github.com/jdsatsatin"
+      profile: false
 - name: "Aklan Province"
   domain: "[betteraklan.org](https://betteraklan.org/)"
   repo: "[GitHub](https://github.com/fr4nc1stein/betteraklan)"
@@ -877,6 +1229,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@laet4x](https://github.com/fr4nc1stein/)"
+  maintainers:
+    - handle: "fr4nc1stein"
+      url: "https://github.com/fr4nc1stein"
+      profile: false
 - name: "Bicol Region"
   domain: "[betterbicol.org](https://betterbicol.org)"
   repo: "[GitHub](https://github.com/winclores/betterbicol)"
@@ -890,6 +1246,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@winclores](https://github.com/winclores)"
+  maintainers:
+    - handle: "winclores"
+      url: "https://github.com/winclores"
+      profile: false
 - name: "Dumaguete City, Negros Oriental"
   domain: "-"
   repo: "-"
@@ -898,6 +1258,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@daveteves](https://github.com/daveteves)"
+  maintainers:
+    - handle: "daveteves"
+      url: "https://github.com/daveteves"
+      profile: false
 - name: "Paombong, Bulacan"
   domain: "-"
   repo: "-"
@@ -906,6 +1270,10 @@
   stale: true
   open_for_adoption: true
   maintainer: "[@denvdev](https://github.com/denvdev)"
+  maintainers:
+    - handle: "denvdev"
+      url: "https://github.com/denvdev"
+      profile: false
 - name: "City of Mati, Davao Oriental"
   domain: "-"
   repo: "[GitHub](https://github.com/kaarlosasiang/bettermaticity)"
@@ -919,6 +1287,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@kaarlosasiang](https://github.com/kaarlosasiang)"
+  maintainers:
+    - handle: "kaarlosasiang"
+      url: "https://github.com/kaarlosasiang"
+      profile: false
 - name: "Surallah, South Cotabato"
   domain: "[bettersurallah.org](https://bettersurallah.org)"
   repo: "[GitHub](https://github.com/average04/bettersurallah)"
@@ -929,6 +1301,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@average04](https://github.com/average04)"
+  maintainers:
+    - handle: "average04"
+      url: "https://github.com/average04"
+      profile: false
 - name: "Malolos, Bulacan"
   domain: "[bettermalolos.org](https://bettermalolos.org/)"
   repo: "[GitHub](https://github.com/francisdiaz22/bettermalolos)"
@@ -942,6 +1318,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@francisdiaz22](https://github.com/francisdiaz22)"
+  maintainers:
+    - handle: "francisdiaz22"
+      url: "https://github.com/francisdiaz22"
+      profile: false
 - name: "Maddela, Quirino"
   domain: "[bettermaddela.vercel.app](https://bettermaddela.vercel.app/)"
   repo: "[GitHub](https://github.com/Hendrizzzz/bettermaddela)"
@@ -952,6 +1332,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@Hendrizzzz](https://github.com/Hendrizzzz)"
+  maintainers:
+    - handle: "Hendrizzzz"
+      url: "https://github.com/Hendrizzzz"
+      profile: false
 - name: "Caloocan City, Metro Manila"
   domain: "[bettercaloocan.org](https://www.bettercaloocan.org/)"
   repo: "[GitHub](https://github.com/angelicatanagras/bettercaloocan)"
@@ -962,6 +1346,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@angelicatanagras](https://github.com/angelicatanagras)"
+  maintainers:
+    - handle: "angelicatanagras"
+      url: "https://github.com/angelicatanagras"
+      profile: false
 - name: "Zamboanga City, Zamboanga del Sur"
   domain: "[betterzamboangacity.vercel.app](https://betterzamboangacity.vercel.app)"
   repo: "[GitHub](https://github.com/RALPH22222/betterzamboangacity)"
@@ -975,6 +1363,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@RALPH22222](https://github.com/RALPH22222)"
+  maintainers:
+    - handle: "RALPH22222"
+      url: "https://github.com/RALPH22222"
+      profile: false
 - name: "Dagupan City, Pangasinan"
   domain: "-"
   repo: "[GitHub](https://github.com/jamesjmnz/better-dagupan)"
@@ -985,6 +1377,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jamesjmnz](https://github.com/jamesjmnz)"
+  maintainers:
+    - handle: "jamesjmnz"
+      url: "https://github.com/jamesjmnz"
+      profile: false
 - name: "Baguio City, Benguet"
   domain: "[betterbaguio.org](https://betterbaguio.org)"
   repo: "[GitHub](https://github.com/ashier/betterbaguio)"
@@ -995,6 +1391,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ashier](https://github.com/ashier)"
+  maintainers:
+    - handle: "ashier"
+      url: "https://github.com/ashier"
+      profile: false
 - name: "Trece Martires City, Cavite"
   domain: "[bettertrecemartires.org](https://bettertrecemartires.org)"
   repo: "[GitHub](https://github.com/hiroqt/bettertrece)"
@@ -1005,6 +1405,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@hiroqt](https://github.com/hiroqt)"
+  maintainers:
+    - handle: "hiroqt"
+      url: "https://github.com/hiroqt"
+      profile: false
 - name: "Pagsanjan, Laguna"
   domain: "-"
   repo: "[GitHub](https://github.com/rswlljms/betterpagsanjan)"
@@ -1015,6 +1419,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rswlljms](https://github.com/rswlljms)"
+  maintainers:
+    - handle: "rswlljms"
+      url: "https://github.com/rswlljms"
+      profile: false
 - name: "Naic, Cavite"
   domain: "[betternaic.vercel.app](https://betternaic.vercel.app)"
   repo: "[GitHub](https://github.com/riecodes/betternaic)"
@@ -1028,6 +1436,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rieCodes](https://github.com/rieCodes)"
+  maintainers:
+    - handle: "rieCodes"
+      url: "https://github.com/rieCodes"
+      profile: false
 - name: "City of San Fernando, Pampanga"
   domain: "[bettersanfernando.org](https://bettersanfernando.org)"
   repo: "[GitHub](https://github.com/bettersanfernando/bettersanfernando)"
@@ -1041,6 +1453,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@iyawnnn](https://github.com/iyawnnn)"
+  maintainers:
+    - handle: "iyawnnn"
+      url: "https://github.com/iyawnnn"
+      profile: false
 - name: "Inabanga, Bohol"
   domain: "[betterinabanga.vercel.app](https://betterinabanga.vercel.app)"
   repo: "[GitHub](https://github.com/gerardosocias29/betterinabanga)"
@@ -1051,6 +1467,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@gerardosocias29](https://github.com/gerardosocias29)"
+  maintainers:
+    - handle: "gerardosocias29"
+      url: "https://github.com/gerardosocias29"
+      profile: false
 - name: "Samal, Bataan"
   domain: "-"
   repo: "-"
@@ -1059,6 +1479,10 @@
   stale: true
   open_for_adoption: true
   maintainer: "[@gab26g](https://github.com/gab26g)"
+  maintainers:
+    - handle: "gab26g"
+      url: "https://github.com/gab26g"
+      profile: false
 - name: "Makati City, Metro Manila"
   domain: "[bettermakati.org](https://bettermakati.org)"
   repo: "[GitHub](https://github.com/migi-macati/bettermakati)"
@@ -1075,6 +1499,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@migi-macati](https://github.com/migi-macati)"
+  maintainers:
+    - handle: "migi-macati"
+      url: "https://github.com/migi-macati"
+      profile: false
 - name: "San Carlos City, Pangasinan"
   domain: "[bettersancarlos.vercel.app](https://bettersancarlos.vercel.app/)"
   repo: "[GitHub](https://github.com/edisonmalasan/bettersancarlos)"
@@ -1085,6 +1513,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@edisonmalasan](https://github.com/edisonmalasan)"
+  maintainers:
+    - handle: "edisonmalasan"
+      url: "https://github.com/edisonmalasan"
+      profile: false
 - name: "Pagbilao, Quezon"
   domain: "[betterpagbilao.org](https://betterpagbilao.org)"
   repo: "[GitHub](https://github.com/rallion90/better-pagbilao)"
@@ -1098,6 +1530,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rallion90](https://github.com/rallion90)"
+  maintainers:
+    - handle: "rallion90"
+      url: "https://github.com/rallion90"
+      profile: false
 - name: "Mandaue City, Cebu"
   domain: "-"
   repo: "-"
@@ -1106,6 +1542,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jaylothai](https://github.com/jaylothai)"
+  maintainers:
+    - handle: "jaylothai"
+      url: "https://github.com/jaylothai"
+      profile: false
 - name: "Santa Cruz, Laguna"
   domain: "-"
   repo: "[GitHub](https://github.com/BetterSantaCruz/betterstacruzlaguna)"
@@ -1116,6 +1556,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@Diannn3](https://github.com/Diannn3)"
+  maintainers:
+    - handle: "Diannn3"
+      url: "https://github.com/Diannn3"
+      profile: false
 - name: "Bauang, La Union"
   domain: "-"
   repo: "[GitHub](https://github.com/loudaboi/betterbauang)"
@@ -1126,6 +1570,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@loudaboi](https://github.com/loudaboi)"
+  maintainers:
+    - handle: "loudaboi"
+      url: "https://github.com/loudaboi"
+      profile: false
 - name: "Tabaco City, Albay"
   domain: "-"
   repo: "[GitHub](https://github.com/johnjoshualipio/bettertabaco)"
@@ -1136,6 +1584,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@johnjoshualipio](https://github.com/johnjoshualipio)"
+  maintainers:
+    - handle: "johnjoshualipio"
+      url: "https://github.com/johnjoshualipio"
+      profile: false
 - name: "Rizal, Nueva Ecija"
   domain: "-"
   repo: "[GitHub](https://github.com/njveneracion/betterrizalne)"
@@ -1146,6 +1598,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@njveneracion](https://github.com/njveneracion)"
+  maintainers:
+    - handle: "njveneracion"
+      url: "https://github.com/njveneracion"
+      profile: false
 - name: "Liliw, Laguna"
   domain: "-"
   repo: "[GitHub](https://github.com/BetterLiliw/betterliliw)"
@@ -1156,6 +1612,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@Kiko915](https://github.com/Kiko915), [@johnchristiancoronacion](https://github.com/johnchristiancoronacion)"
+  maintainers:
+    - handle: "Kiko915"
+      url: "https://github.com/Kiko915"
+      profile: false
+    - handle: "johnchristiancoronacion"
+      url: "https://github.com/johnchristiancoronacion"
+      profile: false
 - name: "Naguilian, La Union"
   domain: "[betternaguilianlu.vercel.app](https://betternaguilianlu.vercel.app)"
   repo: "[GitHub](https://github.com/baeyacorpuz/betternaguilianlu)"
@@ -1166,6 +1629,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@baeyacorpuz](https://github.com/baeyacorpuz)"
+  maintainers:
+    - handle: "baeyacorpuz"
+      url: "https://github.com/baeyacorpuz"
+      profile: false
 - name: "City of San Fernando, La Union"
   domain: "[bettersanfernando.pages.dev](https://bettersanfernando.pages.dev/)"
   repo: "[GitHub](https://github.com/alvindemesadev/better-san-fernando-lu)"
@@ -1176,6 +1643,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@alvindemesadev](https://github.com/alvindemesadev)"
+  maintainers:
+    - handle: "alvindemesadev"
+      url: "https://github.com/alvindemesadev"
+      profile: false
 - name: "Minalabac, Camarines Sur"
   domain: "-"
   repo: "-"
@@ -1184,6 +1655,10 @@
   stale: true
   open_for_adoption: true
   maintainer: "[@theheavenlyhacker](https://github.com/theheavenlyhacker)"
+  maintainers:
+    - handle: "theheavenlyhacker"
+      url: "https://github.com/theheavenlyhacker"
+      profile: false
 - name: "Maasin City, Southern Leyte"
   domain: "[bettermaasin.netlify.app](https://bettermaasin.netlify.app)"
   repo: "[GitHub](https://github.com/bettermaasin/BetterMaasin)"
@@ -1197,6 +1672,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@derkandre](https://github.com/derkandre)"
+  maintainers:
+    - handle: "derkandre"
+      url: "https://github.com/derkandre"
+      profile: false
 - name: "Tacloban City, Leyte"
   domain: "-"
   repo: "[GitHub](https://github.com/zenabus/better-tacloban)"
@@ -1207,6 +1686,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@zenabus](https://github.com/zenabus)"
+  maintainers:
+    - handle: "zenabus"
+      url: "https://github.com/zenabus"
+      profile: false
 - name: "City of Santa Rosa, Laguna"
   domain: "[bettersantarosacity.pages.dev](https://bettersantarosacity.pages.dev)"
   repo: "[GitHub](https://github.com/jericizon/bettersantarosacity)"
@@ -1217,6 +1700,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jericizon](https://github.com/jericizon)"
+  maintainers:
+    - handle: "jericizon"
+      url: "https://github.com/jericizon"
+      profile: false
 - name: "Roxas City, Capiz"
   domain: "-"
   repo: "[GitHub](https://github.com/chariz1101/betterroxas)"
@@ -1227,6 +1714,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@chariz1101](https://github.com/chariz1101)"
+  maintainers:
+    - handle: "chariz1101"
+      url: "https://github.com/chariz1101"
+      profile: false
 - name: "Kabankalan City, Negros Occidental"
   domain: "[betterkabankalan.org](https://betterkabankalan.org)"
   repo: "[GitHub](https://github.com/betterkabankalan/betterkabankalan)"
@@ -1240,6 +1731,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@byrai](https://github.com/byrai), [@Vhyron](https://github.com/Vhyron), [@Oniely](https://github.com/Oniely)"
+  maintainers:
+    - handle: "byrai"
+      url: "https://github.com/byrai"
+      profile: false
+    - handle: "Vhyron"
+      url: "https://github.com/Vhyron"
+      profile: false
+    - handle: "Oniely"
+      url: "https://github.com/Oniely"
+      profile: false
 - name: "San Jose City, Nueva Ecija"
   domain: "[sanjose.betternuevaecija.org](https://sanjose.betternuevaecija.org)"
   repo: "[GitHub](https://github.com/denver6000/bettersanjosecity-ne)"
@@ -1250,6 +1751,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@denver6000](https://github.com/denver6000), [@kurt-farinas](https://github.com/kurt-farinas)"
+  maintainers:
+    - handle: "denver6000"
+      url: "https://github.com/denver6000"
+      profile: false
+    - handle: "kurt-farinas"
+      url: "https://github.com/kurt-farinas"
+      profile: false
 - name: "Santa Maria, Bulacan"
   domain: "-"
   repo: "[GitHub](https://github.com/josiahjezraelguevarra/BetterSantaMaria)"
@@ -1260,6 +1768,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@josiahjezraelguevarra](https://github.com/josiahjezraelguevarra)"
+  maintainers:
+    - handle: "josiahjezraelguevarra"
+      url: "https://github.com/josiahjezraelguevarra"
+      profile: false
 - name: "Alangalang, Leyte"
   domain: "-"
   repo: "[GitHub](https://github.com/severinolorillajr/betteralangalang)"
@@ -1270,6 +1782,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@severinolorillajr](https://github.com/severinolorillajr)"
+  maintainers:
+    - handle: "severinolorillajr"
+      url: "https://github.com/severinolorillajr"
+      profile: false
 - name: "Albay Province"
   domain: "-"
   repo: "[GitHub](https://github.com/jsonrls/better-albay)"
@@ -1280,6 +1796,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jsonrls](https://github.com/jsonrls)"
+  maintainers:
+    - handle: "jsonrls"
+      url: "https://github.com/jsonrls"
+      profile: false
 - name: "Gattaran, Cagayan"
   domain: "[bettergattaran.org](https://bettergattaran.org)"
   repo: "[GitHub](https://github.com/ginxFromYt/bettergattaran)"
@@ -1290,6 +1810,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ginxFromYt](https://github.com/ginxFromYt)"
+  maintainers:
+    - handle: "ginxFromYt"
+      url: "https://github.com/ginxFromYt"
+      profile: false
 - name: "Calatagan, Batangas"
   domain: "[bettercalatagan.vercel.app](https://bettercalatagan.vercel.app)"
   repo: "[GitHub](https://github.com/marcxxv/bettercalatagan)"
@@ -1300,6 +1824,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@marcxxv](https://github.com/marcxxv)"
+  maintainers:
+    - handle: "marcxxv"
+      url: "https://github.com/marcxxv"
+      profile: false
 - name: "Valenzuela City, Metro Manila"
   domain: "-"
   repo: "[GitHub](https://github.com/JeremyDFabian/bettervalenzuela)"
@@ -1313,6 +1841,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@JeremyDFabian](https://github.com/JeremyDFabian)"
+  maintainers:
+    - handle: "JeremyDFabian"
+      url: "https://github.com/JeremyDFabian"
+      profile: false
 - name: "Davao del Sur, Davao Region"
   domain: "-"
   repo: "[GitHub](https://github.com/ianmuico/better-davao-del-sur)"
@@ -1323,6 +1855,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ianmuico](https://github.com/ianmuico)"
+  maintainers:
+    - handle: "ianmuico"
+      url: "https://github.com/ianmuico"
+      profile: false
 - name: "Catbalogan City, Samar"
   domain: "-"
   repo: "[GitHub](https://github.com/hplarozner/better-lgu-catbalogan)"
@@ -1333,6 +1869,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@hplarozner](https://github.com/hplarozner)"
+  maintainers:
+    - handle: "hplarozner"
+      url: "https://github.com/hplarozner"
+      profile: false
 - name: "Bagac, Bataan"
   domain: "[betterbagac.org](https://betterbagac.org)"
   repo: "[GitHub](https://github.com/betterbagac/betterbagac)"
@@ -1343,6 +1883,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jmrec](https://github.com/jmrec)"
+  maintainers:
+    - handle: "jmrec"
+      url: "https://github.com/jmrec"
+      profile: false
 - name: "Labo, Camarines Norte"
   domain: "[betterlabo.vercel.app](https://betterlabo.vercel.app)"
   repo: "[GitHub](https://github.com/kiembully/betterlabo)"
@@ -1353,6 +1897,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@kiembully](https://github.com/kiembully)"
+  maintainers:
+    - handle: "kiembully"
+      url: "https://github.com/kiembully"
+      profile: false
 - name: "Marikina City, Metro Manila"
   domain: "[bettermarikina.org](https://www.bettermarikina.org)"
   repo: "[GitHub](https://github.com/BetterMarikina/bettermarikina)"
@@ -1366,6 +1914,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@terddyy](https://github.com/terddyy)"
+  maintainers:
+    - handle: "terddyy"
+      url: "https://github.com/terddyy"
+      profile: false
 - name: "Morong, Rizal"
   domain: "[bettermorong.org](https://bettermorong.org/)"
   repo: "[GitHub](https://github.com/carlodandan/bettermorong)"
@@ -1379,6 +1931,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@carlodandan](https://github.com/carlodandan)"
+  maintainers:
+    - handle: "carlodandan"
+      url: "https://github.com/carlodandan"
+      profile: false
 - name: "Aleosan, Cotabato"
   domain: "-"
   repo: "-"
@@ -1387,6 +1943,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@regzimarx](https://github.com/regzimarx)"
+  maintainers:
+    - handle: "regzimarx"
+      url: "https://github.com/regzimarx"
+      profile: false
 - name: "Malinao, Albay"
   domain: "-"
   repo: "[GitHub](https://github.com/bettermalinao/bettermalinao)"
@@ -1400,6 +1960,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rcbalingbing](https://github.com/rcbalingbing)"
+  maintainers:
+    - handle: "rcbalingbing"
+      url: "https://github.com/rcbalingbing"
+      profile: false
 - name: "Marawi City, Lanao del Sur"
   domain: "-"
   repo: "[GitHub](https://github.com/mamangcao/bettermarawi)"
@@ -1413,6 +1977,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@mamangcao](https://github.com/mamangcao)"
+  maintainers:
+    - handle: "mamangcao"
+      url: "https://github.com/mamangcao"
+      profile: false
 - name: "Llanera, Nueva Ecija"
   domain: "-"
   repo: "[GitHub](https://github.com/heyerikfelipe/BetterLlanera)"
@@ -1423,6 +1991,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@heyerikfelipe](https://github.com/heyerikfelipe)"
+  maintainers:
+    - handle: "heyerikfelipe"
+      url: "https://github.com/heyerikfelipe"
+      profile: false
 - name: "Lapu Lapu City, Cebu"
   domain: "[betterlapulapu.org](https://betterlapulapu.org)"
   repo: "[GitHub](https://github.com/BetterLapuLapu/betterlapulapu)"
@@ -1436,6 +2008,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@iyanski](https://github.com/iyanski)"
+  maintainers:
+    - handle: "iyanski"
+      url: "https://github.com/iyanski"
+      profile: false
 - name: "Dipolog City, Zamboanga del Norte"
   domain: "-"
   repo: "[GitHub](https://github.com/z1on3/betterdipolog)"
@@ -1446,6 +2022,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@z1on3](https://github.com/z1on3)"
+  maintainers:
+    - handle: "z1on3"
+      url: "https://github.com/z1on3"
+      profile: false
 - name: "Plaridel, Bulacan"
   domain: "[betterplaridel-two.vercel.app](https://betterplaridel-two.vercel.app/)"
   repo: "[GitHub](https://github.com/kai-dev00/betterplaridel)"
@@ -1456,6 +2036,16 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@kai-dev00](https://github.com/kai-dev00), [@Ephraim-ed](https://github.com/Ephraim-ed), [@laconic-xtian](https://github.com/laconic-xtian)"
+  maintainers:
+    - handle: "kai-dev00"
+      url: "https://github.com/kai-dev00"
+      profile: false
+    - handle: "Ephraim-ed"
+      url: "https://github.com/Ephraim-ed"
+      profile: false
+    - handle: "laconic-xtian"
+      url: "https://github.com/laconic-xtian"
+      profile: false
 - name: "Hermosa, Bataan"
   domain: "[betterhermosa.org](https://betterhermosa.org)"
   repo: "[GitHub](https://github.com/BetterHermosa/betterhermosa)"
@@ -1466,6 +2056,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ialexies](https://github.com/ialexies)"
+  maintainers:
+    - handle: "ialexies"
+      url: "https://github.com/ialexies"
+      profile: false
 - name: "Ramon, Isabela"
   domain: "[betterramon.pages.dev](https://betterramon.pages.dev)"
   repo: "[GitHub](https://github.com/spncrruiz-alt/betterramon)"
@@ -1476,6 +2070,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@spncrruiz-alt](https://github.com/spncrruiz-alt)"
+  maintainers:
+    - handle: "spncrruiz-alt"
+      url: "https://github.com/spncrruiz-alt"
+      profile: false
 - name: "Talibon, Bohol"
   domain: "-"
   repo: "[GitHub](https://github.com/jessie-melendres/bettertalibon)"
@@ -1486,6 +2084,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jessie-melendres](https://github.com/jessie-melendres)"
+  maintainers:
+    - handle: "jessie-melendres"
+      url: "https://github.com/jessie-melendres"
+      profile: false
 - name: "Tampakan, South Cotabato"
   domain: "[bettertampakan.org](https://bettertampakan.org)"
   repo: "[GitHub](https://github.com/jamez78/bettertampakan)"
@@ -1496,6 +2098,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jamez78](https://github.com/jamez78)"
+  maintainers:
+    - handle: "jamez78"
+      url: "https://github.com/jamez78"
+      profile: false
 - name: "Pasay City, Metro Manila"
   domain: "-"
   repo: "[GitHub](https://github.com/slvdrvncntjvr/betterpasay)"
@@ -1506,6 +2112,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@slvdrvncntjvr](https://github.com/slvdrvncntjvr)"
+  maintainers:
+    - handle: "slvdrvncntjvr"
+      url: "https://github.com/slvdrvncntjvr"
+      profile: false
 - name: "Lumban, Laguna"
   domain: "-"
   repo: "[GitHub](https://github.com/avoabadier/betterlumban)"
@@ -1516,6 +2126,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@avoabadier](https://github.com/avoabadier)"
+  maintainers:
+    - handle: "avoabadier"
+      url: "https://github.com/avoabadier"
+      profile: false
 - name: "Panabo City, Davao Del Norte"
   domain: "[citizensconnectnabotech.vercel.app](https://citizensconnectnabotech.vercel.app/)"
   repo: "[GitHub](https://github.com/ProjectFuritsu/citizensconnectnabotech)"
@@ -1526,6 +2140,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ProjectFuritsu](https://github.com/ProjectFuritsu/)"
+  maintainers:
+    - handle: "ProjectFuritsu"
+      url: "https://github.com/ProjectFuritsu"
+      profile: false
 - name: "Obando, Bulacan"
   domain: "[betterobando.vercel.app](https://betterobando.vercel.app)"
   repo: "[GitHub](https://github.com/MigzAndroidz/better-obando)"
@@ -1539,6 +2157,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@MigzAndroidz](https://github.com/MigzAndroidz)"
+  maintainers:
+    - handle: "MigzAndroidz"
+      url: "https://github.com/MigzAndroidz"
+      profile: false
 - name: "Bayombong, Nueva Vizcaya"
   domain: "-"
   repo: "[GitHub](https://github.com/betterbayombong/betterbayombong)"
@@ -1549,6 +2171,13 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rppf](https://github.com/rppf), [@h4ckedneko](https://github.com/h4ckedneko)"
+  maintainers:
+    - handle: "rppf"
+      url: "https://github.com/rppf"
+      profile: false
+    - handle: "h4ckedneko"
+      url: "https://github.com/h4ckedneko"
+      profile: false
 - name: "Catanduanes Province"
   domain: "[bettercatanduanes.org](https://bettercatanduanes.org)"
   repo: "[GitHub](https://github.com/VLDCNDN/bettercatanduanes)"
@@ -1562,6 +2191,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@VLDCNDN](https://github.com/VLDCNDN)"
+  maintainers:
+    - handle: "VLDCNDN"
+      url: "https://github.com/VLDCNDN"
+      profile: false
 - name: "San Jose Del Monte, Bulacan"
   domain: "-"
   repo: "[GitHub](https://github.com/Better-SJDM/better-sjdm)"
@@ -1572,6 +2205,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@zchuwie](https://github.com/zchuwie)"
+  maintainers:
+    - handle: "zchuwie"
+      url: "https://github.com/zchuwie"
+      profile: false
 - name: "Urdaneta City, Pangasinan"
   domain: "-"
   repo: "[GitHub](https://github.com/robotinkers/betterurdaneta)"
@@ -1582,6 +2219,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@robotinkers](https://github.com/robotinkers)"
+  maintainers:
+    - handle: "robotinkers"
+      url: "https://github.com/robotinkers"
+      profile: false
 - name: "Ilocos Norte Province"
   domain: "-"
   repo: "[GitHub](https://github.com/russellraed/betterilocosnorte)"
@@ -1592,6 +2233,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@russellraed](https://github.com/russellraed)"
+  maintainers:
+    - handle: "russellraed"
+      url: "https://github.com/russellraed"
+      profile: false
 - name: "Bukidnon Province"
   domain: "[betterbukidnon.org](https://betterbukidnon.org)"
   repo: "[GitHub](https://github.com/Better-Bukidnon)"
@@ -1600,6 +2245,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@DMNCDLPRT](https://github.com/DMNCDLPRT)"
+  maintainers:
+    - handle: "DMNCDLPRT"
+      url: "https://github.com/DMNCDLPRT"
+      profile: false
 - name: "Lopez, Quezon"
   domain: "-"
   repo: "[GitHub](https://github.com/StanleyPangaruy/betterlopez)"
@@ -1610,6 +2259,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@StanleyPangaruy](https://github.com/StanleyPangaruy)"
+  maintainers:
+    - handle: "StanleyPangaruy"
+      url: "https://github.com/StanleyPangaruy"
+      profile: false
 - name: "Lingayen, Pangasinan"
   domain: "-"
   repo: "[GitHub](https://github.com/rimzbravz/betterlingayen)"
@@ -1620,6 +2273,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@rimzbravz](https://github.com/rimzbravz)"
+  maintainers:
+    - handle: "rimzbravz"
+      url: "https://github.com/rimzbravz"
+      profile: false
 - name: "Bauan, Batangas"
   domain: "[betterbauan.vercel.app](https://betterbauan.vercel.app)"
   repo: "[GitHub](https://github.com/Arxenic/betterbauan)"
@@ -1630,6 +2287,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@Arxenic](https://github.com/Arxenic)"
+  maintainers:
+    - handle: "Arxenic"
+      url: "https://github.com/Arxenic"
+      profile: false
 - name: "Palo, Leyte"
   domain: "[betterpalo.betterpalogov.workers.dev](https://betterpalo.betterpalogov.workers.dev)"
   repo: "[GitHub](https://github.com/BetterPalo/BetterPalo)"
@@ -1640,6 +2301,22 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@Zyxavy](https://github.com/Zyxavy), [@khalmahi](https://github.com/khalmahi), [@jaimedesu](https://github.com/jaimedesu), [@Rurur8](https://github.com/Rurur8), [@STR4T-coder](https://github.com/STR4T-coder)"
+  maintainers:
+    - handle: "Zyxavy"
+      url: "https://github.com/Zyxavy"
+      profile: false
+    - handle: "khalmahi"
+      url: "https://github.com/khalmahi"
+      profile: false
+    - handle: "jaimedesu"
+      url: "https://github.com/jaimedesu"
+      profile: false
+    - handle: "Rurur8"
+      url: "https://github.com/Rurur8"
+      profile: false
+    - handle: "STR4T-coder"
+      url: "https://github.com/STR4T-coder"
+      profile: false
 - name: "Carmona, Cavite"
   domain: "[bettercarmona.org](https://bettercarmona.org)"
   repo: "[GitHub](https://github.com/carlolim/bettercarmona)"
@@ -1650,6 +2327,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@carlolim](https://github.com/carlolim)"
+  maintainers:
+    - handle: "carlolim"
+      url: "https://github.com/carlolim"
+      profile: false
 - name: "Iriga, Camarines Sur"
   domain: "[betteririga.org](https://betteririga.org)"
   repo: "[GitHub](https://github.com/ronhedwigzape/betteririga)"
@@ -1663,6 +2344,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ronhedwigzape](https://github.com/ronhedwigzape)"
+  maintainers:
+    - handle: "ronhedwigzape"
+      url: "https://github.com/ronhedwigzape"
+      profile: false
 - name: "Marinduque Province"
   domain: "[bettermarinduque.vercel.app](https://bettermarinduque.vercel.app)"
   repo: "[GitHub](https://github.com/b0urbonn/bettermarinduque)"
@@ -1673,6 +2358,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@b0urbonn](https://github.com/b0urbonn)"
+  maintainers:
+    - handle: "b0urbonn"
+      url: "https://github.com/b0urbonn"
+      profile: false
 - name: "Talavera, Nueva Ecija"
   domain: "-"
   repo: "[GitHub](https://github.com/jcparucha/bettertalavera)"
@@ -1683,6 +2372,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jcparucha](https://github.com/jcparucha)"
+  maintainers:
+    - handle: "jcparucha"
+      url: "https://github.com/jcparucha"
+      profile: false
 - name: "Ocampo, Camarines Sur"
   domain: "-"
   repo: "[GitHub](https://github.com/ejsinfuego/betterocampo)"
@@ -1693,6 +2386,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ejsinfuego](https://github.com/ejsinfuego)"
+  maintainers:
+    - handle: "ejsinfuego"
+      url: "https://github.com/ejsinfuego"
+      profile: false
 - name: "Angono, Rizal"
   domain: "-"
   repo: "[GitHub](https://github.com/cj-catacutan/betterangono)"
@@ -1703,6 +2400,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@cj-catacutan](https://github.com/cj-catacutan)"
+  maintainers:
+    - handle: "cj-catacutan"
+      url: "https://github.com/cj-catacutan"
+      profile: false
 - name: "Batangas City, Batangas"
   domain: "-"
   repo: "[GitHub](https://github.com/jrbenriquez/betterbatangascity/)"
@@ -1713,6 +2414,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jrbenriquez](https://github.com/jrbenriquez)"
+  maintainers:
+    - handle: "jrbenriquez"
+      url: "https://github.com/jrbenriquez"
+      profile: false
 - name: "Baao, Camarines Sur"
   domain: "-"
   repo: "[GitHub](https://github.com/alvagenesis/betterbaao/)"
@@ -1723,6 +2428,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@alvagenesis](https://github.com/alvagenesis)"
+  maintainers:
+    - handle: "alvagenesis"
+      url: "https://github.com/alvagenesis"
+      profile: false
 - name: "Oriental Mindoro Province"
   domain: "[betterorientalmindoro.org](https://betterorientalmindoro.org)"
   repo: "[GitHub](https://github.com/renthelautomations/betterorientalmindoro)"
@@ -1736,6 +2445,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@renthelautomations](https://github.com/renthelautomations)"
+  maintainers:
+    - handle: "renthelautomations"
+      url: "https://github.com/renthelautomations"
+      profile: false
 - name: "Miagao, Iloilo"
   domain: "[bettermiagao.org](https://bettermiagao.org)"
   repo: "[GitHub](https://github.com/joebertj/bettermiagao)"
@@ -1746,6 +2459,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@joebertj](https://github.com/joebertj)"
+  maintainers:
+    - handle: "joebertj"
+      url: "https://github.com/joebertj"
+      profile: false
 - name: "Malaybalay City, Bukidnon"
   domain: "[bettermalaybalay.cloud](https://www.bettermalaybalay.cloud)"
   repo: "[GitHub](https://github.com/lordzxxxx/BetterMC)"
@@ -1759,6 +2476,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@lordzxxxx](https://github.com/lordzxxxx)"
+  maintainers:
+    - handle: "lordzxxxx"
+      url: "https://github.com/lordzxxxx"
+      profile: false
 - name: "Magallanes, Sorsogon"
   domain: "-"
   repo: "[Github](https://github.com/the-name-romel/bettermagallanes)"
@@ -1769,6 +2490,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@the-name-romel](https://github.com/the-name-romel)"
+  maintainers:
+    - handle: "the-name-romel"
+      url: "https://github.com/the-name-romel"
+      profile: false
 - name: "Corella, Bohol"
   domain: "-"
   repo: "[GitHub](https://github.com/ashdroidcmd/bettercorella)"
@@ -1779,6 +2504,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@ashdroidcmd](https://github.com/ashdroidcmd)"
+  maintainers:
+    - handle: "ashdroidcmd"
+      url: "https://github.com/ashdroidcmd"
+      profile: false
 - name: "Candaba, Pampanga"
   domain: "-"
   repo: "[GitHub](https://github.com/bulsu-kpdeguzman/bettercandaba)"
@@ -1789,6 +2518,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman)"
+  maintainers:
+    - handle: "bulsu-kpdeguzman"
+      url: "https://github.com/bulsu-kpdeguzman"
+      profile: false
 - name: "Santo Domingo, Ilocos Sur"
   domain: "-"
   repo: "[GitHub](https://github.com/tanojericko/bettersantodomingo-ilocossur)"
@@ -1799,6 +2532,10 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@tanojericko](https://github.com/tanojericko)"
+  maintainers:
+    - handle: "tanojericko"
+      url: "https://github.com/tanojericko"
+      profile: false
 - name: "Catarman, Northern Samar"
   domain: "[bettercatarman.org](https://bettercatarman.org/)"
   repo: "[GitHub](https://github.com/jpdevdotcom/better-catarman-northsamar)"
@@ -1809,3 +2546,7 @@
   stale: false
   open_for_adoption: false
   maintainer: "[@jpdevdotcom](https://github.com/jpdevdotcom)"
+  maintainers:
+    - handle: "jpdevdotcom"
+      url: "https://github.com/jpdevdotcom"
+      profile: false
