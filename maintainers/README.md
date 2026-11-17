@@ -5,6 +5,7 @@ Every LGU and budget portal in this directory is built and run by its own volunt
 Read a profile before you reach out, and follow the [Code of Conduct](../CODE_OF_CONDUCT.md#contacting-maintainers). The website shows the same profiles at [lgu.bettergov.ph/maintainers](https://lgu.bettergov.ph/maintainers/), along with the portals each person maintains.
 
 <!-- MAINTAINER_PROFILES_START -->
+- [Jan Jimenez](jmacj.md) · @jmacj
 <!-- MAINTAINER_PROFILES_END -->
 
 ## Add yourself
