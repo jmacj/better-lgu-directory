@@ -77,3 +77,24 @@
     - name: "Iligan City, Lanao del Norte"
       kind: "budget"
       domain: "[budget.betteriligancity.org](https://budget.betteriligancity.org)"
+- handle: "sechipeanut"
+  url: "/maintainers/sechipeanut/"
+  github: "https://github.com/sechipeanut"
+  name: "Franz Valles"
+  open_to:
+    - "collaborators"
+    - "feature requests"
+  languages:
+    - "Filipino"
+    - "English"
+    - "Waray-Waray"
+  channels:
+    email: "franz.valles@franzvallesmedia.com"
+    messenger: "https://m.me/meowchipinat"
+    discord: "sechipinat"
+    linkedin: "https://www.linkedin.com/in/sechipeanut"
+    website: "https://franzvallesmedia.com"
+  portals:
+    - name: "San Pedro, Laguna"
+      kind: "entry"
+      domain: "[bettersanpedro.org](https://bettersanpedro.org)"

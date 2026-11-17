@@ -264,8 +264,8 @@
   maintainer: "[@sechipeanut](https://github.com/sechipeanut)"
   maintainers:
     - handle: "sechipeanut"
-      url: "https://github.com/sechipeanut"
-      profile: false
+      url: "/maintainers/sechipeanut/"
+      profile: true
 - name: "Cabuyao City, Laguna"
   domain: "[bettercabuyao.org](https://bettercabuyao.org/)"
   repo: "[GitHub](https://github.com/johnrommeloctaviano/better-cabuyao)"
