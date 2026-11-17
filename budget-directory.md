@@ -1,7 +1,7 @@
 ---
 layout: default
 title: BetterGov.ph — LGU Budget Transparency Portal Directory
-permalink: /BUDGET
+permalink: /budget
 ---
 A community-maintained directory of **budget transparency portals** for Philippine LGUs — sites that show citizens every budget project for one province, city, or municipality, built on the public [BetterGov.ph Budget API](https://budget.bettergov.ph/docs) behind the national [budget.bettergov.ph](https://budget.bettergov.ph).
 
@@ -46,7 +46,7 @@ A budget portal is either part of an LGU's [Better LGU portal]({{ '/' | relative
     Showing <span id="budget-count">{{ site.data.budget_portals | size }}</span> of {{ site.data.budget_portals | size }} budget portals.
 </p>
 
-> Want to add your budget portal? See [Adding a Budget Portal]({{ '/CONTRIBUTING' | relative_url }}#adding-a-budget-portal).
+> Want to add your budget portal? See [Adding a Budget Portal]({{ '/contributing' | relative_url }}#adding-a-budget-portal).
 
 ## 🧭 Portal Types
 
@@ -63,7 +63,7 @@ Your province, city, or town can have one too — free, open source, and no serv
 2. **Run `npm run setup`** and pick your LGU
 3. **Deploy** it to Cloudflare, Vercel, or Netlify
 
-Then send us the link by [adding it to this directory]({{ '/CONTRIBUTING' | relative_url }}#adding-a-budget-portal). The full walkthrough is in **[How to Start Your Budget Transparency Portal]({{ '/BUDGET_GUIDE' | relative_url }})**; other starting points are in [Budget Portal Templates]({{ '/BUDGET_TEMPLATES' | relative_url }}).
+Then send us the link by [adding it to this directory]({{ '/contributing' | relative_url }}#adding-a-budget-portal). The full walkthrough is in **[How to Start Your Budget Transparency Portal]({{ '/budget-guide' | relative_url }})**; other starting points are in [Budget Portal Templates]({{ '/budget-templates' | relative_url }}).
 
 Amounts on these portals are as published in the 2027 NEP and House Bill 10858, not spending. A project found in only one version is a candidate to check, not a finding.
 

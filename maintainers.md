@@ -13,11 +13,11 @@ permalink: /maintainers/
   other than README.md as a profile.
 {%- endcomment -%}
 
-Every LGU and budget portal in this directory is built and run by its own volunteers, who are listed in the **Maintainer/s** column of the [Directory]({{ '/' | relative_url }}) and the [Budget Portals]({{ '/BUDGET' | relative_url }}) tables. The people below are some of those portal Maintainers. Each one chose to publish a Maintainer Profile saying how contributors can reach them, what they're open to, and what they're not a fit for.
+Every LGU and budget portal in this directory is built and run by its own volunteers, who are listed in the **Maintainer/s** column of the [Directory]({{ '/' | relative_url }}) and the [Budget Portals]({{ '/budget' | relative_url }}) tables. The people below are some of those portal Maintainers. Each one chose to publish a Maintainer Profile saying how contributors can reach them, what they're open to, and what they're not a fit for.
 
 **Being listed here means they want to be contacted** about the portals they maintain. These are not the Directory Maintainers who run this site. For questions about the directory itself, open an issue on [GitHub](https://github.com/jmacj/better-lgu-directory/issues).
 
-Read a profile before you reach out, and follow the [Code of Conduct]({{ '/CODE_OF_CONDUCT' | relative_url }}#contacting-maintainers).
+Read a profile before you reach out, and follow the [Code of Conduct]({{ '/code-of-conduct' | relative_url }}#contacting-maintainers).
 
 {% assign profiles = site.data.maintainer_profiles -%}
 {%- if profiles and profiles.size > 0 -%}
@@ -50,4 +50,4 @@ Read a profile before you reach out, and follow the [Code of Conduct]({{ '/CODE_
 
 ## Are you a portal Maintainer?
 
-If your GitHub handle is in the Maintainer/s column of an LGU or budget portal in this directory, you can publish your own profile. See [Maintainer Profiles](https://github.com/jmacj/better-lgu-directory/tree/main/maintainers#add-yourself) on GitHub, and read the [privacy notice]({{ '/PRIVACY' | relative_url }}) first. Everything in a profile is public, and only you can add or change yours.
+If your GitHub handle is in the Maintainer/s column of an LGU or budget portal in this directory, you can publish your own profile. See [Maintainer Profiles](https://github.com/jmacj/better-lgu-directory/tree/main/maintainers#add-yourself) on GitHub, and read the [privacy notice]({{ '/privacy' | relative_url }}) first. Everything in a profile is public, and only you can add or change yours.

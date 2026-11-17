@@ -50,10 +50,10 @@
 
                 <div class="hidden lg:flex items-center space-x-6">
                     <a href="{{ '/' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Home' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Directory</a>
-                    <a href="{{ '/BUDGET' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'BetterGov.ph — LGU Budget Transparency Portal Directory' or page.title == 'Start Your Budget Portal' or page.title == 'Budget Portal Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Budget Portals</a>
-                    <a href="{{ '/GUIDE' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Guide' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Start Your LGU</a>
-                    <a href="{{ '/TEMPLATES' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Community Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Templates</a>
-                    <a href="{{ '/CONTRIBUTING' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Contributing' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Contributing</a>
+                    <a href="{{ '/budget' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'BetterGov.ph — LGU Budget Transparency Portal Directory' or page.title == 'Start Your Budget Portal' or page.title == 'Budget Portal Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Budget Portals</a>
+                    <a href="{{ '/guide' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Guide' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Start Your LGU</a>
+                    <a href="{{ '/templates' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Community Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Templates</a>
+                    <a href="{{ '/contributing' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Contributing' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Contributing</a>
                 </div>
 
                 <div class="lg:hidden flex items-center">
@@ -72,10 +72,10 @@
         <div class="lg:hidden bg-white border-t border-gray-100" x-show="mobileMenuOpen" x-transition x-cloak>
             <div class="px-4 py-3 space-y-1">
                 <a href="{{ '/' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Directory</a>
-                <a href="{{ '/BUDGET' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Budget Portals</a>
-                <a href="{{ '/GUIDE' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Start Your LGU</a>
-                <a href="{{ '/TEMPLATES' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Templates</a>
-                <a href="{{ '/CONTRIBUTING' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Contributing</a>
+                <a href="{{ '/budget' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Budget Portals</a>
+                <a href="{{ '/guide' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Start Your LGU</a>
+                <a href="{{ '/templates' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Templates</a>
+                <a href="{{ '/contributing' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Contributing</a>
                 <a href="https://bettergov.ph/join-us" class="block py-2 text-base font-semibold text-blue-600">🚀 Join Us</a>
             </div>
         </div>
@@ -94,7 +94,7 @@
                         Find existing Better LGU portals across the Philippines — contribute to one near you, or start your own.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="{{ '/GUIDE' | relative_url }}" class="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-xl font-bold text-lg transition-all transform hover:-translate-y-1 shadow-lg">Start your Better LGU</a>
+                        <a href="{{ '/guide' | relative_url }}" class="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-xl font-bold text-lg transition-all transform hover:-translate-y-1 shadow-lg">Start your Better LGU</a>
                         <a href="#directory" class="bg-blue-500/30 text-white border border-white/20 hover:bg-blue-500/40 px-8 py-3 rounded-xl font-bold text-lg transition-all backdrop-blur-sm">Check the directory</a>
                     </div>
                 </div>
@@ -152,13 +152,13 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Resources</h3>
                     <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="{{ '/GUIDE' | relative_url }}" class="hover:text-white transition-colors">How to Start Your Portal</a></li>
-                        <li><a href="{{ '/TEMPLATES' | relative_url }}" class="hover:text-white transition-colors">Start-up Templates</a></li>
-                        <li><a href="{{ '/CONTRIBUTING' | relative_url }}" class="hover:text-white transition-colors">Register Your LGU</a></li>
-                        <li><a href="{{ '/BUDGET' | relative_url }}" class="hover:text-white transition-colors">Budget Portal Directory</a></li>
-                        <li><a href="{{ '/BUDGET_GUIDE' | relative_url }}" class="hover:text-white transition-colors">Start a Budget Portal</a></li>
-                        <li><a href="{{ '/BUDGET_TEMPLATES' | relative_url }}" class="hover:text-white transition-colors">Budget Portal Templates</a></li>
-                        <li><a href="{{ '/CHANGELOG' | relative_url }}" class="hover:text-white transition-colors">Latest Updates</a></li>
+                        <li><a href="{{ '/guide' | relative_url }}" class="hover:text-white transition-colors">How to Start Your Portal</a></li>
+                        <li><a href="{{ '/templates' | relative_url }}" class="hover:text-white transition-colors">Start-up Templates</a></li>
+                        <li><a href="{{ '/contributing' | relative_url }}" class="hover:text-white transition-colors">Register Your LGU</a></li>
+                        <li><a href="{{ '/budget' | relative_url }}" class="hover:text-white transition-colors">Budget Portal Directory</a></li>
+                        <li><a href="{{ '/budget-guide' | relative_url }}" class="hover:text-white transition-colors">Start a Budget Portal</a></li>
+                        <li><a href="{{ '/budget-templates' | relative_url }}" class="hover:text-white transition-colors">Budget Portal Templates</a></li>
+                        <li><a href="{{ '/changelog' | relative_url }}" class="hover:text-white transition-colors">Latest Updates</a></li>
                     </ul>
                 </div>
 
@@ -166,8 +166,8 @@
                     <h3 class="text-lg font-semibold mb-4">Community</h3>
                     <ul class="space-y-3 text-sm text-gray-400">
                         <li><a href="https://github.com/jmacj/better-lgu-directory" class="hover:text-white transition-colors">GitHub Repository</a></li>
-                        <li><a href="{{ '/CODE_OF_CONDUCT' | relative_url }}" class="hover:text-white transition-colors">Code of Conduct</a></li>
-                        <li><a href="{{ '/PRIVACY' | relative_url }}" class="hover:text-white transition-colors">Privacy</a></li>
+                        <li><a href="{{ '/code-of-conduct' | relative_url }}" class="hover:text-white transition-colors">Code of Conduct</a></li>
+                        <li><a href="{{ '/privacy' | relative_url }}" class="hover:text-white transition-colors">Privacy</a></li>
                         <li><a href="{{ '/maintainers/' | relative_url }}" class="hover:text-white transition-colors">Maintainer Profiles</a></li>
                         <li><a href="https://bettergov.ph" class="hover:text-white transition-colors">BetterGov.ph Portal</a></li>
                     </ul>
@@ -184,7 +184,7 @@
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
                 <p>&copy; {{ site.time | date: "%Y" }} <strong>BetterGov.ph</strong>. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="{{ '/LICENSE' | relative_url }}" class="hover:text-white">License</a>
+                    <a href="https://github.com/jmacj/better-lgu-directory/blob/main/LICENSE" class="hover:text-white">License</a>
                     <a href="https://github.com/jmacj/better-lgu-directory" class="hover:text-white">Source Code</a>
                     <a href="https://bettergov.ph" class="hover:text-white">BetterGov.ph</a>
                 </div>

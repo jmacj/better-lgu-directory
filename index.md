@@ -143,7 +143,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add or update an LGU entry, co
 
 ## 📄 License
 
-Content in this repository is licensed under [CC BY 4.0](LICENSE). Templates in linked repositories carry their own licenses.
+Content in this repository is licensed under [CC BY 4.0](https://github.com/jmacj/better-lgu-directory/blob/main/LICENSE). Templates in linked repositories carry their own licenses.
 
 <!-- Repository activity (#162) — fills in the "Updated N days ago" line under
      each row's GitHub link. See assets/js/repo-activity.js. -->
