@@ -628,6 +628,11 @@ main tr:last-child td {
   padding-left: 0;
 }
 
+/* .prose p's bottom margin would pad a card's last line beyond its padding. */
+.prose .not-prose p:last-child {
+  margin-bottom: 0;
+}
+
 .prose a.maintainer-card,
 .prose a.maintainer-card:hover {
   color: inherit;
