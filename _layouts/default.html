@@ -132,6 +132,9 @@
                   Rewrite links to repo files the site doesn't publish
                   (site.github_only_links in _config.yml). The docs on main
                   keep their relative links, which are right on GitHub.
+                  A link can arrive as written or rooted: jekyll-relative-links
+                  roots a link whose file is copied raw (README.md), which
+                  would serve plain markdown.
                 {%- endcomment -%}
                 {%- assign page_content = content -%}
                 {%- for link in site.github_only_links -%}
@@ -141,8 +144,11 @@
                   {%- else -%}
                     {%- assign target = link.url -%}
                   {%- endif -%}
-                  {%- assign from = 'href="' | append: link.href -%}
                   {%- assign to = 'href="' | append: target -%}
+                  {%- assign from = 'href="' | append: link.href -%}
+                  {%- assign page_content = page_content | replace: from, to -%}
+                  {%- assign rooted = '/' | append: link.href | relative_url -%}
+                  {%- assign from = 'href="' | append: rooted -%}
                   {%- assign page_content = page_content | replace: from, to -%}
                 {%- endfor %}
                 {{ page_content }}
