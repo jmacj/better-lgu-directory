@@ -18,6 +18,25 @@
     - name: "Las Piñas City, Metro Manila"
       kind: "budget"
       domain: "[budget.betterlaspinas.org](https://budget.betterlaspinas.org)"
+- handle: "jpdevdotcom"
+  url: "/maintainers/jpdevdotcom/"
+  github: "https://github.com/jpdevdotcom"
+  name: "Jan Phillip Dacallos"
+  open_to:
+    - "collaborators"
+    - "feature requests"
+  languages:
+    - "Filipino"
+    - "English"
+    - "Bisaya"
+    - "Waray-Waray"
+  channels:
+    email: "phillip@bettercatarman.org"
+    linkedin: "https://linkedin.com/in/janphillipdacallos/"
+  portals:
+    - name: "Catarman, Northern Samar"
+      kind: "entry"
+      domain: "[bettercatarman.org](https://bettercatarman.org/)"
 - handle: "KishonShrill"
   url: "/maintainers/KishonShrill/"
   github: "https://github.com/KishonShrill"

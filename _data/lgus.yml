@@ -2548,5 +2548,5 @@
   maintainer: "[@jpdevdotcom](https://github.com/jpdevdotcom)"
   maintainers:
     - handle: "jpdevdotcom"
-      url: "https://github.com/jpdevdotcom"
-      profile: false
+      url: "/maintainers/jpdevdotcom/"
+      profile: true
