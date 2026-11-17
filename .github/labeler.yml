@@ -16,6 +16,13 @@
   - changed-files:
       - any-glob-to-any-file: BUDGET.md
 
+# Maintainer Profiles (#426): adding, editing, or removing a profile, or the
+# GitHub index in maintainers/README.md. Content checks (author, front matter,
+# index) come from scripts/triage-pr.js's advisory profile review.
+"entry:maintainer-profile":
+  - changed-files:
+      - any-glob-to-any-file: maintainers/**
+
 site:
   - changed-files:
       - any-glob-to-any-file:
