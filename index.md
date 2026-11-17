@@ -147,7 +147,7 @@ Content in this repository is licensed under [CC BY 4.0](LICENSE). Templates in 
 
 <!-- Repository activity (#162) — fills in the "Updated N days ago" line under
      each row's GitHub link. See assets/js/repo-activity.js. -->
-<script defer src="{{ site.baseurl }}assets/js/repo-activity.js?v={{ site.time | date: '%s' }}"></script>
+<script defer src="{{ '/assets/js/repo-activity.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
 <!-- Search and Pagination Script -->
 <script>
