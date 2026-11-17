@@ -6,7 +6,9 @@ layout: default
   by that Maintainer on main. The card comes from
   _data/maintainer_profiles.yml, which the sync builds. That file holds the
   parsed fields and the portals derived from the Maintainer/s cells, since a
-  profile never lists its own portals. The Maintainer's prose follows as
+  profile never lists its own portals. Each portal shows its domain (the
+  Entry's Domain cell or the Budget Portal's portal cell), falling back to
+  the LGU name when there is none. The Maintainer's prose follows as
   `content`.
 
   Channel values become links only as http(s) URLs, scheme-less hosts like
@@ -36,7 +38,7 @@ layout: default
         {%- if profile.portals.size > 0 -%}
           <ul class="space-y-1">
           {%- for portal in profile.portals %}
-            <li>{{ portal.name | escape }}{% if portal.kind == 'budget' %} <span class="text-sm text-gray-500">(Budget Portal)</span>{% endif %}</li>
+            <li>{% if portal.domain and portal.domain != '-' %}{{ portal.domain | markdownify | remove: '<p>' | remove: '</p>' | strip }}{% else %}{{ portal.name | escape }}{% endif %}{% if portal.kind == 'budget' %} <span class="text-sm text-gray-500">(Budget Portal)</span>{% endif %}</li>
           {%- endfor %}
           </ul>
         {%- else -%}

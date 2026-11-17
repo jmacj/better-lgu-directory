@@ -28,7 +28,7 @@ Read a profile before you reach out, and follow the [Code of Conduct]({{ '/CODE_
     <div class="text-sm text-gray-500 mb-4">@{{ p.handle }}</div>
     <div class="text-sm text-gray-700 mb-3">
       <span class="font-semibold text-gray-500">Maintains:</span>
-      {% if p.portals.size > 0 %}{% for portal in p.portals %}{{ portal.name | escape }}{% if portal.kind == 'budget' %} (Budget Portal){% endif %}{% unless forloop.last %} · {% endunless %}{% endfor %}{% else %}No portals currently listed{% endif %}
+      {% if p.portals.size > 0 %}{% for portal in p.portals %}{% if portal.domain and portal.domain != '-' %}{{ portal.domain | markdownify | strip_html | strip }}{% else %}{{ portal.name | escape }}{% endif %}{% if portal.kind == 'budget' %} (Budget Portal){% endif %}{% unless forloop.last %} · {% endunless %}{% endfor %}{% else %}No portals currently listed{% endif %}
     </div>
     {%- if p.open_to.size > 0 %}
     <div class="flex flex-wrap gap-2 mb-3">
