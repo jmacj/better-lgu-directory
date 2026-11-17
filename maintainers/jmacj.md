@@ -19,4 +19,4 @@ Email me at jan@betterlaspinas.org about Better Las Piñas or BetterGov.ph work.
 ## Not a fit for
 
 - **Partisan or campaign work.** I keep my civic tech non-partisan, so I won't build for, endorse, or promote any candidate or party.
-- **City services and complaints.** I'm a volunteer, not part of the Las Piñas City government. For permits, documents, or complaints, contact City Hall directly.
+- **City services and complaints.** I'm a volunteer, not part of the Las Piñas City government, so I can't process requests or act on complaints. For guides on city services, offices, and hotlines, check the [Better Las Piñas portal](https://betterlaspinas.org); to file a permit, document request, or complaint, contact City Hall directly.
