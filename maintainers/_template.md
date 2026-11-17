@@ -24,13 +24,14 @@ website: https://your-portal.example.org
   portal's own page) over a personal one. If you're under 18, list only
   project or team channels. Read PRIVACY.md before you open your PR.
 
-  The intro line below is optional. Keep it about your work and the portals
-  you maintain. Don't add your school, home city, or age.
+  The intro line below is optional. Keep it about your work. Don't add your
+  school, home city, or age. Your portals are listed on your profile
+  automatically, so you don't need to name them.
 
   Delete this comment and replace the prose below with your own words.
 -->
 
-One or two sentences on what you do and which portals you maintain. For example: "Frontend developer, mostly Vue. I maintain the Better Example City portal."
+One or two sentences on what you do. For example: "Frontend developer, mostly Vue."
 
 ## How I can help
 
