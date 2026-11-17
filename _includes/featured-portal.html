@@ -25,8 +25,8 @@ placeholder card (#125's no-fallback rule extends to the degenerate case).
 Layout: a themed (blue-on-glass) variant of the same glassmorphism the panel
 it replaces used — see the `.featured-portal-*` rules in assets/css/style.css
 for the parts Tailwind's utility classes can't express cleanly (the inverted
-badge pill, the stretched-link overlay, and styling the `<a>` tags kramdown
-emits from `lgu.maintainer`'s raw markdown).
+badge pill, the stretched-link overlay, and styling the Maintainer `<a>` tags
+that maintainer-links.html emits).
 {%- endcomment -%}
 {%- assign pool = site.data.lgu-meta | sort: "order_key" -%}
 {%- if pool and pool.size > 0 -%}
@@ -82,7 +82,8 @@ emits from `lgu.maintainer`'s raw markdown).
 
         {%- if lgu and lgu.maintainer and lgu.maintainer != "-" -%}
           <span class="featured-portal-card__maintainer pointer-events-auto text-sm text-blue-100">
-            Maintained by {{ lgu.maintainer | markdownify | remove: "<p>" | remove: "</p>" | strip }}
+            {%- assign maintainer_fallback = lgu.maintainer | markdownify | remove: "<p>" | remove: "</p>" | strip %}
+            Maintained by {% include maintainer-links.html maintainers=lgu.maintainers fallback=maintainer_fallback %}
           </span>
         {%- endif -%}
 

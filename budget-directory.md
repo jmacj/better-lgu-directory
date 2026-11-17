@@ -33,7 +33,7 @@ A budget portal is either part of an LGU's [Better LGU portal]({{ site.baseurl }
 
 | LGU | Budget Portal | Type | Better LGU Portal | Repository | Maintainer/s |
 |-----|---------------|------|-------------------|------------|--------------|
-{% for p in site.data.budget_portals %}| {{ p.name }} | {{ p.portal }} | {{ p.type }} | {{ p.parent_domain | default: "-" }} | {{ p.repo }}{% if p.repo_owner %}<br><span class="repo-activity" data-repo="{{ p.repo_owner }}/{{ p.repo_name }}"></span>{% endif %} | {{ p.maintainer }} |
+{% for p in site.data.budget_portals %}| {{ p.name }} | {{ p.portal }} | {{ p.type }} | {{ p.parent_domain | default: "-" }} | {{ p.repo }}{% if p.repo_owner %}<br><span class="repo-activity" data-repo="{{ p.repo_owner }}/{{ p.repo_name }}"></span>{% endif %} | {% include maintainer-links.html maintainers=p.maintainers fallback=p.maintainer %} |
 {% endfor %}
 
 </div>
