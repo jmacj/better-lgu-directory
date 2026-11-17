@@ -1,0 +1,20 @@
+- handle: "jmacj"
+  url: "/maintainers/jmacj/"
+  github: "https://github.com/jmacj"
+  name: "Jan Jimenez"
+  open_to:
+    - "collaborators"
+    - "feature requests"
+  languages:
+    - "Filipino"
+    - "English"
+  channels:
+    email: "jan@betterlaspinas.org"
+    linkedin: "https://linkedin.jmacj.dev"
+  portals:
+    - name: "Las Piñas City, Metro Manila"
+      kind: "entry"
+      domain: "[betterlaspinas.org](https://betterlaspinas.org)"
+    - name: "Las Piñas City, Metro Manila"
+      kind: "budget"
+      domain: "[budget.betterlaspinas.org](https://budget.betterlaspinas.org)"

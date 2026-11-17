@@ -5,6 +5,10 @@
   parent_domain: "[betterlb.org](https://betterlb.org)"
   repo: "-"
   maintainer: "[@miconficker](https://github.com/miconficker)"
+  maintainers:
+    - handle: "miconficker"
+      url: "https://github.com/miconficker"
+      profile: false
 - name: "Ilocos Norte Province"
   portal: "[budget.betterilocosnorte.org](https://budget.betterilocosnorte.org)"
   type: "🧩 Integrated"
@@ -12,6 +16,10 @@
   parent_domain: "-"
   repo: "-"
   maintainer: "[@russellraed](https://github.com/russellraed)"
+  maintainers:
+    - handle: "russellraed"
+      url: "https://github.com/russellraed"
+      profile: false
 - name: "Bukidnon Province"
   portal: "[budget.betterbukidnon.org](https://budget.betterbukidnon.org)"
   type: "🧩 Integrated"
@@ -19,6 +27,10 @@
   parent_domain: "[betterbukidnon.org](https://betterbukidnon.org)"
   repo: "-"
   maintainer: "[@DMNCDLPRT](https://github.com/DMNCDLPRT)"
+  maintainers:
+    - handle: "DMNCDLPRT"
+      url: "https://github.com/DMNCDLPRT"
+      profile: false
 - name: "Las Piñas City, Metro Manila"
   portal: "[budget.betterlaspinas.org](https://budget.betterlaspinas.org)"
   type: "🧩 Integrated"
@@ -28,6 +40,13 @@
   repo_owner: "betterlaspinas"
   repo_name: "budget"
   maintainer: "[@jmacj](https://github.com/jmacj), [@Martin-Enghoy](https://github.com/Martin-Enghoy)"
+  maintainers:
+    - handle: "jmacj"
+      url: "/maintainers/jmacj/"
+      profile: true
+    - handle: "Martin-Enghoy"
+      url: "https://github.com/Martin-Enghoy"
+      profile: false
 - name: "Lapu Lapu City, Cebu"
   portal: "[betterlapulapu.org/government/budget-projects](https://www.betterlapulapu.org/government/budget-projects)"
   type: "🧩 Integrated"
@@ -35,6 +54,10 @@
   parent_domain: "[betterlapulapu.org](https://betterlapulapu.org)"
   repo: "-"
   maintainer: "[@iyanski](https://github.com/iyanski)"
+  maintainers:
+    - handle: "iyanski"
+      url: "https://github.com/iyanski"
+      profile: false
 - name: "Catanduanes Province"
   portal: "[bettercatanduanes.org/transparency](https://bettercatanduanes.org/transparency)"
   type: "🧩 Integrated"
@@ -42,6 +65,10 @@
   parent_domain: "[bettercatanduanes.org](https://bettercatanduanes.org)"
   repo: "-"
   maintainer: "[@VLDCNDN](https://github.com/VLDCNDN)"
+  maintainers:
+    - handle: "VLDCNDN"
+      url: "https://github.com/VLDCNDN"
+      profile: false
 - name: "Iligan City, Lanao del Norte"
   portal: "[budget.betteriligancity.org](https://budget.betteriligancity.org)"
   type: "🧩 Integrated"
@@ -51,6 +78,10 @@
   repo_owner: "KishonShrill"
   repo_name: "transparency-portal"
   maintainer: "[@KishonShrill](https://github.com/KishonShrill)"
+  maintainers:
+    - handle: "KishonShrill"
+      url: "https://github.com/KishonShrill"
+      profile: false
 - name: "Silang, Cavite"
   portal: "[bettersilang.org](https://www.bettersilang.org)"
   type: "🏛️ Standalone"
@@ -60,6 +91,10 @@
   repo_owner: "0xDataBear"
   repo_name: "bettersilang"
   maintainer: "[@0xDataBear](https://github.com/0xDataBear)"
+  maintainers:
+    - handle: "0xDataBear"
+      url: "https://github.com/0xDataBear"
+      profile: false
 - name: "Batangas Province"
   portal: "[betterbatangas.org](https://betterbatangas.org)"
   type: "🏛️ Standalone"
@@ -69,6 +104,10 @@
   repo_owner: "pogicodes"
   repo_name: "batangas-transparency-portal"
   maintainer: "[@pogicodes](https://github.com/pogicodes)"
+  maintainers:
+    - handle: "pogicodes"
+      url: "https://github.com/pogicodes"
+      profile: false
 - name: "Pampanga Province"
   portal: "[betterpampanga.vercel.app](https://betterpampanga.vercel.app)"
   type: "🏛️ Standalone"
@@ -78,6 +117,10 @@
   repo_owner: "Pseudoman21"
   repo_name: "betterpampanga"
   maintainer: "[@Pseudoman21](https://github.com/Pseudoman21)"
+  maintainers:
+    - handle: "Pseudoman21"
+      url: "https://github.com/Pseudoman21"
+      profile: false
 - name: "Taal, Batangas"
   portal: "[taal.betterbatangas.org](https://taal.betterbatangas.org)"
   type: "🏛️ Standalone"
@@ -87,6 +130,10 @@
   repo_owner: "pogicodes"
   repo_name: "batangas-transparency-portal"
   maintainer: "[@pogicodes](https://github.com/pogicodes)"
+  maintainers:
+    - handle: "pogicodes"
+      url: "https://github.com/pogicodes"
+      profile: false
 - name: "Rosario, Batangas"
   portal: "[rosario-betterbatangas.vercel.app](https://rosario-betterbatangas.vercel.app)"
   type: "🏛️ Standalone"
@@ -96,6 +143,10 @@
   repo_owner: "BetterWatchMen"
   repo_name: "better-rosario"
   maintainer: "[@BetterWatchMen](https://github.com/BetterWatchMen)"
+  maintainers:
+    - handle: "BetterWatchMen"
+      url: "https://github.com/BetterWatchMen"
+      profile: false
 - name: "Cabanatuan City, Nueva Ecija"
   portal: "[transparency.bettercabanatuan.org](https://transparency.bettercabanatuan.org)"
   type: "🧩 Integrated"
@@ -105,6 +156,13 @@
   repo_owner: "BetterCabanatuan"
   repo_name: "bettercabanatuan-transparency-portal"
   maintainer: "[@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll)"
+  maintainers:
+    - handle: "joshuagemvicente"
+      url: "https://github.com/joshuagemvicente"
+      profile: false
+    - handle: "iampoll"
+      url: "https://github.com/iampoll"
+      profile: false
 - name: "Marinduque Province"
   portal: "[budget-bettermarinduque.vercel.app](https://budget-bettermarinduque.vercel.app)"
   type: "🧩 Integrated"
@@ -114,6 +172,10 @@
   repo_owner: "b0urbonn"
   repo_name: "transparency-portal"
   maintainer: "[@b0urbonn](https://github.com/b0urbonn)"
+  maintainers:
+    - handle: "b0urbonn"
+      url: "https://github.com/b0urbonn"
+      profile: false
 - name: "Bulacan Province"
   portal: "[budget-betterbulacan.vercel.app](https://budget-betterbulacan.vercel.app)"
   type: "🏛️ Standalone"
@@ -123,6 +185,10 @@
   repo_owner: "KyneLaggui"
   repo_name: "transparency-portal-bulacan"
   maintainer: "[@KyneLaggui](https://github.com/KyneLaggui)"
+  maintainers:
+    - handle: "KyneLaggui"
+      url: "https://github.com/KyneLaggui"
+      profile: false
 - name: "Bulakan, Bulacan"
   portal: "[budget.betterbulakan.org](https://budget.betterbulakan.org)"
   type: "🧩 Integrated"
@@ -132,6 +198,10 @@
   repo_owner: "betterbulakan"
   repo_name: "transparency-portal"
   maintainer: "[@kuyacarlo](https://github.com/kuyacarlo)"
+  maintainers:
+    - handle: "kuyacarlo"
+      url: "https://github.com/kuyacarlo"
+      profile: false
 - name: "Sorsogon Province"
   portal: "[sorsogon-province-transparency-portal.vercel.app](https://sorsogon-province-transparency-portal.vercel.app/)"
   type: "🏛️ Standalone"
@@ -141,6 +211,10 @@
   repo_owner: "jill1214"
   repo_name: "sorsogon-province-transparency-portal"
   maintainer: "[@jill1214](https://github.com/jill1214)"
+  maintainers:
+    - handle: "jill1214"
+      url: "https://github.com/jill1214"
+      profile: false
 - name: "Morong, Rizal"
   portal: "[budget.bettermorong.org](https://budget.bettermorong.org)"
   type: "🧩 Integrated"
@@ -150,6 +224,10 @@
   repo_owner: "carlodandan"
   repo_name: "transparency-portal-morong"
   maintainer: "[@carlodandan](https://github.com/carlodandan)"
+  maintainers:
+    - handle: "carlodandan"
+      url: "https://github.com/carlodandan"
+      profile: false
 - name: "Puerto Princesa City, Palawan"
   portal: "[budget.betterpuertoprincesa.org](https:/budget.betterpuertoprincesa.org)"
   type: "🧩 Integrated"
@@ -159,6 +237,10 @@
   repo_owner: "BetterPuertoPrincesa"
   repo_name: "transparency-portal"
   maintainer: "[@hmcldryl](https://github.com/hmcldryl)"
+  maintainers:
+    - handle: "hmcldryl"
+      url: "https://github.com/hmcldryl"
+      profile: false
 - name: "Calapan, Oriental Mindoro"
   portal: "[budget.bettercalapan.org](https://budget.bettercalapan.org)"
   type: "🧩 Integrated"
@@ -168,6 +250,10 @@
   repo_owner: "bettercalapan"
   repo_name: "transparency"
   maintainer: "[@arvingarciabtw](https://github.com/arvingarciabtw)"
+  maintainers:
+    - handle: "arvingarciabtw"
+      url: "https://github.com/arvingarciabtw"
+      profile: false
 - name: "Miagao, Iloilo"
   portal: "[bettermiagao.org/budget](https://bettermiagao.org/budget)"
   type: "🧩 Integrated"
@@ -177,3 +263,7 @@
   repo_owner: "joebertj"
   repo_name: "bettermiagao"
   maintainer: "[@joebertj](https://github.com/joebertj)"
+  maintainers:
+    - handle: "joebertj"
+      url: "https://github.com/joebertj"
+      profile: false
