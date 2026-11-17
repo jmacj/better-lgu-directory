@@ -14,7 +14,7 @@ Reach out if you'd like to collaborate on Better Las Piñas, or if you have a fe
 
 ## Reaching out
 
-Email me at jan@betterlaspinas.org about Better Las Piñas or BetterGov.ph work. For anything not related to BetterGov.ph or Better Las Piñas, email jan@jmacj.dev instead.
+Email me at **jan@betterlaspinas.org** about Better Las Piñas or BetterGov.ph work. For anything not related to BetterGov.ph or Better Las Piñas, email **jan@jmacj.dev** instead.
 
 ## Not a fit for
 
