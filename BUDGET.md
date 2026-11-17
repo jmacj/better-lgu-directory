@@ -30,7 +30,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Bulakan, Bulacan | [budget.betterbulakan.org](https://budget.betterbulakan.org) | 🧩 Integrated | [GitHub](https://github.com/betterbulakan/transparency-portal) | [@kuyacarlo](https://github.com/kuyacarlo) |
 | Sorsogon Province | [sorsogon-province-transparency-portal.vercel.app](https://sorsogon-province-transparency-portal.vercel.app/) | 🏛️ Standalone | [GitHub](https://github.com/jill1214/sorsogon-province-transparency-portal) | [@jill1214](https://github.com/jill1214) |
 | Morong, Rizal | [budget.bettermorong.org](https://budget.bettermorong.org) | 🧩 Integrated | [GitHub](https://github.com/carlodandan/transparency-portal-morong) | [@carlodandan](https://github.com/carlodandan) |
-| Puerto Princesa City, Palawan | [budget.betterpuertoprincesa.org](https:/budget.betterpuertoprincesa.org) | 🧩 Integrated | [GitHub](https://github.com/BetterPuertoPrincesa/transparency-portal) | [@hmcldryl](https://github.com/hmcldryl) |
+| Puerto Princesa City, Palawan | [budget.betterpuertoprincesa.org](https://budget.betterpuertoprincesa.org) | 🧩 Integrated | [GitHub](https://github.com/BetterPuertoPrincesa/transparency-portal) | [@hmcldryl](https://github.com/hmcldryl) |
 | Calapan, Oriental Mindoro | [budget.bettercalapan.org](https://budget.bettercalapan.org) | 🧩 Integrated | [GitHub](https://github.com/bettercalapan/transparency) | [@arvingarciabtw](https://github.com/arvingarciabtw) |
 | Miagao, Iloilo | [bettermiagao.org/budget](https://bettermiagao.org/budget) | 🧩 Integrated | [GitHub](https://github.com/joebertj/bettermiagao) | [@joebertj](https://github.com/joebertj) |
 
