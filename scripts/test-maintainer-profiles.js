@@ -226,7 +226,7 @@ function index(...bullets) {
         'Add yourself like this:',
         '',
         '```markdown',
-        '- [Your Name](your-handle.md) · @your-handle',
+        '- [@your-handle](your-handle.md) · Your Name',
         '```',
         '',
         '<!-- MAINTAINER_PROFILES_START -->',
@@ -239,41 +239,53 @@ const kinds = mismatches => mismatches.map(({ kind, handle }) => `${kind}:${hand
 
 test('an index that matches the files has no mismatches', () => {
     assert.deepStrictEqual(indexMismatches(index(
-        '- [Juan Dela Cruz](Juan.md) · @Juan',
-        '- [maria](maria.md) · @maria',
+        '- [@Juan](Juan.md) · Juan Dela Cruz',
+        '- [@maria](maria.md) · maria',
     ), ['maintainers/README.md', 'maintainers/_template.md', 'maintainers/Juan.md', 'maintainers/maria.md']), []);
 });
 
 test('a profile file with no bullet is a mismatch', () => {
     assert.deepStrictEqual(kinds(indexMismatches(index(
-        '- [Juan](Juan.md) · @Juan',
+        '- [@Juan](Juan.md) · Juan',
     ), ['maintainers/Juan.md', 'maintainers/maria.md'])), ['missing-bullet:maria']);
 });
 
 test('a bullet with no profile file is a mismatch', () => {
     assert.deepStrictEqual(kinds(indexMismatches(index(
-        '- [Juan](Juan.md) · @Juan',
-        '- [Gone](gone.md) · @gone',
+        '- [@Juan](Juan.md) · Juan',
+        '- [@gone](gone.md) · Gone',
     ), ['maintainers/Juan.md'])), ['missing-file:gone']);
 });
 
 test('a bullet whose link and @handle disagree is a mismatch', () => {
     assert.deepStrictEqual(kinds(indexMismatches(index(
-        '- [Juan](Juan.md) · @someone-else',
+        '- [@someone-else](Juan.md) · Juan',
     ), ['maintainers/Juan.md'])), ['handle-mismatch:Juan']);
 });
 
 test('index matching is case-insensitive', () => {
     assert.deepStrictEqual(indexMismatches(index(
-        '- [Juan](juan.md) · @JUAN',
+        '- [@JUAN](juan.md) · Juan',
     ), ['maintainers/Juan.md']), []);
 });
 
 test('a bullet listed twice is a mismatch', () => {
     assert.deepStrictEqual(kinds(indexMismatches(index(
-        '- [Juan](Juan.md) · @Juan',
-        '- [Juan again](juan.md) · @juan',
+        '- [@Juan](Juan.md) · Juan',
+        '- [@juan](juan.md) · Juan again',
     ), ['maintainers/Juan.md'])), ['duplicate-bullet:juan']);
+});
+
+test('a bullet may leave out the name', () => {
+    assert.deepStrictEqual(indexMismatches(index(
+        '- [@Juan](Juan.md)',
+    ), ['maintainers/Juan.md']), []);
+});
+
+test('the old name-first bullet is malformed', () => {
+    assert.deepStrictEqual(kinds(indexMismatches(index(
+        '- [Juan](Juan.md) · @Juan',
+    ), ['maintainers/Juan.md'])), ['malformed-bullet:-', 'missing-bullet:Juan']);
 });
 
 test('a line in the list that is not a profile bullet is a mismatch', () => {
@@ -288,7 +300,7 @@ test('an index without the list markers reports every profile as missing', () =>
 
 console.log('maintainer-profiles: reviewProfileChanges');
 
-const GOOD_INDEX = index('- [Juan](juan.md) · @juan');
+const GOOD_INDEX = index('- [@juan](juan.md) · Juan');
 
 function review(overrides) {
     return reviewProfileChanges({
@@ -362,7 +374,7 @@ test('an opt-in that forgets the index bullet is flagged', () => {
 test('editing only the index still checks it against the files', () => {
     const problems = review({
         changes: [{ status: 'M', path: 'maintainers/README.md' }],
-        headIndex: index('- [Juan](juan.md) · @juan', '- [Ghost](ghost.md) · @ghost'),
+        headIndex: index('- [@juan](juan.md) · Juan', '- [@ghost](ghost.md) · Ghost'),
     });
     assert.ok(problems.some(p => /ghost/.test(p.message)), JSON.stringify(problems));
 });

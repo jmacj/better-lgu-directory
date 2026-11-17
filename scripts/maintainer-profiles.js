@@ -217,10 +217,14 @@ function resolveMaintainerLink(handle, profilePaths) {
 }
 
 // The GitHub index (maintainers/README.md) is a hand-maintained bullet list
-// between these markers, one `- [Name](handle.md) · @handle` per profile.
+// between these markers, one `- [@handle](handle.md) · Name` per profile,
+// sorted by handle. Handle first, so the list reads in the same order as the
+// profile files, their URLs, and the site's /maintainers/ index. The name is
+// optional, like the profile's own `name` key.
 const INDEX_START = '<!-- MAINTAINER_PROFILES_START -->';
 const INDEX_END = '<!-- MAINTAINER_PROFILES_END -->';
-const INDEX_BULLET = new RegExp(`^[-*]\\s+\\[[^\\]]+\\]\\(\\s*(?:\\./)?(${HANDLE})\\.md\\s*\\)\\s*·\\s*@(${HANDLE})\\s*$`);
+const INDEX_BULLET = new RegExp(`^[-*]\\s+\\[@(${HANDLE})\\]\\(\\s*(?:\\./)?(${HANDLE})\\.md\\s*\\)(?:\\s*·\\s*\\S.*)?$`);
+const INDEX_BULLET_FORM = '- [@handle](handle.md) · Name';
 
 /**
  * Where the GitHub index and the profile files disagree. Each mismatch is
@@ -251,10 +255,10 @@ function indexMismatches(indexContent, profilePaths) {
     for (const line of lines) {
         const bullet = INDEX_BULLET.exec(line);
         if (!bullet) {
-            mismatches.push({ kind: 'malformed-bullet', handle: '-', message: `\`${line}\` isn't a \`- [Name](handle.md) · @handle\` bullet` });
+            mismatches.push({ kind: 'malformed-bullet', handle: '-', message: `\`${line}\` isn't a \`${INDEX_BULLET_FORM}\` bullet` });
             continue;
         }
-        const [, linked, mentioned] = bullet;
+        const [, mentioned, linked] = bullet;
         const key = linked.toLowerCase();
         if (key !== mentioned.toLowerCase()) {
             mismatches.push({ kind: 'handle-mismatch', handle: linked, message: `the bullet links to \`${linked}.md\` but names @${mentioned}` });

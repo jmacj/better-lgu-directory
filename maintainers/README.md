@@ -4,9 +4,9 @@ Every LGU and budget portal in this directory is built and run by its own volunt
 
 Read a profile before you reach out, and follow the [Code of Conduct](../CODE_OF_CONDUCT.md#contacting-maintainers). The website shows the same profiles at [lgu.bettergov.ph/maintainers](https://lgu.bettergov.ph/maintainers/), along with the portals each person maintains.
 
-<!-- Keep this list in alphabetical order by GitHub handle (case-insensitive), one bullet per profile: - [Name](handle.md) · @handle -->
+<!-- Keep this list in alphabetical order by GitHub handle (case-insensitive), one bullet per profile: - [@handle](handle.md) · Name -->
 <!-- MAINTAINER_PROFILES_START -->
-- [Jan Jimenez](jmacj.md) · @jmacj
+- [@jmacj](jmacj.md) · Jan Jimenez
 <!-- MAINTAINER_PROFILES_END -->
 
 ## Add yourself
@@ -18,7 +18,7 @@ You can publish a Maintainer Profile if your GitHub handle is in the Maintainer/
 3. Add yourself to the list above, in alphabetical order by handle:
 
    ```markdown
-   - [Your Name](your-github-handle.md) · @your-github-handle
+   - [@your-github-handle](your-github-handle.md) · Your Name
    ```
 
 4. Open a pull request from your own GitHub account. Nobody else can publish a profile for you.
