@@ -47,10 +47,21 @@ const METRO_MANILA = 'Metro Manila';
 
 // LGUs PSGC places in a different region from their geographic province,
 // keyed by the full LGU cell. Checked before the province lookup.
+//
+// Checked: every highly urbanized and independent component city. Only the
+// City of Isabela differs; Cotabato City's geographic province, Maguindanao
+// del Norte, is already in BARMM. The other case is the BARMM Special
+// Geographic Area, whose municipalities lie inside Cotabato province.
+const SPECIAL_GEOGRAPHIC_AREA = [
+    'Kadayangan', 'Kapalawan', 'Ligawasan', 'Malidegao',
+    'Nabalawag', 'Old Kaabakan', 'Pahamuddin', 'Tugunan',
+];
 const REGION_OVERRIDES = {
     // PSGC lists the City of Isabela under Region IX (Zamboanga Peninsula),
     // though geographically it is on Basilan (BARMM).
     'Isabela City, Basilan': 'Zamboanga Peninsula',
+    // PSGC lists these under BARMM's Special Geographic Area.
+    ...Object.fromEntries(SPECIAL_GEOGRAPHIC_AREA.map(place => [`${place}, Cotabato`, 'BARMM'])),
 };
 
 const REGION_NAMES = REGIONS.map(region => region.name);

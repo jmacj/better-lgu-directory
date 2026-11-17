@@ -71,6 +71,7 @@ test('Mountain Province is written as itself, not doubled', () => {
     assert.strictEqual(lgu.kind, 'province');
     assert.strictEqual(lgu.place, 'Mountain Province');
     assert.strictEqual(lgu.region, 'CAR');
+    rejects('Mountain Province Province', 'format');
 });
 
 test('region row: place is the region as written, no province', () => {
@@ -86,6 +87,11 @@ test('Isabela City region override: Zamboanga Peninsula, not BARMM', () => {
     assert.strictEqual(lgu.province, 'Basilan');
     assert.strictEqual(lgu.region, 'Zamboanga Peninsula');
     assert.strictEqual(parseLguName('Lamitan City, Basilan').region, 'BARMM');
+});
+
+test('Special Geographic Area municipalities are BARMM, though in Cotabato', () => {
+    assert.strictEqual(parseLguName('Pahamuddin, Cotabato').region, 'BARMM');
+    assert.strictEqual(parseLguName('Midsayap, Cotabato').region, 'SOCCSKSARGEN');
 });
 
 test('a region used as a province is rejected', () => {

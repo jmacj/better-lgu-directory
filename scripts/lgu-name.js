@@ -19,8 +19,6 @@ const {
     METRO_MANILA,
 } = require('./psgc-regions');
 
-const KINDS = ['region', 'province', 'city', 'municipality'];
-
 // Level: the rank every sort uses. Cities and municipalities share a level —
 // no sort ever lists cities before municipalities.
 const LEVEL = { region: 0, province: 1, city: 2, municipality: 2 };
@@ -93,10 +91,15 @@ function parseProvinceOrRegion(name) {
         throw new LguNameError('metro-manila-province', name, `Metro Manila is only the stand-in province for NCR LGUs. Write a region-level NCR entry as "NCR".`);
     }
     // A province whose PSGC name already ends in "Province" (Mountain
-    // Province) is written as itself rather than doubled.
-    const province = PROVINCE_REGION.has(name) && name.endsWith(PROVINCE_SUFFIX)
-        ? name
-        : name.endsWith(PROVINCE_SUFFIX) ? name.slice(0, -PROVINCE_SUFFIX.length) : null;
+    // Province) is written as itself, never doubled.
+    if (PROVINCE_REGION.has(name) && name.endsWith(PROVINCE_SUFFIX)) {
+        return { place: name, kind: 'province', province: name, ...regionOf(name, name) };
+    }
+    const stripped = name.endsWith(PROVINCE_SUFFIX) ? name.slice(0, -PROVINCE_SUFFIX.length) : null;
+    if (stripped !== null && stripped.endsWith(PROVINCE_SUFFIX) && PROVINCE_REGION.has(stripped)) {
+        throw new LguNameError('format', name, `Write "${stripped}" — its name already ends in "Province".`);
+    }
+    const province = stripped;
     if (province === null) {
         throw new LguNameError('no-province', name, `A city or municipality needs its province ("<Place>, <Province>"); a province row ends in "Province"; a region row uses the region's PSGC name.${caseHint(name, REGION_NAMES)}`);
     }
@@ -170,7 +173,6 @@ function placement(name, otherNames) {
 
 module.exports = {
     placement,
-    KINDS,
     LEVEL,
     LguNameError,
     parseLguName,

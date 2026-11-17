@@ -87,8 +87,9 @@ The format departs from PSGC only where sorting or a consistent row shape needs 
 | `Science City of Muñoz`, `Island Garden City of Samal` | `Muñoz City`, `Samal City` | One city form. |
 | Highly urbanized and independent component cities have no province | The geographic province (`Bacolod City, Negros Occidental`) | Every row needs a province, for sorting by province and for the `Province · Region` line. |
 | NCR LGUs have no province | `Metro Manila` as their province | The single stand-in, so every row has the same shape. |
+| `Mountain Province` | `Mountain Province`, not `Mountain Province Province` | Its name already ends in "Province", so the province row isn't doubled. |
 
-Region names are not a departure: they use PSGC's own short form and capitalisation. A few LGUs sit in a different PSGC region from their geographic province (for example, `Isabela City, Basilan` is in Zamboanga Peninsula, while Basilan is in BARMM). These are handled in [`scripts/psgc-regions.js`](scripts/psgc-regions.js), and you still write the geographic province.
+Region names are not a departure: they use PSGC's own short form and capitalisation. A few LGUs sit in a different PSGC region from their geographic province: `Isabela City, Basilan` is in Zamboanga Peninsula while Basilan is in BARMM, and the Special Geographic Area municipalities inside Cotabato are in BARMM. These are handled in [`scripts/psgc-regions.js`](scripts/psgc-regions.js), and you still write the geographic province.
 
 ---
 
