@@ -1885,8 +1885,8 @@
   maintainer: "[@jmrec](https://github.com/jmrec)"
   maintainers:
     - handle: "jmrec"
-      url: "https://github.com/jmrec"
-      profile: false
+      url: "/maintainers/jmrec/"
+      profile: true
 - name: "Labo, Camarines Norte"
   domain: "[betterlabo.vercel.app](https://betterlabo.vercel.app)"
   repo: "[GitHub](https://github.com/kiembully/betterlabo)"

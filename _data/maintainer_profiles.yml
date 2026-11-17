@@ -18,6 +18,25 @@
     - name: "Las Piñas City, Metro Manila"
       kind: "budget"
       domain: "[budget.betterlaspinas.org](https://budget.betterlaspinas.org)"
+- handle: "jmrec"
+  url: "/maintainers/jmrec/"
+  github: "https://github.com/jmrec"
+  name: "Juan Miguel Recondo"
+  open_to:
+    - "collaborators"
+    - "feature requests"
+    - "code review"
+  languages:
+    - "Filipino"
+    - "English"
+  channels:
+    discord: "jem21"
+    linkedin: "https://www.linkedin.com/in/jmrecondo"
+    website: "https://jmrecondo.com"
+  portals:
+    - name: "Bagac, Bataan"
+      kind: "entry"
+      domain: "[betterbagac.org](https://betterbagac.org)"
 - handle: "jpdevdotcom"
   url: "/maintainers/jpdevdotcom/"
   github: "https://github.com/jpdevdotcom"
