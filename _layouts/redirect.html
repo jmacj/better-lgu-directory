@@ -2,10 +2,9 @@
   Redirect page for jekyll-redirect-from (#429), used by the stubs in
   redirects/ in place of the plugin's built-in template, which this mirrors.
 
-  The plugin makes the redirect target absolute with site.url, but
-  _config.yml's url is not the live domain in CNAME, so an absolute target
-  would send visitors to another host. Stripping site.url leaves a root path,
-  so each redirect stays on whichever host served it.
+  The plugin makes the redirect target absolute with site.url. Stripping it
+  leaves a root path, so each redirect stays on whichever host served it,
+  including forks and previews that don't serve lgu.bettergov.ph.
 {%- endcomment -%}
 {%- assign target = page.redirect.to | remove_first: site.url -%}
 <!DOCTYPE html>

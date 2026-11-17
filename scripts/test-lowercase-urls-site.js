@@ -115,8 +115,7 @@ for (const { url, oldUrl } of PAGES) {
 check(stubs.length === PAGES.length, 'redirects/ holds only the #429 stubs');
 
 // Redirects stay on the host that served them. jekyll-redirect-from prefixes
-// redirect_to with site.url, and _config.yml's url is not the live domain
-// (CNAME), so the site's redirect layout must strip it.
+// redirect_to with site.url, so the site's redirect layout strips it.
 check(/remove_first: site\.url/.test(read('_layouts/redirect.html')),
     '_layouts/redirect.html strips site.url from the redirect target');
 
