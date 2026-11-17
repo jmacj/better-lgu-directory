@@ -1,6 +1,6 @@
 # Maintainer Profiles
 
-Maintainers who are happy to hear from contributors. Each person listed here added their own Maintainer Profile, which says how to reach them, what they're open to, and what they're not a fit for. **Being listed here means they want to be contacted.**
+Every LGU and budget portal in this directory is built and run by its own volunteers, listed in the **Maintainer/s** column of [`README.md`](../README.md) and [`BUDGET.md`](../BUDGET.md). The people below are some of those portal Maintainers. Each one added their own Maintainer Profile, which says how to reach them, what they're open to, and what they're not a fit for. **Being listed here means they want to be contacted** about the portals they maintain. These are not the Directory Maintainers who run this repository.
 
 Read a profile before you reach out, and follow the [Code of Conduct](../CODE_OF_CONDUCT.md#contacting-maintainers). The website shows the same profiles at [lgu.bettergov.ph/maintainers](https://lgu.bettergov.ph/maintainers/), along with the portals each person maintains.
 
