@@ -5,7 +5,7 @@ permalink: /BUDGET
 ---
 A community-maintained directory of **budget transparency portals** for Philippine LGUs — sites that show citizens every budget project for one province, city, or municipality, built on the public [BetterGov.ph Budget API](https://budget.bettergov.ph/docs) behind the national [budget.bettergov.ph](https://budget.bettergov.ph).
 
-A budget portal is either part of an LGU's [Better LGU portal]({{ site.baseurl }}./) or a site of its own. Every portal listed here is live — check this table before you build, so you can contribute to an existing one instead of publishing a second.
+A budget portal is either part of an LGU's [Better LGU portal]({{ '/' | relative_url }}) or a site of its own. Every portal listed here is live — check this table before you build, so you can contribute to an existing one instead of publishing a second.
 
 ## 💰 Directory
 
@@ -33,7 +33,7 @@ A budget portal is either part of an LGU's [Better LGU portal]({{ site.baseurl }
 
 | LGU | Budget Portal | Type | Better LGU Portal | Repository | Maintainer/s |
 |-----|---------------|------|-------------------|------------|--------------|
-{% for p in site.data.budget_portals %}| {{ p.name }} | {{ p.portal }} | {{ p.type }} | {{ p.parent_domain | default: "-" }} | {{ p.repo }}{% if p.repo_owner %}<br><span class="repo-activity" data-repo="{{ p.repo_owner }}/{{ p.repo_name }}"></span>{% endif %} | {{ p.maintainer }} |
+{% for p in site.data.budget_portals %}| {{ p.name }} | {{ p.portal }} | {{ p.type }} | {{ p.parent_domain | default: "-" }} | {{ p.repo }}{% if p.repo_owner %}<br><span class="repo-activity" data-repo="{{ p.repo_owner }}/{{ p.repo_name }}"></span>{% endif %} | {% include maintainer-links.html maintainers=p.maintainers fallback=p.maintainer %} |
 {% endfor %}
 
 </div>
@@ -46,7 +46,7 @@ A budget portal is either part of an LGU's [Better LGU portal]({{ site.baseurl }
     Showing <span id="budget-count">{{ site.data.budget_portals | size }}</span> of {{ site.data.budget_portals | size }} budget portals.
 </p>
 
-> Want to add your budget portal? See [Adding a Budget Portal]({{ site.baseurl }}CONTRIBUTING#adding-a-budget-portal).
+> Want to add your budget portal? See [Adding a Budget Portal]({{ '/CONTRIBUTING' | relative_url }}#adding-a-budget-portal).
 
 ## 🧭 Portal Types
 
@@ -63,11 +63,11 @@ Your province, city, or town can have one too — free, open source, and no serv
 2. **Run `npm run setup`** and pick your LGU
 3. **Deploy** it to Cloudflare, Vercel, or Netlify
 
-Then send us the link by [adding it to this directory]({{ site.baseurl }}CONTRIBUTING#adding-a-budget-portal). The full walkthrough is in **[How to Start Your Budget Transparency Portal]({{ site.baseurl }}BUDGET_GUIDE)**; other starting points are in [Budget Portal Templates]({{ site.baseurl }}BUDGET_TEMPLATES).
+Then send us the link by [adding it to this directory]({{ '/CONTRIBUTING' | relative_url }}#adding-a-budget-portal). The full walkthrough is in **[How to Start Your Budget Transparency Portal]({{ '/BUDGET_GUIDE' | relative_url }})**; other starting points are in [Budget Portal Templates]({{ '/BUDGET_TEMPLATES' | relative_url }}).
 
 Amounts on these portals are as published in the 2027 NEP and House Bill 10858, not spending. A project found in only one version is a candidate to check, not a finding.
 
-<script defer src="{{ site.baseurl }}assets/js/repo-activity.js?v={{ site.time | date: '%s' }}"></script>
+<script defer src="{{ '/assets/js/repo-activity.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
 <script>
 function filterBudget() {

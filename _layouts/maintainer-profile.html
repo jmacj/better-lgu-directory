@@ -1,0 +1,125 @@
+---
+layout: default
+---
+{%- comment -%}
+  A Maintainer Profile page (#426): maintainers/<handle>.md, written and owned
+  by that Maintainer on main. The card comes from
+  _data/maintainer_profiles.yml, which the sync builds. That file holds the
+  parsed fields and the portals derived from the Maintainer/s cells, since a
+  profile never lists its own portals. Each portal shows its domain (the
+  Entry's Domain cell or the Budget Portal's portal cell), falling back to
+  the LGU name when there is none. The Maintainer's prose follows as
+  `content`.
+
+  Channel values become links only as http(s) URLs, scheme-less hosts like
+  www.example.org (given https://), an email, or a Telegram username, so a
+  profile can't inject another scheme.
+
+  The prose below is the Maintainer's own markdown, rendered like any other
+  page. Liquid and raw HTML in it are not sanitized here, and Jekyll 3 can't
+  turn Liquid off per page, so a stray `{{` or `{%` in a profile breaks the
+  site build. Reviewers must catch that on main before merging a profile.
+  Emails are plain mailto: links with no obfuscation, by design: the source
+  file is public on GitHub anyway.
+{%- endcomment -%}
+{%- assign profile_handle = page.name | remove: '.md' -%}
+{%- assign profile = site.data.maintainer_profiles | where: 'handle', profile_handle | first -%}
+<div class="not-prose mb-10 bg-white border border-gray-100 rounded-2xl shadow-sm p-6 md:p-8">
+  <p class="text-sm text-gray-500 mb-6">
+    <a href="https://github.com/{{ profile_handle }}" class="font-semibold text-blue-600 hover:text-blue-700">@{{ profile_handle }}</a>
+    published this Maintainer Profile to say how contributors can reach them about the Better LGU portals they maintain.
+  </p>
+
+  {%- if profile %}
+  <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-base">
+    <div>
+      <dt class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Maintains</dt>
+      <dd class="text-gray-900">
+        {%- if profile.portals.size > 0 -%}
+          <ul class="space-y-1">
+          {%- for portal in profile.portals %}
+            <li>{% if portal.domain and portal.domain != '-' %}{{ portal.domain | markdownify | remove: '<p>' | remove: '</p>' | strip }}{% else %}{{ portal.name | escape }}{% endif %}{% if portal.kind == 'budget' %} <span class="text-sm text-gray-500">(Budget Portal)</span>{% endif %}</li>
+          {%- endfor %}
+          </ul>
+        {%- else -%}
+          <span class="text-gray-500">No portals currently listed.</span>
+        {%- endif -%}
+      </dd>
+    </div>
+
+    {%- if profile.channels.size > 0 %}
+    <div>
+      <dt class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Reach out</dt>
+      <dd class="text-gray-900">
+        <ul class="space-y-1">
+        {%- assign channel_keys = "email,messenger,discord,telegram,linkedin,website" | split: "," -%}
+        {%- assign channel_labels = "Email,Messenger,Discord,Telegram,LinkedIn,Website" | split: "," -%}
+        {%- for key in channel_keys -%}
+          {%- assign value = profile.channels[key] -%}
+          {%- if value -%}
+            {%- assign label = channel_labels[forloop.index0] -%}
+            {%- assign lower = value | downcase -%}
+            {%- assign href = nil -%}
+            {%- assign text = value -%}
+            {%- assign head8 = lower | slice: 0, 8 -%}
+            {%- assign head7 = lower | slice: 0, 7 -%}
+            {%- if head8 == 'https://' or head7 == 'http://' -%}
+              {%- assign href = value -%}
+            {%- elsif key == 'telegram' -%}
+              {%- comment -%} @user, user, t.me/user or telegram.me/user {%- endcomment -%}
+              {%- assign tg = value | remove_first: '@' -%}
+              {%- assign tg_lower = tg | downcase -%}
+              {%- if tg_lower contains 't.me/' -%}{%- assign tg = tg | split: '/' | last -%}{%- endif -%}
+              {%- assign href = 'https://t.me/' | append: tg -%}
+              {%- assign text = '@' | append: tg -%}
+            {%- elsif key == 'messenger' or key == 'linkedin' or key == 'website' -%}
+              {%- comment -%} Scheme-less www.example.org or m.me/page. Anything with a colon (another scheme) or a space stays plain text. {%- endcomment -%}
+              {%- unless value contains ':' or value contains ' ' -%}
+                {%- if value contains '.' -%}{%- assign href = 'https://' | append: value -%}{%- endif -%}
+              {%- endunless -%}
+            {%- endif %}
+          <li>
+            <span class="text-gray-500">{{ label }}:</span>
+            {% if key == 'email' -%}
+              <a href="mailto:{{ value | escape }}" class="text-blue-600 hover:text-blue-700 break-all">{{ value | escape }}</a>
+            {%- elsif href -%}
+              <a href="{{ href | escape }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 break-all">{{ text | escape }}</a>
+            {%- else -%}
+              <span class="break-all">{{ value | escape }}</span>
+            {%- endif %}
+          </li>
+          {%- endif -%}
+        {%- endfor %}
+        </ul>
+      </dd>
+    </div>
+    {%- endif %}
+
+    {%- if profile.open_to.size > 0 %}
+    <div>
+      <dt class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Open to</dt>
+      <dd class="flex flex-wrap gap-2">
+        {%- for item in profile.open_to %}
+        <span class="lgu-tag lgu-tag-open">{{ item | escape }}</span>
+        {%- endfor %}
+      </dd>
+    </div>
+    {%- endif %}
+
+    {%- if profile.languages.size > 0 %}
+    <div>
+      <dt class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Languages</dt>
+      <dd class="text-gray-900">{{ profile.languages | join: ", " | escape }}</dd>
+    </div>
+    {%- endif %}
+  </dl>
+  {%- endif %}
+
+  <p class="mt-6 text-sm text-gray-500">
+    Before you reach out, read the whole profile and follow the
+    <a href="{{ '/CODE_OF_CONDUCT' | relative_url }}#contacting-maintainers" class="text-blue-600 hover:text-blue-700">Code of Conduct</a>.
+    <a href="{{ '/maintainers/' | relative_url }}" class="text-blue-600 hover:text-blue-700">All Maintainer Profiles</a>
+  </p>
+</div>
+
+{{ content }}

@@ -21,8 +21,27 @@ defaults:
     values:
       layout: default
       title: Budget Portal Templates
+  # PRIVACY.md comes from main with no front matter, like the budget docs (#426).
+  - scope:
+      path: "PRIVACY.md"
+    values:
+      layout: default
+      title: Privacy
+  # Maintainer Profiles (#426) come from main. A profile carries no layout or
+  # title key, because GitHub would show them in the profile's front-matter
+  # table. The permalink matches the /maintainers/<handle>/ URL the sync
+  # emits. The /maintainers/ index page is maintainers.md at the root.
+  - scope:
+      path: "maintainers"
+    values:
+      layout: maintainer-profile
+      title: Maintainer Profile
+      permalink: /maintainers/:basename/
 
 exclude:
+  # GitHub index for Maintainer Profiles (#426). The site's /maintainers/ page
+  # is maintainers.md, rendered from _data/maintainer_profiles.yml.
+  - "maintainers/README.md"
   # Source table for /BUDGET (budget-directory.md renders it from _data).
   - "BUDGET.md"
   - ".github"

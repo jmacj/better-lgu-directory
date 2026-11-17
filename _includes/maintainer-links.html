@@ -1,0 +1,18 @@
+{%- comment -%}
+  Renders a Maintainer/s cell from the structured `maintainers:` list the sync
+  emits (#426). Each handle links to its Maintainer Profile when one exists,
+  otherwise to GitHub; the sync has already resolved which. Falls back to
+  `fallback` (the raw cell, e.g. "-") when the cell names no handles.
+  Emits a single line with no trailing newline, so it is safe inside a
+  markdown table row.
+
+  Params: maintainers (list), fallback (string, already rendered by caller)
+{%- endcomment -%}
+{%- if include.maintainers and include.maintainers.size > 0 -%}
+  {%- for m in include.maintainers -%}
+    {%- unless forloop.first %}, {% endunless -%}
+    <a href="{% if m.profile %}{{ m.url | relative_url }}{% else %}{{ m.url }}{% endif %}">@{{ m.handle }}</a>
+  {%- endfor -%}
+{%- else -%}
+  {{- include.fallback -}}
+{%- endif -%}

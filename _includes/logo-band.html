@@ -48,7 +48,7 @@ placeholder band (same "no fallback" rule the Featured card follows).
         {%- for l in row1 -%}
           <li class="lb-item">
             <a class="lb-link" href="https://{{ l.domain }}" target="_blank" rel="noopener noreferrer">
-              <img class="lb-img" src="{{ site.baseurl }}assets/images/lgu-logos/{{ l.file }}" alt="{{ l.name }}" loading="lazy">
+              <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="{{ l.name }}" loading="lazy">
             </a>
           </li>
         {%- endfor -%}
@@ -60,14 +60,14 @@ placeholder band (same "no fallback" rule the Featured card follows).
             {%- for l in row1 -%}
               <li class="lb-item">
                 <a class="lb-link" href="https://{{ l.domain }}" target="_blank" rel="noopener noreferrer">
-                  <img class="lb-img" src="{{ site.baseurl }}assets/images/lgu-logos/{{ l.file }}" alt="{{ l.name }}" loading="lazy">
+                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="{{ l.name }}" loading="lazy">
                 </a>
               </li>
             {%- endfor -%}
             {%- for l in row1 -%}
               <li class="lb-item" aria-hidden="true">
                 <a class="lb-link" href="https://{{ l.domain }}" tabindex="-1">
-                  <img class="lb-img" src="{{ site.baseurl }}assets/images/lgu-logos/{{ l.file }}" alt="" loading="lazy">
+                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="" loading="lazy">
                 </a>
               </li>
             {%- endfor -%}
@@ -78,14 +78,14 @@ placeholder band (same "no fallback" rule the Featured card follows).
             {%- for l in row2 -%}
               <li class="lb-item">
                 <a class="lb-link" href="https://{{ l.domain }}" target="_blank" rel="noopener noreferrer">
-                  <img class="lb-img" src="{{ site.baseurl }}assets/images/lgu-logos/{{ l.file }}" alt="{{ l.name }}" loading="lazy">
+                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="{{ l.name }}" loading="lazy">
                 </a>
               </li>
             {%- endfor -%}
             {%- for l in row2 -%}
               <li class="lb-item" aria-hidden="true">
                 <a class="lb-link" href="https://{{ l.domain }}" tabindex="-1">
-                  <img class="lb-img" src="{{ site.baseurl }}assets/images/lgu-logos/{{ l.file }}" alt="" loading="lazy">
+                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="" loading="lazy">
                 </a>
               </li>
             {%- endfor -%}
@@ -96,7 +96,7 @@ placeholder band (same "no fallback" rule the Featured card follows).
         {%- for l in row1 -%}
           <li class="lb-item">
             <a class="lb-link" href="https://{{ l.domain }}" target="_blank" rel="noopener noreferrer">
-              <img class="lb-img" src="{{ site.baseurl }}assets/images/lgu-logos/{{ l.file }}" alt="{{ l.name }}" loading="lazy">
+              <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="{{ l.name }}" loading="lazy">
             </a>
           </li>
         {%- endfor -%}

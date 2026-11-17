@@ -39,7 +39,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 | LGU                             | Domain                                                | Repository                                                                     | Socials                                                            | Status    | Maintainer/s                                                                           |
 |---------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------|
-{% for lgu in site.data.lgus %}| {{ lgu.name }} | {{ lgu.domain }} | {{ lgu.repo }}{% if lgu.repo_owner %}<br><span class="repo-activity" data-repo="{{ lgu.repo_owner }}/{{ lgu.repo_name }}"></span>{% endif %} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }}{% if lgu.stale %}<br><span class="lgu-tag lgu-tag-stale">⚠️ Stale</span>{% endif %} | {{ lgu.maintainer }}{% if lgu.open_for_adoption %}<br><span class="lgu-tag lgu-tag-adoption">🤝 Open for Adoption</span>{% endif %} |
+{% for lgu in site.data.lgus %}| {{ lgu.name }} | {{ lgu.domain }} | {{ lgu.repo }}{% if lgu.repo_owner %}<br><span class="repo-activity" data-repo="{{ lgu.repo_owner }}/{{ lgu.repo_name }}"></span>{% endif %} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }}{% if lgu.stale %}<br><span class="lgu-tag lgu-tag-stale">⚠️ Stale</span>{% endif %} | {% include maintainer-links.html maintainers=lgu.maintainers fallback=lgu.maintainer %}{% if lgu.open_for_adoption %}<br><span class="lgu-tag lgu-tag-adoption">🤝 Open for Adoption</span>{% endif %} |
 {% endfor %}
 
 </div>
@@ -147,7 +147,7 @@ Content in this repository is licensed under [CC BY 4.0](LICENSE). Templates in 
 
 <!-- Repository activity (#162) — fills in the "Updated N days ago" line under
      each row's GitHub link. See assets/js/repo-activity.js. -->
-<script defer src="{{ site.baseurl }}assets/js/repo-activity.js?v={{ site.time | date: '%s' }}"></script>
+<script defer src="{{ '/assets/js/repo-activity.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
 <!-- Search and Pagination Script -->
 <script>
