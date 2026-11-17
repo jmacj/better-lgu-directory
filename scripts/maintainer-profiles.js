@@ -361,17 +361,21 @@ function reviewProfileChanges({ author, changes, headFiles, headProfilePaths, he
  * pages on main-pages (#426). Jekyll shadows a page's own `name` front matter
  * with its filename, and portals are never written in a profile, so both come
  * from here: parsed fields plus the portals derived from the Maintainer/s
- * cells of `lgus` (README Entries) and `budgetPortals` (BUDGET.md rows), each
- * `{ name, maintainer }`. Sorted by handle; orphans are listed with no
- * portals. `name` falls back to the handle.
+ * cells of `lgus` (README Entries, `{ name, domain, maintainer }`) and
+ * `budgetPortals` (BUDGET.md rows, `{ name, portal, maintainer }`). Each
+ * portal carries `domain`: the Entry's Domain cell or the Budget Portal's
+ * portal cell, as the raw markdown the sync emits elsewhere ("-" when none).
+ * Sorted by handle; orphans are listed with no portals. `name` falls back to
+ * the handle.
  */
 function profileDirectory(profileFiles, lgus, budgetPortals) {
     const sources = [
-        ...lgus.map(row => ({ row, kind: 'entry' })),
-        ...budgetPortals.map(row => ({ row, kind: 'budget' })),
-    ].map(({ row, kind }) => ({
+        ...lgus.map(row => ({ row, kind: 'entry', domain: row.domain })),
+        ...budgetPortals.map(row => ({ row, kind: 'budget', domain: row.portal })),
+    ].map(({ row, kind, domain }) => ({
         name: row.name,
         kind,
+        domain: domain || '-',
         handles: new Set(extractHandles(row.maintainer).map(handle => handle.toLowerCase())),
     }));
 
@@ -397,7 +401,7 @@ function profileDirectory(profileFiles, lgus, budgetPortals) {
                 channels,
                 portals: sources
                     .filter(source => source.handles.has(handle.toLowerCase()))
-                    .map(({ name, kind }) => ({ name, kind })),
+                    .map(({ name, kind, domain }) => ({ name, kind, domain })),
             };
         });
 }

@@ -45,6 +45,7 @@ function toYaml(directory) {
             : ['  portals:', ...p.portals.flatMap(portal => [
                 `    - name: "${yamlStr(portal.name)}"`,
                 `      kind: "${portal.kind}"`,
+                `      domain: "${yamlStr(portal.domain)}"`,
             ])]),
     ].join('\n')).join('\n') + '\n';
 }

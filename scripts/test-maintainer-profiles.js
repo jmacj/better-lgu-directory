@@ -377,7 +377,7 @@ test('edits to the template are not reviewed as a profile', () => {
 
 console.log('maintainer-profiles: profileDirectory');
 
-test('lists each profile with its fields and the portals derived from both tables, sorted by handle', () => {
+test('lists each profile with its fields and the portals (with their domains) derived from both tables, sorted by handle', () => {
     const directory = profileDirectory(
         [
             { path: 'maintainers/README.md', text: '# index' },
@@ -386,10 +386,10 @@ test('lists each profile with its fields and the portals derived from both table
             { path: 'maintainers/Juan.md', text: profile('name: Juan Dela Cruz\nlanguages: Filipino, English\nemail: team@example.org') },
         ],
         [
-            { name: 'Alpha, Laguna', maintainer: '[@juan](https://github.com/juan)' },
-            { name: 'Beta, Laguna', maintainer: '@maria, @JUAN' },
+            { name: 'Alpha, Laguna', domain: '[alpha.example](https://alpha.example)', maintainer: '[@juan](https://github.com/juan)' },
+            { name: 'Beta, Laguna', domain: '-', maintainer: '@maria, @JUAN' },
         ],
-        [{ name: 'Alpha, Laguna', maintainer: '[@Juan](https://github.com/Juan)' }],
+        [{ name: 'Alpha, Laguna', portal: '[budget.alpha.example](https://budget.alpha.example)', maintainer: '[@Juan](https://github.com/Juan)' }],
     );
     assert.deepStrictEqual(directory, [
         {
@@ -401,9 +401,9 @@ test('lists each profile with its fields and the portals derived from both table
             languages: ['Filipino', 'English'],
             channels: { email: 'team@example.org' },
             portals: [
-                { name: 'Alpha, Laguna', kind: 'entry' },
-                { name: 'Beta, Laguna', kind: 'entry' },
-                { name: 'Alpha, Laguna', kind: 'budget' },
+                { name: 'Alpha, Laguna', kind: 'entry', domain: '[alpha.example](https://alpha.example)' },
+                { name: 'Beta, Laguna', kind: 'entry', domain: '-' },
+                { name: 'Alpha, Laguna', kind: 'budget', domain: '[budget.alpha.example](https://budget.alpha.example)' },
             ],
         },
         {
@@ -414,7 +414,7 @@ test('lists each profile with its fields and the portals derived from both table
             open_to: ['mentoring'],
             languages: [],
             channels: {},
-            portals: [{ name: 'Beta, Laguna', kind: 'entry' }],
+            portals: [{ name: 'Beta, Laguna', kind: 'entry', domain: '-' }],
         },
     ]);
 });
