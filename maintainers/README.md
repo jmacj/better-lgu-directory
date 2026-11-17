@@ -8,6 +8,7 @@ Read a profile before you reach out, and follow the [Code of Conduct](../CODE_OF
 <!-- MAINTAINER_PROFILES_START -->
 - [@jmacj](jmacj.md) · Jan Jimenez
 - [@KishonShrill](KishonShrill.md) · Chriscent Pingol
+- - [@jpdevdotcom](jpdev.md) · Jan Phillip Dacallos
 <!-- MAINTAINER_PROFILES_END -->
 
 ## Add yourself
