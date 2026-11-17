@@ -30,7 +30,7 @@ defaults:
   # Maintainer Profiles (#426) come from main. A profile carries no layout or
   # title key, because GitHub would show them in the profile's front-matter
   # table. The permalink matches the /maintainers/<handle>/ URL the sync
-  # emits. maintainers/index.md overrides all three in its own front matter.
+  # emits. The /maintainers/ index page is maintainers.md at the root.
   - scope:
       path: "maintainers"
     values:
@@ -40,7 +40,7 @@ defaults:
 
 exclude:
   # GitHub index for Maintainer Profiles (#426). The site's /maintainers/ page
-  # is maintainers/index.md, rendered from _data/maintainer_profiles.yml.
+  # is maintainers.md, rendered from _data/maintainer_profiles.yml.
   - "maintainers/README.md"
   # Source table for /BUDGET (budget-directory.md renders it from _data).
   - "BUDGET.md"

@@ -8,7 +8,9 @@ permalink: /maintainers/
   the main → main-pages sync merge never conflicts on it. It renders from
   _data/maintainer_profiles.yml, built by scripts/sync-profiles-to-data.js.
   maintainers/README.md is the GitHub index for the same profiles, and
-  _config.yml excludes it from the site.
+  _config.yml excludes it from the site. This page lives at the root, not in
+  maintainers/, because the profile scripts treat every *.md in that folder
+  other than README.md as a profile.
 {%- endcomment -%}
 
 Every LGU and budget portal in this directory is built and run by its own volunteers, who are listed in the **Maintainer/s** column of the [Directory]({{ '/' | relative_url }}) and the [Budget Portals]({{ '/BUDGET' | relative_url }}) tables. The people below are some of those portal Maintainers. Each one chose to publish a Maintainer Profile saying how contributors can reach them, what they're open to, and what they're not a fit for.
