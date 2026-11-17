@@ -10,7 +10,7 @@ linkedin: https://linkedin.jmacj.dev
 
 I'm one of the Maintainers of [Better Las Piñas](https://betterlaspinas.org). Reach out if you'd like to collaborate on it, or if you have a feature request for it.
 
-I also maintain this directory, the BetterLGU Directory.
+I also maintain this directory, the [BetterLGU Directory](https://lgu.bettergov.ph).
 
 ## Reaching out
 
