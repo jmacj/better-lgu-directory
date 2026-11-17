@@ -229,7 +229,7 @@
       url: "https://github.com/carlodandan"
       profile: false
 - name: "Puerto Princesa City, Palawan"
-  portal: "[budget.betterpuertoprincesa.org](https:/budget.betterpuertoprincesa.org)"
+  portal: "[budget.betterpuertoprincesa.org](https://budget.betterpuertoprincesa.org)"
   type: "🧩 Integrated"
   integrated: true
   parent_domain: "[betterpuertoprincesa.org](https://betterpuertoprincesa.org)"
