@@ -7,8 +7,8 @@ Read a profile before you reach out, and follow the [Code of Conduct](../CODE_OF
 <!-- Keep this list in alphabetical order by GitHub handle (case-insensitive), one bullet per profile: - [@handle](handle.md) · Name -->
 <!-- MAINTAINER_PROFILES_START -->
 - [@jmacj](jmacj.md) · Jan Jimenez
-- [@KishonShrill](KishonShrill.md) · Chriscent Pingol
 - [@jpdevdotcom](jpdevdotcom.md) · Jan Phillip Dacallos
+- [@KishonShrill](KishonShrill.md) · Chriscent Pingol
 <!-- MAINTAINER_PROFILES_END -->
 
 ## Add yourself
