@@ -9,8 +9,13 @@ layout: default
   profile never lists its own portals. The Maintainer's prose follows as
   `content`.
 
-  Channel values are rendered as links only when they are http(s) URLs (or an
-  email, or a Telegram username), so a profile can't inject another scheme.
+  Channel values become links only as http(s) URLs, scheme-less hosts like
+  www.example.org (given https://), an email, or a Telegram username, so a
+  profile can't inject another scheme.
+
+  The prose below is the Maintainer's own markdown, rendered like any other
+  page: Liquid and raw HTML in it are not sanitized here. That is guarded at
+  review time on main (triage), not in this layout.
   Emails are plain mailto: links with no obfuscation, by design: the source
   file is public on GitHub anyway.
 {%- endcomment -%}
@@ -30,7 +35,7 @@ layout: default
         {%- if profile.portals.size > 0 -%}
           <ul class="space-y-1">
           {%- for portal in profile.portals %}
-            <li>{{ portal.name }}{% if portal.kind == 'budget' %} <span class="text-sm text-gray-500">(Budget Portal)</span>{% endif %}</li>
+            <li>{{ portal.name | escape }}{% if portal.kind == 'budget' %} <span class="text-sm text-gray-500">(Budget Portal)</span>{% endif %}</li>
           {%- endfor %}
           </ul>
         {%- else -%}
@@ -51,19 +56,31 @@ layout: default
           {%- if value -%}
             {%- assign label = channel_labels[forloop.index0] -%}
             {%- assign lower = value | downcase -%}
-            {%- assign is_url = false -%}
+            {%- assign href = nil -%}
+            {%- assign text = value -%}
             {%- assign head8 = lower | slice: 0, 8 -%}
             {%- assign head7 = lower | slice: 0, 7 -%}
-            {%- if head8 == 'https://' or head7 == 'http://' -%}{%- assign is_url = true -%}{%- endif %}
+            {%- if head8 == 'https://' or head7 == 'http://' -%}
+              {%- assign href = value -%}
+            {%- elsif key == 'telegram' -%}
+              {%- comment -%} @user, user, t.me/user or telegram.me/user {%- endcomment -%}
+              {%- assign tg = value | remove_first: '@' -%}
+              {%- assign tg_lower = tg | downcase -%}
+              {%- if tg_lower contains 't.me/' -%}{%- assign tg = tg | split: '/' | last -%}{%- endif -%}
+              {%- assign href = 'https://t.me/' | append: tg -%}
+              {%- assign text = '@' | append: tg -%}
+            {%- elsif key == 'messenger' or key == 'linkedin' or key == 'website' -%}
+              {%- comment -%} Scheme-less www.example.org or m.me/page. Anything with a colon (another scheme) or a space stays plain text. {%- endcomment -%}
+              {%- unless value contains ':' or value contains ' ' -%}
+                {%- if value contains '.' -%}{%- assign href = 'https://' | append: value -%}{%- endif -%}
+              {%- endunless -%}
+            {%- endif %}
           <li>
             <span class="text-gray-500">{{ label }}:</span>
             {% if key == 'email' -%}
               <a href="mailto:{{ value | escape }}" class="text-blue-600 hover:text-blue-700 break-all">{{ value | escape }}</a>
-            {%- elsif is_url -%}
-              <a href="{{ value | escape }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 break-all">{{ value | escape }}</a>
-            {%- elsif key == 'telegram' -%}
-              {%- assign tg = value | remove_first: '@' -%}
-              <a href="https://t.me/{{ tg | escape }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 break-all">@{{ tg | escape }}</a>
+            {%- elsif href -%}
+              <a href="{{ href | escape }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 break-all">{{ text | escape }}</a>
             {%- else -%}
               <span class="break-all">{{ value | escape }}</span>
             {%- endif %}

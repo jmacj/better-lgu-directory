@@ -28,7 +28,7 @@ Read a profile before you reach out, and follow the [Code of Conduct]({{ '/CODE_
     <div class="text-sm text-gray-500 mb-4">@{{ p.handle }}</div>
     <div class="text-sm text-gray-700 mb-3">
       <span class="font-semibold text-gray-500">Maintains:</span>
-      {% if p.portals.size > 0 %}{% for portal in p.portals %}{{ portal.name }}{% if portal.kind == 'budget' %} (Budget Portal){% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}No portals currently listed{% endif %}
+      {% if p.portals.size > 0 %}{% for portal in p.portals %}{{ portal.name | escape }}{% if portal.kind == 'budget' %} (Budget Portal){% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}No portals currently listed{% endif %}
     </div>
     {%- if p.open_to.size > 0 %}
     <div class="flex flex-wrap gap-2 mb-3">
@@ -42,7 +42,7 @@ Read a profile before you reach out, and follow the [Code of Conduct]({{ '/CODE_
 {%- endfor %}
 </div>
 {%- else -%}
-<div class="not-prose my-10 py-12 text-center bg-white border border-gray-100 rounded-2xl shadow-xs">
+<div class="not-prose my-10 py-12 text-center bg-white border border-gray-100 rounded-2xl shadow-sm">
   <p class="text-lg font-semibold text-gray-900">No Maintainer Profiles yet.</p>
   <p class="text-sm text-gray-500 mt-2">Portal Maintainers are being invited to opt in. Until then, each Maintainer/s handle in the directory links to that person's GitHub profile.</p>
 </div>
