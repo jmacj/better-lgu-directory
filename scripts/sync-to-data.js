@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
+const { PROFILES_DIR, extractHandles, resolveMaintainerLink } = require('./maintainer-profiles');
 
-const README_PATH = path.join(__dirname, '../README.md');
+const REPO_ROOT = path.join(__dirname, '..');
+const README_PATH = path.join(REPO_ROOT, 'README.md');
 const LGUS_DATA_PATH = process.argv[2] || path.join(__dirname, '../_data/lgus.yml');
 
 const VALID_STATUSES = ['🟢 Active', '🟡 Work in Progress', '🔴 Unmaintained', '🔵 Planned'];
@@ -180,9 +182,7 @@ function main() {
     console.log('🚀 Starting sync from README.md to LGU Data...');
     const readmeContent = fs.readFileSync(README_PATH, 'utf8');
 
-    // Parse LGUs
-    const rawLgus = parseTable(readmeContent, '<!-- SYNC_LGU_TABLE_START -->', '<!-- SYNC_LGU_TABLE_END -->');
-    const lgus = rawLgus.map(validateLgu);
+    const lgus = syncLgus(readmeContent, readProfilePaths());
     console.log(`✅ Validated ${lgus.length} LGU entries.`);
 
     // Ensure directory exists
@@ -191,8 +191,54 @@ function main() {
         fs.mkdirSync(dataDir, { recursive: true });
     }
 
-    // Write to YAML
-    const lguYaml = lgus.map(l => {
+    fs.writeFileSync(LGUS_DATA_PATH, lgusToYaml(lgus));
+    console.log(`🎉 Success! Data synchronized to ${LGUS_DATA_PATH}`);
+}
+
+// Every path in the Maintainer Profiles folder (#426), relative to the repo
+// root — e.g. "maintainers/juan.md". The folder may not exist yet; that just
+// means nobody has opted in, and every Maintainer links to GitHub.
+function readProfilePaths(root = REPO_ROOT) {
+    try {
+        return fs.readdirSync(path.join(root, PROFILES_DIR)).map(name => `${PROFILES_DIR}/${name}`);
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            return [];
+        }
+        throw error;
+    }
+}
+
+// The structured Maintainer list beside the raw `maintainer` string (#426):
+// each handle with its resolved link — the site profile page when the
+// Maintainer has published a Maintainer Profile, otherwise GitHub. Resolved
+// here so the templates on main-pages only render.
+function maintainerLinks(maintainerCell, profilePaths) {
+    return extractHandles(maintainerCell).map(handle => resolveMaintainerLink(handle, profilePaths));
+}
+
+function formatMaintainersYaml(maintainers) {
+    if (maintainers.length === 0) {
+        return '  maintainers: []';
+    }
+    const lines = ['  maintainers:'];
+    for (const m of maintainers) {
+        lines.push(`    - handle: "${yamlStr(m.handle)}"`);
+        lines.push(`      url: "${yamlStr(m.url)}"`);
+        lines.push(`      profile: ${m.profile}`);
+    }
+    return lines.join('\n');
+}
+
+// README.md table → validated Entries, each with its resolved `maintainers`.
+function syncLgus(readmeContent, profilePaths = []) {
+    return parseTable(readmeContent, '<!-- SYNC_LGU_TABLE_START -->', '<!-- SYNC_LGU_TABLE_END -->')
+        .map((cells, index) => validateLgu(cells, index))
+        .map(lgu => ({ ...lgu, maintainers: maintainerLinks(lgu.maintainer, profilePaths) }));
+}
+
+function lgusToYaml(lgus) {
+    return lgus.map(l => {
         const repoIdentityLines = l.repoOwner
             ? [
                 `  repo_owner: "${yamlStr(l.repoOwner)}"`,
@@ -210,11 +256,9 @@ function main() {
             `  stale: ${l.stale}`,
             `  open_for_adoption: ${l.openForAdoption}`,
             `  maintainer: "${yamlStr(l.maintainer)}"`,
+            formatMaintainersYaml(l.maintainers),
         ].join('\n');
     }).join('\n');
-
-    fs.writeFileSync(LGUS_DATA_PATH, lguYaml);
-    console.log(`🎉 Success! Data synchronized to ${LGUS_DATA_PATH}`);
 }
 
 if (require.main === module) {
@@ -227,7 +271,13 @@ if (require.main === module) {
 }
 
 module.exports = {
+    REPO_ROOT,
     README_PATH,
+    readProfilePaths,
+    maintainerLinks,
+    formatMaintainersYaml,
+    syncLgus,
+    lgusToYaml,
     STALE_TAG,
     ADOPTION_TAG,
     STALE_AFTER_DAYS,

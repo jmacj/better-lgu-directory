@@ -1,8 +1,9 @@
 name: Triage Directory PR
 
 # pull_request_target so forks get a write-scoped token. The job checks out the
-# base branch and only ever reads the pull request's README.md as data — no
-# contributor code is executed.
+# base branch and only ever reads the pull request's files as data — README.md,
+# plus BUDGET.md and maintainers/ as git blobs for the Maintainer Profile
+# review — so no contributor code is executed.
 #
 # workflow_dispatch exists to triage a pull request that was already open when
 # this workflow landed, since nothing re-fires for those on its own.
@@ -44,6 +45,7 @@ jobs:
           fetch-depth: 0
 
       - name: Read both sides of the diff
+        id: read
         if: steps.guard.outputs.open == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -63,6 +65,12 @@ jobs:
           git show "${merge_base}:README.md" > "${RUNNER_TEMP}/base-README.md"
           git show refs/remotes/pr/head:README.md > "${RUNNER_TEMP}/head-README.md"
 
+          # For the Maintainer Profile review (#426): triage-pr.js reads the
+          # profile files as git blobs between these two points, and checks
+          # the author against each profile's handle.
+          echo "merge_base=${merge_base}" >> "$GITHUB_OUTPUT"
+          echo "author=$(gh pr view "$PR" --json author --jq .author.login)" >> "$GITHUB_OUTPUT"
+
       - uses: actions/setup-node@v7
         if: steps.guard.outputs.open == 'true'
         with:
@@ -73,6 +81,9 @@ jobs:
         if: steps.guard.outputs.open == 'true'
         env:
           COMMENT_FILE: ${{ runner.temp }}/triage-comment.md
+          PR_HEAD_REF: refs/remotes/pr/head
+          MERGE_BASE: ${{ steps.read.outputs.merge_base }}
+          PR_AUTHOR: ${{ steps.read.outputs.author }}
         run: node scripts/triage-pr.js "${RUNNER_TEMP}/base-README.md" "${RUNNER_TEMP}/head-README.md"
 
       - name: Apply labels

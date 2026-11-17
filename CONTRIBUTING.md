@@ -43,7 +43,7 @@ You do not need to have a finished portal to register. If you are planning to bu
    Add [LGU Name] to directory
    ```
 
-5. A maintainer will review and merge your PR.
+5. A Directory Maintainer will review and merge your PR.
 
 ---
 
@@ -82,7 +82,7 @@ Unlike a Better LGU portal, a budget portal doesn't need to be registered in adv
 
 ## Updating an Existing Entry
 
-If your LGU's status, domain, repository, or maintainer has changed:
+If your LGU's status, domain, repository, or Maintainer/s have changed:
 
 1. Fork this repository.
 2. Edit the relevant row in `README.md` (or `BUDGET.md` for a budget portal).
@@ -96,7 +96,7 @@ If your LGU's status, domain, repository, or maintainer has changed:
 
 ## Stale Entries
 
-A `🔵 Planned` entry whose row has not changed in over 30 days is tagged `⚠️ Stale` in the Status column and `🤝 Open for Adoption` under its maintainer:
+A `🔵 Planned` entry whose row has not changed in over 30 days is tagged `⚠️ Stale` in the Status column and `🤝 Open for Adoption` under its Maintainer/s:
 
 ```
 | Your LGU Name | - | - | - | 🔵 Planned<br>⚠️ Stale | [@yourhandle](https://github.com/yourhandle)<br>🤝 Open for Adoption |
@@ -106,11 +106,31 @@ The two tags always appear together, and only on `🔵 Planned` entries — the 
 
 **If it is your entry:** it is not a penalty and nothing is removed. Any update clears it — move to `🟡 Work in Progress`, add your repo link, or open a PR removing both tags to confirm you are still on it.
 
-**If you want to adopt one:** open a PR that updates the Maintainer/s column to your handle and removes the `⚠️ Stale` and `🤝 Open for Adoption` tags. That is the whole change — the status stays `🔵 Planned` until you actually start building, at which point you move it to `🟡 Work in Progress` as a normal update. No heads-up needed beforehand; if the adoption needs discussion, that happens in the PR. Taking over outright and collaborating with the original maintainer are both fine — list both handles if you are working together, or just yours if you are taking it on alone.
+**If you want to adopt one:** open a PR that updates the Maintainer/s column to your handle and removes the `⚠️ Stale` and `🤝 Open for Adoption` tags. That is the whole change — the status stays `🔵 Planned` until you actually start building, at which point you move it to `🟡 Work in Progress` as a normal update. No heads-up needed beforehand; if the adoption needs discussion, that happens in the PR. Taking over outright and collaborating with the original Maintainer are both fine — list both handles if you are working together, or just yours if you are taking it on alone.
 
 Adopting resets the clock: the entry counts as updated from the day that PR merges, so it will not be re-tagged for another 30 days.
 
-The tags are applied by the repository maintainers during periodic reviews, never by automation. Elapsed time is what prompts a look, not the whole judgement — an entry with visible progress elsewhere will not be tagged just because its row has not changed.
+The tags are applied by Directory Maintainers during periodic reviews, never by automation. Elapsed time is what prompts a look, not the whole judgement — an entry with visible progress elsewhere will not be tagged just because its row has not changed.
+
+---
+
+## Publishing a Maintainer Profile
+
+If you're listed as a Maintainer of an LGU in `README.md` or a budget portal in `BUDGET.md`, you can publish a **Maintainer Profile**: one markdown file saying how contributors may reach you, what you're open to (collaborators, mentoring, code review), and what you're not a fit for. It's opt-in, and nobody publishes a profile for you.
+
+1. Read the [privacy notice](PRIVACY.md). Everything in your profile is public, and removing it later doesn't erase git history or forks.
+2. Copy [`maintainers/_template.md`](maintainers/_template.md) to `maintainers/<your-github-handle>.md`. The filename is the only record of whose profile it is.
+3. Keep what you want to share and delete the rest. Every field is optional. Channels can be `email`, `messenger`, `discord`, `telegram`, `linkedin`, and `website`. Prefer project or team channels over personal ones; if you're under 18, use only those. Phone numbers aren't accepted.
+4. Add yourself to the list in [`maintainers/README.md`](maintainers/README.md).
+5. Open the pull request **from your own GitHub account**, titled:
+
+   ```
+   Add Maintainer Profile — @your-handle
+   ```
+
+On the website, your handle then links to your profile wherever you appear as a Maintainer. One profile covers every portal you maintain. If you rename your GitHub account, rename the file and update your Maintainer/s cells in the same PR.
+
+To remove your profile, delete the file and your bullet in a PR, open an issue, or email jan@jmacj.dev privately. Directory Maintainers may delete profiles to honour removal requests but never edit them.
 
 ---
 
@@ -138,22 +158,22 @@ Some labels are applied automatically, so do not worry about setting them yourse
 | `entry:new` | Your PR adds a new LGU row. |
 | `entry:update` | Your PR changes an existing LGU row. |
 | `entry:collision` | The LGU you added is already in the directory — see the comment on your PR. |
-| `needs-verification` | Your PR introduces new links; a maintainer will check them before merging. |
+| `needs-verification` | Your PR introduces new links, or a Maintainer Profile that needs a closer look; a Directory Maintainer will check it before merging. |
 | `entry:budget` | Your PR changes the Budget Portal table in `BUDGET.md`. |
 
-A maintainer may then add:
+A Directory Maintainer may then add:
 
 - `needs-changes` — something needs fixing on your side. A PR that sits here for 14 days is marked `stale` and closed 7 days later. Closing is not a rejection; reopen it whenever you are ready.
 - `needs-coordination` — someone is already registered for that LGU. Talk to them rather than adding a second row; two contributors on one portal is a good outcome.
 - `blocked` — waiting on something outside this repository, such as a domain going live.
 
-If you are looking for something to pick up, the `open-for-adoption` label marks entries that have no active maintainer.
+If you are looking for something to pick up, the `open-for-adoption` label marks entries that have no active Maintainer.
 
 ---
 
 ## Changelog
 
-Please do **not** update `CHANGELOG.md` in your Pull Request. The repository maintainers will update the changelog periodically to summarize recent additions and improvements.
+Please do **not** update `CHANGELOG.md` in your Pull Request. Directory Maintainers update the changelog periodically to summarize recent additions and improvements.
 
 ---
 
