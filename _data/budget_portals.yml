@@ -80,8 +80,8 @@
   maintainer: "[@KishonShrill](https://github.com/KishonShrill)"
   maintainers:
     - handle: "KishonShrill"
-      url: "https://github.com/KishonShrill"
-      profile: false
+      url: "/maintainers/KishonShrill/"
+      profile: true
 - name: "Silang, Cavite"
   portal: "[bettersilang.org](https://www.bettersilang.org)"
   type: "🏛️ Standalone"
@@ -229,7 +229,7 @@
       url: "https://github.com/carlodandan"
       profile: false
 - name: "Puerto Princesa City, Palawan"
-  portal: "[budget.betterpuertoprincesa.org](https:/budget.betterpuertoprincesa.org)"
+  portal: "[budget.betterpuertoprincesa.org](https://budget.betterpuertoprincesa.org)"
   type: "🧩 Integrated"
   integrated: true
   parent_domain: "[betterpuertoprincesa.org](https://betterpuertoprincesa.org)"

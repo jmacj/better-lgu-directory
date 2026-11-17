@@ -499,8 +499,8 @@
   maintainer: "[@KishonShrill](https://github.com/KishonShrill), [@Vantalim12](https://github.com/Vantalim12)"
   maintainers:
     - handle: "KishonShrill"
-      url: "https://github.com/KishonShrill"
-      profile: false
+      url: "/maintainers/KishonShrill/"
+      profile: true
     - handle: "Vantalim12"
       url: "https://github.com/Vantalim12"
       profile: false
@@ -1885,8 +1885,8 @@
   maintainer: "[@jmrec](https://github.com/jmrec)"
   maintainers:
     - handle: "jmrec"
-      url: "https://github.com/jmrec"
-      profile: false
+      url: "/maintainers/jmrec/"
+      profile: true
 - name: "Labo, Camarines Norte"
   domain: "[betterlabo.vercel.app](https://betterlabo.vercel.app)"
   repo: "[GitHub](https://github.com/kiembully/betterlabo)"
@@ -2548,5 +2548,5 @@
   maintainer: "[@jpdevdotcom](https://github.com/jpdevdotcom)"
   maintainers:
     - handle: "jpdevdotcom"
-      url: "https://github.com/jpdevdotcom"
-      profile: false
+      url: "/maintainers/jpdevdotcom/"
+      profile: true

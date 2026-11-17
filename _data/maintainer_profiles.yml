@@ -18,3 +18,62 @@
     - name: "Las Piñas City, Metro Manila"
       kind: "budget"
       domain: "[budget.betterlaspinas.org](https://budget.betterlaspinas.org)"
+- handle: "jmrec"
+  url: "/maintainers/jmrec/"
+  github: "https://github.com/jmrec"
+  name: "Juan Miguel Recondo"
+  open_to:
+    - "collaborators"
+    - "feature requests"
+    - "code review"
+  languages:
+    - "Filipino"
+    - "English"
+  channels:
+    discord: "jem21"
+    linkedin: "https://www.linkedin.com/in/jmrecondo"
+    website: "https://jmrecondo.com"
+  portals:
+    - name: "Bagac, Bataan"
+      kind: "entry"
+      domain: "[betterbagac.org](https://betterbagac.org)"
+- handle: "jpdevdotcom"
+  url: "/maintainers/jpdevdotcom/"
+  github: "https://github.com/jpdevdotcom"
+  name: "Jan Phillip Dacallos"
+  open_to:
+    - "collaborators"
+    - "feature requests"
+  languages:
+    - "Filipino"
+    - "English"
+    - "Bisaya"
+    - "Waray-Waray"
+  channels:
+    email: "phillip@bettercatarman.org"
+    linkedin: "https://linkedin.com/in/janphillipdacallos/"
+  portals:
+    - name: "Catarman, Northern Samar"
+      kind: "entry"
+      domain: "[bettercatarman.org](https://bettercatarman.org/)"
+- handle: "KishonShrill"
+  url: "/maintainers/KishonShrill/"
+  github: "https://github.com/KishonShrill"
+  name: "Chriscent Pingol"
+  open_to:
+    - "collaborators"
+    - "feature requests"
+  languages:
+    - "English"
+  channels:
+    email: "chriscent@betteriligancity.org"
+    discord: "perseque_shrills"
+    linkedin: "https://www.linkedin.com/in/chriscent-louis-june-pingol"
+    website: "https://chriscent.is-a.dev/"
+  portals:
+    - name: "Iligan City, Lanao del Norte"
+      kind: "entry"
+      domain: "[betteriligancity.org](https://betteriligancity.org/)"
+    - name: "Iligan City, Lanao del Norte"
+      kind: "budget"
+      domain: "[budget.betteriligancity.org](https://budget.betteriligancity.org)"
