@@ -178,7 +178,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Candaba, Pampanga | - | [GitHub](https://github.com/bulsu-kpdeguzman/bettercandaba) | - | 🟡 Work in Progress | [@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman) |
 | Santo Domingo, Ilocos Sur | - | [GitHub](https://github.com/tanojericko/bettersantodomingo-ilocossur) | - | 🔵 Planned | [@tanojericko](https://github.com/tanojericko) |
 | Catarman, Northern Samar | [bettercatarman.org](https://bettercatarman.org/) | [GitHub](https://github.com/jpdevdotcom/better-catarman-northsamar) | - | 🟢 Active | [@jpdevdotcom](https://github.com/jpdevdotcom) |
-| Siquijor Province | - | [GitHub](https://github.com/BetterSiquijor/BetterSiquijor) | - | 🔵 Planned | [@frenzjay](https://github.com/frenzjay) |
+| Siquijor Province | - | [GitHub](https://github.com/BetterSiquijor/BetterSiquijor) | - | 🟡 Work in Progress | [@frenzjay](https://github.com/frenzjay) |
 
 <!-- SYNC_LGU_TABLE_END -->
 
