@@ -6,6 +6,12 @@ url: "https://lgu.bettergov.ph"
 markdown: kramdown
 theme: jekyll-theme-minimal
 
+# Old uppercase URLs (/BUDGET, /GUIDE, ...) redirect to the lowercase ones
+# through the stub pages in redirects/ (#429). GitHub Pages supports this
+# plugin; its default plugins stay on.
+plugins:
+  - jekyll-redirect-from
+
 # BUDGET_GUIDE.md and BUDGET_TEMPLATES.md come from the main branch with no
 # front matter (jekyll-optional-front-matter renders them). Their layout and
 # title live here instead of in a front-matter block, so later edits to those
@@ -16,17 +22,47 @@ defaults:
     values:
       layout: default
       title: Start Your Budget Portal
+      permalink: /budget-guide
   - scope:
       path: "BUDGET_TEMPLATES.md"
     values:
       layout: default
       title: Budget Portal Templates
+      permalink: /budget-templates
   # PRIVACY.md comes from main with no front matter, like the budget docs (#426).
   - scope:
       path: "PRIVACY.md"
     values:
       layout: default
       title: Privacy
+      permalink: /privacy
+  # Lowercase URLs (#429). The filenames on main stay uppercase (GitHub
+  # conventions), so the published URL is set here rather than in their front
+  # matter, which keeps the sync merge conflict-free. The redirects from the
+  # old uppercase URLs are the stub pages in redirects/. Each old/new pair
+  # builds two files differing only in case (GUIDE.html, guide.html), so a
+  # local build on a case-insensitive filesystem (macOS, Windows) overwrites
+  # one with the other. GitHub Pages builds on Linux and is unaffected.
+  - scope:
+      path: "GUIDE.md"
+    values:
+      permalink: /guide
+  - scope:
+      path: "TEMPLATES.md"
+    values:
+      permalink: /templates
+  - scope:
+      path: "CONTRIBUTING.md"
+    values:
+      permalink: /contributing
+  - scope:
+      path: "CODE_OF_CONDUCT.md"
+    values:
+      permalink: /code-of-conduct
+  - scope:
+      path: "CHANGELOG.md"
+    values:
+      permalink: /changelog
   # Maintainer Profiles (#426) come from main. A profile carries no layout or
   # title key, because GitHub would show them in the profile's front-matter
   # table. The permalink matches the /maintainers/<handle>/ URL the sync
@@ -42,7 +78,7 @@ exclude:
   # GitHub index for Maintainer Profiles (#426). The site's /maintainers/ page
   # is maintainers.md, rendered from _data/maintainer_profiles.yml.
   - "maintainers/README.md"
-  # Source table for /BUDGET (budget-directory.md renders it from _data).
+  # Source table for /budget (budget-directory.md renders it from _data).
   - "BUDGET.md"
   - ".github"
   - ".idea"

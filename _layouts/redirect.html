@@ -1,0 +1,20 @@
+{%- comment -%}
+  Redirect page for jekyll-redirect-from (#429), used by the stubs in
+  redirects/ in place of the plugin's built-in template, which this mirrors.
+
+  The plugin makes the redirect target absolute with site.url. Stripping it
+  leaves a root path, so each redirect stays on whichever host served it,
+  including forks and previews that don't serve lgu.bettergov.ph.
+{%- endcomment -%}
+{%- assign target = page.redirect.to | remove_first: site.url -%}
+<!DOCTYPE html>
+<html lang="en-US">
+  <meta charset="utf-8">
+  <title>Redirecting&hellip;</title>
+  <link rel="canonical" href="{{ target }}">
+  <script>location="{{ target }}"</script>
+  <meta http-equiv="refresh" content="0; url={{ target }}">
+  <meta name="robots" content="noindex">
+  <h1>Redirecting&hellip;</h1>
+  <a href="{{ target }}">Click here if you are not redirected.</a>
+</html>
