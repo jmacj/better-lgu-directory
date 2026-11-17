@@ -6,7 +6,22 @@
 
 "entry:template":
   - changed-files:
-      - any-glob-to-any-file: TEMPLATES.md
+      - any-glob-to-any-file:
+          - TEMPLATES.md
+          - BUDGET_TEMPLATES.md
+
+# BUDGET.md holds the Budget Portal table. scripts/triage-pr.js only diffs
+# README.md, so budget PRs get this path label instead of entry:new/update.
+"entry:budget":
+  - changed-files:
+      - any-glob-to-any-file: BUDGET.md
+
+# Maintainer Profiles (#426): adding, editing, or removing a profile, or the
+# GitHub index in maintainers/README.md. Content checks (author, front matter,
+# index) come from scripts/triage-pr.js's advisory profile review.
+"entry:maintainer-profile":
+  - changed-files:
+      - any-glob-to-any-file: maintainers/**
 
 site:
   - changed-files:
@@ -17,6 +32,9 @@ site:
           - _layouts/**
           - assets/**
           - scripts/sync-to-data.js
+          - scripts/sync-budget-to-data.js
+          - scripts/sync-profiles-to-data.js
+          - scripts/maintainer-profiles.js
           - "**/*.html"
 
 ci:
@@ -36,3 +54,5 @@ docs:
           - CONTEXT.md
           - CONTRIBUTING.md
           - GUIDE.md
+          - BUDGET_GUIDE.md
+          - PRIVACY.md
