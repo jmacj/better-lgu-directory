@@ -33,6 +33,13 @@ toggles between them, since Jekyll has no server-side media-query equivalent.
 `display:none` fully removes the hidden one from the accessibility tree, so a
 screen reader is never offered the same set of links twice.
 
+Marquee images are not lazy-loaded. The rows move by a compositor-only
+transform animation, which never re-runs the browser's lazy-load visibility
+check, so a Logo scrolling into view stayed blank until something forced a
+main-thread update (e.g. hovering the band). The loop passes every Logo
+through view within one cycle anyway, so eager + fetchpriority="low" costs no
+extra bytes. The rails scroll natively and keep loading="lazy".
+
 If the pool is empty, this include renders nothing — no divide-by-zero, no
 placeholder band (same "no fallback" rule the Featured card follows).
 {%- endcomment -%}
@@ -60,14 +67,14 @@ placeholder band (same "no fallback" rule the Featured card follows).
             {%- for l in row1 -%}
               <li class="lb-item">
                 <a class="lb-link" href="https://{{ l.domain }}" target="_blank" rel="noopener noreferrer">
-                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="{{ l.name }}" loading="lazy">
+                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="{{ l.name }}" fetchpriority="low">
                 </a>
               </li>
             {%- endfor -%}
             {%- for l in row1 -%}
               <li class="lb-item" aria-hidden="true">
                 <a class="lb-link" href="https://{{ l.domain }}" tabindex="-1">
-                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="" loading="lazy">
+                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="" fetchpriority="low">
                 </a>
               </li>
             {%- endfor -%}
@@ -78,14 +85,14 @@ placeholder band (same "no fallback" rule the Featured card follows).
             {%- for l in row2 -%}
               <li class="lb-item">
                 <a class="lb-link" href="https://{{ l.domain }}" target="_blank" rel="noopener noreferrer">
-                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="{{ l.name }}" loading="lazy">
+                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="{{ l.name }}" fetchpriority="low">
                 </a>
               </li>
             {%- endfor -%}
             {%- for l in row2 -%}
               <li class="lb-item" aria-hidden="true">
                 <a class="lb-link" href="https://{{ l.domain }}" tabindex="-1">
-                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="" loading="lazy">
+                  <img class="lb-img" src="{{ '/assets/images/lgu-logos/' | append: l.file | relative_url }}" alt="" fetchpriority="low">
                 </a>
               </li>
             {%- endfor -%}
