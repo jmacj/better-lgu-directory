@@ -3162,7 +3162,10 @@
   repo: "[GitHub](https://github.com/BetterSiquijor/BetterSiquijor)"
   repo_owner: "BetterSiquijor"
   repo_name: "BetterSiquijor"
-  socials: []
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://facebook.com/bettersiquijor"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
