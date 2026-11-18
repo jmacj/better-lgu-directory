@@ -1,36 +1,54 @@
 - name: "NCR"
   rank: 0
+  psgc_name: "National Capital Region (NCR)"
 - name: "CAR"
   rank: 1
+  psgc_name: "Cordillera Administrative Region (CAR)"
 - name: "Ilocos Region"
   rank: 2
+  psgc_name: "Region I (Ilocos Region)"
 - name: "Cagayan Valley"
   rank: 3
+  psgc_name: "Region II (Cagayan Valley)"
 - name: "Central Luzon"
   rank: 4
+  psgc_name: "Region III (Central Luzon)"
 - name: "CALABARZON"
   rank: 5
+  psgc_name: "Region IV-A (CALABARZON)"
 - name: "MIMAROPA Region"
   rank: 6
+  psgc_name: "MIMAROPA Region"
 - name: "Bicol Region"
   rank: 7
+  psgc_name: "Region V (Bicol Region)"
 - name: "Western Visayas"
   rank: 8
+  psgc_name: "Region VI (Western Visayas)"
 - name: "NIR"
   rank: 9
+  psgc_name: "Negros Island Region (NIR)"
 - name: "Central Visayas"
   rank: 10
+  psgc_name: "Region VII (Central Visayas)"
 - name: "Eastern Visayas"
   rank: 11
+  psgc_name: "Region VIII (Eastern Visayas)"
 - name: "Zamboanga Peninsula"
   rank: 12
+  psgc_name: "Region IX (Zamboanga Peninsula)"
 - name: "Northern Mindanao"
   rank: 13
+  psgc_name: "Region X (Northern Mindanao)"
 - name: "Davao Region"
   rank: 14
+  psgc_name: "Region XI (Davao Region)"
 - name: "SOCCSKSARGEN"
   rank: 15
+  psgc_name: "Region XII (SOCCSKSARGEN)"
 - name: "Caraga"
   rank: 16
+  psgc_name: "Region XIII (Caraga)"
 - name: "BARMM"
   rank: 17
+  psgc_name: "Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)"
