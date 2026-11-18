@@ -2,7 +2,7 @@
 
 Please provide the details for the LGU entry being added or updated.
 
-- **LGU Name:**
+- **LGU Name:** (in the [naming format](https://github.com/jmacj/better-lgu-directory/blob/main/CONTRIBUTING.md#naming-your-lgu), e.g. `Calauan, Laguna` or `Bacolod City, Negros Occidental`)
 - **Domain:**
 - **Repository Link:**
 - **Social Links:**
@@ -12,6 +12,7 @@ Please provide the details for the LGU entry being added or updated.
 ## Checklist
 
 - [ ] I have added/updated the entry in the `README.md` directory table.
+- [ ] The LGU name follows [Naming Your LGU](https://github.com/jmacj/better-lgu-directory/blob/main/CONTRIBUTING.md#naming-your-lgu), and the row is in A–Z order by place name.
 - [ ] The status badge is correct according to the [Status Legend](README.md#status-legend).
 - [ ] All blank fields use `-` instead of being left empty.
 - [ ] All Maintainer handles are linked to their GitHub profiles.
