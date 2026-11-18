@@ -22,6 +22,8 @@ You do not need to have a finished portal to register. If you are planning to bu
    | Your LGU Name | [yourdomain.org](https://yourdomain.org) or - | [GitHub](https://github.com/you/repo) or - | [Facebook](https://facebook.com/yourpage) or - | 🔵 Planned | [@yourhandle](https://github.com/yourhandle) |
    ```
 
+   Write the **LGU** cell as described in [Naming Your LGU](#naming-your-lgu), and insert the row in A–Z order by place name.
+
    The **Socials** column accepts one or more platform links. Multiple links are comma-separated, e.g. `[Facebook](https://facebook.com/yourpage), [X](https://x.com/yourhandle)`.
 
    Use `-` for any field that does not apply yet.
@@ -47,6 +49,54 @@ You do not need to have a finished portal to register. If you are planning to bu
 
 ---
 
+## Naming Your LGU
+
+Every **LGU** cell, in `README.md` and in `BUDGET.md`, follows one format, so the directory can be sorted and filtered by province and region. The PSA's [Philippine Standard Geographic Code](https://psa.gov.ph/classification/psgc/) (PSGC) decides which LGUs exist, how their names are spelled, whether each is a city or a municipality, and which province and region it belongs to. The written format is this directory's own; where it differs from PSGC is listed under [Departures from PSGC](#departures-from-psgc).
+
+| Kind | Format | Example |
+|------|--------|---------|
+| Municipality | `<Place>, <Province>` | `Calauan, Laguna` |
+| Component city | `<Place> City, <Province>` | `Calamba City, Laguna` |
+| Highly urbanized or independent component city | `<Place> City, <Province>` | `Bacolod City, Negros Occidental` |
+| City in NCR | `<Place> City, Metro Manila` | `Makati City, Metro Manila` |
+| Province | `<Province> Province` | `Aklan Province` |
+| Region | the region's PSGC name | `Bicol Region`, `CALABARZON` |
+
+- **Cities say "City".** If PSGC classes your LGU as a city, write `<Place> City`, even where PSGC writes `City of <Place>`. A municipality never takes "City". After cityhood, change the one cell: `San Pedro, Laguna` becomes `San Pedro City, Laguna`.
+- **The province is always the geographic province,** spelled and capitalised exactly as PSGC writes it: `Davao del Sur`, not `Davao Del Sur`; `Cotabato`, not `North Cotabato`. That holds even for highly urbanized and independent component cities, which PSGC lists without a province. A region is never a province: `Aparri, Cagayan`, not `Aparri, Cagayan Valley`.
+- **NCR uses `Metro Manila`** as its province, the one stand-in: `Makati City, Metro Manila`, or `Pateros, Metro Manila` for NCR's one municipality. Metro Manila is not a province, so `Metro Manila Province` isn't valid; a region-wide NCR entry is written `NCR`.
+- **Region names are PSGC's short form**, with PSGC's capitalisation: the name it gives in parentheses, or, where it gives none, the name as written. `Region IV-A (CALABARZON)` is `CALABARZON`, `Region V (Bicol Region)` is `Bicol Region`, `Region XIII (Caraga)` is `Caraga`, and `National Capital Region (NCR)` is `NCR`. The full list is in [`scripts/psgc-regions.js`](scripts/psgc-regions.js).
+- **Mountain Province** is written as itself, not `Mountain Province Province`.
+
+### Where your row goes
+
+Both tables are a single list, sorted A–Z by place name. Accents, case and punctuation are ignored, so `Biñan City` sorts as "binan". When two rows share a place:
+
+1. The higher level comes first: region, then province, then city or municipality. Cities and municipalities are the same level. `Cebu Province` goes before `Cebu City, Cebu`.
+2. If the level ties too, the province decides, A–Z. `San Jose, Antique` goes before `San Jose City, Nueva Ecija`.
+
+The full definition is the **Sort Order** entry in [`CONTEXT.md`](CONTEXT.md).
+
+Pull request triage warns you about a name it can't read, an unknown province, or a row out of order, and says where the row belongs. These are warnings only and never block your PR. After merge, the website sync refuses a name that doesn't fit this format, so a Directory Maintainer will ask you to fix it first.
+
+---
+
+## Departures from PSGC
+
+The format departs from PSGC only where sorting or a consistent row shape needs it. If you copy a name from the PSGC website, apply these.
+
+| PSGC | This directory | Why |
+|------|----------------|-----|
+| `City of Calamba`, `City of Manila` | `Calamba City`, `Manila City` | PSGC mixes both forms itself (`Quezon City` vs `City of Manila`), and `City of X` would put every city under "C" when sorted. |
+| `Science City of Muñoz`, `Island Garden City of Samal` | `Muñoz City`, `Samal City` | One city form. |
+| Highly urbanized and independent component cities have no province | The geographic province (`Bacolod City, Negros Occidental`) | Every row needs a province, for sorting by province and for the `Province · Region` line. |
+| NCR LGUs have no province | `Metro Manila` as their province | The single stand-in, so every row has the same shape. |
+| `Mountain Province` | `Mountain Province`, not `Mountain Province Province` | Its name already ends in "Province", so the province row isn't doubled. |
+
+Region names are not a departure: they use PSGC's own short form and capitalisation. A few LGUs sit in a different PSGC region from their geographic province: `Isabela City, Basilan` is in Zamboanga Peninsula while Basilan is in BARMM, and the Special Geographic Area municipalities inside Cotabato are in BARMM. These are handled in [`scripts/psgc-regions.js`](scripts/psgc-regions.js), and you still write the geographic province.
+
+---
+
 ## Adding a Budget Portal
 
 Budget transparency portals are listed in `BUDGET.md` and shown at [lgu.bettergov.ph/budget](https://lgu.bettergov.ph/budget), separately from the Better LGU portals in `README.md`. See [How to Start Your Budget Transparency Portal](BUDGET_GUIDE.md) if you haven't built one yet.
@@ -60,6 +110,8 @@ Unlike a Better LGU portal, a budget portal doesn't need to be registered in adv
    ```markdown
    | Your LGU Name | [budget.yourdomain.org](https://budget.yourdomain.org) | 🧩 Integrated or 🏛️ Standalone | [GitHub](https://github.com/you/repo) or - | [@yourhandle](https://github.com/yourhandle) |
    ```
+
+   Write the **LGU** cell as described in [Naming Your LGU](#naming-your-lgu), and insert the row in A–Z order by place name, the same as in `README.md`.
 
 3. **Choose the type:**
 
@@ -82,10 +134,10 @@ Unlike a Better LGU portal, a budget portal doesn't need to be registered in adv
 
 ## Updating an Existing Entry
 
-If your LGU's status, domain, repository, or Maintainer/s have changed:
+If your LGU's status, domain, repository, or Maintainer/s have changed, or it has become a city:
 
 1. Fork this repository.
-2. Edit the relevant row in `README.md` (or `BUDGET.md` for a budget portal).
+2. Edit the relevant row in `README.md` (or `BUDGET.md` for a budget portal). For cityhood, change only the LGU cell (`San Pedro, Laguna` → `San Pedro City, Laguna`; see [Naming Your LGU](#naming-your-lgu)) and rename the matching `BUDGET.md` row in the same PR, so an Integrated budget portal stays linked.
 3. Open a PR with the title format:
 
    ```
