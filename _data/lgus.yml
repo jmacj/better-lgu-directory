@@ -1093,13 +1093,13 @@
   province: "Bohol"
   region: "Central Visayas"
   region_rank: 10
-  host: ""
-  domain: "-"
+  host: "bettercorella.vercel.app"
+  domain: "[bettercorella.vercel.app](https://bettercorella.vercel.app)"
   repo: "[GitHub](https://github.com/ashdroidcmd/bettercorella)"
   repo_owner: "ashdroidcmd"
   repo_name: "bettercorella"
   socials: []
-  status: "🔵 Planned"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@ashdroidcmd](https://github.com/ashdroidcmd)"
