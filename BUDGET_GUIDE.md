@@ -10,13 +10,13 @@ It's meant for LGU IT offices, civic groups, newsrooms, and student developers. 
 
 ## Before You Start
 
-**Check the directories.** Look your LGU up in the [Budget Portal Directory](https://lgu.bettergov.ph/BUDGET). If it already has a budget portal, contribute to that one instead of publishing a second.
+**Check the directories.** Look your LGU up in the [Budget Portal Directory](BUDGET.md). If it already has a budget portal, contribute to that one instead of publishing a second.
 
 **Decide where it lives.**
 
 | Type          | Where it lives                                                                                                  | Choose it when                                   |
 |---------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| 🧩 Integrated | A subdomain (`budget.betterlb.org`) or path (`bettercatanduanes.org/transparency`) of your LGU's Better LGU portal | Your LGU is in the [Better LGU Directory](https://lgu.bettergov.ph/) |
+| 🧩 Integrated | A subdomain (`budget.betterlb.org`) or path (`bettercatanduanes.org/transparency`) of your LGU's Better LGU portal | Your LGU is in the [Better LGU Directory](README.md) |
 | 🏛️ Standalone | A domain of its own (`bettersilang.org`)                                                                         | Your LGU has no Better LGU portal                |
 
 For an integrated portal, talk to the Better LGU portal's maintainers first. It goes on their domain, so they need to agree to it and point the subdomain at your deploy. A subdomain is simpler than a path, because the budget portal then deploys on its own.
@@ -67,7 +67,7 @@ Run `npm run check` in CI as well. It fails on a broken config, so a change in t
 
 ## Send Us the Link
 
-Once the portal is live, open a PR adding it to `BUDGET.md` — see [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal). It appears on the [Budget Portal Directory](https://lgu.bettergov.ph/BUDGET) after merge. For an integrated portal, your LGU's Better LGU portal must already be in the [Better LGU Directory](https://lgu.bettergov.ph/); add it in the same PR if it isn't.
+Once the portal is live, open a PR adding it to `BUDGET.md` — see [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal). It appears on the [Budget Portal Directory](BUDGET.md) after merge. For an integrated portal, your LGU's Better LGU portal must already be in the [Better LGU Directory](README.md); add it in the same PR if it isn't.
 
 ---
 

@@ -3,7 +3,7 @@ const path = require('path');
 const http = require('http');
 const https = require('https');
 const crypto = require('crypto');
-const { README_PATH, parseTable, validateLgu } = require('./sync-to-data.js');
+const { README_PATH, parseTable, validateLgu, extractDomainLink } = require('./sync-to-data.js');
 
 const LGU_META_PATH = process.argv[2] || path.join(__dirname, '../_data/lgu-meta.yml');
 const LOGO_META_PATH = process.argv[3] || path.join(__dirname, '../_data/lgu-logos.yml');
@@ -384,19 +384,15 @@ function extractMeta(html) {
     return { title, description, image };
 }
 
-// README domain cells are markdown links — e.g. "[bettersolano.org]
-// (https://bettersolano.org)" — the same raw form validateLgu() stores
-// (sync-to-data.js relies on kramdown re-processing that text at render
-// time; see index.md's `markdown="1"` table wrapper). Extract the real URL
-// to crawl and the bare hostname to display, falling back to treating the
-// whole cell as a bare hostname if it isn't a markdown link.
-function extractDomainLink(rawCell) {
-    const match = /\[([^\]]+)\]\(([^)]+)\)/.exec(rawCell || '');
-    if (match) {
-        return { label: match[1].trim(), url: match[2].trim() };
-    }
-    const bare = String(rawCell || '').trim();
-    return { label: bare, url: /^https?:\/\//i.test(bare) ? bare : `https://${bare}` };
+// extractDomainLink() lives in sync-to-data.js (#307), shared with the
+// Entry's `host` field so the two always agree; re-exported below.
+
+// A previous Featured or Logo row reused for a portal that couldn't be
+// crawled this run (#132). Everything comes from the last good crawl except
+// `name`, which follows the current Entry with the same domain (#307) — so a
+// renamed LGU never keeps its old name on the Featured card or Logo alt text.
+function reusePreviousRow(previousRow, entry) {
+    return { ...previousRow, name: entry.name };
 }
 
 // --- Shared fetch (#179) ----------------------------------------------------
@@ -914,9 +910,9 @@ async function main() {
     // one exists — the file itself is already on disk from a prior run, so
     // nothing needs rewriting. Only a portal with no previous Logo at all
     // counts as ineligible.
-    function keepOrDropLogo(displayDomain, message, summaries) {
+    function keepOrDropLogo(entry, displayDomain, message, summaries) {
         if (previousLogos.has(displayDomain)) {
-            logoRows.push(previousLogos.get(displayDomain));
+            logoRows.push(reusePreviousRow(previousLogos.get(displayDomain), entry));
             console.log(`  ⚠️  ${displayDomain} — Logo: ${message}; kept last-known-good file`);
         } else {
             logoRejections.push(summaries || ['no Logo candidate resolved']);
@@ -937,13 +933,13 @@ async function main() {
                 continue;
             }
             if (previousFeatured.has(displayDomain)) {
-                featuredRows.push(previousFeatured.get(displayDomain));
+                featuredRows.push(reusePreviousRow(previousFeatured.get(displayDomain), entry));
                 console.log(`  ⚠️  ${displayDomain} — Featured: unreachable this run (${err.message}); kept previous row`);
             } else {
                 featuredRejections.push(['unreachable, with no previous row to keep']);
                 console.log(`  ⛔ ${displayDomain} — Featured: unreachable and no previous row (${err.message})`);
             }
-            keepOrDropLogo(displayDomain, `unreachable this run (${err.message})`);
+            keepOrDropLogo(entry, displayDomain, `unreachable this run (${err.message})`);
             continue;
         }
 
@@ -952,7 +948,7 @@ async function main() {
             // self-healing rule), but a lenient Logo keep-or-drop.
             featuredRejections.push(fetched.reason.summaries);
             console.log(`  ⛔ ${displayDomain} — Featured: ineligible: ${fetched.reason.message}`);
-            keepOrDropLogo(displayDomain, fetched.reason.message);
+            keepOrDropLogo(entry, displayDomain, fetched.reason.message);
             continue;
         }
 
@@ -975,7 +971,7 @@ async function main() {
                 `  ✅ ${displayDomain} — Logo resolved (${logoResult.row.source}, ${size}, ${Math.round(logoResult.row.bytes / 1024)}KB)`,
             );
         } else {
-            keepOrDropLogo(displayDomain, logoResult.reason.message, logoResult.reason.summaries);
+            keepOrDropLogo(entry, displayDomain, logoResult.reason.message, logoResult.reason.summaries);
         }
     }
 
@@ -1035,6 +1031,7 @@ module.exports = {
     fetchPortalPage,
     judgeFeatured,
     crawlEntry,
+    reusePreviousRow,
     IMAGE_SIZE_CEILING_BYTES,
     BOILERPLATE_DESCRIPTION,
     BOILERPLATE_TITLE,
