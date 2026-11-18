@@ -8,30 +8,49 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 ## 📋 Directory
 
-<!-- Interactive Search and Filters -->
-<div class="mb-8 flex flex-col md:flex-row gap-4 items-center max-w-4xl">
-    <div class="relative flex-1 w-full">
+<!-- Interactive Search, Filters and Sort (#448) -->
+<div class="mb-8 flex flex-col gap-4 max-w-4xl">
+    <div class="relative w-full">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
             </svg>
         </div>
-        <input type="text" id="lgu-search" onkeyup="filterDirectory()" placeholder="Search LGUs by name, status, tag, or maintainer..." class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm">
+        <input type="text" id="lgu-search" onkeyup="filterDirectory()" aria-label="Search LGUs" placeholder="Search LGUs by name, province, region, status, tag, or maintainer..." class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm">
     </div>
-    <div class="w-full md:w-64">
-        <select id="status-filter" onchange="filterDirectory()" class="block w-full px-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm cursor-pointer">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <select id="status-filter" onchange="filterDirectory()" aria-label="Filter by status" class="block w-full px-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm cursor-pointer">
             <option value="">All Statuses</option>
             <option value="Active">🟢 Active</option>
             <option value="Work in Progress">🟡 Work in Progress</option>
             <option value="Unmaintained">🔴 Unmaintained</option>
             <option value="Planned">🔵 Planned</option>
         </select>
-    </div>
-    <div class="w-full md:w-auto shrink-0">
+        <select id="region-filter" onchange="filterDirectory()" aria-label="Filter by region" class="block w-full px-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm cursor-pointer">
+            <option value="">All regions</option>
+            {%- for region in site.data.regions %}
+            <option value="{{ region.name | escape }}">{{ region.name }}</option>
+            {%- endfor %}
+        </select>
+        <label for="sort-preset" class="flex items-center gap-2 px-3 py-3 border border-gray-200 rounded-xl bg-white shadow-sm sm:text-sm transition-all focus-within:ring-2 focus-within:ring-blue-600">
+            <span class="font-medium text-gray-700 whitespace-nowrap">Sort by</span>
+            <select id="sort-preset" onchange="sortDirectory()" class="min-w-0 flex-1 bg-transparent focus:outline-none cursor-pointer">
+                <option value="location" selected>Location</option>
+                <option value="name">Name A–Z</option>
+                <option value="status">Status</option>
+            </select>
+        </label>
         <label for="adoption-filter" class="flex items-center gap-2 px-3 py-3 border border-gray-200 rounded-xl bg-white shadow-sm sm:text-sm cursor-pointer transition-all">
             <input type="checkbox" id="adoption-filter" onchange="filterDirectory()" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-600 cursor-pointer">
             <span class="font-medium text-gray-700 whitespace-nowrap">🤝 Open for adoption</span>
         </label>
+    </div>
+    <div role="group" aria-label="Filter by kind" class="flex flex-wrap items-center gap-2 sm:text-sm">
+        <span class="font-medium text-gray-700">Kind:</span>
+        {%- assign kinds = "city,municipality,province,region" | split: "," -%}
+        {%- for kind in kinds %}
+        <button type="button" class="kind-chip" data-kind="{{ kind }}" aria-pressed="false" onclick="toggleKind(this)">{{ kind | capitalize }}</button>
+        {%- endfor %}
     </div>
 </div>
 
@@ -39,7 +58,39 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 | LGU                             | Domain                                                | Repository                                                                     | Socials                                                            | Status    | Maintainer/s                                                                           |
 |---------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------|
-{% for lgu in site.data.lgus %}| {{ lgu.name }} | {{ lgu.domain }} | {{ lgu.repo }}{% if lgu.repo_owner %}<br><span class="repo-activity" data-repo="{{ lgu.repo_owner }}/{{ lgu.repo_name }}"></span>{% endif %} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }}{% if lgu.stale %}<br><span class="lgu-tag lgu-tag-stale">⚠️ Stale</span>{% endif %} | {% include maintainer-links.html maintainers=lgu.maintainers fallback=lgu.maintainer %}{% if lgu.open_for_adoption %}<br><span class="lgu-tag lgu-tag-adoption">🤝 Open for Adoption</span>{% endif %} |
+{%- comment -%}
+Rendered in Location order (#448; CONTEXT.md, Sort Order): region rank, then
+folded province, then level, then folded place. This must match byLocation()
+in assets/js/directory-sort.js, which re-sorts by the data-* keys below.
+Liquid's sort takes one key, so each Entry gets one composite string key,
+fields joined by "!":
+  0 region rank + 100 (so it compares as fixed-width text)
+  1 folded province   2 level   3 folded place
+  4 status rank       5 "Province · Region" line   6 index into lgus
+"!" sorts below every folded character, so an empty province (a region row)
+and a shorter name sort first. Fields 4 to 6 never decide the order: no two
+Entries share fields 0 to 3. Fold = slugify "latin" with the hyphens removed,
+the same result as fold() in scripts/lgu-name.js.
+{%- endcomment -%}
+{%- assign location_keys = "" | split: "" -%}
+{%- for lgu in site.data.lgus -%}
+  {%- case lgu.kind -%}
+    {%- when "region" -%}{%- assign level = 0 -%}{%- assign where = "" -%}
+    {%- when "province" -%}{%- assign level = 1 -%}{%- assign where = lgu.region -%}
+    {%- else -%}{%- assign level = 2 -%}{%- assign where = lgu.province | append: " · " | append: lgu.region -%}
+  {%- endcase -%}
+  {%- if lgu.status contains "Active" -%}{%- assign status_rank = 0 -%}
+  {%- elsif lgu.status contains "Work in Progress" -%}{%- assign status_rank = 1 -%}
+  {%- elsif lgu.status contains "Planned" -%}{%- assign status_rank = 2 -%}
+  {%- elsif lgu.status contains "Unmaintained" -%}{%- assign status_rank = 3 -%}
+  {%- else -%}{%- assign status_rank = 4 -%}{%- endif -%}
+  {%- assign province_key = lgu.province | slugify: "latin" | remove: "-" -%}
+  {%- assign place_key = lgu.place | slugify: "latin" | remove: "-" -%}
+  {%- capture key -%}{{ lgu.region_rank | plus: 100 }}!{{ province_key }}!{{ level }}!{{ place_key }}!{{ status_rank }}!{{ where }}!{{ forloop.index0 }}{%- endcapture -%}
+  {%- assign location_keys = location_keys | push: key -%}
+{%- endfor -%}
+{%- assign location_keys = location_keys | sort %}
+{% for key in location_keys %}{% assign key_parts = key | split: "!" %}{% assign i = key_parts[6] | plus: 0 %}{% assign lgu = site.data.lgus[i] %}| <span class="lgu-entry" data-region-rank="{{ key_parts[0] | minus: 100 }}" data-province="{{ key_parts[1] }}" data-level="{{ key_parts[2] }}" data-place="{{ key_parts[3] }}" data-status-rank="{{ key_parts[4] }}" data-region="{{ lgu.region | escape }}" data-kind="{{ lgu.kind }}"><span class="sr-only">{{ lgu.name }} </span><span aria-hidden="true"><span class="lgu-place">{{ lgu.place }}</span> {% if key_parts[5] != "" %}<span class="lgu-where">{{ key_parts[5] }}</span>{% endif %}</span></span> | {{ lgu.domain }} | {{ lgu.repo }}{% if lgu.repo_owner %}<br><span class="repo-activity" data-repo="{{ lgu.repo_owner }}/{{ lgu.repo_name }}"></span>{% endif %} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }}{% if lgu.stale %}<br><span class="lgu-tag lgu-tag-stale">⚠️ Stale</span>{% endif %} | {% include maintainer-links.html maintainers=lgu.maintainers fallback=lgu.maintainer %}{% if lgu.open_for_adoption %}<br><span class="lgu-tag lgu-tag-adoption">🤝 Open for Adoption</span>{% endif %} |
 {% endfor %}
 
 </div>
@@ -79,12 +130,14 @@ A community-maintained directory of **Better LGU** digital transparency portals 
     </div>
     <h3 class="text-lg font-semibold text-gray-900">No LGUs found</h3>
     <p class="mt-1 text-gray-500">We couldn't find any LGUs matching your search. Try a different keyword or LGU name.</p>
-    <button onclick="document.getElementById('lgu-search').value=''; document.getElementById('status-filter').value=''; document.getElementById('adoption-filter').checked=false; filterDirectory();" class="mt-4 text-sm font-medium text-blue-600 hover:text-blue-700">Clear all filters</button>
+    <button type="button" onclick="clearFilters()" class="mt-4 text-sm font-medium text-blue-600 hover:text-blue-700">Clear all filters</button>
 </div>
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
 
 ## 🚦 Status Legend
+
+The directory is sorted by location by default (regions north to south, then province A–Z, each province's own portal before its cities and municipalities); use **Sort by** to list it by name or status instead.
 
 <div class="table-wrapper" markdown="1">
 
@@ -149,7 +202,9 @@ Content in this repository is licensed under [CC BY 4.0](https://github.com/jmac
      each row's GitHub link. See assets/js/repo-activity.js. -->
 <script defer src="{{ '/assets/js/repo-activity.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
-<!-- Search and Pagination Script -->
+<script src="{{ '/assets/js/directory-sort.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+
+<!-- Search, Filter, Sort and Pagination Script -->
 <script>
 let currentPage = 1;
 let itemsPerPage = 10;
@@ -161,9 +216,37 @@ function updateItemsPerPage() {
     updatePage();
 }
 
+// Kind chips (#448): none pressed means every kind.
+function toggleKind(chip) {
+    chip.setAttribute("aria-pressed", chip.getAttribute("aria-pressed") === "true" ? "false" : "true");
+    filterDirectory();
+}
+
+// Re-sorts the rows for the chosen preset, then re-applies the filters and
+// search, which also returns to page 1 (#448).
+function sortDirectory() {
+    const tbody = document.querySelector("#lgu-table-container tbody");
+    if (tbody && window.DirectorySort) {
+        window.DirectorySort.applySort(tbody, document.getElementById("sort-preset").value);
+    }
+    filterDirectory();
+}
+
+// Clears search and filters; keeps the sort.
+function clearFilters() {
+    document.getElementById("lgu-search").value = "";
+    document.getElementById("status-filter").value = "";
+    document.getElementById("region-filter").value = "";
+    document.getElementById("adoption-filter").checked = false;
+    document.querySelectorAll(".kind-chip").forEach(chip => chip.setAttribute("aria-pressed", "false"));
+    filterDirectory();
+}
+
 function filterDirectory() {
     const searchText = document.getElementById("lgu-search").value.toUpperCase();
     const statusFilter = document.getElementById("status-filter").value.toUpperCase();
+    const regionFilter = document.getElementById("region-filter").value;
+    const kinds = Array.from(document.querySelectorAll('.kind-chip[aria-pressed="true"]')).map(chip => chip.dataset.kind);
     const adoptionOnly = document.getElementById("adoption-filter").checked;
     const container = document.getElementById("lgu-table-container");
     const table = container.getElementsByTagName("table")[0];
@@ -184,8 +267,16 @@ function filterDirectory() {
         // The 🤝 Open for Adoption tag is rendered in the Maintainer/s cell.
         const adoptionMatch = !adoptionOnly || td[5].textContent.toUpperCase().includes("OPEN FOR ADOPTION");
 
+        // Region and kind come from the build's data-* keys (#448).
+        const entry = td[0].querySelector(".lgu-entry").dataset;
+        const regionMatch = regionFilter === "" || entry.region === regionFilter;
+        const kindMatch = kinds.length === 0 || kinds.includes(entry.kind);
+        const filterMatch = statusMatch && adoptionMatch && regionMatch && kindMatch;
+
+        // The LGU cell's text holds the full name, place, province and
+        // region, so search matches all of them.
         let searchMatch = false;
-        if (statusMatch && adoptionMatch) {
+        if (filterMatch) {
             for (let j = 0; j < td.length; j++) {
                 const txtValue = td[j].textContent || td[j].innerText;
                 if (txtValue.toUpperCase().indexOf(searchText) > -1) {
@@ -195,7 +286,7 @@ function filterDirectory() {
             }
         }
 
-        if (statusMatch && adoptionMatch && searchMatch) {
+        if (filterMatch && searchMatch) {
             visibleRows.push(tr[i]);
         }
         tr[i].style.display = "none"; // Hide all rows initially
@@ -244,7 +335,13 @@ function changePage(delta) {
 }
 
 // Initialize
+// The build renders Location order. A browser restoring form state on back
+// navigation may keep another preset selected, so sort to match it.
 document.addEventListener("DOMContentLoaded", function() {
-    filterDirectory();
+    if (document.getElementById("sort-preset").value !== "location") {
+        sortDirectory();
+    } else {
+        filterDirectory();
+    }
 });
 </script>
