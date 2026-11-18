@@ -1,0 +1,36 @@
+- name: "NCR"
+  rank: 0
+- name: "CAR"
+  rank: 1
+- name: "Ilocos Region"
+  rank: 2
+- name: "Cagayan Valley"
+  rank: 3
+- name: "Central Luzon"
+  rank: 4
+- name: "CALABARZON"
+  rank: 5
+- name: "MIMAROPA Region"
+  rank: 6
+- name: "Bicol Region"
+  rank: 7
+- name: "Western Visayas"
+  rank: 8
+- name: "NIR"
+  rank: 9
+- name: "Central Visayas"
+  rank: 10
+- name: "Eastern Visayas"
+  rank: 11
+- name: "Zamboanga Peninsula"
+  rank: 12
+- name: "Northern Mindanao"
+  rank: 13
+- name: "Davao Region"
+  rank: 14
+- name: "SOCCSKSARGEN"
+  rank: 15
+- name: "Caraga"
+  rank: 16
+- name: "BARMM"
+  rank: 17

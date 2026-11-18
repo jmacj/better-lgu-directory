@@ -1,320 +1,154 @@
-- name: "Solano, Nueva Vizcaya"
-  domain: "[bettersolano.org](https://bettersolano.org)"
-  repo: "[GitHub](https://github.com/BetterSolano/bettersolano)"
-  repo_owner: "BetterSolano"
-  repo_name: "bettersolano"
+- name: "Aborlan, Palawan"
+  place: "Aborlan"
+  kind: "municipality"
+  province: "Palawan"
+  region: "MIMAROPA Region"
+  region_rank: 6
+  host: "betteraborlan.org"
+  domain: "[betteraborlan.org](https://betteraborlan.org)"
+  repo: "[GitHub](https://github.com/BetterAborlan/betteraborlan)"
+  repo_owner: "BetterAborlan"
+  repo_name: "betteraborlan"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/bettersolano.org"
+      url: "https://www.facebook.com/betteraborlan.org"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@ramonloganjr](https://github.com/ramonloganjr)"
+  maintainer: "[@hmcldryl](https://github.com/hmcldryl)"
   maintainers:
-    - handle: "ramonloganjr"
-      url: "https://github.com/ramonloganjr"
+    - handle: "hmcldryl"
+      url: "https://github.com/hmcldryl"
       profile: false
-- name: "Bacolod City, Negros Occidental"
-  domain: "[betterbacolod.org](https://betterbacolod.org)"
-  repo: "[GitHub](https://github.com/betterbacolod/betterbacolod)"
-  repo_owner: "betterbacolod"
-  repo_name: "betterbacolod"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betterbacolod.org"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@mattenarle10](https://github.com/mattenarle10)"
-  maintainers:
-    - handle: "mattenarle10"
-      url: "https://github.com/mattenarle10"
-      profile: false
-- name: "Calauan, Laguna"
-  domain: "[bettercalauan.org](https://bettercalauan.org)"
-  repo: "[GitHub](https://github.com/bettercalauan/bettercalauan/tree/react-typescript)"
-  repo_owner: "bettercalauan"
-  repo_name: "bettercalauan"
-  repo_ref: "react-typescript"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/BetterCalauan.org"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@xpall](https://github.com/xpall)"
-  maintainers:
-    - handle: "xpall"
-      url: "https://github.com/xpall"
-      profile: false
-- name: "Cavinti, Laguna"
-  domain: "[bettercavinti.org](https://bettercavinti.org)"
-  repo: "[GitHub](https://github.com/klnwlks/bettercavinti)"
-  repo_owner: "klnwlks"
-  repo_name: "bettercavinti"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@klnwlks](https://github.com/klnwlks)"
-  maintainers:
-    - handle: "klnwlks"
-      url: "https://github.com/klnwlks"
-      profile: false
-- name: "Pila, Laguna"
-  domain: "-"
-  repo: "[GitHub](https://github.com/Necookie/betterpila)"
-  repo_owner: "Necookie"
-  repo_name: "betterpila"
+- name: "Agoo, La Union"
+  place: "Agoo"
+  kind: "municipality"
+  province: "La Union"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: "betteragoo.org"
+  domain: "[betteragoo.org](https://betteragoo.org/)"
+  repo: "[GitHub](https://github.com/glennmarkgarcia/betteragoo)"
+  repo_owner: "glennmarkgarcia"
+  repo_name: "betteragoo"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@Necookie](https://github.com/Necookie)"
+  maintainer: "[@glennmarkgarcia](https://github.com/glennmarkgarcia)"
   maintainers:
-    - handle: "Necookie"
-      url: "https://github.com/Necookie"
+    - handle: "glennmarkgarcia"
+      url: "https://github.com/glennmarkgarcia"
       profile: false
-- name: "Ormoc City, Leyte"
-  domain: "[betterormoc.org](https://www.betterormoc.org/en)"
+- name: "Aklan Province"
+  place: "Aklan"
+  kind: "province"
+  province: "Aklan"
+  region: "Western Visayas"
+  region_rank: 8
+  host: "betteraklan.org"
+  domain: "[betteraklan.org](https://betteraklan.org/)"
+  repo: "[GitHub](https://github.com/fr4nc1stein/betteraklan)"
+  repo_owner: "fr4nc1stein"
+  repo_name: "betteraklan"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@laet4x](https://github.com/fr4nc1stein/)"
+  maintainers:
+    - handle: "fr4nc1stein"
+      url: "https://github.com/fr4nc1stein"
+      profile: false
+- name: "Alaminos City, Pangasinan"
+  place: "Alaminos"
+  kind: "city"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: "betteralaminoscity.org"
+  domain: "[betteralaminoscity.org](https://betteralaminoscity.org)"
+  repo: "[GitHub](https://github.com/BetterAlaminosCity/betteralaminoscity)"
+  repo_owner: "BetterAlaminosCity"
+  repo_name: "betteralaminoscity"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betteralaminoscity.org"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ljsalcedo-dev](https://github.com/ljsalcedo-dev)"
+  maintainers:
+    - handle: "ljsalcedo-dev"
+      url: "https://github.com/ljsalcedo-dev"
+      profile: false
+- name: "Alangalang, Leyte"
+  place: "Alangalang"
+  kind: "municipality"
+  province: "Leyte"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/severinolorillajr/betteralangalang)"
+  repo_owner: "severinolorillajr"
+  repo_name: "betteralangalang"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@severinolorillajr](https://github.com/severinolorillajr)"
+  maintainers:
+    - handle: "severinolorillajr"
+      url: "https://github.com/severinolorillajr"
+      profile: false
+- name: "Albay Province"
+  place: "Albay"
+  kind: "province"
+  province: "Albay"
+  region: "Bicol Region"
+  region_rank: 7
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/jsonrls/better-albay)"
+  repo_owner: "jsonrls"
+  repo_name: "better-albay"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jsonrls](https://github.com/jsonrls)"
+  maintainers:
+    - handle: "jsonrls"
+      url: "https://github.com/jsonrls"
+      profile: false
+- name: "Aleosan, Cotabato"
+  place: "Aleosan"
+  kind: "municipality"
+  province: "Cotabato"
+  region: "SOCCSKSARGEN"
+  region_rank: 15
+  host: ""
+  domain: "-"
   repo: "-"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/profile.php?id=61587167813676"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "-"
-  maintainers: []
-- name: "Los Baños, Laguna"
-  domain: "[betterlb.org](https://betterlb.org)"
-  repo: "[GitHub](https://github.com/BetterLosBanos/betterlb)"
-  repo_owner: "BetterLosBanos"
-  repo_name: "betterlb"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/BetterLB.org"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@miconficker](https://github.com/miconficker)"
-  maintainers:
-    - handle: "miconficker"
-      url: "https://github.com/miconficker"
-      profile: false
-- name: "Las Piñas City, Metro Manila"
-  domain: "[betterlaspinas.org](https://betterlaspinas.org)"
-  repo: "[GitHub](https://github.com/betterlaspinas/betterlaspinas)"
-  repo_owner: "betterlaspinas"
-  repo_name: "betterlaspinas"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betterlaspinas.org"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@jmacj](https://github.com/jmacj), [@Martin-Enghoy](https://github.com/Martin-Enghoy)"
-  maintainers:
-    - handle: "jmacj"
-      url: "/maintainers/jmacj/"
-      profile: true
-    - handle: "Martin-Enghoy"
-      url: "https://github.com/Martin-Enghoy"
-      profile: false
-- name: "Cainta, Rizal"
-  domain: "[bettercainta.org](https://bettercainta.org)"
-  repo: "-"
   socials: []
-  status: "🟢 Active"
+  status: "🔵 Planned"
   stale: false
   open_for_adoption: false
-  maintainer: "-"
-  maintainers: []
-- name: "Tagaytay City, Cavite"
-  domain: "[bettertagaytay.org](https://www.bettertagaytay.org/)"
-  repo: "[GitHub](https://github.com/Arlovzki/bettertagaytay)"
-  repo_owner: "Arlovzki"
-  repo_name: "bettertagaytay"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/bettertagaytay"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@Arlovzki](https://github.com/Arlovzki)"
+  maintainer: "[@regzimarx](https://github.com/regzimarx)"
   maintainers:
-    - handle: "Arlovzki"
-      url: "https://github.com/Arlovzki"
-      profile: false
-- name: "Indang, Cavite"
-  domain: "[betterindang.org](https://betterindang.org)"
-  repo: "[GitHub](https://github.com/michaustriaqa/betterindang)"
-  repo_owner: "michaustriaqa"
-  repo_name: "betterindang"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://facebook.com/betterindang"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@michaustriaqa](https://github.com/michaustriaqa)"
-  maintainers:
-    - handle: "michaustriaqa"
-      url: "https://github.com/michaustriaqa"
-      profile: false
-- name: "General Santos City, South Cotabato"
-  domain: "[bettergensan.org](https://bettergensan.org)"
-  repo: "[GitHub](https://github.com/psalmcatulpos/bettergensan)"
-  repo_owner: "psalmcatulpos"
-  repo_name: "bettergensan"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@psalmcatulpos](https://github.com/psalmcatulpos)"
-  maintainers:
-    - handle: "psalmcatulpos"
-      url: "https://github.com/psalmcatulpos"
-      profile: false
-- name: "Koronadal City, South Cotabato"
-  domain: "[betterkoronadal.org](https://betterkoronadal.org)"
-  repo: "[GitHub](https://github.com/janineooak/betterkoronadal)"
-  repo_owner: "janineooak"
-  repo_name: "betterkoronadal"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@janineooak](https://github.com/janineooak)"
-  maintainers:
-    - handle: "janineooak"
-      url: "https://github.com/janineooak"
-      profile: false
-- name: "Dasmariñas City, Cavite"
-  domain: "[betterdasmarinas.org](https://betterdasmarinas.org)"
-  repo: "[GitHub](https://github.com/Shuashuaa/BetterDasmarinas)"
-  repo_owner: "Shuashuaa"
-  repo_name: "BetterDasmarinas"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/profile.php?id=61570802813363"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@Shuashuaa](https://github.com/Shuashuaa)"
-  maintainers:
-    - handle: "Shuashuaa"
-      url: "https://github.com/Shuashuaa"
-      profile: false
-- name: "General Trias, Cavite"
-  domain: "[bettergeneraltrias.org](https://www.bettergeneraltrias.org/)"
-  repo: "[GitHub](https://github.com/kenhehe/betterGeneraltrias)"
-  repo_owner: "kenhehe"
-  repo_name: "betterGeneraltrias"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betterGeneralTrias"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@kenhehe](https://github.com/kenhehe)"
-  maintainers:
-    - handle: "kenhehe"
-      url: "https://github.com/kenhehe"
-      profile: false
-- name: "Tanza, Cavite"
-  domain: "-"
-  repo: "[GitHub](https://github.com/manalilib/betterTanza)"
-  repo_owner: "manalilib"
-  repo_name: "betterTanza"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betterTanzaCavite"
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@manalilib](https://github.com/manalilib)"
-  maintainers:
-    - handle: "manalilib"
-      url: "https://github.com/manalilib"
-      profile: false
-- name: "San Pedro, Laguna"
-  domain: "[bettersanpedro.org](https://bettersanpedro.org)"
-  repo: "[GitHub](https://github.com/sechipeanut/BetterSanPedro)"
-  repo_owner: "sechipeanut"
-  repo_name: "BetterSanPedro"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/bettersanpedro.org"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@sechipeanut](https://github.com/sechipeanut)"
-  maintainers:
-    - handle: "sechipeanut"
-      url: "/maintainers/sechipeanut/"
-      profile: true
-- name: "Cabuyao City, Laguna"
-  domain: "[bettercabuyao.org](https://bettercabuyao.org/)"
-  repo: "[GitHub](https://github.com/johnrommeloctaviano/better-cabuyao)"
-  repo_owner: "johnrommeloctaviano"
-  repo_name: "better-cabuyao"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@johnrommeloctaviano](https://github.com/johnrommeloctaviano)"
-  maintainers:
-    - handle: "johnrommeloctaviano"
-      url: "https://github.com/johnrommeloctaviano"
-      profile: false
-- name: "Tuguegarao, Cagayan Valley"
-  domain: "-"
-  repo: "[GitHub](https://github.com/JDgayagoy/BetterTuguegarao)"
-  repo_owner: "JDgayagoy"
-  repo_name: "BetterTuguegarao"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@JDgayagoy](https://github.com/JDgayagoy), [@sidj28](https://github.com/sidj28), [@geneconceja](https://github.com/geneconceja)"
-  maintainers:
-    - handle: "JDgayagoy"
-      url: "https://github.com/JDgayagoy"
-      profile: false
-    - handle: "sidj28"
-      url: "https://github.com/sidj28"
-      profile: false
-    - handle: "geneconceja"
-      url: "https://github.com/geneconceja"
-      profile: false
-- name: "Davao City, Davao Del Sur"
-  domain: "-"
-  repo: "[GitHub](https://github.com/johnloydlao/betterdavao)"
-  repo_owner: "johnloydlao"
-  repo_name: "betterdavao"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@johnloydlao](https://github.com/johnloydlao)"
-  maintainers:
-    - handle: "johnloydlao"
-      url: "https://github.com/johnloydlao"
+    - handle: "regzimarx"
+      url: "https://github.com/regzimarx"
       profile: false
 - name: "Allen, Northern Samar"
+  place: "Allen"
+  kind: "municipality"
+  province: "Northern Samar"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: "betterallen.org"
   domain: "[betterallen.org](https://betterallen.org)"
   repo: "[GitHub](https://github.com/xandreiAThome/betterallen)"
   repo_owner: "xandreiAThome"
@@ -331,7 +165,53 @@
     - handle: "xandreiAThome"
       url: "https://github.com/xandreiAThome"
       profile: false
-- name: "Aparri, Cagayan Valley"
+- name: "Angeles City, Pampanga"
+  place: "Angeles"
+  kind: "city"
+  province: "Pampanga"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/ongods/betterangeles)"
+  repo_owner: "ongods"
+  repo_name: "betterangeles"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ongods](https://github.com/ongods)"
+  maintainers:
+    - handle: "ongods"
+      url: "https://github.com/ongods"
+      profile: false
+- name: "Angono, Rizal"
+  place: "Angono"
+  kind: "municipality"
+  province: "Rizal"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/cj-catacutan/betterangono)"
+  repo_owner: "cj-catacutan"
+  repo_name: "betterangono"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@cj-catacutan](https://github.com/cj-catacutan)"
+  maintainers:
+    - handle: "cj-catacutan"
+      url: "https://github.com/cj-catacutan"
+      profile: false
+- name: "Aparri, Cagayan"
+  place: "Aparri"
+  kind: "municipality"
+  province: "Cagayan"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: "betteraparri.org"
   domain: "[betteraparri.org](https://betteraparri.org/)"
   repo: "[GitHub](https://github.com/egiebk/betteraparri)"
   repo_owner: "egiebk"
@@ -348,83 +228,351 @@
     - handle: "egiebk"
       url: "https://github.com/egiebk"
       profile: false
-- name: "Lal-lo, Cagayan Valley"
-  domain: "[betterlallo.org](https://betterlallo.org)"
-  repo: "[GitHub](https://github.com/ianlabicani/betterlallo)"
-  repo_owner: "ianlabicani"
-  repo_name: "betterlallo"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@ianlabicani](https://github.com/ianlabicani)"
-  maintainers:
-    - handle: "ianlabicani"
-      url: "https://github.com/ianlabicani"
-      profile: false
-- name: "San Pablo, Laguna"
-  domain: "[bettersanpablo.org](https://www.bettersanpablo.org/)"
-  repo: "[GitHub](https://github.com/ChristiannWick/bettersanpablo)"
-  repo_owner: "ChristiannWick"
-  repo_name: "bettersanpablo"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@ChristiannWick](https://github.com/ChristiannWick)"
-  maintainers:
-    - handle: "ChristiannWick"
-      url: "https://github.com/ChristiannWick"
-      profile: false
-- name: "Binangonan, Rizal"
-  domain: "[betterbinangonan.org](https://betterbinangonan.org)"
-  repo: "[GitHub](https://github.com/betterbinangonan-devs/betterbinangonan)"
-  repo_owner: "betterbinangonan-devs"
-  repo_name: "betterbinangonan"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/BetterBinangonan.org"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals)"
-  maintainers:
-    - handle: "emmanpbarrameda"
-      url: "https://github.com/emmanpbarrameda"
-      profile: false
-    - handle: "chaaals"
-      url: "https://github.com/chaaals"
-      profile: false
-- name: "Taytay, Rizal"
+- name: "Atimonan, Quezon"
+  place: "Atimonan"
+  kind: "municipality"
+  province: "Quezon"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/zzelif/bettertaytay)"
-  repo_owner: "zzelif"
-  repo_name: "bettertaytay"
+  repo: "[GitHub](https://github.com/EmsiPrds/betteratimonan)"
+  repo_owner: "EmsiPrds"
+  repo_name: "betteratimonan"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@zzelif](https://github.com/zzelif)"
+  maintainer: "[@EmsiPrds](https://github.com/EmsiPrds)"
   maintainers:
-    - handle: "zzelif"
-      url: "https://github.com/zzelif"
+    - handle: "EmsiPrds"
+      url: "https://github.com/EmsiPrds"
       profile: false
-- name: "Olongapo City, Zambales"
-  domain: "[betterolongapo.org](https://betterolongapo.org/)"
-  repo: "[GitHub](https://github.com/eyronjohn/betterolongapo)"
-  repo_owner: "eyronjohn"
-  repo_name: "betterolongapo"
+- name: "Aurora, Zamboanga del Sur"
+  place: "Aurora"
+  kind: "municipality"
+  province: "Zamboanga del Sur"
+  region: "Zamboanga Peninsula"
+  region_rank: 12
+  host: "betteraurora.org"
+  domain: "[betteraurora.org](https://betteraurora.org)"
+  repo: "[GitHub](https://github.com/Jayke770/betteraurora)"
+  repo_owner: "Jayke770"
+  repo_name: "betteraurora"
   socials: []
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@eyronjohn](https://github.com/eyronjohn)"
+  maintainer: "[@jayke770](https://github.com/jayke770)"
   maintainers:
-    - handle: "eyronjohn"
-      url: "https://github.com/eyronjohn"
+    - handle: "jayke770"
+      url: "https://github.com/jayke770"
       profile: false
-- name: "Biñan, Laguna"
+- name: "Baao, Camarines Sur"
+  place: "Baao"
+  kind: "municipality"
+  province: "Camarines Sur"
+  region: "Bicol Region"
+  region_rank: 7
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/alvagenesis/betterbaao/)"
+  repo_owner: "alvagenesis"
+  repo_name: "betterbaao"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@alvagenesis](https://github.com/alvagenesis)"
+  maintainers:
+    - handle: "alvagenesis"
+      url: "https://github.com/alvagenesis"
+      profile: false
+- name: "Bacolod City, Negros Occidental"
+  place: "Bacolod"
+  kind: "city"
+  province: "Negros Occidental"
+  region: "NIR"
+  region_rank: 9
+  host: "betterbacolod.org"
+  domain: "[betterbacolod.org](https://betterbacolod.org)"
+  repo: "[GitHub](https://github.com/betterbacolod/betterbacolod)"
+  repo_owner: "betterbacolod"
+  repo_name: "betterbacolod"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterbacolod.org"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@mattenarle10](https://github.com/mattenarle10)"
+  maintainers:
+    - handle: "mattenarle10"
+      url: "https://github.com/mattenarle10"
+      profile: false
+- name: "Bacoor City, Cavite"
+  place: "Bacoor"
+  kind: "city"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterbacoor.org"
+  domain: "[betterbacoor.org](https://www.betterbacoor.org/)"
+  repo: "[GitHub](https://github.com/0phl/betterbacoor)"
+  repo_owner: "0phl"
+  repo_name: "betterbacoor"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/people/BetterBacoororg/61594400221717/"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@0phl](https://github.com/0phl)"
+  maintainers:
+    - handle: "0phl"
+      url: "https://github.com/0phl"
+      profile: false
+- name: "Bagac, Bataan"
+  place: "Bagac"
+  kind: "municipality"
+  province: "Bataan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "betterbagac.org"
+  domain: "[betterbagac.org](https://betterbagac.org)"
+  repo: "[GitHub](https://github.com/betterbagac/betterbagac)"
+  repo_owner: "betterbagac"
+  repo_name: "betterbagac"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jmrec](https://github.com/jmrec)"
+  maintainers:
+    - handle: "jmrec"
+      url: "/maintainers/jmrec/"
+      profile: true
+- name: "Baguio City, Benguet"
+  place: "Baguio"
+  kind: "city"
+  province: "Benguet"
+  region: "CAR"
+  region_rank: 1
+  host: "betterbaguio.org"
+  domain: "[betterbaguio.org](https://betterbaguio.org)"
+  repo: "[GitHub](https://github.com/ashier/betterbaguio)"
+  repo_owner: "ashier"
+  repo_name: "betterbaguio"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ashier](https://github.com/ashier)"
+  maintainers:
+    - handle: "ashier"
+      url: "https://github.com/ashier"
+      profile: false
+- name: "Balanga City, Bataan"
+  place: "Balanga"
+  kind: "city"
+  province: "Bataan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "betterbalanga.org"
+  domain: "[betterbalanga.org](https://betterbalanga.org/)"
+  repo: "[GitHub](https://github.com/AstroMC98/betterbalanga)"
+  repo_owner: "AstroMC98"
+  repo_name: "betterbalanga"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterbalanga.org"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@AstroMC98](https://github.com/AstroMC98)"
+  maintainers:
+    - handle: "AstroMC98"
+      url: "https://github.com/AstroMC98"
+      profile: false
+- name: "Baler, Aurora"
+  place: "Baler"
+  kind: "municipality"
+  province: "Aurora"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "betterbaler.org"
+  domain: "[betterbaler.org](https://betterbaler.org/)"
+  repo: "[GitHub](https://github.com/tekwicks/betterbaler)"
+  repo_owner: "tekwicks"
+  repo_name: "betterbaler"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@tekwicks](https://github.com/tekwicks)"
+  maintainers:
+    - handle: "tekwicks"
+      url: "https://github.com/tekwicks"
+      profile: false
+- name: "Basista, Pangasinan"
+  place: "Basista"
+  kind: "municipality"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/jadolation/betterbasista)"
+  repo_owner: "jadolation"
+  repo_name: "betterbasista"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jadolation](https://github.com/jadolation)"
+  maintainers:
+    - handle: "jadolation"
+      url: "https://github.com/jadolation"
+      profile: false
+- name: "Batangas City, Batangas"
+  place: "Batangas"
+  kind: "city"
+  province: "Batangas"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/jrbenriquez/betterbatangascity/)"
+  repo_owner: "jrbenriquez"
+  repo_name: "betterbatangascity"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jrbenriquez](https://github.com/jrbenriquez)"
+  maintainers:
+    - handle: "jrbenriquez"
+      url: "https://github.com/jrbenriquez"
+      profile: false
+- name: "Bauan, Batangas"
+  place: "Bauan"
+  kind: "municipality"
+  province: "Batangas"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterbauan.vercel.app"
+  domain: "[betterbauan.vercel.app](https://betterbauan.vercel.app)"
+  repo: "[GitHub](https://github.com/Arxenic/betterbauan)"
+  repo_owner: "Arxenic"
+  repo_name: "betterbauan"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@Arxenic](https://github.com/Arxenic)"
+  maintainers:
+    - handle: "Arxenic"
+      url: "https://github.com/Arxenic"
+      profile: false
+- name: "Bauang, La Union"
+  place: "Bauang"
+  kind: "municipality"
+  province: "La Union"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/loudaboi/betterbauang)"
+  repo_owner: "loudaboi"
+  repo_name: "betterbauang"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@loudaboi](https://github.com/loudaboi)"
+  maintainers:
+    - handle: "loudaboi"
+      url: "https://github.com/loudaboi"
+      profile: false
+- name: "Bayawan City, Negros Oriental"
+  place: "Bayawan"
+  kind: "city"
+  province: "Negros Oriental"
+  region: "NIR"
+  region_rank: 9
+  host: "betterbayawan.org"
+  domain: "[betterbayawan.org](https://betterbayawan.org/)"
+  repo: "[GitHub](https://github.com/rodneydelacruz/betterbayawan)"
+  repo_owner: "rodneydelacruz"
+  repo_name: "betterbayawan"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/share/1CweyjBq9w/"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@rodneydelacruz](https://github.com/rodneydelacruz)"
+  maintainers:
+    - handle: "rodneydelacruz"
+      url: "https://github.com/rodneydelacruz"
+      profile: false
+- name: "Bayombong, Nueva Vizcaya"
+  place: "Bayombong"
+  kind: "municipality"
+  province: "Nueva Vizcaya"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/betterbayombong/betterbayombong)"
+  repo_owner: "betterbayombong"
+  repo_name: "betterbayombong"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@rppf](https://github.com/rppf), [@h4ckedneko](https://github.com/h4ckedneko)"
+  maintainers:
+    - handle: "rppf"
+      url: "https://github.com/rppf"
+      profile: false
+    - handle: "h4ckedneko"
+      url: "https://github.com/h4ckedneko"
+      profile: false
+- name: "Bicol Region"
+  place: "Bicol Region"
+  kind: "region"
+  province: ""
+  region: "Bicol Region"
+  region_rank: 7
+  host: "betterbicol.org"
+  domain: "[betterbicol.org](https://betterbicol.org)"
+  repo: "[GitHub](https://github.com/winclores/betterbicol)"
+  repo_owner: "winclores"
+  repo_name: "betterbicol"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterbicol.org"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@winclores](https://github.com/winclores)"
+  maintainers:
+    - handle: "winclores"
+      url: "https://github.com/winclores"
+      profile: false
+- name: "Biñan City, Laguna"
+  place: "Biñan"
+  kind: "city"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterbinan.vercel.app"
   domain: "[betterbinan.vercel.app](https://betterbinan.vercel.app/)"
   repo: "[GitHub](https://github.com/mimflar/betterbinan)"
   repo_owner: "mimflar"
@@ -444,115 +592,77 @@
     - handle: "smmariquit"
       url: "https://github.com/smmariquit"
       profile: false
-- name: "Tanay, Rizal"
-  domain: "[bettertanay.org](https://bettertanay.org)"
-  repo: "[GitHub](https://github.com/s4burieru/bettertanay)"
-  repo_owner: "s4burieru"
-  repo_name: "bettertanay"
+- name: "Binangonan, Rizal"
+  place: "Binangonan"
+  kind: "municipality"
+  province: "Rizal"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterbinangonan.org"
+  domain: "[betterbinangonan.org](https://betterbinangonan.org)"
+  repo: "[GitHub](https://github.com/betterbinangonan-devs/betterbinangonan)"
+  repo_owner: "betterbinangonan-devs"
+  repo_name: "betterbinangonan"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/bettertanay"
+      url: "https://www.facebook.com/BetterBinangonan.org"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@s4burieru](https://github.com/s4burieru)"
+  maintainer: "[@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals)"
   maintainers:
-    - handle: "s4burieru"
-      url: "https://github.com/s4burieru"
+    - handle: "emmanpbarrameda"
+      url: "https://github.com/emmanpbarrameda"
       profile: false
-- name: "Puerto Princesa City, Palawan"
-  domain: "[betterpuertoprincesa.org](https://betterpuertoprincesa.org)"
-  repo: "[GitHub](https://github.com/BetterPuertoPrincesa/betterpuertoprincesa)"
-  repo_owner: "BetterPuertoPrincesa"
-  repo_name: "betterpuertoprincesa"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betterpuertoprincesa"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@kelxety](https://github.com/kelxety), [@hmcldryl](https://github.com/hmcldryl), [@atualariao](https://github.com/atualariao)"
-  maintainers:
-    - handle: "kelxety"
-      url: "https://github.com/kelxety"
+    - handle: "chaaals"
+      url: "https://github.com/chaaals"
       profile: false
-    - handle: "hmcldryl"
-      url: "https://github.com/hmcldryl"
-      profile: false
-    - handle: "atualariao"
-      url: "https://github.com/atualariao"
-      profile: false
-- name: "Iligan City, Lanao del Norte"
-  domain: "[betteriligancity.org](https://betteriligancity.org/)"
-  repo: "[GitHub](https://github.com/KishonShrill/BetterIligan)"
-  repo_owner: "KishonShrill"
-  repo_name: "BetterIligan"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/BetterIligan.org/"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@KishonShrill](https://github.com/KishonShrill), [@Vantalim12](https://github.com/Vantalim12)"
-  maintainers:
-    - handle: "KishonShrill"
-      url: "/maintainers/KishonShrill/"
-      profile: true
-    - handle: "Vantalim12"
-      url: "https://github.com/Vantalim12"
-      profile: false
-- name: "Hilongos, Leyte"
+- name: "Bocaue, Bulacan"
+  place: "Bocaue"
+  kind: "municipality"
+  province: "Bulacan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/rolpppp/betterhilongos)"
-  repo_owner: "rolpppp"
-  repo_name: "betterhilongos"
+  repo: "[GitHub](https://github.com/ericksondelacruz/betterbocaue)"
+  repo_owner: "ericksondelacruz"
+  repo_name: "betterbocaue"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@rolpppp](https://github.com/rolpppp)"
+  maintainer: "[@ericksondelacruz](https://github.com/ericksondelacruz)"
   maintainers:
-    - handle: "rolpppp"
-      url: "https://github.com/rolpppp"
+    - handle: "ericksondelacruz"
+      url: "https://github.com/ericksondelacruz"
       profile: false
-- name: "Limay, Bataan"
-  domain: "[betterlimay.org](https://betterlimay.org/)"
-  repo: "[GitHub](https://github.com/AstroMC98/BetterLimay-Prod)"
-  repo_owner: "AstroMC98"
-  repo_name: "BetterLimay-Prod"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betterlimay.org"
+- name: "Bukidnon Province"
+  place: "Bukidnon"
+  kind: "province"
+  province: "Bukidnon"
+  region: "Northern Mindanao"
+  region_rank: 13
+  host: "betterbukidnon.org"
+  domain: "[betterbukidnon.org](https://betterbukidnon.org)"
+  repo: "[GitHub](https://github.com/Better-Bukidnon)"
+  socials: []
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@AstroMC98](https://github.com/AstroMC98)"
+  maintainer: "[@DMNCDLPRT](https://github.com/DMNCDLPRT)"
   maintainers:
-    - handle: "AstroMC98"
-      url: "https://github.com/AstroMC98"
-      profile: false
-- name: "Balanga, Bataan"
-  domain: "[betterbalanga.org](https://betterbalanga.org/)"
-  repo: "[GitHub](https://github.com/AstroMC98/betterbalanga)"
-  repo_owner: "AstroMC98"
-  repo_name: "betterbalanga"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betterbalanga.org"
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@AstroMC98](https://github.com/AstroMC98)"
-  maintainers:
-    - handle: "AstroMC98"
-      url: "https://github.com/AstroMC98"
+    - handle: "DMNCDLPRT"
+      url: "https://github.com/DMNCDLPRT"
       profile: false
 - name: "Bulakan, Bulacan"
+  place: "Bulakan"
+  kind: "municipality"
+  province: "Bulacan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "betterbulakan.org"
   domain: "[betterbulakan.org](https://betterbulakan.org/)"
   repo: "[GitHub](https://github.com/kuyacarlo/betterbulakan)"
   repo_owner: "kuyacarlo"
@@ -566,106 +676,31 @@
     - handle: "kuyacarlo"
       url: "https://github.com/kuyacarlo"
       profile: false
-- name: "San Jose, Antique"
-  domain: "-"
-  repo: "[GitHub](https://github.com/bonfire404/bettersanjose)"
-  repo_owner: "bonfire404"
-  repo_name: "bettersanjose"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@bonfire404](https://github.com/bonfire404)"
-  maintainers:
-    - handle: "bonfire404"
-      url: "https://github.com/bonfire404"
-      profile: false
-- name: "Libmanan, Camarines Sur"
-  domain: "[betterlibmanan.org](https://betterlibmanan.org)"
-  repo: "[GitHub](https://github.com/enzox0/betterlibmanan)"
-  repo_owner: "enzox0"
-  repo_name: "betterlibmanan"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/BetterLibmanan.org"
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@enzox0](https://github.com/enzox0)"
-  maintainers:
-    - handle: "enzox0"
-      url: "https://github.com/enzox0"
-      profile: false
-- name: "San Pascual, Masbate"
-  domain: "-"
-  repo: "[GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate)"
-  repo_owner: "marcuwynu23"
-  repo_name: "bettersanpascualmasbate"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@marcuwynu23](https://github.com/marcuwynu23)"
-  maintainers:
-    - handle: "marcuwynu23"
-      url: "https://github.com/marcuwynu23"
-      profile: false
-- name: "Teresa, Rizal"
-  domain: "-"
-  repo: "[GitHub](https://github.com/MewSeiren/betterteresa.org)"
-  repo_owner: "MewSeiren"
-  repo_name: "betterteresa.org"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@MewSeiren](https://github.com/MewSeiren)"
-  maintainers:
-    - handle: "MewSeiren"
-      url: "https://github.com/MewSeiren"
-      profile: false
-- name: "Atimonan, Quezon"
-  domain: "-"
-  repo: "[GitHub](https://github.com/EmsiPrds/betteratimonan)"
-  repo_owner: "EmsiPrds"
-  repo_name: "betteratimonan"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@EmsiPrds](https://github.com/EmsiPrds)"
-  maintainers:
-    - handle: "EmsiPrds"
-      url: "https://github.com/EmsiPrds"
-      profile: false
-- name: "Dinalupihan, Bataan"
+- name: "Butuan City, Agusan del Norte"
+  place: "Butuan"
+  kind: "city"
+  province: "Agusan del Norte"
+  region: "Caraga"
+  region_rank: 16
+  host: ""
   domain: "-"
   repo: "-"
   socials: []
   status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@villenaderic](https://github.com/villenaderic)"
+  stale: true
+  open_for_adoption: true
+  maintainer: "[@stinkymonkeyph](https://github.com/stinkymonkeyph)"
   maintainers:
-    - handle: "villenaderic"
-      url: "https://github.com/villenaderic"
-      profile: false
-- name: "Calamba, Laguna"
-  domain: "-"
-  repo: "[GitHub](https://github.com/apajuan/bettercalamba)"
-  repo_owner: "apajuan"
-  repo_name: "bettercalamba"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@apajuan](https://github.com/apajuan)"
-  maintainers:
-    - handle: "apajuan"
-      url: "https://github.com/apajuan"
+    - handle: "stinkymonkeyph"
+      url: "https://github.com/stinkymonkeyph"
       profile: false
 - name: "Cabanatuan City, Nueva Ecija"
+  place: "Cabanatuan"
+  kind: "city"
+  province: "Nueva Ecija"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "bettercabanatuan.org"
   domain: "[bettercabanatuan.org](https://bettercabanatuan.org)"
   repo: "[GitHub](https://github.com/BetterCabanatuan/bettercabanatuan)"
   repo_owner: "BetterCabanatuan"
@@ -685,349 +720,68 @@
     - handle: "iampoll"
       url: "https://github.com/iampoll"
       profile: false
-- name: "Angeles City, Pampanga"
-  domain: "-"
-  repo: "[GitHub](https://github.com/ongods/betterangeles)"
-  repo_owner: "ongods"
-  repo_name: "betterangeles"
+- name: "Cabuyao City, Laguna"
+  place: "Cabuyao"
+  kind: "city"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettercabuyao.org"
+  domain: "[bettercabuyao.org](https://bettercabuyao.org/)"
+  repo: "[GitHub](https://github.com/johnrommeloctaviano/better-cabuyao)"
+  repo_owner: "johnrommeloctaviano"
+  repo_name: "better-cabuyao"
   socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@ongods](https://github.com/ongods)"
-  maintainers:
-    - handle: "ongods"
-      url: "https://github.com/ongods"
-      profile: false
-- name: "Cebu City, Cebu"
-  domain: "-"
-  repo: "[GitHub](https://github.com/kyrenmearr/bettercebucity)"
-  repo_owner: "kyrenmearr"
-  repo_name: "bettercebucity"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@kyrenmearr](https://github.com/kyrenmearr)"
-  maintainers:
-    - handle: "kyrenmearr"
-      url: "https://github.com/kyrenmearr"
-      profile: false
-- name: "Piat, Cagayan Valley"
-  domain: "-"
-  repo: "[GitHub](https://github.com/JoScripty/betterpiat)"
-  repo_owner: "JoScripty"
-  repo_name: "betterpiat"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@JoScripty](https://github.com/JoScripty)"
-  maintainers:
-    - handle: "JoScripty"
-      url: "https://github.com/JoScripty"
-      profile: false
-- name: "Alaminos City, Pangasinan"
-  domain: "[betteralaminoscity.org](https://betteralaminoscity.org)"
-  repo: "[GitHub](https://github.com/BetterAlaminosCity/betteralaminoscity)"
-  repo_owner: "BetterAlaminosCity"
-  repo_name: "betteralaminoscity"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betteralaminoscity.org"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@ljsalcedo-dev](https://github.com/ljsalcedo-dev)"
+  maintainer: "[@johnrommeloctaviano](https://github.com/johnrommeloctaviano)"
   maintainers:
-    - handle: "ljsalcedo-dev"
-      url: "https://github.com/ljsalcedo-dev"
+    - handle: "johnrommeloctaviano"
+      url: "https://github.com/johnrommeloctaviano"
       profile: false
-- name: "Santo Tomas, Pangasinan"
-  domain: "-"
+- name: "Cainta, Rizal"
+  place: "Cainta"
+  kind: "municipality"
+  province: "Rizal"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettercainta.org"
+  domain: "[bettercainta.org](https://bettercainta.org)"
   repo: "-"
   socials: []
-  status: "🔵 Planned"
-  stale: true
-  open_for_adoption: true
-  maintainer: "[@PatrickTomas2](https://github.com/PatrickTomas2)"
-  maintainers:
-    - handle: "PatrickTomas2"
-      url: "https://github.com/PatrickTomas2"
-      profile: false
-- name: "Legazpi, Albay"
-  domain: "[betterlegazpi.org](https://www.betterlegazpi.org/)"
-  repo: "[GitHub](https://github.com/bpbelen/betterlegazpi)"
-  repo_owner: "bpbelen"
-  repo_name: "betterlegazpi"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betterlegazpi"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@bpbelen](https://github.com/bpbelen)"
-  maintainers:
-    - handle: "bpbelen"
-      url: "https://github.com/bpbelen"
-      profile: false
-- name: "Santa Barbara, Pangasinan"
+  maintainer: "-"
+  maintainers: []
+- name: "Calamba City, Laguna"
+  place: "Calamba"
+  kind: "city"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/JericoGarcia21/better-santabarbara)"
-  repo_owner: "JericoGarcia21"
-  repo_name: "better-santabarbara"
+  repo: "[GitHub](https://github.com/apajuan/bettercalamba)"
+  repo_owner: "apajuan"
+  repo_name: "bettercalamba"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@JericoGarcia21](https://github.com/JericoGarcia21)"
+  maintainer: "[@apajuan](https://github.com/apajuan)"
   maintainers:
-    - handle: "JericoGarcia21"
-      url: "https://github.com/JericoGarcia21"
+    - handle: "apajuan"
+      url: "https://github.com/apajuan"
       profile: false
-- name: "Mapandan, Pangasinan"
-  domain: "[bettermapandan.org](https://www.bettermapandan.org/)"
-  repo: "[GitHub](https://github.com/jadolation/bettermapandan)"
-  repo_owner: "jadolation"
-  repo_name: "bettermapandan"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@jadolation](https://github.com/jadolation), [@Gel81](https://github.com/Gel81)"
-  maintainers:
-    - handle: "jadolation"
-      url: "https://github.com/jadolation"
-      profile: false
-    - handle: "Gel81"
-      url: "https://github.com/Gel81"
-      profile: false
-- name: "Basista, Pangasinan"
-  domain: "-"
-  repo: "[GitHub](https://github.com/jadolation/betterbasista)"
-  repo_owner: "jadolation"
-  repo_name: "betterbasista"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@jadolation](https://github.com/jadolation)"
-  maintainers:
-    - handle: "jadolation"
-      url: "https://github.com/jadolation"
-      profile: false
-- name: "Pangasinan Province"
-  domain: "-"
-  repo: "[GitHub](https://github.com/jadolation/betterPangasinan)"
-  repo_owner: "jadolation"
-  repo_name: "betterPangasinan"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@jadolation](https://github.com/jadolation)"
-  maintainers:
-    - handle: "jadolation"
-      url: "https://github.com/jadolation"
-      profile: false
-- name: "Taguig City, Metro Manila"
-  domain: "[bettertaguig.org](https://bettertaguig.org/)"
-  repo: "[GitHub](https://github.com/plvzfq-rit/bettertaguig)"
-  repo_owner: "plvzfq-rit"
-  repo_name: "bettertaguig"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@plvzfq-rit](https://github.com/plvzfq-rit), [@OrcaDS](https://github.com/OrcaDS)"
-  maintainers:
-    - handle: "plvzfq-rit"
-      url: "https://github.com/plvzfq-rit"
-      profile: false
-    - handle: "OrcaDS"
-      url: "https://github.com/OrcaDS"
-      profile: false
-- name: "Sara, Iloilo"
-  domain: "-"
-  repo: "[GitHub](https://github.com/SaraGugmaKo/bettersara)"
-  repo_owner: "SaraGugmaKo"
-  repo_name: "bettersara"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@SaraGugmaKo](https://github.com/SaraGugmaKo)"
-  maintainers:
-    - handle: "SaraGugmaKo"
-      url: "https://github.com/SaraGugmaKo"
-      profile: false
-- name: "Bayawan, Negros Oriental"
-  domain: "[betterbayawan.org](https://betterbayawan.org/)"
-  repo: "[GitHub](https://github.com/rodneydelacruz/betterbayawan)"
-  repo_owner: "rodneydelacruz"
-  repo_name: "betterbayawan"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/share/1CweyjBq9w/"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@rodneydelacruz](https://github.com/rodneydelacruz)"
-  maintainers:
-    - handle: "rodneydelacruz"
-      url: "https://github.com/rodneydelacruz"
-      profile: false
-- name: "Bacoor City, Cavite"
-  domain: "[betterbacoor.org](https://www.betterbacoor.org/)"
-  repo: "[GitHub](https://github.com/0phl/betterbacoor)"
-  repo_owner: "0phl"
-  repo_name: "betterbacoor"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/people/BetterBacoororg/61594400221717/"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@0phl](https://github.com/0phl)"
-  maintainers:
-    - handle: "0phl"
-      url: "https://github.com/0phl"
-      profile: false
-- name: "Lucena City, Quezon"
-  domain: "-"
-  repo: "[GitHub](https://github.com/RyannKim327/BetterLucenaCity)"
-  repo_owner: "RyannKim327"
-  repo_name: "BetterLucenaCity"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@RyannKim327](https://github.com/RyannKim327), [@marrrkkk](https://github.com/marrrkkk)"
-  maintainers:
-    - handle: "RyannKim327"
-      url: "https://github.com/RyannKim327"
-      profile: false
-    - handle: "marrrkkk"
-      url: "https://github.com/marrrkkk"
-      profile: false
-- name: "Carigara, Leyte"
-  domain: "[bettercarigara.org](https://bettercarigara.org)"
-  repo: "[GitHub](https://github.com/severinolorillajr/bettercarigara)"
-  repo_owner: "severinolorillajr"
-  repo_name: "bettercarigara"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@dauganz09](https://github.com/dauganz09), [@severinolorillajr](https://github.com/severinolorillajr)"
-  maintainers:
-    - handle: "dauganz09"
-      url: "https://github.com/dauganz09"
-      profile: false
-    - handle: "severinolorillajr"
-      url: "https://github.com/severinolorillajr"
-      profile: false
-- name: "Claver, Surigao del Norte"
-  domain: "-"
-  repo: "-"
-  socials: []
-  status: "🔵 Planned"
-  stale: true
-  open_for_adoption: true
-  maintainer: "[@eljohn2001](https://github.com/eljohn2001)"
-  maintainers:
-    - handle: "eljohn2001"
-      url: "https://github.com/eljohn2001"
-      profile: false
-- name: "Agoo, La Union"
-  domain: "[betteragoo.org](https://betteragoo.org/)"
-  repo: "[GitHub](https://github.com/glennmarkgarcia/betteragoo)"
-  repo_owner: "glennmarkgarcia"
-  repo_name: "betteragoo"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@glennmarkgarcia](https://github.com/glennmarkgarcia)"
-  maintainers:
-    - handle: "glennmarkgarcia"
-      url: "https://github.com/glennmarkgarcia"
-      profile: false
-- name: "Aurora, Zamboanga del Sur"
-  domain: "[betteraurora.org](https://betteraurora.org)"
-  repo: "[GitHub](https://github.com/Jayke770/betteraurora)"
-  repo_owner: "Jayke770"
-  repo_name: "betteraurora"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@jayke770](https://github.com/jayke770)"
-  maintainers:
-    - handle: "jayke770"
-      url: "https://github.com/jayke770"
-      profile: false
-- name: "Infanta, Quezon"
-  domain: "[betterinfantaquezon.org](https://betterinfantaquezon.org/)"
-  repo: "[GitHub](https://github.com/davisolpruvnik/better-infanta)"
-  repo_owner: "davisolpruvnik"
-  repo_name: "better-infanta"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@davisolpruvnik](https://github.com/davisolpruvnik)"
-  maintainers:
-    - handle: "davisolpruvnik"
-      url: "https://github.com/davisolpruvnik"
-      profile: false
-- name: "Bocaue, Bulacan"
-  domain: "-"
-  repo: "[GitHub](https://github.com/ericksondelacruz/betterbocaue)"
-  repo_owner: "ericksondelacruz"
-  repo_name: "betterbocaue"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@ericksondelacruz](https://github.com/ericksondelacruz)"
-  maintainers:
-    - handle: "ericksondelacruz"
-      url: "https://github.com/ericksondelacruz"
-      profile: false
-- name: "General Mariano Alvarez, Cavite"
-  domain: "-"
-  repo: "[GitHub](https://github.com/bettergma/bettergma-gov)"
-  repo_owner: "bettergma"
-  repo_name: "bettergma-gov"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@izxclyde](https://github.com/izxclyde)"
-  maintainers:
-    - handle: "izxclyde"
-      url: "https://github.com/izxclyde"
-      profile: false
-- name: "Meycauayan, Bulacan"
-  domain: "[bettermeycauayan.org](https://bettermeycauayan.org)"
-  repo: "[GitHub](https://github.com/shnflrsc/bettermeycauayan)"
-  repo_owner: "shnflrsc"
-  repo_name: "bettermeycauayan"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@shnflrsc](https://github.com/shnflrsc)"
-  maintainers:
-    - handle: "shnflrsc"
-      url: "https://github.com/shnflrsc"
-      profile: false
-- name: "Calapan, Oriental Mindoro"
+- name: "Calapan City, Oriental Mindoro"
+  place: "Calapan"
+  kind: "city"
+  province: "Oriental Mindoro"
+  region: "MIMAROPA Region"
+  region_rank: 6
+  host: "bettercalapan.org"
   domain: "[bettercalapan.org](https://bettercalapan.org)"
   repo: "[GitHub](https://github.com/bettercalapan/portal)"
   repo_owner: "bettercalapan"
@@ -1044,167 +798,223 @@
     - handle: "arvingarciabtw"
       url: "https://github.com/arvingarciabtw"
       profile: false
-- name: "Midsayap, North Cotabato"
-  domain: "-"
-  repo: "-"
-  socials: []
-  status: "🔵 Planned"
-  stale: true
-  open_for_adoption: true
-  maintainer: "[@PostNZT](https://github.com/PostNZT)"
-  maintainers:
-    - handle: "PostNZT"
-      url: "https://github.com/PostNZT"
-      profile: false
-- name: "Tandag City, Surigao del Sur"
-  domain: "-"
-  repo: "[GitHub](https://github.com/BetterTandag/better-tandag)"
-  repo_owner: "BetterTandag"
-  repo_name: "better-tandag"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@ikmespinoza](https://github.com/ikmespinoza)"
-  maintainers:
-    - handle: "ikmespinoza"
-      url: "https://github.com/ikmespinoza"
-      profile: false
-- name: "Baler, Aurora"
-  domain: "[betterbaler.org](https://betterbaler.org/)"
-  repo: "[GitHub](https://github.com/tekwicks/betterbaler)"
-  repo_owner: "tekwicks"
-  repo_name: "betterbaler"
+- name: "Calatagan, Batangas"
+  place: "Calatagan"
+  kind: "municipality"
+  province: "Batangas"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettercalatagan.vercel.app"
+  domain: "[bettercalatagan.vercel.app](https://bettercalatagan.vercel.app)"
+  repo: "[GitHub](https://github.com/marcxxv/bettercalatagan)"
+  repo_owner: "marcxxv"
+  repo_name: "bettercalatagan"
   socials: []
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@tekwicks](https://github.com/tekwicks)"
+  maintainer: "[@marcxxv](https://github.com/marcxxv)"
   maintainers:
-    - handle: "tekwicks"
-      url: "https://github.com/tekwicks"
+    - handle: "marcxxv"
+      url: "https://github.com/marcxxv"
       profile: false
-- name: "City of Manila, Metro Manila"
-  domain: "[bettermanila.org](https://bettermanila.org)"
-  repo: "[GitHub](https://github.com/grgdlm/bettermanila)"
-  repo_owner: "grgdlm"
-  repo_name: "bettermanila"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@grgdlm](https://github.com/grgdlm)"
-  maintainers:
-    - handle: "grgdlm"
-      url: "https://github.com/grgdlm"
-      profile: false
-- name: "Butuan City, Agusan del Norte"
-  domain: "-"
-  repo: "-"
-  socials: []
-  status: "🔵 Planned"
-  stale: true
-  open_for_adoption: true
-  maintainer: "[@stinkymonkeyph](https://github.com/stinkymonkeyph)"
-  maintainers:
-    - handle: "stinkymonkeyph"
-      url: "https://github.com/stinkymonkeyph"
-      profile: false
-- name: "Aborlan, Palawan"
-  domain: "[betteraborlan.org](https://betteraborlan.org)"
-  repo: "[GitHub](https://github.com/BetterAborlan/betteraborlan)"
-  repo_owner: "BetterAborlan"
-  repo_name: "betteraborlan"
+- name: "Calauan, Laguna"
+  place: "Calauan"
+  kind: "municipality"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettercalauan.org"
+  domain: "[bettercalauan.org](https://bettercalauan.org)"
+  repo: "[GitHub](https://github.com/bettercalauan/bettercalauan/tree/react-typescript)"
+  repo_owner: "bettercalauan"
+  repo_name: "bettercalauan"
+  repo_ref: "react-typescript"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/betteraborlan.org"
+      url: "https://www.facebook.com/BetterCalauan.org"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@hmcldryl](https://github.com/hmcldryl)"
+  maintainer: "[@xpall](https://github.com/xpall)"
   maintainers:
-    - handle: "hmcldryl"
-      url: "https://github.com/hmcldryl"
+    - handle: "xpall"
+      url: "https://github.com/xpall"
       profile: false
-- name: "Quezon City, Metro Manila"
-  domain: "-"
-  repo: "[GitHub](https://github.com/brixavengoza/betterquezoncity)"
-  repo_owner: "brixavengoza"
-  repo_name: "betterquezoncity"
+- name: "Caloocan City, Metro Manila"
+  place: "Caloocan"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: "bettercaloocan.org"
+  domain: "[bettercaloocan.org](https://www.bettercaloocan.org/)"
+  repo: "[GitHub](https://github.com/angelicatanagras/bettercaloocan)"
+  repo_owner: "angelicatanagras"
+  repo_name: "bettercaloocan"
   socials: []
-  status: "🔵 Planned"
-  stale: true
-  open_for_adoption: true
-  maintainer: "[@brixavengoza](https://github.com/brixavengoza)"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@angelicatanagras](https://github.com/angelicatanagras)"
   maintainers:
-    - handle: "brixavengoza"
-      url: "https://github.com/brixavengoza"
+    - handle: "angelicatanagras"
+      url: "https://github.com/angelicatanagras"
       profile: false
-- name: "Kabugao, Apayao"
-  domain: "[betterkabugao.org](https://betterkabugao.org)"
-  repo: "[GitHub](https://github.com/KuyaLoy/betterkabugao)"
-  repo_owner: "KuyaLoy"
-  repo_name: "betterkabugao"
+- name: "Candaba, Pampanga"
+  place: "Candaba"
+  kind: "municipality"
+  province: "Pampanga"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/bulsu-kpdeguzman/bettercandaba)"
+  repo_owner: "bulsu-kpdeguzman"
+  repo_name: "bettercandaba"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman)"
+  maintainers:
+    - handle: "bulsu-kpdeguzman"
+      url: "https://github.com/bulsu-kpdeguzman"
+      profile: false
+- name: "Carigara, Leyte"
+  place: "Carigara"
+  kind: "municipality"
+  province: "Leyte"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: "bettercarigara.org"
+  domain: "[bettercarigara.org](https://bettercarigara.org)"
+  repo: "[GitHub](https://github.com/severinolorillajr/bettercarigara)"
+  repo_owner: "severinolorillajr"
+  repo_name: "bettercarigara"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@dauganz09](https://github.com/dauganz09), [@severinolorillajr](https://github.com/severinolorillajr)"
+  maintainers:
+    - handle: "dauganz09"
+      url: "https://github.com/dauganz09"
+      profile: false
+    - handle: "severinolorillajr"
+      url: "https://github.com/severinolorillajr"
+      profile: false
+- name: "Carmona City, Cavite"
+  place: "Carmona"
+  kind: "city"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettercarmona.org"
+  domain: "[bettercarmona.org](https://bettercarmona.org)"
+  repo: "[GitHub](https://github.com/carlolim/bettercarmona)"
+  repo_owner: "carlolim"
+  repo_name: "bettercarmona"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@carlolim](https://github.com/carlolim)"
+  maintainers:
+    - handle: "carlolim"
+      url: "https://github.com/carlolim"
+      profile: false
+- name: "Catanduanes Province"
+  place: "Catanduanes"
+  kind: "province"
+  province: "Catanduanes"
+  region: "Bicol Region"
+  region_rank: 7
+  host: "bettercatanduanes.org"
+  domain: "[bettercatanduanes.org](https://bettercatanduanes.org)"
+  repo: "[GitHub](https://github.com/VLDCNDN/bettercatanduanes)"
+  repo_owner: "VLDCNDN"
+  repo_name: "bettercatanduanes"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/BetterKabugao"
-    - platform: "instagram"
-      label: "Instagram"
-      url: "https://www.instagram.com/betterkabugao"
-    - platform: "threads"
-      label: "Threads"
-      url: "https://www.threads.com/@betterkabugao"
+      url: "https://www.facebook.com/bettercatanduanes"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@KuyaLoy](https://github.com/KuyaLoy)"
+  maintainer: "[@VLDCNDN](https://github.com/VLDCNDN)"
   maintainers:
-    - handle: "KuyaLoy"
-      url: "https://github.com/KuyaLoy"
+    - handle: "VLDCNDN"
+      url: "https://github.com/VLDCNDN"
       profile: false
-- name: "Tago, Surigao del Sur"
-  domain: "[bettertago.org](https://www.bettertago.org)"
-  repo: "[Github](https://github.com/BetterTago/better-tago)"
-  repo_owner: "BetterTago"
-  repo_name: "better-tago"
+- name: "Catarman, Northern Samar"
+  place: "Catarman"
+  kind: "municipality"
+  province: "Northern Samar"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: "bettercatarman.org"
+  domain: "[bettercatarman.org](https://bettercatarman.org/)"
+  repo: "[GitHub](https://github.com/jpdevdotcom/better-catarman-northsamar)"
+  repo_owner: "jpdevdotcom"
+  repo_name: "better-catarman-northsamar"
   socials: []
-  status: "🟡 Work in Progress"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@ikmespinoza](https://github.com/ikmespinoza)"
+  maintainer: "[@jpdevdotcom](https://github.com/jpdevdotcom)"
   maintainers:
-    - handle: "ikmespinoza"
-      url: "https://github.com/ikmespinoza"
-      profile: false
-- name: "San Mariano, Isabela"
+    - handle: "jpdevdotcom"
+      url: "/maintainers/jpdevdotcom/"
+      profile: true
+- name: "Catbalogan City, Samar"
+  place: "Catbalogan"
+  kind: "city"
+  province: "Samar"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: ""
   domain: "-"
-  repo: "-"
+  repo: "[GitHub](https://github.com/hplarozner/better-lgu-catbalogan)"
+  repo_owner: "hplarozner"
+  repo_name: "better-lgu-catbalogan"
   socials: []
   status: "🔵 Planned"
-  stale: true
-  open_for_adoption: true
-  maintainer: "[@yazunomii](https://github.com/yazunomii)"
-  maintainers:
-    - handle: "yazunomii"
-      url: "https://github.com/yazunomii"
-      profile: false
-- name: "Pasig City, Metro Manila"
-  domain: "-"
-  repo: "[GitHub](https://github.com/ericvelasco-dev/betterpasig)"
-  repo_owner: "ericvelasco-dev"
-  repo_name: "betterpasig"
-  socials: []
-  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@ericvelasco-dev](https://github.com/ericvelasco-dev)"
+  maintainer: "[@hplarozner](https://github.com/hplarozner)"
   maintainers:
-    - handle: "ericvelasco-dev"
-      url: "https://github.com/ericvelasco-dev"
+    - handle: "hplarozner"
+      url: "https://github.com/hplarozner"
+      profile: false
+- name: "Cavinti, Laguna"
+  place: "Cavinti"
+  kind: "municipality"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettercavinti.org"
+  domain: "[bettercavinti.org](https://bettercavinti.org)"
+  repo: "[GitHub](https://github.com/klnwlks/bettercavinti)"
+  repo_owner: "klnwlks"
+  repo_name: "bettercavinti"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@klnwlks](https://github.com/klnwlks)"
+  maintainers:
+    - handle: "klnwlks"
+      url: "https://github.com/klnwlks"
       profile: false
 - name: "Cavite City, Cavite"
+  place: "Cavite"
+  kind: "city"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettercavitecity.org"
   domain: "[bettercavitecity.org](https://bettercavitecity.org)"
   repo: "-"
   socials:
@@ -1219,155 +1029,71 @@
     - handle: "jdsatsatin"
       url: "https://github.com/jdsatsatin"
       profile: false
-- name: "Aklan Province"
-  domain: "[betteraklan.org](https://betteraklan.org/)"
-  repo: "[GitHub](https://github.com/fr4nc1stein/betteraklan)"
-  repo_owner: "fr4nc1stein"
-  repo_name: "betteraklan"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@laet4x](https://github.com/fr4nc1stein/)"
-  maintainers:
-    - handle: "fr4nc1stein"
-      url: "https://github.com/fr4nc1stein"
-      profile: false
-- name: "Bicol Region"
-  domain: "[betterbicol.org](https://betterbicol.org)"
-  repo: "[GitHub](https://github.com/winclores/betterbicol)"
-  repo_owner: "winclores"
-  repo_name: "betterbicol"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/betterbicol.org"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@winclores](https://github.com/winclores)"
-  maintainers:
-    - handle: "winclores"
-      url: "https://github.com/winclores"
-      profile: false
-- name: "Dumaguete City, Negros Oriental"
+- name: "Cebu City, Cebu"
+  place: "Cebu"
+  kind: "city"
+  province: "Cebu"
+  region: "Central Visayas"
+  region_rank: 10
+  host: ""
   domain: "-"
-  repo: "-"
+  repo: "[GitHub](https://github.com/kyrenmearr/bettercebucity)"
+  repo_owner: "kyrenmearr"
+  repo_name: "bettercebucity"
   socials: []
-  status: "🔵 Planned"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@daveteves](https://github.com/daveteves)"
+  maintainer: "[@kyrenmearr](https://github.com/kyrenmearr)"
   maintainers:
-    - handle: "daveteves"
-      url: "https://github.com/daveteves"
+    - handle: "kyrenmearr"
+      url: "https://github.com/kyrenmearr"
       profile: false
-- name: "Paombong, Bulacan"
+- name: "Claver, Surigao del Norte"
+  place: "Claver"
+  kind: "municipality"
+  province: "Surigao del Norte"
+  region: "Caraga"
+  region_rank: 16
+  host: ""
   domain: "-"
   repo: "-"
   socials: []
   status: "🔵 Planned"
   stale: true
   open_for_adoption: true
-  maintainer: "[@denvdev](https://github.com/denvdev)"
+  maintainer: "[@eljohn2001](https://github.com/eljohn2001)"
   maintainers:
-    - handle: "denvdev"
-      url: "https://github.com/denvdev"
+    - handle: "eljohn2001"
+      url: "https://github.com/eljohn2001"
       profile: false
-- name: "City of Mati, Davao Oriental"
+- name: "Corella, Bohol"
+  place: "Corella"
+  kind: "municipality"
+  province: "Bohol"
+  region: "Central Visayas"
+  region_rank: 10
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/kaarlosasiang/bettermaticity)"
-  repo_owner: "kaarlosasiang"
-  repo_name: "bettermaticity"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://web.facebook.com/profile.php?id=61595995200616"
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@kaarlosasiang](https://github.com/kaarlosasiang)"
-  maintainers:
-    - handle: "kaarlosasiang"
-      url: "https://github.com/kaarlosasiang"
-      profile: false
-- name: "Surallah, South Cotabato"
-  domain: "[bettersurallah.org](https://bettersurallah.org)"
-  repo: "[GitHub](https://github.com/average04/bettersurallah)"
-  repo_owner: "average04"
-  repo_name: "bettersurallah"
+  repo: "[GitHub](https://github.com/ashdroidcmd/bettercorella)"
+  repo_owner: "ashdroidcmd"
+  repo_name: "bettercorella"
   socials: []
-  status: "🟢 Active"
+  status: "🔵 Planned"
   stale: false
   open_for_adoption: false
-  maintainer: "[@average04](https://github.com/average04)"
+  maintainer: "[@ashdroidcmd](https://github.com/ashdroidcmd)"
   maintainers:
-    - handle: "average04"
-      url: "https://github.com/average04"
-      profile: false
-- name: "Malolos, Bulacan"
-  domain: "[bettermalolos.org](https://bettermalolos.org/)"
-  repo: "[GitHub](https://github.com/francisdiaz22/bettermalolos)"
-  repo_owner: "francisdiaz22"
-  repo_name: "bettermalolos"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/bettermalolos.org"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@francisdiaz22](https://github.com/francisdiaz22)"
-  maintainers:
-    - handle: "francisdiaz22"
-      url: "https://github.com/francisdiaz22"
-      profile: false
-- name: "Maddela, Quirino"
-  domain: "[bettermaddela.vercel.app](https://bettermaddela.vercel.app/)"
-  repo: "[GitHub](https://github.com/Hendrizzzz/bettermaddela)"
-  repo_owner: "Hendrizzzz"
-  repo_name: "bettermaddela"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@Hendrizzzz](https://github.com/Hendrizzzz)"
-  maintainers:
-    - handle: "Hendrizzzz"
-      url: "https://github.com/Hendrizzzz"
-      profile: false
-- name: "Caloocan City, Metro Manila"
-  domain: "[bettercaloocan.org](https://www.bettercaloocan.org/)"
-  repo: "[GitHub](https://github.com/angelicatanagras/bettercaloocan)"
-  repo_owner: "angelicatanagras"
-  repo_name: "bettercaloocan"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@angelicatanagras](https://github.com/angelicatanagras)"
-  maintainers:
-    - handle: "angelicatanagras"
-      url: "https://github.com/angelicatanagras"
-      profile: false
-- name: "Zamboanga City, Zamboanga del Sur"
-  domain: "[betterzamboangacity.vercel.app](https://betterzamboangacity.vercel.app)"
-  repo: "[GitHub](https://github.com/RALPH22222/betterzamboangacity)"
-  repo_owner: "RALPH22222"
-  repo_name: "betterzamboangacity"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://facebook.com/betterzamboangacity.org"
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@RALPH22222](https://github.com/RALPH22222)"
-  maintainers:
-    - handle: "RALPH22222"
-      url: "https://github.com/RALPH22222"
+    - handle: "ashdroidcmd"
+      url: "https://github.com/ashdroidcmd"
       profile: false
 - name: "Dagupan City, Pangasinan"
+  place: "Dagupan"
+  kind: "city"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
   domain: "-"
   repo: "[GitHub](https://github.com/jamesjmnz/better-dagupan)"
   repo_owner: "jamesjmnz"
@@ -1381,83 +1107,301 @@
     - handle: "jamesjmnz"
       url: "https://github.com/jamesjmnz"
       profile: false
-- name: "Baguio City, Benguet"
-  domain: "[betterbaguio.org](https://betterbaguio.org)"
-  repo: "[GitHub](https://github.com/ashier/betterbaguio)"
-  repo_owner: "ashier"
-  repo_name: "betterbaguio"
-  socials: []
+- name: "Dasmariñas City, Cavite"
+  place: "Dasmariñas"
+  kind: "city"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterdasmarinas.org"
+  domain: "[betterdasmarinas.org](https://betterdasmarinas.org)"
+  repo: "[GitHub](https://github.com/Shuashuaa/BetterDasmarinas)"
+  repo_owner: "Shuashuaa"
+  repo_name: "BetterDasmarinas"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/profile.php?id=61570802813363"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@ashier](https://github.com/ashier)"
+  maintainer: "[@Shuashuaa](https://github.com/Shuashuaa)"
   maintainers:
-    - handle: "ashier"
-      url: "https://github.com/ashier"
+    - handle: "Shuashuaa"
+      url: "https://github.com/Shuashuaa"
       profile: false
-- name: "Trece Martires City, Cavite"
-  domain: "[bettertrecemartires.org](https://bettertrecemartires.org)"
-  repo: "[GitHub](https://github.com/hiroqt/bettertrece)"
-  repo_owner: "hiroqt"
-  repo_name: "bettertrece"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@hiroqt](https://github.com/hiroqt)"
-  maintainers:
-    - handle: "hiroqt"
-      url: "https://github.com/hiroqt"
-      profile: false
-- name: "Pagsanjan, Laguna"
+- name: "Davao City, Davao del Sur"
+  place: "Davao"
+  kind: "city"
+  province: "Davao del Sur"
+  region: "Davao Region"
+  region_rank: 14
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/rswlljms/betterpagsanjan)"
-  repo_owner: "rswlljms"
-  repo_name: "betterpagsanjan"
+  repo: "[GitHub](https://github.com/johnloydlao/betterdavao)"
+  repo_owner: "johnloydlao"
+  repo_name: "betterdavao"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@rswlljms](https://github.com/rswlljms)"
+  maintainer: "[@johnloydlao](https://github.com/johnloydlao)"
   maintainers:
-    - handle: "rswlljms"
-      url: "https://github.com/rswlljms"
+    - handle: "johnloydlao"
+      url: "https://github.com/johnloydlao"
       profile: false
-- name: "Naic, Cavite"
-  domain: "[betternaic.vercel.app](https://betternaic.vercel.app)"
-  repo: "[GitHub](https://github.com/riecodes/betternaic)"
-  repo_owner: "riecodes"
-  repo_name: "betternaic"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://facebook.com/betternaic"
+- name: "Davao del Sur Province"
+  place: "Davao del Sur"
+  kind: "province"
+  province: "Davao del Sur"
+  region: "Davao Region"
+  region_rank: 14
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/ianmuico/better-davao-del-sur)"
+  repo_owner: "ianmuico"
+  repo_name: "better-davao-del-sur"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ianmuico](https://github.com/ianmuico)"
+  maintainers:
+    - handle: "ianmuico"
+      url: "https://github.com/ianmuico"
+      profile: false
+- name: "Dinalupihan, Bataan"
+  place: "Dinalupihan"
+  kind: "municipality"
+  province: "Bataan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "-"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@villenaderic](https://github.com/villenaderic)"
+  maintainers:
+    - handle: "villenaderic"
+      url: "https://github.com/villenaderic"
+      profile: false
+- name: "Dipolog City, Zamboanga del Norte"
+  place: "Dipolog"
+  kind: "city"
+  province: "Zamboanga del Norte"
+  region: "Zamboanga Peninsula"
+  region_rank: 12
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/z1on3/betterdipolog)"
+  repo_owner: "z1on3"
+  repo_name: "betterdipolog"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@z1on3](https://github.com/z1on3)"
+  maintainers:
+    - handle: "z1on3"
+      url: "https://github.com/z1on3"
+      profile: false
+- name: "Dumaguete City, Negros Oriental"
+  place: "Dumaguete"
+  kind: "city"
+  province: "Negros Oriental"
+  region: "NIR"
+  region_rank: 9
+  host: ""
+  domain: "-"
+  repo: "-"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@daveteves](https://github.com/daveteves)"
+  maintainers:
+    - handle: "daveteves"
+      url: "https://github.com/daveteves"
+      profile: false
+- name: "Gattaran, Cagayan"
+  place: "Gattaran"
+  kind: "municipality"
+  province: "Cagayan"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: "bettergattaran.org"
+  domain: "[bettergattaran.org](https://bettergattaran.org)"
+  repo: "[GitHub](https://github.com/ginxFromYt/bettergattaran)"
+  repo_owner: "ginxFromYt"
+  repo_name: "bettergattaran"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ginxFromYt](https://github.com/ginxFromYt)"
+  maintainers:
+    - handle: "ginxFromYt"
+      url: "https://github.com/ginxFromYt"
+      profile: false
+- name: "General Mariano Alvarez, Cavite"
+  place: "General Mariano Alvarez"
+  kind: "municipality"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/bettergma/bettergma-gov)"
+  repo_owner: "bettergma"
+  repo_name: "bettergma-gov"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@izxclyde](https://github.com/izxclyde)"
+  maintainers:
+    - handle: "izxclyde"
+      url: "https://github.com/izxclyde"
+      profile: false
+- name: "General Santos City, South Cotabato"
+  place: "General Santos"
+  kind: "city"
+  province: "South Cotabato"
+  region: "SOCCSKSARGEN"
+  region_rank: 15
+  host: "bettergensan.org"
+  domain: "[bettergensan.org](https://bettergensan.org)"
+  repo: "[GitHub](https://github.com/psalmcatulpos/bettergensan)"
+  repo_owner: "psalmcatulpos"
+  repo_name: "bettergensan"
+  socials: []
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@rieCodes](https://github.com/rieCodes)"
+  maintainer: "[@psalmcatulpos](https://github.com/psalmcatulpos)"
   maintainers:
-    - handle: "rieCodes"
-      url: "https://github.com/rieCodes"
+    - handle: "psalmcatulpos"
+      url: "https://github.com/psalmcatulpos"
       profile: false
-- name: "City of San Fernando, Pampanga"
-  domain: "[bettersanfernando.org](https://bettersanfernando.org)"
-  repo: "[GitHub](https://github.com/bettersanfernando/bettersanfernando)"
-  repo_owner: "bettersanfernando"
-  repo_name: "bettersanfernando"
+- name: "General Trias City, Cavite"
+  place: "General Trias"
+  kind: "city"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettergeneraltrias.org"
+  domain: "[bettergeneraltrias.org](https://www.bettergeneraltrias.org/)"
+  repo: "[GitHub](https://github.com/kenhehe/betterGeneraltrias)"
+  repo_owner: "kenhehe"
+  repo_name: "betterGeneraltrias"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/BetterSanFernandoOrg"
+      url: "https://www.facebook.com/betterGeneralTrias"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@iyawnnn](https://github.com/iyawnnn)"
+  maintainer: "[@kenhehe](https://github.com/kenhehe)"
   maintainers:
-    - handle: "iyawnnn"
-      url: "https://github.com/iyawnnn"
+    - handle: "kenhehe"
+      url: "https://github.com/kenhehe"
+      profile: false
+- name: "Hermosa, Bataan"
+  place: "Hermosa"
+  kind: "municipality"
+  province: "Bataan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "betterhermosa.org"
+  domain: "[betterhermosa.org](https://betterhermosa.org)"
+  repo: "[GitHub](https://github.com/BetterHermosa/betterhermosa)"
+  repo_owner: "BetterHermosa"
+  repo_name: "betterhermosa"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ialexies](https://github.com/ialexies)"
+  maintainers:
+    - handle: "ialexies"
+      url: "https://github.com/ialexies"
+      profile: false
+- name: "Hilongos, Leyte"
+  place: "Hilongos"
+  kind: "municipality"
+  province: "Leyte"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/rolpppp/betterhilongos)"
+  repo_owner: "rolpppp"
+  repo_name: "betterhilongos"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@rolpppp](https://github.com/rolpppp)"
+  maintainers:
+    - handle: "rolpppp"
+      url: "https://github.com/rolpppp"
+      profile: false
+- name: "Iligan City, Lanao del Norte"
+  place: "Iligan"
+  kind: "city"
+  province: "Lanao del Norte"
+  region: "Northern Mindanao"
+  region_rank: 13
+  host: "betteriligancity.org"
+  domain: "[betteriligancity.org](https://betteriligancity.org/)"
+  repo: "[GitHub](https://github.com/KishonShrill/BetterIligan)"
+  repo_owner: "KishonShrill"
+  repo_name: "BetterIligan"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/BetterIligan.org/"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@KishonShrill](https://github.com/KishonShrill), [@Vantalim12](https://github.com/Vantalim12)"
+  maintainers:
+    - handle: "KishonShrill"
+      url: "/maintainers/KishonShrill/"
+      profile: true
+    - handle: "Vantalim12"
+      url: "https://github.com/Vantalim12"
+      profile: false
+- name: "Ilocos Norte Province"
+  place: "Ilocos Norte"
+  kind: "province"
+  province: "Ilocos Norte"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/russellraed/betterilocosnorte)"
+  repo_owner: "russellraed"
+  repo_name: "betterilocosnorte"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@russellraed](https://github.com/russellraed)"
+  maintainers:
+    - handle: "russellraed"
+      url: "https://github.com/russellraed"
       profile: false
 - name: "Inabanga, Bohol"
+  place: "Inabanga"
+  kind: "municipality"
+  province: "Bohol"
+  region: "Central Visayas"
+  region_rank: 10
+  host: "betterinabanga.vercel.app"
   domain: "[betterinabanga.vercel.app](https://betterinabanga.vercel.app)"
   repo: "[GitHub](https://github.com/gerardosocias29/betterinabanga)"
   repo_owner: "gerardosocias29"
@@ -1471,254 +1415,79 @@
     - handle: "gerardosocias29"
       url: "https://github.com/gerardosocias29"
       profile: false
-- name: "Samal, Bataan"
-  domain: "-"
-  repo: "-"
-  socials: []
-  status: "🔵 Planned"
-  stale: true
-  open_for_adoption: true
-  maintainer: "[@gab26g](https://github.com/gab26g)"
-  maintainers:
-    - handle: "gab26g"
-      url: "https://github.com/gab26g"
-      profile: false
-- name: "Makati City, Metro Manila"
-  domain: "[bettermakati.org](https://bettermakati.org)"
-  repo: "[GitHub](https://github.com/migi-macati/bettermakati)"
-  repo_owner: "migi-macati"
-  repo_name: "bettermakati"
+- name: "Indang, Cavite"
+  place: "Indang"
+  kind: "municipality"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterindang.org"
+  domain: "[betterindang.org](https://betterindang.org)"
+  repo: "[GitHub](https://github.com/michaustriaqa/betterindang)"
+  repo_owner: "michaustriaqa"
+  repo_name: "betterindang"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/bettermakati"
-    - platform: "instagram"
-      label: "Instagram"
-      url: "https://www.instagram.com/bettermakati/"
+      url: "https://facebook.com/betterindang"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@migi-macati](https://github.com/migi-macati)"
+  maintainer: "[@michaustriaqa](https://github.com/michaustriaqa)"
   maintainers:
-    - handle: "migi-macati"
-      url: "https://github.com/migi-macati"
+    - handle: "michaustriaqa"
+      url: "https://github.com/michaustriaqa"
       profile: false
-- name: "San Carlos City, Pangasinan"
-  domain: "[bettersancarlos.vercel.app](https://bettersancarlos.vercel.app/)"
-  repo: "[GitHub](https://github.com/edisonmalasan/bettersancarlos)"
-  repo_owner: "edisonmalasan"
-  repo_name: "bettersancarlos"
+- name: "Infanta, Quezon"
+  place: "Infanta"
+  kind: "municipality"
+  province: "Quezon"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterinfantaquezon.org"
+  domain: "[betterinfantaquezon.org](https://betterinfantaquezon.org/)"
+  repo: "[GitHub](https://github.com/davisolpruvnik/better-infanta)"
+  repo_owner: "davisolpruvnik"
+  repo_name: "better-infanta"
   socials: []
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@edisonmalasan](https://github.com/edisonmalasan)"
+  maintainer: "[@davisolpruvnik](https://github.com/davisolpruvnik)"
   maintainers:
-    - handle: "edisonmalasan"
-      url: "https://github.com/edisonmalasan"
+    - handle: "davisolpruvnik"
+      url: "https://github.com/davisolpruvnik"
       profile: false
-- name: "Pagbilao, Quezon"
-  domain: "[betterpagbilao.org](https://betterpagbilao.org)"
-  repo: "[GitHub](https://github.com/rallion90/better-pagbilao)"
-  repo_owner: "rallion90"
-  repo_name: "better-pagbilao"
+- name: "Iriga City, Camarines Sur"
+  place: "Iriga"
+  kind: "city"
+  province: "Camarines Sur"
+  region: "Bicol Region"
+  region_rank: 7
+  host: "betteririga.org"
+  domain: "[betteririga.org](https://betteririga.org)"
+  repo: "[GitHub](https://github.com/ronhedwigzape/betteririga)"
+  repo_owner: "ronhedwigzape"
+  repo_name: "betteririga"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/betterpagbilao"
+      url: "https://www.facebook.com/BetterIriga.org"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@rallion90](https://github.com/rallion90)"
+  maintainer: "[@ronhedwigzape](https://github.com/ronhedwigzape)"
   maintainers:
-    - handle: "rallion90"
-      url: "https://github.com/rallion90"
-      profile: false
-- name: "Mandaue City, Cebu"
-  domain: "-"
-  repo: "-"
-  socials: []
-  status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@jaylothai](https://github.com/jaylothai)"
-  maintainers:
-    - handle: "jaylothai"
-      url: "https://github.com/jaylothai"
-      profile: false
-- name: "Santa Cruz, Laguna"
-  domain: "-"
-  repo: "[GitHub](https://github.com/BetterSantaCruz/betterstacruzlaguna)"
-  repo_owner: "BetterSantaCruz"
-  repo_name: "betterstacruzlaguna"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@Diannn3](https://github.com/Diannn3)"
-  maintainers:
-    - handle: "Diannn3"
-      url: "https://github.com/Diannn3"
-      profile: false
-- name: "Bauang, La Union"
-  domain: "-"
-  repo: "[GitHub](https://github.com/loudaboi/betterbauang)"
-  repo_owner: "loudaboi"
-  repo_name: "betterbauang"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@loudaboi](https://github.com/loudaboi)"
-  maintainers:
-    - handle: "loudaboi"
-      url: "https://github.com/loudaboi"
-      profile: false
-- name: "Tabaco City, Albay"
-  domain: "-"
-  repo: "[GitHub](https://github.com/johnjoshualipio/bettertabaco)"
-  repo_owner: "johnjoshualipio"
-  repo_name: "bettertabaco"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@johnjoshualipio](https://github.com/johnjoshualipio)"
-  maintainers:
-    - handle: "johnjoshualipio"
-      url: "https://github.com/johnjoshualipio"
-      profile: false
-- name: "Rizal, Nueva Ecija"
-  domain: "-"
-  repo: "[GitHub](https://github.com/njveneracion/betterrizalne)"
-  repo_owner: "njveneracion"
-  repo_name: "betterrizalne"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@njveneracion](https://github.com/njveneracion)"
-  maintainers:
-    - handle: "njveneracion"
-      url: "https://github.com/njveneracion"
-      profile: false
-- name: "Liliw, Laguna"
-  domain: "-"
-  repo: "[GitHub](https://github.com/BetterLiliw/betterliliw)"
-  repo_owner: "BetterLiliw"
-  repo_name: "betterliliw"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@Kiko915](https://github.com/Kiko915), [@johnchristiancoronacion](https://github.com/johnchristiancoronacion)"
-  maintainers:
-    - handle: "Kiko915"
-      url: "https://github.com/Kiko915"
-      profile: false
-    - handle: "johnchristiancoronacion"
-      url: "https://github.com/johnchristiancoronacion"
-      profile: false
-- name: "Naguilian, La Union"
-  domain: "[betternaguilianlu.vercel.app](https://betternaguilianlu.vercel.app)"
-  repo: "[GitHub](https://github.com/baeyacorpuz/betternaguilianlu)"
-  repo_owner: "baeyacorpuz"
-  repo_name: "betternaguilianlu"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@baeyacorpuz](https://github.com/baeyacorpuz)"
-  maintainers:
-    - handle: "baeyacorpuz"
-      url: "https://github.com/baeyacorpuz"
-      profile: false
-- name: "City of San Fernando, La Union"
-  domain: "[bettersanfernando.pages.dev](https://bettersanfernando.pages.dev/)"
-  repo: "[GitHub](https://github.com/alvindemesadev/better-san-fernando-lu)"
-  repo_owner: "alvindemesadev"
-  repo_name: "better-san-fernando-lu"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@alvindemesadev](https://github.com/alvindemesadev)"
-  maintainers:
-    - handle: "alvindemesadev"
-      url: "https://github.com/alvindemesadev"
-      profile: false
-- name: "Minalabac, Camarines Sur"
-  domain: "-"
-  repo: "-"
-  socials: []
-  status: "🔵 Planned"
-  stale: true
-  open_for_adoption: true
-  maintainer: "[@theheavenlyhacker](https://github.com/theheavenlyhacker)"
-  maintainers:
-    - handle: "theheavenlyhacker"
-      url: "https://github.com/theheavenlyhacker"
-      profile: false
-- name: "Maasin City, Southern Leyte"
-  domain: "[bettermaasin.netlify.app](https://bettermaasin.netlify.app)"
-  repo: "[GitHub](https://github.com/bettermaasin/BetterMaasin)"
-  repo_owner: "bettermaasin"
-  repo_name: "BetterMaasin"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/bettermaasin.org"
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@derkandre](https://github.com/derkandre)"
-  maintainers:
-    - handle: "derkandre"
-      url: "https://github.com/derkandre"
-      profile: false
-- name: "Tacloban City, Leyte"
-  domain: "-"
-  repo: "[GitHub](https://github.com/zenabus/better-tacloban)"
-  repo_owner: "zenabus"
-  repo_name: "better-tacloban"
-  socials: []
-  status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@zenabus](https://github.com/zenabus)"
-  maintainers:
-    - handle: "zenabus"
-      url: "https://github.com/zenabus"
-      profile: false
-- name: "City of Santa Rosa, Laguna"
-  domain: "[bettersantarosacity.pages.dev](https://bettersantarosacity.pages.dev)"
-  repo: "[GitHub](https://github.com/jericizon/bettersantarosacity)"
-  repo_owner: "jericizon"
-  repo_name: "bettersantarosacity"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@jericizon](https://github.com/jericizon)"
-  maintainers:
-    - handle: "jericizon"
-      url: "https://github.com/jericizon"
-      profile: false
-- name: "Roxas City, Capiz"
-  domain: "-"
-  repo: "[GitHub](https://github.com/chariz1101/betterroxas)"
-  repo_owner: "chariz1101"
-  repo_name: "betterroxas"
-  socials: []
-  status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@chariz1101](https://github.com/chariz1101)"
-  maintainers:
-    - handle: "chariz1101"
-      url: "https://github.com/chariz1101"
+    - handle: "ronhedwigzape"
+      url: "https://github.com/ronhedwigzape"
       profile: false
 - name: "Kabankalan City, Negros Occidental"
+  place: "Kabankalan"
+  kind: "city"
+  province: "Negros Occidental"
+  region: "NIR"
+  region_rank: 9
+  host: "betterkabankalan.org"
   domain: "[betterkabankalan.org](https://betterkabankalan.org)"
   repo: "[GitHub](https://github.com/betterkabankalan/betterkabankalan)"
   repo_owner: "betterkabankalan"
@@ -1741,153 +1510,62 @@
     - handle: "Oniely"
       url: "https://github.com/Oniely"
       profile: false
-- name: "San Jose City, Nueva Ecija"
-  domain: "[sanjose.betternuevaecija.org](https://sanjose.betternuevaecija.org)"
-  repo: "[GitHub](https://github.com/denver6000/bettersanjosecity-ne)"
-  repo_owner: "denver6000"
-  repo_name: "bettersanjosecity-ne"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@denver6000](https://github.com/denver6000), [@kurt-farinas](https://github.com/kurt-farinas)"
-  maintainers:
-    - handle: "denver6000"
-      url: "https://github.com/denver6000"
-      profile: false
-    - handle: "kurt-farinas"
-      url: "https://github.com/kurt-farinas"
-      profile: false
-- name: "Santa Maria, Bulacan"
-  domain: "-"
-  repo: "[GitHub](https://github.com/josiahjezraelguevarra/BetterSantaMaria)"
-  repo_owner: "josiahjezraelguevarra"
-  repo_name: "BetterSantaMaria"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@josiahjezraelguevarra](https://github.com/josiahjezraelguevarra)"
-  maintainers:
-    - handle: "josiahjezraelguevarra"
-      url: "https://github.com/josiahjezraelguevarra"
-      profile: false
-- name: "Alangalang, Leyte"
-  domain: "-"
-  repo: "[GitHub](https://github.com/severinolorillajr/betteralangalang)"
-  repo_owner: "severinolorillajr"
-  repo_name: "betteralangalang"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@severinolorillajr](https://github.com/severinolorillajr)"
-  maintainers:
-    - handle: "severinolorillajr"
-      url: "https://github.com/severinolorillajr"
-      profile: false
-- name: "Albay Province"
-  domain: "-"
-  repo: "[GitHub](https://github.com/jsonrls/better-albay)"
-  repo_owner: "jsonrls"
-  repo_name: "better-albay"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@jsonrls](https://github.com/jsonrls)"
-  maintainers:
-    - handle: "jsonrls"
-      url: "https://github.com/jsonrls"
-      profile: false
-- name: "Gattaran, Cagayan"
-  domain: "[bettergattaran.org](https://bettergattaran.org)"
-  repo: "[GitHub](https://github.com/ginxFromYt/bettergattaran)"
-  repo_owner: "ginxFromYt"
-  repo_name: "bettergattaran"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@ginxFromYt](https://github.com/ginxFromYt)"
-  maintainers:
-    - handle: "ginxFromYt"
-      url: "https://github.com/ginxFromYt"
-      profile: false
-- name: "Calatagan, Batangas"
-  domain: "[bettercalatagan.vercel.app](https://bettercalatagan.vercel.app)"
-  repo: "[GitHub](https://github.com/marcxxv/bettercalatagan)"
-  repo_owner: "marcxxv"
-  repo_name: "bettercalatagan"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@marcxxv](https://github.com/marcxxv)"
-  maintainers:
-    - handle: "marcxxv"
-      url: "https://github.com/marcxxv"
-      profile: false
-- name: "Valenzuela City, Metro Manila"
-  domain: "-"
-  repo: "[GitHub](https://github.com/JeremyDFabian/bettervalenzuela)"
-  repo_owner: "JeremyDFabian"
-  repo_name: "bettervalenzuela"
+- name: "Kabugao, Apayao"
+  place: "Kabugao"
+  kind: "municipality"
+  province: "Apayao"
+  region: "CAR"
+  region_rank: 1
+  host: "betterkabugao.org"
+  domain: "[betterkabugao.org](https://betterkabugao.org)"
+  repo: "[GitHub](https://github.com/KuyaLoy/betterkabugao)"
+  repo_owner: "KuyaLoy"
+  repo_name: "betterkabugao"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/betterval.org"
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@JeremyDFabian](https://github.com/JeremyDFabian)"
-  maintainers:
-    - handle: "JeremyDFabian"
-      url: "https://github.com/JeremyDFabian"
-      profile: false
-- name: "Davao del Sur, Davao Region"
-  domain: "-"
-  repo: "[GitHub](https://github.com/ianmuico/better-davao-del-sur)"
-  repo_owner: "ianmuico"
-  repo_name: "better-davao-del-sur"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@ianmuico](https://github.com/ianmuico)"
-  maintainers:
-    - handle: "ianmuico"
-      url: "https://github.com/ianmuico"
-      profile: false
-- name: "Catbalogan City, Samar"
-  domain: "-"
-  repo: "[GitHub](https://github.com/hplarozner/better-lgu-catbalogan)"
-  repo_owner: "hplarozner"
-  repo_name: "better-lgu-catbalogan"
-  socials: []
-  status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@hplarozner](https://github.com/hplarozner)"
-  maintainers:
-    - handle: "hplarozner"
-      url: "https://github.com/hplarozner"
-      profile: false
-- name: "Bagac, Bataan"
-  domain: "[betterbagac.org](https://betterbagac.org)"
-  repo: "[GitHub](https://github.com/betterbagac/betterbagac)"
-  repo_owner: "betterbagac"
-  repo_name: "betterbagac"
-  socials: []
+      url: "https://www.facebook.com/BetterKabugao"
+    - platform: "instagram"
+      label: "Instagram"
+      url: "https://www.instagram.com/betterkabugao"
+    - platform: "threads"
+      label: "Threads"
+      url: "https://www.threads.com/@betterkabugao"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@jmrec](https://github.com/jmrec)"
+  maintainer: "[@KuyaLoy](https://github.com/KuyaLoy)"
   maintainers:
-    - handle: "jmrec"
-      url: "/maintainers/jmrec/"
-      profile: true
+    - handle: "KuyaLoy"
+      url: "https://github.com/KuyaLoy"
+      profile: false
+- name: "Koronadal City, South Cotabato"
+  place: "Koronadal"
+  kind: "city"
+  province: "South Cotabato"
+  region: "SOCCSKSARGEN"
+  region_rank: 15
+  host: "betterkoronadal.org"
+  domain: "[betterkoronadal.org](https://betterkoronadal.org)"
+  repo: "[GitHub](https://github.com/janineooak/betterkoronadal)"
+  repo_owner: "janineooak"
+  repo_name: "betterkoronadal"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@janineooak](https://github.com/janineooak)"
+  maintainers:
+    - handle: "janineooak"
+      url: "https://github.com/janineooak"
+      profile: false
 - name: "Labo, Camarines Norte"
+  place: "Labo"
+  kind: "municipality"
+  province: "Camarines Norte"
+  region: "Bicol Region"
+  region_rank: 7
+  host: "betterlabo.vercel.app"
   domain: "[betterlabo.vercel.app](https://betterlabo.vercel.app)"
   repo: "[GitHub](https://github.com/kiembully/betterlabo)"
   repo_owner: "kiembully"
@@ -1901,101 +1579,33 @@
     - handle: "kiembully"
       url: "https://github.com/kiembully"
       profile: false
-- name: "Marikina City, Metro Manila"
-  domain: "[bettermarikina.org](https://www.bettermarikina.org)"
-  repo: "[GitHub](https://github.com/BetterMarikina/bettermarikina)"
-  repo_owner: "BetterMarikina"
-  repo_name: "bettermarikina"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/bettermarikina"
+- name: "Lal-lo, Cagayan"
+  place: "Lal-lo"
+  kind: "municipality"
+  province: "Cagayan"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: "betterlallo.org"
+  domain: "[betterlallo.org](https://betterlallo.org)"
+  repo: "[GitHub](https://github.com/ianlabicani/betterlallo)"
+  repo_owner: "ianlabicani"
+  repo_name: "betterlallo"
+  socials: []
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@terddyy](https://github.com/terddyy)"
+  maintainer: "[@ianlabicani](https://github.com/ianlabicani)"
   maintainers:
-    - handle: "terddyy"
-      url: "https://github.com/terddyy"
+    - handle: "ianlabicani"
+      url: "https://github.com/ianlabicani"
       profile: false
-- name: "Morong, Rizal"
-  domain: "[bettermorong.org](https://bettermorong.org/)"
-  repo: "[GitHub](https://github.com/carlodandan/bettermorong)"
-  repo_owner: "carlodandan"
-  repo_name: "bettermorong"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://facebook.com/bettermorong.org"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@carlodandan](https://github.com/carlodandan)"
-  maintainers:
-    - handle: "carlodandan"
-      url: "https://github.com/carlodandan"
-      profile: false
-- name: "Aleosan, Cotabato"
-  domain: "-"
-  repo: "-"
-  socials: []
-  status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@regzimarx](https://github.com/regzimarx)"
-  maintainers:
-    - handle: "regzimarx"
-      url: "https://github.com/regzimarx"
-      profile: false
-- name: "Malinao, Albay"
-  domain: "-"
-  repo: "[GitHub](https://github.com/bettermalinao/bettermalinao)"
-  repo_owner: "bettermalinao"
-  repo_name: "bettermalinao"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/bettermalinao.org"
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@rcbalingbing](https://github.com/rcbalingbing)"
-  maintainers:
-    - handle: "rcbalingbing"
-      url: "https://github.com/rcbalingbing"
-      profile: false
-- name: "Marawi City, Lanao del Sur"
-  domain: "-"
-  repo: "[GitHub](https://github.com/mamangcao/bettermarawi)"
-  repo_owner: "mamangcao"
-  repo_name: "bettermarawi"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://facebook.com/bettermarawi.org"
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@mamangcao](https://github.com/mamangcao)"
-  maintainers:
-    - handle: "mamangcao"
-      url: "https://github.com/mamangcao"
-      profile: false
-- name: "Llanera, Nueva Ecija"
-  domain: "-"
-  repo: "[GitHub](https://github.com/heyerikfelipe/BetterLlanera)"
-  repo_owner: "heyerikfelipe"
-  repo_name: "BetterLlanera"
-  socials: []
-  status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@heyerikfelipe](https://github.com/heyerikfelipe)"
-  maintainers:
-    - handle: "heyerikfelipe"
-      url: "https://github.com/heyerikfelipe"
-      profile: false
-- name: "Lapu Lapu City, Cebu"
+- name: "Lapu-Lapu City, Cebu"
+  place: "Lapu-Lapu"
+  kind: "city"
+  province: "Cebu"
+  region: "Central Visayas"
+  region_rank: 10
+  host: "betterlapulapu.org"
   domain: "[betterlapulapu.org](https://betterlapulapu.org)"
   repo: "[GitHub](https://github.com/BetterLapuLapu/betterlapulapu)"
   repo_owner: "BetterLapuLapu"
@@ -2012,111 +1622,237 @@
     - handle: "iyanski"
       url: "https://github.com/iyanski"
       profile: false
-- name: "Dipolog City, Zamboanga del Norte"
-  domain: "-"
-  repo: "[GitHub](https://github.com/z1on3/betterdipolog)"
-  repo_owner: "z1on3"
-  repo_name: "betterdipolog"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@z1on3](https://github.com/z1on3)"
-  maintainers:
-    - handle: "z1on3"
-      url: "https://github.com/z1on3"
-      profile: false
-- name: "Plaridel, Bulacan"
-  domain: "[betterplaridel-two.vercel.app](https://betterplaridel-two.vercel.app/)"
-  repo: "[GitHub](https://github.com/kai-dev00/betterplaridel)"
-  repo_owner: "kai-dev00"
-  repo_name: "betterplaridel"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@kai-dev00](https://github.com/kai-dev00), [@Ephraim-ed](https://github.com/Ephraim-ed), [@laconic-xtian](https://github.com/laconic-xtian)"
-  maintainers:
-    - handle: "kai-dev00"
-      url: "https://github.com/kai-dev00"
-      profile: false
-    - handle: "Ephraim-ed"
-      url: "https://github.com/Ephraim-ed"
-      profile: false
-    - handle: "laconic-xtian"
-      url: "https://github.com/laconic-xtian"
-      profile: false
-- name: "Hermosa, Bataan"
-  domain: "[betterhermosa.org](https://betterhermosa.org)"
-  repo: "[GitHub](https://github.com/BetterHermosa/betterhermosa)"
-  repo_owner: "BetterHermosa"
-  repo_name: "betterhermosa"
-  socials: []
+- name: "Las Piñas City, Metro Manila"
+  place: "Las Piñas"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: "betterlaspinas.org"
+  domain: "[betterlaspinas.org](https://betterlaspinas.org)"
+  repo: "[GitHub](https://github.com/betterlaspinas/betterlaspinas)"
+  repo_owner: "betterlaspinas"
+  repo_name: "betterlaspinas"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterlaspinas.org"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@ialexies](https://github.com/ialexies)"
+  maintainer: "[@jmacj](https://github.com/jmacj), [@Martin-Enghoy](https://github.com/Martin-Enghoy)"
   maintainers:
-    - handle: "ialexies"
-      url: "https://github.com/ialexies"
+    - handle: "jmacj"
+      url: "/maintainers/jmacj/"
+      profile: true
+    - handle: "Martin-Enghoy"
+      url: "https://github.com/Martin-Enghoy"
       profile: false
-- name: "Ramon, Isabela"
-  domain: "[betterramon.pages.dev](https://betterramon.pages.dev)"
-  repo: "[GitHub](https://github.com/spncrruiz-alt/betterramon)"
-  repo_owner: "spncrruiz-alt"
-  repo_name: "betterramon"
-  socials: []
+- name: "Legazpi City, Albay"
+  place: "Legazpi"
+  kind: "city"
+  province: "Albay"
+  region: "Bicol Region"
+  region_rank: 7
+  host: "betterlegazpi.org"
+  domain: "[betterlegazpi.org](https://www.betterlegazpi.org/)"
+  repo: "[GitHub](https://github.com/bpbelen/betterlegazpi)"
+  repo_owner: "bpbelen"
+  repo_name: "betterlegazpi"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterlegazpi"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@spncrruiz-alt](https://github.com/spncrruiz-alt)"
+  maintainer: "[@bpbelen](https://github.com/bpbelen)"
   maintainers:
-    - handle: "spncrruiz-alt"
-      url: "https://github.com/spncrruiz-alt"
+    - handle: "bpbelen"
+      url: "https://github.com/bpbelen"
       profile: false
-- name: "Talibon, Bohol"
+- name: "Libmanan, Camarines Sur"
+  place: "Libmanan"
+  kind: "municipality"
+  province: "Camarines Sur"
+  region: "Bicol Region"
+  region_rank: 7
+  host: "betterlibmanan.org"
+  domain: "[betterlibmanan.org](https://betterlibmanan.org)"
+  repo: "[GitHub](https://github.com/enzox0/betterlibmanan)"
+  repo_owner: "enzox0"
+  repo_name: "betterlibmanan"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/BetterLibmanan.org"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@enzox0](https://github.com/enzox0)"
+  maintainers:
+    - handle: "enzox0"
+      url: "https://github.com/enzox0"
+      profile: false
+- name: "Liliw, Laguna"
+  place: "Liliw"
+  kind: "municipality"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/jessie-melendres/bettertalibon)"
-  repo_owner: "jessie-melendres"
-  repo_name: "bettertalibon"
+  repo: "[GitHub](https://github.com/BetterLiliw/betterliliw)"
+  repo_owner: "BetterLiliw"
+  repo_name: "betterliliw"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@jessie-melendres](https://github.com/jessie-melendres)"
+  maintainer: "[@Kiko915](https://github.com/Kiko915), [@johnchristiancoronacion](https://github.com/johnchristiancoronacion)"
   maintainers:
-    - handle: "jessie-melendres"
-      url: "https://github.com/jessie-melendres"
+    - handle: "Kiko915"
+      url: "https://github.com/Kiko915"
       profile: false
-- name: "Tampakan, South Cotabato"
-  domain: "[bettertampakan.org](https://bettertampakan.org)"
-  repo: "[GitHub](https://github.com/jamez78/bettertampakan)"
-  repo_owner: "jamez78"
-  repo_name: "bettertampakan"
-  socials: []
-  status: "🟡 Work in Progress"
+    - handle: "johnchristiancoronacion"
+      url: "https://github.com/johnchristiancoronacion"
+      profile: false
+- name: "Limay, Bataan"
+  place: "Limay"
+  kind: "municipality"
+  province: "Bataan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "betterlimay.org"
+  domain: "[betterlimay.org](https://betterlimay.org/)"
+  repo: "[GitHub](https://github.com/AstroMC98/BetterLimay-Prod)"
+  repo_owner: "AstroMC98"
+  repo_name: "BetterLimay-Prod"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterlimay.org"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@jamez78](https://github.com/jamez78)"
+  maintainer: "[@AstroMC98](https://github.com/AstroMC98)"
   maintainers:
-    - handle: "jamez78"
-      url: "https://github.com/jamez78"
+    - handle: "AstroMC98"
+      url: "https://github.com/AstroMC98"
       profile: false
-- name: "Pasay City, Metro Manila"
+- name: "Lingayen, Pangasinan"
+  place: "Lingayen"
+  kind: "municipality"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/slvdrvncntjvr/betterpasay)"
-  repo_owner: "slvdrvncntjvr"
-  repo_name: "betterpasay"
+  repo: "[GitHub](https://github.com/rimzbravz/betterlingayen)"
+  repo_owner: "rimzbravz"
+  repo_name: "betterlingayen"
   socials: []
   status: "🔵 Planned"
   stale: false
   open_for_adoption: false
-  maintainer: "[@slvdrvncntjvr](https://github.com/slvdrvncntjvr)"
+  maintainer: "[@rimzbravz](https://github.com/rimzbravz)"
   maintainers:
-    - handle: "slvdrvncntjvr"
-      url: "https://github.com/slvdrvncntjvr"
+    - handle: "rimzbravz"
+      url: "https://github.com/rimzbravz"
+      profile: false
+- name: "Llanera, Nueva Ecija"
+  place: "Llanera"
+  kind: "municipality"
+  province: "Nueva Ecija"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/heyerikfelipe/BetterLlanera)"
+  repo_owner: "heyerikfelipe"
+  repo_name: "BetterLlanera"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@heyerikfelipe](https://github.com/heyerikfelipe)"
+  maintainers:
+    - handle: "heyerikfelipe"
+      url: "https://github.com/heyerikfelipe"
+      profile: false
+- name: "Lopez, Quezon"
+  place: "Lopez"
+  kind: "municipality"
+  province: "Quezon"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/StanleyPangaruy/betterlopez)"
+  repo_owner: "StanleyPangaruy"
+  repo_name: "betterlopez"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@StanleyPangaruy](https://github.com/StanleyPangaruy)"
+  maintainers:
+    - handle: "StanleyPangaruy"
+      url: "https://github.com/StanleyPangaruy"
+      profile: false
+- name: "Los Baños, Laguna"
+  place: "Los Baños"
+  kind: "municipality"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterlb.org"
+  domain: "[betterlb.org](https://betterlb.org)"
+  repo: "[GitHub](https://github.com/BetterLosBanos/betterlb)"
+  repo_owner: "BetterLosBanos"
+  repo_name: "betterlb"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/BetterLB.org"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@miconficker](https://github.com/miconficker)"
+  maintainers:
+    - handle: "miconficker"
+      url: "https://github.com/miconficker"
+      profile: false
+- name: "Lucena City, Quezon"
+  place: "Lucena"
+  kind: "city"
+  province: "Quezon"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/RyannKim327/BetterLucenaCity)"
+  repo_owner: "RyannKim327"
+  repo_name: "BetterLucenaCity"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@RyannKim327](https://github.com/RyannKim327), [@marrrkkk](https://github.com/marrrkkk)"
+  maintainers:
+    - handle: "RyannKim327"
+      url: "https://github.com/RyannKim327"
+      profile: false
+    - handle: "marrrkkk"
+      url: "https://github.com/marrrkkk"
       profile: false
 - name: "Lumban, Laguna"
+  place: "Lumban"
+  kind: "municipality"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
   domain: "-"
   repo: "[GitHub](https://github.com/avoabadier/betterlumban)"
   repo_owner: "avoabadier"
@@ -2130,21 +1866,463 @@
     - handle: "avoabadier"
       url: "https://github.com/avoabadier"
       profile: false
-- name: "Panabo City, Davao Del Norte"
-  domain: "[citizensconnectnabotech.vercel.app](https://citizensconnectnabotech.vercel.app/)"
-  repo: "[GitHub](https://github.com/ProjectFuritsu/citizensconnectnabotech)"
-  repo_owner: "ProjectFuritsu"
-  repo_name: "citizensconnectnabotech"
+- name: "Maasin City, Southern Leyte"
+  place: "Maasin"
+  kind: "city"
+  province: "Southern Leyte"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: "bettermaasin.netlify.app"
+  domain: "[bettermaasin.netlify.app](https://bettermaasin.netlify.app)"
+  repo: "[GitHub](https://github.com/bettermaasin/BetterMaasin)"
+  repo_owner: "bettermaasin"
+  repo_name: "BetterMaasin"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettermaasin.org"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@derkandre](https://github.com/derkandre)"
+  maintainers:
+    - handle: "derkandre"
+      url: "https://github.com/derkandre"
+      profile: false
+- name: "Maddela, Quirino"
+  place: "Maddela"
+  kind: "municipality"
+  province: "Quirino"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: "bettermaddela.vercel.app"
+  domain: "[bettermaddela.vercel.app](https://bettermaddela.vercel.app/)"
+  repo: "[GitHub](https://github.com/Hendrizzzz/bettermaddela)"
+  repo_owner: "Hendrizzzz"
+  repo_name: "bettermaddela"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@Hendrizzzz](https://github.com/Hendrizzzz)"
+  maintainers:
+    - handle: "Hendrizzzz"
+      url: "https://github.com/Hendrizzzz"
+      profile: false
+- name: "Magallanes, Sorsogon"
+  place: "Magallanes"
+  kind: "municipality"
+  province: "Sorsogon"
+  region: "Bicol Region"
+  region_rank: 7
+  host: ""
+  domain: "-"
+  repo: "[Github](https://github.com/the-name-romel/bettermagallanes)"
+  repo_owner: "the-name-romel"
+  repo_name: "bettermagallanes"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@the-name-romel](https://github.com/the-name-romel)"
+  maintainers:
+    - handle: "the-name-romel"
+      url: "https://github.com/the-name-romel"
+      profile: false
+- name: "Makati City, Metro Manila"
+  place: "Makati"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: "bettermakati.org"
+  domain: "[bettermakati.org](https://bettermakati.org)"
+  repo: "[GitHub](https://github.com/migi-macati/bettermakati)"
+  repo_owner: "migi-macati"
+  repo_name: "bettermakati"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettermakati"
+    - platform: "instagram"
+      label: "Instagram"
+      url: "https://www.instagram.com/bettermakati/"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@migi-macati](https://github.com/migi-macati)"
+  maintainers:
+    - handle: "migi-macati"
+      url: "https://github.com/migi-macati"
+      profile: false
+- name: "Malaybalay City, Bukidnon"
+  place: "Malaybalay"
+  kind: "city"
+  province: "Bukidnon"
+  region: "Northern Mindanao"
+  region_rank: 13
+  host: "bettermalaybalay.cloud"
+  domain: "[bettermalaybalay.cloud](https://www.bettermalaybalay.cloud)"
+  repo: "[GitHub](https://github.com/lordzxxxx/BetterMC)"
+  repo_owner: "lordzxxxx"
+  repo_name: "BetterMC"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/profile.php?id=61596547555480"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@lordzxxxx](https://github.com/lordzxxxx)"
+  maintainers:
+    - handle: "lordzxxxx"
+      url: "https://github.com/lordzxxxx"
+      profile: false
+- name: "Malinao, Albay"
+  place: "Malinao"
+  kind: "municipality"
+  province: "Albay"
+  region: "Bicol Region"
+  region_rank: 7
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/bettermalinao/bettermalinao)"
+  repo_owner: "bettermalinao"
+  repo_name: "bettermalinao"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettermalinao.org"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@rcbalingbing](https://github.com/rcbalingbing)"
+  maintainers:
+    - handle: "rcbalingbing"
+      url: "https://github.com/rcbalingbing"
+      profile: false
+- name: "Malolos City, Bulacan"
+  place: "Malolos"
+  kind: "city"
+  province: "Bulacan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "bettermalolos.org"
+  domain: "[bettermalolos.org](https://bettermalolos.org/)"
+  repo: "[GitHub](https://github.com/francisdiaz22/bettermalolos)"
+  repo_owner: "francisdiaz22"
+  repo_name: "bettermalolos"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettermalolos.org"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@francisdiaz22](https://github.com/francisdiaz22)"
+  maintainers:
+    - handle: "francisdiaz22"
+      url: "https://github.com/francisdiaz22"
+      profile: false
+- name: "Mandaue City, Cebu"
+  place: "Mandaue"
+  kind: "city"
+  province: "Cebu"
+  region: "Central Visayas"
+  region_rank: 10
+  host: ""
+  domain: "-"
+  repo: "-"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jaylothai](https://github.com/jaylothai)"
+  maintainers:
+    - handle: "jaylothai"
+      url: "https://github.com/jaylothai"
+      profile: false
+- name: "Manila City, Metro Manila"
+  place: "Manila"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: "bettermanila.org"
+  domain: "[bettermanila.org](https://bettermanila.org)"
+  repo: "[GitHub](https://github.com/grgdlm/bettermanila)"
+  repo_owner: "grgdlm"
+  repo_name: "bettermanila"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@ProjectFuritsu](https://github.com/ProjectFuritsu/)"
+  maintainer: "[@grgdlm](https://github.com/grgdlm)"
   maintainers:
-    - handle: "ProjectFuritsu"
-      url: "https://github.com/ProjectFuritsu"
+    - handle: "grgdlm"
+      url: "https://github.com/grgdlm"
+      profile: false
+- name: "Mapandan, Pangasinan"
+  place: "Mapandan"
+  kind: "municipality"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: "bettermapandan.org"
+  domain: "[bettermapandan.org](https://www.bettermapandan.org/)"
+  repo: "[GitHub](https://github.com/jadolation/bettermapandan)"
+  repo_owner: "jadolation"
+  repo_name: "bettermapandan"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jadolation](https://github.com/jadolation), [@Gel81](https://github.com/Gel81)"
+  maintainers:
+    - handle: "jadolation"
+      url: "https://github.com/jadolation"
+      profile: false
+    - handle: "Gel81"
+      url: "https://github.com/Gel81"
+      profile: false
+- name: "Marawi City, Lanao del Sur"
+  place: "Marawi"
+  kind: "city"
+  province: "Lanao del Sur"
+  region: "BARMM"
+  region_rank: 17
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/mamangcao/bettermarawi)"
+  repo_owner: "mamangcao"
+  repo_name: "bettermarawi"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://facebook.com/bettermarawi.org"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@mamangcao](https://github.com/mamangcao)"
+  maintainers:
+    - handle: "mamangcao"
+      url: "https://github.com/mamangcao"
+      profile: false
+- name: "Marikina City, Metro Manila"
+  place: "Marikina"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: "bettermarikina.org"
+  domain: "[bettermarikina.org](https://www.bettermarikina.org)"
+  repo: "[GitHub](https://github.com/BetterMarikina/bettermarikina)"
+  repo_owner: "BetterMarikina"
+  repo_name: "bettermarikina"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettermarikina"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@terddyy](https://github.com/terddyy)"
+  maintainers:
+    - handle: "terddyy"
+      url: "https://github.com/terddyy"
+      profile: false
+- name: "Marinduque Province"
+  place: "Marinduque"
+  kind: "province"
+  province: "Marinduque"
+  region: "MIMAROPA Region"
+  region_rank: 6
+  host: "bettermarinduque.vercel.app"
+  domain: "[bettermarinduque.vercel.app](https://bettermarinduque.vercel.app)"
+  repo: "[GitHub](https://github.com/b0urbonn/bettermarinduque)"
+  repo_owner: "b0urbonn"
+  repo_name: "bettermarinduque"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@b0urbonn](https://github.com/b0urbonn)"
+  maintainers:
+    - handle: "b0urbonn"
+      url: "https://github.com/b0urbonn"
+      profile: false
+- name: "Mati City, Davao Oriental"
+  place: "Mati"
+  kind: "city"
+  province: "Davao Oriental"
+  region: "Davao Region"
+  region_rank: 14
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/kaarlosasiang/bettermaticity)"
+  repo_owner: "kaarlosasiang"
+  repo_name: "bettermaticity"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://web.facebook.com/profile.php?id=61595995200616"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@kaarlosasiang](https://github.com/kaarlosasiang)"
+  maintainers:
+    - handle: "kaarlosasiang"
+      url: "https://github.com/kaarlosasiang"
+      profile: false
+- name: "Meycauayan City, Bulacan"
+  place: "Meycauayan"
+  kind: "city"
+  province: "Bulacan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "bettermeycauayan.org"
+  domain: "[bettermeycauayan.org](https://bettermeycauayan.org)"
+  repo: "[GitHub](https://github.com/shnflrsc/bettermeycauayan)"
+  repo_owner: "shnflrsc"
+  repo_name: "bettermeycauayan"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@shnflrsc](https://github.com/shnflrsc)"
+  maintainers:
+    - handle: "shnflrsc"
+      url: "https://github.com/shnflrsc"
+      profile: false
+- name: "Miagao, Iloilo"
+  place: "Miagao"
+  kind: "municipality"
+  province: "Iloilo"
+  region: "Western Visayas"
+  region_rank: 8
+  host: "bettermiagao.org"
+  domain: "[bettermiagao.org](https://bettermiagao.org)"
+  repo: "[GitHub](https://github.com/joebertj/bettermiagao)"
+  repo_owner: "joebertj"
+  repo_name: "bettermiagao"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@joebertj](https://github.com/joebertj)"
+  maintainers:
+    - handle: "joebertj"
+      url: "https://github.com/joebertj"
+      profile: false
+- name: "Midsayap, Cotabato"
+  place: "Midsayap"
+  kind: "municipality"
+  province: "Cotabato"
+  region: "SOCCSKSARGEN"
+  region_rank: 15
+  host: ""
+  domain: "-"
+  repo: "-"
+  socials: []
+  status: "🔵 Planned"
+  stale: true
+  open_for_adoption: true
+  maintainer: "[@PostNZT](https://github.com/PostNZT)"
+  maintainers:
+    - handle: "PostNZT"
+      url: "https://github.com/PostNZT"
+      profile: false
+- name: "Minalabac, Camarines Sur"
+  place: "Minalabac"
+  kind: "municipality"
+  province: "Camarines Sur"
+  region: "Bicol Region"
+  region_rank: 7
+  host: ""
+  domain: "-"
+  repo: "-"
+  socials: []
+  status: "🔵 Planned"
+  stale: true
+  open_for_adoption: true
+  maintainer: "[@theheavenlyhacker](https://github.com/theheavenlyhacker)"
+  maintainers:
+    - handle: "theheavenlyhacker"
+      url: "https://github.com/theheavenlyhacker"
+      profile: false
+- name: "Morong, Rizal"
+  place: "Morong"
+  kind: "municipality"
+  province: "Rizal"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettermorong.org"
+  domain: "[bettermorong.org](https://bettermorong.org/)"
+  repo: "[GitHub](https://github.com/carlodandan/bettermorong)"
+  repo_owner: "carlodandan"
+  repo_name: "bettermorong"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://facebook.com/bettermorong.org"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@carlodandan](https://github.com/carlodandan)"
+  maintainers:
+    - handle: "carlodandan"
+      url: "https://github.com/carlodandan"
+      profile: false
+- name: "Naguilian, La Union"
+  place: "Naguilian"
+  kind: "municipality"
+  province: "La Union"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: "betternaguilianlu.vercel.app"
+  domain: "[betternaguilianlu.vercel.app](https://betternaguilianlu.vercel.app)"
+  repo: "[GitHub](https://github.com/baeyacorpuz/betternaguilianlu)"
+  repo_owner: "baeyacorpuz"
+  repo_name: "betternaguilianlu"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@baeyacorpuz](https://github.com/baeyacorpuz)"
+  maintainers:
+    - handle: "baeyacorpuz"
+      url: "https://github.com/baeyacorpuz"
+      profile: false
+- name: "Naic, Cavite"
+  place: "Naic"
+  kind: "municipality"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betternaic.vercel.app"
+  domain: "[betternaic.vercel.app](https://betternaic.vercel.app)"
+  repo: "[GitHub](https://github.com/riecodes/betternaic)"
+  repo_owner: "riecodes"
+  repo_name: "betternaic"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://facebook.com/betternaic"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@rieCodes](https://github.com/rieCodes)"
+  maintainers:
+    - handle: "rieCodes"
+      url: "https://github.com/rieCodes"
       profile: false
 - name: "Obando, Bulacan"
+  place: "Obando"
+  kind: "municipality"
+  province: "Bulacan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "betterobando.vercel.app"
   domain: "[betterobando.vercel.app](https://betterobando.vercel.app)"
   repo: "[GitHub](https://github.com/MigzAndroidz/better-obando)"
   repo_owner: "MigzAndroidz"
@@ -2161,137 +2339,137 @@
     - handle: "MigzAndroidz"
       url: "https://github.com/MigzAndroidz"
       profile: false
-- name: "Bayombong, Nueva Vizcaya"
+- name: "Ocampo, Camarines Sur"
+  place: "Ocampo"
+  kind: "municipality"
+  province: "Camarines Sur"
+  region: "Bicol Region"
+  region_rank: 7
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/betterbayombong/betterbayombong)"
-  repo_owner: "betterbayombong"
-  repo_name: "betterbayombong"
+  repo: "[GitHub](https://github.com/ejsinfuego/betterocampo)"
+  repo_owner: "ejsinfuego"
+  repo_name: "betterocampo"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@rppf](https://github.com/rppf), [@h4ckedneko](https://github.com/h4ckedneko)"
+  maintainer: "[@ejsinfuego](https://github.com/ejsinfuego)"
   maintainers:
-    - handle: "rppf"
-      url: "https://github.com/rppf"
+    - handle: "ejsinfuego"
+      url: "https://github.com/ejsinfuego"
       profile: false
-    - handle: "h4ckedneko"
-      url: "https://github.com/h4ckedneko"
+- name: "Olongapo City, Zambales"
+  place: "Olongapo"
+  kind: "city"
+  province: "Zambales"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "betterolongapo.org"
+  domain: "[betterolongapo.org](https://betterolongapo.org/)"
+  repo: "[GitHub](https://github.com/eyronjohn/betterolongapo)"
+  repo_owner: "eyronjohn"
+  repo_name: "betterolongapo"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@eyronjohn](https://github.com/eyronjohn)"
+  maintainers:
+    - handle: "eyronjohn"
+      url: "https://github.com/eyronjohn"
       profile: false
-- name: "Catanduanes Province"
-  domain: "[bettercatanduanes.org](https://bettercatanduanes.org)"
-  repo: "[GitHub](https://github.com/VLDCNDN/bettercatanduanes)"
-  repo_owner: "VLDCNDN"
-  repo_name: "bettercatanduanes"
+- name: "Oriental Mindoro Province"
+  place: "Oriental Mindoro"
+  kind: "province"
+  province: "Oriental Mindoro"
+  region: "MIMAROPA Region"
+  region_rank: 6
+  host: "betterorientalmindoro.org"
+  domain: "[betterorientalmindoro.org](https://betterorientalmindoro.org)"
+  repo: "[GitHub](https://github.com/renthelautomations/betterorientalmindoro)"
+  repo_owner: "renthelautomations"
+  repo_name: "betterorientalmindoro"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/bettercatanduanes"
+      url: "https://www.facebook.com/betterorientalmindoro"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@VLDCNDN](https://github.com/VLDCNDN)"
+  maintainer: "[@renthelautomations](https://github.com/renthelautomations)"
   maintainers:
-    - handle: "VLDCNDN"
-      url: "https://github.com/VLDCNDN"
+    - handle: "renthelautomations"
+      url: "https://github.com/renthelautomations"
       profile: false
-- name: "San Jose Del Monte, Bulacan"
-  domain: "-"
-  repo: "[GitHub](https://github.com/Better-SJDM/better-sjdm)"
-  repo_owner: "Better-SJDM"
-  repo_name: "better-sjdm"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@zchuwie](https://github.com/zchuwie)"
-  maintainers:
-    - handle: "zchuwie"
-      url: "https://github.com/zchuwie"
-      profile: false
-- name: "Urdaneta City, Pangasinan"
-  domain: "-"
-  repo: "[GitHub](https://github.com/robotinkers/betterurdaneta)"
-  repo_owner: "robotinkers"
-  repo_name: "betterurdaneta"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@robotinkers](https://github.com/robotinkers)"
-  maintainers:
-    - handle: "robotinkers"
-      url: "https://github.com/robotinkers"
-      profile: false
-- name: "Ilocos Norte Province"
-  domain: "-"
-  repo: "[GitHub](https://github.com/russellraed/betterilocosnorte)"
-  repo_owner: "russellraed"
-  repo_name: "betterilocosnorte"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@russellraed](https://github.com/russellraed)"
-  maintainers:
-    - handle: "russellraed"
-      url: "https://github.com/russellraed"
-      profile: false
-- name: "Bukidnon Province"
-  domain: "[betterbukidnon.org](https://betterbukidnon.org)"
-  repo: "[GitHub](https://github.com/Better-Bukidnon)"
-  socials: []
+- name: "Ormoc City, Leyte"
+  place: "Ormoc"
+  kind: "city"
+  province: "Leyte"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: "betterormoc.org"
+  domain: "[betterormoc.org](https://www.betterormoc.org/en)"
+  repo: "-"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/profile.php?id=61587167813676"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@DMNCDLPRT](https://github.com/DMNCDLPRT)"
+  maintainer: "-"
+  maintainers: []
+- name: "Pagbilao, Quezon"
+  place: "Pagbilao"
+  kind: "municipality"
+  province: "Quezon"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterpagbilao.org"
+  domain: "[betterpagbilao.org](https://betterpagbilao.org)"
+  repo: "[GitHub](https://github.com/rallion90/better-pagbilao)"
+  repo_owner: "rallion90"
+  repo_name: "better-pagbilao"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterpagbilao"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@rallion90](https://github.com/rallion90)"
   maintainers:
-    - handle: "DMNCDLPRT"
-      url: "https://github.com/DMNCDLPRT"
+    - handle: "rallion90"
+      url: "https://github.com/rallion90"
       profile: false
-- name: "Lopez, Quezon"
+- name: "Pagsanjan, Laguna"
+  place: "Pagsanjan"
+  kind: "municipality"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/StanleyPangaruy/betterlopez)"
-  repo_owner: "StanleyPangaruy"
-  repo_name: "betterlopez"
+  repo: "[GitHub](https://github.com/rswlljms/betterpagsanjan)"
+  repo_owner: "rswlljms"
+  repo_name: "betterpagsanjan"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@StanleyPangaruy](https://github.com/StanleyPangaruy)"
+  maintainer: "[@rswlljms](https://github.com/rswlljms)"
   maintainers:
-    - handle: "StanleyPangaruy"
-      url: "https://github.com/StanleyPangaruy"
-      profile: false
-- name: "Lingayen, Pangasinan"
-  domain: "-"
-  repo: "[GitHub](https://github.com/rimzbravz/betterlingayen)"
-  repo_owner: "rimzbravz"
-  repo_name: "betterlingayen"
-  socials: []
-  status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@rimzbravz](https://github.com/rimzbravz)"
-  maintainers:
-    - handle: "rimzbravz"
-      url: "https://github.com/rimzbravz"
-      profile: false
-- name: "Bauan, Batangas"
-  domain: "[betterbauan.vercel.app](https://betterbauan.vercel.app)"
-  repo: "[GitHub](https://github.com/Arxenic/betterbauan)"
-  repo_owner: "Arxenic"
-  repo_name: "betterbauan"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@Arxenic](https://github.com/Arxenic)"
-  maintainers:
-    - handle: "Arxenic"
-      url: "https://github.com/Arxenic"
+    - handle: "rswlljms"
+      url: "https://github.com/rswlljms"
       profile: false
 - name: "Palo, Leyte"
+  place: "Palo"
+  kind: "municipality"
+  province: "Leyte"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: "betterpalo.betterpalogov.workers.dev"
   domain: "[betterpalo.betterpalogov.workers.dev](https://betterpalo.betterpalogov.workers.dev)"
   repo: "[GitHub](https://github.com/BetterPalo/BetterPalo)"
   repo_owner: "BetterPalo"
@@ -2317,212 +2495,591 @@
     - handle: "STR4T-coder"
       url: "https://github.com/STR4T-coder"
       profile: false
-- name: "Carmona, Cavite"
-  domain: "[bettercarmona.org](https://bettercarmona.org)"
-  repo: "[GitHub](https://github.com/carlolim/bettercarmona)"
-  repo_owner: "carlolim"
-  repo_name: "bettercarmona"
+- name: "Panabo City, Davao del Norte"
+  place: "Panabo"
+  kind: "city"
+  province: "Davao del Norte"
+  region: "Davao Region"
+  region_rank: 14
+  host: "citizensconnectnabotech.vercel.app"
+  domain: "[citizensconnectnabotech.vercel.app](https://citizensconnectnabotech.vercel.app/)"
+  repo: "[GitHub](https://github.com/ProjectFuritsu/citizensconnectnabotech)"
+  repo_owner: "ProjectFuritsu"
+  repo_name: "citizensconnectnabotech"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@carlolim](https://github.com/carlolim)"
+  maintainer: "[@ProjectFuritsu](https://github.com/ProjectFuritsu/)"
   maintainers:
-    - handle: "carlolim"
-      url: "https://github.com/carlolim"
+    - handle: "ProjectFuritsu"
+      url: "https://github.com/ProjectFuritsu"
       profile: false
-- name: "Iriga, Camarines Sur"
-  domain: "[betteririga.org](https://betteririga.org)"
-  repo: "[GitHub](https://github.com/ronhedwigzape/betteririga)"
-  repo_owner: "ronhedwigzape"
-  repo_name: "betteririga"
+- name: "Pangasinan Province"
+  place: "Pangasinan"
+  kind: "province"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/jadolation/betterPangasinan)"
+  repo_owner: "jadolation"
+  repo_name: "betterPangasinan"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jadolation](https://github.com/jadolation)"
+  maintainers:
+    - handle: "jadolation"
+      url: "https://github.com/jadolation"
+      profile: false
+- name: "Paombong, Bulacan"
+  place: "Paombong"
+  kind: "municipality"
+  province: "Bulacan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "-"
+  socials: []
+  status: "🔵 Planned"
+  stale: true
+  open_for_adoption: true
+  maintainer: "[@denvdev](https://github.com/denvdev)"
+  maintainers:
+    - handle: "denvdev"
+      url: "https://github.com/denvdev"
+      profile: false
+- name: "Pasay City, Metro Manila"
+  place: "Pasay"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/slvdrvncntjvr/betterpasay)"
+  repo_owner: "slvdrvncntjvr"
+  repo_name: "betterpasay"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@slvdrvncntjvr](https://github.com/slvdrvncntjvr)"
+  maintainers:
+    - handle: "slvdrvncntjvr"
+      url: "https://github.com/slvdrvncntjvr"
+      profile: false
+- name: "Pasig City, Metro Manila"
+  place: "Pasig"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/ericvelasco-dev/betterpasig)"
+  repo_owner: "ericvelasco-dev"
+  repo_name: "betterpasig"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ericvelasco-dev](https://github.com/ericvelasco-dev)"
+  maintainers:
+    - handle: "ericvelasco-dev"
+      url: "https://github.com/ericvelasco-dev"
+      profile: false
+- name: "Piat, Cagayan"
+  place: "Piat"
+  kind: "municipality"
+  province: "Cagayan"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/JoScripty/betterpiat)"
+  repo_owner: "JoScripty"
+  repo_name: "betterpiat"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@JoScripty](https://github.com/JoScripty)"
+  maintainers:
+    - handle: "JoScripty"
+      url: "https://github.com/JoScripty"
+      profile: false
+- name: "Pila, Laguna"
+  place: "Pila"
+  kind: "municipality"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/Necookie/betterpila)"
+  repo_owner: "Necookie"
+  repo_name: "betterpila"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@Necookie](https://github.com/Necookie)"
+  maintainers:
+    - handle: "Necookie"
+      url: "https://github.com/Necookie"
+      profile: false
+- name: "Plaridel, Bulacan"
+  place: "Plaridel"
+  kind: "municipality"
+  province: "Bulacan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "betterplaridel-two.vercel.app"
+  domain: "[betterplaridel-two.vercel.app](https://betterplaridel-two.vercel.app/)"
+  repo: "[GitHub](https://github.com/kai-dev00/betterplaridel)"
+  repo_owner: "kai-dev00"
+  repo_name: "betterplaridel"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@kai-dev00](https://github.com/kai-dev00), [@Ephraim-ed](https://github.com/Ephraim-ed), [@laconic-xtian](https://github.com/laconic-xtian)"
+  maintainers:
+    - handle: "kai-dev00"
+      url: "https://github.com/kai-dev00"
+      profile: false
+    - handle: "Ephraim-ed"
+      url: "https://github.com/Ephraim-ed"
+      profile: false
+    - handle: "laconic-xtian"
+      url: "https://github.com/laconic-xtian"
+      profile: false
+- name: "Puerto Princesa City, Palawan"
+  place: "Puerto Princesa"
+  kind: "city"
+  province: "Palawan"
+  region: "MIMAROPA Region"
+  region_rank: 6
+  host: "betterpuertoprincesa.org"
+  domain: "[betterpuertoprincesa.org](https://betterpuertoprincesa.org)"
+  repo: "[GitHub](https://github.com/BetterPuertoPrincesa/betterpuertoprincesa)"
+  repo_owner: "BetterPuertoPrincesa"
+  repo_name: "betterpuertoprincesa"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/BetterIriga.org"
+      url: "https://www.facebook.com/betterpuertoprincesa"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@ronhedwigzape](https://github.com/ronhedwigzape)"
+  maintainer: "[@kelxety](https://github.com/kelxety), [@hmcldryl](https://github.com/hmcldryl), [@atualariao](https://github.com/atualariao)"
   maintainers:
-    - handle: "ronhedwigzape"
-      url: "https://github.com/ronhedwigzape"
+    - handle: "kelxety"
+      url: "https://github.com/kelxety"
       profile: false
-- name: "Marinduque Province"
-  domain: "[bettermarinduque.vercel.app](https://bettermarinduque.vercel.app)"
-  repo: "[GitHub](https://github.com/b0urbonn/bettermarinduque)"
-  repo_owner: "b0urbonn"
-  repo_name: "bettermarinduque"
+    - handle: "hmcldryl"
+      url: "https://github.com/hmcldryl"
+      profile: false
+    - handle: "atualariao"
+      url: "https://github.com/atualariao"
+      profile: false
+- name: "Quezon City, Metro Manila"
+  place: "Quezon"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/brixavengoza/betterquezoncity)"
+  repo_owner: "brixavengoza"
+  repo_name: "betterquezoncity"
+  socials: []
+  status: "🔵 Planned"
+  stale: true
+  open_for_adoption: true
+  maintainer: "[@brixavengoza](https://github.com/brixavengoza)"
+  maintainers:
+    - handle: "brixavengoza"
+      url: "https://github.com/brixavengoza"
+      profile: false
+- name: "Ramon, Isabela"
+  place: "Ramon"
+  kind: "municipality"
+  province: "Isabela"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: "betterramon.pages.dev"
+  domain: "[betterramon.pages.dev](https://betterramon.pages.dev)"
+  repo: "[GitHub](https://github.com/spncrruiz-alt/betterramon)"
+  repo_owner: "spncrruiz-alt"
+  repo_name: "betterramon"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@spncrruiz-alt](https://github.com/spncrruiz-alt)"
+  maintainers:
+    - handle: "spncrruiz-alt"
+      url: "https://github.com/spncrruiz-alt"
+      profile: false
+- name: "Rizal, Nueva Ecija"
+  place: "Rizal"
+  kind: "municipality"
+  province: "Nueva Ecija"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/njveneracion/betterrizalne)"
+  repo_owner: "njveneracion"
+  repo_name: "betterrizalne"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@b0urbonn](https://github.com/b0urbonn)"
+  maintainer: "[@njveneracion](https://github.com/njveneracion)"
   maintainers:
-    - handle: "b0urbonn"
-      url: "https://github.com/b0urbonn"
+    - handle: "njveneracion"
+      url: "https://github.com/njveneracion"
       profile: false
-- name: "Talavera, Nueva Ecija"
+- name: "Roxas City, Capiz"
+  place: "Roxas"
+  kind: "city"
+  province: "Capiz"
+  region: "Western Visayas"
+  region_rank: 8
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/jcparucha/bettertalavera)"
-  repo_owner: "jcparucha"
-  repo_name: "bettertalavera"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@jcparucha](https://github.com/jcparucha)"
-  maintainers:
-    - handle: "jcparucha"
-      url: "https://github.com/jcparucha"
-      profile: false
-- name: "Ocampo, Camarines Sur"
-  domain: "-"
-  repo: "[GitHub](https://github.com/ejsinfuego/betterocampo)"
-  repo_owner: "ejsinfuego"
-  repo_name: "betterocampo"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@ejsinfuego](https://github.com/ejsinfuego)"
-  maintainers:
-    - handle: "ejsinfuego"
-      url: "https://github.com/ejsinfuego"
-      profile: false
-- name: "Angono, Rizal"
-  domain: "-"
-  repo: "[GitHub](https://github.com/cj-catacutan/betterangono)"
-  repo_owner: "cj-catacutan"
-  repo_name: "betterangono"
-  socials: []
-  status: "🟡 Work in Progress"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@cj-catacutan](https://github.com/cj-catacutan)"
-  maintainers:
-    - handle: "cj-catacutan"
-      url: "https://github.com/cj-catacutan"
-      profile: false
-- name: "Batangas City, Batangas"
-  domain: "-"
-  repo: "[GitHub](https://github.com/jrbenriquez/betterbatangascity/)"
-  repo_owner: "jrbenriquez"
-  repo_name: "betterbatangascity"
+  repo: "[GitHub](https://github.com/chariz1101/betterroxas)"
+  repo_owner: "chariz1101"
+  repo_name: "betterroxas"
   socials: []
   status: "🔵 Planned"
   stale: false
   open_for_adoption: false
-  maintainer: "[@jrbenriquez](https://github.com/jrbenriquez)"
+  maintainer: "[@chariz1101](https://github.com/chariz1101)"
   maintainers:
-    - handle: "jrbenriquez"
-      url: "https://github.com/jrbenriquez"
+    - handle: "chariz1101"
+      url: "https://github.com/chariz1101"
       profile: false
-- name: "Baao, Camarines Sur"
+- name: "Samal, Bataan"
+  place: "Samal"
+  kind: "municipality"
+  province: "Bataan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
   domain: "-"
-  repo: "[GitHub](https://github.com/alvagenesis/betterbaao/)"
-  repo_owner: "alvagenesis"
-  repo_name: "betterbaao"
+  repo: "-"
   socials: []
   status: "🔵 Planned"
+  stale: true
+  open_for_adoption: true
+  maintainer: "[@gab26g](https://github.com/gab26g)"
+  maintainers:
+    - handle: "gab26g"
+      url: "https://github.com/gab26g"
+      profile: false
+- name: "San Carlos City, Pangasinan"
+  place: "San Carlos"
+  kind: "city"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: "bettersancarlos.vercel.app"
+  domain: "[bettersancarlos.vercel.app](https://bettersancarlos.vercel.app/)"
+  repo: "[GitHub](https://github.com/edisonmalasan/bettersancarlos)"
+  repo_owner: "edisonmalasan"
+  repo_name: "bettersancarlos"
+  socials: []
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@alvagenesis](https://github.com/alvagenesis)"
+  maintainer: "[@edisonmalasan](https://github.com/edisonmalasan)"
   maintainers:
-    - handle: "alvagenesis"
-      url: "https://github.com/alvagenesis"
+    - handle: "edisonmalasan"
+      url: "https://github.com/edisonmalasan"
       profile: false
-- name: "Oriental Mindoro Province"
-  domain: "[betterorientalmindoro.org](https://betterorientalmindoro.org)"
-  repo: "[GitHub](https://github.com/renthelautomations/betterorientalmindoro)"
-  repo_owner: "renthelautomations"
-  repo_name: "betterorientalmindoro"
+- name: "San Fernando City, La Union"
+  place: "San Fernando"
+  kind: "city"
+  province: "La Union"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: "bettersanfernando.pages.dev"
+  domain: "[bettersanfernando.pages.dev](https://bettersanfernando.pages.dev/)"
+  repo: "[GitHub](https://github.com/alvindemesadev/better-san-fernando-lu)"
+  repo_owner: "alvindemesadev"
+  repo_name: "better-san-fernando-lu"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@alvindemesadev](https://github.com/alvindemesadev)"
+  maintainers:
+    - handle: "alvindemesadev"
+      url: "https://github.com/alvindemesadev"
+      profile: false
+- name: "San Fernando City, Pampanga"
+  place: "San Fernando"
+  kind: "city"
+  province: "Pampanga"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "bettersanfernando.org"
+  domain: "[bettersanfernando.org](https://bettersanfernando.org)"
+  repo: "[GitHub](https://github.com/bettersanfernando/bettersanfernando)"
+  repo_owner: "bettersanfernando"
+  repo_name: "bettersanfernando"
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/betterorientalmindoro"
+      url: "https://www.facebook.com/BetterSanFernandoOrg"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@renthelautomations](https://github.com/renthelautomations)"
+  maintainer: "[@iyawnnn](https://github.com/iyawnnn)"
   maintainers:
-    - handle: "renthelautomations"
-      url: "https://github.com/renthelautomations"
+    - handle: "iyawnnn"
+      url: "https://github.com/iyawnnn"
       profile: false
-- name: "Miagao, Iloilo"
-  domain: "[bettermiagao.org](https://bettermiagao.org)"
-  repo: "[GitHub](https://github.com/joebertj/bettermiagao)"
-  repo_owner: "joebertj"
-  repo_name: "bettermiagao"
-  socials: []
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@joebertj](https://github.com/joebertj)"
-  maintainers:
-    - handle: "joebertj"
-      url: "https://github.com/joebertj"
-      profile: false
-- name: "Malaybalay City, Bukidnon"
-  domain: "[bettermalaybalay.cloud](https://www.bettermalaybalay.cloud)"
-  repo: "[GitHub](https://github.com/lordzxxxx/BetterMC)"
-  repo_owner: "lordzxxxx"
-  repo_name: "BetterMC"
-  socials:
-    - platform: "facebook"
-      label: "Facebook"
-      url: "https://www.facebook.com/profile.php?id=61596547555480"
-  status: "🟢 Active"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@lordzxxxx](https://github.com/lordzxxxx)"
-  maintainers:
-    - handle: "lordzxxxx"
-      url: "https://github.com/lordzxxxx"
-      profile: false
-- name: "Magallanes, Sorsogon"
+- name: "San Jose, Antique"
+  place: "San Jose"
+  kind: "municipality"
+  province: "Antique"
+  region: "Western Visayas"
+  region_rank: 8
+  host: ""
   domain: "-"
-  repo: "[Github](https://github.com/the-name-romel/bettermagallanes)"
-  repo_owner: "the-name-romel"
-  repo_name: "bettermagallanes"
-  socials: []
-  status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@the-name-romel](https://github.com/the-name-romel)"
-  maintainers:
-    - handle: "the-name-romel"
-      url: "https://github.com/the-name-romel"
-      profile: false
-- name: "Corella, Bohol"
-  domain: "-"
-  repo: "[GitHub](https://github.com/ashdroidcmd/bettercorella)"
-  repo_owner: "ashdroidcmd"
-  repo_name: "bettercorella"
-  socials: []
-  status: "🔵 Planned"
-  stale: false
-  open_for_adoption: false
-  maintainer: "[@ashdroidcmd](https://github.com/ashdroidcmd)"
-  maintainers:
-    - handle: "ashdroidcmd"
-      url: "https://github.com/ashdroidcmd"
-      profile: false
-- name: "Candaba, Pampanga"
-  domain: "-"
-  repo: "[GitHub](https://github.com/bulsu-kpdeguzman/bettercandaba)"
-  repo_owner: "bulsu-kpdeguzman"
-  repo_name: "bettercandaba"
+  repo: "[GitHub](https://github.com/bonfire404/bettersanjose)"
+  repo_owner: "bonfire404"
+  repo_name: "bettersanjose"
   socials: []
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
-  maintainer: "[@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman)"
+  maintainer: "[@bonfire404](https://github.com/bonfire404)"
   maintainers:
-    - handle: "bulsu-kpdeguzman"
-      url: "https://github.com/bulsu-kpdeguzman"
+    - handle: "bonfire404"
+      url: "https://github.com/bonfire404"
+      profile: false
+- name: "San Jose City, Nueva Ecija"
+  place: "San Jose"
+  kind: "city"
+  province: "Nueva Ecija"
+  region: "Central Luzon"
+  region_rank: 4
+  host: "sanjose.betternuevaecija.org"
+  domain: "[sanjose.betternuevaecija.org](https://sanjose.betternuevaecija.org)"
+  repo: "[GitHub](https://github.com/denver6000/bettersanjosecity-ne)"
+  repo_owner: "denver6000"
+  repo_name: "bettersanjosecity-ne"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@denver6000](https://github.com/denver6000), [@kurt-farinas](https://github.com/kurt-farinas)"
+  maintainers:
+    - handle: "denver6000"
+      url: "https://github.com/denver6000"
+      profile: false
+    - handle: "kurt-farinas"
+      url: "https://github.com/kurt-farinas"
+      profile: false
+- name: "San Jose del Monte City, Bulacan"
+  place: "San Jose del Monte"
+  kind: "city"
+  province: "Bulacan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/Better-SJDM/better-sjdm)"
+  repo_owner: "Better-SJDM"
+  repo_name: "better-sjdm"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@zchuwie](https://github.com/zchuwie)"
+  maintainers:
+    - handle: "zchuwie"
+      url: "https://github.com/zchuwie"
+      profile: false
+- name: "San Mariano, Isabela"
+  place: "San Mariano"
+  kind: "municipality"
+  province: "Isabela"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: ""
+  domain: "-"
+  repo: "-"
+  socials: []
+  status: "🔵 Planned"
+  stale: true
+  open_for_adoption: true
+  maintainer: "[@yazunomii](https://github.com/yazunomii)"
+  maintainers:
+    - handle: "yazunomii"
+      url: "https://github.com/yazunomii"
+      profile: false
+- name: "San Pablo City, Laguna"
+  place: "San Pablo"
+  kind: "city"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettersanpablo.org"
+  domain: "[bettersanpablo.org](https://www.bettersanpablo.org/)"
+  repo: "[GitHub](https://github.com/ChristiannWick/bettersanpablo)"
+  repo_owner: "ChristiannWick"
+  repo_name: "bettersanpablo"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ChristiannWick](https://github.com/ChristiannWick)"
+  maintainers:
+    - handle: "ChristiannWick"
+      url: "https://github.com/ChristiannWick"
+      profile: false
+- name: "San Pascual, Masbate"
+  place: "San Pascual"
+  kind: "municipality"
+  province: "Masbate"
+  region: "Bicol Region"
+  region_rank: 7
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate)"
+  repo_owner: "marcuwynu23"
+  repo_name: "bettersanpascualmasbate"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@marcuwynu23](https://github.com/marcuwynu23)"
+  maintainers:
+    - handle: "marcuwynu23"
+      url: "https://github.com/marcuwynu23"
+      profile: false
+- name: "San Pedro City, Laguna"
+  place: "San Pedro"
+  kind: "city"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettersanpedro.org"
+  domain: "[bettersanpedro.org](https://bettersanpedro.org)"
+  repo: "[GitHub](https://github.com/sechipeanut/BetterSanPedro)"
+  repo_owner: "sechipeanut"
+  repo_name: "BetterSanPedro"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettersanpedro.org"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@sechipeanut](https://github.com/sechipeanut)"
+  maintainers:
+    - handle: "sechipeanut"
+      url: "/maintainers/sechipeanut/"
+      profile: true
+- name: "Santa Barbara, Pangasinan"
+  place: "Santa Barbara"
+  kind: "municipality"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/JericoGarcia21/better-santabarbara)"
+  repo_owner: "JericoGarcia21"
+  repo_name: "better-santabarbara"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@JericoGarcia21](https://github.com/JericoGarcia21)"
+  maintainers:
+    - handle: "JericoGarcia21"
+      url: "https://github.com/JericoGarcia21"
+      profile: false
+- name: "Santa Cruz, Laguna"
+  place: "Santa Cruz"
+  kind: "municipality"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/BetterSantaCruz/betterstacruzlaguna)"
+  repo_owner: "BetterSantaCruz"
+  repo_name: "betterstacruzlaguna"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@Diannn3](https://github.com/Diannn3)"
+  maintainers:
+    - handle: "Diannn3"
+      url: "https://github.com/Diannn3"
+      profile: false
+- name: "Santa Maria, Bulacan"
+  place: "Santa Maria"
+  kind: "municipality"
+  province: "Bulacan"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/josiahjezraelguevarra/BetterSantaMaria)"
+  repo_owner: "josiahjezraelguevarra"
+  repo_name: "BetterSantaMaria"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@josiahjezraelguevarra](https://github.com/josiahjezraelguevarra)"
+  maintainers:
+    - handle: "josiahjezraelguevarra"
+      url: "https://github.com/josiahjezraelguevarra"
+      profile: false
+- name: "Santa Rosa City, Laguna"
+  place: "Santa Rosa"
+  kind: "city"
+  province: "Laguna"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettersantarosacity.pages.dev"
+  domain: "[bettersantarosacity.pages.dev](https://bettersantarosacity.pages.dev)"
+  repo: "[GitHub](https://github.com/jericizon/bettersantarosacity)"
+  repo_owner: "jericizon"
+  repo_name: "bettersantarosacity"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jericizon](https://github.com/jericizon)"
+  maintainers:
+    - handle: "jericizon"
+      url: "https://github.com/jericizon"
       profile: false
 - name: "Santo Domingo, Ilocos Sur"
+  place: "Santo Domingo"
+  kind: "municipality"
+  province: "Ilocos Sur"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
   domain: "-"
   repo: "[GitHub](https://github.com/tanojericko/bettersantodomingo-ilocossur)"
   repo_owner: "tanojericko"
@@ -2536,17 +3093,468 @@
     - handle: "tanojericko"
       url: "https://github.com/tanojericko"
       profile: false
-- name: "Catarman, Northern Samar"
-  domain: "[bettercatarman.org](https://bettercatarman.org/)"
-  repo: "[GitHub](https://github.com/jpdevdotcom/better-catarman-northsamar)"
-  repo_owner: "jpdevdotcom"
-  repo_name: "better-catarman-northsamar"
+- name: "Santo Tomas, Pangasinan"
+  place: "Santo Tomas"
+  kind: "municipality"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
+  domain: "-"
+  repo: "-"
+  socials: []
+  status: "🔵 Planned"
+  stale: true
+  open_for_adoption: true
+  maintainer: "[@PatrickTomas2](https://github.com/PatrickTomas2)"
+  maintainers:
+    - handle: "PatrickTomas2"
+      url: "https://github.com/PatrickTomas2"
+      profile: false
+- name: "Sara, Iloilo"
+  place: "Sara"
+  kind: "municipality"
+  province: "Iloilo"
+  region: "Western Visayas"
+  region_rank: 8
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/SaraGugmaKo/bettersara)"
+  repo_owner: "SaraGugmaKo"
+  repo_name: "bettersara"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@SaraGugmaKo](https://github.com/SaraGugmaKo)"
+  maintainers:
+    - handle: "SaraGugmaKo"
+      url: "https://github.com/SaraGugmaKo"
+      profile: false
+- name: "Solano, Nueva Vizcaya"
+  place: "Solano"
+  kind: "municipality"
+  province: "Nueva Vizcaya"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: "bettersolano.org"
+  domain: "[bettersolano.org](https://bettersolano.org)"
+  repo: "[GitHub](https://github.com/BetterSolano/bettersolano)"
+  repo_owner: "BetterSolano"
+  repo_name: "bettersolano"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettersolano.org"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ramonloganjr](https://github.com/ramonloganjr)"
+  maintainers:
+    - handle: "ramonloganjr"
+      url: "https://github.com/ramonloganjr"
+      profile: false
+- name: "Surallah, South Cotabato"
+  place: "Surallah"
+  kind: "municipality"
+  province: "South Cotabato"
+  region: "SOCCSKSARGEN"
+  region_rank: 15
+  host: "bettersurallah.org"
+  domain: "[bettersurallah.org](https://bettersurallah.org)"
+  repo: "[GitHub](https://github.com/average04/bettersurallah)"
+  repo_owner: "average04"
+  repo_name: "bettersurallah"
   socials: []
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@jpdevdotcom](https://github.com/jpdevdotcom)"
+  maintainer: "[@average04](https://github.com/average04)"
   maintainers:
-    - handle: "jpdevdotcom"
-      url: "/maintainers/jpdevdotcom/"
-      profile: true
+    - handle: "average04"
+      url: "https://github.com/average04"
+      profile: false
+- name: "Tabaco City, Albay"
+  place: "Tabaco"
+  kind: "city"
+  province: "Albay"
+  region: "Bicol Region"
+  region_rank: 7
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/johnjoshualipio/bettertabaco)"
+  repo_owner: "johnjoshualipio"
+  repo_name: "bettertabaco"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@johnjoshualipio](https://github.com/johnjoshualipio)"
+  maintainers:
+    - handle: "johnjoshualipio"
+      url: "https://github.com/johnjoshualipio"
+      profile: false
+- name: "Tacloban City, Leyte"
+  place: "Tacloban"
+  kind: "city"
+  province: "Leyte"
+  region: "Eastern Visayas"
+  region_rank: 11
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/zenabus/better-tacloban)"
+  repo_owner: "zenabus"
+  repo_name: "better-tacloban"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@zenabus](https://github.com/zenabus)"
+  maintainers:
+    - handle: "zenabus"
+      url: "https://github.com/zenabus"
+      profile: false
+- name: "Tagaytay City, Cavite"
+  place: "Tagaytay"
+  kind: "city"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettertagaytay.org"
+  domain: "[bettertagaytay.org](https://www.bettertagaytay.org/)"
+  repo: "[GitHub](https://github.com/Arlovzki/bettertagaytay)"
+  repo_owner: "Arlovzki"
+  repo_name: "bettertagaytay"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettertagaytay"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@Arlovzki](https://github.com/Arlovzki)"
+  maintainers:
+    - handle: "Arlovzki"
+      url: "https://github.com/Arlovzki"
+      profile: false
+- name: "Tago, Surigao del Sur"
+  place: "Tago"
+  kind: "municipality"
+  province: "Surigao del Sur"
+  region: "Caraga"
+  region_rank: 16
+  host: "bettertago.org"
+  domain: "[bettertago.org](https://www.bettertago.org)"
+  repo: "[Github](https://github.com/BetterTago/better-tago)"
+  repo_owner: "BetterTago"
+  repo_name: "better-tago"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ikmespinoza](https://github.com/ikmespinoza)"
+  maintainers:
+    - handle: "ikmespinoza"
+      url: "https://github.com/ikmespinoza"
+      profile: false
+- name: "Taguig City, Metro Manila"
+  place: "Taguig"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: "bettertaguig.org"
+  domain: "[bettertaguig.org](https://bettertaguig.org/)"
+  repo: "[GitHub](https://github.com/plvzfq-rit/bettertaguig)"
+  repo_owner: "plvzfq-rit"
+  repo_name: "bettertaguig"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@plvzfq-rit](https://github.com/plvzfq-rit), [@OrcaDS](https://github.com/OrcaDS)"
+  maintainers:
+    - handle: "plvzfq-rit"
+      url: "https://github.com/plvzfq-rit"
+      profile: false
+    - handle: "OrcaDS"
+      url: "https://github.com/OrcaDS"
+      profile: false
+- name: "Talavera, Nueva Ecija"
+  place: "Talavera"
+  kind: "municipality"
+  province: "Nueva Ecija"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/jcparucha/bettertalavera)"
+  repo_owner: "jcparucha"
+  repo_name: "bettertalavera"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jcparucha](https://github.com/jcparucha)"
+  maintainers:
+    - handle: "jcparucha"
+      url: "https://github.com/jcparucha"
+      profile: false
+- name: "Talibon, Bohol"
+  place: "Talibon"
+  kind: "municipality"
+  province: "Bohol"
+  region: "Central Visayas"
+  region_rank: 10
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/jessie-melendres/bettertalibon)"
+  repo_owner: "jessie-melendres"
+  repo_name: "bettertalibon"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jessie-melendres](https://github.com/jessie-melendres)"
+  maintainers:
+    - handle: "jessie-melendres"
+      url: "https://github.com/jessie-melendres"
+      profile: false
+- name: "Tampakan, South Cotabato"
+  place: "Tampakan"
+  kind: "municipality"
+  province: "South Cotabato"
+  region: "SOCCSKSARGEN"
+  region_rank: 15
+  host: "bettertampakan.org"
+  domain: "[bettertampakan.org](https://bettertampakan.org)"
+  repo: "[GitHub](https://github.com/jamez78/bettertampakan)"
+  repo_owner: "jamez78"
+  repo_name: "bettertampakan"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@jamez78](https://github.com/jamez78)"
+  maintainers:
+    - handle: "jamez78"
+      url: "https://github.com/jamez78"
+      profile: false
+- name: "Tanay, Rizal"
+  place: "Tanay"
+  kind: "municipality"
+  province: "Rizal"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettertanay.org"
+  domain: "[bettertanay.org](https://bettertanay.org)"
+  repo: "[GitHub](https://github.com/s4burieru/bettertanay)"
+  repo_owner: "s4burieru"
+  repo_name: "bettertanay"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/bettertanay"
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@s4burieru](https://github.com/s4burieru)"
+  maintainers:
+    - handle: "s4burieru"
+      url: "https://github.com/s4burieru"
+      profile: false
+- name: "Tandag City, Surigao del Sur"
+  place: "Tandag"
+  kind: "city"
+  province: "Surigao del Sur"
+  region: "Caraga"
+  region_rank: 16
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/BetterTandag/better-tandag)"
+  repo_owner: "BetterTandag"
+  repo_name: "better-tandag"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@ikmespinoza](https://github.com/ikmespinoza)"
+  maintainers:
+    - handle: "ikmespinoza"
+      url: "https://github.com/ikmespinoza"
+      profile: false
+- name: "Tanza, Cavite"
+  place: "Tanza"
+  kind: "municipality"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/manalilib/betterTanza)"
+  repo_owner: "manalilib"
+  repo_name: "betterTanza"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterTanzaCavite"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@manalilib](https://github.com/manalilib)"
+  maintainers:
+    - handle: "manalilib"
+      url: "https://github.com/manalilib"
+      profile: false
+- name: "Taytay, Rizal"
+  place: "Taytay"
+  kind: "municipality"
+  province: "Rizal"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/zzelif/bettertaytay)"
+  repo_owner: "zzelif"
+  repo_name: "bettertaytay"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@zzelif](https://github.com/zzelif)"
+  maintainers:
+    - handle: "zzelif"
+      url: "https://github.com/zzelif"
+      profile: false
+- name: "Teresa, Rizal"
+  place: "Teresa"
+  kind: "municipality"
+  province: "Rizal"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/MewSeiren/betterteresa.org)"
+  repo_owner: "MewSeiren"
+  repo_name: "betterteresa.org"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@MewSeiren](https://github.com/MewSeiren)"
+  maintainers:
+    - handle: "MewSeiren"
+      url: "https://github.com/MewSeiren"
+      profile: false
+- name: "Trece Martires City, Cavite"
+  place: "Trece Martires"
+  kind: "city"
+  province: "Cavite"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettertrecemartires.org"
+  domain: "[bettertrecemartires.org](https://bettertrecemartires.org)"
+  repo: "[GitHub](https://github.com/hiroqt/bettertrece)"
+  repo_owner: "hiroqt"
+  repo_name: "bettertrece"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@hiroqt](https://github.com/hiroqt)"
+  maintainers:
+    - handle: "hiroqt"
+      url: "https://github.com/hiroqt"
+      profile: false
+- name: "Tuguegarao City, Cagayan"
+  place: "Tuguegarao"
+  kind: "city"
+  province: "Cagayan"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/JDgayagoy/BetterTuguegarao)"
+  repo_owner: "JDgayagoy"
+  repo_name: "BetterTuguegarao"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@JDgayagoy](https://github.com/JDgayagoy), [@sidj28](https://github.com/sidj28), [@geneconceja](https://github.com/geneconceja)"
+  maintainers:
+    - handle: "JDgayagoy"
+      url: "https://github.com/JDgayagoy"
+      profile: false
+    - handle: "sidj28"
+      url: "https://github.com/sidj28"
+      profile: false
+    - handle: "geneconceja"
+      url: "https://github.com/geneconceja"
+      profile: false
+- name: "Urdaneta City, Pangasinan"
+  place: "Urdaneta"
+  kind: "city"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/robotinkers/betterurdaneta)"
+  repo_owner: "robotinkers"
+  repo_name: "betterurdaneta"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@robotinkers](https://github.com/robotinkers)"
+  maintainers:
+    - handle: "robotinkers"
+      url: "https://github.com/robotinkers"
+      profile: false
+- name: "Valenzuela City, Metro Manila"
+  place: "Valenzuela"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/JeremyDFabian/bettervalenzuela)"
+  repo_owner: "JeremyDFabian"
+  repo_name: "bettervalenzuela"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/betterval.org"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@JeremyDFabian](https://github.com/JeremyDFabian)"
+  maintainers:
+    - handle: "JeremyDFabian"
+      url: "https://github.com/JeremyDFabian"
+      profile: false
+- name: "Zamboanga City, Zamboanga del Sur"
+  place: "Zamboanga"
+  kind: "city"
+  province: "Zamboanga del Sur"
+  region: "Zamboanga Peninsula"
+  region_rank: 12
+  host: "betterzamboangacity.vercel.app"
+  domain: "[betterzamboangacity.vercel.app](https://betterzamboangacity.vercel.app)"
+  repo: "[GitHub](https://github.com/RALPH22222/betterzamboangacity)"
+  repo_owner: "RALPH22222"
+  repo_name: "betterzamboangacity"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://facebook.com/betterzamboangacity.org"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@RALPH22222](https://github.com/RALPH22222)"
+  maintainers:
+    - handle: "RALPH22222"
+      url: "https://github.com/RALPH22222"
+      profile: false
