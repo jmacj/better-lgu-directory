@@ -41,10 +41,10 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Biñan City, Laguna | [betterbinan.vercel.app](https://betterbinan.vercel.app/) | [GitHub](https://github.com/mimflar/betterbinan) | - | 🟢 Active | [@mimflar](https://github.com/mimflar), [@chiwasushuba](https://github.com/chiwasushuba), [@smmariquit](https://github.com/smmariquit) |
 | Binangonan, Rizal | [betterbinangonan.org](https://betterbinangonan.org) | [GitHub](https://github.com/betterbinangonan-devs/betterbinangonan) | [Facebook](https://www.facebook.com/BetterBinangonan.org) | 🟢 Active | [@emmanpbarrameda](https://github.com/emmanpbarrameda), [@chaaals](https://github.com/chaaals) |
 | Bocaue, Bulacan | - | [GitHub](https://github.com/ericksondelacruz/betterbocaue) | - | 🟡 Work in Progress | [@ericksondelacruz](https://github.com/ericksondelacruz) |
+| Botolan, Zambales | - | [GitHub](https://github.com/SilentPing/better-botolan) | - | 🟡 Work in Progress | [@SilentPing](https://github.com/SilentPing) |
 | Bukidnon Province | [betterbukidnon.org](https://betterbukidnon.org) | [GitHub](https://github.com/Better-Bukidnon) | - | 🟢 Active | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 | Bulakan, Bulacan | [betterbulakan.org](https://betterbulakan.org/) | [GitHub](https://github.com/kuyacarlo/betterbulakan) | - | 🟢 Active | [@kuyacarlo](https://github.com/kuyacarlo) |
 | Butuan City, Agusan del Norte | - | - | - | 🔵 Planned<br>⚠️ Stale | [@stinkymonkeyph](https://github.com/stinkymonkeyph)<br>🤝 Open for Adoption |
-| Botolan, Zambales | - | [GitHub](https://github.com/SilentPing/better-botolan) | - | 🟡 Work in Progress | [@SilentPing](https://github.com/SilentPing) |
 | Cabanatuan City, Nueva Ecija | [bettercabanatuan.org](https://bettercabanatuan.org) | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan) | [Facebook](https://www.facebook.com/bettercabanatuan.org) | 🟢 Active | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
 | Cabuyao City, Laguna | [bettercabuyao.org](https://bettercabuyao.org/) | [GitHub](https://github.com/johnrommeloctaviano/better-cabuyao) | - | 🟢 Active | [@johnrommeloctaviano](https://github.com/johnrommeloctaviano) |
 | Cainta, Rizal | [bettercainta.org](https://bettercainta.org) | - | - | 🟢 Active | - |
