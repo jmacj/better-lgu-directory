@@ -60,17 +60,25 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 |---------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------|
 {%- comment -%}
 Rendered in Location order (#448; CONTEXT.md, Sort Order): region rank, then
-folded province, then level, then folded place. Liquid's sort takes one key,
-so each Entry gets one composite string key; "!" sorts below every folded
-character, so an empty province (a region row) and a shorter name sort first.
-Region rank is offset by 100 so it compares as fixed-width text. Fold =
-slugify "latin" with the hyphens removed, the same result as fold() in
-scripts/lgu-name.js. The fields ride along in the key and become the row's
-data-* keys, which assets/js/directory-sort.js re-sorts by.
+folded province, then level, then folded place. This must match byLocation()
+in assets/js/directory-sort.js, which re-sorts by the data-* keys below.
+Liquid's sort takes one key, so each Entry gets one composite string key,
+fields joined by "!":
+  0 region rank + 100 (so it compares as fixed-width text)
+  1 folded province   2 level   3 folded place
+  4 status rank       5 "Province · Region" line   6 index into lgus
+"!" sorts below every folded character, so an empty province (a region row)
+and a shorter name sort first. Fields 4 to 6 never decide the order: no two
+Entries share fields 0 to 3. Fold = slugify "latin" with the hyphens removed,
+the same result as fold() in scripts/lgu-name.js.
 {%- endcomment -%}
-{%- assign keyed = "" | split: "" -%}
+{%- assign location_keys = "" | split: "" -%}
 {%- for lgu in site.data.lgus -%}
-  {%- case lgu.kind -%}{%- when "region" -%}{%- assign level = 0 -%}{%- when "province" -%}{%- assign level = 1 -%}{%- else -%}{%- assign level = 2 -%}{%- endcase -%}
+  {%- case lgu.kind -%}
+    {%- when "region" -%}{%- assign level = 0 -%}{%- assign where = "" -%}
+    {%- when "province" -%}{%- assign level = 1 -%}{%- assign where = lgu.region -%}
+    {%- else -%}{%- assign level = 2 -%}{%- assign where = lgu.province | append: " · " | append: lgu.region -%}
+  {%- endcase -%}
   {%- if lgu.status contains "Active" -%}{%- assign status_rank = 0 -%}
   {%- elsif lgu.status contains "Work in Progress" -%}{%- assign status_rank = 1 -%}
   {%- elsif lgu.status contains "Planned" -%}{%- assign status_rank = 2 -%}
@@ -78,11 +86,11 @@ data-* keys, which assets/js/directory-sort.js re-sorts by.
   {%- else -%}{%- assign status_rank = 4 -%}{%- endif -%}
   {%- assign province_key = lgu.province | slugify: "latin" | remove: "-" -%}
   {%- assign place_key = lgu.place | slugify: "latin" | remove: "-" -%}
-  {%- capture key -%}{{ lgu.region_rank | plus: 100 }}!{{ province_key }}!{{ level }}!{{ place_key }}!{{ forloop.index0 }}!{{ status_rank }}{%- endcapture -%}
-  {%- assign keyed = keyed | push: key -%}
+  {%- capture key -%}{{ lgu.region_rank | plus: 100 }}!{{ province_key }}!{{ level }}!{{ place_key }}!{{ status_rank }}!{{ where }}!{{ forloop.index0 }}{%- endcapture -%}
+  {%- assign location_keys = location_keys | push: key -%}
 {%- endfor -%}
-{%- assign keyed = keyed | sort %}
-{% for key in keyed %}{% assign k = key | split: "!" %}{% assign i = k[4] | plus: 0 %}{% assign lgu = site.data.lgus[i] %}{% if lgu.kind == "region" %}{% assign where = "" %}{% elsif lgu.kind == "province" %}{% assign where = lgu.region %}{% else %}{% assign where = lgu.province | append: " · " | append: lgu.region %}{% endif %}| <span class="lgu-entry" data-region-rank="{{ k[0] | minus: 100 }}" data-province="{{ k[1] }}" data-level="{{ k[2] }}" data-place="{{ k[3] }}" data-status-rank="{{ k[5] }}" data-region="{{ lgu.region | escape }}" data-kind="{{ lgu.kind }}"><span class="sr-only">{{ lgu.name }} </span><span aria-hidden="true"><span class="lgu-place">{{ lgu.place }}</span> {% if where != "" %}<span class="lgu-where">{{ where }}</span>{% endif %}</span></span> | {{ lgu.domain }} | {{ lgu.repo }}{% if lgu.repo_owner %}<br><span class="repo-activity" data-repo="{{ lgu.repo_owner }}/{{ lgu.repo_name }}"></span>{% endif %} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }}{% if lgu.stale %}<br><span class="lgu-tag lgu-tag-stale">⚠️ Stale</span>{% endif %} | {% include maintainer-links.html maintainers=lgu.maintainers fallback=lgu.maintainer %}{% if lgu.open_for_adoption %}<br><span class="lgu-tag lgu-tag-adoption">🤝 Open for Adoption</span>{% endif %} |
+{%- assign location_keys = location_keys | sort %}
+{% for key in location_keys %}{% assign key_parts = key | split: "!" %}{% assign i = key_parts[6] | plus: 0 %}{% assign lgu = site.data.lgus[i] %}| <span class="lgu-entry" data-region-rank="{{ key_parts[0] | minus: 100 }}" data-province="{{ key_parts[1] }}" data-level="{{ key_parts[2] }}" data-place="{{ key_parts[3] }}" data-status-rank="{{ key_parts[4] }}" data-region="{{ lgu.region | escape }}" data-kind="{{ lgu.kind }}"><span class="sr-only">{{ lgu.name }} </span><span aria-hidden="true"><span class="lgu-place">{{ lgu.place }}</span> {% if key_parts[5] != "" %}<span class="lgu-where">{{ key_parts[5] }}</span>{% endif %}</span></span> | {{ lgu.domain }} | {{ lgu.repo }}{% if lgu.repo_owner %}<br><span class="repo-activity" data-repo="{{ lgu.repo_owner }}/{{ lgu.repo_name }}"></span>{% endif %} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }}{% if lgu.stale %}<br><span class="lgu-tag lgu-tag-stale">⚠️ Stale</span>{% endif %} | {% include maintainer-links.html maintainers=lgu.maintainers fallback=lgu.maintainer %}{% if lgu.open_for_adoption %}<br><span class="lgu-tag lgu-tag-adoption">🤝 Open for Adoption</span>{% endif %} |
 {% endfor %}
 
 </div>

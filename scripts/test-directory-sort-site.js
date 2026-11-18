@@ -46,8 +46,6 @@ const CEBU = [
 ];
 
 // --- Location (default) ---------------------------------------------------
-check(PRESETS[0] === 'location', 'Location is the first (default) preset');
-
 checkOrder('location', CEBU, [
     'Cebu Province',
     'Cebu City, Cebu',
@@ -101,7 +99,7 @@ checkOrder('name', [
 // Active, WIP, Planned, Unmaintained; each run in Location order. A Planned
 // Cebu Province and an Active Cebu City are listed apart (intended).
 checkOrder('status', [
-    row('Unmaintained Town, Ilocos Norte', 2, 'ilocosnorte', 2, 'unmaintainedtown', 3),
+    row('Pagudpud, Ilocos Norte', 2, 'ilocosnorte', 2, 'pagudpud', 3),
     row('Cebu Province', 10, 'cebu', 1, 'cebu', 2),
     row('Mandaue City, Cebu', 10, 'cebu', 2, 'mandaue', 0),
     row('Bay, Laguna', 5, 'laguna', 2, 'bay', 1),
@@ -115,7 +113,7 @@ checkOrder('status', [
     'Bay, Laguna',
     'Aborlan, Palawan',
     'Cebu Province',
-    'Unmaintained Town, Ilocos Norte',
+    'Pagudpud, Ilocos Norte',
 ]);
 
 check(PRESETS.join() === 'location,name,status', 'three presets, Location first');

@@ -17,6 +17,7 @@
         return a < b ? -1 : a > b ? 1 : 0;
     }
 
+    // Must match the build-time key in index.md, which renders this order.
     function byLocation(a, b) {
         return a.regionRank - b.regionRank
             || compareStrings(a.province, b.province)
