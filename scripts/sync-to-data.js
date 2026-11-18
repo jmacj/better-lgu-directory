@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { PROFILES_DIR, extractHandles, resolveMaintainerLink } = require('./maintainer-profiles');
 const { parseLguName } = require('./lgu-name');
-const { REGIONS } = require('./psgc-regions');
+const { REGIONS, psgcName } = require('./psgc-regions');
 
 const REPO_ROOT = path.join(__dirname, '..');
 const README_PATH = path.join(REPO_ROOT, 'README.md');
@@ -305,10 +305,12 @@ function lgusToYaml(lgus) {
     }).join('\n');
 }
 
-// _data/regions.yml: the ordered region names and ranks, from the PSGC
-// regions module.
+// _data/regions.yml: the ordered region names, ranks and PSGC names (the
+// website's region filter labels), from the PSGC regions module.
 function regionsToYaml() {
-    return REGIONS.map((region, rank) => `- name: "${yamlStr(region.name)}"\n  rank: ${rank}`).join('\n') + '\n';
+    return REGIONS.map((region, rank) =>
+        `- name: "${yamlStr(region.name)}"\n  rank: ${rank}\n  psgc_name: "${yamlStr(psgcName(region))}"`,
+    ).join('\n') + '\n';
 }
 
 if (require.main === module) {
