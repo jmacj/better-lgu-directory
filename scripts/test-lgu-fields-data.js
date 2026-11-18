@@ -88,8 +88,17 @@ test('a malformed name fails the sync, naming the row', () => {
 
 test('regions.yml lists every region in rank order', () => {
     const yaml = regionsToYaml();
-    assert.ok(yaml.startsWith('- name: "NCR"\n  rank: 0\n- name: "CAR"\n  rank: 1\n'), yaml);
-    assert.ok(yaml.includes('- name: "BARMM"\n  rank: 17'), yaml);
+    assert.ok(yaml.startsWith('- name: "NCR"\n  rank: 0\n  psgc_name: "National Capital Region (NCR)"\n- name: "CAR"\n  rank: 1\n'), yaml);
+    assert.ok(yaml.includes('- name: "BARMM"\n  rank: 17\n  psgc_name: "Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)"'), yaml);
+});
+
+test('regions.yml gives each region its PSGC name, with the Region number', () => {
+    const yaml = regionsToYaml();
+    assert.ok(yaml.includes('- name: "CALABARZON"\n  rank: 5\n  psgc_name: "Region IV-A (CALABARZON)"'), yaml);
+    assert.ok(yaml.includes('- name: "Ilocos Region"\n  rank: 2\n  psgc_name: "Region I (Ilocos Region)"'), yaml);
+    // PSGC gives MIMAROPA no number and no parenthesised short name.
+    assert.ok(yaml.includes('- name: "MIMAROPA Region"\n  rank: 6\n  psgc_name: "MIMAROPA Region"'), yaml);
+    assert.strictEqual((yaml.match(/psgc_name: /g) || []).length, 18, yaml);
 });
 
 if (failures > 0) {
