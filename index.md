@@ -8,49 +8,55 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 ## 📋 Directory
 
-<!-- Interactive Search, Filters and Sort (#448) -->
-<div class="mb-8 flex flex-col gap-4 max-w-4xl">
-    <div class="relative w-full">
-        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-            </svg>
-        </div>
-        <input type="text" id="lgu-search" onkeyup="filterDirectory()" aria-label="Search LGUs" placeholder="Search LGUs by name, province, region, status, tag, or maintainer..." class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm">
+<!-- Interactive Search, Filters and Sort (#448). Styles: .directory-controls in assets/css/style.css. -->
+<div class="directory-controls">
+    <div class="dc-search">
+        <svg class="dc-search__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+        </svg>
+        <input type="search" id="lgu-search" oninput="filterDirectory()" aria-label="Search LGUs" placeholder="Search LGU, province or region" class="dc-search__input">
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <select id="status-filter" onchange="filterDirectory()" aria-label="Filter by status" class="block w-full px-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm cursor-pointer">
-            <option value="">All Statuses</option>
-            <option value="Active">🟢 Active</option>
-            <option value="Work in Progress">🟡 Work in Progress</option>
-            <option value="Unmaintained">🔴 Unmaintained</option>
-            <option value="Planned">🔵 Planned</option>
-        </select>
-        <select id="region-filter" onchange="filterDirectory()" aria-label="Filter by region" class="block w-full px-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm cursor-pointer">
-            <option value="">All regions</option>
-            {%- for region in site.data.regions %}
-            <option value="{{ region.name | escape }}">{{ region.name }}</option>
-            {%- endfor %}
-        </select>
-        <label for="sort-preset" class="flex items-center gap-2 px-3 py-3 border border-gray-200 rounded-xl bg-white shadow-sm sm:text-sm transition-all focus-within:ring-2 focus-within:ring-blue-600">
-            <span class="font-medium text-gray-700 whitespace-nowrap">Sort by</span>
-            <select id="sort-preset" onchange="sortDirectory()" class="min-w-0 flex-1 bg-transparent focus:outline-none cursor-pointer">
+    <div class="dc-fields">
+        <div class="dc-field dc-field--region">
+            <label for="region-filter" class="dc-label">Region</label>
+            <select id="region-filter" onchange="filterDirectory()" class="dc-select">
+                <option value="">All regions</option>
+                {%- for region in site.data.regions %}
+                <option value="{{ region.name | escape }}">{{ region.psgc_name | default: region.name }}</option>
+                {%- endfor %}
+            </select>
+        </div>
+        <div class="dc-field">
+            <label for="status-filter" class="dc-label">Status</label>
+            <select id="status-filter" onchange="filterDirectory()" class="dc-select">
+                <option value="">All statuses</option>
+                <option value="Active">🟢 Active</option>
+                <option value="Work in Progress">🟡 Work in Progress</option>
+                <option value="Unmaintained">🔴 Unmaintained</option>
+                <option value="Planned">🔵 Planned</option>
+            </select>
+        </div>
+        <div class="dc-field">
+            <label for="sort-preset" class="dc-label">Sort by</label>
+            <select id="sort-preset" onchange="sortDirectory()" class="dc-select">
                 <option value="location" selected>Location</option>
                 <option value="name">Name A–Z</option>
                 <option value="status">Status</option>
             </select>
-        </label>
-        <label for="adoption-filter" class="flex items-center gap-2 px-3 py-3 border border-gray-200 rounded-xl bg-white shadow-sm sm:text-sm cursor-pointer transition-all">
-            <input type="checkbox" id="adoption-filter" onchange="filterDirectory()" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-600 cursor-pointer">
-            <span class="font-medium text-gray-700 whitespace-nowrap">🤝 Open for adoption</span>
-        </label>
+        </div>
     </div>
-    <div role="group" aria-label="Filter by kind" class="flex flex-wrap items-center gap-2 sm:text-sm">
-        <span class="font-medium text-gray-700">Kind:</span>
-        {%- assign kinds = "city,municipality,province,region" | split: "," -%}
-        {%- for kind in kinds %}
-        <button type="button" class="kind-chip" data-kind="{{ kind }}" aria-pressed="false" onclick="toggleKind(this)">{{ kind | capitalize }}</button>
-        {%- endfor %}
+    <div class="dc-toggles">
+        <div role="group" aria-labelledby="kind-label" class="dc-kinds">
+            <span id="kind-label" class="dc-label dc-label--inline">Kind</span>
+            {%- assign kinds = "city,municipality,province,region" | split: "," -%}
+            {%- for kind in kinds %}
+            <button type="button" class="kind-chip" data-kind="{{ kind }}" aria-pressed="false" onclick="toggleKind(this)">{{ kind | capitalize }}</button>
+            {%- endfor %}
+        </div>
+        <label for="adoption-filter" class="dc-adoption">
+            <input type="checkbox" id="adoption-filter" onchange="filterDirectory()" class="dc-adoption__input">
+            <span>🤝 Open for adoption</span>
+        </label>
     </div>
 </div>
 
