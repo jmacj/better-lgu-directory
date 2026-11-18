@@ -5,7 +5,7 @@ languages: Filipino, English
 email: angelitomvirrey@gmail.com
 messenger: https://m.me/61596544258403
 discord: Angelito1986
-linkedIn: https://www.linkedin.com/in/avirrey1986/
+linkedin: https://www.linkedin.com/in/avirrey1986/
 website: https://betterlipa2027budget.netlify.app
 ---
 
