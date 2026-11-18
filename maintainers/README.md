@@ -6,7 +6,7 @@ Read a profile before you reach out, and follow the [Code of Conduct](../CODE_OF
 
 <!-- Keep this list in alphabetical order by GitHub handle (case-insensitive), one bullet per profile: - [@handle](handle.md) · Name -->
 <!-- MAINTAINER_PROFILES_START -->
-- [@angelito1986](angelito1986.md) · Angelito Virrey
+- [@Angelito1986](Angelito1986.md) · Angelito Virrey
 - [@jmacj](jmacj.md) · Jan Jimenez
 - [@jmrec](jmrec.md) · Juan Miguel Recondo
 - [@jpdevdotcom](jpdevdotcom.md) · Jan Phillip Dacallos
