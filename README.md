@@ -54,7 +54,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Caloocan City, Metro Manila | [bettercaloocan.org](https://www.bettercaloocan.org/) | [GitHub](https://github.com/angelicatanagras/bettercaloocan) | - | 🟢 Active | [@angelicatanagras](https://github.com/angelicatanagras) |
 | Candaba, Pampanga | - | [GitHub](https://github.com/bulsu-kpdeguzman/bettercandaba) | - | 🟡 Work in Progress | [@bulsu-kpdeguzman](https://github.com/bulsu-kpdeguzman) |
 | Carigara, Leyte | [bettercarigara.org](https://bettercarigara.org) | [GitHub](https://github.com/severinolorillajr/bettercarigara) | - | 🟡 Work in Progress | [@dauganz09](https://github.com/dauganz09), [@severinolorillajr](https://github.com/severinolorillajr) |
-| Carmona City, Cavite | [bettercarmona.org](https://bettercarmona.org) | [GitHub](https://github.com/carlolim/bettercarmona) | - | 🟡 Work in Progress | [@carlolim](https://github.com/carlolim) |
+| Carmona City, Cavite | [bettercarmona.org](https://bettercarmona.org) | [GitHub](https://github.com/carlolim/bettercarmona) | - | 🟢 Active | [@carlolim](https://github.com/carlolim) |
 | Catanduanes Province | [bettercatanduanes.org](https://bettercatanduanes.org) | [GitHub](https://github.com/VLDCNDN/bettercatanduanes) | [Facebook](https://www.facebook.com/bettercatanduanes) | 🟢 Active | [@VLDCNDN](https://github.com/VLDCNDN) |
 | Catarman, Northern Samar | [bettercatarman.org](https://bettercatarman.org/) | [GitHub](https://github.com/jpdevdotcom/better-catarman-northsamar) | - | 🟢 Active | [@jpdevdotcom](https://github.com/jpdevdotcom) |
 | Catbalogan City, Samar | - | [GitHub](https://github.com/hplarozner/better-lgu-catbalogan) | - | 🔵 Planned | [@hplarozner](https://github.com/hplarozner) |
