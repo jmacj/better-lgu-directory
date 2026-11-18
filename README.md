@@ -32,7 +32,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Balanga City, Bataan | [betterbalanga.org](https://betterbalanga.org/) | [GitHub](https://github.com/AstroMC98/betterbalanga) | [Facebook](https://www.facebook.com/betterbalanga.org) | 🟡 Work in Progress | [@AstroMC98](https://github.com/AstroMC98) |
 | Baler, Aurora | [betterbaler.org](https://betterbaler.org/) | [GitHub](https://github.com/tekwicks/betterbaler) | - | 🟢 Active | [@tekwicks](https://github.com/tekwicks) |
 | Basista, Pangasinan | - | [GitHub](https://github.com/jadolation/betterbasista) | - | 🟡 Work in Progress | [@jadolation](https://github.com/jadolation) |
-| Batangas City, Batangas | - | [GitHub](https://github.com/jrbenriquez/betterbatangascity/) | - | 🔵 Planned | [@jrbenriquez](https://github.com/jrbenriquez) |
+| Batangas City, Batangas | [betterbatangascity.org](https://betterbatangascity.org) | [GitHub](https://github.com/jrbenriquez/betterbatangascity/) | - | 🟡 Work in Progress | [@jrbenriquez](https://github.com/jrbenriquez) |
 | Bauan, Batangas | [betterbauan.vercel.app](https://betterbauan.vercel.app) | [GitHub](https://github.com/Arxenic/betterbauan) | - | 🟡 Work in Progress | [@Arxenic](https://github.com/Arxenic) |
 | Bauang, La Union | - | [GitHub](https://github.com/loudaboi/betterbauang) | - | 🟡 Work in Progress | [@loudaboi](https://github.com/loudaboi) |
 | Bayawan City, Negros Oriental | [betterbayawan.org](https://betterbayawan.org/) | [GitHub](https://github.com/rodneydelacruz/betterbayawan) | [Facebook](https://www.facebook.com/share/1CweyjBq9w/) | 🟢 Active | [@rodneydelacruz](https://github.com/rodneydelacruz) |
