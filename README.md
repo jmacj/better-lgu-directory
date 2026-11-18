@@ -63,7 +63,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Cavite City, Cavite | [bettercavitecity.org](https://bettercavitecity.org) | - | [Facebook](https://www.facebook.com/bettercavitecity.org) | 🟢 Active | [@jdsatsatin](https://github.com/jdsatsatin) |
 | Cebu City, Cebu | - | [GitHub](https://github.com/kyrenmearr/bettercebucity) | - | 🟡 Work in Progress | [@kyrenmearr](https://github.com/kyrenmearr) |
 | Claver, Surigao del Norte | - | - | - | 🔵 Planned<br>⚠️ Stale | [@eljohn2001](https://github.com/eljohn2001)<br>🤝 Open for Adoption |
-| Corella, Bohol | - | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🔵 Planned | [@ashdroidcmd](https://github.com/ashdroidcmd) |
+| Corella, Bohol | [bettercorella.vercel.app](https://bettercorella.vercel.app) | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🟢 Active | [@ashdroidcmd](https://github.com/ashdroidcmd) |
 | Dagupan City, Pangasinan | - | [GitHub](https://github.com/jamesjmnz/better-dagupan) | - | 🟡 Work in Progress | [@jamesjmnz](https://github.com/jamesjmnz) |
 | Dasmariñas City, Cavite | [betterdasmarinas.org](https://betterdasmarinas.org) | [GitHub](https://github.com/Shuashuaa/BetterDasmarinas) | [Facebook](https://www.facebook.com/profile.php?id=61570802813363) | 🟢 Active | [@Shuashuaa](https://github.com/Shuashuaa) |
 | Davao City, Davao del Sur | - | [GitHub](https://github.com/johnloydlao/betterdavao) | - | 🟡 Work in Progress | [@johnloydlao](https://github.com/johnloydlao) |
