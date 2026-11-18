@@ -58,10 +58,16 @@ const SPECIAL_GEOGRAPHIC_AREA = [
     'Nabalawag', 'Old Kaabakan', 'Pahamuddin', 'Tugunan',
 ];
 const REGION_OVERRIDES = {
-    // PSGC lists the City of Isabela under Region IX (Zamboanga Peninsula),
-    // though geographically it is on Basilan (BARMM).
+    // PSGC note (checked by hand 2026-11-18): "City of Isabela is classified
+    // under Region IX (Zamboanga Peninsula) but is geographically located in
+    // the province of Basilan (Bangsamoro Autonomous Region in Muslim
+    // Mindanao)." PSGC files it under Region IX, not under Basilan.
     'Isabela City, Basilan': 'Zamboanga Peninsula',
-    // PSGC lists these under BARMM's Special Geographic Area.
+    // BARMM's Special Geographic Area. PSGC note: "Executive Order No. 001,
+    // series of 2020, establishes one (1) Development Coordinating Office with
+    // eight (8) Area Clusters" in BARMM; the eight clusters later became these
+    // municipalities. The count is confirmed against PSGC; the spellings are
+    // not yet.
     ...Object.fromEntries(SPECIAL_GEOGRAPHIC_AREA.map(place => [`${place}, Cotabato`, 'BARMM'])),
 };
 
