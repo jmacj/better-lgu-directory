@@ -443,13 +443,13 @@
   province: "Batangas"
   region: "CALABARZON"
   region_rank: 5
-  host: ""
-  domain: "-"
+  host: "betterbatangascity.org"
+  domain: "[betterbatangascity.org](https://betterbatangascity.org)"
   repo: "[GitHub](https://github.com/jrbenriquez/betterbatangascity/)"
   repo_owner: "jrbenriquez"
   repo_name: "betterbatangascity"
   socials: []
-  status: "🔵 Planned"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
   maintainer: "[@jrbenriquez](https://github.com/jrbenriquez)"

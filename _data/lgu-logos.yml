@@ -381,8 +381,8 @@
   file: "bettermalaybalay.cloud.png"
   ext: "png"
   source: "rel-icon"
-  px: "256"
-  bytes: 56120
+  px: "128"
+  bytes: 13599
   order_key: "0042"
   shuffle_key: "0050"
 - name: "Malolos City, Bulacan"
