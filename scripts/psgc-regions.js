@@ -31,8 +31,9 @@ const REGIONS = [
     { name: 'NIR', provinces: ['Negros Occidental', 'Negros Oriental', 'Siquijor'] },
     { name: 'Central Visayas', provinces: ['Bohol', 'Cebu'] },
     { name: 'Eastern Visayas', provinces: ['Biliran', 'Eastern Samar', 'Leyte', 'Northern Samar', 'Samar', 'Southern Leyte'] },
-    // Sulu: placed under Region IX following the 2024 Supreme Court ruling
-    // that excluded it from BARMM.
+    // Sulu: PSGC lists it under Region IX (confirmed on the PSGC site by
+    // hand, 2026-11-18), after the 2024 Supreme Court ruling excluded it
+    // from BARMM.
     { name: 'Zamboanga Peninsula', provinces: ['Sulu', 'Zamboanga del Norte', 'Zamboanga del Sur', 'Zamboanga Sibugay'] },
     { name: 'Northern Mindanao', provinces: ['Bukidnon', 'Camiguin', 'Lanao del Norte', 'Misamis Occidental', 'Misamis Oriental'] },
     { name: 'Davao Region', provinces: ['Davao de Oro', 'Davao del Norte', 'Davao del Sur', 'Davao Occidental', 'Davao Oriental'] },
