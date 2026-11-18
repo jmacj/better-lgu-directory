@@ -638,6 +638,26 @@
     - handle: "ericksondelacruz"
       url: "https://github.com/ericksondelacruz"
       profile: false
+- name: "Botolan, Zambales"
+  place: "Botolan"
+  kind: "municipality"
+  province: "Zambales"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/SilentPing/better-botolan)"
+  repo_owner: "SilentPing"
+  repo_name: "better-botolan"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@SilentPing](https://github.com/SilentPing)"
+  maintainers:
+    - handle: "SilentPing"
+      url: "https://github.com/SilentPing"
+      profile: false
 - name: "Bukidnon Province"
   place: "Bukidnon"
   kind: "province"
