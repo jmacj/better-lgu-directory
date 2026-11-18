@@ -6,6 +6,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 ## 📋 Directory
 
+<!-- Keep this table sorted A–Z by place name, and write each LGU cell in the naming format ("Calauan, Laguna", "Bacolod City, Negros Occidental", "Aklan Province"). See CONTRIBUTING.md, Naming Your LGU. The sync rejects a name outside the format. -->
 <!-- SYNC_LGU_TABLE_START -->
 
 | LGU                                 | Domain                                                        | Repository                                                                     | Socials                                                                                                                                                     | Status                 | Maintainer/s                                                                                                                     |
@@ -181,7 +182,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 
 <!-- SYNC_LGU_TABLE_END -->
 
-> Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
+> Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md). Write the LGU name in the [naming format](CONTRIBUTING.md#naming-your-lgu) and insert the row in A–Z order by place name.
 
 > 💰 Looking for budget transparency portals? See the **[Budget Portal Directory](BUDGET.md)** — LGU sites built on the [BetterGov.ph Budget API](https://budget.bettergov.ph/docs), whether part of a Better LGU portal or standalone.
 

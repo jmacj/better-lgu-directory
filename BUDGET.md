@@ -8,6 +8,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 
 ## 💰 Directory
 
+<!-- Keep this table sorted A–Z by place name, and write each LGU cell in the naming format ("Calauan, Laguna", "Bacolod City, Negros Occidental", "Aklan Province"). See CONTRIBUTING.md, Naming Your LGU. The sync rejects a name outside the format. -->
 <!-- SYNC_BUDGET_TABLE_START -->
 
 | LGU                          | Portal                                                                           | Type           | Repository                                                                    | Maintainer/s                                                                           |
@@ -36,7 +37,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 
 <!-- SYNC_BUDGET_TABLE_END -->
 
-> Want to add your budget portal? See [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal).
+> Want to add your budget portal? See [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal). Write the LGU name in the [naming format](CONTRIBUTING.md#naming-your-lgu) and insert the row in A–Z order by place name.
 
 ---
 
