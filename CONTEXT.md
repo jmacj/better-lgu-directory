@@ -38,12 +38,6 @@ _Avoid_: tier, hierarchy.
 
 **Sort Order**:
 The single place orders are defined. The `README.md` table, and the `BUDGET.md` table, are sorted by folded Place ascending, then Level, then folded Province. Folding removes diacritics, case, punctuation and spaces, so `Biñan` sorts under "n". Examples: `Cebu Province` before `Cebu City, Cebu` (Level); `San Jose, Antique` before `San Jose City, Nueva Ecija` (same Level, so Province decides). The README has no other order.
-The website sets its own order, so README row order never affects it. Its directory has three presets ("Sort by"); each lists keys in order, and each later key breaks ties left by the ones before it:
-- **Location** (the default; the page is rendered in this order): Region rank → folded Province → Level → folded Place.
-- **Name A–Z**: folded Place → Level → folded Province (the README order).
-- **Status**: status rank (🟢 Active, 🟡 Work in Progress, 🔵 Planned, 🔴 Unmaintained) → then the Location keys.
-
-Level is 0 for a region row, 1 for a province row, and 2 for both cities and municipalities. The tie-breakers are the same in every preset: the higher level comes first (`Cebu Province` before `Cebu City, Cebu`), and a city never outranks a municipality, because both are Level 2, so the Province decides. Region rank runs north to south: NCR, CAR, Ilocos Region, Cagayan Valley, Central Luzon, CALABARZON, MIMAROPA Region, Bicol Region, Western Visayas, NIR, Central Visayas, Eastern Visayas, Zamboanga Peninsula, Northern Mindanao, Davao Region, SOCCSKSARGEN, Caraga, BARMM (`_data/regions.yml`, from the sync).
 _Avoid_: grouping.
 
 **Social**:
