@@ -250,6 +250,47 @@ main tr:last-child td {
   color: var(--color-primary-700);
 }
 
+/* LGU cell (#448): the place as the main text, "Province · Region" as a
+   smaller line under it. Both are aria-hidden; a visually hidden copy of the
+   full name is what screen readers read. */
+.lgu-place {
+  font-weight: 600;
+}
+
+.lgu-where {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: var(--color-gray-700); /* gray-500/600 fail AA at this size */
+}
+
+/* Kind filter chips (#448): toggle buttons; aria-pressed carries the state. */
+.kind-chip {
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-gray-200);
+  background-color: #fff;
+  font-weight: 500;
+  color: var(--color-gray-700);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.kind-chip:hover {
+  background-color: var(--color-gray-50);
+}
+
+.kind-chip:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+.kind-chip[aria-pressed="true"] {
+  background-color: var(--color-primary-50);
+  border-color: #9dc4f7;
+  color: var(--color-primary-700);
+}
+
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideIn { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 .animate-fade-in { animation: fadeIn 0.5s ease-in-out forwards; }

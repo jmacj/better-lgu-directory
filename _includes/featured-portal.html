@@ -33,7 +33,13 @@ that maintainer-links.html emits).
   {%- assign day = site.time | date: '%s' | times: 1 | plus: 28800 | divided_by: 86400 -%}
   {%- assign i = day | modulo: pool.size -%}
   {%- assign featured = pool[i] -%}
-  {%- assign lgu = site.data.lgus | where: "name", featured.name | first -%}
+  {%- comment -%}
+  The Entry is found by domain, not name (#448), so a rename never drops the
+  maintainer and socials: the Featured row's bare-hostname `domain` matches
+  the Entry's synced `host`. The Entry's own `domain` is the whole Markdown
+  link, so it can't be matched.
+  {%- endcomment -%}
+  {%- assign lgu = site.data.lgus | where: "host", featured.domain | first -%}
   {%- comment -%}
   The whole card is inert to pointer events by default (pointer-events-none);
   only the stretched link and the individually-marked inline links opt back
