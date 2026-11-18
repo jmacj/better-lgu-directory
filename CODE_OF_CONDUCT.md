@@ -24,6 +24,16 @@ Examples of unacceptable behavior include:
 * Publishing others' private information, such as a physical or email address, without their explicit permission
 * Other conduct which could reasonably be considered inappropriate in a professional setting
 
+## Contacting Maintainers
+
+Some Maintainers publish a [Maintainer Profile](maintainers/README.md) saying how they want to be reached. A Maintainer Profile is an invitation to get in touch about the portal they maintain, on their terms. If you use one:
+
+* No spam, recruiting, or sales pitches.
+* Do not scrape or compile Maintainer Profile contact data.
+* Respect what each profile says the Maintainer is **not a fit for**.
+
+Misuse of Maintainer Profiles is a violation of this Code of Conduct and is handled under the enforcement process below. See also the [privacy notice](PRIVACY.md).
+
 ## Enforcement Responsibilities
 
 Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
