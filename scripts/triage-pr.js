@@ -11,14 +11,27 @@
  *   docs                README changed, but no directory row did
  *
  * Collisions are reported, never acted on: two municipalities in different
- * provinces can share a name, so a maintainer makes the duplicate vs.
- * coordination call.
+ * provinces can share a name, so a Directory Maintainer makes the duplicate
+ * vs. coordination call.
+ *
+ * Pull requests that touch the Maintainer Profiles folder (#426) also get an
+ * advisory review — author ≠ the profile's handle, invalid front matter or a
+ * phone number, a handle in no Maintainer/s cell, the index out of step with
+ * the files. Problems add `needs-verification` and a comment section; never a
+ * failing check. That review needs git, not just the two READMEs, so it runs
+ * only when $PR_HEAD_REF, $MERGE_BASE and $PR_AUTHOR are set. It reads the
+ * pull request's files as git blobs (`git show`), never from a checkout, so
+ * nothing in the pull request is executed or followed as a symlink.
  *
  * Usage: node scripts/triage-pr.js <base-readme> <head-readme>
  * Writes `labels` to $GITHUB_OUTPUT and a comment body to $COMMENT_FILE.
  */
 
 const fs = require('fs');
+const { execFileSync } = require('child_process');
+const { PROFILES_DIR, INDEX_PATH, reviewProfileChanges } = require('./maintainer-profiles');
+const { listedHandles } = require('./sync-budget-to-data');
+const { parseLguName, compareLguNames, placement } = require('./lgu-name');
 
 const START_MARKER = '<!-- SYNC_LGU_TABLE_START -->';
 const END_MARKER = '<!-- SYNC_LGU_TABLE_END -->';
@@ -250,17 +263,60 @@ function describe(result) {
     return `HTTP ${result.status}${redirected}`;
 }
 
-async function main() {
-    const [basePath, headPath] = process.argv.slice(2);
-    if (!basePath || !headPath) {
-        throw new Error('Usage: node scripts/triage-pr.js <base-readme> <head-readme>');
+const NAMING_GUIDE = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'jmacj/better-lgu-directory'}/blob/main/CONTRIBUTING.md#naming-your-lgu`;
+
+// LGU Name warnings (#307) for the added and changed rows: a name outside the
+// grammar or with an unknown province, and a row out of sort order, with
+// where it belongs. Warnings only — no label, never blocking; the sync is
+// what refuses a bad name after merge.
+function nameNotes(headRows, touchedRows) {
+    const invalid = [];
+    const misplaced = [];
+    for (const row of touchedRows) {
+        const name = row.cells[0];
+        try {
+            parseLguName(name);
+        } catch (error) {
+            invalid.push(`- **${name}** — ${error.detail || error.message}`);
+            continue;
+        }
+        const index = headRows.indexOf(row);
+        const neighbour = (step) => {
+            for (let i = index + step; i >= 0 && i < headRows.length; i += step) {
+                try {
+                    parseLguName(headRows[i].cells[0]);
+                    return headRows[i].cells[0];
+                } catch {
+                    // skip rows that don't parse
+                }
+            }
+            return null;
+        };
+        const previous = neighbour(-1);
+        const next = neighbour(1);
+        if ((previous && compareLguNames(previous, name) > 0) || (next && compareLguNames(name, next) > 0)) {
+            const { after, before } = placement(name, headRows.filter(other => other !== row).map(other => other.cells[0]));
+            const where = [after && `after **${after}**`, before && `before **${before}**`].filter(Boolean).join(' and ');
+            misplaced.push(`- **${name}** belongs ${where}.`);
+        }
     }
 
-    const baseContent = fs.readFileSync(basePath, 'utf8');
-    const headContent = fs.readFileSync(headPath, 'utf8');
+    const notes = [];
+    if (invalid.length > 0) {
+        notes.push('### LGU name format\n', ...invalid);
+        notes.push(`\nEvery LGU name follows one format, so the directory can be sorted and filtered. See [Naming your LGU](${NAMING_GUIDE}).\n`);
+    }
+    if (misplaced.length > 0) {
+        notes.push('### Row order\n', ...misplaced);
+        notes.push(`\nThe table is sorted A–Z by place name. See [Naming your LGU](${NAMING_GUIDE}) for where a row goes.\n`);
+    }
+    return notes;
+}
 
+// The README.md directory-table review. Returns { labels, notes }.
+async function triageDirectory(baseContent, headContent) {
     if (baseContent === headContent) {
-        return { labels: [], comment: '' };
+        return { labels: [], notes: [] };
     }
 
     const baseRows = parseRows(baseContent);
@@ -269,7 +325,7 @@ async function main() {
     if (!baseRows || !headRows) {
         // Table markers are missing on one side — that is a review problem, not
         // something to guess about.
-        return { labels: [], comment: '' };
+        return { labels: [], notes: [] };
     }
 
     const { added, changed, removed, basePools } = diffRows(baseRows, headRows);
@@ -325,6 +381,8 @@ async function main() {
         notes.push('');
     }
 
+    notes.push(...nameNotes(headRows, [...added, ...changed.map(entry => entry.row)]));
+
     if (removed.length > 0) {
         notes.push('### Rows removed\n');
         for (const row of removed) {
@@ -362,6 +420,89 @@ async function main() {
         notes.push('- **Socials** — the Better LGU project\'s own page, not the local government\'s official account and not a personal profile.');
         notes.push('- **Maintainer** — the GitHub account of the person or people listed.');
         notes.push('\nOnce they all check out, remove `needs-verification`.\n');
+    }
+
+    return { labels: [...labels], notes };
+}
+
+function git(args) {
+    return execFileSync('git', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+}
+
+// A file's text at a ref, or '' when it doesn't exist there.
+function showAt(ref, path) {
+    try {
+        return git(['show', `${ref}:${path}`]);
+    } catch {
+        return '';
+    }
+}
+
+// Gathers the Maintainer Profile review's inputs from git — the changed paths
+// since the merge base, and the head's profiles, index and Maintainer/s cells
+// — and runs the pure review. Returns null when the PR touches no profiles.
+function profileReviewFromGit({ headRef, mergeBase, author }) {
+    // -z output alternates status and path: "A\0maintainers/x.md\0M\0…"
+    const tokens = git(['diff', '--name-status', '--no-renames', '-z', mergeBase, headRef, '--', `${PROFILES_DIR}/`])
+        .split('\0')
+        .filter(Boolean);
+    const changes = [];
+    for (let i = 0; i + 1 < tokens.length; i += 2) {
+        changes.push({ status: tokens[i][0], path: tokens[i + 1] });
+    }
+    if (changes.length === 0) {
+        return null;
+    }
+
+    const headProfilePaths = git(['ls-tree', '-z', '--name-only', headRef, '--', `${PROFILES_DIR}/`])
+        .split('\0')
+        .filter(Boolean);
+    const headFiles = new Map(changes
+        .filter(change => change.status !== 'D')
+        .map(change => [change.path, showAt(headRef, change.path)]));
+    return reviewProfileChanges({
+        author,
+        changes,
+        headFiles,
+        headProfilePaths,
+        headIndex: showAt(headRef, INDEX_PATH),
+        listedHandles: listedHandles(showAt(headRef, 'README.md'), showAt(headRef, 'BUDGET.md')),
+    });
+}
+
+function profileNotes(problems) {
+    const notes = ['### Maintainer Profile\n'];
+    if (problems.length === 0) {
+        notes.push('This pull request touches Maintainer Profiles, and the automated checks found nothing to flag. Still confirm it was opened by the person whose profile it is.\n');
+        return notes;
+    }
+    for (const { path, message } of problems) {
+        notes.push(`- \`${path}\` — ${message}`);
+    }
+    const repo = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'jmacj/better-lgu-directory'}/blob/main`;
+    notes.push(`\nA Maintainer Profile publishes someone's contact details, so only its owner may add or edit it — a Directory Maintainer may only delete one. See [\`maintainers/README.md\`](${repo}/maintainers/README.md) and [\`PRIVACY.md\`](${repo}/PRIVACY.md). Once these are resolved, remove \`needs-verification\`.\n`);
+    return notes;
+}
+
+async function main() {
+    const [basePath, headPath] = process.argv.slice(2);
+    if (!basePath || !headPath) {
+        throw new Error('Usage: node scripts/triage-pr.js <base-readme> <head-readme>');
+    }
+
+    const directory = await triageDirectory(fs.readFileSync(basePath, 'utf8'), fs.readFileSync(headPath, 'utf8'));
+    const labels = new Set(directory.labels);
+    const notes = [...directory.notes];
+
+    const { PR_HEAD_REF, MERGE_BASE, PR_AUTHOR } = process.env;
+    if (PR_HEAD_REF && MERGE_BASE && PR_AUTHOR) {
+        const problems = profileReviewFromGit({ headRef: PR_HEAD_REF, mergeBase: MERGE_BASE, author: PR_AUTHOR });
+        if (problems !== null) {
+            notes.push(...profileNotes(problems));
+            if (problems.length > 0) {
+                labels.add('needs-verification');
+            }
+        }
     }
 
     return {

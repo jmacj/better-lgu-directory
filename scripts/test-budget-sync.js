@@ -63,6 +63,29 @@ test('Maintainer/s cell is taken as written, for both types', () => {
     assert.strictEqual(s.maintainer, '[@x](https://github.com/x)');
 });
 
+test('Maintainers carry resolved links, given the profile paths (#426)', () => {
+    const [p] = syncBudget(budget(
+        `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | [@Juan](https://github.com/Juan), [@x](https://github.com/x) |`,
+    ), README, ['maintainers/README.md', 'maintainers/juan.md']);
+    assert.strictEqual(p.maintainer, '[@Juan](https://github.com/Juan), [@x](https://github.com/x)');
+    assert.deepStrictEqual(p.maintainers, [
+        { handle: 'Juan', url: '/maintainers/juan/', profile: true },
+        { handle: 'x', url: 'https://github.com/x', profile: false },
+    ]);
+    const yaml = toYaml([p]);
+    assert.ok(yaml.includes('  maintainers:\n    - handle: "Juan"\n      url: "/maintainers/juan/"\n      profile: true'), yaml);
+});
+
+test('without profile paths, Maintainers link to GitHub and an empty cell has none', () => {
+    const [a, b] = syncBudget(budget(
+        `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | @x |`,
+        `| Taal, Batangas | [t.org](https://t.org) | ${STANDALONE} | - | - |`,
+    ), README);
+    assert.deepStrictEqual(a.maintainers, [{ handle: 'x', url: 'https://github.com/x', profile: false }]);
+    assert.deepStrictEqual(b.maintainers, []);
+    assert.ok(toYaml([b]).includes('  maintainers: []'));
+});
+
 test('integrated row whose Entry has no domain gets "-"', () => {
     const [p] = syncBudget(budget(
         `| Ilocos Norte Province | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | - |`,
@@ -85,10 +108,10 @@ function withWarnings(fn) {
 
 test('integrated row with no matching README Entry falls back to "-" with a warning', () => {
     const { result: [p], warnings } = withWarnings(() => syncBudget(budget(
-        `| Nowhere City | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | - |`,
+        `| Taal, Batangas | [budget.x.org](https://budget.x.org) | ${INTEGRATED} | - | - |`,
     ), README));
     assert.strictEqual(p.parentDomain, '-');
-    assert.ok(warnings.some(w => w.includes('Nowhere City')), 'expected a warning naming the LGU');
+    assert.ok(warnings.some(w => w.includes('Taal, Batangas')), 'expected a warning naming the LGU');
 });
 
 test('unreadable or empty README falls back to "-" for every parent', () => {
@@ -129,6 +152,13 @@ test('a leftover Status column fails with the expected column list', () => {
     assert.throws(() => syncBudget(budget(
         `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | 🟢 Active | - |`,
     ), README), /must have 5 columns/);
+});
+
+test('an LGU cell outside the naming grammar fails, naming the row (#307)', () => {
+    assert.throws(() => syncBudget(budget(
+        `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | - |`,
+        `| Lapu Lapu City, Cebu Island | [l.org](https://l.org) | ${STANDALONE} | - | - |`,
+    ), README), /Budget Table Row 2.*Cebu Island/);
 });
 
 test('duplicate LGU fails', () => {
