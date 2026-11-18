@@ -7,6 +7,7 @@ messenger: https://www.facebook.com/profile.php?id=61596544258403
 discord: Angelito1986
 linkedIn: https://www.linkedin.com/in/avirrey1986/
 website: https://betterlipa2027budget.netlify.app
+---
 
 Automation builder and civic tech volunteer maintaining the Lipa City 2027 budget transparency portal.
 
