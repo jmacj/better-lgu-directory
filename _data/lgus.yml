@@ -3151,6 +3151,26 @@
     - handle: "SaraGugmaKo"
       url: "https://github.com/SaraGugmaKo"
       profile: false
+- name: "Siquijor Province"
+  place: "Siquijor"
+  kind: "province"
+  province: "Siquijor"
+  region: "NIR"
+  region_rank: 9
+  host: "bettersiquijor.vercel.app"
+  domain: "[bettersiquijor.vercel.app](https://bettersiquijor.vercel.app/)"
+  repo: "[GitHub](https://github.com/BetterSiquijor/BetterSiquijor)"
+  repo_owner: "BetterSiquijor"
+  repo_name: "BetterSiquijor"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@frenzjay](https://github.com/frenzjay)"
+  maintainers:
+    - handle: "frenzjay"
+      url: "https://github.com/frenzjay"
+      profile: false
 - name: "Solano, Nueva Vizcaya"
   place: "Solano"
   kind: "municipality"
