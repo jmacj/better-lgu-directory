@@ -898,3 +898,7 @@ main tr:last-child td {
   border-color: #9dc4f7;
   color: var(--color-primary-700);
 }
+
+[x-cloak] {
+  display: none !important;
+}

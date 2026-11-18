@@ -15,11 +15,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if display_title and page.title != 'Home' %}{{ display_title | escape }} | {% endif %}{{ site.title }}</title>
-    {%- comment -%}
-      Inline, ahead of the deferred Alpine script: until Alpine boots, the
-      mobile menu and its close icon would render open, then snap shut.
-    {%- endcomment %}
-    <style>[x-cloak] { display: none !important; }</style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
