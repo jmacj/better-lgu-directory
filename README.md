@@ -166,7 +166,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Siquijor Province | [bettersiquijor.vercel.app](https://bettersiquijor.vercel.app/) | [GitHub](https://github.com/BetterSiquijor/BetterSiquijor) | [Facebook](https://facebook.com/bettersiquijor) | 🟢 Active | [@frenzjay](https://github.com/frenzjay) |
 | Solano, Nueva Vizcaya | [bettersolano.org](https://bettersolano.org) | [GitHub](https://github.com/BetterSolano/bettersolano) | [Facebook](https://www.facebook.com/bettersolano.org) | 🟢 Active | [@ramonloganjr](https://github.com/ramonloganjr) |
 | Surallah, South Cotabato | [bettersurallah.org](https://bettersurallah.org) | [GitHub](https://github.com/average04/bettersurallah) | - | 🟢 Active | [@average04](https://github.com/average04) |
-| Taal, Batangas | - | [GitHub](https://github.com/rambaldoz/bettertaalbatangas) | - | 🟡 Work in Progress | [@rambaldoz](https://github.com/rambaldoz) |
+| Taal, Batangas | [bettertaalbatangas.org](https://bettertaalbatangas.org) | [GitHub](https://github.com/rambaldoz/bettertaalbatangas) | - | 🟢 Active | [@rambaldoz](https://github.com/rambaldoz) |
 | Tabaco City, Albay | - | [GitHub](https://github.com/johnjoshualipio/bettertabaco) | - | 🟡 Work in Progress | [@johnjoshualipio](https://github.com/johnjoshualipio) |
 | Tacloban City, Leyte | - | [GitHub](https://github.com/zenabus/better-tacloban) | - | 🔵 Planned | [@zenabus](https://github.com/zenabus) |
 | Tagaytay City, Cavite | [bettertagaytay.org](https://www.bettertagaytay.org/) | [GitHub](https://github.com/Arlovzki/bettertagaytay) | [Facebook](https://www.facebook.com/bettertagaytay) | 🟢 Active | [@Arlovzki](https://github.com/Arlovzki) |
