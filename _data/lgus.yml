@@ -3283,6 +3283,26 @@
     - handle: "average04"
       url: "https://github.com/average04"
       profile: false
+- name: "Taal, Batangas"
+  place: "Taal"
+  kind: "municipality"
+  province: "Batangas"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/rambaldoz/bettertaalbatangas)"
+  repo_owner: "rambaldoz"
+  repo_name: "bettertaalbatangas"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@rambaldoz](https://github.com/rambaldoz)"
+  maintainers:
+    - handle: "rambaldoz"
+      url: "https://github.com/rambaldoz"
+      profile: false
 - name: "Tabaco City, Albay"
   place: "Tabaco"
   kind: "city"
