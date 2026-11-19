@@ -1668,6 +1668,29 @@
     - handle: "Martin-Enghoy"
       url: "https://github.com/Martin-Enghoy"
       profile: false
+- name: "Leganes, Iloilo"
+  place: "Leganes"
+  kind: "municipality"
+  province: "Iloilo"
+  region: "Western Visayas"
+  region_rank: 8
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/kedalisay/Better-Leganes)"
+  repo_owner: "kedalisay"
+  repo_name: "Better-Leganes"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/profile.php?id=61596325847365"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@kedalisay](https://github.com/kedalisay)"
+  maintainers:
+    - handle: "kedalisay"
+      url: "https://github.com/kedalisay"
+      profile: false
 - name: "Legazpi City, Albay"
   place: "Legazpi"
   kind: "city"

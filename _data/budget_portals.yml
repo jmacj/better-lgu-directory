@@ -139,6 +139,19 @@
     - handle: "Martin-Enghoy"
       url: "https://github.com/Martin-Enghoy"
       profile: false
+- name: "Leganes, Iloilo"
+  portal: "[leganes-budget-transparency-portal.onrender.com](https://leganes-budget-transparency-portal.onrender.com/)"
+  type: "🏛️ Standalone"
+  integrated: false
+  parent_domain: "-"
+  repo: "[GitHub](https://github.com/kedalisay/leganes-budget-transparency-portal)"
+  repo_owner: "kedalisay"
+  repo_name: "leganes-budget-transparency-portal"
+  maintainer: "[@kedalisay](https://github.com/kedalisay)"
+  maintainers:
+    - handle: "kedalisay"
+      url: "https://github.com/kedalisay"
+      profile: false
 - name: "Lipa City, Batangas"
   portal: "[betterlipa2027budget.netlify.app](https://betterlipa2027budget.netlify.app)"
   type: "🏛️ Standalone"
