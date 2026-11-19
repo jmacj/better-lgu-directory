@@ -24,6 +24,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Ilocos Norte Province | [budget.betterilocosnorte.org](https://budget.betterilocosnorte.org) | 🧩 Integrated | - | [@russellraed](https://github.com/russellraed) |
 | Lapu-Lapu City, Cebu | [betterlapulapu.org/government/budget-projects](https://www.betterlapulapu.org/government/budget-projects) | 🧩 Integrated | - | [@iyanski](https://github.com/iyanski) |
 | Las Piñas City, Metro Manila | [budget.betterlaspinas.org](https://budget.betterlaspinas.org) | 🧩 Integrated | [GitHub](https://github.com/betterlaspinas/budget) | [@jmacj](https://github.com/jmacj), [@Martin-Enghoy](https://github.com/Martin-Enghoy) |
+| Leganes, Iloilo | [leganes-budget-transparency-portal.onrender.com](https://leganes-budget-transparency-portal.onrender.com/) | 🏛️ Standalone | [GitHub](https://github.com/kedalisay/leganes-budget-transparency-portal) | [@kedalisay](https://github.com/kedalisay) |
 | Lipa City, Batangas | [betterlipa2027budget.netlify.app](https://betterlipa2027budget.netlify.app) | 🏛️ Standalone | [GitHub](https://github.com/Angelito1986/lipa-city-transparency-portal) | [@Angelito1986](https://github.com/Angelito1986) |
 | Los Baños, Laguna | [budget.betterlb.org](https://budget.betterlb.org) | 🧩 Integrated | - | [@miconficker](https://github.com/miconficker) |
 | Manila City, Metro Manila | [budget.bettermanila.org](https://budget.bettermanila.org/) | 🧩 Integrated | [GitHub](https://github.com/aeschyllus/transparency-portal-manila) | [@aeschyllus](https://github.com/aeschyllus) |
