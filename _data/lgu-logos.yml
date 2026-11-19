@@ -41,7 +41,7 @@
   source: "rel-icon"
   px: "1000"
   bytes: 168890
-  order_key: "0061"
+  order_key: "0060"
   shuffle_key: "0014"
 - name: "Aurora, Zamboanga del Sur"
   domain: "betteraurora.org"
@@ -95,7 +95,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 1452
-  order_key: "0057"
+  order_key: "0056"
   shuffle_key: "0034"
 - name: "Bayawan City, Negros Oriental"
   domain: "betterbayawan.org"
@@ -113,8 +113,8 @@
   source: "rel-icon"
   px: "256"
   bytes: 8916
-  order_key: "0041"
-  shuffle_key: "0028"
+  order_key: "0002"
+  shuffle_key: "0002"
 - name: "Biñan City, Laguna"
   domain: "betterbinan.vercel.app"
   file: "betterbinan.vercel.app.svg"
@@ -149,7 +149,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 59724
-  order_key: "0053"
+  order_key: "0052"
   shuffle_key: "0050"
 - name: "Cabuyao City, Laguna"
   domain: "bettercabuyao.org"
@@ -168,7 +168,7 @@
   px: "vector"
   bytes: 3971
   order_key: "0007"
-  shuffle_key: "0025"
+  shuffle_key: "0027"
 - name: "Calapan City, Oriental Mindoro"
   domain: "bettercalapan.org"
   file: "bettercalapan.org.png"
@@ -203,7 +203,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 519
-  order_key: "0058"
+  order_key: "0057"
   shuffle_key: "0038"
 - name: "Carmona City, Cavite"
   domain: "bettercarmona.org"
@@ -212,8 +212,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 5172
-  order_key: "0056"
-  shuffle_key: "0027"
+  order_key: "0055"
+  shuffle_key: "0028"
 - name: "Catanduanes Province"
   domain: "bettercatanduanes.org"
   file: "bettercatanduanes.org.svg"
@@ -230,7 +230,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 3001
-  order_key: "0055"
+  order_key: "0054"
   shuffle_key: "0054"
 - name: "Cavite City, Cavite"
   domain: "bettercavitecity.org"
@@ -266,7 +266,7 @@
   source: "rel-icon"
   px: "500"
   bytes: 194493
-  order_key: "0042"
+  order_key: "0041"
   shuffle_key: "0046"
 - name: "Hermosa, Bataan"
   domain: "betterhermosa.org"
@@ -275,7 +275,7 @@
   source: "rel-icon"
   px: "192"
   bytes: 40404
-  order_key: "0050"
+  order_key: "0049"
   shuffle_key: "0048"
 - name: "Iligan City, Lanao del Norte"
   domain: "betteriligancity.org"
@@ -320,7 +320,7 @@
   source: "manifest"
   px: "512"
   bytes: 350453
-  order_key: "0059"
+  order_key: "0058"
   shuffle_key: "0033"
 - name: "Lapu-Lapu City, Cebu"
   domain: "betterlapulapu.org"
@@ -329,7 +329,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 21167
-  order_key: "0054"
+  order_key: "0053"
   shuffle_key: "0056"
 - name: "Las Piñas City, Metro Manila"
   domain: "betterlaspinas.org"
@@ -338,7 +338,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 107303
-  order_key: "0049"
+  order_key: "0048"
   shuffle_key: "0052"
 - name: "Legazpi City, Albay"
   domain: "betterlegazpi.org"
@@ -356,7 +356,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 30235
-  order_key: "0046"
+  order_key: "0045"
   shuffle_key: "0030"
 - name: "Los Baños, Laguna"
   domain: "betterlb.org"
@@ -365,7 +365,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 1078872
-  order_key: "0045"
+  order_key: "0044"
   shuffle_key: "0063"
 - name: "Maddela, Quirino"
   domain: "bettermaddela.vercel.app"
@@ -383,7 +383,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 2566
-  order_key: "0043"
+  order_key: "0042"
   shuffle_key: "0059"
 - name: "Malaybalay City, Bukidnon"
   domain: "bettermalaybalay.cloud"
@@ -392,7 +392,7 @@
   source: "rel-icon"
   px: "128"
   bytes: 13599
-  order_key: "0044"
+  order_key: "0043"
   shuffle_key: "0051"
 - name: "Malolos City, Bulacan"
   domain: "bettermalolos.org"
@@ -446,7 +446,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 27188
-  order_key: "0051"
+  order_key: "0050"
   shuffle_key: "0026"
 - name: "Naic, Cavite"
   domain: "betternaic.vercel.app"
@@ -464,7 +464,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 210
-  order_key: "0048"
+  order_key: "0047"
   shuffle_key: "0065"
 - name: "Olongapo City, Zambales"
   domain: "betterolongapo.org"
@@ -536,7 +536,7 @@
   source: "rel-icon"
   px: "64"
   bytes: 2987
-  order_key: "0052"
+  order_key: "0051"
   shuffle_key: "0005"
 - name: "San Fernando City, Pampanga"
   domain: "bettersanfernando.org"
@@ -545,7 +545,7 @@
   source: "rel-icon"
   px: "512"
   bytes: 188796
-  order_key: "0060"
+  order_key: "0059"
   shuffle_key: "0053"
 - name: "San Pablo City, Laguna"
   domain: "bettersanpablo.org"
@@ -581,8 +581,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 3971
-  order_key: "0002"
-  shuffle_key: "0002"
+  order_key: "0061"
+  shuffle_key: "0025"
 - name: "Surallah, South Cotabato"
   domain: "bettersurallah.org"
   file: "bettersurallah.org.png"
@@ -599,7 +599,7 @@
   source: "rel-icon"
   px: "966"
   bytes: 370044
-  order_key: "0047"
+  order_key: "0046"
   shuffle_key: "0045"
 - name: "Tanay, Rizal"
   domain: "bettertanay.org"

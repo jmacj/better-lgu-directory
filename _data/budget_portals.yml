@@ -150,6 +150,19 @@
     - handle: "miconficker"
       url: "https://github.com/miconficker"
       profile: false
+- name: "Manila City, Metro Manila"
+  portal: "[budget.bettermanila.org](https://budget.bettermanila.org/)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[bettermanila.org](https://bettermanila.org)"
+  repo: "[GitHub](https://github.com/aeschyllus/transparency-portal-manila)"
+  repo_owner: "aeschyllus"
+  repo_name: "transparency-portal-manila"
+  maintainer: "[@aeschyllus](https://github.com/aeschyllus)"
+  maintainers:
+    - handle: "aeschyllus"
+      url: "https://github.com/aeschyllus"
+      profile: false
 - name: "Marinduque Province"
   portal: "[budget-bettermarinduque.vercel.app](https://budget-bettermarinduque.vercel.app)"
   type: "🧩 Integrated"
