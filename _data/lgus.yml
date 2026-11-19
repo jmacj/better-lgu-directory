@@ -205,6 +205,26 @@
     - handle: "cj-catacutan"
       url: "https://github.com/cj-catacutan"
       profile: false
+- name: "Antipolo City, Rizal"
+  place: "Antipolo"
+  kind: "city"
+  province: "Rizal"
+  region: "CALABARZON"
+  region_rank: 5
+  host: ""
+  domain: "-"
+  repo: "[Github](https://github.com/frvfrvr/betterantipolo)"
+  repo_owner: "frvfrvr"
+  repo_name: "betterantipolo"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@frvfrvr](https://github.com/frvfrvr)"
+  maintainers:
+    - handle: "frvfrvr"
+      url: "https://github.com/frvfrvr"
+      profile: false
 - name: "Aparri, Cagayan"
   place: "Aparri"
   kind: "municipality"
