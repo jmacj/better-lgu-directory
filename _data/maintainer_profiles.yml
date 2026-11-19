@@ -1,3 +1,27 @@
+- handle: "Angelito1986"
+  url: "/maintainers/Angelito1986/"
+  github: "https://github.com/Angelito1986"
+  name: "Angelito Virrey"
+  open_to:
+    - "collaborators"
+    - "mentoring"
+    - "code review"
+  languages:
+    - "Filipino"
+    - "English"
+  channels:
+    email: "angelitomvirrey@gmail.com"
+    messenger: "https://m.me/61596544258403"
+    discord: "Angelito1986"
+    linkedin: "https://www.linkedin.com/in/avirrey1986/"
+    website: "https://betterlipa2027budget.netlify.app"
+  portals:
+    - name: "Lipa City, Batangas"
+      kind: "entry"
+      domain: "[betterlipaportal.netlify.app](https://betterlipaportal.netlify.app)"
+    - name: "Lipa City, Batangas"
+      kind: "budget"
+      domain: "[betterlipa2027budget.netlify.app](https://betterlipa2027budget.netlify.app)"
 - handle: "jmacj"
   url: "/maintainers/jmacj/"
   github: "https://github.com/jmacj"

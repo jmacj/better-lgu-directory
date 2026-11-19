@@ -1780,6 +1780,29 @@
     - handle: "rimzbravz"
       url: "https://github.com/rimzbravz"
       profile: false
+- name: "Lipa City, Batangas"
+  place: "Lipa"
+  kind: "city"
+  province: "Batangas"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "betterlipaportal.netlify.app"
+  domain: "[betterlipaportal.netlify.app](https://betterlipaportal.netlify.app)"
+  repo: "[GitHub](https://github.com/Angelito1986/better-lipa)"
+  repo_owner: "Angelito1986"
+  repo_name: "better-lipa"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/profile.php?id=61596544258403"
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@Angelito1986](https://github.com/Angelito1986)"
+  maintainers:
+    - handle: "Angelito1986"
+      url: "/maintainers/Angelito1986/"
+      profile: true
 - name: "Llanera, Nueva Ecija"
   place: "Llanera"
   kind: "municipality"
