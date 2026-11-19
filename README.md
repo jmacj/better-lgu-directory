@@ -63,7 +63,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Cavite City, Cavite | [bettercavitecity.org](https://bettercavitecity.org) | - | [Facebook](https://www.facebook.com/bettercavitecity.org) | 🟢 Active | [@jdsatsatin](https://github.com/jdsatsatin) |
 | Cebu City, Cebu | - | [GitHub](https://github.com/kyrenmearr/bettercebucity) | - | 🟡 Work in Progress | [@kyrenmearr](https://github.com/kyrenmearr) |
 | Claver, Surigao del Norte | - | - | - | 🔵 Planned<br>⚠️ Stale | [@eljohn2001](https://github.com/eljohn2001)<br>🤝 Open for Adoption |
-| Corella, Bohol | - | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🔵 Planned | [@ashdroidcmd](https://github.com/ashdroidcmd) |
+| Corella, Bohol | [bettercorella.vercel.app](https://bettercorella.vercel.app) | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🟢 Active | [@ashdroidcmd](https://github.com/ashdroidcmd) |
 | Dagupan City, Pangasinan | - | [GitHub](https://github.com/jamesjmnz/better-dagupan) | - | 🟡 Work in Progress | [@jamesjmnz](https://github.com/jamesjmnz) |
 | Dasmariñas City, Cavite | [betterdasmarinas.org](https://betterdasmarinas.org) | [GitHub](https://github.com/Shuashuaa/BetterDasmarinas) | [Facebook](https://www.facebook.com/profile.php?id=61570802813363) | 🟢 Active | [@Shuashuaa](https://github.com/Shuashuaa) |
 | Davao City, Davao del Sur | - | [GitHub](https://github.com/johnloydlao/betterdavao) | - | 🟡 Work in Progress | [@johnloydlao](https://github.com/johnloydlao) |
@@ -160,7 +160,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Santo Domingo, Ilocos Sur | - | [GitHub](https://github.com/tanojericko/bettersantodomingo-ilocossur) | - | 🔵 Planned | [@tanojericko](https://github.com/tanojericko) |
 | Santo Tomas, Pangasinan | - | - | - | 🔵 Planned<br>⚠️ Stale | [@PatrickTomas2](https://github.com/PatrickTomas2)<br>🤝 Open for Adoption |
 | Sara, Iloilo | - | [GitHub](https://github.com/SaraGugmaKo/bettersara) | - | 🟡 Work in Progress | [@SaraGugmaKo](https://github.com/SaraGugmaKo) |
-| Siquijor Province | [bettersiquijor.vercel.app](https://bettersiquijor.vercel.app/) | [GitHub](https://github.com/BetterSiquijor/BetterSiquijor) | - | 🟢 Active | [@frenzjay](https://github.com/frenzjay) |
+| Siquijor Province | [bettersiquijor.vercel.app](https://bettersiquijor.vercel.app/) | [GitHub](https://github.com/BetterSiquijor/BetterSiquijor) | [Facebook](https://facebook.com/bettersiquijor) | 🟢 Active | [@frenzjay](https://github.com/frenzjay) |
 | Solano, Nueva Vizcaya | [bettersolano.org](https://bettersolano.org) | [GitHub](https://github.com/BetterSolano/bettersolano) | [Facebook](https://www.facebook.com/bettersolano.org) | 🟢 Active | [@ramonloganjr](https://github.com/ramonloganjr) |
 | Surallah, South Cotabato | [bettersurallah.org](https://bettersurallah.org) | [GitHub](https://github.com/average04/bettersurallah) | - | 🟢 Active | [@average04](https://github.com/average04) |
 | Tabaco City, Albay | - | [GitHub](https://github.com/johnjoshualipio/bettertabaco) | - | 🟡 Work in Progress | [@johnjoshualipio](https://github.com/johnjoshualipio) |
