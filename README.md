@@ -111,7 +111,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Malinao, Albay | - | [GitHub](https://github.com/bettermalinao/bettermalinao) | [Facebook](https://www.facebook.com/bettermalinao.org) | 🟡 Work in Progress | [@rcbalingbing](https://github.com/rcbalingbing) |
 | Malolos City, Bulacan | [bettermalolos.org](https://bettermalolos.org/) | [GitHub](https://github.com/francisdiaz22/bettermalolos) | [Facebook](https://www.facebook.com/bettermalolos.org) | 🟢 Active | [@francisdiaz22](https://github.com/francisdiaz22) |
 | Mandaue City, Cebu | - | - | - | 🔵 Planned | [@jaylothai](https://github.com/jaylothai) |
-| Manila City, Metro Manila | [bettermanila.org](https://bettermanila.org) | [GitHub](https://github.com/grgdlm/bettermanila) | - | 🟢 Active | [@grgdlm](https://github.com/grgdlm) |
+| Manila City, Metro Manila | [bettermanila.org](https://bettermanila.org) | [GitHub](https://github.com/grgdlm/bettermanila) | [Facebook](https://www.facebook.com/BetterManilaOrg) | 🟢 Active | [@grgdlm](https://github.com/grgdlm) |
 | Mapandan, Pangasinan | [bettermapandan.org](https://www.bettermapandan.org/) | [GitHub](https://github.com/jadolation/bettermapandan) | - | 🟢 Active | [@jadolation](https://github.com/jadolation), [@Gel81](https://github.com/Gel81) |
 | Marawi City, Lanao del Sur | - | [GitHub](https://github.com/mamangcao/bettermarawi) | [Facebook](https://facebook.com/bettermarawi.org) | 🟡 Work in Progress | [@mamangcao](https://github.com/mamangcao) |
 | Marikina City, Metro Manila | [bettermarikina.org](https://www.bettermarikina.org) | [GitHub](https://github.com/BetterMarikina/bettermarikina) | [Facebook](https://www.facebook.com/bettermarikina) | 🟢 Active | [@terddyy](https://github.com/terddyy) |
