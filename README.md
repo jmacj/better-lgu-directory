@@ -21,6 +21,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Allen, Northern Samar | [betterallen.org](https://betterallen.org) | [GitHub](https://github.com/xandreiAThome/betterallen) | [Facebook](https://www.facebook.com/betterallen.org) | 🟢 Active | [@xandreiAThome](https://github.com/xandreiAThome) |
 | Angeles City, Pampanga | - | [GitHub](https://github.com/ongods/betterangeles) | - | 🟡 Work in Progress | [@ongods](https://github.com/ongods) |
 | Angono, Rizal | - | [GitHub](https://github.com/cj-catacutan/betterangono) | - | 🟡 Work in Progress | [@cj-catacutan](https://github.com/cj-catacutan) |
+| Antipolo City, Rizal | - | [Github](https://github.com/frvfrvr/betterantipolo) | - | 🔵 Planned | [@frvfrvr](https://github.com/frvfrvr) |
 | Aparri, Cagayan | [betteraparri.org](https://betteraparri.org/) | [GitHub](https://github.com/egiebk/betteraparri) | [Facebook](https://www.facebook.com/betteraparri.org) | 🟢 Active | [@egiebk](https://github.com/egiebk) |
 | Atimonan, Quezon | - | [GitHub](https://github.com/EmsiPrds/betteratimonan) | - | 🟡 Work in Progress | [@EmsiPrds](https://github.com/EmsiPrds) |
 | Aurora, Zamboanga del Sur | [betteraurora.org](https://betteraurora.org) | [GitHub](https://github.com/Jayke770/betteraurora) | - | 🟢 Active | [@jayke770](https://github.com/jayke770) |
