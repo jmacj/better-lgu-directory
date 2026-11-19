@@ -96,6 +96,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Liliw, Laguna | - | [GitHub](https://github.com/BetterLiliw/betterliliw) | - | 🟡 Work in Progress | [@Kiko915](https://github.com/Kiko915), [@johnchristiancoronacion](https://github.com/johnchristiancoronacion) |
 | Limay, Bataan | [betterlimay.org](https://betterlimay.org/) | [GitHub](https://github.com/AstroMC98/BetterLimay-Prod) | [Facebook](https://www.facebook.com/betterlimay.org) | 🟢 Active | [@AstroMC98](https://github.com/AstroMC98) |
 | Lingayen, Pangasinan | - | [GitHub](https://github.com/rimzbravz/betterlingayen) | - | 🔵 Planned | [@rimzbravz](https://github.com/rimzbravz) |
+| Lipa City, Batangas | [betterlipaportal.netlify.app](https://betterlipaportal.netlify.app) | [GitHub](https://github.com/Angelito1986/better-lipa) | [Facebook](https://www.facebook.com/profile.php?id=61596544258403) | 🟡 Work in Progress | [@Angelito1986](https://github.com/Angelito1986) |
 | Llanera, Nueva Ecija | - | [GitHub](https://github.com/heyerikfelipe/BetterLlanera) | - | 🔵 Planned | [@heyerikfelipe](https://github.com/heyerikfelipe) |
 | Lopez, Quezon | - | [GitHub](https://github.com/StanleyPangaruy/betterlopez) | - | 🟡 Work in Progress | [@StanleyPangaruy](https://github.com/StanleyPangaruy) |
 | Los Baños, Laguna | [betterlb.org](https://betterlb.org) | [GitHub](https://github.com/BetterLosBanos/betterlb) | [Facebook](https://www.facebook.com/BetterLB.org) | 🟢 Active | [@miconficker](https://github.com/miconficker) |
