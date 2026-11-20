@@ -1,13 +1,14 @@
 // Projects the Budget Portal table in BUDGET.md into _data/budget_portals.yml,
-// rendered by budget-directory.md on main-pages at lgu.bettergov.ph/BUDGET/.
+// rendered by budget-directory.md on main-pages at lgu.bettergov.ph/budget.
 //
 // BUDGET.md is the sole source of truth for Budget Portals, the same way
 // README.md is for Entries. An `🧩 Integrated` Budget Portal belongs to a
 // Better LGU Entry: its LGU cell must match that Entry's name in README.md
 // exactly, and the Entry's Domain is copied in as `parent_domain` — falling
 // back to "-" with a warning if the Entry or README can't be found. Its
-// Maintainer/s cell is copied by hand from the Entry's README row. Offline,
-// no network calls.
+// Maintainer/s cell is copied by hand from the Entry's README row, and each
+// Maintainer's link is resolved against the Maintainer Profiles folder
+// (#426). Offline, no network calls.
 //
 // Usage: node scripts/sync-budget-to-data.js [output-path]
 
@@ -16,12 +17,17 @@ const path = require('path');
 const {
     README_PATH,
     EMPTY_MARKERS,
+    readProfilePaths,
+    maintainerLinks,
+    formatMaintainersYaml,
     parseTable,
     normalizeDash,
     parseRepoCell,
     validateLgu,
     yamlStr,
 } = require('./sync-to-data');
+const { extractHandles } = require('./maintainer-profiles');
+const { parseLguName } = require('./lgu-name');
 
 const BUDGET_PATH = path.join(__dirname, '../BUDGET.md');
 const BUDGET_DATA_PATH = process.argv[2] || path.join(__dirname, '../_data/budget_portals.yml');
@@ -82,6 +88,14 @@ function validateBudgetPortal(cells, index, entriesByName) {
         throw new Error(`${row} is missing an LGU name.`);
     }
 
+    // Same grammar as README.md (#307). The Integrated join below stays an
+    // exact `name` match.
+    try {
+        parseLguName(name);
+    } catch (error) {
+        throw new Error(`${row}: ${error.message} See CONTRIBUTING.md, "Naming Your LGU".`);
+    }
+
     const type = typeCell.trim();
     if (!VALID_TYPES.includes(type)) {
         throw new Error(`${row} (${name}) has an invalid type: "${type}". Use "${INTEGRATED}" or "${STANDALONE}".`);
@@ -124,13 +138,18 @@ function toYaml(portals) {
             ? [`  repo_owner: "${yamlStr(p.repoOwner)}"`, `  repo_name: "${yamlStr(p.repoName)}"`]
             : []),
         `  maintainer: "${yamlStr(p.maintainer)}"`,
+        formatMaintainersYaml(p.maintainers),
     ].join('\n')).join('\n');
 }
 
-function syncBudget(budgetContent, readmeContent) {
+// `profilePaths` lists the Maintainer Profiles folder (#426), so each
+// Maintainer's link can be resolved; omitted, every Maintainer links to GitHub.
+function syncBudget(budgetContent, readmeContent, profilePaths = []) {
     const entriesByName = indexEntries(readmeContent);
     const rows = parseTable(budgetContent, BUDGET_START, BUDGET_END, 'BUDGET.md');
-    const portals = rows.map((cells, i) => validateBudgetPortal(cells, i, entriesByName));
+    const portals = rows
+        .map((cells, i) => validateBudgetPortal(cells, i, entriesByName))
+        .map(p => ({ ...p, maintainers: maintainerLinks(p.maintainer, profilePaths) }));
 
     const seen = new Set();
     for (const p of portals) {
@@ -142,6 +161,24 @@ function syncBudget(budgetContent, readmeContent) {
     return portals;
 }
 
+// Every handle in a Maintainer/s cell of README.md (column 6) or BUDGET.md
+// (column 5) — the Maintainers allowed a Maintainer Profile (#426). A file
+// that is empty or has lost its markers contributes nothing rather than
+// failing: callers (triage, the orphan report) are advisory.
+function listedHandles(readmeContent, budgetContent) {
+    const column = (content, start, end, source, index) => {
+        try {
+            return parseTable(content, start, end, source).map(cells => cells[index] || '');
+        } catch {
+            return [];
+        }
+    };
+    return [
+        ...column(readmeContent, LGU_START, LGU_END, 'README.md', 5),
+        ...column(budgetContent, BUDGET_START, BUDGET_END, 'BUDGET.md', 4),
+    ].flatMap(extractHandles);
+}
+
 function main() {
     console.log('🚀 Starting sync from BUDGET.md to Budget Portal Data...');
     let readmeContent = '';
@@ -150,7 +187,7 @@ function main() {
     } catch (error) {
         // indexEntries() then warns and every parent falls back to "-".
     }
-    const portals = syncBudget(fs.readFileSync(BUDGET_PATH, 'utf8'), readmeContent);
+    const portals = syncBudget(fs.readFileSync(BUDGET_PATH, 'utf8'), readmeContent, readProfilePaths());
     console.log(`✅ Validated ${portals.length} Budget Portal entries.`);
 
     fs.mkdirSync(path.dirname(BUDGET_DATA_PATH), { recursive: true });
@@ -168,6 +205,8 @@ if (require.main === module) {
 }
 
 module.exports = {
+    BUDGET_PATH,
+    listedHandles,
     INTEGRATED,
     STANDALONE,
     validateBudgetPortal,

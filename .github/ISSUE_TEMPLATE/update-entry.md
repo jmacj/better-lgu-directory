@@ -8,7 +8,7 @@ labels: entry:update
 [Provide the name of the LGU as it appears in the directory]
 
 ### What is changing?
-[e.g. Status, Domain, Repository, Socials, Maintainers]
+[e.g. Status, Domain, Repository, Socials, Maintainers, or the LGU name after cityhood. Names follow [Naming Your LGU](https://github.com/jmacj/better-lgu-directory/blob/main/CONTRIBUTING.md#naming-your-lgu).]
 
 ### Old Value
 [The current value in the directory]
