@@ -3202,6 +3202,29 @@
     - handle: "tanojericko"
       url: "https://github.com/tanojericko"
       profile: false
+- name: "Santo Niño, Cagayan"
+  place: "Santo Niño"
+  kind: "municipality"
+  province: "Cagayan"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/JoScripty/bettersantonino)"
+  repo_owner: "JoScripty"
+  repo_name: "bettersantonino"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@JoScripty](https://github.com/JoScripty), [@YuureiN](https://github.com/YuureiN)"
+  maintainers:
+    - handle: "JoScripty"
+      url: "https://github.com/JoScripty"
+      profile: false
+    - handle: "YuureiN"
+      url: "https://github.com/YuureiN"
+      profile: false
 - name: "Santo Tomas, Pangasinan"
   place: "Santo Tomas"
   kind: "municipality"
