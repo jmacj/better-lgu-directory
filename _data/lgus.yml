@@ -1107,6 +1107,26 @@
     - handle: "eljohn2001"
       url: "https://github.com/eljohn2001"
       profile: false
+- name: "Concepcion, Tarlac"
+  place: "Concepcion"
+  kind: "municipality"
+  province: "Tarlac"
+  region: "Central Luzon"
+  region_rank: 4
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/aaronher1030-glitch/bettergovtarlacph)"
+  repo_owner: "aaronher1030-glitch"
+  repo_name: "bettergovtarlacph"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@aaronher1030-glitch](https://github.com/aaronher1030-glitch)"
+  maintainers:
+    - handle: "aaronher1030-glitch"
+      url: "https://github.com/aaronher1030-glitch"
+      profile: false
 - name: "Corella, Bohol"
   place: "Corella"
   kind: "municipality"
