@@ -1,3 +1,16 @@
+- name: "Albay Province"
+  portal: "[albay-transparency-portal.vercel.app](https://albay-transparency-portal.vercel.app)"
+  type: "🏛️ Standalone"
+  integrated: false
+  parent_domain: "-"
+  repo: "[GitHub](https://github.com/Pseudoman21/albay-transparency-portal)"
+  repo_owner: "Pseudoman21"
+  repo_name: "albay-transparency-portal"
+  maintainer: "[@Pseudoman21](https://github.com/Pseudoman21)"
+  maintainers:
+    - handle: "Pseudoman21"
+      url: "https://github.com/Pseudoman21"
+      profile: false
 - name: "Batangas Province"
   portal: "[betterbatangas.org](https://betterbatangas.org)"
   type: "🏛️ Standalone"
