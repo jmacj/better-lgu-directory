@@ -187,6 +187,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tuguegarao City, Cagayan | - | [GitHub](https://github.com/JDgayagoy/BetterTuguegarao) | - | 🟡 Work in Progress | [@JDgayagoy](https://github.com/JDgayagoy), [@sidj28](https://github.com/sidj28), [@geneconceja](https://github.com/geneconceja) |
 | Urdaneta City, Pangasinan | - | [GitHub](https://github.com/robotinkers/betterurdaneta) | - | 🟡 Work in Progress | [@robotinkers](https://github.com/robotinkers) |
 | Valenzuela City, Metro Manila | - | [GitHub](https://github.com/JeremyDFabian/bettervalenzuela) | [Facebook](https://www.facebook.com/betterval.org) | 🟡 Work in Progress | [@JeremyDFabian](https://github.com/JeremyDFabian) |
+| Villasis, Pangasinan | - | [GitHub](https://github.com/Xerman09/bettervillasis) | - | 🔵 Planned | [@Xerman09](https://github.com/Xerman09) |
 | Zamboanga City, Zamboanga del Sur | [betterzamboangacity.vercel.app](https://betterzamboangacity.vercel.app) | [GitHub](https://github.com/RALPH22222/betterzamboangacity) | [Facebook](https://facebook.com/betterzamboangacity.org) | 🟡 Work in Progress | [@RALPH22222](https://github.com/RALPH22222) |
 
 <!-- SYNC_LGU_TABLE_END -->
