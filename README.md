@@ -153,6 +153,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | San Fernando City, Pampanga | [bettersanfernando.org](https://bettersanfernando.org) | [GitHub](https://github.com/bettersanfernando/bettersanfernando) | [Facebook](https://www.facebook.com/BetterSanFernandoOrg) | 🟢 Active | [@iyawnnn](https://github.com/iyawnnn) |
 | San Jose, Antique | - | [GitHub](https://github.com/bonfire404/bettersanjose) | - | 🟡 Work in Progress | [@bonfire404](https://github.com/bonfire404) |
 | San Jose City, Nueva Ecija | [sanjose.betternuevaecija.org](https://sanjose.betternuevaecija.org) | [GitHub](https://github.com/denver6000/bettersanjosecity-ne) | - | 🟡 Work in Progress | [@denver6000](https://github.com/denver6000), [@kurt-farinas](https://github.com/kurt-farinas) |
+| San Jose, Occidental Mindoro | - | [GitHub](https://github.com/lslaoang/bettersanjoseoccmdo) | - | 🟡 Work in Progress | [@lslaoang](https://github.com/lslaoang) |
 | San Jose del Monte City, Bulacan | - | [GitHub](https://github.com/Better-SJDM/better-sjdm) | - | 🟡 Work in Progress | [@zchuwie](https://github.com/zchuwie) |
 | San Mariano, Isabela | - | - | - | 🔵 Planned<br>⚠️ Stale | [@yazunomii](https://github.com/yazunomii)<br>🤝 Open for Adoption |
 | San Pablo City, Laguna | [bettersanpablo.org](https://www.bettersanpablo.org/) | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | - | 🟢 Active | [@ChristiannWick](https://github.com/ChristiannWick) |
