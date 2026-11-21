@@ -145,6 +145,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Quezon City, Metro Manila | - | [GitHub](https://github.com/brixavengoza/betterquezoncity) | - | 🔵 Planned<br>⚠️ Stale | [@brixavengoza](https://github.com/brixavengoza)<br>🤝 Open for Adoption |
 | Ramon, Isabela | [betterramon.pages.dev](https://betterramon.pages.dev) | [GitHub](https://github.com/spncrruiz-alt/betterramon) | - | 🟢 Active | [@spncrruiz-alt](https://github.com/spncrruiz-alt) |
 | Rizal, Nueva Ecija | - | [GitHub](https://github.com/njveneracion/betterrizalne) | - | 🟡 Work in Progress | [@njveneracion](https://github.com/njveneracion) |
+| Rosales, Pangasinan | - | [GitHub](https://github.com/Xerman09/betterrosales) | - | 🔵 Planned | [@Xerman09](https://github.com/Xerman09) |
 | Roxas City, Capiz | - | [GitHub](https://github.com/chariz1101/betterroxas) | - | 🔵 Planned | [@chariz1101](https://github.com/chariz1101) |
 | Samal, Bataan | - | - | - | 🔵 Planned<br>⚠️ Stale | [@gab26g](https://github.com/gab26g)<br>🤝 Open for Adoption |
 | San Carlos City, Pangasinan | [bettersancarlos.vercel.app](https://bettersancarlos.vercel.app/) | [GitHub](https://github.com/edisonmalasan/bettersancarlos) | - | 🟢 Active | [@edisonmalasan](https://github.com/edisonmalasan) |
