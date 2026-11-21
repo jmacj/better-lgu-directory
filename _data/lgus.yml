@@ -2251,8 +2251,11 @@
   repo: "[GitHub](https://github.com/b0urbonn/bettermarinduque)"
   repo_owner: "b0urbonn"
   repo_name: "bettermarinduque"
-  socials: []
-  status: "🟡 Work in Progress"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/profile.php?id=61596099517298"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@b0urbonn](https://github.com/b0urbonn)"
