@@ -3024,6 +3024,26 @@
     - handle: "kurt-farinas"
       url: "https://github.com/kurt-farinas"
       profile: false
+- name: "San Jose, Occidental Mindoro"
+  place: "San Jose"
+  kind: "municipality"
+  province: "Occidental Mindoro"
+  region: "MIMAROPA Region"
+  region_rank: 6
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/lslaoang/bettersanjoseoccmdo)"
+  repo_owner: "lslaoang"
+  repo_name: "bettersanjoseoccmdo"
+  socials: []
+  status: "🟡 Work in Progress"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@lslaoang](https://github.com/lslaoang)"
+  maintainers:
+    - handle: "lslaoang"
+      url: "https://github.com/lslaoang"
+      profile: false
 - name: "San Jose del Monte City, Bulacan"
   place: "San Jose del Monte"
   kind: "city"
