@@ -101,6 +101,19 @@
     - handle: "VLDCNDN"
       url: "https://github.com/VLDCNDN"
       profile: false
+- name: "Corella, Bohol"
+  portal: "[bettercorella.vercel.app/transparency](https://bettercorella.vercel.app/transparency)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[bettercorella.vercel.app](https://bettercorella.vercel.app)"
+  repo: "[GitHub](https://github.com/ashdroidcmd/bettercorella)"
+  repo_owner: "ashdroidcmd"
+  repo_name: "bettercorella"
+  maintainer: "[@ashdroidcmd](https://github.com/ashdroidcmd)"
+  maintainers:
+    - handle: "ashdroidcmd"
+      url: "https://github.com/ashdroidcmd"
+      profile: false
 - name: "Iligan City, Lanao del Norte"
   portal: "[budget.betteriligancity.org](https://budget.betteriligancity.org)"
   type: "🧩 Integrated"
