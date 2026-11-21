@@ -188,6 +188,8 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Valenzuela City, Metro Manila | - | [GitHub](https://github.com/JeremyDFabian/bettervalenzuela) | [Facebook](https://www.facebook.com/betterval.org) | 🟡 Work in Progress | [@JeremyDFabian](https://github.com/JeremyDFabian) |
 | Zamboanga City, Zamboanga del Sur | [betterzamboangacity.vercel.app](https://betterzamboangacity.vercel.app) | [GitHub](https://github.com/RALPH22222/betterzamboangacity) | [Facebook](https://facebook.com/betterzamboangacity.org) | 🟡 Work in Progress | [@RALPH22222](https://github.com/RALPH22222) |
 
+| Your LGU Name | [betterhilongos.org](https://betterhilongos.org) | [GitHub]([https://github.com/you/repo](https://github.com/fgelsano/betterhilongos)) | 🔵 Planned | [@fgelsano]([https://github.com/yourhandle](https://github.com/fgelsano)) |
+
 <!-- SYNC_LGU_TABLE_END -->
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md). Write the LGU name in the [naming format](CONTRIBUTING.md#naming-your-lgu) and insert the row in A–Z order by place name.
