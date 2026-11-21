@@ -3733,6 +3733,26 @@
     - handle: "JeremyDFabian"
       url: "https://github.com/JeremyDFabian"
       profile: false
+- name: "Villasis, Pangasinan"
+  place: "Villasis"
+  kind: "municipality"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/Xerman09/bettervillasis)"
+  repo_owner: "Xerman09"
+  repo_name: "bettervillasis"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@Xerman09](https://github.com/Xerman09)"
+  maintainers:
+    - handle: "Xerman09"
+      url: "https://github.com/Xerman09"
+      profile: false
 - name: "Zamboanga City, Zamboanga del Sur"
   place: "Zamboanga"
   kind: "city"
