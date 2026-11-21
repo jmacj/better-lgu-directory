@@ -2860,6 +2860,26 @@
     - handle: "njveneracion"
       url: "https://github.com/njveneracion"
       profile: false
+- name: "Rosales, Pangasinan"
+  place: "Rosales"
+  kind: "municipality"
+  province: "Pangasinan"
+  region: "Ilocos Region"
+  region_rank: 2
+  host: ""
+  domain: "-"
+  repo: "[GitHub](https://github.com/Xerman09/betterrosales)"
+  repo_owner: "Xerman09"
+  repo_name: "betterrosales"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@Xerman09](https://github.com/Xerman09)"
+  maintainers:
+    - handle: "Xerman09"
+      url: "https://github.com/Xerman09"
+      profile: false
 - name: "Roxas City, Capiz"
   place: "Roxas"
   kind: "city"
