@@ -147,7 +147,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Rizal, Nueva Ecija | - | [GitHub](https://github.com/njveneracion/betterrizalne) | - | 🟡 Work in Progress | [@njveneracion](https://github.com/njveneracion) |
 | Rosales, Pangasinan | - | [GitHub](https://github.com/Xerman09/betterrosales) | - | 🔵 Planned | [@Xerman09](https://github.com/Xerman09) |
 | Roxas City, Capiz | - | [GitHub](https://github.com/chariz1101/betterroxas) | - | 🔵 Planned | [@chariz1101](https://github.com/chariz1101) |
-| Samal, Bataan | - | - | - | 🔵 Planned<br>⚠️ Stale | [@gab26g](https://github.com/gab26g)<br>🤝 Open for Adoption |
+| Samal, Bataan | - | - | - | 🔵 Planned | [@nathmadgam](https://github.com/nathmadgam) |
 | San Carlos City, Pangasinan | [bettersancarlos.vercel.app](https://bettersancarlos.vercel.app/) | [GitHub](https://github.com/edisonmalasan/bettersancarlos) | - | 🟢 Active | [@edisonmalasan](https://github.com/edisonmalasan) |
 | San Fernando City, La Union | [bettersanfernando.pages.dev](https://bettersanfernando.pages.dev/) | [GitHub](https://github.com/alvindemesadev/better-san-fernando-lu) | - | 🟢 Active | [@alvindemesadev](https://github.com/alvindemesadev) |
 | San Fernando City, Pampanga | [bettersanfernando.org](https://bettersanfernando.org) | [GitHub](https://github.com/bettersanfernando/bettersanfernando) | [Facebook](https://www.facebook.com/BetterSanFernandoOrg) | 🟢 Active | [@iyawnnn](https://github.com/iyawnnn) |
