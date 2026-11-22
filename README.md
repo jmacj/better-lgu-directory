@@ -121,7 +121,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Meycauayan City, Bulacan | [bettermeycauayan.org](https://bettermeycauayan.org) | [GitHub](https://github.com/shnflrsc/bettermeycauayan) | - | 🟢 Active | [@shnflrsc](https://github.com/shnflrsc) |
 | Miagao, Iloilo | [bettermiagao.org](https://bettermiagao.org) | [GitHub](https://github.com/joebertj/bettermiagao) | - | 🟢 Active | [@joebertj](https://github.com/joebertj) |
 | Midsayap, Cotabato | - | - | - | 🔵 Planned<br>⚠️ Stale | [@PostNZT](https://github.com/PostNZT)<br>🤝 Open for Adoption |
-| Minalabac, Camarines Sur | [betterminalabac.datalprojects.workers.dev](https://betterminalabac.datalprojects.workers.dev) | [GitHub](https://github.com/nathmadgam/betterminalabac) | - | 🟡 Work in Progress | [@nathmadgam](https://github.com/nathmadgam) |
+| Minalabac, Camarines Sur | [nathmadgam.github.io/betterminalabac](https://nathmadgam.github.io/betterminalabac/) | [GitHub](https://github.com/nathmadgam/betterminalabac) | - | 🟡 Work in Progress | [@nathmadgam](https://github.com/nathmadgam) |
 | Morong, Rizal | [bettermorong.org](https://bettermorong.org/) | [GitHub](https://github.com/carlodandan/bettermorong) | [Facebook](https://facebook.com/bettermorong.org) | 🟢 Active | [@carlodandan](https://github.com/carlodandan) |
 | Naguilian, La Union | [betternaguilianlu.vercel.app](https://betternaguilianlu.vercel.app) | [GitHub](https://github.com/baeyacorpuz/betternaguilianlu) | - | 🟡 Work in Progress | [@baeyacorpuz](https://github.com/baeyacorpuz) |
 | Naic, Cavite | [betternaic.vercel.app](https://betternaic.vercel.app) | [GitHub](https://github.com/riecodes/betternaic) | [Facebook](https://facebook.com/betternaic) | 🟢 Active | [@rieCodes](https://github.com/rieCodes) |
