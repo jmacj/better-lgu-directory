@@ -14,6 +14,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | LGU | Portal | Type | Repository | Maintainer/s |
 |---|---|---|---|---|
 | Albay Province | [albay-transparency-portal.vercel.app](https://albay-transparency-portal.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/Pseudoman21/albay-transparency-portal) | [@Pseudoman21](https://github.com/Pseudoman21) |
+| Bagabag, Nueva Vizcaya | [budget.betterbagabag.org](https://budget.betterbagabag.org) | 🧩 Integrated | [GitHub](https://github.com/marttidumangeng/nueva-vizcaya-transparency-portal) | [@marttidumangeng](https://github.com/marttidumangeng) |
 | Batangas Province | [betterbatangas.org](https://betterbatangas.org) | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal) | [@pogicodes](https://github.com/pogicodes) |
 | Bukidnon Province | [budget.betterbukidnon.org](https://budget.betterbukidnon.org) | 🧩 Integrated | - | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 | Bulacan Province | [budget-betterbulacan.vercel.app](https://budget-betterbulacan.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/KyneLaggui/transparency-portal-bulacan) | [@KyneLaggui](https://github.com/KyneLaggui) |
@@ -33,6 +34,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Marinduque Province | [budget-bettermarinduque.vercel.app](https://budget-bettermarinduque.vercel.app) | 🧩 Integrated | [GitHub](https://github.com/b0urbonn/transparency-portal) | [@b0urbonn](https://github.com/b0urbonn) |
 | Miagao, Iloilo | [bettermiagao.org/budget](https://bettermiagao.org/budget) | 🧩 Integrated | [GitHub](https://github.com/joebertj/bettermiagao) | [@joebertj](https://github.com/joebertj) |
 | Morong, Rizal | [budget.bettermorong.org](https://budget.bettermorong.org) | 🧩 Integrated | [GitHub](https://github.com/carlodandan/transparency-portal-morong) | [@carlodandan](https://github.com/carlodandan) |
+| Nueva Vizcaya Province | [betternuevavizcaya.org](https://betternuevavizcaya.org) | 🏛️ Standalone | [GitHub](https://github.com/marttidumangeng/nueva-vizcaya-transparency-portal) | [@marttidumangeng](https://github.com/marttidumangeng) |
 | Pampanga Province | [betterpampanga.vercel.app](https://betterpampanga.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/Pseudoman21/betterpampanga) | [@Pseudoman21](https://github.com/Pseudoman21) |
 | Puerto Princesa City, Palawan | [budget.betterpuertoprincesa.org](https://budget.betterpuertoprincesa.org) | 🧩 Integrated | [GitHub](https://github.com/BetterPuertoPrincesa/transparency-portal) | [@hmcldryl](https://github.com/hmcldryl) |
 | Rosario, Batangas | [rosario-betterbatangas.vercel.app](https://rosario-betterbatangas.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/BetterWatchMen/better-rosario) | [@BetterWatchMen](https://github.com/BetterWatchMen) |
