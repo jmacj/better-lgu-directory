@@ -45,7 +45,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Botolan, Zambales | - | [GitHub](https://github.com/SilentPing/better-botolan) | - | 🟡 Work in Progress | [@SilentPing](https://github.com/SilentPing) |
 | Bukidnon Province | [betterbukidnon.org](https://betterbukidnon.org) | [GitHub](https://github.com/Better-Bukidnon) | - | 🟢 Active | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 | Bulakan, Bulacan | [betterbulakan.org](https://betterbulakan.org/) | [GitHub](https://github.com/kuyacarlo/betterbulakan) | - | 🟢 Active | [@kuyacarlo](https://github.com/kuyacarlo) |
-| Butuan City, Agusan del Norte | [betterbutuan.datalprojects.workers.dev](https://betterbutuan.datalprojects.workers.dev) | [GitHub](https://github.com/nathmadgam/betterbutuan) | - | 🟡 Work in Progress | [@nathmadgam](https://github.com/nathmadgam) |
+| Butuan City, Agusan del Norte | [nathmadgam.github.io/betterbutuan](https://nathmadgam.github.io/betterbutuan/) | [GitHub](https://github.com/nathmadgam/betterbutuan) | - | 🟡 Work in Progress | [@nathmadgam](https://github.com/nathmadgam) |
 | Cabanatuan City, Nueva Ecija | [bettercabanatuan.org](https://bettercabanatuan.org) | [GitHub](https://github.com/BetterCabanatuan/bettercabanatuan) | [Facebook](https://www.facebook.com/bettercabanatuan.org) | 🟢 Active | [@joshuagemvicente](https://github.com/joshuagemvicente), [@iampoll](https://github.com/iampoll) |
 | Cabuyao City, Laguna | [bettercabuyao.org](https://bettercabuyao.org/) | [GitHub](https://github.com/johnrommeloctaviano/better-cabuyao) | - | 🟢 Active | [@johnrommeloctaviano](https://github.com/johnrommeloctaviano) |
 | Cainta, Rizal | [bettercainta.org](https://bettercainta.org) | - | - | 🟢 Active | - |
