@@ -165,7 +165,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Santa Rosa City, Laguna | [bettersantarosacity.pages.dev](https://bettersantarosacity.pages.dev) | [GitHub](https://github.com/jericizon/bettersantarosacity) | - | 🟡 Work in Progress | [@jericizon](https://github.com/jericizon) |
 | Santo Domingo, Ilocos Sur | - | [GitHub](https://github.com/tanojericko/bettersantodomingo-ilocossur) | - | 🔵 Planned | [@tanojericko](https://github.com/tanojericko) |
 | Santo Niño, Cagayan | - | [GitHub](https://github.com/JoScripty/bettersantonino) | - | 🟡 Work in Progress | [@JoScripty](https://github.com/JoScripty), [@YuureiN](https://github.com/YuureiN) |
-| Santo Tomas, Pangasinan | - | - | - | 🔵 Planned<br>⚠️ Stale | [@PatrickTomas2](https://github.com/PatrickTomas2)<br>🤝 Open for Adoption |
+| Santo Tomas, Pangasinan | - | - | - | 🔵 Planned | [@nathmadgam](https://github.com/nathmadgam) |
 | Sara, Iloilo | - | [GitHub](https://github.com/SaraGugmaKo/bettersara) | - | 🟡 Work in Progress | [@SaraGugmaKo](https://github.com/SaraGugmaKo) |
 | Siquijor Province | [bettersiquijor.vercel.app](https://bettersiquijor.vercel.app/) | [GitHub](https://github.com/BetterSiquijor/BetterSiquijor) | [Facebook](https://facebook.com/bettersiquijor) | 🟢 Active | [@frenzjay](https://github.com/frenzjay) |
 | Solano, Nueva Vizcaya | [bettersolano.org](https://bettersolano.org) | [GitHub](https://github.com/BetterSolano/bettersolano) | [Facebook](https://www.facebook.com/bettersolano.org) | 🟢 Active | [@ramonloganjr](https://github.com/ramonloganjr) |
