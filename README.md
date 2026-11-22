@@ -155,7 +155,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | San Jose City, Nueva Ecija | [sanjose.betternuevaecija.org](https://sanjose.betternuevaecija.org) | [GitHub](https://github.com/denver6000/bettersanjosecity-ne) | - | 🟡 Work in Progress | [@denver6000](https://github.com/denver6000), [@kurt-farinas](https://github.com/kurt-farinas) |
 | San Jose, Occidental Mindoro | - | [GitHub](https://github.com/lslaoang/bettersanjoseoccmdo) | - | 🟡 Work in Progress | [@lslaoang](https://github.com/lslaoang) |
 | San Jose del Monte City, Bulacan | - | [GitHub](https://github.com/Better-SJDM/better-sjdm) | - | 🟡 Work in Progress | [@zchuwie](https://github.com/zchuwie) |
-| San Mariano, Isabela | - | - | - | 🔵 Planned | [@nathmadgam](https://github.com/nathmadgam) |
+| San Mariano, Isabela | [nathmadgam.github.io/bettersanmariano](https://nathmadgam.github.io/bettersanmariano/) | [GitHub](https://github.com/nathmadgam/bettersanmariano) | - | 🟡 Work in Progress | [@nathmadgam](https://github.com/nathmadgam) |
 | San Pablo City, Laguna | [bettersanpablo.org](https://www.bettersanpablo.org/) | [GitHub](https://github.com/ChristiannWick/bettersanpablo) | - | 🟢 Active | [@ChristiannWick](https://github.com/ChristiannWick) |
 | San Pascual, Masbate | - | [GitHub](https://github.com/marcuwynu23/bettersanpascualmasbate) | - | 🟡 Work in Progress | [@marcuwynu23](https://github.com/marcuwynu23) |
 | San Pedro City, Laguna | [bettersanpedro.org](https://bettersanpedro.org) | [GitHub](https://github.com/sechipeanut/BetterSanPedro) | [Facebook](https://www.facebook.com/bettersanpedro.org) | 🟢 Active | [@sechipeanut](https://github.com/sechipeanut) |
