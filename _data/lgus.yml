@@ -1423,18 +1423,15 @@
   socials:
     - platform: "facebook"
       label: "Facebook"
-      url: "https://www.facebook.com/BetterIligan.org/"
+      url: "https://www.facebook.com/BetterIliganCity.org"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
-  maintainer: "[@KishonShrill](https://github.com/KishonShrill), [@Vantalim12](https://github.com/Vantalim12)"
+  maintainer: "[@KishonShrill](https://github.com/KishonShrill)"
   maintainers:
     - handle: "KishonShrill"
       url: "/maintainers/KishonShrill/"
       profile: true
-    - handle: "Vantalim12"
-      url: "https://github.com/Vantalim12"
-      profile: false
 - name: "Ilocos Norte Province"
   place: "Ilocos Norte"
   kind: "province"
