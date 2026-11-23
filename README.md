@@ -245,6 +245,8 @@ The short version:
 3. **Build** — pick a [community template](TEMPLATES.md), set up your `better[lguname]` repo, gather public data, and deploy to a `better[lguname].org` domain
 4. **Launch and maintain** — update your entry to `🟢 Active` once live, and keep the data current
 
+> **The directory coordinates; it doesn't own.** Registration earns you first say, not exclusive rights. Shipping and maintaining keep your entry. See [CONTRIBUTING.md](CONTRIBUTING.md) for the rules.
+
 ---
 
 ## 🤝 Contributing
