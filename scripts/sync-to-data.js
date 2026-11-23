@@ -18,7 +18,8 @@ const EMPTY_MARKERS = ['', '-', '—', '–'];
 // Secondary tags rendered on a second line of a cell, under the primary value.
 // `⚠️ Stale` marks a Planned entry with no directory activity for over
 // STALE_AFTER_DAYS; `🤝 Open for Adoption` invites a new maintainer to take it
-// over. The two always travel together — see validateLgu.
+// over. Stale always brings Adoption with it; Adoption also appears alone on a
+// 🔴 Unmaintained entry (#469) — see validateLgu.
 const STALE_TAG = '⚠️ Stale';
 const ADOPTION_TAG = '🤝 Open for Adoption';
 const STALE_AFTER_DAYS = 30;
@@ -172,10 +173,16 @@ function validateLgu(cells, index) {
     const openForAdoption = maintainerLines.includes(ADOPTION_TAG);
     const maintainer = maintainerLines.filter(line => line !== ADOPTION_TAG).join(' ');
 
-    // Keep the two columns coherent: a stale entry is by definition open for
-    // adoption, and nothing else may carry the adoption call to action.
-    if (stale !== openForAdoption) {
-        throw new Error(`LGU Table Row ${index + 1} must carry "${STALE_TAG}" and "${ADOPTION_TAG}" together (stale=${stale}, open for adoption=${openForAdoption}).`);
+    // Keep the two columns coherent (#469): a stale entry is by definition open
+    // for adoption, and the only other entry that may carry the adoption call
+    // to action is a 🔴 Unmaintained one, which a Directory Maintainer has
+    // already escalated. Unmaintained entries never go stale (see above).
+    const adoptableWithoutStale = status === '🔴 Unmaintained';
+    if (stale && !openForAdoption) {
+        throw new Error(`LGU Table Row ${index + 1} is tagged "${STALE_TAG}" but not "${ADOPTION_TAG}" — a stale entry is always open for adoption.`);
+    }
+    if (openForAdoption && !stale && !adoptableWithoutStale) {
+        throw new Error(`LGU Table Row ${index + 1} is tagged "${ADOPTION_TAG}" with status "${status}" — only 🔵 Planned entries tagged "${STALE_TAG}" and 🔴 Unmaintained entries can be open for adoption.`);
     }
 
     const socials = parseSocials(socialsCell);

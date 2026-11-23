@@ -2,6 +2,10 @@
 
 Thank you for being part of the BetterGov.ph community. This guide explains how to register your LGU, update an existing entry, or contribute a template.
 
+> **The directory coordinates; it doesn't own.** Registration earns you first say, not exclusive rights. Shipping and maintaining keep your entry.
+
+The directory exists so builders find an existing portal before they build, and so no LGU stays blocked by an entry that has stopped moving. The rules below — [One LGU, One Entry](#one-lgu-one-entry), [Stale Entries](#stale-entries), [Check-ins](#check-ins), [Unmaintained Entries](#unmaintained-entries) and [Collisions](#collisions) — all follow from that.
+
 ---
 
 ## Adding Your LGU
@@ -33,7 +37,7 @@ You do not need to have a finished portal to register. If you are planning to bu
    | 🟢 Active           | Publicly launched and actively maintained            |
    | 🔴 Unmaintained     | Previously active but no longer maintained           |
 
-   Keep a `🔵 Planned` entry moving. Planned entries that see no directory activity for over 30 days are tagged `⚠️ Stale` and `🤝 Open for Adoption` — see [Stale Entries](#stale-entries).
+   Keep your entry moving. Planned entries that see no directory activity for over 30 days are tagged `⚠️ Stale` and `🤝 Open for Adoption` — see [Stale Entries](#stale-entries). Quiet Work in Progress entries are followed up in [Check-ins](#check-ins).
 
 4. **Open a Pull Request** with the title format:
 
@@ -42,6 +46,14 @@ You do not need to have a finished portal to register. If you are planning to bu
    ```
 
 5. A Directory Maintainer will review and merge your PR.
+
+---
+
+## One LGU, One Entry
+
+Each LGU has a single row in `README.md`. If your LGU is already listed, don't add a second row: contribute to the existing portal or co-maintain it. Open a PR adding your handle to its Maintainer/s cell once you've agreed it with the listed Maintainer/s, or adopt the entry if it is [open for adoption](#stale-entries). A PR that adds a row for an LGU that's already listed is a [collision](#collisions).
+
+Budget portals in `BUDGET.md` are a separate category with their own table, so a Budget Portal row never counts as a second entry for its LGU.
 
 ---
 
@@ -150,7 +162,7 @@ A `🔵 Planned` entry whose row has not changed in over 30 days is tagged `⚠�
 | Your LGU Name | - | - | - | 🔵 Planned<br>⚠️ Stale | [@yourhandle](https://github.com/yourhandle)<br>🤝 Open for Adoption |
 ```
 
-The two tags always appear together, and only on `🔵 Planned` entries — the sync script rejects any other combination.
+Only `🔵 Planned` entries go stale, and a stale entry always carries both tags. `🤝 Open for Adoption` also appears on its own on [Unmaintained](#unmaintained-entries) entries. The sync script rejects any other combination.
 
 **If it is your entry:** it is not a penalty and nothing is removed. Any update clears it — move to `🟡 Work in Progress`, add your repo link, or open a PR removing both tags to confirm you are still on it.
 
@@ -159,6 +171,41 @@ The two tags always appear together, and only on `🔵 Planned` entries — the 
 Adopting resets the clock: the entry counts as updated from the day that PR merges, so it will not be re-tagged for another 30 days.
 
 The tags are applied by Directory Maintainers during periodic reviews, never by automation. Elapsed time is what prompts a look, not the whole judgement — an entry with visible progress elsewhere will not be tagged just because its row has not changed.
+
+---
+
+## Check-ins
+
+`🟡 Work in Progress` entries don't go stale. Instead, Directory Maintainers post **check-ins** in [Discussions](https://github.com/jmacj/better-lgu-directory/discussions) periodically. Check-ins happen when a Directory Maintainer has time, so there is no fixed schedule. Each one tags the Maintainer/s of every `🟡 Work in Progress` entry whose row **and** repository have both been quiet for over 30 days.
+
+**If you're tagged:** reply. Any reply keeps your entry, including "paused" or "stuck" — the point is to hear that someone is still there. A new commit to your repository or an update to your row counts too.
+
+### When a check-in goes unanswered
+
+A `🟡 Work in Progress` entry becomes `🔴 Unmaintained` and `🤝 Open for Adoption` when **both** of these hold:
+
+- its Maintainer/s were tagged in **two check-ins and replied to neither**, and
+- at least **60 days** have passed since the first of those check-ins, with no commits or row updates in that time.
+
+Counting unanswered check-ins and requiring a minimum elapsed time together works whether check-ins are three weeks or three months apart. As with stale tags, a Directory Maintainer makes the change by hand; elapsed time prompts a look but doesn't decide on its own.
+
+Anyone can also flag an entry with a **[Report Inactive Portal](https://github.com/jmacj/better-lgu-directory/issues/new?template=report-inactive.md)** issue (labelled `inactive`). A Directory Maintainer then reviews it.
+
+---
+
+## Unmaintained Entries
+
+Only Directory Maintainers set `🔴 Unmaintained`, either after an unanswered check-in ([above](#when-a-check-in-goes-unanswered)) or after reviewing an `inactive` report. A `🟢 Active` portal that goes offline (an expired domain, a dead site) follows the same path through an `inactive` report.
+
+An Unmaintained entry is tagged `🤝 Open for Adoption` under its Maintainer/s, without `⚠️ Stale`:
+
+```
+| Your LGU Name | - | [GitHub](https://github.com/yourhandle/betteryourlgu) | - | 🔴 Unmaintained | [@yourhandle](https://github.com/yourhandle)<br>🤝 Open for Adoption |
+```
+
+**If you want to adopt one:** it works the same way as a stale entry. Open a PR that updates the Maintainer/s column and removes `🤝 Open for Adoption`, and set the status to match reality: `🟡 Work in Progress` if you're building, `🟢 Active` if the portal is live.
+
+**If it is your entry:** open a PR that sets the real status and removes the tag. That counts as an update, like any other.
 
 ---
 
@@ -211,11 +258,33 @@ Some labels are applied automatically, so do not worry about setting them yourse
 
 A Directory Maintainer may then add:
 
-- `needs-changes` — something needs fixing on your side. A PR that sits here for 14 days is marked `stale` and closed 7 days later. Closing is not a rejection; reopen it whenever you are ready.
-- `needs-coordination` — someone is already registered for that LGU. Talk to them rather than adding a second row; two contributors on one portal is a good outcome.
+- `needs-changes` — something needs fixing on your side. A PR that sits here for 14 days is marked `stale` and closed 7 days later (see [Stale Pull Requests](#stale-pull-requests)). Closing is not a rejection; reopen it whenever you are ready.
+- `needs-coordination` — someone is already registered for that LGU. Talk to them rather than adding a second row; two contributors on one portal is a good outcome. See [Collisions](#collisions) for what happens next.
 - `blocked` — waiting on something outside this repository, such as a domain going live.
 
 If you are looking for something to pick up, the `open-for-adoption` label marks entries that have no active Maintainer.
+
+### Collisions
+
+A **collision** is a PR that adds a row for an LGU that's already listed (labelled `entry:collision`), or a second open PR for the same LGU. **That PR is the coordination thread**: nobody opens a separate issue, and `needs-coordination` PRs are never closed as stale while it plays out.
+
+1. A Directory Maintainer applies `needs-coordination` and tags the existing Maintainer/s on the PR. Merging into one portal is the default ask. If the newcomer's portal is already live, contributing to it is a valid outcome for the registered builder too.
+2. A **30-day window** starts when the label is applied. If the registered entry reaches `🟢 Active` within it, that entry keeps the row and the PR is closed.
+3. Otherwise the registered entry becomes `🔴 Unmaintained`, and the PR is changed to update the existing row instead of adding a second one. The live portal takes the row, and the original Maintainer is offered co-maintainer.
+4. If both portals are live and neither builder will merge, the earlier registration keeps the row and the PR is closed. No second row is added.
+5. A Directory Maintainer who maintains either portal stays out of the decision.
+
+### Stale Pull Requests
+
+[`stale.yml`](.github/workflows/stale.yml) runs daily and only ever looks at pull requests waiting on their contributor:
+
+- **Scope:** only PRs labelled `needs-changes` go stale. A PR waiting on a Directory Maintainer never does.
+- **Timing:** 14 days after the last activity, the PR is labelled `stale` with a comment; 7 days after that, it's closed.
+- **Exemptions:** `blocked` and `needs-coordination` PRs are never marked stale, even with `needs-changes`. That covers the 30-day [collision](#collisions) window.
+- **Reset:** any comment or push removes `stale` and restarts the clock.
+- **Issues** are never marked stale or closed automatically; Directory Maintainers triage them by hand.
+
+The `stale` **PR label** is unrelated to the `⚠️ Stale` **entry tag**. The label is automated and means a PR is waiting on its contributor. The tag is applied by hand and means a `🔵 Planned` row has been quiet (see [Stale Entries](#stale-entries)).
 
 ---
 
