@@ -1,15 +1,6 @@
 // Reports which 🔵 Planned entries have gone stale, and whether README.md's
 // ⚠️ Stale / 🤝 Open for Adoption tags currently agree.
 //
-// It also lists 🟡 Work in Progress entries whose row and repository have both
-// been quiet for over the threshold (#469): the entries to tag in the next
-// check-in. See CONTRIBUTING.md, "Check-ins". Repository activity is the repo's
-// last push (any branch), read from the GitHub API. Unauthenticated requests are
-// capped at 60 an hour, so set GITHUB_TOKEN (or GH_TOKEN) — e.g.
-// `GITHUB_TOKEN=$(gh auth token) node scripts/check-stale.js`. When a repo can't
-// be read (no GitHub repo, rate limit, network), the entry is still listed on
-// row activity alone and marked "repo unknown", for a human to check.
-//
 // The directory has no `updated_at` column — the README table is the whole data
 // model — so "last updated" is derived from git history: the date of the most
 // recent commit that changed an entry's row. An entry that has never been
@@ -32,7 +23,7 @@
 const fs = require('fs');
 const { execFileSync } = require('child_process');
 
-const { findOrphans, extractHandles } = require('./maintainer-profiles.js');
+const { findOrphans } = require('./maintainer-profiles.js');
 const { BUDGET_PATH, listedHandles } = require('./sync-budget-to-data.js');
 const {
     README_PATH,
@@ -43,7 +34,6 @@ const {
     parseTable,
     splitCellLines,
     normalizeDash,
-    parseRepoCell,
 } = require('./sync-to-data.js');
 
 const TABLE_START = '<!-- SYNC_LGU_TABLE_START -->';
@@ -174,86 +164,7 @@ function lastUpdatedByName() {
     return lastUpdated;
 }
 
-// Last push to a GitHub repo, as an ISO date, or null when it can't be read.
-// Never throws: a lookup failure must not hide an entry from the check-in list.
-async function repoPushedAt({ owner, repo }) {
-    const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
-    const headers = { 'Accept': 'application/vnd.github+json', 'User-Agent': 'check-stale' };
-    if (token) {
-        headers.Authorization = `Bearer ${token}`;
-    }
-    try {
-        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, { headers });
-        if (!response.ok) {
-            return null;
-        }
-        const { pushed_at: pushedAt } = await response.json();
-        return pushedAt || null;
-    } catch {
-        return null;
-    }
-}
-
-function daysSince(isoDate, now) {
-    return Math.floor((now - new Date(isoDate).getTime()) / MS_PER_DAY);
-}
-
-// 🟡 Work in Progress entries whose row is older than the threshold, then
-// whose repo is too (or can't be read). Only rows already quiet are looked up,
-// which keeps API calls to the entries that matter.
-async function quietWorkInProgress(readme, lastUpdated, staleAfterDays, now) {
-    const quiet = [];
-
-    for (const cells of parseTable(readme, TABLE_START, TABLE_END)) {
-        const name = (cells[0] || '').trim();
-        const [status] = splitCellLines(cells[4] || '');
-        if (status !== '🟡 Work in Progress') {
-            continue;
-        }
-
-        const updatedAt = lastUpdated.get(name);
-        if (!updatedAt) {
-            console.warn(`⚠️  No git history found for "${name}" — skipping.`);
-            continue;
-        }
-        const rowAgeDays = daysSince(updatedAt, now);
-        if (rowAgeDays <= staleAfterDays) {
-            continue;
-        }
-
-        const repo = parseRepoCell(cells[2]);
-        const pushedAt = repo ? await repoPushedAt(repo) : null;
-        const repoAgeDays = pushedAt ? daysSince(pushedAt, now) : null;
-        if (repoAgeDays !== null && repoAgeDays <= staleAfterDays) {
-            continue;
-        }
-
-        quiet.push({
-            name,
-            rowAgeDays,
-            repoAgeDays,
-            handles: extractHandles(cells[5]),
-        });
-    }
-
-    return quiet.sort((a, b) => b.rowAgeDays - a.rowAgeDays);
-}
-
-function reportQuietWorkInProgress(quiet, staleAfterDays) {
-    if (quiet.length === 0) {
-        console.log(`\n✅ No 🟡 Work in Progress entries quiet for over ${staleAfterDays} days.`);
-        return;
-    }
-
-    console.log(`\n${quiet.length} 🟡 Work in Progress entries with row and repository quiet for over ${staleAfterDays} days — tag their Maintainer/s in the next check-in (CONTRIBUTING.md, "Check-ins"):`);
-    for (const { name, rowAgeDays, repoAgeDays, handles } of quiet) {
-        const repoNote = repoAgeDays === null ? 'repo unknown' : `repo ${repoAgeDays}d`;
-        const mentions = handles.length > 0 ? handles.map(h => `@${h}`).join(' ') : 'no GitHub handle';
-        console.log(`  🟡 ${name} — row ${rowAgeDays}d, ${repoNote} — ${mentions}`);
-    }
-}
-
-async function main() {
+function main() {
     const staleAfterDays = parseDaysArg(process.argv.slice(2));
     const now = Date.now();
 
@@ -280,7 +191,7 @@ async function main() {
             continue;
         }
 
-        const ageDays = daysSince(updatedAt, now);
+        const ageDays = Math.floor((now - new Date(updatedAt).getTime()) / MS_PER_DAY);
         const isStale = ageDays > staleAfterDays;
         const tagged = statusTags.includes(STALE_TAG);
         const entry = { name, ageDays, updatedAt: updatedAt.slice(0, 10), tagged };
@@ -323,10 +234,6 @@ async function main() {
         process.exitCode = 1;
     }
 
-    // Informational: nothing in README.md changes until a Directory Maintainer
-    // runs the check-in, so this list never sets the exit code.
-    reportQuietWorkInProgress(await quietWorkInProgress(readme, lastUpdated, staleAfterDays, now), staleAfterDays);
-
     reportOrphanedProfiles(readme);
 }
 
@@ -351,7 +258,9 @@ function reportOrphanedProfiles(readme) {
     process.exitCode = 1;
 }
 
-main().catch((error) => {
+try {
+    main();
+} catch (error) {
     console.error(`\n❌ STALE CHECK FAILED: ${error.message}`);
     process.exit(1);
-});
+}

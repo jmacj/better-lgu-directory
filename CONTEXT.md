@@ -79,7 +79,7 @@ The `🤝 Open for Adoption` tag under an Entry's Maintainer/s: anyone may take 
 _Avoid_: up for grabs, abandoned, orphaned (that is a Maintainer Profile).
 
 **Check-in**:
-A Discussions post by a Directory Maintainer that tags the Maintainer/s of every `🟡 Work in Progress` Entry whose row and repository have both been quiet for over 30 days (#469). Check-ins have no fixed schedule. Any reply, commit or row update keeps the Entry; two unanswered Check-ins spanning at least 60 days make it `🔴 Unmaintained` and Open for Adoption, applied by hand. `scripts/check-stale.js` lists the candidates. Rules: `CONTRIBUTING.md`, "Check-ins".
+A Discussions post by a Directory Maintainer that tags the Maintainer/s of every `🟡 Work in Progress` Entry whose row and repository have both been quiet for over 30 days (#469). Check-ins have no fixed schedule. Any reply, commit or row update keeps the Entry; two unanswered Check-ins spanning at least 60 days make it `🔴 Unmaintained` and Open for Adoption, applied by hand. Rules: `CONTRIBUTING.md`, "Check-ins".
 _Avoid_: monthly check-in (there is no cadence), audit, ping.
 
 **Collision**:
@@ -110,8 +110,3 @@ hand during a Directory Maintainer review. Repository activity measures the *lin
 repo's* commit history instead, is computed automatically at view time, and
 is informational only — it must never be conflated with `⚠️ Stale` or drive
 it.
-
-One local exception (#469): `scripts/check-stale.js` reads each quiet
-`🟡 Work in Progress` Entry's last push from the GitHub API to list Check-in
-candidates. It runs by hand, stores nothing, and changes no tags; a Directory
-Maintainer still decides.
