@@ -1932,12 +1932,15 @@
   province: "Quezon"
   region: "CALABARZON"
   region_rank: 5
-  host: ""
-  domain: "-"
+  host: "better-lucena-city.vercel.app"
+  domain: "[better-lucena-city.vercel.app](https://better-lucena-city.vercel.app)"
   repo: "[GitHub](https://github.com/RyannKim327/BetterLucenaCity)"
   repo_owner: "RyannKim327"
   repo_name: "BetterLucenaCity"
-  socials: []
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://facebook.com/BetterLucenacity.org"
   status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
