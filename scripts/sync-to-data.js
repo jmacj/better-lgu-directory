@@ -17,11 +17,16 @@ const EMPTY_MARKERS = ['', '-', '—', '–'];
 
 // Secondary tags rendered on a second line of a cell, under the primary value.
 // `⚠️ Stale` marks a Planned entry with no directory activity for over
-// STALE_AFTER_DAYS; `🤝 Open for Adoption` invites a new maintainer to take it
-// over. The two always travel together — see validateLgu.
+// STALE_AFTER_DAYS, or a Work in Progress entry whose Maintainer/s left two
+// check-ins unanswered (#469); `🤝 Open for Adoption` invites a new maintainer
+// to take it over. Stale always brings Adoption with it; Adoption also appears
+// alone on a 🔴 Unmaintained entry — see validateLgu.
 const STALE_TAG = '⚠️ Stale';
 const ADOPTION_TAG = '🤝 Open for Adoption';
 const STALE_AFTER_DAYS = 30;
+// Only entries that never went live can go stale. A live portal that stops
+// being maintained becomes 🔴 Unmaintained instead (#469).
+const STALE_STATUSES = ['🔵 Planned', '🟡 Work in Progress'];
 
 // A cell may stack values on separate lines with <br>. Returns the trimmed,
 // non-empty parts in order, so parts[0] is the cell's primary value.
@@ -164,18 +169,24 @@ function validateLgu(cells, index) {
     }
 
     const stale = statusTags.includes(STALE_TAG);
-    if (stale && status !== '🔵 Planned') {
-        throw new Error(`LGU Table Row ${index + 1} is tagged "${STALE_TAG}" but its status is "${status}" — only 🔵 Planned entries can go stale.`);
+    if (stale && !STALE_STATUSES.includes(status)) {
+        throw new Error(`LGU Table Row ${index + 1} is tagged "${STALE_TAG}" but its status is "${status}" — only 🔵 Planned and 🟡 Work in Progress entries can go stale.`);
     }
 
     const maintainerLines = splitCellLines(maintainerCell);
     const openForAdoption = maintainerLines.includes(ADOPTION_TAG);
     const maintainer = maintainerLines.filter(line => line !== ADOPTION_TAG).join(' ');
 
-    // Keep the two columns coherent: a stale entry is by definition open for
-    // adoption, and nothing else may carry the adoption call to action.
-    if (stale !== openForAdoption) {
-        throw new Error(`LGU Table Row ${index + 1} must carry "${STALE_TAG}" and "${ADOPTION_TAG}" together (stale=${stale}, open for adoption=${openForAdoption}).`);
+    // Keep the two columns coherent (#469): a stale entry is by definition open
+    // for adoption, and the only other entry that may carry the adoption call
+    // to action is a 🔴 Unmaintained one, which a Directory Maintainer has
+    // already marked. Unmaintained entries never go stale (see above).
+    const isUnmaintained = status === '🔴 Unmaintained';
+    if (stale && !openForAdoption) {
+        throw new Error(`LGU Table Row ${index + 1} is tagged "${STALE_TAG}" but not "${ADOPTION_TAG}" — a stale entry is always open for adoption.`);
+    }
+    if (openForAdoption && !stale && !isUnmaintained) {
+        throw new Error(`LGU Table Row ${index + 1} is tagged "${ADOPTION_TAG}" with status "${status}" — only entries tagged "${STALE_TAG}" and 🔴 Unmaintained entries can be open for adoption.`);
     }
 
     const socials = parseSocials(socialsCell);
