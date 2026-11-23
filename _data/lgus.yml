@@ -2477,13 +2477,13 @@
   province: "Camarines Sur"
   region: "Bicol Region"
   region_rank: 7
-  host: ""
-  domain: "-"
+  host: "betterocampo.org"
+  domain: "[betterocampo.org](https://www.betterocampo.org)"
   repo: "[GitHub](https://github.com/ejsinfuego/betterocampo)"
   repo_owner: "ejsinfuego"
   repo_name: "betterocampo"
   socials: []
-  status: "🟡 Work in Progress"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@ejsinfuego](https://github.com/ejsinfuego)"
