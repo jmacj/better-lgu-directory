@@ -1,8 +1,15 @@
 const fs = require('fs');
 const path = require('path');
+const { PROFILES_DIR, extractHandles, resolveMaintainerLink } = require('./maintainer-profiles');
+const { parseLguName } = require('./lgu-name');
+const { REGIONS, psgcName } = require('./psgc-regions');
 
-const README_PATH = path.join(__dirname, '../README.md');
+const REPO_ROOT = path.join(__dirname, '..');
+const README_PATH = path.join(REPO_ROOT, 'README.md');
 const LGUS_DATA_PATH = process.argv[2] || path.join(__dirname, '../_data/lgus.yml');
+// Generated from scripts/psgc-regions.js beside lgus.yml (#307), never edited
+// by hand: the website reads region names and ranks from here.
+const REGIONS_DATA_PATH = path.join(path.dirname(LGUS_DATA_PATH), 'regions.yml');
 
 const VALID_STATUSES = ['🟢 Active', '🟡 Work in Progress', '🔴 Unmaintained', '🔵 Planned'];
 
@@ -10,11 +17,16 @@ const EMPTY_MARKERS = ['', '-', '—', '–'];
 
 // Secondary tags rendered on a second line of a cell, under the primary value.
 // `⚠️ Stale` marks a Planned entry with no directory activity for over
-// STALE_AFTER_DAYS; `🤝 Open for Adoption` invites a new maintainer to take it
-// over. The two always travel together — see validateLgu.
+// STALE_AFTER_DAYS, or a Work in Progress entry whose Maintainer/s left two
+// check-ins unanswered (#469); `🤝 Open for Adoption` invites a new maintainer
+// to take it over. Stale always brings Adoption with it; Adoption also appears
+// alone on a 🔴 Unmaintained entry — see validateLgu.
 const STALE_TAG = '⚠️ Stale';
 const ADOPTION_TAG = '🤝 Open for Adoption';
 const STALE_AFTER_DAYS = 30;
+// Only entries that never went live can go stale. A live portal that stops
+// being maintained becomes 🔴 Unmaintained instead (#469).
+const STALE_STATUSES = ['🔵 Planned', '🟡 Work in Progress'];
 
 // A cell may stack values on separate lines with <br>. Returns the trimmed,
 // non-empty parts in order, so parts[0] is the cell's primary value.
@@ -63,6 +75,29 @@ function parseRepoCell(cell) {
     }
     const [, owner, repo, ref] = urlMatch;
     return ref ? { owner, repo, ref } : { owner, repo };
+}
+
+// README domain cells are markdown links — e.g. "[bettersolano.org]
+// (https://bettersolano.org)" — the same raw form validateLgu() stores
+// (sync-to-data.js relies on kramdown re-processing that text at render
+// time; see index.md's `markdown="1"` table wrapper). Extract the real URL
+// to crawl and the bare hostname to display, falling back to treating the
+// whole cell as a bare hostname if it isn't a markdown link. Shared by the
+// crawler (Featured/Logo `domain`) and the Entry's `host` (#307), so the two
+// always match.
+function extractDomainLink(rawCell) {
+    const match = /\[([^\]]+)\]\(([^)]+)\)/.exec(rawCell || '');
+    if (match) {
+        return { label: match[1].trim(), url: match[2].trim() };
+    }
+    const bare = String(rawCell || '').trim();
+    return { label: bare, url: /^https?:\/\//i.test(bare) ? bare : `https://${bare}` };
+}
+
+// The portal's plain hostname, for matching Entries to Featured and Logo data
+// by domain (#307). Empty when the Domain cell is empty.
+function hostOf(domainCell) {
+    return EMPTY_MARKERS.includes((domainCell || '').trim()) ? '' : extractDomainLink(domainCell).label;
 }
 
 function parseTable(content, startMarker, endMarker, sourceName = 'README.md') {
@@ -115,6 +150,13 @@ function validateLgu(cells, index) {
         throw new Error(`LGU Table Row ${index + 1} is missing a name.`);
     }
 
+    let lguName;
+    try {
+        lguName = parseLguName(name);
+    } catch (error) {
+        throw new Error(`LGU Table Row ${index + 1}: ${error.message} See CONTRIBUTING.md, "Naming Your LGU".`);
+    }
+
     const [status, ...statusTags] = splitCellLines(statusCell);
 
     if (!VALID_STATUSES.includes(status)) {
@@ -127,18 +169,24 @@ function validateLgu(cells, index) {
     }
 
     const stale = statusTags.includes(STALE_TAG);
-    if (stale && status !== '🔵 Planned') {
-        throw new Error(`LGU Table Row ${index + 1} is tagged "${STALE_TAG}" but its status is "${status}" — only 🔵 Planned entries can go stale.`);
+    if (stale && !STALE_STATUSES.includes(status)) {
+        throw new Error(`LGU Table Row ${index + 1} is tagged "${STALE_TAG}" but its status is "${status}" — only 🔵 Planned and 🟡 Work in Progress entries can go stale.`);
     }
 
     const maintainerLines = splitCellLines(maintainerCell);
     const openForAdoption = maintainerLines.includes(ADOPTION_TAG);
     const maintainer = maintainerLines.filter(line => line !== ADOPTION_TAG).join(' ');
 
-    // Keep the two columns coherent: a stale entry is by definition open for
-    // adoption, and nothing else may carry the adoption call to action.
-    if (stale !== openForAdoption) {
-        throw new Error(`LGU Table Row ${index + 1} must carry "${STALE_TAG}" and "${ADOPTION_TAG}" together (stale=${stale}, open for adoption=${openForAdoption}).`);
+    // Keep the two columns coherent (#469): a stale entry is by definition open
+    // for adoption, and the only other entry that may carry the adoption call
+    // to action is a 🔴 Unmaintained one, which a Directory Maintainer has
+    // already marked. Unmaintained entries never go stale (see above).
+    const isUnmaintained = status === '🔴 Unmaintained';
+    if (stale && !openForAdoption) {
+        throw new Error(`LGU Table Row ${index + 1} is tagged "${STALE_TAG}" but not "${ADOPTION_TAG}" — a stale entry is always open for adoption.`);
+    }
+    if (openForAdoption && !stale && !isUnmaintained) {
+        throw new Error(`LGU Table Row ${index + 1} is tagged "${ADOPTION_TAG}" with status "${status}" — only entries tagged "${STALE_TAG}" and 🔴 Unmaintained entries can be open for adoption.`);
     }
 
     const socials = parseSocials(socialsCell);
@@ -150,6 +198,8 @@ function validateLgu(cells, index) {
 
     return {
         name,
+        ...lguName,
+        host: hostOf(domain),
         domain: normalizeDash(domain),
         repo: normalizeDash(repo),
         repoOwner: repoInfo ? repoInfo.owner : null,
@@ -180,9 +230,7 @@ function main() {
     console.log('🚀 Starting sync from README.md to LGU Data...');
     const readmeContent = fs.readFileSync(README_PATH, 'utf8');
 
-    // Parse LGUs
-    const rawLgus = parseTable(readmeContent, '<!-- SYNC_LGU_TABLE_START -->', '<!-- SYNC_LGU_TABLE_END -->');
-    const lgus = rawLgus.map(validateLgu);
+    const lgus = syncLgus(readmeContent, readProfilePaths());
     console.log(`✅ Validated ${lgus.length} LGU entries.`);
 
     // Ensure directory exists
@@ -191,8 +239,55 @@ function main() {
         fs.mkdirSync(dataDir, { recursive: true });
     }
 
-    // Write to YAML
-    const lguYaml = lgus.map(l => {
+    fs.writeFileSync(LGUS_DATA_PATH, lgusToYaml(lgus));
+    fs.writeFileSync(REGIONS_DATA_PATH, regionsToYaml());
+    console.log(`🎉 Success! Data synchronized to ${LGUS_DATA_PATH}`);
+}
+
+// Every path in the Maintainer Profiles folder (#426), relative to the repo
+// root — e.g. "maintainers/juan.md". The folder may not exist yet; that just
+// means nobody has opted in, and every Maintainer links to GitHub.
+function readProfilePaths(root = REPO_ROOT) {
+    try {
+        return fs.readdirSync(path.join(root, PROFILES_DIR)).map(name => `${PROFILES_DIR}/${name}`);
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            return [];
+        }
+        throw error;
+    }
+}
+
+// The structured Maintainer list beside the raw `maintainer` string (#426):
+// each handle with its resolved link — the site profile page when the
+// Maintainer has published a Maintainer Profile, otherwise GitHub. Resolved
+// here so the templates on main-pages only render.
+function maintainerLinks(maintainerCell, profilePaths) {
+    return extractHandles(maintainerCell).map(handle => resolveMaintainerLink(handle, profilePaths));
+}
+
+function formatMaintainersYaml(maintainers) {
+    if (maintainers.length === 0) {
+        return '  maintainers: []';
+    }
+    const lines = ['  maintainers:'];
+    for (const m of maintainers) {
+        lines.push(`    - handle: "${yamlStr(m.handle)}"`);
+        lines.push(`      url: "${yamlStr(m.url)}"`);
+        lines.push(`      profile: ${m.profile}`);
+    }
+    return lines.join('\n');
+}
+
+// README.md table → validated Entries, each with its resolved `maintainers`.
+function syncLgus(readmeContent, profilePaths = []) {
+    return parseTable(readmeContent, '<!-- SYNC_LGU_TABLE_START -->', '<!-- SYNC_LGU_TABLE_END -->')
+        .map((cells, index) => validateLgu(cells, index))
+        .map(lgu => ({ ...lgu, maintainers: maintainerLinks(lgu.maintainer, profilePaths) }));
+}
+
+function lgusToYaml(lgus) {
+    return lgus.map(l => {
         const repoIdentityLines = l.repoOwner
             ? [
                 `  repo_owner: "${yamlStr(l.repoOwner)}"`,
@@ -202,6 +297,12 @@ function main() {
             : [];
         return [
             `- name: "${yamlStr(l.name)}"`,
+            `  place: "${yamlStr(l.place)}"`,
+            `  kind: "${yamlStr(l.kind)}"`,
+            `  province: "${yamlStr(l.province)}"`,
+            `  region: "${yamlStr(l.region)}"`,
+            `  region_rank: ${l.regionRank}`,
+            `  host: "${yamlStr(l.host)}"`,
             `  domain: "${yamlStr(l.domain)}"`,
             `  repo: "${yamlStr(l.repo)}"`,
             ...repoIdentityLines,
@@ -210,11 +311,17 @@ function main() {
             `  stale: ${l.stale}`,
             `  open_for_adoption: ${l.openForAdoption}`,
             `  maintainer: "${yamlStr(l.maintainer)}"`,
+            formatMaintainersYaml(l.maintainers),
         ].join('\n');
     }).join('\n');
+}
 
-    fs.writeFileSync(LGUS_DATA_PATH, lguYaml);
-    console.log(`🎉 Success! Data synchronized to ${LGUS_DATA_PATH}`);
+// _data/regions.yml: the ordered region names, ranks and PSGC names (the
+// website's region filter labels), from the PSGC regions module.
+function regionsToYaml() {
+    return REGIONS.map((region, rank) =>
+        `- name: "${yamlStr(region.name)}"\n  rank: ${rank}\n  psgc_name: "${yamlStr(psgcName(region))}"`,
+    ).join('\n') + '\n';
 }
 
 if (require.main === module) {
@@ -227,7 +334,16 @@ if (require.main === module) {
 }
 
 module.exports = {
+    REPO_ROOT,
     README_PATH,
+    readProfilePaths,
+    maintainerLinks,
+    formatMaintainersYaml,
+    syncLgus,
+    lgusToYaml,
+    regionsToYaml,
+    extractDomainLink,
+    hostOf,
     STALE_TAG,
     ADOPTION_TAG,
     STALE_AFTER_DAYS,

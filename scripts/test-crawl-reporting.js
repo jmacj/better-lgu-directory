@@ -23,6 +23,7 @@ const {
     BOILERPLATE_TITLE,
     PortalUnreachableError,
     crawlEntry,
+    reusePreviousRow,
 } = require('./crawl-lgu-meta.js');
 
 let failures = 0;
@@ -189,6 +190,21 @@ async function main() {
     // its previous row (#132), so it throws instead of returning a rejection.
     test('a portal returning 503 throws PortalUnreachableError, not a rejection', async () => {
         await assert.rejects(() => crawl('/down/'), PortalUnreachableError);
+    });
+
+    // #307: a reused row keeps everything from the last good crawl except
+    // `name`, which follows the current Entry with the same domain — so a
+    // renamed LGU whose portal was down this run doesn't keep its old name.
+    test('a reused previous row takes the current Entry\'s name', async () => {
+        const previous = {
+            name: 'Calamba, Laguna',
+            domain: 'bettercalamba.org',
+            image: 'https://bettercalamba.org/og.png',
+            order_key: 'abcd1234',
+        };
+        const reused = reusePreviousRow(previous, { name: 'Calamba City, Laguna' });
+        assert.deepStrictEqual(reused, { ...previous, name: 'Calamba City, Laguna' });
+        assert.strictEqual(previous.name, 'Calamba, Laguna', 'the previous row is not mutated');
     });
 
     for (const { name, fn } of tests) {

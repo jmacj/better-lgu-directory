@@ -37,7 +37,10 @@ Before anything else, search the [directory](https://lgu.bettergov.ph) for your 
 
 - **Found, with a repository (🟢 Active or 🟡 Work in Progress):** contribute to the existing portal instead of starting a new one. Open its repository, read its `README` and `CONTRIBUTING`, and pick up an open issue or send a pull request.
 - **Found, but 🔵 Planned or with no repository yet:** there is nothing to build on yet — reach out to the listed maintainer to team up and co-maintain.
+- **Found, and marked 🤝 Open for Adoption:** nobody is actively on it. You can adopt the entry with a single PR — see [Stale Entries](CONTRIBUTING.md#stale-entries) and [Unmaintained Entries](CONTRIBUTING.md#unmaintained-entries).
 - **Not listed:** it is yours to start. Continue below.
+
+Each LGU has [one entry](CONTRIBUTING.md#one-lgu-one-entry), so don't add a second row for an LGU that's already listed. If you've already built a portal for one, open your PR anyway: it becomes the coordination thread, and [Collisions](CONTRIBUTING.md#collisions) explains how the row is decided.
 
 ### Register Your Intent
 
