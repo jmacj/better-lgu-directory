@@ -3644,6 +3644,32 @@
     - handle: "manalilib"
       url: "https://github.com/manalilib"
       profile: false
+- name: "Tayabas City, Quezon"
+  place: "Tayabas"
+  kind: "city"
+  province: "Quezon"
+  region: "CALABARZON"
+  region_rank: 5
+  host: "bettertayabas.org"
+  domain: "[bettertayabas.org](https://bettertayabas.org)"
+  repo: "[GitHub](https://github.com/herseyy/bettertayabas)"
+  repo_owner: "herseyy"
+  repo_name: "bettertayabas"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@arksmc](https://github.com/arksmc), [@herseyy](https://github.com/herseyy), [@ninnzz](https://github.com/ninnzz)"
+  maintainers:
+    - handle: "arksmc"
+      url: "https://github.com/arksmc"
+      profile: false
+    - handle: "herseyy"
+      url: "https://github.com/herseyy"
+      profile: false
+    - handle: "ninnzz"
+      url: "https://github.com/ninnzz"
+      profile: false
 - name: "Taytay, Rizal"
   place: "Taytay"
   kind: "municipality"
