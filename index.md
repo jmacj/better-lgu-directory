@@ -212,6 +212,7 @@ Content in this repository is licensed under [CC BY 4.0](https://github.com/jmac
 <script defer src="{{ '/assets/js/repo-activity.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
 <script src="{{ '/assets/js/directory-sort.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script src="{{ '/assets/js/directory-url.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
 <!-- Search, Filter, Sort and Pagination Script -->
 <script>
@@ -241,13 +242,49 @@ function sortDirectory() {
     filterDirectory();
 }
 
+// The controls' state, as directory-url.js reads and writes it (#456).
+function readControls() {
+    return {
+        q: document.getElementById("lgu-search").value,
+        status: document.getElementById("status-filter").value,
+        region: document.getElementById("region-filter").value,
+        kinds: Array.from(document.querySelectorAll('.kind-chip[aria-pressed="true"]')).map(chip => chip.dataset.kind),
+        adoption: document.getElementById("adoption-filter").checked,
+        sort: document.getElementById("sort-preset").value,
+    };
+}
+
+function applyControls(state) {
+    document.getElementById("lgu-search").value = state.q;
+    document.getElementById("status-filter").value = state.status;
+    document.getElementById("region-filter").value = state.region;
+    document.querySelectorAll(".kind-chip").forEach(chip => {
+        chip.setAttribute("aria-pressed", state.kinds.includes(chip.dataset.kind) ? "true" : "false");
+    });
+    document.getElementById("adoption-filter").checked = state.adoption;
+    document.getElementById("sort-preset").value = state.sort;
+}
+
+// Keeps the query string in step with the controls (#456). replaceState, not
+// pushState, so Back leaves the page instead of undoing each change. Only the
+// directory's own parameters are rewritten; others (utm_*, fbclid, ...) are
+// kept. The first render runs this too, so an opened link is tidied at once.
+function syncUrl() {
+    if (!window.DirectoryUrl) return;
+    const url = location.pathname + window.DirectoryUrl.rewrite(location.search, readControls()) + location.hash;
+    if (url === location.pathname + location.search + location.hash) return;
+    try {
+        history.replaceState(history.state, "", url);
+    } catch (e) {
+        // Safari throws a SecurityError past ~100 calls in 10 s (fast
+        // typing); the view still works, the URL just lags.
+    }
+}
+
 // Clears search and filters; keeps the sort.
 function clearFilters() {
-    document.getElementById("lgu-search").value = "";
-    document.getElementById("status-filter").value = "";
-    document.getElementById("region-filter").value = "";
-    document.getElementById("adoption-filter").checked = false;
-    document.querySelectorAll(".kind-chip").forEach(chip => chip.setAttribute("aria-pressed", "false"));
+    const cleared = { q: "", status: "", region: "", kinds: [], adoption: false };
+    applyControls(Object.assign(cleared, { sort: document.getElementById("sort-preset").value }));
     filterDirectory();
 }
 
@@ -263,6 +300,7 @@ function filterDirectory() {
     const noResults = document.getElementById("no-results");
     const pagination = document.getElementById("pagination-controls");
 
+    syncUrl();
     visibleRows = [];
     
     // Start from i=1 to skip header row
@@ -344,9 +382,17 @@ function changePage(delta) {
 }
 
 // Initialize
-// The build renders Location order. A browser restoring form state on back
-// navigation may keep another preset selected, so sort to match it.
+// A view in the query string sets the controls first (#456); an invalid
+// value leaves its control at the default. The URL wins over any form state
+// the browser restored, since every change was already written to it.
+// The build renders Location order, so any other preset re-sorts.
 document.addEventListener("DOMContentLoaded", function() {
+    if (window.DirectoryUrl) {
+        const regions = Array.from(document.getElementById("region-filter").options)
+            .map(option => option.value)
+            .filter(Boolean);
+        applyControls(window.DirectoryUrl.parse(location.search, { regions: regions }));
+    }
     if (document.getElementById("sort-preset").value !== "location") {
         sortDirectory();
     } else {
