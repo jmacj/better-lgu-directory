@@ -17,6 +17,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Alaminos City, Pangasinan | [betteralaminoscity.org](https://betteralaminoscity.org) | [GitHub](https://github.com/BetterAlaminosCity/betteralaminoscity) | [Facebook](https://www.facebook.com/betteralaminoscity.org) | 🟢 Active | [@ljsalcedo-dev](https://github.com/ljsalcedo-dev) |
 | Alangalang, Leyte | - | [GitHub](https://github.com/severinolorillajr/betteralangalang) | - | 🟡 Work in Progress | [@severinolorillajr](https://github.com/severinolorillajr) |
 | Albay Province | - | [GitHub](https://github.com/jsonrls/better-albay) | - | 🟡 Work in Progress | [@jsonrls](https://github.com/jsonrls) |
+| Alcala, Pangasinan | [betteralcala.org](https://betteralcala.org) | [GitHub](https://github.com/melmarj0nes23/betteralcala) | - | 🟢 Active | [@melmarj0nes23](https://github.com/melmarj0nes23) |
 | Aleosan, Cotabato | - | - | - | 🔵 Planned | [@regzimarx](https://github.com/regzimarx) |
 | Allen, Northern Samar | [betterallen.org](https://betterallen.org) | [GitHub](https://github.com/xandreiAThome/betterallen) | [Facebook](https://www.facebook.com/betterallen.org) | 🟢 Active | [@xandreiAThome](https://github.com/xandreiAThome) |
 | Angeles City, Pampanga | - | [GitHub](https://github.com/ongods/betterangeles) | - | 🟡 Work in Progress | [@ongods](https://github.com/ongods) |
