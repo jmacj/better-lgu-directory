@@ -283,8 +283,8 @@ function syncUrl() {
 
 // Clears search and filters; keeps the sort.
 function clearFilters() {
-    const sort = document.getElementById("sort-preset").value;
-    applyControls(Object.assign(window.DirectoryUrl.defaults(), { sort: sort }));
+    const cleared = { q: "", status: "", region: "", kinds: [], adoption: false };
+    applyControls(Object.assign(cleared, { sort: document.getElementById("sort-preset").value }));
     filterDirectory();
 }
 
