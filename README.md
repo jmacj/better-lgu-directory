@@ -244,7 +244,7 @@ Ready to build a transparency portal for your LGU? Read the full guide: **[How t
 The short version:
 1. **Search the directory first** — if your LGU is already listed, contribute to that portal instead of starting a new one ([GUIDE.md, Step 1](GUIDE.md#step-1--search-the-directory-first))
 2. **Register your intent** — open a PR to add your LGU with a `🔵 Planned` status
-3. **Build** — pick a [community template](TEMPLATES.md), set up your `better[lguname]` repo, gather public data, and deploy to a `better[lguname].org` domain
+3. **Build** — pick a [community template](TEMPLATES.md), set up your `better[lguname]` repo, gather public data, and deploy (a free host address works; a custom `better[lguname].org` domain is optional)
 4. **Launch and maintain** — update your entry to `🟢 Active` once live, and keep the data current
 
 > **The directory coordinates; it doesn't own.** Registration earns you first say, not exclusive rights. Shipping and maintaining keep your entry. See [CONTRIBUTING.md](CONTRIBUTING.md) for the rules.

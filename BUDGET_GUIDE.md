@@ -17,7 +17,7 @@ It's meant for LGU IT offices, civic groups, newsrooms, and student developers. 
 | Type          | Where it lives                                                                                                  | Choose it when                                   |
 |---------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
 | 🧩 Integrated | A subdomain (`budget.betterlb.org`) or path (`bettercatanduanes.org/transparency`) of your LGU's Better LGU portal | Your LGU is in the [Better LGU Directory](README.md) |
-| 🏛️ Standalone | A domain of its own (`bettersilang.org`)                                                                         | Your LGU has no Better LGU portal                |
+| 🏛️ Standalone | A site of its own, on a custom domain (`bettersilang.org`) or a free host address (`betterpampanga.vercel.app`)  | Your LGU has no Better LGU portal                |
 
 For an integrated portal, talk to the Better LGU portal's maintainers first. It goes on their domain, so they need to agree to it and point the subdomain at your deploy. A subdomain is simpler than a path, because the budget portal then deploys on its own.
 
