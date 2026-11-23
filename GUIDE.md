@@ -80,11 +80,11 @@ Data sources include your LGU's official website, the Commission on Audit (COA),
 
 ---
 
-## Step 5 — Choose a Domain
+## Step 5 — Choose a Domain (Optional)
 
-Register a domain in the format `better[lguname].org` (e.g., `bettercalauan.org`). The `.org` TLD reflects the civic, non-commercial nature of the project.
+You don't need to buy a domain. Every host in [Step 6](#step-6--deploy) gives you a free address, such as `bettercorella.vercel.app`, `[name].netlify.app`, or `[username].github.io`, and that works just as well: the directory lists it like any other domain, and your portal can go `🟢 Active` on it. Many listed portals run on one.
 
-Domain costs roughly ₱600–₱900/year through local registrars.
+If you want a custom domain later, use the format `better[lguname].org` (e.g., `bettercalauan.org`). The `.org` TLD reflects the civic, non-commercial nature of the project. It costs roughly ₱600–₱900/year through local registrars. You can add it at any time and [update your entry](CONTRIBUTING.md) when you switch.
 
 ---
 
