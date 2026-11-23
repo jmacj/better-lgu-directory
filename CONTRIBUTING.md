@@ -35,7 +35,7 @@ You do not need to have a finished portal to register. If you are planning to bu
    | 🔵 Planned          | You intend to build a portal but haven't started yet |
    | 🟡 Work in Progress | Actively building, not yet launched                  |
    | 🟢 Active           | Publicly launched and actively maintained            |
-   | 🔴 Unmaintained     | Previously active but no longer maintained           |
+   | 🔴 Unmaintained     | No longer maintained — set by a Directory Maintainer |
 
    Keep your entry moving. Planned entries that see no directory activity for over 30 days are tagged `⚠️ Stale` and `🤝 Open for Adoption` — see [Stale Entries](#stale-entries). Quiet Work in Progress entries are followed up in [Check-ins](#check-ins).
 
@@ -51,7 +51,7 @@ You do not need to have a finished portal to register. If you are planning to bu
 
 ## One LGU, One Entry
 
-Each LGU has a single row in `README.md`. If your LGU is already listed, don't add a second row: contribute to the existing portal or co-maintain it. Open a PR adding your handle to its Maintainer/s cell once you've agreed it with the listed Maintainer/s, or adopt the entry if it is [open for adoption](#stale-entries). A PR that adds a row for an LGU that's already listed is a [collision](#collisions).
+Each LGU has a single row in `README.md`. If your LGU is already listed, don't add a second row: contribute to the existing portal or co-maintain it. Open a PR adding your handle to its Maintainer/s cell once you've agreed it with the listed Maintainer/s, or adopt the entry if it is open for adoption (see [Stale Entries](#stale-entries) and [Unmaintained Entries](#unmaintained-entries)). A PR that adds a row for an LGU that's already listed is a [collision](#collisions).
 
 Budget portals in `BUDGET.md` are a separate category with their own table, so a Budget Portal row never counts as a second entry for its LGU.
 

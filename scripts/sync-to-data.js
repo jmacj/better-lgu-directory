@@ -177,11 +177,11 @@ function validateLgu(cells, index) {
     // for adoption, and the only other entry that may carry the adoption call
     // to action is a 🔴 Unmaintained one, which a Directory Maintainer has
     // already escalated. Unmaintained entries never go stale (see above).
-    const adoptableWithoutStale = status === '🔴 Unmaintained';
+    const isUnmaintained = status === '🔴 Unmaintained';
     if (stale && !openForAdoption) {
         throw new Error(`LGU Table Row ${index + 1} is tagged "${STALE_TAG}" but not "${ADOPTION_TAG}" — a stale entry is always open for adoption.`);
     }
-    if (openForAdoption && !stale && !adoptableWithoutStale) {
+    if (openForAdoption && !stale && !isUnmaintained) {
         throw new Error(`LGU Table Row ${index + 1} is tagged "${ADOPTION_TAG}" with status "${status}" — only 🔵 Planned entries tagged "${STALE_TAG}" and 🔴 Unmaintained entries can be open for adoption.`);
     }
 
