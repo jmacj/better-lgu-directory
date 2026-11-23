@@ -16,7 +16,7 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
-const { parse, serialize, DEFAULTS } = require('../assets/js/directory-url.js');
+const { parse, serialize, defaults, DEFAULTS } =require('../assets/js/directory-url.js');
 
 let assertions = 0;
 function equal(actual, expected, message) {
@@ -39,6 +39,9 @@ const DEFAULT_STATE = {
 
 // --- Defaults -------------------------------------------------------------
 equal(DEFAULTS, DEFAULT_STATE, 'DEFAULTS');
+equal(defaults(), DEFAULT_STATE, 'defaults()');
+defaults().kinds.push('city');
+equal(defaults().kinds, [], 'defaults() is a fresh copy');
 equal(serialize(DEFAULT_STATE), '', 'defaults serialize to an empty string');
 equal(read(''), DEFAULT_STATE, 'empty query parses to defaults');
 equal(read('?'), DEFAULT_STATE, 'bare ? parses to defaults');

@@ -35,6 +35,14 @@
         });
     }
 
+    // A fresh copy of DEFAULTS, safe to modify.
+    function defaults() {
+        var state = {};
+        for (var key in DEFAULTS) state[key] = DEFAULTS[key];
+        state.kinds = DEFAULTS.kinds.slice();
+        return state;
+    }
+
     function oneOf(value, allowed, fallback) {
         return allowed.indexOf(value) !== -1 ? value : fallback;
     }
@@ -46,14 +54,7 @@
     function parse(search, options) {
         var regions = (options && options.regions) || [];
         var params = new URLSearchParams(search);
-        var state = {
-            q: DEFAULTS.q,
-            status: DEFAULTS.status,
-            region: DEFAULTS.region,
-            kinds: DEFAULTS.kinds.slice(),
-            adoption: DEFAULTS.adoption,
-            sort: DEFAULTS.sort,
-        };
+        var state = defaults();
         if (params.has('q')) state.q = params.get('q');
         state.status = oneOf(params.get('status'), STATUSES, DEFAULTS.status);
         state.region = oneOf(params.get('region'), regions, DEFAULTS.region);
@@ -79,7 +80,7 @@
         return parts.length ? '?' + parts.join('&') : '';
     }
 
-    var api = { DEFAULTS: DEFAULTS, parse: parse, serialize: serialize };
+    var api = { DEFAULTS: DEFAULTS, defaults: defaults, parse: parse, serialize: serialize };
 
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = api;

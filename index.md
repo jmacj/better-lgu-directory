@@ -276,17 +276,15 @@ function syncUrl() {
     try {
         history.replaceState(history.state, "", url);
     } catch (e) {
-        // Some browsers throttle replaceState; the view still works.
+        // Safari throws a SecurityError past ~100 calls in 10 s (fast
+        // typing); the view still works, the URL just lags.
     }
 }
 
 // Clears search and filters; keeps the sort.
 function clearFilters() {
-    document.getElementById("lgu-search").value = "";
-    document.getElementById("status-filter").value = "";
-    document.getElementById("region-filter").value = "";
-    document.getElementById("adoption-filter").checked = false;
-    document.querySelectorAll(".kind-chip").forEach(chip => chip.setAttribute("aria-pressed", "false"));
+    const sort = document.getElementById("sort-preset").value;
+    applyControls(Object.assign(window.DirectoryUrl.defaults(), { sort: sort }));
     filterDirectory();
 }
 
