@@ -266,12 +266,12 @@ function applyControls(state) {
 }
 
 // Keeps the query string in step with the controls (#456). replaceState, not
-// pushState, so Back leaves the page instead of undoing each change. Off
-// until the page has read its URL, so opening a link doesn't rewrite it.
-let syncUrlEnabled = false;
+// pushState, so Back leaves the page instead of undoing each change. Only the
+// directory's own parameters are rewritten; others (utm_*, fbclid, ...) are
+// kept. The first render runs this too, so an opened link is tidied at once.
 function syncUrl() {
-    if (!syncUrlEnabled || !window.DirectoryUrl) return;
-    const url = location.pathname + window.DirectoryUrl.serialize(readControls()) + location.hash;
+    if (!window.DirectoryUrl) return;
+    const url = location.pathname + window.DirectoryUrl.rewrite(location.search, readControls()) + location.hash;
     if (url === location.pathname + location.search + location.hash) return;
     try {
         history.replaceState(history.state, "", url);
@@ -398,6 +398,5 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         filterDirectory();
     }
-    syncUrlEnabled = true;
 });
 </script>

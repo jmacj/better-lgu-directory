@@ -80,7 +80,37 @@
         return parts.length ? '?' + parts.join('&') : '';
     }
 
-    var api = { DEFAULTS: DEFAULTS, defaults: defaults, parse: parse, serialize: serialize };
+    // The parameters the directory owns; serialize() writes only these.
+    var OWN = ['q', 'status', 'region', 'kind', 'adoption', 'sort'];
+
+    function paramName(segment) {
+        var name = segment.split('=')[0].replace(/\+/g, ' ');
+        try {
+            return decodeURIComponent(name);
+        } catch (e) {
+            return name;
+        }
+    }
+
+    // Returns `search` with the directory's parameters replaced by
+    // serialize(state). Every other parameter (utm_*, fbclid, ...) belongs to
+    // someone else, so it is kept exactly as written, after the directory's.
+    function rewrite(search, state) {
+        var foreign = search.replace(/^\?/, '').split('&').filter(function (segment) {
+            return segment !== '' && OWN.indexOf(paramName(segment)) === -1;
+        });
+        var own = serialize(state).replace(/^\?/, '');
+        var parts = (own ? [own] : []).concat(foreign);
+        return parts.length ? '?' + parts.join('&') : '';
+    }
+
+    var api = {
+        DEFAULTS: DEFAULTS,
+        defaults: defaults,
+        parse: parse,
+        serialize: serialize,
+        rewrite: rewrite,
+    };
 
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = api;

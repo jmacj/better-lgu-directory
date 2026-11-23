@@ -16,7 +16,7 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
-const { parse, serialize, defaults, DEFAULTS } =require('../assets/js/directory-url.js');
+const { parse, serialize, rewrite, defaults, DEFAULTS } = require('../assets/js/directory-url.js');
 
 let assertions = 0;
 function equal(actual, expected, message) {
@@ -112,6 +112,30 @@ equal(read('?region=NCR&region=CALABARZON').region, 'NCR', 'first of a repeated 
 
 // Without a region list nothing can be checked, so no region is accepted.
 equal(parse('?region=CALABARZON').region, '', 'no regions option');
+
+// --- rewrite: the page's query with the directory parameters replaced ----
+// The directory owns q, status, region, kind, adoption and sort. Any other
+// parameter (utm_*, fbclid, ...) belongs to someone else and is kept as it
+// was written, after the directory's own.
+const cityState = withState({ kinds: ['city'] });
+equal(rewrite('', DEFAULT_STATE), '', 'nothing in, defaults → empty');
+equal(rewrite('?region=Nowhere&sort=location', DEFAULT_STATE), '', 'invalid and default values dropped');
+equal(
+    rewrite('?region=Nowhere&kind=city&sort=location&utm_source=fb', cityState),
+    '?kind=city&utm_source=fb',
+    'directory params cleaned, foreign kept',
+);
+equal(
+    rewrite('?fbclid=Ab%2Bc&utm_campaign=x+y&kind=province', cityState),
+    '?kind=city&fbclid=Ab%2Bc&utm_campaign=x+y',
+    'foreign params keep their order and exact encoding',
+);
+equal(rewrite('?utm_source=fb', DEFAULT_STATE), '?utm_source=fb', 'only foreign params');
+equal(rewrite('?ref', DEFAULT_STATE), '?ref', 'valueless foreign param kept');
+equal(rewrite('?q=old&q=older', withState({ q: 'new' })), '?q=new', 'repeated directory params replaced');
+equal(rewrite('?%71=old&x=1', DEFAULT_STATE), '?x=1', 'encoded directory name still recognised');
+equal(rewrite('?&&x=1&', DEFAULT_STATE), '?x=1', 'empty segments dropped');
+equal(rewrite('?%E0%A4%A=1', DEFAULT_STATE), '?%E0%A4%A=1', 'malformed foreign name kept, no throw');
 
 // --- Drift guard: every value the page offers parses --------------------
 // Reads the controls from index.md and the regions from _data/regions.yml,
