@@ -3,11 +3,12 @@
 //
 //   node scripts/test-adoption-tags-data.js
 //
-// `🤝 Open for Adoption` appears on two kinds of entry: a stale 🔵 Planned row
-// (always paired with `⚠️ Stale`), and a 🔴 Unmaintained row (never stale —
-// only Planned entries go stale). Every other combination is a typo the sync
-// must reject. Named `-data` like test-maintainer-links-data.js, so a
-// `main-pages` test can't collide with it on the sync merge.
+// `🤝 Open for Adoption` appears on two kinds of entry: a stale 🔵 Planned or
+// 🟡 Work in Progress row (always paired with `⚠️ Stale`), and a 🔴 Unmaintained
+// row (never stale — only entries that never went live go stale). Every other
+// combination is a typo the sync must reject. Named `-data` like
+// test-maintainer-links-data.js, so a `main-pages` test can't collide with it on
+// the sync merge.
 
 const assert = require('assert');
 const { syncLgus } = require('./sync-to-data.js');
@@ -56,6 +57,13 @@ test('a stale Planned entry is still open for adoption', () => {
     assert.strictEqual(lgu.openForAdoption, true);
 });
 
+test('a Work in Progress entry can go stale, and is then open for adoption', () => {
+    const [lgu] = syncLgus(readme(row('🟡 Work in Progress<br>⚠️ Stale', ADOPT)), []);
+    assert.strictEqual(lgu.status, '🟡 Work in Progress');
+    assert.strictEqual(lgu.stale, true);
+    assert.strictEqual(lgu.openForAdoption, true);
+});
+
 test('an Unmaintained entry does not have to be open for adoption', () => {
     const [lgu] = syncLgus(readme(row('🔴 Unmaintained', JUAN)), []);
     assert.strictEqual(lgu.openForAdoption, false);
@@ -63,10 +71,11 @@ test('an Unmaintained entry does not have to be open for adoption', () => {
 
 const REJECTED = [
     ['a stale entry without the adoption tag', '🔵 Planned<br>⚠️ Stale', JUAN, /always open for adoption/],
-    ['a Planned entry open for adoption without going stale', '🔵 Planned', ADOPT, /only 🔵 Planned entries tagged/],
-    ['a Work in Progress entry open for adoption', '🟡 Work in Progress', ADOPT, /only 🔵 Planned entries tagged/],
-    ['an Active entry open for adoption', '🟢 Active', ADOPT, /only 🔵 Planned entries tagged/],
-    ['a stale Unmaintained entry', '🔴 Unmaintained<br>⚠️ Stale', ADOPT, /only 🔵 Planned entries can go stale/],
+    ['a Planned entry open for adoption without going stale', '🔵 Planned', ADOPT, /only entries tagged/],
+    ['a Work in Progress entry open for adoption without going stale', '🟡 Work in Progress', ADOPT, /only entries tagged/],
+    ['an Active entry open for adoption', '🟢 Active', ADOPT, /only entries tagged/],
+    ['a stale Active entry', '🟢 Active<br>⚠️ Stale', ADOPT, /only 🔵 Planned and 🟡 Work in Progress entries can go stale/],
+    ['a stale Unmaintained entry', '🔴 Unmaintained<br>⚠️ Stale', ADOPT, /only 🔵 Planned and 🟡 Work in Progress entries can go stale/],
 ];
 
 for (const [label, statusCell, maintainerCell, message] of REJECTED) {

@@ -67,7 +67,7 @@ A person listed, by GitHub handle, in the Maintainer/s cell of an Entry or a Bud
 _Avoid_: owner, author, contributor; "maintainer" for the directory team (that is a Directory Maintainer).
 
 **Directory Maintainer**:
-A member of the team that runs this directory itself: reviews and merges PRs, applies the `⚠️ Stale` / `🤝 Open for Adoption` tags, posts Check-ins, sets `🔴 Unmaintained`, decides Collisions, and handles removal and privacy requests. Always written out in full. One person can be both a Maintainer (of a portal) and a Directory Maintainer.
+A member of the team that runs this directory itself: reviews and merges PRs, applies the `⚠️ Stale` / `🤝 Open for Adoption` tags, posts Check-ins, sets `🔴 Unmaintained` on Active Entries, decides Collisions, and handles removal and privacy requests. Always written out in full. One person can be both a Maintainer (of a portal) and a Directory Maintainer.
 _Avoid_: maintainer (unqualified), curator, admin, moderator.
 
 **Maintainer Profile**:
@@ -75,11 +75,11 @@ A Maintainer's opt-in, self-published statement of how and why contributors may 
 _Avoid_: contact, contact card, maintainer page, bio.
 
 **Open for Adoption**:
-The `🤝 Open for Adoption` tag under an Entry's Maintainer/s: anyone may take the Entry on, as a takeover or alongside the original Maintainer, with one PR that updates Maintainer/s and removes the tag. It appears on exactly two kinds of Entry (#469): a stale `🔵 Planned` Entry, always paired with `⚠️ Stale`, and a `🔴 Unmaintained` Entry, never paired with it (only Planned Entries go stale). `scripts/sync-to-data.js` rejects every other combination. Rules: `CONTRIBUTING.md`, "Stale Entries" and "Unmaintained Entries".
+The `🤝 Open for Adoption` tag under an Entry's Maintainer/s: anyone may take the Entry on, as a takeover or alongside the original Maintainer, with one PR that updates Maintainer/s and removes the tag. It appears on exactly two kinds of Entry (#469): a stale Entry (`🔵 Planned` or `🟡 Work in Progress`), always paired with `⚠️ Stale`, and a `🔴 Unmaintained` Entry, never paired with it (only Entries that never went live go stale; only `🟢 Active` ones become Unmaintained). `scripts/sync-to-data.js` rejects every other combination. Rules: `CONTRIBUTING.md`, "Stale Entries" and "Unmaintained Entries".
 _Avoid_: up for grabs, abandoned, orphaned (that is a Maintainer Profile).
 
 **Check-in**:
-A Discussions post by a Directory Maintainer that tags the Maintainer/s of every `🟡 Work in Progress` Entry whose row and repository have both been quiet for over 30 days (#469). Check-ins have no fixed schedule. Any reply, commit or row update keeps the Entry; two unanswered Check-ins spanning at least 60 days make it `🔴 Unmaintained` and Open for Adoption, applied by hand. Rules: `CONTRIBUTING.md`, "Check-ins".
+A Discussions post by a Directory Maintainer that tags the Maintainer/s of every `🟡 Work in Progress` Entry whose row and repository have both been quiet for over 30 days (#469). Check-ins have no fixed schedule. Any reply, commit or row update keeps the Entry; two unanswered Check-ins spanning at least 60 days make it `⚠️ Stale` and Open for Adoption, applied by hand, with its status left `🟡 Work in Progress`. Rules: `CONTRIBUTING.md`, "Check-ins".
 _Avoid_: monthly check-in (there is no cadence), audit, ping.
 
 **Collision**:
@@ -87,7 +87,7 @@ A PR that adds a row for an LGU that's already listed (`entry:collision`), or a 
 _Avoid_: duplicate (that is the same submission twice, closed as `duplicate`), conflict.
 
 **Stale PR**:
-A pull request that `.github/workflows/stale.yml` has labelled `stale`: one labelled `needs-changes` with no activity for 14 days, closed 7 days later unless a comment or push resets it. `blocked` and `needs-coordination` PRs are exempt, and issues never go stale. Unrelated to the `⚠️ Stale` entry tag, which is applied by hand to quiet `🔵 Planned` rows. Rules: `CONTRIBUTING.md`, "Stale Pull Requests".
+A pull request that `.github/workflows/stale.yml` has labelled `stale`: one labelled `needs-changes` with no activity for 14 days, closed 7 days later unless a comment or push resets it. `blocked` and `needs-coordination` PRs are exempt, and issues never go stale. Unrelated to the `⚠️ Stale` entry tag, which is applied by hand to Entries that never went live and stopped moving. Rules: `CONTRIBUTING.md`, "Stale Pull Requests".
 _Avoid_: stale entry (that is the tag), abandoned PR.
 
 **Sync pipeline**:
@@ -104,9 +104,12 @@ which repo to ask about; it never fetches anything itself.
 _Avoid_: portal activity (the portal is the site; this measures the repo),
 stale (a different clock — see below).
 
-The existing `⚠️ Stale` tag means *no directory activity on the Entry row*
-(the README table itself hasn't been touched) for over 30 days, judged by
-hand during a Directory Maintainer review. Repository activity measures the *linked
+The `⚠️ Stale` tag is judged by hand during a Directory Maintainer review: on a
+`🔵 Planned` Entry it means *no directory activity on the Entry row* (the
+README table itself hasn't been touched) for over 30 days; on a
+`🟡 Work in Progress` Entry it means two Check-ins went unanswered (#469). A
+Directory Maintainer may look at a repo by hand when picking whom to tag in a
+Check-in. Repository activity measures the *linked
 repo's* commit history instead, is computed automatically at view time, and
 is informational only — it must never be conflated with `⚠️ Stale` or drive
 it.
