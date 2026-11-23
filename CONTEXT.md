@@ -67,12 +67,28 @@ A person listed, by GitHub handle, in the Maintainer/s cell of an Entry or a Bud
 _Avoid_: owner, author, contributor; "maintainer" for the directory team (that is a Directory Maintainer).
 
 **Directory Maintainer**:
-A member of the team that runs this directory itself: reviews and merges PRs, applies the `⚠️ Stale` / `🤝 Open for Adoption` tags, and handles removal and privacy requests. Always written out in full. One person can be both a Maintainer (of a portal) and a Directory Maintainer.
+A member of the team that runs this directory itself: reviews and merges PRs, applies the `⚠️ Stale` / `🤝 Open for Adoption` tags, posts Check-ins, sets `🔴 Unmaintained` on Active Entries, decides Collisions, and handles removal and privacy requests. Always written out in full. One person can be both a Maintainer (of a portal) and a Directory Maintainer.
 _Avoid_: maintainer (unqualified), curator, admin, moderator.
 
 **Maintainer Profile**:
 A Maintainer's opt-in, self-published statement of how and why contributors may reach them — their channels, what they are open to, and what they are not. Only the Maintainer themself adds or edits it; a Directory Maintainer may only remove it. A Maintainer Profile whose handle no longer appears in any Maintainer/s cell is an **orphaned** Maintainer Profile. Design rationale: decision record in #426.
 _Avoid_: contact, contact card, maintainer page, bio.
+
+**Open for Adoption**:
+The `🤝 Open for Adoption` tag under an Entry's Maintainer/s: anyone may take the Entry on, as a takeover or alongside the original Maintainer, with one PR that updates Maintainer/s and removes the tag. It appears on exactly two kinds of Entry (#469): a stale Entry (`🔵 Planned` or `🟡 Work in Progress`), always paired with `⚠️ Stale`, and a `🔴 Unmaintained` Entry, never paired with it (only Entries that never went live go stale; only `🟢 Active` ones become Unmaintained). `scripts/sync-to-data.js` rejects every other combination. Rules: `CONTRIBUTING.md`, "Stale Entries" and "Unmaintained Entries".
+_Avoid_: up for grabs, abandoned, orphaned (that is a Maintainer Profile).
+
+**Check-in**:
+A Discussions post by a Directory Maintainer that tags the Maintainer/s of every `🟡 Work in Progress` Entry whose row and repository have both been quiet for over 30 days (#469). Check-ins have no fixed schedule. Any reply, commit or row update keeps the Entry; two unanswered Check-ins spanning at least 60 days make it `⚠️ Stale` and Open for Adoption, applied by hand, with its status left `🟡 Work in Progress`. Rules: `CONTRIBUTING.md`, "Check-ins".
+_Avoid_: monthly check-in (there is no cadence), audit, ping.
+
+**Collision**:
+A PR that adds a row for an LGU that's already listed (`entry:collision`), or a second PR for the same LGU. The directory holds one Entry per LGU, so a Collision never ends with two rows: the PR itself is the coordination thread, labelled `needs-coordination`, and a 30-day window decides which portal keeps the row (#469). Rules: `CONTRIBUTING.md`, "Collisions".
+_Avoid_: duplicate (that is the same submission twice, closed as `duplicate`), conflict.
+
+**Stale PR**:
+A pull request that `.github/workflows/stale.yml` has labelled `stale`: one labelled `needs-changes` with no activity for 14 days, closed 7 days later unless a comment or push resets it. `blocked` and `needs-coordination` PRs are exempt, and issues never go stale. Unrelated to the `⚠️ Stale` entry tag, which is applied by hand to Entries that never went live and stopped moving. Rules: `CONTRIBUTING.md`, "Stale Pull Requests".
+_Avoid_: stale entry (that is the tag), abandoned PR.
 
 **Sync pipeline**:
 The `main` → `main-pages` projection, run by `sync-to-pages.yml` on every push to `main` and monthly on a schedule (#179). It generates data files, all written into the same `chore(data): auto-sync` commit and never hand-edited: `scripts/sync-to-data.js` parses the `README.md` table into `_data/lgus.yml`, which `index.md` renders as the directory table. Each Entry carries its parsed LGU Name (`place`, `kind`, `province`, `region`, `region_rank`) and its portal's plain hostname (`host`) beside `name`, and the sync fails on any LGU Name outside the grammar. It also writes `_data/regions.yml`, the ordered region names and ranks from `scripts/psgc-regions.js`. `scripts/crawl-lgu-meta.js` fetches each `🟢 Active` Entry's portal exactly once (#179) and judges the fetched page against two independent predicates: the Featured Portal predicate writes `_data/lgu-meta.yml` (image, title, description, domain, and a stable `order_key`) for every Entry that passes it, read by the hero's Featured card partial; the Logo predicate writes `_data/lgu-logos.yml` (domain, resolved icon source/size/bytes) plus the resolved icon bytes themselves at `assets/images/lgu-logos/<domain>.<ext>`, for every Entry that resolves a Logo per the chain in `scripts/crawl-lgu-meta.js`, read by the home page's Logo band. `scripts/sync-budget-to-data.js` parses the `BUDGET.md` table into `_data/budget_portals.yml`, rendered by `budget-directory.md` at `/budget`. Both syncs also emit a structured `maintainers:` list per row, each Maintainer's link already resolved (their Maintainer Profile page if they have one, otherwise GitHub), and `scripts/sync-profiles-to-data.js` writes `_data/maintainer_profiles.yml` (each Maintainer Profile's fields plus its portals, derived from the Maintainer/s cells) for `/maintainers/`. `README.md` remains the sole source of truth for Entries, and `BUDGET.md` for Budget Portals; all generated files/assets are derived data.
@@ -88,9 +104,12 @@ which repo to ask about; it never fetches anything itself.
 _Avoid_: portal activity (the portal is the site; this measures the repo),
 stale (a different clock — see below).
 
-The existing `⚠️ Stale` tag means *no directory activity on the Entry row*
-(the README table itself hasn't been touched) for over 30 days, judged by
-hand during a Directory Maintainer review. Repository activity measures the *linked
+The `⚠️ Stale` tag is judged by hand during a Directory Maintainer review: on a
+`🔵 Planned` Entry it means *no directory activity on the Entry row* (the
+README table itself hasn't been touched) for over 30 days; on a
+`🟡 Work in Progress` Entry it means two Check-ins went unanswered (#469). A
+Directory Maintainer may look at a repo by hand when picking whom to tag in a
+Check-in. Repository activity measures the *linked
 repo's* commit history instead, is computed automatically at view time, and
 is informational only — it must never be conflated with `⚠️ Stale` or drive
 it.
