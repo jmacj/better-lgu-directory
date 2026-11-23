@@ -162,14 +162,14 @@ The directory is sorted by location by default (regions north to south, then pro
 
 | Tag                  | Meaning                                                                           |
 |----------------------|-----------------------------------------------------------------------------------|
-| ⚠️ Stale             | A `🔵 Planned` entry with no directory activity for over 30 days                   |
-| 🤝 Open for Adoption | Anyone may take the entry on — as a takeover, or alongside the original maintainer. Appears on stale `🔵 Planned` entries and on `🔴 Unmaintained` ones |
+| ⚠️ Stale             | A `🔵 Planned` entry with no directory activity for over 30 days, or a `🟡 Work in Progress` entry whose check-ins went unanswered |
+| 🤝 Open for Adoption | Anyone may take the entry on — as a takeover, or alongside the original maintainer. Appears on stale entries and on `🔴 Unmaintained` ones |
 
 </div>
 
-**Adopting an entry?** Open a PR that updates the Maintainer/s column and removes the tags. A stale entry can stay `🔵 Planned` — change it only when the work actually starts. An `🔴 Unmaintained` entry takes the status that matches reality (`🟡 Work in Progress` or `🟢 Active`). Any discussion happens in that PR.
+**Adopting an entry?** Open a PR that updates the Maintainer/s column and removes the tags. A stale entry keeps its status — a `🔵 Planned` one changes only when the work actually starts. An `🔴 Unmaintained` entry takes the status that matches reality (`🟡 Work in Progress` or `🟢 Active`). Any discussion happens in that PR.
 
-Tags are applied by Directory Maintainers during periodic reviews, never automatically — time since the last update is a prompt to look, not the only thing that decides it. Work in Progress entries are followed up in [check-ins](CONTRIBUTING.md#check-ins) instead of going stale.
+Tags are applied by Directory Maintainers during periodic reviews, never automatically — time since the last update is a prompt to look, not the only thing that decides it. Work in Progress entries are followed up in [check-ins](CONTRIBUTING.md#check-ins) and go stale only if those go unanswered. Only `🟢 Active` entries become `🔴 Unmaintained`.
 
 ## 🧩 Community Templates
 
