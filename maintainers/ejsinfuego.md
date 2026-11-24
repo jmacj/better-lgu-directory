@@ -1,5 +1,5 @@
 ---
-name: egg
+name: Ej Sinfuego
 open_to: collaborators, code review
 languages: Filipino, English
 website: https://www.betterocampo.org
