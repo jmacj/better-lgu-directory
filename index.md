@@ -53,10 +53,27 @@ A community-maintained directory of **Better LGU** digital transparency portals 
             <button type="button" class="kind-chip" data-kind="{{ kind }}" aria-pressed="false" onclick="toggleKind(this)">{{ kind | capitalize }}</button>
             {%- endfor %}
         </div>
-        <label for="adoption-filter" class="dc-adoption">
-            <input type="checkbox" id="adoption-filter" onchange="filterDirectory()" class="dc-adoption__input">
-            <span>🤝 Open for adoption</span>
-        </label>
+        <div class="dc-checks">
+            <label for="adoption-filter" class="dc-adoption">
+                <input type="checkbox" id="adoption-filter" onchange="filterDirectory()" class="dc-adoption__input">
+                <span>🤝 Open for adoption</span>
+            </label>
+            {%- comment -%}
+              The Seeking funding filter (#498) only appears once an Entry carries
+              the tag; until then it could only ever show an empty table. The
+              script below treats a missing checkbox as unticked.
+            {%- endcomment -%}
+            {%- assign seeking_funding = false -%}
+            {%- for l in site.data.lgus -%}
+              {%- if l.funding_url and l.funding_url != "" -%}{%- assign seeking_funding = true -%}{%- break -%}{%- endif -%}
+            {%- endfor -%}
+            {%- if seeking_funding %}
+            <label for="funding-filter" class="dc-adoption">
+                <input type="checkbox" id="funding-filter" onchange="filterDirectory()" class="dc-adoption__input">
+                <span>🌱 Seeking funding</span>
+            </label>
+            {%- endif %}
+        </div>
     </div>
 </div>
 
@@ -96,7 +113,7 @@ the same result as fold() in scripts/lgu-name.js.
   {%- assign location_keys = location_keys | push: key -%}
 {%- endfor -%}
 {%- assign location_keys = location_keys | sort %}
-{% for key in location_keys %}{% assign key_parts = key | split: "!" %}{% assign i = key_parts[6] | plus: 0 %}{% assign lgu = site.data.lgus[i] %}| <span class="lgu-entry" data-region-rank="{{ key_parts[0] | minus: 100 }}" data-province="{{ key_parts[1] }}" data-level="{{ key_parts[2] }}" data-place="{{ key_parts[3] }}" data-status-rank="{{ key_parts[4] }}" data-region="{{ lgu.region | escape }}" data-kind="{{ lgu.kind }}"><span class="sr-only">{{ lgu.name }} </span><span aria-hidden="true"><span class="lgu-place">{% if lgu.kind == "province" %}{{ lgu.name }}{% else %}{{ lgu.place }}{% if lgu.kind == "city" %} City{% endif %}{% endif %}</span> {% if key_parts[5] != "" %}<span class="lgu-where">{{ key_parts[5] }}</span>{% endif %}</span></span> | {{ lgu.domain }} | {{ lgu.repo }}{% if lgu.repo_owner %}<br><span class="repo-activity" data-repo="{{ lgu.repo_owner }}/{{ lgu.repo_name }}"></span>{% endif %} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }}{% if lgu.stale %}<br><span class="lgu-tag lgu-tag-stale">⚠️ Stale</span>{% endif %} | {% include maintainer-links.html maintainers=lgu.maintainers fallback=lgu.maintainer %}{% if lgu.open_for_adoption %}<br><span class="lgu-tag lgu-tag-adoption">🤝 Open for Adoption</span>{% endif %} |
+{% for key in location_keys %}{% assign key_parts = key | split: "!" %}{% assign i = key_parts[6] | plus: 0 %}{% assign lgu = site.data.lgus[i] %}| <span class="lgu-entry" data-region-rank="{{ key_parts[0] | minus: 100 }}" data-province="{{ key_parts[1] }}" data-level="{{ key_parts[2] }}" data-place="{{ key_parts[3] }}" data-status-rank="{{ key_parts[4] }}" data-region="{{ lgu.region | escape }}" data-kind="{{ lgu.kind }}"><span class="sr-only">{{ lgu.name }} </span><span aria-hidden="true"><span class="lgu-place">{% if lgu.kind == "province" %}{{ lgu.name }}{% else %}{{ lgu.place }}{% if lgu.kind == "city" %} City{% endif %}{% endif %}</span> {% if key_parts[5] != "" %}<span class="lgu-where">{{ key_parts[5] }}</span>{% endif %}</span></span> | {{ lgu.domain }}{% if lgu.funding_url and lgu.funding_url != "" %}<br><a class="lgu-tag lgu-tag-funding" href="{{ lgu.funding_url | escape }}" target="_blank" rel="noopener noreferrer">🌱 Seeking Funding</a>{% endif %} | {{ lgu.repo }}{% if lgu.repo_owner %}<br><span class="repo-activity" data-repo="{{ lgu.repo_owner }}/{{ lgu.repo_name }}"></span>{% endif %} | {% if lgu.socials and lgu.socials.size > 0 %}<span class="inline-flex items-center gap-3 flex-wrap">{% for s in lgu.socials %}{% include social-icon.html label=s.label url=s.url %}{% endfor %}</span>{% else %}-{% endif %} | {{ lgu.status }}{% if lgu.stale %}<br><span class="lgu-tag lgu-tag-stale">⚠️ Stale</span>{% endif %} | {% include maintainer-links.html maintainers=lgu.maintainers fallback=lgu.maintainer %}{% if lgu.open_for_adoption %}<br><span class="lgu-tag lgu-tag-adoption">🤝 Open for Adoption</span>{% endif %} |
 {% endfor %}
 
 </div>
@@ -164,6 +181,7 @@ The directory is sorted by location by default (regions north to south, then pro
 |----------------------|-----------------------------------------------------------------------------------|
 | ⚠️ Stale             | A `🔵 Planned` entry with no directory activity for over 30 days, or a `🟡 Work in Progress` entry whose check-ins went unanswered |
 | 🤝 Open for Adoption | Anyone may take the entry on — as a takeover, or alongside the original maintainer. Appears on stale entries and on `🔴 Unmaintained` ones |
+| 🌱 Seeking Funding   | Under the portal link in the Domain column: the portal's Maintainers welcome support, and the tag links to its funding page. See the [funding policy]({{ '/funding' | relative_url }}) |
 
 </div>
 
@@ -242,6 +260,13 @@ function sortDirectory() {
     filterDirectory();
 }
 
+// The Seeking funding checkbox, or null while no Entry seeks funding (#498).
+// Missing means unticked, so a shared ?funding=1 link shows the whole
+// directory and syncUrl() drops the parameter.
+function fundingFilter() {
+    return document.getElementById("funding-filter");
+}
+
 // The controls' state, as directory-url.js reads and writes it (#456).
 function readControls() {
     return {
@@ -250,6 +275,7 @@ function readControls() {
         region: document.getElementById("region-filter").value,
         kinds: Array.from(document.querySelectorAll('.kind-chip[aria-pressed="true"]')).map(chip => chip.dataset.kind),
         adoption: document.getElementById("adoption-filter").checked,
+        funding: fundingFilter() ? fundingFilter().checked : false,
         sort: document.getElementById("sort-preset").value,
     };
 }
@@ -262,6 +288,7 @@ function applyControls(state) {
         chip.setAttribute("aria-pressed", state.kinds.includes(chip.dataset.kind) ? "true" : "false");
     });
     document.getElementById("adoption-filter").checked = state.adoption;
+    if (fundingFilter()) fundingFilter().checked = state.funding;
     document.getElementById("sort-preset").value = state.sort;
 }
 
@@ -283,7 +310,7 @@ function syncUrl() {
 
 // Clears search and filters; keeps the sort.
 function clearFilters() {
-    const cleared = { q: "", status: "", region: "", kinds: [], adoption: false };
+    const cleared = { q: "", status: "", region: "", kinds: [], adoption: false, funding: false };
     applyControls(Object.assign(cleared, { sort: document.getElementById("sort-preset").value }));
     filterDirectory();
 }
@@ -294,6 +321,7 @@ function filterDirectory() {
     const regionFilter = document.getElementById("region-filter").value;
     const kinds = Array.from(document.querySelectorAll('.kind-chip[aria-pressed="true"]')).map(chip => chip.dataset.kind);
     const adoptionOnly = document.getElementById("adoption-filter").checked;
+    const fundingOnly = fundingFilter() ? fundingFilter().checked : false;
     const container = document.getElementById("lgu-table-container");
     const table = container.getElementsByTagName("table")[0];
     const tr = container.getElementsByTagName("tr");
@@ -318,7 +346,10 @@ function filterDirectory() {
         const entry = td[0].querySelector(".lgu-entry").dataset;
         const regionMatch = regionFilter === "" || entry.region === regionFilter;
         const kindMatch = kinds.length === 0 || kinds.includes(entry.kind);
-        const filterMatch = statusMatch && adoptionMatch && regionMatch && kindMatch;
+        // The 🌱 Seeking Funding badge is rendered beside the portal link in
+        // the Domain cell, never the LGU cell (#498).
+        const fundingMatch = !fundingOnly || td[1].querySelector(".lgu-tag-funding") !== null;
+        const filterMatch = statusMatch && adoptionMatch && fundingMatch && regionMatch && kindMatch;
 
         // The LGU cell's text holds the full name, place, province and
         // region, so search matches all of them.

@@ -11,6 +11,10 @@ permalink: /maintainers/
   _config.yml excludes it from the site. This page lives at the root, not in
   maintainers/, because the profile scripts treat every *.md in that folder
   other than README.md as a profile.
+
+  A card's support link (#498) sits outside the card's profile link, since a
+  link can't nest inside another. The funding disclaimer shows once, above
+  the cards, when any profile has one.
 {%- endcomment -%}
 
 Every LGU and budget portal in this directory is built and run by its own volunteers, who are listed in the **Maintainer/s** column of the [Directory]({{ '/' | relative_url }}) and the [Budget Portals]({{ '/budget' | relative_url }}) tables. The people below are some of those portal Maintainers. Each one chose to publish a Maintainer Profile saying how contributors can reach them, what they're open to, and what they're not a fit for.
@@ -20,10 +24,16 @@ Every LGU and budget portal in this directory is built and run by its own volunt
 Read a profile before you reach out, and follow the [Code of Conduct]({{ '/code-of-conduct' | relative_url }}#contacting-maintainers).
 
 {% assign profiles = site.data.maintainer_profiles -%}
+{%- assign any_support = false -%}
+{%- for p in profiles -%}{%- if p.support and p.support != "" -%}{%- assign any_support = true -%}{%- break -%}{%- endif -%}{%- endfor -%}
+{%- if any_support %}
+<p class="not-prose funding-note text-sm text-gray-500">Some Maintainers accept personal support. It goes to them as people, not to a portal or the directory. {% include funding-disclaimer.html link_class="text-blue-600 hover:text-blue-700" %}</p>
+{%- endif -%}
 {%- if profiles and profiles.size > 0 -%}
 <div class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
 {%- for p in profiles %}
-  <a href="{{ p.url | relative_url }}" class="maintainer-card block bg-white border border-gray-100 rounded-2xl shadow-sm p-6 hover:border-blue-300 hover:shadow-md transition-all no-underline">
+  <div class="maintainer-card bg-white border border-gray-100 rounded-2xl shadow-sm p-6 hover:border-blue-300 hover:shadow-md transition-all">
+  <a href="{{ p.url | relative_url }}" class="maintainer-card__link block no-underline">
     <div class="text-lg font-bold text-gray-900">{{ p.name | escape }}</div>
     <div class="text-sm text-gray-500 mb-4">@{{ p.handle }}</div>
     <div class="text-sm text-gray-700 mb-3">
@@ -39,6 +49,10 @@ Read a profile before you reach out, and follow the [Code of Conduct]({{ '/code-
     <div class="text-sm text-gray-700"><span class="font-semibold text-gray-500">Languages:</span> {{ p.languages | join: ", " | escape }}</div>
     {%- endif %}
   </a>
+    {%- if p.support and p.support != "" %}
+    <div class="text-sm text-gray-700 mt-3"><span class="font-semibold text-gray-500">Personal support:</span> <a href="{{ p.support | escape }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700">{{ p.support | remove_first: 'https://' | remove_first: 'http://' | escape }}</a></div>
+    {%- endif %}
+  </div>
 {%- endfor %}
 </div>
 {%- else -%}

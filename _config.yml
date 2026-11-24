@@ -36,6 +36,13 @@ defaults:
       layout: default
       title: Privacy
       permalink: /privacy
+  # FUNDING.md comes from main with no front matter, like PRIVACY.md (#498).
+  - scope:
+      path: "FUNDING.md"
+    values:
+      layout: default
+      title: Funding Policy
+      permalink: /funding
   # Lowercase URLs (#429). The filenames on main stay uppercase (GitHub
   # conventions), so the published URL is set here rather than in their front
   # matter, which keeps the sync merge conflict-free. The redirects from the
@@ -101,3 +108,5 @@ github_only_links:
     url: https://github.com/jmacj/better-lgu-directory/blob/main/maintainers/_template.md
   - href: LICENSE
     url: https://github.com/jmacj/better-lgu-directory/blob/main/LICENSE
+  - href: .github/workflows/stale.yml
+    url: https://github.com/jmacj/better-lgu-directory/blob/main/.github/workflows/stale.yml
