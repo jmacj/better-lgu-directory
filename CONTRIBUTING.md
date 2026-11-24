@@ -172,6 +172,8 @@ Adopting resets the clock: the entry counts as updated from the day that PR merg
 
 The tags are applied by Directory Maintainers during periodic reviews, never by automation. Elapsed time is what prompts a look, not the whole judgement — an entry with visible progress elsewhere will not be tagged just because its row has not changed.
 
+A Directory Maintainer who marks a `🟡 Work in Progress` entry stale also removes its [`🌱 Seeking Funding`](#funding) tag in the same PR. The sync rejects a row that carries both.
+
 ---
 
 ## Check-ins
@@ -207,6 +209,8 @@ An Unmaintained entry is tagged `🤝 Open for Adoption` under its Maintainer/s,
 
 **If it is your entry:** open a PR that sets the real status and removes the tag. That counts as an update, like any other.
 
+A Directory Maintainer who marks an entry Unmaintained also removes its [`🌱 Seeking Funding`](#funding) tag in the same PR. The sync rejects an Unmaintained row that keeps it.
+
 ---
 
 ## Publishing a Maintainer Profile
@@ -215,7 +219,7 @@ If you're listed as a Maintainer of an LGU in `README.md` or a budget portal in 
 
 1. Read the [privacy notice](PRIVACY.md). Everything in your profile is public, and removing it later doesn't erase git history or forks.
 2. Copy [`maintainers/_template.md`](maintainers/_template.md) to `maintainers/<your-github-handle>.md`. The filename is the only record of whose profile it is.
-3. Keep what you want to share and delete the rest. Every field is optional. Channels can be `email`, `messenger`, `discord`, `telegram`, `linkedin`, and `website`. Prefer project or team channels over personal ones; if you're under 18, use only those. Phone numbers aren't accepted.
+3. Keep what you want to share and delete the rest. Every field is optional. Channels can be `email`, `messenger`, `discord`, `telegram`, `linkedin`, and `website`. Prefer project or team channels over personal ones; if you're under 18, use only those. Phone numbers aren't accepted. You can also add one `support` link where people can back you personally (see [Funding](#funding)); never take that support from an Excluded Funder.
 4. Add yourself to the list in [`maintainers/README.md`](maintainers/README.md).
 5. Open the pull request **from your own GitHub account**, titled:
 
@@ -226,6 +230,29 @@ If you're listed as a Maintainer of an LGU in `README.md` or a budget portal in 
 On the website, your handle then links to your profile wherever you appear as a Maintainer. One profile covers every portal you maintain. If you rename your GitHub account, rename the file and update your Maintainer/s cells in the same PR.
 
 To remove your profile, delete the file and your bullet in a PR, open an issue, or email jan@jmacj.dev privately. Directory Maintainers may delete profiles to honour removal requests but never edit them.
+
+---
+
+## Funding
+
+The directory takes no money. Listed portals and Maintainers may, under the rules in [`FUNDING.md`](FUNDING.md):
+
+- **Never from an Excluded Funder:** a candidate, political party, or campaign at any level, or a sitting elected official of the LGU your portal covers or their immediate family. Your LGU office, as an institution, is allowed if you disclose it.
+- **Disclose your Funders** on your portal, if you have any.
+
+### Seeking funding for your portal
+
+If your entry is `🟢 Active`, or `🟡 Work in Progress` with a deployed Domain, you can add the `🌱 Seeking Funding` tag as a second line in its Domain cell, linking to a funding page on your portal's own site:
+
+```
+| Your LGU Name | [betteryourlgu.org](https://betteryourlgu.org)<br>[🌱 Seeking Funding](https://betteryourlgu.org/support) | ... |
+```
+
+Before you open the PR, make sure your funding page shows who runs the portal, what the money is for, how to give, your current Funders (or "No funders yet"), and that you take no money from Excluded Funders. Title the PR `Update [LGU Name] — seeking funding`. It's labelled `funding`, and a Directory Maintainer checks the page before merging.
+
+To stop seeking funding, open a PR that deletes the line. Budget Portals don't carry the tag.
+
+To report a portal taking money it shouldn't, or not disclosing its Funders, open a **[Report Funding Concern](https://github.com/jmacj/better-lgu-directory/issues/new?template=report-funding-concern.md)** issue. See [`FUNDING.md`](FUNDING.md#enforcement) for what happens next.
 
 ---
 
@@ -255,6 +282,7 @@ Some labels are applied automatically, so do not worry about setting them yourse
 | `entry:collision` | The LGU you added is already in the directory — see the comment on your PR. |
 | `needs-verification` | Your PR introduces new links, or a Maintainer Profile that needs a closer look; a Directory Maintainer will check it before merging. |
 | `entry:budget` | Your PR changes the Budget Portal table in `BUDGET.md`. |
+| `funding` | Your PR adds or changes a `🌱 Seeking Funding` tag; a Directory Maintainer checks your funding page before merging. |
 
 A Directory Maintainer may then add:
 
