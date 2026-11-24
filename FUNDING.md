@@ -65,7 +65,7 @@ A `🔵 Planned` Entry can't seek funding: deploy first. Free host addresses suc
 The tag always links to a funding page on the portal's own site: the portal's host or a subdomain of it. External platforms such as Open Collective, Ko-fi, GitHub Sponsors, or a bank or e-wallet link are fine as the way to give, linked from that page. The page itself must show:
 
 1. Who runs the portal (its Maintainer/s).
-2. What the money is for, in plain words. You can spend it on anything, your own time included; the page just has to say so.
+2. What the money is for, in plain words. There's no list of approved uses: hosting, a domain, or paid data and tools are all fine. Whatever it is, the page has to say so, so funders know what they're paying for.
 3. How to give, at least one way.
 4. Current Funders (your Funding Disclosure), or "No funders yet".
 5. A statement that the portal takes no funding from Excluded Funders.
