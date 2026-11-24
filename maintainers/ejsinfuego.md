@@ -1,7 +1,7 @@
 ---
 name: Ej Sinfuego
 open_to: collaborators, feature requests, code review
-languages: Filipino, English
+languages: Filipino, English, Bicol Naga, Rinconada
 website: https://www.betterocampo.org
 ---
 
