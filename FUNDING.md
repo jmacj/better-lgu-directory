@@ -4,7 +4,7 @@ This policy covers money around the BetterLGU Directory: the directory itself, e
 
 ## The short version
 
-- The directory takes no money.
+- Support goes straight to portals and Maintainers, never through the directory.
 - A listed portal or a Maintainer may take money, but never from an **Excluded Funder**: a candidate, political party, or campaign, or the elected officials of the LGU the portal covers and their families.
 - A portal with Funders names them on the portal.
 - A live portal can ask for support with the `🌱 Seeking Funding` tag, which links to a funding page on the portal's own site.
@@ -14,11 +14,11 @@ This policy covers money around the BetterLGU Directory: the directory itself, e
 
 Listed portals are independently run and funded. BetterGov.ph and the BetterLGU Directory do not receive, hold, vet, or endorse any portal's funding. A `🌱 Seeking Funding` tag means the portal's Maintainers asked to be listed as seeking support and that a Directory Maintainer checked their funding page showed the required information on the day the tag was added. It is not a recommendation, an audit, or an appeal by the LGU government. Money given to a portal goes to its Maintainers, under their own arrangements, at your own judgement.
 
-## The directory takes no money
+## Where the money goes
 
-The directory has no Funders. There is no Sponsor button, no donation link, and no shared fund. Directory Maintainers decide what gets listed and judge other portals' funding, and money flowing to the directory would make those decisions look bought. The directory also costs nothing to run: the site is on GitHub Pages under BetterGov.ph's subdomain, and its automation runs on free GitHub Actions.
+The directory has no Funders. Support goes straight to portals and Maintainers, never through the directory: there is no Sponsor button, no donation link, and no shared fund. The directory costs nothing to run. The site is on GitHub Pages under BetterGov.ph's subdomain, and its automation runs on free GitHub Actions.
 
-People can still support the time Maintainers give, including Directory Maintainers, through **Personal Support** (below), so money never touches anything that decides listings.
+Keeping money out of the directory keeps its listing and enforcement decisions independent of any funding relationship, and spares volunteers from deciding who gets paid from a shared pot. People who want to support the time Maintainers give, Directory Maintainers included, can do it directly through **Personal Support** (below).
 
 ## Who counts as a Funder
 

@@ -235,7 +235,7 @@ To remove your profile, delete the file and your bullet in a PR, open an issue, 
 
 ## Funding
 
-The directory takes no money. Listed portals and Maintainers may, under the rules in [`FUNDING.md`](FUNDING.md):
+Support goes straight to portals and Maintainers, never through the directory. Listed portals and Maintainers may take funding under the rules in [`FUNDING.md`](FUNDING.md):
 
 - **Never from an Excluded Funder:** a candidate, political party, or campaign at any level, or a sitting elected official of the LGU your portal covers or their immediate family. Your LGU office, as an institution, is allowed if you disclose it.
 - **Disclose your Funders** on your portal, if you have any.
