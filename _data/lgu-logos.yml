@@ -6,7 +6,7 @@
   px: "vector"
   bytes: 142050
   order_key: "0023"
-  shuffle_key: "0010"
+  shuffle_key: "0009"
 - name: "Aklan Province"
   domain: "betteraklan.org"
   file: "betteraklan.org.png"
@@ -14,8 +14,8 @@
   source: "rel-icon"
   px: "664"
   bytes: 210849
-  order_key: "0040"
-  shuffle_key: "0019"
+  order_key: "0039"
+  shuffle_key: "0018"
 - name: "Alaminos City, Pangasinan"
   domain: "betteralaminoscity.org"
   file: "betteralaminoscity.org.svg"
@@ -51,7 +51,7 @@
   px: "1000"
   bytes: 168890
   order_key: "0065"
-  shuffle_key: "0016"
+  shuffle_key: "0015"
 - name: "Aurora, Zamboanga del Sur"
   domain: "betteraurora.org"
   file: "betteraurora.org.svg"
@@ -68,8 +68,8 @@
   source: "rel-icon"
   px: "120"
   bytes: 2827
-  order_key: "0038"
-  shuffle_key: "0014"
+  order_key: "0037"
+  shuffle_key: "0013"
 - name: "Bacoor City, Cavite"
   domain: "betterbacoor.org"
   file: "betterbacoor.org.svg"
@@ -78,7 +78,7 @@
   px: "vector"
   bytes: 52612
   order_key: "0015"
-  shuffle_key: "0009"
+  shuffle_key: "0008"
 - name: "Bagac, Bataan"
   domain: "betterbagac.org"
   file: "betterbagac.org.svg"
@@ -86,7 +86,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 20005
-  order_key: "0041"
+  order_key: "0040"
   shuffle_key: "0004"
 - name: "Baguio City, Benguet"
   domain: "betterbaguio.org"
@@ -96,7 +96,7 @@
   px: "512"
   bytes: 151638
   order_key: "0068"
-  shuffle_key: "0020"
+  shuffle_key: "0019"
 - name: "Baler, Aurora"
   domain: "betterbaler.org"
   file: "betterbaler.org.svg"
@@ -122,8 +122,8 @@
   source: "rel-icon"
   px: "256"
   bytes: 8916
-  order_key: "0002"
-  shuffle_key: "0002"
+  order_key: "0043"
+  shuffle_key: "0031"
 - name: "Biñan City, Laguna"
   domain: "betterbinan.vercel.app"
   file: "betterbinan.vercel.app.svg"
@@ -168,7 +168,7 @@
   px: "317"
   bytes: 137916
   order_key: "0072"
-  shuffle_key: "0008"
+  shuffle_key: "0007"
 - name: "Cainta, Rizal"
   domain: "bettercainta.org"
   file: "bettercainta.org.svg"
@@ -177,7 +177,7 @@
   px: "vector"
   bytes: 3971
   order_key: "0007"
-  shuffle_key: "0030"
+  shuffle_key: "0029"
 - name: "Calapan City, Oriental Mindoro"
   domain: "bettercalapan.org"
   file: "bettercalapan.org.png"
@@ -195,7 +195,7 @@
   px: "vector"
   bytes: 3061
   order_key: "0010"
-  shuffle_key: "0018"
+  shuffle_key: "0017"
 - name: "Calauan, Laguna"
   domain: "bettercalauan.org"
   file: "bettercalauan.org.svg"
@@ -204,7 +204,7 @@
   px: "vector"
   bytes: 63170
   order_key: "0071"
-  shuffle_key: "0026"
+  shuffle_key: "0025"
 - name: "Caloocan City, Metro Manila"
   domain: "bettercaloocan.org"
   file: "bettercaloocan.org.svg"
@@ -222,7 +222,7 @@
   px: "vector"
   bytes: 5172
   order_key: "0060"
-  shuffle_key: "0031"
+  shuffle_key: "0030"
 - name: "Catanduanes Province"
   domain: "bettercatanduanes.org"
   file: "bettercatanduanes.org.svg"
@@ -257,8 +257,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 2318
-  order_key: "0039"
-  shuffle_key: "0027"
+  order_key: "0038"
+  shuffle_key: "0026"
 - name: "Dasmariñas City, Cavite"
   domain: "betterdasmarinas.org"
   file: "betterdasmarinas.org.png"
@@ -267,7 +267,7 @@
   px: "630"
   bytes: 541251
   order_key: "0067"
-  shuffle_key: "0021"
+  shuffle_key: "0020"
 - name: "General Santos City, South Cotabato"
   domain: "bettergensan.org"
   file: "bettergensan.org.png"
@@ -293,8 +293,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 17413
-  order_key: "0042"
-  shuffle_key: "0015"
+  order_key: "0041"
+  shuffle_key: "0014"
 - name: "Infanta, Quezon"
   domain: "betterinfantaquezon.org"
   file: "betterinfantaquezon.org.svg"
@@ -419,8 +419,8 @@
   source: "apple-touch-icon"
   px: "180"
   bytes: 16459
-  order_key: "0043"
-  shuffle_key: "0022"
+  order_key: "0042"
+  shuffle_key: "0021"
 - name: "Mapandan, Pangasinan"
   domain: "bettermapandan.org"
   file: "bettermapandan.org.png"
@@ -429,7 +429,7 @@
   px: "512"
   bytes: 232182
   order_key: "0024"
-  shuffle_key: "0017"
+  shuffle_key: "0016"
 - name: "Marikina City, Metro Manila"
   domain: "bettermarikina.org"
   file: "bettermarikina.org.png"
@@ -438,7 +438,7 @@
   px: "512"
   bytes: 92810
   order_key: "0008"
-  shuffle_key: "0024"
+  shuffle_key: "0023"
 - name: "Marinduque Province"
   domain: "bettermarinduque.vercel.app"
   file: "bettermarinduque.vercel.app.png"
@@ -447,7 +447,7 @@
   px: "180"
   bytes: 28661
   order_key: "0054"
-  shuffle_key: "0011"
+  shuffle_key: "0010"
 - name: "Meycauayan City, Bulacan"
   domain: "bettermeycauayan.org"
   file: "bettermeycauayan.org.svg"
@@ -474,7 +474,7 @@
   px: "vector"
   bytes: 27188
   order_key: "0053"
-  shuffle_key: "0029"
+  shuffle_key: "0028"
 - name: "Naic, Cavite"
   domain: "betternaic.vercel.app"
   file: "betternaic.vercel.app.svg"
@@ -482,8 +482,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 65936
-  order_key: "0037"
-  shuffle_key: "0007"
+  order_key: "0002"
+  shuffle_key: "0002"
 - name: "Obando, Bulacan"
   domain: "betterobando.vercel.app"
   file: "betterobando.vercel.app.svg"
@@ -546,7 +546,7 @@
   px: "vector"
   bytes: 305759
   order_key: "0033"
-  shuffle_key: "0013"
+  shuffle_key: "0012"
 - name: "Ramon, Isabela"
   domain: "betterramon.pages.dev"
   file: "betterramon.pages.dev.svg"
@@ -600,7 +600,7 @@
   px: "1024"
   bytes: 88459
   order_key: "0005"
-  shuffle_key: "0023"
+  shuffle_key: "0022"
 - name: "Siquijor Province"
   domain: "bettersiquijor.vercel.app"
   file: "bettersiquijor.vercel.app.svg"
@@ -609,7 +609,7 @@
   px: "vector"
   bytes: 1899
   order_key: "0026"
-  shuffle_key: "0012"
+  shuffle_key: "0011"
 - name: "Solano, Nueva Vizcaya"
   domain: "bettersolano.org"
   file: "bettersolano.org.svg"
@@ -618,7 +618,7 @@
   px: "vector"
   bytes: 3971
   order_key: "0066"
-  shuffle_key: "0028"
+  shuffle_key: "0027"
 - name: "Surallah, South Cotabato"
   domain: "bettersurallah.org"
   file: "bettersurallah.org.png"
@@ -627,7 +627,7 @@
   px: "512"
   bytes: 98391
   order_key: "0073"
-  shuffle_key: "0025"
+  shuffle_key: "0024"
 - name: "Taal, Batangas"
   domain: "bettertaalbatangas.org"
   file: "bettertaalbatangas.org.svg"

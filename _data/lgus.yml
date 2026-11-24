@@ -2599,7 +2599,10 @@
   repo: "[GitHub](https://github.com/ejsinfuego/betterocampo)"
   repo_owner: "ejsinfuego"
   repo_name: "betterocampo"
-  socials: []
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/profile.php?id=61597112090688"
   status: "🟢 Active"
   stale: false
   open_for_adoption: false
