@@ -57,10 +57,21 @@ A community-maintained directory of **Better LGU** digital transparency portals 
             <input type="checkbox" id="adoption-filter" onchange="filterDirectory()" class="dc-adoption__input">
             <span>🤝 Open for adoption</span>
         </label>
+        {%- comment -%}
+          The Seeking funding filter (#498) only appears once an Entry carries
+          the tag; until then it could only ever show an empty table. The
+          script below treats a missing checkbox as unticked.
+        {%- endcomment -%}
+        {%- assign seeking_funding = false -%}
+        {%- for l in site.data.lgus -%}
+          {%- if l.funding_url and l.funding_url != "" -%}{%- assign seeking_funding = true -%}{%- break -%}{%- endif -%}
+        {%- endfor -%}
+        {%- if seeking_funding %}
         <label for="funding-filter" class="dc-adoption">
             <input type="checkbox" id="funding-filter" onchange="filterDirectory()" class="dc-adoption__input">
             <span>🌱 Seeking funding</span>
         </label>
+        {%- endif %}
     </div>
 </div>
 
@@ -246,6 +257,13 @@ function sortDirectory() {
     filterDirectory();
 }
 
+// The Seeking funding checkbox, or null while no Entry seeks funding (#498).
+// Missing means unticked, so a shared ?funding=1 link shows the whole
+// directory and syncUrl() drops the parameter.
+function fundingFilter() {
+    return document.getElementById("funding-filter");
+}
+
 // The controls' state, as directory-url.js reads and writes it (#456).
 function readControls() {
     return {
@@ -254,7 +272,7 @@ function readControls() {
         region: document.getElementById("region-filter").value,
         kinds: Array.from(document.querySelectorAll('.kind-chip[aria-pressed="true"]')).map(chip => chip.dataset.kind),
         adoption: document.getElementById("adoption-filter").checked,
-        funding: document.getElementById("funding-filter").checked,
+        funding: fundingFilter() ? fundingFilter().checked : false,
         sort: document.getElementById("sort-preset").value,
     };
 }
@@ -267,7 +285,7 @@ function applyControls(state) {
         chip.setAttribute("aria-pressed", state.kinds.includes(chip.dataset.kind) ? "true" : "false");
     });
     document.getElementById("adoption-filter").checked = state.adoption;
-    document.getElementById("funding-filter").checked = state.funding;
+    if (fundingFilter()) fundingFilter().checked = state.funding;
     document.getElementById("sort-preset").value = state.sort;
 }
 
@@ -300,7 +318,7 @@ function filterDirectory() {
     const regionFilter = document.getElementById("region-filter").value;
     const kinds = Array.from(document.querySelectorAll('.kind-chip[aria-pressed="true"]')).map(chip => chip.dataset.kind);
     const adoptionOnly = document.getElementById("adoption-filter").checked;
-    const fundingOnly = document.getElementById("funding-filter").checked;
+    const fundingOnly = fundingFilter() ? fundingFilter().checked : false;
     const container = document.getElementById("lgu-table-container");
     const table = container.getElementsByTagName("table")[0];
     const tr = container.getElementsByTagName("tr");
