@@ -9,6 +9,7 @@
  *   entry:collision     an added row names an LGU that is already listed
  *   needs-verification  the change introduces at least one link nobody has checked
  *   docs                README changed, but no directory row did
+ *   funding             a row adds or changes its 🌱 Seeking Funding link (#498)
  *
  * Collisions are reported, never acted on: two municipalities in different
  * provinces can share a name, so a Directory Maintainer makes the duplicate
@@ -31,6 +32,7 @@ const fs = require('fs');
 const { execFileSync } = require('child_process');
 const { PROFILES_DIR, INDEX_PATH, reviewProfileChanges } = require('./maintainer-profiles');
 const { listedHandles } = require('./sync-budget-to-data');
+const { FUNDING_TAG, splitCellLines } = require('./sync-to-data');
 const { parseLguName, compareLguNames, placement } = require('./lgu-name');
 
 const START_MARKER = '<!-- SYNC_LGU_TABLE_START -->';
@@ -313,6 +315,38 @@ function nameNotes(headRows, touchedRows) {
     return notes;
 }
 
+// The Seeking Funding line of a row's Domain cell (#498), or '' when it has
+// none. Whatever the sync makes of it, any line mentioning the tag counts, so
+// a malformed tag still gets the funding review.
+function fundingLine(row) {
+    return splitCellLines(row.cells[1] || '').slice(1).find(line => line.includes(FUNDING_TAG)) || '';
+}
+
+const FUNDING_POLICY = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'jmacj/better-lgu-directory'}/blob/main/FUNDING.md`;
+
+// Rows whose funding line is new or different from the base, with the
+// checklist a Directory Maintainer works through before merging (#498).
+function fundingNotes(added, changed) {
+    const tagged = [
+        ...added.filter(row => fundingLine(row)),
+        ...changed.filter(({ row, previous }) => fundingLine(row) && fundingLine(row) !== fundingLine(previous)).map(({ row }) => row),
+    ];
+    if (tagged.length === 0) {
+        return [];
+    }
+    return [
+        `### ${FUNDING_TAG}\n`,
+        ...tagged.map(row => `- **${row.cells[0]}** — ${fundingLine(row)}`),
+        '\nBefore merging, open the funding page and confirm it shows all five (see [FUNDING.md](' + FUNDING_POLICY + ')):\n',
+        '- [ ] Who runs the portal (its Maintainer/s)',
+        '- [ ] What the money is for, in plain words',
+        '- [ ] How to give (at least one way)',
+        '- [ ] Current Funders, or "No funders yet"',
+        '- [ ] A statement that the portal takes no funding from Excluded Funders',
+        '\nAlso confirm the page is on the portal itself, and the Entry is 🟢 Active or a deployed 🟡 Work in Progress (the sync rejects the rest).\n',
+    ];
+}
+
 // The README.md directory-table review. Returns { labels, notes }.
 async function triageDirectory(baseContent, headContent) {
     if (baseContent === headContent) {
@@ -383,6 +417,12 @@ async function triageDirectory(baseContent, headContent) {
 
     notes.push(...nameNotes(headRows, [...added, ...changed.map(entry => entry.row)]));
 
+    const funding = fundingNotes(added, changed);
+    if (funding.length > 0) {
+        labels.add('funding');
+        notes.push(...funding);
+    }
+
     if (removed.length > 0) {
         notes.push('### Rows removed\n');
         for (const row of removed) {
@@ -419,6 +459,9 @@ async function triageDirectory(baseContent, headContent) {
         notes.push('- **Repository** — holds that portal\'s source, on whichever host the contributor uses.');
         notes.push('- **Socials** — the Better LGU project\'s own page, not the local government\'s official account and not a personal profile.');
         notes.push('- **Maintainer** — the GitHub account of the person or people listed.');
+        if (funding.length > 0) {
+            notes.push(`- **Domain (${FUNDING_TAG})** — the portal's own funding page, checked against the list above.`);
+        }
         notes.push('\nOnce they all check out, remove `needs-verification`.\n');
     }
 
