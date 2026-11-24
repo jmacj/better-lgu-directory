@@ -2,7 +2,8 @@
 name: Ej Sinfuego
 open_to: collaborators, feature requests, code review
 languages: Filipino, English, Bicol Naga, Rinconada
-website: https://www.betterocampo.org
+email: edzeljohnsinfuego@gmail.com
+website: https://ejsinfuego.com
 ---
 
 I build and maintain [Better Ocampo](https://www.betterocampo.org), an independent community guide for the Municipality of Ocampo, Camarines Sur. It is a React and TypeScript site for service guides, government records, and contact details that can be checked against a public source or confirmed with the LGU. A fee, schedule, or hotline stays off the page until it can be checked.
@@ -13,7 +14,7 @@ Reach out if you want to collaborate on Better Ocampo. That can be a content cor
 
 ## Reaching out
 
-GitHub is the channel I check. Open an issue or pull request on the [Better Ocampo repository](https://github.com/ejsinfuego/betterocampo). Use that for a wrong fact, a missing public source, or a code change.
+Email me at **edzeljohnsinfuego@gmail.com**, or open an issue or pull request on the [Better Ocampo repository](https://github.com/ejsinfuego/betterocampo). Use GitHub for a wrong fact, a missing public source, or a code change.
 
 ## Not a fit for
 
