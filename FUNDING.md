@@ -1,13 +1,13 @@
 # Funding Policy
 
-This policy covers money around the BetterLGU Directory: the directory itself, every portal listed in [`README.md`](README.md) and [`BUDGET.md`](BUDGET.md), and the people who maintain them. It says who may fund a portal, what a funded portal must tell the public, how a portal asks for support, and what happens when the rules are broken. The terms in **bold** are defined in [`CONTEXT.md`](CONTEXT.md).
+This policy covers money around the BetterLGU Directory: the directory itself, every portal listed in [`README.md`](README.md) and [`BUDGET.md`](BUDGET.md), and the people who maintain them. It says who may fund a portal, what a funded portal must tell the public, how a portal shows it's seeking funding, and what happens when the rules are broken. The terms in **bold** are defined in [`CONTEXT.md`](CONTEXT.md).
 
 ## The short version
 
 - Support goes straight to portals and Maintainers, never through the directory.
 - A listed portal or a Maintainer may take money, but never from an **Excluded Funder**: a candidate, political party, or campaign, or the elected officials of the LGU the portal covers and their families.
 - A portal with Funders names them on the portal.
-- A live portal can ask for support with the `🌱 Seeking Funding` tag, which links to a funding page on the portal's own site.
+- A live portal can show it's seeking funding with the `🌱 Seeking Funding` tag, which links to a funding page on the portal's own site.
 - Breaking the rules gets 14 days to fix, then the Entry's row is removed.
 
 ## Disclaimer
@@ -49,7 +49,7 @@ Personal Support follows the same Excluded Funder rule. Directory Maintainers ma
 
 ## The 🌱 Seeking Funding tag
 
-A Maintainer can ask for support for their portal by adding the `🌱 Seeking Funding` tag to their Entry. The website shows it as a badge under the portal link, never beside the LGU name, and lets visitors filter to portals seeking funding. The tag belongs to the portal: it asks people to support the volunteer-run site, not the LGU government.
+A Maintainer can show their portal is seeking funding by adding the `🌱 Seeking Funding` tag to their Entry. The website shows it as a badge under the portal link, never beside the LGU name, and lets visitors filter to portals seeking funding. The tag belongs to the portal: it invites support for the volunteer-run site, not the LGU government.
 
 ### Who can use it
 
