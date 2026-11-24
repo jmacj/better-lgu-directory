@@ -22,6 +22,22 @@
     - name: "Lipa City, Batangas"
       kind: "budget"
       domain: "[betterlipa2027budget.netlify.app](https://betterlipa2027budget.netlify.app)"
+- handle: "ejsinfuego"
+  url: "/maintainers/ejsinfuego/"
+  github: "https://github.com/ejsinfuego"
+  name: "Ej Sinfuego"
+  open_to:
+    - "collaborators"
+    - "code review"
+  languages:
+    - "Filipino"
+    - "English"
+  channels:
+    website: "https://www.betterocampo.org"
+  portals:
+    - name: "Ocampo, Camarines Sur"
+      kind: "entry"
+      domain: "[betterocampo.org](https://www.betterocampo.org)"
 - handle: "jmacj"
   url: "/maintainers/jmacj/"
   github: "https://github.com/jmacj"

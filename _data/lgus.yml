@@ -2489,8 +2489,8 @@
   maintainer: "[@ejsinfuego](https://github.com/ejsinfuego)"
   maintainers:
     - handle: "ejsinfuego"
-      url: "https://github.com/ejsinfuego"
-      profile: false
+      url: "/maintainers/ejsinfuego/"
+      profile: true
 - name: "Olongapo City, Zambales"
   place: "Olongapo"
   kind: "city"
