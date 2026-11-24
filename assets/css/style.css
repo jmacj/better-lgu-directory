@@ -888,12 +888,12 @@ a.lgu-tag-funding:focus-visible {
    breaks a word that wouldn't otherwise fit, and min-width: 0 stops grid
    items from stretching to the word's full width instead of wrapping it. */
 .prose .not-prose dd,
-.prose a.maintainer-card {
+.prose .maintainer-card {
   overflow-wrap: anywhere;
 }
 
 .prose .not-prose dl > div,
-.prose a.maintainer-card {
+.prose .maintainer-card {
   min-width: 0;
 }
 
@@ -902,8 +902,8 @@ a.lgu-tag-funding:focus-visible {
   margin-bottom: 0;
 }
 
-.prose a.maintainer-card,
-.prose a.maintainer-card:hover {
+.prose a.maintainer-card__link,
+.prose a.maintainer-card__link:hover {
   color: inherit;
   font-weight: inherit;
   text-decoration: none;

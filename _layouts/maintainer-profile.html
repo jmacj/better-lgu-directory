@@ -127,7 +127,7 @@ layout: default
     <div class="md:col-span-2">
       <dt class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Personal support</dt>
       <dd class="text-gray-900">
-        <a href="{{ profile.support | escape }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 break-all">Support @{{ profile_handle }}</a>
+        <a href="{{ profile.support | escape }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 break-all">{{ profile.support | remove_first: 'https://' | remove_first: 'http://' | escape }}</a>
         <p class="funding-note mt-2 text-sm text-gray-500">This supports @{{ profile_handle }} personally, not a portal or the directory. {% include funding-disclaimer.html link_class="text-blue-600 hover:text-blue-700" %}</p>
       </dd>
     </div>
