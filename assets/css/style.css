@@ -424,6 +424,15 @@ a.lgu-tag-funding:focus-visible {
   border-top: 1px solid var(--color-gray-200);
 }
 
+/* The checkbox filters, kept together at the right of the toggles row so
+   space-between doesn't strand one in the middle (#498). */
+.dc-checks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
 .dc-kinds {
   display: flex;
   flex-wrap: wrap;

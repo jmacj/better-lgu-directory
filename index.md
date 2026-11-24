@@ -53,25 +53,27 @@ A community-maintained directory of **Better LGU** digital transparency portals 
             <button type="button" class="kind-chip" data-kind="{{ kind }}" aria-pressed="false" onclick="toggleKind(this)">{{ kind | capitalize }}</button>
             {%- endfor %}
         </div>
-        <label for="adoption-filter" class="dc-adoption">
-            <input type="checkbox" id="adoption-filter" onchange="filterDirectory()" class="dc-adoption__input">
-            <span>🤝 Open for adoption</span>
-        </label>
-        {%- comment -%}
-          The Seeking funding filter (#498) only appears once an Entry carries
-          the tag; until then it could only ever show an empty table. The
-          script below treats a missing checkbox as unticked.
-        {%- endcomment -%}
-        {%- assign seeking_funding = false -%}
-        {%- for l in site.data.lgus -%}
-          {%- if l.funding_url and l.funding_url != "" -%}{%- assign seeking_funding = true -%}{%- break -%}{%- endif -%}
-        {%- endfor -%}
-        {%- if seeking_funding %}
-        <label for="funding-filter" class="dc-adoption">
-            <input type="checkbox" id="funding-filter" onchange="filterDirectory()" class="dc-adoption__input">
-            <span>🌱 Seeking funding</span>
-        </label>
-        {%- endif %}
+        <div class="dc-checks">
+            <label for="adoption-filter" class="dc-adoption">
+                <input type="checkbox" id="adoption-filter" onchange="filterDirectory()" class="dc-adoption__input">
+                <span>🤝 Open for adoption</span>
+            </label>
+            {%- comment -%}
+              The Seeking funding filter (#498) only appears once an Entry carries
+              the tag; until then it could only ever show an empty table. The
+              script below treats a missing checkbox as unticked.
+            {%- endcomment -%}
+            {%- assign seeking_funding = false -%}
+            {%- for l in site.data.lgus -%}
+              {%- if l.funding_url and l.funding_url != "" -%}{%- assign seeking_funding = true -%}{%- break -%}{%- endif -%}
+            {%- endfor -%}
+            {%- if seeking_funding %}
+            <label for="funding-filter" class="dc-adoption">
+                <input type="checkbox" id="funding-filter" onchange="filterDirectory()" class="dc-adoption__input">
+                <span>🌱 Seeking funding</span>
+            </label>
+            {%- endif %}
+        </div>
     </div>
 </div>
 
