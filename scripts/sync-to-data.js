@@ -28,6 +28,15 @@ const STALE_AFTER_DAYS = 30;
 // being maintained becomes 🔴 Unmaintained instead (#469).
 const STALE_STATUSES = ['🔵 Planned', '🟡 Work in Progress'];
 
+// The one optional second line of a Domain cell (#498): a link to the portal's
+// funding page, labelled exactly with this tag. FUNDING.md has the rules. The
+// emoji is provisional, so it lives only here.
+const FUNDING_TAG = '🌱 Seeking Funding';
+// Only a live portal may seek funding: never a 🔵 Planned promise, and never a
+// 🔴 Unmaintained or ⚠️ Stale entry, which has no active Maintainer to receive it.
+const FUNDING_STATUSES = ['🟢 Active', '🟡 Work in Progress'];
+const FUNDING_LINE = new RegExp(`^\\[${FUNDING_TAG}\\]\\(\\s*([^)\\s]*)\\s*\\)$`);
+
 // A cell may stack values on separate lines with <br>. Returns the trimmed,
 // non-empty parts in order, so parts[0] is the cell's primary value.
 function splitCellLines(cell) {
@@ -98,6 +107,60 @@ function extractDomainLink(rawCell) {
 // by domain (#307). Empty when the Domain cell is empty.
 function hostOf(domainCell) {
     return EMPTY_MARKERS.includes((domainCell || '').trim()) ? '' : extractDomainLink(domainCell).label;
+}
+
+// Hostname without a leading `www.`, lowercased, or '' for an unparseable URL.
+function bareHostname(url) {
+    try {
+        return new URL(url).hostname.toLowerCase().replace(/^www\./, '');
+    } catch {
+        return '';
+    }
+}
+
+// Splits a Domain cell into the portal link and the funding page URL (#498),
+// enforcing FUNDING.md: the tag must be a link, only on a live Entry with a
+// Domain, never on a ⚠️ Stale one, and the page must be on the portal's own
+// host or a subdomain of it. Any other second line is a typo. `status` and
+// `stale` come from the Status cell, already validated.
+function parseDomainCell(cell, { status, stale }, rowLabel) {
+    const [portal = '', ...extraLines] = splitCellLines(cell);
+    let fundingUrl = '';
+    for (const line of extraLines) {
+        const link = FUNDING_LINE.exec(line);
+        if (!link && line !== FUNDING_TAG) {
+            throw new Error(`${rowLabel} has an unknown second line in its Domain cell: "${line}". Only "[${FUNDING_TAG}](https://your-portal/funding-page)" may go under the portal link.`);
+        }
+        if (fundingUrl) {
+            throw new Error(`${rowLabel} carries "${FUNDING_TAG}" more than once.`);
+        }
+        if (!link || link[1] === '') {
+            throw new Error(`${rowLabel} is tagged "${FUNDING_TAG}" without a link — the tag must link to the portal's funding page.`);
+        }
+        fundingUrl = link[1];
+    }
+    if (!fundingUrl) {
+        return { portal, fundingUrl };
+    }
+
+    if (EMPTY_MARKERS.includes(portal)) {
+        throw new Error(`${rowLabel} is tagged "${FUNDING_TAG}" but has no Domain — only a deployed portal can seek funding.`);
+    }
+    if (!FUNDING_STATUSES.includes(status)) {
+        throw new Error(`${rowLabel} is tagged "${FUNDING_TAG}" with status "${status}" — only 🟢 Active and 🟡 Work in Progress entries can seek funding.`);
+    }
+    if (stale) {
+        throw new Error(`${rowLabel} is tagged both "${STALE_TAG}" and "${FUNDING_TAG}" — remove the funding tag in the same change that marks an entry stale.`);
+    }
+    const portalHost = bareHostname(extractDomainLink(portal).url);
+    const fundingHost = bareHostname(fundingUrl);
+    if (!/^https?:\/\//i.test(fundingUrl) || !fundingHost) {
+        throw new Error(`${rowLabel} has a "${FUNDING_TAG}" link that isn't a valid http(s) URL: "${fundingUrl}".`);
+    }
+    if (!portalHost || (fundingHost !== portalHost && !fundingHost.endsWith(`.${portalHost}`))) {
+        throw new Error(`${rowLabel} has a "${FUNDING_TAG}" link (${fundingUrl}) that's not on the portal's host (${portalHost || portal}) or a subdomain of it — the funding page must live on the portal itself.`);
+    }
+    return { portal, fundingUrl };
 }
 
 function parseTable(content, startMarker, endMarker, sourceName = 'README.md') {
@@ -189,6 +252,8 @@ function validateLgu(cells, index) {
         throw new Error(`LGU Table Row ${index + 1} is tagged "${ADOPTION_TAG}" with status "${status}" — only entries tagged "${STALE_TAG}" and 🔴 Unmaintained entries can be open for adoption.`);
     }
 
+    const { portal, fundingUrl } = parseDomainCell(domain, { status, stale }, `LGU Table Row ${index + 1}`);
+
     const socials = parseSocials(socialsCell);
     if (socials.length === 0 && !EMPTY_MARKERS.includes(socialsCell)) {
         throw new Error(`LGU Table Row ${index + 1} has a Socials cell with no valid [label](url) links: "${socialsCell}".`);
@@ -199,8 +264,9 @@ function validateLgu(cells, index) {
     return {
         name,
         ...lguName,
-        host: hostOf(domain),
-        domain: normalizeDash(domain),
+        host: hostOf(portal),
+        domain: normalizeDash(portal),
+        fundingUrl,
         repo: normalizeDash(repo),
         repoOwner: repoInfo ? repoInfo.owner : null,
         repoName: repoInfo ? repoInfo.repo : null,
@@ -304,6 +370,7 @@ function lgusToYaml(lgus) {
             `  region_rank: ${l.regionRank}`,
             `  host: "${yamlStr(l.host)}"`,
             `  domain: "${yamlStr(l.domain)}"`,
+            `  funding_url: "${yamlStr(l.fundingUrl)}"`,
             `  repo: "${yamlStr(l.repo)}"`,
             ...repoIdentityLines,
             formatSocialsYaml(l.socials),
@@ -347,6 +414,9 @@ module.exports = {
     STALE_TAG,
     ADOPTION_TAG,
     STALE_AFTER_DAYS,
+    FUNDING_TAG,
+    FUNDING_STATUSES,
+    parseDomainCell,
     parseTable,
     splitCellLines,
     normalizeDash,
