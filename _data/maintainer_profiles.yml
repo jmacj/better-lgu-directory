@@ -29,12 +29,16 @@
   name: "Ej Sinfuego"
   open_to:
     - "collaborators"
+    - "feature requests"
     - "code review"
   languages:
     - "Filipino"
     - "English"
+    - "Bicol Naga"
+    - "Rinconada"
   channels:
-    website: "https://www.betterocampo.org"
+    email: "edzeljohnsinfuego@gmail.com"
+    website: "https://ejsinfuego.com"
   support: ""
   portals:
     - name: "Ocampo, Camarines Sur"
