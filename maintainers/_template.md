@@ -20,7 +20,7 @@ support: https://ko-fi.com/your-name
 
   Never add a phone number, anywhere in this file.
 
-  `support` is one link where people can back you personally (Ko-fi, GitHub
+  `support` is one link where people can support you personally (Ko-fi, GitHub
   Sponsors, Open Collective, or your own page). Never take this support from a
   candidate, political party, or campaign, or from an elected official of an
   LGU you cover or their family. See FUNDING.md.

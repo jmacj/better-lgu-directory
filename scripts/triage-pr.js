@@ -265,7 +265,10 @@ function describe(result) {
     return `HTTP ${result.status}${redirected}`;
 }
 
-const NAMING_GUIDE = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'jmacj/better-lgu-directory'}/blob/main/CONTRIBUTING.md#naming-your-lgu`;
+// Repository files on the default branch, for links in the triage comment.
+const REPO_BLOB = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'jmacj/better-lgu-directory'}/blob/main`;
+
+const NAMING_GUIDE = `${REPO_BLOB}/CONTRIBUTING.md#naming-your-lgu`;
 
 // LGU Name warnings (#307) for the added and changed rows: a name outside the
 // grammar or with an unknown province, and a row out of sort order, with
@@ -322,7 +325,7 @@ function fundingLine(row) {
     return splitCellLines(row.cells[1] || '').slice(1).find(line => line.includes(FUNDING_TAG)) || '';
 }
 
-const FUNDING_POLICY = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'jmacj/better-lgu-directory'}/blob/main/FUNDING.md`;
+const FUNDING_POLICY = `${REPO_BLOB}/FUNDING.md`;
 
 // Rows whose funding line is new or different from the base, with the
 // checklist a Directory Maintainer works through before merging (#498).
@@ -337,7 +340,7 @@ function fundingNotes(added, changed) {
     return [
         `### ${FUNDING_TAG}\n`,
         ...tagged.map(row => `- **${row.cells[0]}** — ${fundingLine(row)}`),
-        '\nBefore merging, open the funding page and confirm it shows all five (see [FUNDING.md](' + FUNDING_POLICY + ')):\n',
+        `\nBefore merging, open the funding page and confirm it shows all five (see [FUNDING.md](${FUNDING_POLICY})):\n`,
         '- [ ] Who runs the portal (its Maintainer/s)',
         '- [ ] What the money is for, in plain words',
         '- [ ] How to give (at least one way)',
@@ -522,7 +525,7 @@ function profileNotes(problems) {
     for (const { path, message } of problems) {
         notes.push(`- \`${path}\` — ${message}`);
     }
-    const repo = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY || 'jmacj/better-lgu-directory'}/blob/main`;
+    const repo = REPO_BLOB;
     notes.push(`\nA Maintainer Profile publishes someone's contact details, so only its owner may add or edit it — a Directory Maintainer may only delete one. See [\`maintainers/README.md\`](${repo}/maintainers/README.md) and [\`PRIVACY.md\`](${repo}/PRIVACY.md). Once these are resolved, remove \`needs-verification\`.\n`);
     return notes;
 }

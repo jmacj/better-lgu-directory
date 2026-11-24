@@ -422,7 +422,6 @@ function profileDirectory(profileFiles, lgus, budgetPortals) {
 module.exports = {
     PROFILES_DIR,
     CHANNEL_KEYS,
-    SUPPORT_KEY,
     INDEX_PATH,
     profileDirectory,
     indexMismatches,

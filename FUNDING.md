@@ -22,7 +22,7 @@ People can still support the time Maintainers give, including Directory Maintain
 
 ## Who counts as a Funder
 
-A **Funder** is anyone who gives a portal or a Maintainer money or branded in-kind support: paid hosting, a domain, a paid service. Donations, grants, sponsorships, and someone quietly paying a bill all count. Volunteer time and the unbranded free tiers of hosting providers don't.
+A **Funder** is anyone who gives a portal or a Maintainer money or branded in-kind support: paid hosting, a domain, a paid service. Gifts, grants, paid placements, and someone quietly paying a bill all count. Volunteer time and the unbranded free tiers of hosting providers don't.
 
 ## Excluded Funders
 

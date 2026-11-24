@@ -219,7 +219,7 @@ If you're listed as a Maintainer of an LGU in `README.md` or a budget portal in 
 
 1. Read the [privacy notice](PRIVACY.md). Everything in your profile is public, and removing it later doesn't erase git history or forks.
 2. Copy [`maintainers/_template.md`](maintainers/_template.md) to `maintainers/<your-github-handle>.md`. The filename is the only record of whose profile it is.
-3. Keep what you want to share and delete the rest. Every field is optional. Channels can be `email`, `messenger`, `discord`, `telegram`, `linkedin`, and `website`. Prefer project or team channels over personal ones; if you're under 18, use only those. Phone numbers aren't accepted. You can also add one `support` link where people can back you personally (see [Funding](#funding)); never take that support from an Excluded Funder.
+3. Keep what you want to share and delete the rest. Every field is optional. Channels can be `email`, `messenger`, `discord`, `telegram`, `linkedin`, and `website`. Prefer project or team channels over personal ones; if you're under 18, use only those. Phone numbers aren't accepted. You can also add one `support` link where people can support you personally (see [Funding](#funding)); never take that support from an Excluded Funder.
 4. Add yourself to the list in [`maintainers/README.md`](maintainers/README.md).
 5. Open the pull request **from your own GitHub account**, titled:
 

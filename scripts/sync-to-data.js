@@ -415,8 +415,6 @@ module.exports = {
     ADOPTION_TAG,
     STALE_AFTER_DAYS,
     FUNDING_TAG,
-    FUNDING_STATUSES,
-    parseDomainCell,
     parseTable,
     splitCellLines,
     normalizeDash,
