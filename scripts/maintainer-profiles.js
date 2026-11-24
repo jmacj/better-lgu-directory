@@ -43,7 +43,11 @@ function extractHandles(cell) {
 // no handle key: the filename is the only record of whose profile it is.
 const CHANNEL_KEYS = ['email', 'messenger', 'discord', 'telegram', 'linkedin', 'website'];
 const LIST_KEYS = ['open_to', 'languages'];
-const PROFILE_KEYS = ['name', ...LIST_KEYS, ...CHANNEL_KEYS];
+// Personal Support (#498): one link where people can back this Maintainer as a
+// person. Not a channel — the site shows it apart, with the funding disclaimer,
+// and FUNDING.md's Excluded Funder rule applies to it.
+const SUPPORT_KEY = 'support';
+const PROFILE_KEYS = ['name', ...LIST_KEYS, ...CHANNEL_KEYS, SUPPORT_KEY];
 
 // A run of digits with the separators people write phone numbers with. Kept
 // loose on purpose — this only ever raises an advisory triage note — and then
@@ -142,6 +146,10 @@ function parseProfile(text) {
         }
         if (value === '') {
             return; // `key:` with nothing after it is the same as leaving it out
+        }
+        if (key === SUPPORT_KEY && !/^https?:\/\/\S+$/i.test(value)) {
+            problems.push(`"${key}" on line ${lineNo} must be a single http(s) link, e.g. https://ko-fi.com/your-name`);
+            return;
         }
         profile[key] = LIST_KEYS.includes(key)
             ? value.split(',').map(item => item.trim()).filter(item => item !== '')
@@ -403,6 +411,7 @@ function profileDirectory(profileFiles, lgus, budgetPortals) {
                 open_to: profile.open_to || [],
                 languages: profile.languages || [],
                 channels,
+                support: profile.support || '',
                 portals: sources
                     .filter(source => source.handles.has(handle.toLowerCase()))
                     .map(({ name, kind, domain }) => ({ name, kind, domain })),

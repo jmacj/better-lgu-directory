@@ -40,6 +40,7 @@ function toYaml(directory) {
         ...(Object.keys(p.channels).length === 0
             ? ['  channels: {}']
             : ['  channels:', ...Object.entries(p.channels).map(([key, value]) => `    ${key}: "${yamlStr(value)}"`)]),
+        `  support: "${yamlStr(p.support)}"`,
         ...(p.portals.length === 0
             ? ['  portals: []']
             : ['  portals:', ...p.portals.flatMap(portal => [

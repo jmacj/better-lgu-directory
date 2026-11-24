@@ -129,6 +129,17 @@ test('unknown keys are problems, including a handle key and phone-ish channels',
     }
 });
 
+test('support is a known key holding one http(s) URL (#498)', () => {
+    const ok = parseProfile(profile('support: https://ko-fi.com/juan'));
+    assert.deepStrictEqual(ok.problems, []);
+    assert.strictEqual(ok.profile.support, 'https://ko-fi.com/juan');
+    for (const value of ['ko-fi.com/juan', 'GCash me', 'mailto:juan@example.org']) {
+        const { problems } = parseProfile(profile(`support: ${value}`));
+        assert.strictEqual(problems.length, 1, `expected one problem for "${value}"`);
+        assert.match(problems[0], /"support".*http/);
+    }
+});
+
 test('nested values are problems: lists, maps, and indented lines', () => {
     for (const fm of [
         'open_to:\n  - mentoring',
@@ -394,7 +405,7 @@ test('lists each profile with its fields and the portals (with their domains) de
         [
             { path: 'maintainers/README.md', text: '# index' },
             { path: 'maintainers/_template.md', text: profile('name: Your Name') },
-            { path: 'maintainers/maria.md', text: profile('open_to: mentoring') },
+            { path: 'maintainers/maria.md', text: profile('open_to: mentoring\nsupport: https://ko-fi.com/maria') },
             { path: 'maintainers/Juan.md', text: profile('name: Juan Dela Cruz\nlanguages: Filipino, English\nemail: team@example.org') },
         ],
         [
@@ -412,6 +423,7 @@ test('lists each profile with its fields and the portals (with their domains) de
             open_to: [],
             languages: ['Filipino', 'English'],
             channels: { email: 'team@example.org' },
+            support: '',
             portals: [
                 { name: 'Alpha, Laguna', kind: 'entry', domain: '[alpha.example](https://alpha.example)' },
                 { name: 'Beta, Laguna', kind: 'entry', domain: '-' },
@@ -426,6 +438,7 @@ test('lists each profile with its fields and the portals (with their domains) de
             open_to: ['mentoring'],
             languages: [],
             channels: {},
+            support: 'https://ko-fi.com/maria',
             portals: [{ name: 'Beta, Laguna', kind: 'entry', domain: '-' }],
         },
     ]);
@@ -435,6 +448,20 @@ test('an orphaned profile is still listed, with no portals', () => {
     const [entry] = profileDirectory([{ path: 'maintainers/gone.md', text: '' }], [], []);
     assert.strictEqual(entry.handle, 'gone');
     assert.deepStrictEqual(entry.portals, []);
+});
+
+test('the profile data emits support, empty when unset (#498)', () => {
+    const { toYaml } = require('./sync-profiles-to-data');
+    const yaml = toYaml(profileDirectory(
+        [
+            { path: 'maintainers/juan.md', text: '' },
+            { path: 'maintainers/maria.md', text: profile('support: https://ko-fi.com/maria') },
+        ],
+        [],
+        [],
+    ));
+    assert.match(yaml, /handle: "juan"[\s\S]*?\n  support: ""\n/);
+    assert.match(yaml, /handle: "maria"[\s\S]*?\n  support: "https:\/\/ko-fi\.com\/maria"\n/);
 });
 
 if (failures > 0) {

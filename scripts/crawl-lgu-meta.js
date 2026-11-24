@@ -881,6 +881,32 @@ function assignRankKeys(rows, baseKeyField, hashByDomain, targetField) {
     });
 }
 
+// #498: whether a 🌱 Seeking Funding link still leads somewhere. Returns null
+// when the page answers with a 2xx (after redirects), otherwise the warning to
+// log. Advisory only: it never changes data, and the tag is only ever removed
+// by hand. Honours the same robots.txt blanket disallow as the portal crawl.
+async function fundingPageWarning(fundingUrl) {
+    let origin;
+    try {
+        origin = new URL(fundingUrl).origin;
+    } catch {
+        return `funding page URL is invalid (${fundingUrl})`;
+    }
+    const robots = await checkRobots(origin);
+    if (robots.disallowed) {
+        return `funding page not checked: robots.txt at ${origin} disallows ${USER_AGENT}`;
+    }
+    try {
+        const res = await fetchFollowingRedirects(fundingUrl, { maxBytes: 64 * 1024 });
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+            return null;
+        }
+        return `funding page returned HTTP ${res.statusCode} (${fundingUrl})`;
+    } catch (err) {
+        return `funding page unreachable: ${err.message} (${fundingUrl})`;
+    }
+}
+
 async function main() {
     console.log('🚀 Starting Featured Portal + Logo band metadata crawl...');
     const readmeContent = fs.readFileSync(README_PATH, 'utf8');
@@ -1007,6 +1033,23 @@ async function main() {
         console.log(`\n${logoSummary}`);
     }
 
+    // #498: a tagged Entry (the sync allows the tag only on 🟢 Active and
+    // deployed 🟡 Work in Progress ones) whose funding page is dead sends
+    // funders to a broken link. Warn a Directory Maintainer; change nothing.
+    const fundingWarnings = [];
+    for (const entry of lgus.filter(lgu => lgu.fundingUrl)) {
+        const warning = await fundingPageWarning(entry.fundingUrl);
+        if (warning) {
+            fundingWarnings.push(`${entry.name} — ${warning}`);
+        }
+    }
+    if (fundingWarnings.length > 0) {
+        console.log(`\n⚠️  Seeking Funding links to check (${fundingWarnings.length}) — not auto-removed; a Directory Maintainer follows up:`);
+        for (const line of fundingWarnings) {
+            console.log(`   - ${line}`);
+        }
+    }
+
     const duplicateLogoGroups = findDuplicateLogos(contentHashByDomain);
     if (duplicateLogoGroups.length > 0) {
         console.log(
@@ -1031,6 +1074,7 @@ module.exports = {
     fetchPortalPage,
     judgeFeatured,
     crawlEntry,
+    fundingPageWarning,
     reusePreviousRow,
     IMAGE_SIZE_CEILING_BYTES,
     BOILERPLATE_DESCRIPTION,

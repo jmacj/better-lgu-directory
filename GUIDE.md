@@ -112,6 +112,8 @@ A transparency portal is only valuable if it stays current. Consider:
 - Recruiting co-maintainers from your local tech community
 - Connecting with other Better LGU maintainers in the BetterGov.ph community for support
 
+If you need money to keep it running, read [`FUNDING.md`](FUNDING.md) before you accept any. It says who you can't take money from, what you must disclose, and how to ask for support with the `🌱 Seeking Funding` tag.
+
 ### Funnel Reports to the Community Discord
 
 Once your portal has a live intake surface (a citizen report or feedback form), you can pipe submissions — citizen reports, feedback, or system logs — into a dedicated channel in the BetterGov.ph Discord via webhook, so the wider community can see and help triage them. This is optional and only relevant after launch.

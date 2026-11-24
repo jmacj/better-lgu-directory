@@ -148,6 +148,12 @@ test('a row without a live portal link fails (no advance registration)', () => {
     ), README), /needs a live portal link/);
 });
 
+test('a Budget Portal can\'t carry the Seeking Funding tag (#498)', () => {
+    assert.throws(() => syncBudget(budget(
+        `| Silang, Cavite | [s.org](https://s.org)<br>[🌱 Seeking Funding](https://s.org/fund) | ${STANDALONE} | - | - |`,
+    ), README), /Budget Portals never carry/);
+});
+
 test('a leftover Status column fails with the expected column list', () => {
     assert.throws(() => syncBudget(budget(
         `| Silang, Cavite | [s.org](https://s.org) | ${STANDALONE} | - | 🟢 Active | - |`,
