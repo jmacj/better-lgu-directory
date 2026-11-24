@@ -49,7 +49,7 @@ Personal Support follows the same Excluded Funder rule. Directory Maintainers ma
 
 ## The 🌱 Seeking Funding tag
 
-A Maintainer can ask for support for their portal by adding the `🌱 Seeking Funding` tag to their Entry. The website shows it beside the portal link, never beside the LGU name, and lets visitors filter to portals seeking funding. The tag belongs to the portal: it asks people to support the volunteer-run site, not the LGU government.
+A Maintainer can ask for support for their portal by adding the `🌱 Seeking Funding` tag to their Entry. The website shows it as a badge under the portal link, never beside the LGU name, and lets visitors filter to portals seeking funding. The tag belongs to the portal: it asks people to support the volunteer-run site, not the LGU government.
 
 ### Who can use it
 
