@@ -45,6 +45,8 @@ const PAGES = [
     { file: 'BUDGET_GUIDE.md', url: '/budget-guide', oldUrl: '/BUDGET_GUIDE', fromMain: true },
     { file: 'BUDGET_TEMPLATES.md', url: '/budget-templates', oldUrl: '/BUDGET_TEMPLATES', fromMain: true },
     { file: 'PRIVACY.md', url: '/privacy', oldUrl: '/PRIVACY', fromMain: true },
+    // New with #498, so it never had an uppercase URL to redirect from.
+    { file: 'FUNDING.md', url: '/funding', oldUrl: null, fromMain: true },
     { file: 'budget-directory.md', url: '/budget', oldUrl: '/BUDGET', fromMain: false },
 ];
 
@@ -107,12 +109,13 @@ for (const { file, url, fromMain } of PAGES) {
 // Every old URL has exactly one redirect stub pointing at its new URL.
 const stubs = fs.readdirSync(path.join(ROOT, 'redirects'))
     .map((f) => frontMatter(read(`redirects/${f}`)));
-for (const { url, oldUrl } of PAGES) {
+const REDIRECTED = PAGES.filter((p) => p.oldUrl);
+for (const { url, oldUrl } of REDIRECTED) {
     const matching = stubs.filter((stub) => stub.permalink === oldUrl);
     check(matching.length === 1, `exactly one redirects/ stub serves ${oldUrl} (found ${matching.length})`);
     check(matching[0].redirect_to === url, `${oldUrl} redirects to ${url} (got ${matching[0].redirect_to})`);
 }
-check(stubs.length === PAGES.length, 'redirects/ holds only the #429 stubs');
+check(stubs.length === REDIRECTED.length, 'redirects/ holds only the #429 stubs');
 
 // Redirects stay on the host that served them. jekyll-redirect-from prefixes
 // redirect_to with site.url, so the site's redirect layout strips it.
@@ -131,7 +134,7 @@ const templates = [
 ];
 for (const file of templates) {
     const text = read(file);
-    for (const { oldUrl } of PAGES) {
+    for (const { oldUrl } of REDIRECTED) {
         check(!text.includes(`'${oldUrl}'`), `${file} links to ${oldUrl}; use the lowercase URL`);
     }
 }

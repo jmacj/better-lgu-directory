@@ -24,6 +24,10 @@ layout: default
   still parses comment bodies, which is what broke the build once.
   Emails are plain mailto: links with no obfuscation, by design: the source
   file is public on GitHub anyway.
+
+  The support link (#498) is Personal Support: money to this person, not to a
+  portal or the directory. The sync only lets an http(s) URL through, and it
+  is shown with the funding disclaimer.
 {%- endcomment -%}
 {%- assign profile_handle = page.name | remove: '.md' -%}
 {%- assign profile = site.data.maintainer_profiles | where: 'handle', profile_handle | first -%}
@@ -113,6 +117,19 @@ layout: default
     <div>
       <dt class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Languages</dt>
       <dd class="text-gray-900">{{ profile.languages | join: ", " | escape }}</dd>
+    </div>
+    {%- endif %}
+
+    {%- assign support_lower = profile.support | downcase -%}
+    {%- assign support_head8 = support_lower | slice: 0, 8 -%}
+    {%- assign support_head7 = support_lower | slice: 0, 7 -%}
+    {%- if support_head8 == 'https://' or support_head7 == 'http://' %}
+    <div class="md:col-span-2">
+      <dt class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">Personal support</dt>
+      <dd class="text-gray-900">
+        <a href="{{ profile.support | escape }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 break-all">Support @{{ profile_handle }}</a>
+        <p class="funding-note mt-2 text-sm text-gray-500">This supports @{{ profile_handle }} personally, not a portal or the directory. {% include funding-disclaimer.html link_class="text-blue-600 hover:text-blue-700" %}</p>
+      </dd>
     </div>
     {%- endif %}
   </dl>

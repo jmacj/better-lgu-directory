@@ -36,6 +36,13 @@ defaults:
       layout: default
       title: Privacy
       permalink: /privacy
+  # FUNDING.md comes from main with no front matter, like PRIVACY.md (#498).
+  - scope:
+      path: "FUNDING.md"
+    values:
+      layout: default
+      title: Funding Policy
+      permalink: /funding
   # Lowercase URLs (#429). The filenames on main stay uppercase (GitHub
   # conventions), so the published URL is set here rather than in their front
   # matter, which keeps the sync merge conflict-free. The redirects from the

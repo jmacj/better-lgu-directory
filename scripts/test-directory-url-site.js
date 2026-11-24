@@ -34,6 +34,7 @@ const DEFAULT_STATE = {
     region: '',
     kinds: [],
     adoption: false,
+    funding: false,
     sort: 'location',
 };
 
@@ -61,6 +62,8 @@ const CASES = [
     [withState({ kinds: ['city'] }), '?kind=city'],
     [withState({ kinds: ['city', 'municipality', 'province', 'region'] }), '?kind=city,municipality,province,region'],
     [withState({ adoption: true }), '?adoption=1'],
+    [withState({ funding: true }), '?funding=1'],
+    [withState({ adoption: true, funding: true }), '?adoption=1&funding=1'],
     [withState({ sort: 'name' }), '?sort=name'],
     [withState({ sort: 'status' }), '?sort=status'],
     [
@@ -106,6 +109,8 @@ equal(read('?kind=city,town,,province,city').kinds, ['city', 'province'], 'inval
 equal(read('?kind=town').kinds, [], 'no valid kinds → none pressed');
 equal(read('?adoption=yes').adoption, false, 'adoption only on 1');
 equal(read('?adoption=0').adoption, false, 'adoption=0');
+equal(read('?funding=yes').funding, false, 'funding only on 1');
+equal(read('?funding=0&sort=name'), withState({ sort: 'name' }), 'funding=0');
 equal(read('?q=').q, '', 'empty q');
 equal(read('?q=%E0%A4%A&sort=name').sort, 'name', 'malformed percent-encoding does not throw');
 equal(read('?region=NCR&region=CALABARZON').region, 'NCR', 'first of a repeated parameter wins');
@@ -114,7 +119,7 @@ equal(read('?region=NCR&region=CALABARZON').region, 'NCR', 'first of a repeated 
 equal(parse('?region=CALABARZON').region, '', 'no regions option');
 
 // --- rewrite: the page's query with the directory parameters replaced ----
-// The directory owns q, status, region, kind, adoption and sort. Any other
+// The directory owns q, status, region, kind, adoption, funding and sort. Any other
 // parameter (utm_*, fbclid, ...) belongs to someone else and is kept as it
 // was written, after the directory's own.
 const cityState = withState({ kinds: ['city'] });
@@ -133,6 +138,7 @@ equal(
 equal(rewrite('?utm_source=fb', DEFAULT_STATE), '?utm_source=fb', 'only foreign params');
 equal(rewrite('?ref', DEFAULT_STATE), '?ref', 'valueless foreign param kept');
 equal(rewrite('?q=old&q=older', withState({ q: 'new' })), '?q=new', 'repeated directory params replaced');
+equal(rewrite('?funding=1&utm_source=fb', DEFAULT_STATE), '?utm_source=fb', 'funding is a directory param');
 equal(rewrite('?%71=old&x=1', DEFAULT_STATE), '?x=1', 'encoded directory name still recognised');
 equal(rewrite('?&&x=1&', DEFAULT_STATE), '?x=1', 'empty segments dropped');
 equal(rewrite('?%E0%A4%A=1', DEFAULT_STATE), '?%E0%A4%A=1', 'malformed foreign name kept, no throw');

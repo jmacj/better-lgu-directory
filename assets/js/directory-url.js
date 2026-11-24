@@ -17,6 +17,8 @@
         region: '',
         kinds: [],
         adoption: false,
+        // Only Entries carrying 🌱 Seeking Funding (#498).
+        funding: false,
         sort: 'location',
     };
 
@@ -60,6 +62,7 @@
         state.region = oneOf(params.get('region'), regions, DEFAULTS.region);
         if (params.has('kind')) state.kinds = inOrder(params.get('kind').split(','), KINDS);
         if (params.get('adoption') === '1') state.adoption = true;
+        if (params.get('funding') === '1') state.funding = true;
         state.sort = oneOf(params.get('sort'), SORTS, DEFAULTS.sort);
         return state;
     }
@@ -76,12 +79,13 @@
         var kinds = inOrder(state.kinds, KINDS);
         if (kinds.length) add('kind', kinds.join(','));
         if (state.adoption) add('adoption', '1');
+        if (state.funding) add('funding', '1');
         if (state.sort && state.sort !== DEFAULTS.sort) add('sort', encodeURIComponent(state.sort));
         return parts.length ? '?' + parts.join('&') : '';
     }
 
     // The parameters the directory owns; serialize() writes only these.
-    var OWN = ['q', 'status', 'region', 'kind', 'adoption', 'sort'];
+    var OWN = ['q', 'status', 'region', 'kind', 'adoption', 'funding', 'sort'];
 
     function paramName(segment) {
         var name = segment.split('=')[0].replace(/\+/g, ' ');

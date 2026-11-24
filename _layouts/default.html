@@ -191,6 +191,7 @@
                         <li><a href="https://github.com/jmacj/better-lgu-directory" class="hover:text-white transition-colors">GitHub Repository</a></li>
                         <li><a href="{{ '/code-of-conduct' | relative_url }}" class="hover:text-white transition-colors">Code of Conduct</a></li>
                         <li><a href="{{ '/privacy' | relative_url }}" class="hover:text-white transition-colors">Privacy</a></li>
+                        <li><a href="{{ '/funding' | relative_url }}" class="hover:text-white transition-colors">Funding Policy</a></li>
                         <li><a href="{{ '/maintainers/' | relative_url }}" class="hover:text-white transition-colors">Maintainer Profiles</a></li>
                         <li><a href="https://bettergov.ph" class="hover:text-white transition-colors">BetterGov.ph Portal</a></li>
                     </ul>
@@ -203,6 +204,8 @@
                     <span class="text-green-500 font-bold">₱0</span>
                 </div>
             </div>
+
+            <p class="text-center text-xs text-gray-500 max-w-2xl mx-auto mb-8">{% include funding-disclaimer.html link_class="underline hover:text-white" %}</p>
 
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
                 <p>&copy; {{ site.time | date: "%Y" }} <strong>BetterGov.ph</strong>. All rights reserved.</p>

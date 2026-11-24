@@ -255,6 +255,23 @@ main tr:last-child td {
   color: var(--color-primary-700);
 }
 
+/* 🌱 Seeking Funding (#498): a link beside the portal in the Domain cell. */
+a.lgu-tag-funding {
+  background-color: #e8f5e9;
+  border-color: #9ccc9f;
+  color: #1b5e20;
+  text-decoration: none;
+}
+
+a.lgu-tag-funding:hover {
+  background-color: #d4ecd6;
+}
+
+a.lgu-tag-funding:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
 /* LGU cell (#448): the place as the main text, "Province · Region" as a
    smaller line under it. Both are aria-hidden; a visually hidden copy of the
    full name is what screen readers read. */

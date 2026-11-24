@@ -38,6 +38,9 @@ Read a profile before you reach out, and follow the [Code of Conduct]({{ '/code-
     {%- if p.languages.size > 0 %}
     <div class="text-sm text-gray-700"><span class="font-semibold text-gray-500">Languages:</span> {{ p.languages | join: ", " | escape }}</div>
     {%- endif %}
+    {%- if p.support and p.support != "" %}
+    <div class="text-sm text-gray-700 mt-3">Accepts personal support</div>
+    {%- endif %}
   </a>
 {%- endfor %}
 </div>
