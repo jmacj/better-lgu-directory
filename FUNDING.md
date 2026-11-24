@@ -39,7 +39,7 @@ The same rule applies to every portal in the directory: Entries in `README.md`, 
 
 ## Funding Disclosure
 
-Any listed portal with Funders names them on the portal itself, in a place a visitor can find. This is the **Funding Disclosure**. Amounts are encouraged but not required. A portal with no Funders doesn't need to say anything, unless it carries the `🌱 Seeking Funding` tag (below).
+Any listed portal with Funders names them on the portal itself, in a place a visitor can find. This is the **Funding Disclosure**. A portal that asks the government to be open about money should be open about its own. Naming Funders lets visitors and funders judge for themselves whether a portal is independent. Amounts are encouraged but not required. A portal with no Funders doesn't need to say anything, unless it carries the `🌱 Seeking Funding` tag (below).
 
 ## Personal Support
 
