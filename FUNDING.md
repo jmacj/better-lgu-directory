@@ -16,9 +16,9 @@ Listed portals are independently run and funded. BetterGov.ph and the BetterLGU 
 
 ## Where the money goes
 
-The directory has no Funders. Support goes straight to portals and Maintainers, never through the directory: there is no Sponsor button, no donation link, and no shared fund. The directory costs nothing to run. The site is on GitHub Pages under BetterGov.ph's subdomain, and its automation runs on free GitHub Actions.
+The BetterLGU Directory costs ₱0 to maintain. The site is hosted free on GitHub Pages, its address is a subdomain provided by BetterGov.ph, and its automation runs on free GitHub Actions. The only thing it takes is the time and effort of its Maintainers.
 
-Keeping money out of the directory keeps its listing and enforcement decisions independent of any funding relationship, and spares volunteers from deciding who gets paid from a shared pot. People who want to support the time Maintainers give, Directory Maintainers included, can do it directly through **Personal Support** (below).
+With nothing to pay for, the directory has no Funders. Support goes straight to portals and Maintainers, never through the directory: there is no Sponsor button, no donation link, and no shared fund. People who want to support the time Maintainers give, Directory Maintainers included, can do it directly through **Personal Support** (below).
 
 ## Who counts as a Funder
 
