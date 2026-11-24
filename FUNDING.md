@@ -88,7 +88,7 @@ The README sync rejects the tag without a link, on an Entry with no Domain, on a
 
 Open a normal pull request deleting the second line whenever you stop seeking funding. No reason needed.
 
-Once a month the directory checks every funding page and flags dead ones to a Directory Maintainer. Nothing removes the tag automatically: a Directory Maintainer follows up with you first.
+The directory checks every funding page periodically and flags dead ones to a Directory Maintainer. Nothing removes the tag automatically: a Directory Maintainer follows up with you first.
 
 ## Enforcement
 
