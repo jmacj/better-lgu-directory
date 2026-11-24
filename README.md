@@ -216,6 +216,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 |----------------------|------------------------------------------------------------------------------------|
 | ⚠️ Stale             | A `🔵 Planned` entry with no directory activity for over 30 days, or a `🟡 Work in Progress` entry whose check-ins went unanswered |
 | 🤝 Open for Adoption | Anyone may take the entry on — as a takeover, or alongside the original maintainer. Appears on stale entries and on `🔴 Unmaintained` ones |
+| 🌱 Seeking Funding   | Under the portal link in the Domain column: the portal's Maintainers welcome support, and the tag links to its funding page. See [FUNDING.md](FUNDING.md) |
 
 **Adopting an entry?** Open a PR that updates the Maintainer/s column and removes the tags. A stale entry keeps its status — a `🔵 Planned` one changes only when the work actually starts. An `🔴 Unmaintained` entry takes the status that matches reality (`🟡 Work in Progress` or `🟢 Active`). Any discussion happens in that PR.
 

@@ -17,6 +17,7 @@ const path = require('path');
 const {
     README_PATH,
     EMPTY_MARKERS,
+    FUNDING_TAG,
     readProfilePaths,
     maintainerLinks,
     formatMaintainersYaml,
@@ -101,6 +102,11 @@ function validateBudgetPortal(cells, index, entriesByName) {
         throw new Error(`${row} (${name}) has an invalid type: "${type}". Use "${INTEGRATED}" or "${STANDALONE}".`);
     }
 
+    // FUNDING.md (#498): Budget Portals follow the Excluded Funder and
+    // Disclosure rules but never seek funding through the directory.
+    if (portal.includes(FUNDING_TAG)) {
+        throw new Error(`${row} (${name}) carries "${FUNDING_TAG}" — Budget Portals never carry the funding tag. See FUNDING.md.`);
+    }
     if (!MARKDOWN_LINK.test(portal)) {
         throw new Error(`${row} (${name}) needs a live portal link in the Portal column, e.g. [budget.example.org](https://budget.example.org). Budget portals are added once they are live.`);
     }

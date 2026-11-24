@@ -23,6 +23,7 @@ const {
     BOILERPLATE_TITLE,
     PortalUnreachableError,
     crawlEntry,
+    fundingPageWarning,
     reusePreviousRow,
 } = require('./crawl-lgu-meta.js');
 
@@ -68,6 +69,10 @@ function startPortalServer() {
                 );
             } else if (req.url === '/img/not-an-image') {
                 res.writeHead(200, { 'content-type': 'text/html' }).end('<p>not an image</p>');
+            } else if (req.url === '/funding/') {
+                res.writeHead(200, { 'content-type': 'text/html' }).end('<h1>Fund this portal</h1>');
+            } else if (req.url === '/funding-moved/') {
+                res.writeHead(301, { location: '/funding/' }).end();
             } else if (req.url === '/down/') {
                 res.writeHead(503).end();
             } else if (req.url in ROUTES) {
@@ -205,6 +210,25 @@ async function main() {
         const reused = reusePreviousRow(previous, { name: 'Calamba City, Laguna' });
         assert.deepStrictEqual(reused, { ...previous, name: 'Calamba City, Laguna' });
         assert.strictEqual(previous.name, 'Calamba, Laguna', 'the previous row is not mutated');
+    });
+
+    // #498: the monthly crawl warns when a tagged Entry's funding page is dead.
+    // It only ever warns — the tag is removed by hand, never by a script.
+    test('a live funding page, redirects included, produces no warning', async () => {
+        assert.strictEqual(await fundingPageWarning(origin('/funding/')), null);
+        assert.strictEqual(await fundingPageWarning(origin('/funding-moved/')), null);
+    });
+
+    test('a funding page returning 404 warns with the status', async () => {
+        assert.match(await fundingPageWarning(origin('/funding-gone/')), /HTTP 404/);
+    });
+
+    test('an unreachable funding page warns with the network error', async () => {
+        assert.match(await fundingPageWarning('http://127.0.0.1:1/funding/'), /ECONNREFUSED/);
+    });
+
+    test('a funding page behind a robots.txt disallow is skipped with a note, not fetched', async () => {
+        assert.match(await fundingPageWarning(`${blockedOrigin}funding/`), /robots\.txt/);
     });
 
     for (const { name, fn } of tests) {

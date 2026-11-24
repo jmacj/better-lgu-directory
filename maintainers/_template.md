@@ -8,6 +8,7 @@ discord: your-discord-username
 telegram: your-telegram-username
 linkedin: https://www.linkedin.com/in/your-profile
 website: https://your-portal.example.org
+support: https://ko-fi.com/your-name
 ---
 <!--
   Copy this file to maintainers/<your-github-handle>.md. The filename is the
@@ -18,6 +19,11 @@ website: https://your-portal.example.org
   Lists, nested values, and other keys will be flagged in review.
 
   Never add a phone number, anywhere in this file.
+
+  `support` is one link where people can support you personally (Ko-fi, GitHub
+  Sponsors, Open Collective, or your own page). Never take this support from a
+  candidate, political party, or campaign, or from an elected official of an
+  LGU you cover or their family. See FUNDING.md.
 
   Everything here is public, and may be copied by people and by scrapers.
   Prefer a project or team address (a portal email, a project Discord, the

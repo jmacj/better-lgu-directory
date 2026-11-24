@@ -78,6 +78,26 @@ _Avoid_: contact, contact card, maintainer page, bio.
 The `🤝 Open for Adoption` tag under an Entry's Maintainer/s: anyone may take the Entry on, as a takeover or alongside the original Maintainer, with one PR that updates Maintainer/s and removes the tag. It appears on exactly two kinds of Entry (#469): a stale Entry (`🔵 Planned` or `🟡 Work in Progress`), always paired with `⚠️ Stale`, and a `🔴 Unmaintained` Entry, never paired with it (only Entries that never went live go stale; only `🟢 Active` ones become Unmaintained). `scripts/sync-to-data.js` rejects every other combination. Rules: `CONTRIBUTING.md`, "Stale Entries" and "Unmaintained Entries".
 _Avoid_: up for grabs, abandoned, orphaned (that is a Maintainer Profile).
 
+**Funder**:
+Anyone who gives an Entry's portal, a Budget Portal, or a Maintainer money or branded in-kind support (paid hosting, a domain, paid services). Volunteer time and the unbranded free tiers of hosts are not funding. The directory itself has no Funders: it takes no money as an organisation.
+_Avoid_: sponsor, donor, patron, backer.
+
+**Excluded Funder**:
+A Funder no listed portal or Maintainer may accept, even disclosed: a candidate, political party, or campaign at any level; or a sitting elected official of the LGU the portal covers, or their immediate family. The LGU government itself, as an institution, is not an Excluded Funder.
+_Avoid_: banned sponsor, political funding.
+
+**Funding Disclosure**:
+A public statement on the portal itself naming its Funders. Required of every listed portal that has one.
+_Avoid_: sponsor credit, acknowledgements.
+
+**Personal Support**:
+Funding given to a Maintainer as a person rather than to a portal, offered through their Maintainer Profile. Subject to the same Excluded Funders.
+_Avoid_: tip, donation to the directory.
+
+**Seeking Funding**:
+The `🌱 Seeking Funding` tag under the portal link in an Entry's Domain cell, always a link to the portal's funding page, which names who runs the portal, what funding is for, how to give, its current Funders (its Funding Disclosure), and that it takes no money from Excluded Funders. It belongs to the portal, never to the LGU. A Maintainer opts in; a Directory Maintainer checks the funding page before the tag is merged. Only a portal that is live carries it: a `🟢 Active` Entry, or a `🟡 Work in Progress` Entry whose portal is already deployed; never a `⚠️ Stale` or `🔴 Unmaintained` one, and the tag is removed in the same change that applies either. Budget Portals never carry it. Where an Entry needs people rather than money, that is Open for Adoption, in the Maintainer/s cell.
+_Avoid_: needs funding, sponsored, fundraising, donate badge.
+
 **Check-in**:
 A Discussions post by a Directory Maintainer that tags the Maintainer/s of every `🟡 Work in Progress` Entry whose row and repository have both been quiet for over 30 days (#469). Check-ins have no fixed schedule. Any reply, commit or row update keeps the Entry; two unanswered Check-ins spanning at least 60 days make it `⚠️ Stale` and Open for Adoption, applied by hand, with its status left `🟡 Work in Progress`. Rules: `CONTRIBUTING.md`, "Check-ins".
 _Avoid_: monthly check-in (there is no cadence), audit, ping.
