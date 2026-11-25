@@ -11,6 +11,19 @@
     - handle: "Pseudoman21"
       url: "https://github.com/Pseudoman21"
       profile: false
+- name: "Alcala, Pangasinan"
+  portal: "[budget.betteralcala.org](https://budget.betteralcala.org/)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[betteralcala.org](https://betteralcala.org)"
+  repo: "[GitHub](https://github.com/melmarj0nes23/budget)"
+  repo_owner: "melmarj0nes23"
+  repo_name: "budget"
+  maintainer: "[@melmarj0nes23](https://github.com/melmarj0nes23)"
+  maintainers:
+    - handle: "melmarj0nes23"
+      url: "https://github.com/melmarj0nes23"
+      profile: false
 - name: "Bagabag, Nueva Vizcaya"
   portal: "[budget.betterbagabag.org](https://budget.betterbagabag.org)"
   type: "🧩 Integrated"
