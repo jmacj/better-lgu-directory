@@ -13,6 +13,7 @@ Read a profile before you reach out, and follow the [Code of Conduct](../CODE_OF
 - [@jpdevdotcom](jpdevdotcom.md) · Jan Phillip Dacallos
 - [@KishonShrill](KishonShrill.md) · Chriscent Pingol
 - [@rallion90](rallion90.md) · Ralph Rallion Laynes
+- [@ramonloganjr](ramonloganjr.md) · Ramon Logan Jr.
 - [@sechipeanut](sechipeanut.md) · Franz Valles
 <!-- MAINTAINER_PROFILES_END -->
 
