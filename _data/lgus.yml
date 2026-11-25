@@ -1208,14 +1208,14 @@
   province: "Romblon"
   region: "MIMAROPA Region"
   region_rank: 6
-  host: ""
-  domain: "-"
+  host: "betterconcepcion.vercel.app"
+  domain: "[betterconcepcion.vercel.app](https://betterconcepcion.vercel.app)"
   funding_url: ""
   repo: "[GitHub](https://github.com/johannfranzero/betterconcepcion)"
   repo_owner: "johannfranzero"
   repo_name: "betterconcepcion"
   socials: []
-  status: "🔵 Planned"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@johannfranzero](https://github.com/johannfranzero)"
