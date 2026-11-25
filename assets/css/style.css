@@ -438,9 +438,10 @@ a.card:hover {
 
 /* ---- Reading content ----
    Markdown from the repo docs. Inter body copy at 17px, Figtree headings,
-   prose blocks capped near 70 characters a line. Element rules skip
-   anything inside .not-prose (controls, cards, the profile card), which
-   styles itself with component classes and Tailwind utilities. */
+   prose blocks capped near 70 characters a line. Element rules skip a
+   .not-prose block and everything in it (controls, cards, the profile
+   card), which style themselves with component classes and Tailwind
+   utilities. */
 .prose {
   font-size: 1.0625rem;
   line-height: 1.65;
@@ -451,20 +452,15 @@ a.card:hover {
   display: none;
 }
 
-.prose > p,
-.prose > ul,
-.prose > ol,
-.prose > blockquote,
-.prose > h2,
-.prose > h3,
-.prose > h4,
-.prose > dl {
+/* The cap is for reading text only: a .not-prose block (the directory
+   controls, a card grid) spans the full content width. */
+.prose > :is(p, ul, ol, blockquote, h2, h3, h4, dl):not(.not-prose) {
   max-width: 70ch;
 }
 
 /* Section heading: plain, display face, no rules or decoration; size and
    whitespace carry the hierarchy. */
-.prose h2:not(:where(.not-prose *)),
+.prose h2:not(:where(.not-prose, .not-prose *)),
 .section-heading {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -476,7 +472,7 @@ a.card:hover {
   margin-bottom: 1rem;
 }
 
-.prose h3:not(:where(.not-prose *)) {
+.prose h3:not(:where(.not-prose, .not-prose *)) {
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 600;
@@ -486,7 +482,7 @@ a.card:hover {
   margin-bottom: 0.75rem;
 }
 
-.prose h4:not(:where(.not-prose *)) {
+.prose h4:not(:where(.not-prose, .not-prose *)) {
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 600;
@@ -495,43 +491,43 @@ a.card:hover {
   margin-bottom: 0.5rem;
 }
 
-.prose p:not(:where(.not-prose *)) {
+.prose p:not(:where(.not-prose, .not-prose *)) {
   margin-bottom: 1.25rem;
 }
 
-.prose strong:not(:where(.not-prose *)) {
+.prose strong:not(:where(.not-prose, .not-prose *)) {
   font-weight: 600;
   color: var(--ed-ink);
 }
 
-.prose ul:not(:where(.not-prose *)) {
+.prose ul:not(:where(.not-prose, .not-prose *)) {
   list-style-type: disc;
   margin-top: 1rem;
   margin-bottom: 1.25rem;
   padding-left: 1.5rem;
 }
 
-.prose ol:not(:where(.not-prose *)) {
+.prose ol:not(:where(.not-prose, .not-prose *)) {
   list-style-type: decimal;
   margin-top: 1rem;
   margin-bottom: 1.25rem;
   padding-left: 1.5rem;
 }
 
-.prose li:not(:where(.not-prose *)) {
+.prose li:not(:where(.not-prose, .not-prose *)) {
   margin-top: 0.375rem;
   margin-bottom: 0.375rem;
   padding-left: 0.25rem;
 }
 
-.prose li > ul:not(:where(.not-prose *)),
-.prose li > ol:not(:where(.not-prose *)) {
+.prose li > ul:not(:where(.not-prose, .not-prose *)),
+.prose li > ol:not(:where(.not-prose, .not-prose *)) {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
 /* Callouts: a tinted well with a navy rule. Upright, never italic. */
-.prose blockquote:not(:where(.not-prose *)) {
+.prose blockquote:not(:where(.not-prose, .not-prose *)) {
   border-left: 2px solid var(--ed-navy);
   padding: 1rem 1.25rem;
   color: var(--ed-ink-2);
@@ -539,11 +535,11 @@ a.card:hover {
   background: var(--ed-paper-2);
 }
 
-.prose blockquote p:last-child:not(:where(.not-prose *)) {
+.prose blockquote p:last-child:not(:where(.not-prose, .not-prose *)) {
   margin-bottom: 0;
 }
 
-.prose code:not(:where(.not-prose *)) {
+.prose code:not(:where(.not-prose, .not-prose *)) {
   font-family: var(--font-mono);
   font-size: 0.85em;
   background: var(--ed-paper-3);
@@ -551,7 +547,7 @@ a.card:hover {
   color: var(--ed-ink);
 }
 
-.prose pre:not(:where(.not-prose *)) {
+.prose pre:not(:where(.not-prose, .not-prose *)) {
   background: var(--ed-ink);
   color: var(--ed-paper-2);
   padding: 1.25rem 1.5rem;
@@ -564,14 +560,14 @@ a.card:hover {
   line-height: 1.6;
 }
 
-.prose pre code:not(:where(.not-prose *)) {
+.prose pre code:not(:where(.not-prose, .not-prose *)) {
   background: transparent;
   padding: 0;
   color: inherit;
   font-size: inherit;
 }
 
-.prose hr:not(:where(.not-prose *)) {
+.prose hr:not(:where(.not-prose, .not-prose *)) {
   border: 0;
   border-top: 1px solid var(--ed-rule);
   margin: 3rem 0;
@@ -1111,7 +1107,7 @@ main tr:last-child td {
 }
 
 @media (max-width: 768px) {
-  .prose h2:not(:where(.not-prose *)),
+  .prose h2:not(:where(.not-prose, .not-prose *)),
   .section-heading { font-size: 19px; }
   main td, main th { padding: 0.75rem 1rem; }
 }
@@ -1329,6 +1325,78 @@ main tr:last-child td {
 .profile-details dd {
   font-size: 1rem;
   color: var(--ed-ink);
+}
+
+/* /maintainers/ card grid. Fluid: as many columns of at least 17.5rem as
+   the content width holds (4 on a wide page, 3 on a laptop, 2 on a tablet,
+   1 on a phone), each stretched to share the row, so the grid always spans
+   the full width with no leftover gutter. min(100%, …) lets a single column
+   shrink below 17.5rem on the narrowest phones instead of overflowing.
+   Rows stretch, so every card in a row is the same height. */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.maintainer-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.maintainer-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.maintainer-card__handle {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: var(--ed-ink-3);
+}
+
+/* Label-plus-value sections on hairline rules, like the profile page. */
+.maintainer-card__section {
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--ed-rule);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ed-ink-2);
+}
+
+.maintainer-card__section .eyebrow {
+  margin-bottom: 0.375rem;
+}
+
+.maintainer-card__portals {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.maintainer-card__portals li + li {
+  margin-top: 0.25rem;
+}
+
+.maintainer-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.maintainer-card__tags .lgu-tag {
+  margin-top: 0;
+}
+
+.maintainer-card__support {
+  margin: 0.625rem 0 0;
+  font-size: 0.875rem;
+  color: var(--ed-ink-2);
 }
 
 [x-cloak] {

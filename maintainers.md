@@ -33,26 +33,43 @@ Read a profile before you reach out, and follow the [Code of Conduct]({{ '/code-
 <p class="not-prose funding-note max-w-[70ch] text-sm text-ed-ink-3">Some Maintainers accept personal support. It goes to them as people, not to a portal or the directory. {% include funding-disclaimer.html link_class="link" %}</p>
 {%- endif -%}
 {%- if profiles and profiles.size > 0 -%}
-<ul class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+<ul class="not-prose profile-grid">
 {%- for p in profiles %}
-  <li class="maintainer-card flex flex-col">
-  <a href="{{ p.url | relative_url }}" class="card flex-1">
-    <h2 class="card__title">{{ p.name | escape }}</h2>
-    <p class="mt-1 text-sm text-ed-ink-3">@{{ p.handle }}</p>
-    <p class="mt-4 text-sm text-ed-ink-2"><span class="eyebrow">Maintains</span>
-      {% if p.portals.size > 0 %}{% for portal in p.portals %}{% if portal.domain and portal.domain != '-' %}{{ portal.domain | markdownify | strip_html | strip }}{% else %}{{ portal.name | escape }}{% endif %}{% if portal.kind == 'budget' %} (Budget Portal){% endif %}{% unless forloop.last %} · {% endunless %}{% endfor %}{% else %}No portals currently listed{% endif %}
-    </p>
+  <li class="maintainer-card">
+  <a href="{{ p.url | relative_url }}" class="card maintainer-card__body">
+    <div>
+      <h2 class="card__title mt-0">{{ p.name | escape }}</h2>
+      <p class="maintainer-card__handle">@{{ p.handle }}</p>
+    </div>
+    <div class="maintainer-card__section">
+      <p class="eyebrow">Maintains</p>
+      {%- if p.portals.size > 0 %}
+      <ul class="maintainer-card__portals">
+        {%- for portal in p.portals %}
+        <li>{% if portal.domain and portal.domain != '-' %}{{ portal.domain | markdownify | strip_html | strip }}{% else %}{{ portal.name | escape }}{% endif %}{% if portal.kind == 'budget' %} <span class="text-ed-ink-3">(Budget Portal)</span>{% endif %}</li>
+        {%- endfor %}
+      </ul>
+      {%- else %}
+      <p class="text-ed-ink-3">No portals currently listed</p>
+      {%- endif %}
+    </div>
     {%- if p.open_to.size > 0 %}
-    <div class="mt-3 flex flex-wrap gap-2">
-      {%- for item in p.open_to %}<span class="lgu-tag lgu-tag-open">{{ item | escape }}</span>{% endfor -%}
+    <div class="maintainer-card__section">
+      <p class="eyebrow">Open to</p>
+      <div class="maintainer-card__tags">
+        {%- for item in p.open_to %}<span class="lgu-tag lgu-tag-open">{{ item | escape }}</span>{% endfor -%}
+      </div>
     </div>
     {%- endif %}
     {%- if p.languages.size > 0 %}
-    <p class="mt-3 text-sm text-ed-ink-2"><span class="eyebrow">Languages</span> {{ p.languages | join: ", " | escape }}</p>
+    <div class="maintainer-card__section">
+      <p class="eyebrow">Languages</p>
+      <p>{{ p.languages | join: ", " | escape }}</p>
+    </div>
     {%- endif %}
   </a>
     {%- if p.support and p.support != "" %}
-    <p class="mt-2 text-sm text-ed-ink-2"><span class="text-ed-ink-3">Personal support:</span> <a href="{{ p.support | escape }}" target="_blank" rel="noopener noreferrer" class="link">{{ p.support | remove_first: 'https://' | remove_first: 'http://' | escape }}</a></p>
+    <p class="maintainer-card__support"><span class="text-ed-ink-3">Personal support:</span> <a href="{{ p.support | escape }}" target="_blank" rel="noopener noreferrer" class="link">{{ p.support | remove_first: 'https://' | remove_first: 'http://' | escape }}</a></p>
     {%- endif %}
   </li>
 {%- endfor %}
