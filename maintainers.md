@@ -20,11 +20,21 @@ container: page
   the cards, when any profile has one.
 {%- endcomment -%}
 
+<!-- Intro in two columns from 1024px: who Maintainers are, then how to contact them. -->
+<div class="prose-columns" markdown="1">
+<div markdown="1">
+
 Every LGU and budget portal in this directory is built and run by its own volunteers, who are listed in the **Maintainer/s** column of the [Directory]({{ '/' | relative_url }}) and the [Budget Portals]({{ '/budget' | relative_url }}) tables. The people below are some of those portal Maintainers. Each one chose to publish a Maintainer Profile saying how contributors can reach them, what they're open to, and what they're not a fit for.
+
+</div>
+<div markdown="1">
 
 **Being listed here means they want to be contacted** about the portals they maintain. These are not the Directory Maintainers who run this site. For questions about the directory itself, open an issue on [GitHub](https://github.com/jmacj/better-lgu-directory/issues).
 
 Read a profile before you reach out, and follow the [Code of Conduct]({{ '/code-of-conduct' | relative_url }}#contacting-maintainers).
+
+</div>
+</div>
 
 {% assign profiles = site.data.maintainer_profiles -%}
 {%- assign any_support = false -%}

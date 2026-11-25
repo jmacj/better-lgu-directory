@@ -10,16 +10,13 @@
   {%- assign display_title = profile.name | default: profile_handle -%}
 {%- endif -%}
 {%- comment -%}
-  BetterGov.ph layout (https://bettergov.ph/design/styles): directories and
-  tables use the page container (1504px); reading pages use the narrow one
-  (1040px). A page opts into the wide one with `container: page` in its front
-  matter; the docs synced from main carry none, so they read narrow.
+  Every page uses the page container (1504px), so the masthead and content
+  line up with the header and footer at every width. Reading width is kept by
+  the prose measure in assets/css/style.css, not by narrowing the page.
+  `container: page` in a page's front matter marks a directory page (Home,
+  Budget Portals, Maintainer Profiles): full width, no contents sidebar.
 {%- endcomment -%}
-{%- if page.container == 'page' -%}
-  {%- assign container = 'container-page' -%}
-{%- else -%}
-  {%- assign container = 'container-narrow' -%}
-{%- endif -%}
+{%- assign container = 'container-page' -%}
 {%- if page.title == 'Home' -%}{%- assign nav_current = 'directory' -%}
 {%- elsif page.title == 'BetterGov.ph — LGU Budget Transparency Portal Directory' or page.title == 'Start Your Budget Portal' or page.title == 'Budget Portal Templates' -%}{%- assign nav_current = 'budget' -%}
 {%- elsif page.title == 'Guide' -%}{%- assign nav_current = 'guide' -%}
@@ -202,9 +199,110 @@
           {%- assign from = 'href="' | append: rooted -%}
           {%- assign page_content = page_content | replace: from, to -%}
         {%- endfor %}
+        {%- comment -%}
+          Docs from main render bare Markdown tables. On reading pages, wrap
+          each in the directory's table box: ruled, and a labelled, keyboard-
+          focusable scroll region, so a table too wide for a phone scrolls
+          inside the column instead of widening the page. Each region is
+          named by its number and column headings ("Table 2: Kind, Format,
+          Example"), so the names are unique and say what the table holds.
+          Directory pages already wrap theirs (markdown="1" divs), so they
+          are skipped.
+        {%- endcomment -%}
+        {%- if page.container != 'page' -%}
+          {%- assign table_parts = page_content | split: '<table>' -%}
+          {%- if table_parts.size > 1 -%}
+            {%- capture wrapped_content -%}
+              {{- table_parts[0] -}}
+              {%- for part in table_parts offset: 1 -%}
+                {%- assign header_cells = part | split: '</thead>' | first | split: '</th>' -%}
+                {%- assign table_label = '' -%}
+                {%- for cell in header_cells -%}
+                  {%- assign cell_text = cell | strip_html | strip -%}
+                  {%- if cell_text != '' -%}
+                    {%- if table_label != '' -%}{%- assign table_label = table_label | append: ', ' -%}{%- endif -%}
+                    {%- assign table_label = table_label | append: cell_text -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                <div class="table-wrapper" tabindex="0" role="region" aria-label="Table {{ forloop.index }}{% if table_label != '' %}: {{ table_label | escape }}{% endif %}"><table>{{ part | replace: '</table>', '</table></div>' }}
+              {%- endfor -%}
+            {%- endcapture -%}
+            {%- assign page_content = wrapped_content -%}
+          {%- endif -%}
+        {%- endif %}
+        {%- comment -%}
+          Docs pages with two or more sections get an "On this page"
+          contents list: a sticky sidebar from 1024px, a collapsible box above
+          the text below that. It is built here from the rendered <h2 id="…">
+          headings (kramdown's auto IDs), so it is in the first paint (no
+          layout shift) and works without JavaScript; the script below only
+          marks the section in view. Directory pages and Maintainer Profiles
+          are skipped: their sections are short or not reading text.
+        {%- endcomment -%}
+        {%- assign toc_count = 0 -%}
+        {%- capture toc_items -%}
+          {%- if page.container != 'page' and page.layout != 'maintainer-profile' -%}
+            {%- assign h2_parts = page_content | split: '<h2' -%}
+            {%- for part in h2_parts offset: 1 -%}
+              {%- assign head = part | split: '</h2>' | first -%}
+              {%- assign head_start = head | slice: 0, 5 -%}
+              {%- if head_start == ' id="' -%}
+                {%- assign head_bits = head | split: '"' -%}
+                {%- assign head_id = head_bits[1] -%}
+                {%- assign head_text = head | remove_first: ' id="' | remove_first: head_id | remove_first: '">' | strip_html | strip -%}
+                {%- assign toc_count = toc_count | plus: 1 -%}
+                <li><a href="#{{ head_id }}">{{ head_text }}</a></li>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endcapture -%}
+        {%- if toc_count >= 2 %}
+        <div class="reading-layout">
+            <nav class="toc" aria-label="On this page">
+                <p class="eyebrow">On this page</p>
+                <ol class="toc__list">{{ toc_items }}</ol>
+            </nav>
+            <div class="reading-layout__main">
+                <nav class="toc-mobile" aria-label="On this page">
+                    <details>
+                        <summary>On this page</summary>
+                        <ol class="toc__list">{{ toc_items }}</ol>
+                    </details>
+                </nav>
+                <div id="directory" class="prose">
+                    {{ page_content }}
+                </div>
+            </div>
+        </div>
+        <script>
+          // Marks the contents link of the section in view (aria-current), so
+          // the sidebar shows where the reader is. The list works without it.
+          (function () {
+            var links = document.querySelectorAll('.toc a');
+            var byId = {};
+            links.forEach(function (a) { byId[decodeURIComponent(a.hash.slice(1))] = a; });
+            var heads = Array.prototype.filter.call(document.querySelectorAll('#directory h2[id]'), function (h) { return byId[h.id]; });
+            if (!heads.length) return;
+            var ticking = false;
+            function update() {
+              ticking = false;
+              var line = window.innerHeight * 0.25;
+              var current = heads[0];
+              heads.forEach(function (h) { if (h.getBoundingClientRect().top <= line) current = h; });
+              links.forEach(function (a) { a.removeAttribute('aria-current'); });
+              byId[current.id].setAttribute('aria-current', 'location');
+            }
+            window.addEventListener('scroll', function () {
+              if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+            }, { passive: true });
+            update();
+          })();
+        </script>
+        {%- else %}
         <div id="directory" class="prose">
             {{ page_content }}
         </div>
+        {%- endif %}
     </div>
     </main>
 

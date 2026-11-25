@@ -4,9 +4,19 @@ title: BetterGov.ph — LGU Budget Transparency Portal Directory
 permalink: /budget
 container: page
 ---
+<!-- Page intro: two lede paragraphs side by side from 1024px. -->
+<div class="lede prose-columns" markdown="1">
+<div markdown="1">
+
 A community-maintained directory of **budget transparency portals** for Philippine LGUs — sites that show citizens every budget project for one province, city, or municipality, built on the public [BetterGov.ph Budget API](https://budget.bettergov.ph/docs) behind the national [budget.bettergov.ph](https://budget.bettergov.ph).
 
+</div>
+<div markdown="1">
+
 A budget portal is either part of an LGU's [Better LGU portal]({{ '/' | relative_url }}) or a site of its own. Every portal listed here is live — check this table before you build, so you can contribute to an existing one instead of publishing a second.
+
+</div>
+</div>
 
 ## Directory
 
@@ -66,15 +76,25 @@ A budget portal is either part of an LGU's [Better LGU portal]({{ '/' | relative
 
 ## Getting started
 
+<!-- The three steps in the wide column; the next step and the note on amounts beside them. -->
+<div class="prose-columns prose-columns--wide-left" markdown="1">
+<div markdown="1">
+
 Your province, city, or town can have one too — free, open source, and no server or database to run. Three steps, no advance registration:
 
 1. **Fork** the [official template](https://github.com/bettergovph/transparency-portal) on GitHub
 2. **Run `npm run setup`** and pick your LGU
 3. **Deploy** it to Cloudflare, Vercel, or Netlify
 
+</div>
+<div markdown="1">
+
 Then send us the link by [adding it to this directory]({{ '/contributing' | relative_url }}#adding-a-budget-portal). The full walkthrough is in **[How to Start Your Budget Transparency Portal]({{ '/budget-guide' | relative_url }})**; other starting points are in [Budget Portal Templates]({{ '/budget-templates' | relative_url }}).
 
 Amounts on these portals are as published in the 2027 NEP and House Bill 10858, not spending. A project found in only one version is a candidate to check, not a finding.
+
+</div>
+</div>
 
 <script defer src="{{ '/assets/js/repo-activity.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 

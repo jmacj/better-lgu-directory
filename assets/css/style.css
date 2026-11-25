@@ -51,7 +51,24 @@
   --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
 
   --container-page: 1504px;
-  --container-page-narrow: 1040px;
+
+  /* Reading measure: the widest a text block runs, measured in the prose
+     font, so it grows with the fluid type below. 80ch is about two-thirds
+     of the page on a wide screen and nearly all of the column beside the
+     contents sidebar; narrower than that, text simply fills the column.
+     Tables, code, and full-width components ignore it. */
+  --measure: 80ch;
+
+  /* Sticky header height plus breathing room: where in-page anchors land
+     and where the contents sidebar sticks. The utility bar hides below
+     768px, so the header is shorter there. */
+  --header-offset: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-offset: 8rem;
+  }
 }
 
 body {
@@ -83,10 +100,11 @@ body {
 
 /* ---- Layout ----
    Full-width bands, each holding a centred container. Gutters are 18px on
-   mobile, 24px on tablet and 32px on wide screens. Directories and tables
-   use the page width; reading pages use the narrow one. */
-.container-page,
-.container-narrow {
+   mobile, 24px on tablet and 32px on wide screens. Every page uses the page
+   width, so content lines up with the header and footer; reading text keeps
+   its line length through --measure, and long reading pages put a contents
+   sidebar in the space beside it (.reading-layout). */
+.container-page {
   box-sizing: border-box;
   width: 100%;
   margin-inline: auto;
@@ -97,21 +115,119 @@ body {
   max-width: var(--container-page);
 }
 
-.container-narrow {
-  max-width: var(--container-page-narrow);
-}
-
 @media (min-width: 768px) {
-  .container-page,
-  .container-narrow {
+  .container-page {
     padding-inline: 24px;
   }
 }
 
 @media (min-width: 1280px) {
-  .container-page,
-  .container-narrow {
+  .container-page {
     padding-inline: 32px;
+  }
+}
+
+/* Long reading pages: an "On this page" sidebar beside the text from
+   1024px, so the width beside the reading measure carries navigation
+   instead of sitting empty. Below 1024px the same list is a collapsible box
+   above the text (.toc-mobile), and the text takes the full width. */
+.reading-layout__main {
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .reading-layout {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1280px) {
+  .reading-layout {
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 4rem;
+  }
+}
+
+.toc {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: sticky;
+    top: var(--header-offset);
+    max-height: calc(100vh - var(--header-offset) - 1.5rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .toc-mobile {
+    display: none;
+  }
+}
+
+/* The design system's side navigation: a hairline rail with the current
+   item marked by a navy rule and navy text (never colour alone: the rule
+   and the weight change too). Each link is at least 24px tall. */
+.toc__list {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-left: 1px solid var(--ed-rule);
+}
+
+.toc__list a {
+  display: block;
+  margin-left: -1px;
+  padding: 0.375rem 0 0.375rem 1rem;
+  border-left: 2px solid transparent;
+  font-size: 0.8125rem;
+  line-height: 1.375;
+  color: var(--ed-ink-2);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.toc__list a:hover {
+  color: var(--ed-navy);
+  border-left-color: var(--ed-rule-strong);
+}
+
+.toc__list a[aria-current] {
+  border-left-color: var(--ed-navy);
+  color: var(--ed-navy);
+  font-weight: 500;
+}
+
+.toc-mobile {
+  margin-bottom: 2rem;
+  border: 1px solid var(--ed-rule);
+  background: var(--ed-paper-2);
+}
+
+.toc-mobile summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ed-ink);
+  cursor: pointer;
+}
+
+.toc-mobile .toc__list {
+  margin: 0 1rem 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc__list a {
+    transition: none;
   }
 }
 
@@ -220,6 +336,8 @@ body {
    navy rule under the text, a trailing arrow, red on hover. */
 .link,
 .prose a:not([class]) {
+  /* A bare URL or long domain wraps instead of widening its column. */
+  overflow-wrap: anywhere;
   color: var(--ed-navy);
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -437,14 +555,16 @@ a.card:hover {
 }
 
 /* ---- Reading content ----
-   Markdown from the repo docs. Inter body copy at 17px, Figtree headings,
-   prose blocks capped near 70 characters a line. Element rules skip a
-   .not-prose block and everything in it (controls, cards, the profile
-   card), which style themselves with component classes and Tailwind
-   utilities. */
+   Markdown from the repo docs. Inter body copy, Figtree headings, text
+   blocks up to --measure wide. The body size is fluid: the guidelines' 17px
+   on phones and tablets, easing up to 18px on desktops so the wider measure
+   keeps a comfortable line; the extra leading does the same for long lines.
+   Element rules skip a .not-prose block and everything in it (controls,
+   cards, the profile card), which style themselves with component classes
+   and Tailwind utilities. */
 .prose {
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: clamp(1.0625rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.7;
   color: var(--ed-ink-2);
 }
 
@@ -452,10 +572,69 @@ a.card:hover {
   display: none;
 }
 
-/* The cap is for reading text only: a .not-prose block (the directory
-   controls, a card grid) spans the full content width. */
-.prose > :is(p, ul, ol, blockquote, h2, h3, h4, dl):not(.not-prose) {
-  max-width: 70ch;
+/* The cap is for reading text only, dividers included so they end where
+   the text does. Tables, code and .not-prose blocks (the directory
+   controls, a card grid) span the full content column. */
+.prose > :is(p, ul, ol, blockquote, h2, h3, h4, dl, hr):not(.not-prose) {
+  max-width: var(--measure);
+}
+
+/* Contextual widths on directory pages, where the content beside the text
+   is full width (controls, tables, card grids), so a single text column
+   would leave the right of the page empty:
+   - .lede: the page intro, at lede size (the masthead lede's role), so a
+     wider line stays comfortable.
+   - .prose-span: a one- or two-line note above a full-width table spans
+     the table; short enough that line length doesn't matter.
+   - .prose-columns: related blocks side by side from 1024px, each column a
+     comfortable 60–80 characters; --wide-left gives the main block two
+     thirds. Below 1024px they stack, in source order. */
+.lede > p,
+.lede > div > p {
+  max-width: var(--measure);
+  font-size: clamp(1.125rem, 1rem + 0.35vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--ed-ink-2);
+}
+
+.prose-columns {
+  display: grid;
+  gap: 1.25rem 3rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .prose-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prose-columns--wide-left {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+}
+
+.prose-columns > div > :first-child {
+  margin-top: 0;
+}
+
+.prose-columns > div > :last-child {
+  margin-bottom: 0;
+}
+
+/* A column block that opens with section headings keeps a section's space
+   above it, since the headings' own top margin is reset inside it. */
+.prose-columns:has(> div > h2:first-child) {
+  margin-top: 3rem;
+}
+
+.prose-span > p:last-child {
+  margin-bottom: 1.25rem;
+}
+
+/* An in-page link (the contents list, a docs cross-link) lands with the
+   heading clear of the sticky header. */
+.prose :is(h2, h3, h4)[id] {
+  scroll-margin-top: var(--header-offset);
 }
 
 /* Section heading: plain, display face, no rules or decoration; size and
@@ -540,6 +719,7 @@ a.card:hover {
 }
 
 .prose code:not(:where(.not-prose, .not-prose *)) {
+  overflow-wrap: anywhere;
   font-family: var(--font-mono);
   font-size: 0.85em;
   background: var(--ed-paper-3);
@@ -1109,7 +1289,11 @@ main tr:last-child td {
 @media (max-width: 768px) {
   .prose h2:not(:where(.not-prose, .not-prose *)),
   .section-heading { font-size: 19px; }
-  main td, main th { padding: 0.75rem 1rem; }
+  main td, main th { padding: 0.75rem 0.875rem; }
+}
+
+@media (max-width: 480px) {
+  main td, main th { padding: 0.625rem 0.75rem; }
 }
 
 /* ---- Logo band (#179) ----
@@ -1319,6 +1503,41 @@ main tr:last-child td {
 
   .profile-details > .profile-details__wide {
     grid-column: 1 / -1;
+  }
+}
+
+/* Profile page: the card as a left sidebar from 1024px, the Maintainer's
+   text beside it at reading width (its own .prose, so the measure applies
+   to its direct children). The card's details go to one column there. */
+.profile-layout__card {
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .profile-layout {
+    display: grid;
+    grid-template-columns: 20rem minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .profile-layout__card {
+    margin-bottom: 0;
+  }
+
+  .profile-layout .profile-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .profile-layout__body > :first-child {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .profile-layout {
+    grid-template-columns: 22rem minmax(0, 1fr);
+    gap: 4rem;
   }
 }
 

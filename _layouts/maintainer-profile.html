@@ -22,6 +22,10 @@ layout: default
   site build. Reviewers must catch that on main before merging a profile.
   Don't write those delimiters literally in this comment either: Liquid
   still parses comment bodies, which is what broke the build once.
+  A link's visible text drops "https://", "http://", "www." and a trailing
+  slash (the
+  guidelines' contact pattern: "dfa.gov.ph", not "https://…"); the href
+  keeps the full URL.
   Emails are plain mailto: links with no obfuscation, by design: the source
   file is public on GitHub anyway.
 
@@ -31,7 +35,14 @@ layout: default
 {%- endcomment -%}
 {%- assign profile_handle = page.name | remove: '.md' -%}
 {%- assign profile = site.data.maintainer_profiles | where: 'handle', profile_handle | first -%}
-<div class="not-prose mb-10 border border-ed-rule bg-white p-6 md:p-8">
+{%- comment -%}
+  From 1024px the profile card is a left sidebar and the Maintainer's own
+  text sits beside it, like the docs pages' contents sidebar, so the text
+  keeps its reading width without leaving the rest of the page empty. Below
+  1024px the card comes first, so contact details lead on a phone.
+{%- endcomment %}
+<div class="profile-layout">
+<aside class="profile-layout__card not-prose border border-ed-rule bg-white p-6 md:p-8" aria-label="Profile details">
   <p class="text-[15px] text-ed-ink-2 mb-6">
     <a href="https://github.com/{{ profile_handle }}" class="link font-medium">@{{ profile_handle }}</a>
     published this Maintainer Profile to say how contributors can reach them about the Better LGU portals they maintain.
@@ -90,7 +101,7 @@ layout: default
             {% if key == 'email' -%}
               <a href="mailto:{{ value | escape }}" class="link break-all">{{ value | escape }}</a>
             {%- elsif href -%}
-              <a href="{{ href | escape }}" target="_blank" rel="noopener noreferrer" class="link break-all">{{ text | escape }}</a>
+              <a href="{{ href | escape }}" target="_blank" rel="noopener noreferrer" class="link break-all">{{ text | remove_first: 'https://' | remove_first: 'http://' | remove_first: 'www.' | append: '<end>' | remove: '/<end>' | remove: '<end>' | escape }}</a>
             {%- else -%}
               <span class="break-all">{{ value | escape }}</span>
             {%- endif %}
@@ -139,10 +150,13 @@ layout: default
     Before you reach out, read the whole profile and follow the
     <a href="{{ '/code-of-conduct' | relative_url }}#contacting-maintainers" class="link">Code of Conduct</a>.
   </p>
-</div>
+</aside>
 
+<div class="profile-layout__body prose">
 {{ content }}
 
 <p class="not-prose mt-12">
   <a href="{{ '/maintainers/' | relative_url }}" class="arrow-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> All Maintainer Profiles</a>
 </p>
+</div>
+</div>

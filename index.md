@@ -5,7 +5,12 @@ container: page
 ---
 # BetterGov.ph — LGU Directory
 
+<!-- Page intro as a lede (larger text, wider line), like a masthead lede. -->
+<div class="lede" markdown="1">
+
 A community-maintained directory of **Better LGU** digital transparency portals across the Philippines — find an existing portal before you build, contribute to one, or start your own. Each entry links to the LGU's portal, source repository, and social pages, along with its current maintenance status.
+
+</div>
 
 ## Directory
 
@@ -156,7 +161,12 @@ the same result as fold() in scripts/lgu-name.js.
 
 ## Status legend
 
+<!-- A one- or two-line note above a full-width table spans the table. -->
+<div class="prose-span" markdown="1">
+
 The directory is sorted by location by default (regions north to south, then province A–Z, each province's own portal before its cities and municipalities); use **Sort by** to list it by name or status instead.
+
+</div>
 
 <div class="table-wrapper" markdown="1">
 
@@ -181,9 +191,19 @@ The directory is sorted by location by default (regions north to south, then pro
 
 </div>
 
+<!-- Two related paragraphs side by side from 1024px (.prose-columns). -->
+<div class="prose-columns" markdown="1">
+<div markdown="1">
+
 **Adopting an entry?** Open a PR that updates the Maintainer/s column and removes the tags. A stale entry keeps its status — a `🔵 Planned` one changes only when the work actually starts. An `🔴 Unmaintained` entry takes the status that matches reality (`🟡 Work in Progress` or `🟢 Active`). Any discussion happens in that PR.
 
+</div>
+<div markdown="1">
+
 Tags are applied by Directory Maintainers during periodic reviews, never automatically — time since the last update is a prompt to look, not the only thing that decides it. Work in Progress entries are followed up in [check-ins](CONTRIBUTING.md#check-ins) and go stale only if those go unanswered. Only `🟢 Active` entries become `🔴 Unmaintained`.
+
+</div>
+</div>
 
 ## Community templates
 
@@ -201,6 +221,10 @@ These templates are provided by the community to help you get started quickly.
 
 > Have a template to contribute? Open a PR and add it to this table and to [TEMPLATES.md](TEMPLATES.md).
 
+<!-- Getting started in the wide column; Contributing and License beside it. -->
+<div class="prose-columns prose-columns--wide-left" markdown="1">
+<div markdown="1">
+
 ## Getting started
 
 Ready to build a transparency portal for your LGU? Read the full guide: **[How to Start Your Better LGU Portal](GUIDE.md)**
@@ -213,6 +237,9 @@ The short version:
 
 > **The directory coordinates; it doesn't own.** Registration earns you first say, not exclusive rights. Shipping and maintaining keep your entry. See [CONTRIBUTING.md](CONTRIBUTING.md) for the rules.
 
+</div>
+<div markdown="1">
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add or update an LGU entry, contribute a template, or improve this directory.
@@ -220,6 +247,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add or update an LGU entry, co
 ## License
 
 Content in this repository is licensed under [CC BY 4.0](https://github.com/jmacj/better-lgu-directory/blob/main/LICENSE). Templates in linked repositories carry their own licenses.
+
+</div>
+</div>
 
 <!-- Repository activity (#162) — fills in the "Updated N days ago" line under
      each row's GitHub link. See assets/js/repo-activity.js. -->
