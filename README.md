@@ -29,6 +29,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Baao, Camarines Sur | - | [GitHub](https://github.com/alvagenesis/betterbaao/) | - | 🔵 Planned | [@alvagenesis](https://github.com/alvagenesis) |
 | Bacolod City, Negros Occidental | [betterbacolod.org](https://betterbacolod.org) | [GitHub](https://github.com/betterbacolod/betterbacolod) | [Facebook](https://www.facebook.com/betterbacolod.org) | 🟢 Active | [@mattenarle10](https://github.com/mattenarle10) |
 | Bacoor City, Cavite | [betterbacoor.org](https://www.betterbacoor.org/) | [GitHub](https://github.com/0phl/betterbacoor) | [Facebook](https://www.facebook.com/people/BetterBacoororg/61594400221717/) | 🟢 Active | [@0phl](https://github.com/0phl) |
+| Bagabag, Nueva Vizcaya | [betterbagabag.org](https://betterbagabag.org) | [GitHub](https://github.com/marttidumangeng/betterbagabag) | - | 🟢 Active | [@marttidumangeng](https://github.com/marttidumangeng) |
 | Bagac, Bataan | [betterbagac.org](https://betterbagac.org) | [GitHub](https://github.com/betterbagac/betterbagac) | - | 🟢 Active | [@jmrec](https://github.com/jmrec) |
 | Baguio City, Benguet | [betterbaguio.org](https://betterbaguio.org) | [GitHub](https://github.com/ashier/betterbaguio) | - | 🟢 Active | [@ashier](https://github.com/ashier) |
 | Balanga City, Bataan | [betterbalanga.org](https://betterbalanga.org/) | [GitHub](https://github.com/AstroMC98/betterbalanga) | [Facebook](https://www.facebook.com/betterbalanga.org) | 🟡 Work in Progress | [@AstroMC98](https://github.com/AstroMC98) |
