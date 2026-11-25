@@ -280,6 +280,19 @@
     - handle: "marttidumangeng"
       url: "https://github.com/marttidumangeng"
       profile: false
+- name: "Pagbilao, Quezon"
+  portal: "[betterpagbilao.org/transparency/budget](https://betterpagbilao.org/transparency/budget)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[betterpagbilao.org](https://betterpagbilao.org)"
+  repo: "[GitHub](https://github.com/rallion90/better-pagbilao)"
+  repo_owner: "rallion90"
+  repo_name: "better-pagbilao"
+  maintainer: "[@rallion90](https://github.com/rallion90)"
+  maintainers:
+    - handle: "rallion90"
+      url: "/maintainers/rallion90/"
+      profile: true
 - name: "Pampanga Province"
   portal: "[betterpampanga.vercel.app](https://betterpampanga.vercel.app)"
   type: "🏛️ Standalone"

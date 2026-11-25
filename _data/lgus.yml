@@ -2760,8 +2760,8 @@
   maintainer: "[@rallion90](https://github.com/rallion90)"
   maintainers:
     - handle: "rallion90"
-      url: "https://github.com/rallion90"
-      profile: false
+      url: "/maintainers/rallion90/"
+      profile: true
 - name: "Pagsanjan, Laguna"
   place: "Pagsanjan"
   kind: "municipality"
