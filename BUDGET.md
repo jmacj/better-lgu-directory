@@ -15,7 +15,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 |---|---|---|---|---|
 | Albay Province | [albay-transparency-portal.vercel.app](https://albay-transparency-portal.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/Pseudoman21/albay-transparency-portal) | [@Pseudoman21](https://github.com/Pseudoman21) |
 | Alcala, Pangasinan | [budget.betteralcala.org](https://budget.betteralcala.org/) | 🧩 Integrated | [GitHub](https://github.com/melmarj0nes23/budget) | [@melmarj0nes23](https://github.com/melmarj0nes23) |
-| Bagabag, Nueva Vizcaya | [budget.betterbagabag.org](https://budget.betterbagabag.org/) | 🧩 Integrated | [GitHub](https://github.com/marttidumangeng/nueva-vizcaya-transparency-portal) | [@marttidumangeng](https://github.com/marttidumangeng) |
+| Bagabag, Nueva Vizcaya | [budget.betterbagabag.org](https://budget.betterbagabag.org) | 🧩 Integrated | [GitHub](https://github.com/marttidumangeng/nueva-vizcaya-transparency-portal) | [@marttidumangeng](https://github.com/marttidumangeng) |
 | Batangas Province | [betterbatangas.org](https://betterbatangas.org) | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal) | [@pogicodes](https://github.com/pogicodes) |
 | Bukidnon Province | [budget.betterbukidnon.org](https://budget.betterbukidnon.org) | 🧩 Integrated | - | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
 | Bulacan Province | [budget-betterbulacan.vercel.app](https://budget-betterbulacan.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/KyneLaggui/transparency-portal-bulacan) | [@KyneLaggui](https://github.com/KyneLaggui) |
