@@ -185,7 +185,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tampakan, South Cotabato | [bettertampakan.org](https://bettertampakan.org) | [GitHub](https://github.com/jamez78/bettertampakan) | - | 🟡 Work in Progress | [@jamez78](https://github.com/jamez78) |
 | Tanay, Rizal | [bettertanay.org](https://bettertanay.org) | [GitHub](https://github.com/s4burieru/bettertanay) | [Facebook](https://www.facebook.com/bettertanay) | 🟢 Active | [@s4burieru](https://github.com/s4burieru) |
 | Tandag City, Surigao del Sur | - | [GitHub](https://github.com/BetterTandag/better-tandag) | - | 🟡 Work in Progress | [@ikmespinoza](https://github.com/ikmespinoza) |
-| Tanza, Cavite | - | [GitHub](https://github.com/manalilib/betterTanza) | [Facebook](https://www.facebook.com/betterTanzaCavite) | 🟡 Work in Progress | [@manalilib](https://github.com/manalilib) |
+| Tanza, Cavite | [better-tanza.vercel.app](https://better-tanza.vercel.app/) | [GitHub](https://github.com/manalilib/betterTanza) | [Facebook](https://www.facebook.com/betterTanzaCavite) | 🟢 Active | [@manalilib](https://github.com/manalilib) |
 | Tayabas City, Quezon | [bettertayabas.org](https://bettertayabas.org) | [GitHub](https://github.com/herseyy/bettertayabas) | - | 🔵 Planned | [@arksmc](https://github.com/arksmc), [@herseyy](https://github.com/herseyy), [@ninnzz](https://github.com/ninnzz) |
 | Taytay, Rizal | - | [GitHub](https://github.com/zzelif/bettertaytay) | - | 🟡 Work in Progress | [@zzelif](https://github.com/zzelif) |
 | Teresa, Rizal | - | [GitHub](https://github.com/MewSeiren/betterteresa.org) | - | 🟡 Work in Progress | [@MewSeiren](https://github.com/MewSeiren) |
