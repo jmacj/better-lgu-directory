@@ -66,7 +66,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Cavite City, Cavite | [bettercavitecity.org](https://bettercavitecity.org) | - | [Facebook](https://www.facebook.com/bettercavitecity.org) | 🟢 Active | [@jdsatsatin](https://github.com/jdsatsatin) |
 | Cebu City, Cebu | - | [GitHub](https://github.com/kyrenmearr/bettercebucity) | - | 🟡 Work in Progress | [@kyrenmearr](https://github.com/kyrenmearr) |
 | Claver, Surigao del Norte | - | - | - | 🔵 Planned<br>⚠️ Stale | [@eljohn2001](https://github.com/eljohn2001)<br>🤝 Open for Adoption |
-| Concepcion, Romblon | - | [GitHub](https://github.com/johannfranzero/betterconcepcion) | - | 🔵 Planned | [@johannfranzero](https://github.com/johannfranzero) |
+| Concepcion, Romblon | [betterconcepcion.vercel.app](https://betterconcepcion.vercel.app) | [GitHub](https://github.com/johannfranzero/betterconcepcion) | - | 🟢 Active | [@johannfranzero](https://github.com/johannfranzero) |
 | Concepcion, Tarlac | - | [GitHub](https://github.com/aaronher1030-glitch/bettergovtarlacph) | - | 🔵 Planned | [@aaronher1030-glitch](https://github.com/aaronher1030-glitch) |
 | Corella, Bohol | [bettercorella.vercel.app](https://bettercorella.vercel.app) | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🟢 Active | [@ashdroidcmd](https://github.com/ashdroidcmd) |
 | Dagupan City, Pangasinan | - | [GitHub](https://github.com/jamesjmnz/better-dagupan) | - | 🟡 Work in Progress | [@jamesjmnz](https://github.com/jamesjmnz) |
