@@ -345,6 +345,19 @@
     - handle: "0xDataBear"
       url: "https://github.com/0xDataBear"
       profile: false
+- name: "Solano, Nueva Vizcaya"
+  portal: "[transparency-portal.bettersolano.org](https://transparency-portal.bettersolano.org/)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[bettersolano.org](https://bettersolano.org)"
+  repo: "[GitHub](https://github.com/BetterSolano/transparency-portal)"
+  repo_owner: "BetterSolano"
+  repo_name: "transparency-portal"
+  maintainer: "[@ramonloganjr](https://github.com/ramonloganjr)"
+  maintainers:
+    - handle: "ramonloganjr"
+      url: "/maintainers/ramonloganjr/"
+      profile: true
 - name: "Sorsogon Province"
   portal: "[sorsogon-province-transparency-portal.vercel.app](https://sorsogon-province-transparency-portal.vercel.app/)"
   type: "🏛️ Standalone"

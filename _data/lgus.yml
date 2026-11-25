@@ -3595,8 +3595,8 @@
   maintainer: "[@ramonloganjr](https://github.com/ramonloganjr)"
   maintainers:
     - handle: "ramonloganjr"
-      url: "https://github.com/ramonloganjr"
-      profile: false
+      url: "/maintainers/ramonloganjr/"
+      profile: true
 - name: "Surallah, South Cotabato"
   place: "Surallah"
   kind: "municipality"
