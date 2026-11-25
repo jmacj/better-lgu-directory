@@ -40,6 +40,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Puerto Princesa City, Palawan | [budget.betterpuertoprincesa.org](https://budget.betterpuertoprincesa.org) | 🧩 Integrated | [GitHub](https://github.com/BetterPuertoPrincesa/transparency-portal) | [@hmcldryl](https://github.com/hmcldryl) |
 | Rosario, Batangas | [rosario-betterbatangas.vercel.app](https://rosario-betterbatangas.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/BetterWatchMen/better-rosario) | [@BetterWatchMen](https://github.com/BetterWatchMen) |
 | Silang, Cavite | [bettersilang.org](https://www.bettersilang.org) | 🏛️ Standalone | [GitHub](https://github.com/0xDataBear/bettersilang) | [@0xDataBear](https://github.com/0xDataBear) |
+| Solano, Nueva Vizcaya | [transparency-portal.bettersolano.org](https://transparency-portal.bettersolano.org/) | 🧩 Integrated | [GitHub](https://github.com/BetterSolano/transparency-portal) | [@ramonloganjr](https://github.com/ramonloganjr) |
 | Sorsogon Province | [sorsogon-province-transparency-portal.vercel.app](https://sorsogon-province-transparency-portal.vercel.app/) | 🏛️ Standalone | [GitHub](https://github.com/jill1214/sorsogon-province-transparency-portal) | [@jill1214](https://github.com/jill1214) |
 | Taal, Batangas | [taal.betterbatangas.org](https://taal.betterbatangas.org) | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | [@pogicodes](https://github.com/pogicodes) |
 
