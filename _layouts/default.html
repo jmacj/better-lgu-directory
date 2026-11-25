@@ -9,114 +9,167 @@
   {%- assign profile = site.data.maintainer_profiles | where: 'handle', profile_handle | first -%}
   {%- assign display_title = profile.name | default: profile_handle -%}
 {%- endif -%}
+{%- comment -%}
+  BetterGov.ph layout (https://bettergov.ph/design/styles): directories and
+  tables use the page container (1504px); reading pages use the narrow one
+  (1040px). A page opts into the wide one with `container: page` in its front
+  matter; the docs synced from main carry none, so they read narrow.
+{%- endcomment -%}
+{%- if page.container == 'page' -%}
+  {%- assign container = 'container-page' -%}
+{%- else -%}
+  {%- assign container = 'container-narrow' -%}
+{%- endif -%}
+{%- if page.title == 'Home' -%}{%- assign nav_current = 'directory' -%}
+{%- elsif page.title == 'BetterGov.ph — LGU Budget Transparency Portal Directory' or page.title == 'Start Your Budget Portal' or page.title == 'Budget Portal Templates' -%}{%- assign nav_current = 'budget' -%}
+{%- elsif page.title == 'Guide' -%}{%- assign nav_current = 'guide' -%}
+{%- elsif page.title == 'Community Templates' -%}{%- assign nav_current = 'templates' -%}
+{%- elsif page.title == 'Contributing' -%}{%- assign nav_current = 'contributing' -%}
+{%- else -%}{%- assign nav_current = '' -%}
+{%- endif -%}
+{%- capture nav_items -%}directory|{{ '/' | relative_url }}|Directory;budget|{{ '/budget' | relative_url }}|Budget Portals;guide|{{ '/guide' | relative_url }}|Start Your LGU;templates|{{ '/templates' | relative_url }}|Templates;contributing|{{ '/contributing' | relative_url }}|Contributing{%- endcapture -%}
+{%- assign nav_items = nav_items | split: ';' -%}
+{%- capture arrow_icon -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>{%- endcapture -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if display_title and page.title != 'Home' %}{{ display_title | escape }} | {% endif %}{{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // BetterGov.ph tokens as Tailwind colours, fonts and widths. The same
+      // values are CSS variables at the top of assets/css/style.css.
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ed: {
+                ink: '#0C1B33', 'ink-2': '#2B3A55', 'ink-3': '#252629', 'ink-4': '#8A95AA',
+                paper: '#FFFFFF', 'paper-2': '#F4F7FC', 'paper-3': '#E6ECF5',
+                rule: '#DBE3EF', 'rule-strong': '#9FB2CC',
+                navy: '#0B4FD9', 'navy-2': '#0A44BD', 'navy-ink': '#08286E', 'navy-tint': '#E8EFFF',
+                red: '#C8102E', 'red-ink': '#8C0A20', sage: '#4A6B5A', gold: '#B8893A'
+              }
+            },
+            fontFamily: {
+              display: ['Figtree', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+              mono: ['"JetBrains Mono"', '"SF Mono"', 'Menlo', 'Consolas', 'monospace']
+            },
+            maxWidth: { page: '1504px', 'page-narrow': '1040px' }
+          }
+        }
+      };
+    </script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/logos/BetterGov_Emblem-Outline-Inversed.svg' | relative_url }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/logos/apple-touch-icon.png' | relative_url }}">
     {% seo %}
 </head>
-<body class="bg-gray-50 font-main antialiased" x-data="{ mobileMenuOpen: false }">
+<body class="bg-white font-sans text-ed-ink-2 antialiased" x-data="{ mobileMenuOpen: false }" @keydown.escape.window="mobileMenuOpen = false">
 
-    <nav class="bg-white shadow-xs sticky top-0 z-50 overflow-x-clip border-b border-gray-100">
-        <div class="border-b border-gray-200 hidden md:block">
-            <div class="max-w-7xl mx-auto px-4 flex justify-end">
-                <div class="flex items-center gap-x-4 py-2 text-xs">
-                    <a href="https://bettergov.ph/join-us" class="font-semibold text-blue-600 hover:text-blue-700 transition-colors">🚀 Join Us</a>
-                    <a href="https://bettergov.ph/about" class="text-gray-800 hover:text-blue-600 transition-colors">About BetterGov.ph</a>
-                    <a href="https://www.gov.ph" target="_blank" rel="noreferrer" class="text-gray-800 hover:text-blue-600 transition-colors">Official Gov.ph</a>
-                    <a href="https://bettergov.ph/contact" class="text-gray-800 hover:text-blue-600 transition-colors">Contact Us</a>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="bg-white sticky top-0 z-50 overflow-x-clip border-b border-ed-rule">
+        <div class="border-b border-ed-rule hidden md:block">
+            <div class="container-page flex justify-end">
+                <div class="flex items-center gap-x-5 py-2 text-[13px]">
+                    <a href="https://bettergov.ph/join-us" class="font-medium text-ed-navy underline underline-offset-2 hover:text-ed-red transition-colors">Join us</a>
+                    <a href="https://bettergov.ph/about" class="text-ed-ink-3 hover:text-ed-navy hover:underline underline-offset-2 transition-colors">About BetterGov.ph</a>
+                    <a href="https://www.gov.ph" target="_blank" rel="noreferrer" class="text-ed-ink-3 hover:text-ed-navy hover:underline underline-offset-2 transition-colors">Official Gov.ph</a>
+                    <a href="https://bettergov.ph/contact" class="text-ed-ink-3 hover:text-ed-navy hover:underline underline-offset-2 transition-colors">Contact us</a>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center shrink-0">
-                    <a href="{{ '/' | relative_url }}" class="flex items-center group">
-                        <img src="{{ '/assets/images/logos/BetterGov_Icon-Primary.svg' | relative_url }}" alt="BetterGov Logo" class="h-12 w-12 mr-3 transition-transform group-hover:scale-105">
-                        <div>
-                            <div class="text-black font-bold text-lg leading-tight">BetterLGU Directory</div>
-                            <div class="text-xs text-gray-500">by BetterGov.ph</div>
-                        </div>
-                    </a>
-                </div>
+        <div class="container-page">
+            <div class="flex justify-between items-center gap-6 py-3">
+                <a href="{{ '/' | relative_url }}" class="flex items-center gap-3 shrink-0 no-underline">
+                    <img src="{{ '/assets/images/logos/BetterGov_Icon-Primary.svg' | relative_url }}" alt="" class="h-11 w-11 md:h-12 md:w-12">
+                    <span>
+                        <span class="block font-display font-bold text-lg leading-tight text-ed-ink">BetterLGU Directory</span>
+                        <span class="block text-xs text-ed-ink-3">by BetterGov.ph</span>
+                    </span>
+                </a>
 
-                <div class="hidden lg:flex items-center space-x-6">
-                    <a href="{{ '/' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Home' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Directory</a>
-                    <a href="{{ '/budget' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'BetterGov.ph — LGU Budget Transparency Portal Directory' or page.title == 'Start Your Budget Portal' or page.title == 'Budget Portal Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Budget Portals</a>
-                    <a href="{{ '/guide' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Guide' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Start Your LGU</a>
-                    <a href="{{ '/templates' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Community Templates' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Templates</a>
-                    <a href="{{ '/contributing' | relative_url }}" class="font-medium text-gray-700 hover:text-blue-600 transition-colors border-b-2 {% if page.title == 'Contributing' %}border-blue-600 text-blue-600{% else %}border-transparent{% endif %}">Contributing</a>
-                </div>
+                <nav aria-label="Main" class="hidden lg:block">
+                    <ul class="flex items-stretch">
+                        {%- for item in nav_items %}
+                        {%- assign parts = item | split: '|' %}
+                        <li><a href="{{ parts[1] }}" class="flex items-center h-11 px-4 text-[15px] font-medium border-b-2 transition-colors {% if nav_current == parts[0] %}border-ed-navy text-ed-navy{% else %}border-transparent text-ed-ink-2 hover:bg-ed-navy-tint hover:text-ed-navy{% endif %}"{% if nav_current == parts[0] %} aria-current="page"{% endif %}>{{ parts[2] }}</a></li>
+                        {%- endfor %}
+                    </ul>
+                </nav>
 
-                <div class="lg:hidden flex items-center">
-                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 rounded-md text-gray-700 hover:text-blue-500 hover:bg-gray-100 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show="!mobileMenuOpen">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show="mobileMenuOpen" x-cloak>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
+                <button type="button" @click="mobileMenuOpen = !mobileMenuOpen" :aria-expanded="mobileMenuOpen.toString()" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden inline-flex items-center justify-center h-11 w-11 border border-ed-rule text-ed-ink hover:bg-ed-navy-tint hover:text-ed-navy">
+                    <span class="sr-only">Menu</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" x-show="!mobileMenuOpen">
+                        <path stroke-linecap="square" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" x-show="mobileMenuOpen" x-cloak>
+                        <path stroke-linecap="square" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
         </div>
 
-        <div class="lg:hidden bg-white border-t border-gray-100" x-show="mobileMenuOpen" x-transition x-cloak>
-            <div class="px-4 py-3 space-y-1">
-                <a href="{{ '/' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Directory</a>
-                <a href="{{ '/budget' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Budget Portals</a>
-                <a href="{{ '/guide' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Start Your LGU</a>
-                <a href="{{ '/templates' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Templates</a>
-                <a href="{{ '/contributing' | relative_url }}" class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Contributing</a>
-                <a href="https://bettergov.ph/join-us" class="block py-2 text-base font-semibold text-blue-600">🚀 Join Us</a>
-            </div>
-        </div>
-    </nav>
+        <nav id="mobile-menu" aria-label="Main" class="lg:hidden bg-white border-t border-ed-rule" x-show="mobileMenuOpen" x-cloak>
+            <ul class="container-page py-2">
+                {%- for item in nav_items %}
+                {%- assign parts = item | split: '|' %}
+                <li><a href="{{ parts[1] }}" class="flex items-center min-h-[44px] border-l-2 pl-3 text-base font-medium {% if nav_current == parts[0] %}border-ed-navy text-ed-navy{% else %}border-transparent text-ed-ink-2 hover:bg-ed-navy-tint hover:text-ed-navy{% endif %}"{% if nav_current == parts[0] %} aria-current="page"{% endif %}>{{ parts[2] }}</a></li>
+                {%- endfor %}
+                <li><a href="https://bettergov.ph/join-us" class="flex items-center min-h-[44px] border-l-2 border-transparent pl-3 text-base font-medium text-ed-navy underline underline-offset-2">Join us</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    {%- comment -%}
+      The masthead and Logo band are page content, so they sit inside <main>
+      with the body: every part of the page is in a landmark, and the skip
+      link lands on the page title.
+    {%- endcomment %}
+    <main id="main">
     {% if page.title == 'Home' %}
-    <section class="hero-gradient py-12 md:py-24 animate-fade-in shadow-inner">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div class="text-center lg:text-left">
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
-                        The Official 
-                        <span class="block text-blue-200">BetterLGU Directory</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto lg:mx-0">
+    {%- assign lgu_count = site.data.lgus | size -%}
+    <section class="masthead masthead--hero on-dark">
+        <div class="{{ container }}">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div>
+                    <h1 class="masthead__title">The Official BetterLGU Directory</h1>
+                    <p class="masthead__lede">
                         Find existing Better LGU portals across the Philippines — contribute to one near you, or start your own.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="{{ '/guide' | relative_url }}" class="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-xl font-bold text-lg transition-all transform hover:-translate-y-1 shadow-lg">Start your Better LGU</a>
-                        <a href="#directory" class="bg-blue-500/30 text-white border border-white/20 hover:bg-blue-500/40 px-8 py-3 rounded-xl font-bold text-lg transition-all backdrop-blur-sm">Check the directory</a>
+                    <p class="masthead__meta">The directory tracks {{ lgu_count }} LGUs.</p>
+                    <div class="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+                        <a href="{{ '/guide' | relative_url }}" class="arrow-link arrow-link--on-dark">Start your Better LGU {{ arrow_icon }}</a>
+                        <a href="#directory" class="arrow-link arrow-link--on-dark">Check the directory {{ arrow_icon }}</a>
                     </div>
                 </div>
-                <div class="animate-slide-in">
+                <div>
                     {%- include featured-portal.html -%}
                 </div>
             </div>
         </div>
     </section>
     {% else %}
-    <section class="bg-[var(--color-primary-700)] text-white py-12 border-b border-[var(--color-primary-800)] shadow-inner">
-        <div class="max-w-7xl mx-auto px-4 text-center md:text-left">
-            <h1 class="text-3xl md:text-5xl font-bold tracking-tight animate-fade-in">{{ display_title | escape }}</h1>
-            <nav class="mt-4 flex justify-center md:justify-start items-center text-sm text-[var(--color-primary-100)]">
-                <a href="{{ '/' | relative_url }}" class="hover:text-white transition-colors">Home</a>
-                <span class="mx-2 opacity-50">/</span>
-                {%- if page.layout == 'maintainer-profile' %}
-                <a href="{{ '/maintainers/' | relative_url }}" class="hover:text-white transition-colors">Maintainer Profiles</a>
-                <span class="mx-2 opacity-50">/</span>
-                {%- endif %}
-                <span class="text-white font-medium">{{ display_title | escape }}</span>
+    <section class="masthead masthead--light">
+        <div class="{{ container }}">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="{{ '/' | relative_url }}" class="link">Home</a></li>
+                    {%- if page.layout == 'maintainer-profile' %}
+                    <li><a href="{{ '/maintainers/' | relative_url }}" class="link">Maintainer Profiles</a></li>
+                    {%- endif %}
+                    <li><span aria-current="page">{{ display_title | escape }}</span></li>
+                </ol>
             </nav>
+            <h1 class="masthead__title">{{ display_title | escape }}</h1>
         </div>
     </section>
     {% endif %}
@@ -125,95 +178,90 @@
     {%- include logo-band.html -%}
     {% endif %}
 
-    <main class="max-w-7xl mx-auto px-4 py-8 md:py-16">
-        <div class="prose max-w-none prose-lg md:prose-xl">
-            <div id="directory">
-                {%- comment -%}
-                  Rewrite links to repo files the site doesn't publish
-                  (site.github_only_links in _config.yml). The docs on main
-                  keep their relative links, which are right on GitHub.
-                  A link can arrive as written or rooted: jekyll-relative-links
-                  roots a link whose file is copied raw (README.md), which
-                  would serve plain markdown.
-                {%- endcomment -%}
-                {%- assign page_content = content -%}
-                {%- for link in site.github_only_links -%}
-                  {%- if link.page -%}
-                    {%- assign target_page = site.pages | where: 'path', link.page | first -%}
-                    {%- assign target = target_page.url | relative_url -%}
-                  {%- else -%}
-                    {%- assign target = link.url -%}
-                  {%- endif -%}
-                  {%- assign to = 'href="' | append: target -%}
-                  {%- assign from = 'href="' | append: link.href -%}
-                  {%- assign page_content = page_content | replace: from, to -%}
-                  {%- assign rooted = '/' | append: link.href | relative_url -%}
-                  {%- assign from = 'href="' | append: rooted -%}
-                  {%- assign page_content = page_content | replace: from, to -%}
-                {%- endfor %}
-                {{ page_content }}
-            </div>
+    <div class="{{ container }} py-8 md:py-12">
+        {%- comment -%}
+          Rewrite links to repo files the site doesn't publish
+          (site.github_only_links in _config.yml). The docs on main
+          keep their relative links, which are right on GitHub.
+          A link can arrive as written or rooted: jekyll-relative-links
+          roots a link whose file is copied raw (README.md), which
+          would serve plain markdown.
+        {%- endcomment -%}
+        {%- assign page_content = content -%}
+        {%- for link in site.github_only_links -%}
+          {%- if link.page -%}
+            {%- assign target_page = site.pages | where: 'path', link.page | first -%}
+            {%- assign target = target_page.url | relative_url -%}
+          {%- else -%}
+            {%- assign target = link.url -%}
+          {%- endif -%}
+          {%- assign to = 'href="' | append: target -%}
+          {%- assign from = 'href="' | append: link.href -%}
+          {%- assign page_content = page_content | replace: from, to -%}
+          {%- assign rooted = '/' | append: link.href | relative_url -%}
+          {%- assign from = 'href="' | append: rooted -%}
+          {%- assign page_content = page_content | replace: from, to -%}
+        {%- endfor %}
+        <div id="directory" class="prose">
+            {{ page_content }}
         </div>
+    </div>
     </main>
 
-    <footer class="bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 pt-16 pb-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer class="bg-ed-navy-ink text-[13px] text-white/75 on-dark">
+        <div class="container-page pt-14 pb-7 max-md:pt-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/15">
                 <div class="lg:col-span-2">
-                    <div class="flex items-center mb-6">
-                        <img src="{{ '/assets/images/logos/BetterGov_Icon-White.svg' | relative_url }}" alt="BetterGov Logo" class="h-12 w-12 mr-3">
-                        <div>
-                            <div class="font-bold text-xl leading-tight">BetterLGU Directory</div>
-                            <div class="text-xs text-gray-400">by BetterGov.ph</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-400 text-sm max-w-sm mb-6">
+                    <a href="{{ '/' | relative_url }}" class="inline-flex items-center gap-3 no-underline">
+                        <img src="{{ '/assets/images/logos/BetterGov_Icon-White.svg' | relative_url }}" alt="" class="h-11 w-11">
+                        <span>
+                            <span class="block font-display font-bold text-lg leading-tight text-white">BetterLGU Directory</span>
+                            <span class="block text-xs text-white/75">by BetterGov.ph</span>
+                        </span>
+                    </a>
+                    <p class="mt-4 max-w-[340px] leading-relaxed">
                         A community-run directory of Better LGU transparency portals — helping builders find existing efforts, contribute, and launch new ones.
+                    </p>
+                    <p class="mt-6 inline-flex items-center gap-2 border border-white/25 px-3 py-2">
+                        <span>Cost to the People of the Philippines:</span>
+                        <strong class="font-semibold text-white">₱0</strong>
                     </p>
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
-                    <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="{{ '/guide' | relative_url }}" class="hover:text-white transition-colors">How to Start Your Portal</a></li>
-                        <li><a href="{{ '/templates' | relative_url }}" class="hover:text-white transition-colors">Start-up Templates</a></li>
-                        <li><a href="{{ '/contributing' | relative_url }}" class="hover:text-white transition-colors">Register Your LGU</a></li>
-                        <li><a href="{{ '/budget' | relative_url }}" class="hover:text-white transition-colors">Budget Portal Directory</a></li>
-                        <li><a href="{{ '/budget-guide' | relative_url }}" class="hover:text-white transition-colors">Start a Budget Portal</a></li>
-                        <li><a href="{{ '/budget-templates' | relative_url }}" class="hover:text-white transition-colors">Budget Portal Templates</a></li>
-                        <li><a href="{{ '/changelog' | relative_url }}" class="hover:text-white transition-colors">Latest Updates</a></li>
+                    <h2 class="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-white">Resources</h2>
+                    <ul class="space-y-2.5">
+                        <li><a href="{{ '/guide' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">How to Start Your Portal</a></li>
+                        <li><a href="{{ '/templates' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Start-up Templates</a></li>
+                        <li><a href="{{ '/contributing' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Register Your LGU</a></li>
+                        <li><a href="{{ '/budget' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Budget Portal Directory</a></li>
+                        <li><a href="{{ '/budget-guide' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Start a Budget Portal</a></li>
+                        <li><a href="{{ '/budget-templates' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Budget Portal Templates</a></li>
+                        <li><a href="{{ '/changelog' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Latest Updates</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Community</h3>
-                    <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="https://github.com/jmacj/better-lgu-directory" class="hover:text-white transition-colors">GitHub Repository</a></li>
-                        <li><a href="{{ '/code-of-conduct' | relative_url }}" class="hover:text-white transition-colors">Code of Conduct</a></li>
-                        <li><a href="{{ '/privacy' | relative_url }}" class="hover:text-white transition-colors">Privacy</a></li>
-                        <li><a href="{{ '/funding' | relative_url }}" class="hover:text-white transition-colors">Funding Policy</a></li>
-                        <li><a href="{{ '/maintainers/' | relative_url }}" class="hover:text-white transition-colors">Maintainer Profiles</a></li>
-                        <li><a href="https://bettergov.ph" class="hover:text-white transition-colors">BetterGov.ph Portal</a></li>
-                    </ul>
+                    <h2 class="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-white">Community</h2>
+                    <ul class="space-y-2.5">
+                        <li><a href="https://github.com/jmacj/better-lgu-directory" class="text-white/80 hover:text-white hover:underline underline-offset-2">GitHub Repository</a></li>
+                        <li><a href="{{ '/code-of-conduct' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Code of Conduct</a></li>
+                        <li><a href="{{ '/privacy' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Privacy</a></li>
+                        <li><a href="{{ '/funding' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Funding Policy</a></li>
+                        <li><a href="{{ '/maintainers/' | relative_url }}" class="text-white/80 hover:text-white hover:underline underline-offset-2">Maintainer Profiles</a></li>
+                        <li><a href="https://bettergov.ph" class="text-white/80 hover:text-white hover:underline underline-offset-2">BetterGov.ph Portal</a></li>                    </ul>
                 </div>
             </div>
 
-            <div class="flex justify-center mb-16">
-                <div class="inline-flex flex-col md:flex-row items-center gap-2 bg-gray-800 px-8 py-4 rounded-2xl border border-gray-700 shadow-xl text-center md:text-left">
-                    <span class="text-gray-300">Cost to the People of the Philippines:</span>
-                    <span class="text-green-500 font-bold">₱0</span>
-                </div>
-            </div>
+            <p class="pt-6 max-w-3xl text-xs leading-relaxed">{% include funding-disclaimer.html link_class="text-white underline underline-offset-2" %}</p>
 
-            <p class="text-center text-xs text-gray-500 max-w-2xl mx-auto mb-8">{% include funding-disclaimer.html link_class="underline hover:text-white" %}</p>
-
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>&copy; {{ site.time | date: "%Y" }} <strong>BetterGov.ph</strong>. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="https://github.com/jmacj/better-lgu-directory/blob/main/LICENSE" class="hover:text-white">License</a>
-                    <a href="https://github.com/jmacj/better-lgu-directory" class="hover:text-white">Source Code</a>
-                    <a href="https://bettergov.ph" class="hover:text-white">BetterGov.ph</a>
-                </div>
+            <div class="mt-6 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+                <p class="font-mono text-[11px] uppercase tracking-[0.1em] text-white/75">&copy; {{ site.time | date: "%Y" }} BetterGov.ph. All rights reserved.</p>
+                <ul class="flex flex-wrap gap-x-6 gap-y-2">
+                    <li><a href="https://github.com/jmacj/better-lgu-directory/blob/main/LICENSE" class="text-white/80 hover:text-white hover:underline underline-offset-2">License</a></li>
+                    <li><a href="https://github.com/jmacj/better-lgu-directory" class="text-white/80 hover:text-white hover:underline underline-offset-2">Source Code</a></li>
+                    <li><a href="https://bettergov.ph" class="text-white/80 hover:text-white hover:underline underline-offset-2">BetterGov.ph</a></li>
+                </ul>
             </div>
         </div>
     </footer>

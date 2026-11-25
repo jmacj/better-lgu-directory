@@ -1,20 +1,25 @@
 ---
 layout: default
 title: Home
+container: page
 ---
 # BetterGov.ph — LGU Directory
 
 A community-maintained directory of **Better LGU** digital transparency portals across the Philippines — find an existing portal before you build, contribute to one, or start your own. Each entry links to the LGU's portal, source repository, and social pages, along with its current maintenance status.
 
-## 📋 Directory
+## Directory
 
-<!-- Interactive Search, Filters and Sort (#448). Styles: .directory-controls in assets/css/style.css. -->
-<div class="directory-controls">
+<!-- Interactive Search, Filters and Sort (#448). Styles: .directory-controls in assets/css/style.css.
+     The BetterGov.ph directory listing pattern: a big search field (an example
+     query as the placeholder, a real label for screen readers) and flat filter
+     buttons above the results. -->
+<div class="not-prose directory-controls">
     <div class="dc-search">
         <svg class="dc-search__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
         </svg>
-        <input type="search" id="lgu-search" oninput="filterDirectory()" aria-label="Search LGUs" placeholder="Search LGU, province or region" class="dc-search__input">
+        <label for="lgu-search" class="sr-only">Search LGUs by name, province or region</label>
+        <input type="search" id="lgu-search" oninput="filterDirectory()" placeholder="Try: Baguio or Laguna" autocomplete="off" class="dc-search__input">
     </div>
     <div class="dc-fields">
         <div class="dc-field dc-field--region">
@@ -118,15 +123,15 @@ the same result as fold() in scripts/lgu-name.js.
 
 </div>
 
-<!-- Pagination Controls -->
-<div id="pagination-controls" class="mt-6 flex flex-col sm:flex-row justify-between items-center bg-white p-4 rounded-xl border border-gray-100 shadow-sm gap-4">
-    <div class="flex flex-col sm:flex-row items-center gap-4">
-        <div class="text-sm text-gray-500 font-medium">
-            Showing <span id="showing-start" class="text-gray-900">0</span> to <span id="showing-end" class="text-gray-900">0</span> of <span id="total-results" class="text-gray-900">0</span> LGUs
-        </div>
-        <div class="flex items-center gap-2 text-sm text-gray-500 font-medium">
-            <label for="items-per-page">Per page:</label>
-            <select id="items-per-page" onchange="updateItemsPerPage()" class="px-2 py-1 border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 cursor-pointer">
+<!-- Pagination Controls: a ruled row of count, page size and ghost buttons. -->
+<div id="pagination-controls" class="not-prose dc-pagination">
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <p class="m-0" aria-live="polite">
+            Showing <span id="showing-start">0</span> to <span id="showing-end">0</span> of <span id="total-results">0</span> LGUs
+        </p>
+        <div class="flex items-center gap-2">
+            <label for="items-per-page">Per page</label>
+            <select id="items-per-page" onchange="updateItemsPerPage()" class="dc-select dc-select--sm">
                 <option value="10">10</option>
                 <option value="25">25</option>
                 <option value="50">50</option>
@@ -135,30 +140,21 @@ the same result as fold() in scripts/lgu-name.js.
         </div>
     </div>
     <div class="flex items-center gap-3">
-        <button id="prev-btn" onclick="changePage(-1)" class="px-4 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-            Previous
-        </button>
-        <button id="next-btn" onclick="changePage(1)" class="px-4 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-            Next
-        </button>
+        <button type="button" id="prev-btn" onclick="changePage(-1)" class="btn btn--ghost btn--sm">Previous</button>
+        <button type="button" id="next-btn" onclick="changePage(1)" class="btn btn--ghost btn--sm">Next</button>
     </div>
 </div>
 
-<!-- No Results View -->
-<div id="no-results" class="hidden py-12 text-center bg-white border border-gray-100 rounded-2xl shadow-xs animate-fade-in">
-    <div class="inline-flex items-center justify-center w-16 h-16 mb-4 bg-gray-50 rounded-full">
-        <svg class="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-    </div>
-    <h3 class="text-lg font-semibold text-gray-900">No LGUs found</h3>
-    <p class="mt-1 text-gray-500">We couldn't find any LGUs matching your search. Try a different keyword or LGU name.</p>
-    <button type="button" onclick="clearFilters()" class="mt-4 text-sm font-medium text-blue-600 hover:text-blue-700">Clear all filters</button>
+<!-- No Results View: says so plainly and offers a one-click way to clear the filters. -->
+<div id="no-results" class="not-prose hidden empty-state">
+    <h3 class="empty-state__title">No LGUs found</h3>
+    <p class="empty-state__body">No LGUs match your search and filters. Try a different keyword or LGU name, or clear the filters.</p>
+    <button type="button" onclick="clearFilters()" class="btn btn--ghost">Clear all filters</button>
 </div>
 
 > Want to add your LGU? See the [Contributing Guide](CONTRIBUTING.md).
 
-## 🚦 Status Legend
+## Status legend
 
 The directory is sorted by location by default (regions north to south, then province A–Z, each province's own portal before its cities and municipalities); use **Sort by** to list it by name or status instead.
 
@@ -173,7 +169,7 @@ The directory is sorted by location by default (regions north to south, then pro
 
 </div>
 
-### Secondary Tags
+### Secondary tags
 
 <div class="table-wrapper" markdown="1">
 
@@ -189,7 +185,7 @@ The directory is sorted by location by default (regions north to south, then pro
 
 Tags are applied by Directory Maintainers during periodic reviews, never automatically — time since the last update is a prompt to look, not the only thing that decides it. Work in Progress entries are followed up in [check-ins](CONTRIBUTING.md#check-ins) and go stale only if those go unanswered. Only `🟢 Active` entries become `🔴 Unmaintained`.
 
-## 🧩 Community Templates
+## Community templates
 
 These templates are provided by the community to help you get started quickly.
 
@@ -205,7 +201,7 @@ These templates are provided by the community to help you get started quickly.
 
 > Have a template to contribute? Open a PR and add it to this table and to [TEMPLATES.md](TEMPLATES.md).
 
-## 🚀 Getting Started
+## Getting started
 
 Ready to build a transparency portal for your LGU? Read the full guide: **[How to Start Your Better LGU Portal](GUIDE.md)**
 
@@ -217,11 +213,11 @@ The short version:
 
 > **The directory coordinates; it doesn't own.** Registration earns you first say, not exclusive rights. Shipping and maintaining keep your entry. See [CONTRIBUTING.md](CONTRIBUTING.md) for the rules.
 
-## 🤝 Contributing
+## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add or update an LGU entry, contribute a template, or improve this directory.
 
-## 📄 License
+## License
 
 Content in this repository is licensed under [CC BY 4.0](https://github.com/jmacj/better-lgu-directory/blob/main/LICENSE). Templates in linked repositories carry their own licenses.
 
