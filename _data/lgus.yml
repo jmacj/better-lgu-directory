@@ -2293,6 +2293,27 @@
     - handle: "francisdiaz22"
       url: "https://github.com/francisdiaz22"
       profile: false
+- name: "Mandaluyong City, Metro Manila"
+  place: "Mandaluyong"
+  kind: "city"
+  province: "Metro Manila"
+  region: "NCR"
+  region_rank: 0
+  host: "bettermandaluyong.org"
+  domain: "[bettermandaluyong.org](https://bettermandaluyong.org)"
+  funding_url: ""
+  repo: "[GitHub](https://github.com/BetterMandaluyong/bettermandaluyong.org)"
+  repo_owner: "BetterMandaluyong"
+  repo_name: "bettermandaluyong.org"
+  socials: []
+  status: "🔵 Planned"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@njncalub](https://github.com/njncalub)"
+  maintainers:
+    - handle: "njncalub"
+      url: "https://github.com/njncalub"
+      profile: false
 - name: "Mandaue City, Cebu"
   place: "Mandaue"
   kind: "city"
