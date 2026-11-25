@@ -2305,8 +2305,11 @@
   repo: "[GitHub](https://github.com/BetterMandaluyong/bettermandaluyong.org)"
   repo_owner: "BetterMandaluyong"
   repo_name: "bettermandaluyong.org"
-  socials: []
-  status: "🔵 Planned"
+  socials:
+    - platform: "facebook"
+      label: "Facebook"
+      url: "https://www.facebook.com/BetterMandaluyong/"
+  status: "🟡 Work in Progress"
   stale: false
   open_for_adoption: false
   maintainer: "[@njncalub](https://github.com/njncalub)"
