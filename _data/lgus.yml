@@ -392,6 +392,27 @@
     - handle: "0phl"
       url: "https://github.com/0phl"
       profile: false
+- name: "Bagabag, Nueva Vizcaya"
+  place: "Bagabag"
+  kind: "municipality"
+  province: "Nueva Vizcaya"
+  region: "Cagayan Valley"
+  region_rank: 3
+  host: "betterbagabag.org"
+  domain: "[betterbagabag.org](https://betterbagabag.org)"
+  funding_url: ""
+  repo: "[GitHub](https://github.com/marttidumangeng/betterbagabag)"
+  repo_owner: "marttidumangeng"
+  repo_name: "betterbagabag"
+  socials: []
+  status: "🟢 Active"
+  stale: false
+  open_for_adoption: false
+  maintainer: "[@marttidumangeng](https://github.com/marttidumangeng)"
+  maintainers:
+    - handle: "marttidumangeng"
+      url: "https://github.com/marttidumangeng"
+      profile: false
 - name: "Bagac, Bataan"
   place: "Bagac"
   kind: "municipality"

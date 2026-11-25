@@ -14,7 +14,7 @@
   source: "rel-icon"
   px: "664"
   bytes: 210849
-  order_key: "0039"
+  order_key: "0040"
   shuffle_key: "0018"
 - name: "Alaminos City, Pangasinan"
   domain: "betteralaminoscity.org"
@@ -50,7 +50,7 @@
   source: "rel-icon"
   px: "1000"
   bytes: 168890
-  order_key: "0065"
+  order_key: "0066"
   shuffle_key: "0015"
 - name: "Aurora, Zamboanga del Sur"
   domain: "betteraurora.org"
@@ -79,6 +79,15 @@
   bytes: 52612
   order_key: "0015"
   shuffle_key: "0008"
+- name: "Bagabag, Nueva Vizcaya"
+  domain: "betterbagabag.org"
+  file: "betterbagabag.org.svg"
+  ext: "svg"
+  source: "rel-icon-svg"
+  px: "vector"
+  bytes: 538509
+  order_key: "0039"
+  shuffle_key: "0051"
 - name: "Bagac, Bataan"
   domain: "betterbagac.org"
   file: "betterbagac.org.svg"
@@ -86,7 +95,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 20005
-  order_key: "0040"
+  order_key: "0041"
   shuffle_key: "0004"
 - name: "Baguio City, Benguet"
   domain: "betterbaguio.org"
@@ -95,7 +104,7 @@
   source: "rel-icon"
   px: "512"
   bytes: 151638
-  order_key: "0068"
+  order_key: "0069"
   shuffle_key: "0019"
 - name: "Baler, Aurora"
   domain: "betterbaler.org"
@@ -104,7 +113,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 1452
-  order_key: "0061"
+  order_key: "0062"
   shuffle_key: "0037"
 - name: "Bayawan City, Negros Oriental"
   domain: "betterbayawan.org"
@@ -114,7 +123,7 @@
   px: "1254"
   bytes: 969215
   order_key: "0021"
-  shuffle_key: "0065"
+  shuffle_key: "0066"
 - name: "Bicol Region"
   domain: "betterbicol.org"
   file: "betterbicol.org.png"
@@ -122,7 +131,7 @@
   source: "rel-icon"
   px: "256"
   bytes: 8916
-  order_key: "0043"
+  order_key: "0044"
   shuffle_key: "0031"
 - name: "Biñan City, Laguna"
   domain: "betterbinan.vercel.app"
@@ -141,7 +150,7 @@
   px: "vector"
   bytes: 5090
   order_key: "0029"
-  shuffle_key: "0069"
+  shuffle_key: "0070"
 - name: "Bulakan, Bulacan"
   domain: "betterbulakan.org"
   file: "betterbulakan.org.svg"
@@ -150,7 +159,7 @@
   px: "vector"
   bytes: 1595
   order_key: "0014"
-  shuffle_key: "0063"
+  shuffle_key: "0064"
 - name: "Cabanatuan City, Nueva Ecija"
   domain: "bettercabanatuan.org"
   file: "bettercabanatuan.org.svg"
@@ -158,8 +167,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 59724
-  order_key: "0057"
-  shuffle_key: "0055"
+  order_key: "0058"
+  shuffle_key: "0056"
 - name: "Cabuyao City, Laguna"
   domain: "bettercabuyao.org"
   file: "bettercabuyao.org.png"
@@ -167,7 +176,7 @@
   source: "rel-icon-svg"
   px: "317"
   bytes: 137916
-  order_key: "0072"
+  order_key: "0073"
   shuffle_key: "0007"
 - name: "Cainta, Rizal"
   domain: "bettercainta.org"
@@ -203,7 +212,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 63170
-  order_key: "0071"
+  order_key: "0072"
   shuffle_key: "0025"
 - name: "Caloocan City, Metro Manila"
   domain: "bettercaloocan.org"
@@ -212,7 +221,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 519
-  order_key: "0062"
+  order_key: "0063"
   shuffle_key: "0041"
 - name: "Carmona City, Cavite"
   domain: "bettercarmona.org"
@@ -221,7 +230,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 5172
-  order_key: "0060"
+  order_key: "0061"
   shuffle_key: "0030"
 - name: "Catanduanes Province"
   domain: "bettercatanduanes.org"
@@ -239,8 +248,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 3001
-  order_key: "0059"
-  shuffle_key: "0059"
+  order_key: "0060"
+  shuffle_key: "0060"
 - name: "Cavite City, Cavite"
   domain: "bettercavitecity.org"
   file: "bettercavitecity.org.png"
@@ -249,7 +258,7 @@
   px: "192"
   bytes: 16275
   order_key: "0004"
-  shuffle_key: "0067"
+  shuffle_key: "0068"
 - name: "Corella, Bohol"
   domain: "bettercorella.vercel.app"
   file: "bettercorella.vercel.app.svg"
@@ -266,7 +275,7 @@
   source: "rel-icon"
   px: "630"
   bytes: 541251
-  order_key: "0067"
+  order_key: "0068"
   shuffle_key: "0020"
 - name: "General Santos City, South Cotabato"
   domain: "bettergensan.org"
@@ -275,8 +284,8 @@
   source: "rel-icon"
   px: "500"
   bytes: 194493
-  order_key: "0044"
-  shuffle_key: "0051"
+  order_key: "0045"
+  shuffle_key: "0052"
 - name: "Hermosa, Bataan"
   domain: "betterhermosa.org"
   file: "betterhermosa.org.png"
@@ -284,8 +293,8 @@
   source: "rel-icon"
   px: "192"
   bytes: 40404
-  order_key: "0052"
-  shuffle_key: "0053"
+  order_key: "0053"
+  shuffle_key: "0054"
 - name: "Iligan City, Lanao del Norte"
   domain: "betteriligancity.org"
   file: "betteriligancity.org.svg"
@@ -293,7 +302,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 17413
-  order_key: "0041"
+  order_key: "0042"
   shuffle_key: "0014"
 - name: "Infanta, Quezon"
   domain: "betterinfantaquezon.org"
@@ -303,7 +312,7 @@
   px: "vector"
   bytes: 6472
   order_key: "0030"
-  shuffle_key: "0054"
+  shuffle_key: "0055"
 - name: "Kabankalan City, Negros Occidental"
   domain: "betterkabankalan.org"
   file: "betterkabankalan.org.png"
@@ -321,7 +330,7 @@
   px: "vector"
   bytes: 602
   order_key: "0028"
-  shuffle_key: "0072"
+  shuffle_key: "0073"
 - name: "Lal-lo, Cagayan"
   domain: "betterlallo.org"
   file: "betterlallo.org.png"
@@ -329,7 +338,7 @@
   source: "manifest"
   px: "512"
   bytes: 350453
-  order_key: "0063"
+  order_key: "0064"
   shuffle_key: "0036"
 - name: "Lapu-Lapu City, Cebu"
   domain: "betterlapulapu.org"
@@ -338,8 +347,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 21167
-  order_key: "0058"
-  shuffle_key: "0061"
+  order_key: "0059"
+  shuffle_key: "0062"
 - name: "Las Piñas City, Metro Manila"
   domain: "betterlaspinas.org"
   file: "betterlaspinas.org.svg"
@@ -347,8 +356,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 107303
-  order_key: "0051"
-  shuffle_key: "0057"
+  order_key: "0052"
+  shuffle_key: "0058"
 - name: "Legazpi City, Albay"
   domain: "betterlegazpi.org"
   file: "betterlegazpi.org.png"
@@ -356,8 +365,8 @@
   source: "rel-icon"
   px: "2000"
   bytes: 235050
-  order_key: "0069"
-  shuffle_key: "0066"
+  order_key: "0070"
+  shuffle_key: "0067"
 - name: "Limay, Bataan"
   domain: "betterlimay.org"
   file: "betterlimay.org.svg"
@@ -365,7 +374,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 30235
-  order_key: "0048"
+  order_key: "0049"
   shuffle_key: "0033"
 - name: "Los Baños, Laguna"
   domain: "betterlb.org"
@@ -374,8 +383,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 1078872
-  order_key: "0047"
-  shuffle_key: "0068"
+  order_key: "0048"
+  shuffle_key: "0069"
 - name: "Maddela, Quirino"
   domain: "bettermaddela.vercel.app"
   file: "bettermaddela.vercel.app.svg"
@@ -392,8 +401,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 2566
-  order_key: "0045"
-  shuffle_key: "0064"
+  order_key: "0046"
+  shuffle_key: "0065"
 - name: "Malaybalay City, Bukidnon"
   domain: "bettermalaybalay.cloud"
   file: "bettermalaybalay.cloud.png"
@@ -401,8 +410,8 @@
   source: "rel-icon"
   px: "128"
   bytes: 13599
-  order_key: "0046"
-  shuffle_key: "0056"
+  order_key: "0047"
+  shuffle_key: "0057"
 - name: "Malolos City, Bulacan"
   domain: "bettermalolos.org"
   file: "bettermalolos.org.png"
@@ -419,7 +428,7 @@
   source: "apple-touch-icon"
   px: "180"
   bytes: 16459
-  order_key: "0042"
+  order_key: "0043"
   shuffle_key: "0021"
 - name: "Mapandan, Pangasinan"
   domain: "bettermapandan.org"
@@ -446,7 +455,7 @@
   source: "apple-touch-icon"
   px: "180"
   bytes: 28661
-  order_key: "0054"
+  order_key: "0055"
   shuffle_key: "0010"
 - name: "Meycauayan City, Bulacan"
   domain: "bettermeycauayan.org"
@@ -456,7 +465,7 @@
   px: "vector"
   bytes: 11664
   order_key: "0006"
-  shuffle_key: "0062"
+  shuffle_key: "0063"
 - name: "Miagao, Iloilo"
   domain: "bettermiagao.org"
   file: "bettermiagao.org.svg"
@@ -473,7 +482,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 27188
-  order_key: "0053"
+  order_key: "0054"
   shuffle_key: "0028"
 - name: "Naic, Cavite"
   domain: "betternaic.vercel.app"
@@ -491,8 +500,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 210
-  order_key: "0050"
-  shuffle_key: "0070"
+  order_key: "0051"
+  shuffle_key: "0071"
 - name: "Ocampo, Camarines Sur"
   domain: "betterocampo.org"
   file: "betterocampo.org.png"
@@ -500,7 +509,7 @@
   source: "apple-touch-icon"
   px: "180"
   bytes: 45222
-  order_key: "0056"
+  order_key: "0057"
   shuffle_key: "0047"
 - name: "Olongapo City, Zambales"
   domain: "betterolongapo.org"
@@ -518,8 +527,8 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 4159
-  order_key: "0070"
-  shuffle_key: "0071"
+  order_key: "0071"
+  shuffle_key: "0072"
 - name: "Ormoc City, Leyte"
   domain: "betterormoc.org"
   file: "betterormoc.org.png"
@@ -528,7 +537,7 @@
   px: "344"
   bytes: 169395
   order_key: "0027"
-  shuffle_key: "0052"
+  shuffle_key: "0053"
 - name: "Pagbilao, Quezon"
   domain: "betterpagbilao.org"
   file: "betterpagbilao.org.svg"
@@ -572,7 +581,7 @@
   source: "rel-icon"
   px: "64"
   bytes: 2987
-  order_key: "0055"
+  order_key: "0056"
   shuffle_key: "0006"
 - name: "San Fernando City, Pampanga"
   domain: "bettersanfernando.org"
@@ -581,8 +590,8 @@
   source: "rel-icon"
   px: "512"
   bytes: 188796
-  order_key: "0064"
-  shuffle_key: "0058"
+  order_key: "0065"
+  shuffle_key: "0059"
 - name: "San Pablo City, Laguna"
   domain: "bettersanpablo.org"
   file: "bettersanpablo.org.png"
@@ -591,7 +600,7 @@
   px: "1536"
   bytes: 1086299
   order_key: "0020"
-  shuffle_key: "0060"
+  shuffle_key: "0061"
 - name: "San Pedro City, Laguna"
   domain: "bettersanpedro.org"
   file: "bettersanpedro.org.png"
@@ -617,7 +626,7 @@
   source: "rel-icon-svg"
   px: "vector"
   bytes: 3971
-  order_key: "0066"
+  order_key: "0067"
   shuffle_key: "0027"
 - name: "Surallah, South Cotabato"
   domain: "bettersurallah.org"
@@ -626,7 +635,7 @@
   source: "rel-icon"
   px: "512"
   bytes: 98391
-  order_key: "0073"
+  order_key: "0074"
   shuffle_key: "0024"
 - name: "Taal, Batangas"
   domain: "bettertaalbatangas.org"
@@ -644,7 +653,7 @@
   source: "rel-icon"
   px: "966"
   bytes: 370044
-  order_key: "0049"
+  order_key: "0050"
   shuffle_key: "0050"
 - name: "Tanay, Rizal"
   domain: "bettertanay.org"
@@ -654,7 +663,7 @@
   px: "3264"
   bytes: 658852
   order_key: "0031"
-  shuffle_key: "0073"
+  shuffle_key: "0074"
 - name: "Trece Martires City, Cavite"
   domain: "bettertrecemartires.org"
   file: "bettertrecemartires.org.png"

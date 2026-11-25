@@ -11,6 +11,19 @@
     - handle: "Pseudoman21"
       url: "https://github.com/Pseudoman21"
       profile: false
+- name: "Bagabag, Nueva Vizcaya"
+  portal: "[budget.betterbagabag.org](https://budget.betterbagabag.org)"
+  type: "🧩 Integrated"
+  integrated: true
+  parent_domain: "[betterbagabag.org](https://betterbagabag.org)"
+  repo: "[GitHub](https://github.com/marttidumangeng/nueva-vizcaya-transparency-portal)"
+  repo_owner: "marttidumangeng"
+  repo_name: "nueva-vizcaya-transparency-portal"
+  maintainer: "[@marttidumangeng](https://github.com/marttidumangeng)"
+  maintainers:
+    - handle: "marttidumangeng"
+      url: "https://github.com/marttidumangeng"
+      profile: false
 - name: "Batangas Province"
   portal: "[betterbatangas.org](https://betterbatangas.org)"
   type: "🏛️ Standalone"
@@ -253,6 +266,19 @@
   maintainers:
     - handle: "carlodandan"
       url: "https://github.com/carlodandan"
+      profile: false
+- name: "Nueva Vizcaya Province"
+  portal: "[betternuevavizcaya.org](https://betternuevavizcaya.org)"
+  type: "🏛️ Standalone"
+  integrated: false
+  parent_domain: "-"
+  repo: "[GitHub](https://github.com/marttidumangeng/nueva-vizcaya-transparency-portal)"
+  repo_owner: "marttidumangeng"
+  repo_name: "nueva-vizcaya-transparency-portal"
+  maintainer: "[@marttidumangeng](https://github.com/marttidumangeng)"
+  maintainers:
+    - handle: "marttidumangeng"
+      url: "https://github.com/marttidumangeng"
       profile: false
 - name: "Pampanga Province"
   portal: "[betterpampanga.vercel.app](https://betterpampanga.vercel.app)"
