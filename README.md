@@ -29,6 +29,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Baao, Camarines Sur | - | [GitHub](https://github.com/alvagenesis/betterbaao/) | - | 🔵 Planned | [@alvagenesis](https://github.com/alvagenesis) |
 | Bacolod City, Negros Occidental | [betterbacolod.org](https://betterbacolod.org) | [GitHub](https://github.com/betterbacolod/betterbacolod) | [Facebook](https://www.facebook.com/betterbacolod.org) | 🟢 Active | [@mattenarle10](https://github.com/mattenarle10) |
 | Bacoor City, Cavite | [betterbacoor.org](https://www.betterbacoor.org/) | [GitHub](https://github.com/0phl/betterbacoor) | [Facebook](https://www.facebook.com/people/BetterBacoororg/61594400221717/) | 🟢 Active | [@0phl](https://github.com/0phl) |
+| Bagabag, Nueva Vizcaya | [betterbagabag.org](https://betterbagabag.org) | [GitHub](https://github.com/marttidumangeng/betterbagabag) | - | 🟢 Active | [@marttidumangeng](https://github.com/marttidumangeng) |
 | Bagac, Bataan | [betterbagac.org](https://betterbagac.org) | [GitHub](https://github.com/betterbagac/betterbagac) | - | 🟢 Active | [@jmrec](https://github.com/jmrec) |
 | Baguio City, Benguet | [betterbaguio.org](https://betterbaguio.org) | [GitHub](https://github.com/ashier/betterbaguio) | - | 🟢 Active | [@ashier](https://github.com/ashier) |
 | Balanga City, Bataan | [betterbalanga.org](https://betterbalanga.org/) | [GitHub](https://github.com/AstroMC98/betterbalanga) | [Facebook](https://www.facebook.com/betterbalanga.org) | 🟡 Work in Progress | [@AstroMC98](https://github.com/AstroMC98) |
@@ -65,6 +66,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Cavite City, Cavite | [bettercavitecity.org](https://bettercavitecity.org) | - | [Facebook](https://www.facebook.com/bettercavitecity.org) | 🟢 Active | [@jdsatsatin](https://github.com/jdsatsatin) |
 | Cebu City, Cebu | - | [GitHub](https://github.com/kyrenmearr/bettercebucity) | - | 🟡 Work in Progress | [@kyrenmearr](https://github.com/kyrenmearr) |
 | Claver, Surigao del Norte | - | - | - | 🔵 Planned<br>⚠️ Stale | [@eljohn2001](https://github.com/eljohn2001)<br>🤝 Open for Adoption |
+| Concepcion, Romblon | - | [GitHub](https://github.com/johannfranzero/betterconcepcion) | - | 🔵 Planned | [@johannfranzero](https://github.com/johannfranzero) |
 | Concepcion, Tarlac | - | [GitHub](https://github.com/aaronher1030-glitch/bettergovtarlacph) | - | 🔵 Planned | [@aaronher1030-glitch](https://github.com/aaronher1030-glitch) |
 | Corella, Bohol | [bettercorella.vercel.app](https://bettercorella.vercel.app) | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🟢 Active | [@ashdroidcmd](https://github.com/ashdroidcmd) |
 | Dagupan City, Pangasinan | - | [GitHub](https://github.com/jamesjmnz/better-dagupan) | - | 🟡 Work in Progress | [@jamesjmnz](https://github.com/jamesjmnz) |
@@ -112,6 +114,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Malaybalay City, Bukidnon | [bettermalaybalay.cloud](https://www.bettermalaybalay.cloud) | [GitHub](https://github.com/lordzxxxx/BetterMC) | [Facebook](https://www.facebook.com/profile.php?id=61596547555480) | 🟢 Active | [@lordzxxxx](https://github.com/lordzxxxx) |
 | Malinao, Albay | - | [GitHub](https://github.com/bettermalinao/bettermalinao) | [Facebook](https://www.facebook.com/bettermalinao.org) | 🟡 Work in Progress | [@rcbalingbing](https://github.com/rcbalingbing) |
 | Malolos City, Bulacan | [bettermalolos.org](https://bettermalolos.org/) | [GitHub](https://github.com/francisdiaz22/bettermalolos) | [Facebook](https://www.facebook.com/bettermalolos.org) | 🟢 Active | [@francisdiaz22](https://github.com/francisdiaz22) |
+| Mandaluyong City, Metro Manila | [bettermandaluyong.org](https://bettermandaluyong.org) | [GitHub](https://github.com/BetterMandaluyong/bettermandaluyong.org) | - | 🔵 Planned | [@njncalub](https://github.com/njncalub) |
 | Mandaue City, Cebu | - | - | - | 🔵 Planned | [@jaylothai](https://github.com/jaylothai) |
 | Manila City, Metro Manila | [bettermanila.org](https://bettermanila.org) | [GitHub](https://github.com/grgdlm/bettermanila) | [Facebook](https://www.facebook.com/BetterManilaOrg) | 🟢 Active | [@grgdlm](https://github.com/grgdlm) |
 | Mapandan, Pangasinan | [bettermapandan.org](https://www.bettermapandan.org/) | [GitHub](https://github.com/jadolation/bettermapandan) | - | 🟢 Active | [@jadolation](https://github.com/jadolation), [@Gel81](https://github.com/Gel81) |
@@ -127,7 +130,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Naguilian, La Union | [betternaguilianlu.vercel.app](https://betternaguilianlu.vercel.app) | [GitHub](https://github.com/baeyacorpuz/betternaguilianlu) | - | 🟡 Work in Progress | [@baeyacorpuz](https://github.com/baeyacorpuz) |
 | Naic, Cavite | [betternaic.vercel.app](https://betternaic.vercel.app) | [GitHub](https://github.com/riecodes/betternaic) | [Facebook](https://facebook.com/betternaic) | 🟢 Active | [@rieCodes](https://github.com/rieCodes) |
 | Obando, Bulacan | [betterobando.vercel.app](https://betterobando.vercel.app) | [GitHub](https://github.com/MigzAndroidz/better-obando) | [Facebook](https://www.facebook.com/BetterObando/) | 🟢 Active | [@MigzAndroidz](https://github.com/MigzAndroidz) |
-| Ocampo, Camarines Sur | [betterocampo.org](https://www.betterocampo.org) | [GitHub](https://github.com/ejsinfuego/betterocampo) | - | 🟢 Active | [@ejsinfuego](https://github.com/ejsinfuego) |
+| Ocampo, Camarines Sur | [betterocampo.org](https://www.betterocampo.org) | [GitHub](https://github.com/ejsinfuego/betterocampo) | [Facebook](https://www.facebook.com/profile.php?id=61597112090688) | 🟢 Active | [@ejsinfuego](https://github.com/ejsinfuego) |
 | Olongapo City, Zambales | [betterolongapo.org](https://betterolongapo.org/) | [GitHub](https://github.com/eyronjohn/betterolongapo) | - | 🟢 Active | [@eyronjohn](https://github.com/eyronjohn) |
 | Oriental Mindoro Province | [betterorientalmindoro.org](https://betterorientalmindoro.org) | [GitHub](https://github.com/renthelautomations/betterorientalmindoro) | [Facebook](https://www.facebook.com/betterorientalmindoro) | 🟢 Active | [@renthelautomations](https://github.com/renthelautomations) |
 | Ormoc City, Leyte | [betterormoc.org](https://www.betterormoc.org/en) | - | [Facebook](https://www.facebook.com/profile.php?id=61587167813676) | 🟢 Active | - |
