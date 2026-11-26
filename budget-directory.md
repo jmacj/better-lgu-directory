@@ -2,30 +2,43 @@
 layout: default
 title: BetterGov.ph — LGU Budget Transparency Portal Directory
 permalink: /budget
+container: page
 ---
+<!-- Page intro: two lede paragraphs side by side from 1024px. -->
+<div class="lede prose-columns" markdown="1">
+<div markdown="1">
+
 A community-maintained directory of **budget transparency portals** for Philippine LGUs — sites that show citizens every budget project for one province, city, or municipality, built on the public [BetterGov.ph Budget API](https://budget.bettergov.ph/docs) behind the national [budget.bettergov.ph](https://budget.bettergov.ph).
+
+</div>
+<div markdown="1">
 
 A budget portal is either part of an LGU's [Better LGU portal]({{ '/' | relative_url }}) or a site of its own. Every portal listed here is live — check this table before you build, so you can contribute to an existing one instead of publishing a second.
 
-## 💰 Directory
+</div>
+</div>
 
-<div class="mb-8 flex flex-col md:flex-row gap-4 items-center max-w-4xl">
-    <div class="relative flex-1 w-full">
-        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-            </svg>
-        </div>
-        <label for="budget-search" class="sr-only">Search budget portals</label>
-        <input type="text" id="budget-search" oninput="filterBudget()" placeholder="Search by LGU, portal, or maintainer..." class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm">
+## Directory
+
+<!-- Same controls as the LGU directory (.directory-controls in
+     assets/css/style.css): a big search field and a flat filter above the table. -->
+<div class="not-prose directory-controls">
+    <div class="dc-search">
+        <svg class="dc-search__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+        </svg>
+        <label for="budget-search" class="sr-only">Search budget portals by LGU, portal or maintainer</label>
+        <input type="search" id="budget-search" oninput="filterBudget()" placeholder="Try: Catanduanes" autocomplete="off" class="dc-search__input">
     </div>
-    <div class="w-full md:w-56">
-        <label for="type-filter" class="sr-only">Filter by type</label>
-        <select id="type-filter" onchange="filterBudget()" class="block w-full px-3 py-3 border border-gray-200 rounded-xl leading-5 bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition-all shadow-sm cursor-pointer">
-            <option value="">All Types</option>
-            <option value="Integrated">🧩 Integrated</option>
-            <option value="Standalone">🏛️ Standalone</option>
-        </select>
+    <div class="dc-fields">
+        <div class="dc-field">
+            <label for="type-filter" class="dc-label">Type</label>
+            <select id="type-filter" onchange="filterBudget()" class="dc-select">
+                <option value="">All types</option>
+                <option value="Integrated">🧩 Integrated</option>
+                <option value="Standalone">🏛️ Standalone</option>
+            </select>
+        </div>
     </div>
 </div>
 
@@ -38,24 +51,34 @@ A budget portal is either part of an LGU's [Better LGU portal]({{ '/' | relative
 
 </div>
 
-<div id="budget-no-results" class="hidden text-center py-12 text-gray-500">
-    No budget portals match your search.
+<div id="budget-no-results" class="not-prose hidden empty-state">
+    <h3 class="empty-state__title">No budget portals found</h3>
+    <p class="empty-state__body">No budget portals match your search and filter.</p>
+    <button type="button" onclick="clearBudgetFilters()" class="btn btn--ghost">Clear all filters</button>
 </div>
 
-<p class="text-sm text-gray-500">
-    Showing <span id="budget-count">{{ site.data.budget_portals | size }}</span> of {{ site.data.budget_portals | size }} budget portals.
+<p class="not-prose dc-pagination" aria-live="polite">
+    <span>Showing <strong id="budget-count">{{ site.data.budget_portals | size }}</strong> of <strong>{{ site.data.budget_portals | size }}</strong> budget portals.</span>
 </p>
 
 > Want to add your budget portal? See [Adding a Budget Portal]({{ '/contributing' | relative_url }}#adding-a-budget-portal).
 
-## 🧭 Portal Types
+## Portal types
+
+<div class="table-wrapper" markdown="1" tabindex="0" role="region" aria-label="Portal types">
 
 | Type          | Meaning                                                                                                                   |
 |---------------|---------------------------------------------------------------------------------------------------------------------------|
 | 🧩 Integrated | Part of the LGU's Better LGU portal — a subdomain (`budget.betterlb.org`) or a path (`bettercatanduanes.org/transparency`) |
 | 🏛️ Standalone | A budget portal on its own, with no Better LGU portal behind it (`bettersilang.org`)                                      |
 
-## 🚀 Getting Started
+</div>
+
+## Getting started
+
+<!-- The three steps in the wide column; the next step and the note on amounts beside them. -->
+<div class="prose-columns prose-columns--wide-left" markdown="1">
+<div markdown="1">
 
 Your province, city, or town can have one too — free, open source, and no server or database to run. Three steps, no advance registration:
 
@@ -63,9 +86,15 @@ Your province, city, or town can have one too — free, open source, and no serv
 2. **Run `npm run setup`** and pick your LGU
 3. **Deploy** it to Cloudflare, Vercel, or Netlify
 
+</div>
+<div markdown="1">
+
 Then send us the link by [adding it to this directory]({{ '/contributing' | relative_url }}#adding-a-budget-portal). The full walkthrough is in **[How to Start Your Budget Transparency Portal]({{ '/budget-guide' | relative_url }})**; other starting points are in [Budget Portal Templates]({{ '/budget-templates' | relative_url }}).
 
 Amounts on these portals are as published in the 2027 NEP and House Bill 10858, not spending. A project found in only one version is a candidate to check, not a finding.
+
+</div>
+</div>
 
 <script defer src="{{ '/assets/js/repo-activity.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
@@ -90,5 +119,12 @@ function filterBudget() {
     container.style.display = shown === 0 ? "none" : "";
     document.getElementById("budget-no-results").classList.toggle("hidden", shown !== 0);
     document.getElementById("budget-count").textContent = shown;
+}
+
+// The empty result's one-click way back: clears the search and the type.
+function clearBudgetFilters() {
+    document.getElementById("budget-search").value = "";
+    document.getElementById("type-filter").value = "";
+    filterBudget();
 }
 </script>

@@ -1,33 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+/* BetterGov.ph design system (https://bettergov.ph/design).
+   Every colour, face, width and component below comes from the national
+   guidelines' Styles and Components pages; the token names mirror the
+   design system's own (ed-*), and the same values are registered as
+   Tailwind colours in _layouts/default.html so markup can use bg-ed-navy,
+   text-ed-ink-3, and so on. Change a value here and there together.
+
+   The rules this file holds to:
+   - Ink on paper. Most of every page is paper; one working blue (navy) is
+     the only interactive colour; red is reserved for urgency, and nothing
+     in this directory is urgent, so red only appears as a link hover.
+   - Figtree for titles (semibold/bold only), Inter for everything people
+     read and use, JetBrains Mono for small uppercase labels only.
+   - Square corners, hairline rules, no drop shadows, no gradients.
+   - Text on white uses ink, ink-2 or ink-3. ink-4 fails AA and is kept for
+     disabled states and non-text marks. */
 
 :root {
-  --font-main: 'Figtree', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --color-primary-50: #e6f0fd;
-  --color-primary-100: #cce0fb;
-  --color-primary-500: #0066eb;
-  --color-primary-600: #0052bc;
-  --color-primary-700: #003d8d;
-  --color-primary-800: #00295e;
-  --color-primary-900: #00142f;
-  --color-secondary-500: #ff4d00;
-  --color-gray-50: #f8f9fa;
-  --color-gray-100: #f1f3f5;
-  --color-gray-200: #e9ecef;
-  --color-gray-300: #dee2e6;
-  --color-gray-400: #ced4da;
-  --color-gray-500: #adb5bd;
-  --color-gray-600: #868e96;
-  --color-gray-700: #495057;
-  --color-gray-800: #343a40;
-  --color-gray-900: #212529;
-  --container-max-width: 1280px;
+  /* Ink — text hierarchy */
+  --ed-ink: #0C1B33;
+  --ed-ink-2: #2B3A55;
+  --ed-ink-3: #252629;
+  --ed-ink-4: #8A95AA; /* disabled + non-text marks only (3.0:1) */
+
+  /* Paper and rules — surfaces and lines */
+  --ed-paper: #FFFFFF;
+  --ed-paper-2: #F4F7FC;
+  --ed-paper-3: #E6ECF5;
+  --ed-rule: #DBE3EF;
+  --ed-rule-strong: #9FB2CC;
+
+  /* Navy — the working blue */
+  --ed-navy: #0B4FD9;
+  --ed-navy-2: #0A44BD;
+  --ed-navy-ink: #08286E;
+  --ed-navy-tint: #E8EFFF;
+
+  /* Red and editorial accents */
+  --ed-red: #C8102E;
+  --ed-red-ink: #8C0A20;
+  --ed-sage: #4A6B5A;
+  --ed-gold: #B8893A;
+
+  /* Semantic — status only */
+  --ed-success: #006939;
+  --ed-warning: #FFB900;
+  --ed-error: #B42525;
+
+  --font-display: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --container-page: 1504px;
+
+  /* Reading measure: the widest a text block runs, measured in the prose
+     font, so it grows with the fluid type below. 80ch is about two-thirds
+     of the page on a wide screen and nearly all of the column beside the
+     contents sidebar; narrower than that, text simply fills the column.
+     Tables, code, and full-width components ignore it. */
+  --measure: 80ch;
+
+  /* Sticky header height plus breathing room: where in-page anchors land
+     and where the contents sidebar sticks. The utility bar hides below
+     768px, so the header is shorter there. */
+  --header-offset: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-offset: 8rem;
+  }
 }
 
 body {
-  font-family: var(--font-main);
-  background-color: var(--color-gray-50);
+  font-family: var(--font-sans);
+  background-color: var(--ed-paper);
   padding: 0;
-  color: var(--color-gray-800);
+  color: var(--ed-ink-2);
   margin: 0;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -39,131 +87,674 @@ body {
   overflow-x: clip;
 }
 
-.hero-gradient {
-  background: linear-gradient(to right, var(--color-primary-600), var(--color-primary-700));
-  color: white;
+/* One visible focus indicator everywhere (keyboard only). Components on
+   the navy bands switch it to white. */
+:focus-visible {
+  outline: 2px solid var(--ed-navy);
+  outline-offset: 2px;
 }
 
-.prose {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  font-size: 1rem;
+.on-dark :focus-visible {
+  outline-color: #fff;
+}
+
+/* ---- Layout ----
+   Full-width bands, each holding a centred container. Gutters are 18px on
+   mobile, 24px on tablet and 32px on wide screens. Every page uses the page
+   width, so content lines up with the header and footer; reading text keeps
+   its line length through --measure, and long reading pages put a contents
+   sidebar in the space beside it (.reading-layout). */
+.container-page {
+  box-sizing: border-box;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 18px;
+}
+
+.container-page {
+  max-width: var(--container-page);
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-page {
+    padding-inline: 32px;
+  }
+}
+
+/* Long reading pages: an "On this page" sidebar beside the text from
+   1024px, so the width beside the reading measure carries navigation
+   instead of sitting empty. Below 1024px the same list is a collapsible box
+   above the text (.toc-mobile), and the text takes the full width. */
+.reading-layout__main {
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .reading-layout {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1280px) {
+  .reading-layout {
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 4rem;
+  }
+}
+
+.toc {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: sticky;
+    top: var(--header-offset);
+    max-height: calc(100vh - var(--header-offset) - 1.5rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .toc-mobile {
+    display: none;
+  }
+}
+
+/* The design system's side navigation: a hairline rail with the current
+   item marked by a navy rule and navy text (never colour alone: the rule
+   and the weight change too). Each link is at least 24px tall. */
+.toc__list {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-left: 1px solid var(--ed-rule);
+}
+
+.toc__list a {
+  display: block;
+  margin-left: -1px;
+  padding: 0.375rem 0 0.375rem 1rem;
+  border-left: 2px solid transparent;
+  font-size: 0.8125rem;
+  line-height: 1.375;
+  color: var(--ed-ink-2);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.toc__list a:hover {
+  color: var(--ed-navy);
+  border-left-color: var(--ed-rule-strong);
+}
+
+.toc__list a[aria-current] {
+  border-left-color: var(--ed-navy);
+  color: var(--ed-navy);
+  font-weight: 500;
+}
+
+.toc-mobile {
+  margin-bottom: 2rem;
+  border: 1px solid var(--ed-rule);
+  background: var(--ed-paper-2);
+}
+
+.toc-mobile summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ed-ink);
+  cursor: pointer;
+}
+
+.toc-mobile .toc__list {
+  margin: 0 1rem 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc__list a {
+    transition: none;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--ed-navy);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transform: translateY(-120%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ---- Page masthead ----
+   Every page opens with one: a bold display title in plain language and an
+   optional lede. The hero variant (a single flat navy band) is for the home
+   page; the light variant is every other page. Titles stand alone: no
+   eyebrow, no italics. */
+.masthead {
+  padding-block: 4rem;
+}
+
+.masthead--light {
+  background: var(--ed-paper-2);
+  border-bottom: 1px solid var(--ed-ink);
+  color: var(--ed-ink);
+}
+
+.masthead--hero {
+  background: var(--ed-navy-2);
+  color: #fff;
+}
+
+.masthead__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.masthead__lede {
+  margin: 1rem 0 0;
+  max-width: 42rem;
+  font-size: 1.125rem;
   line-height: 1.625;
+  color: var(--ed-ink-2);
+}
+
+.masthead--hero .masthead__lede {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.masthead__meta {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+  color: var(--ed-ink-3);
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: 0.5rem;
+  color: var(--ed-ink-4);
+}
+
+@media (max-width: 767px) {
+  .masthead {
+    padding-block: 2rem;
+  }
+
+  .masthead__title {
+    font-size: 26px;
+    line-height: 1.1;
+  }
+
+  .masthead__lede {
+    margin-top: 0.625rem;
+    font-size: 0.9375rem;
+    line-height: 1.375;
+  }
+}
+
+/* ---- Links ----
+   Inline links are navy and stay underlined, so they show without colour;
+   they turn red on hover. Important standalone links are arrow links: a
+   navy rule under the text, a trailing arrow, red on hover. */
+.link,
+.prose a:not([class]) {
+  /* A bare URL or long domain wraps instead of widening its column. */
+  overflow-wrap: anywhere;
+  color: var(--ed-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: inherit;
+  transition: color 0.15s;
+}
+
+.link:hover,
+.prose a:not([class]):hover {
+  color: var(--ed-red);
+}
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.125rem;
+  border-bottom: 1px solid var(--ed-navy);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ed-navy);
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.arrow-link:hover {
+  color: var(--ed-red);
+  border-color: var(--ed-red);
+}
+
+.arrow-link svg {
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+
+/* On the navy band red fails contrast, so hover thickens the rule instead. */
+.arrow-link--on-dark {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+}
+
+.arrow-link--on-dark:hover {
+  color: #fff;
+  border-color: #fff;
+  box-shadow: 0 1px 0 #fff;
+}
+
+/* ---- Buttons ----
+   Buttons start actions on this page; anything that goes to another page
+   is a link. Fixed heights (md 44px, sm 36px) so a button lines up with an
+   input or select beside it. Solid navy is the primary, ghost the
+   secondary; at most one solid per view. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  box-sizing: border-box;
+  height: 44px;
+  padding: 0 1.25rem;
+  border: 1px solid var(--ed-navy);
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btn--sm {
+  height: 36px;
+  padding: 0 0.875rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.btn--solid {
+  background: var(--ed-navy);
+  color: #fff;
+}
+
+.btn--solid:hover {
+  background: var(--ed-navy-2);
+  border-color: var(--ed-navy-2);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ed-navy);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: var(--ed-navy);
+  color: #fff;
+}
+
+.btn:disabled {
+  border-color: var(--ed-ink-4);
+  color: var(--ed-ink-4);
+  background: transparent;
+  cursor: not-allowed;
+}
+
+/* ---- Eyebrow and flag ----
+   Eyebrows are mono labels above a title naming its category. Flags mark
+   an item with a short status. Both uppercase and letter-spaced; neither
+   ever holds a sentence. */
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ed-ink-3);
+}
+
+.eyebrow--navy {
+  color: var(--ed-navy);
+}
+
+/* Secondary tags on Entries and profiles render as flags. The status lives
+   in the label and its icon, never in the colour alone. */
+.lgu-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.25rem;
+  padding: 3px 8px;
+  border: 1px solid var(--ed-rule-strong);
+  border-radius: 0;
+  background-color: var(--ed-paper-2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ed-ink-2);
+}
+
+/* Stale is a warning: the semantic warning colour pairs with dark text and
+   the ⚠️ icon. The border is a mark, not the carrier of the meaning. */
+.lgu-tag-stale {
+  border-color: var(--ed-warning);
+  background-color: transparent;
+  color: var(--ed-ink);
+}
+
+.lgu-tag-adoption,
+.lgu-tag-open {
+  border-color: var(--ed-rule-strong);
+  background-color: var(--ed-paper-2);
+  color: var(--ed-ink-2);
+}
+
+/* 🌱 Seeking Funding (#498): a link beside the portal in the Domain cell.
+   The one interactive flag, so it is navy and inverts on hover like a ghost
+   button, with at least a 24px target (WCAG 2.2 target size). */
+a.lgu-tag-funding {
+  min-height: 24px;
+  box-sizing: border-box;
+  border-color: var(--ed-navy);
+  background-color: transparent;
+  color: var(--ed-navy);
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+a.lgu-tag-funding:hover {
+  background-color: var(--ed-navy);
+  color: #fff;
+}
+
+/* ---- Card ----
+   Bordered, square-cornered link targets in grids of navigation choices.
+   The whole card is the link, so it holds exactly one destination. */
+.card {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid var(--ed-rule);
+  background: var(--ed-paper);
+  padding: 1.5rem;
+  color: var(--ed-ink);
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+a.card:hover {
+  border-color: var(--ed-ink);
+}
+
+.card__title {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ed-ink);
+}
+
+.card__eyebrow + .card__title {
+  margin-top: 0.75rem;
+}
+
+.card > .card__title:first-child {
+  margin-top: 0;
+}
+
+/* ---- Reading content ----
+   Markdown from the repo docs. Inter body copy, Figtree headings, text
+   blocks up to --measure wide. The body size is fluid: the guidelines' 17px
+   on phones and tablets, easing up to 18px on desktops so the wider measure
+   keeps a comfortable line; the extra leading does the same for long lines.
+   Element rules skip a .not-prose block and everything in it (controls,
+   cards, the profile card), which style themselves with component classes
+   and Tailwind utilities. */
+.prose {
+  font-size: clamp(1.0625rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--ed-ink-2);
 }
 
 .prose h1:first-child {
   display: none;
 }
 
-.prose h2 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: var(--color-gray-900);
-  letter-spacing: -0.025em;
-  margin-top: 3.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.333;
-  border-bottom: 2px solid var(--color-gray-200);
-  padding-bottom: 0.75rem;
+/* The cap is for reading text only, dividers included so they end where
+   the text does. Tables, code and .not-prose blocks (the directory
+   controls, a card grid) span the full content column. */
+.prose > :is(p, ul, ol, blockquote, h2, h3, h4, dl, hr):not(.not-prose) {
+  max-width: var(--measure);
 }
 
-.prose h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--color-gray-900);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+/* Contextual widths on directory pages, where the content beside the text
+   is full width (controls, tables, card grids), so a single text column
+   would leave the right of the page empty:
+   - .lede: the page intro, at lede size (the masthead lede's role), so a
+     wider line stays comfortable.
+   - .prose-span: a one- or two-line note above a full-width table spans
+     the table; short enough that line length doesn't matter.
+   - .prose-columns: related blocks side by side from 1024px, each column a
+     comfortable 60–80 characters; --wide-left gives the main block two
+     thirds. Below 1024px they stack, in source order. */
+.lede > p,
+.lede > div > p {
+  max-width: var(--measure);
+  font-size: clamp(1.125rem, 1rem + 0.35vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--ed-ink-2);
 }
 
-.prose p {
-  margin-bottom: 1.5rem;
-}
-
-.prose a {
-  color: var(--color-primary-600);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-
-.prose a:hover {
-  color: var(--color-primary-700);
-  text-decoration: underline;
-}
-
-.prose ul {
-  list-style-type: disc;
-  margin-top: 1.25rem;
+.prose-columns {
+  display: grid;
+  gap: 1.25rem 3rem;
   margin-bottom: 1.25rem;
-  padding-left: 1.625rem;
 }
 
-.prose ol {
-  list-style-type: decimal;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-  padding-left: 1.625rem;
+@media (min-width: 1024px) {
+  .prose-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prose-columns--wide-left {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
 }
 
-.prose li {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  padding-left: 0.375rem;
+.prose-columns > div > :first-child {
+  margin-top: 0;
 }
 
-.prose li > ul,
-.prose li > ol {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.prose blockquote {
-  border-left: 4px solid var(--color-primary-500);
-  padding: 1.5rem 2rem;
-  font-style: italic;
-  color: var(--color-gray-700);
-  margin: 2.5rem 0;
-  background: var(--color-gray-50);
-  border-radius: 0 0.5rem 0.5rem 0;
-}
-
-.prose blockquote p:last-child {
+.prose-columns > div > :last-child {
   margin-bottom: 0;
 }
 
-.prose code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.875em;
-  background: var(--color-gray-100);
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-  font-weight: 500;
-  color: var(--color-gray-900);
+/* A column block that opens with section headings keeps a section's space
+   above it, since the headings' own top margin is reset inside it. */
+.prose-columns:has(> div > h2:first-child) {
+  margin-top: 3rem;
 }
 
-.prose pre {
-  background: var(--color-gray-900);
-  color: var(--color-gray-100);
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  overflow-x: auto;
+.prose-span > p:last-child {
+  margin-bottom: 1.25rem;
+}
+
+/* An in-page link (the contents list, a docs cross-link) lands with the
+   heading clear of the sticky header. */
+.prose :is(h2, h3, h4)[id] {
+  scroll-margin-top: var(--header-offset);
+}
+
+/* Section heading: plain, display face, no rules or decoration; size and
+   whitespace carry the hierarchy. */
+.prose h2:not(:where(.not-prose, .not-prose *)),
+.section-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ed-ink);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3:not(:where(.not-prose, .not-prose *)) {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ed-ink);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h4:not(:where(.not-prose, .not-prose *)) {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ed-ink);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p:not(:where(.not-prose, .not-prose *)) {
+  margin-bottom: 1.25rem;
+}
+
+.prose strong:not(:where(.not-prose, .not-prose *)) {
+  font-weight: 600;
+  color: var(--ed-ink);
+}
+
+.prose ul:not(:where(.not-prose, .not-prose *)) {
+  list-style-type: disc;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose ol:not(:where(.not-prose, .not-prose *)) {
+  list-style-type: decimal;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.prose li:not(:where(.not-prose, .not-prose *)) {
+  margin-top: 0.375rem;
+  margin-bottom: 0.375rem;
+  padding-left: 0.25rem;
+}
+
+.prose li > ul:not(:where(.not-prose, .not-prose *)),
+.prose li > ol:not(:where(.not-prose, .not-prose *)) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Callouts: a tinted well with a navy rule. Upright, never italic. */
+.prose blockquote:not(:where(.not-prose, .not-prose *)) {
+  border-left: 2px solid var(--ed-navy);
+  padding: 1rem 1.25rem;
+  color: var(--ed-ink-2);
   margin: 2rem 0;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  background: var(--ed-paper-2);
 }
 
-.prose pre code {
+.prose blockquote p:last-child:not(:where(.not-prose, .not-prose *)) {
+  margin-bottom: 0;
+}
+
+.prose code:not(:where(.not-prose, .not-prose *)) {
+  overflow-wrap: anywhere;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--ed-paper-3);
+  padding: 0.15em 0.35em;
+  color: var(--ed-ink);
+}
+
+.prose pre:not(:where(.not-prose, .not-prose *)) {
+  background: var(--ed-ink);
+  color: var(--ed-paper-2);
+  padding: 1.25rem 1.5rem;
+  /* Wrap rather than scroll: a scrolling block can't be reached by keyboard
+     (it holds no focusable content), and wrapping reads better on phones. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 2rem 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.prose pre code:not(:where(.not-prose, .not-prose *)) {
   background: transparent;
   padding: 0;
   color: inherit;
-  font-size: 0.875rem;
+  font-size: inherit;
 }
 
-.prose hr {
+.prose hr:not(:where(.not-prose, .not-prose *)) {
   border: 0;
-  border-top: 1px solid var(--color-gray-200);
+  border-top: 1px solid var(--ed-rule);
   margin: 3rem 0;
 }
 
+/* ---- Tables ----
+   Ruled rows, never zebra stripes. Headers are mono labels. */
 .table-wrapper {
   /* Containing block for the .sr-only (position:absolute) labels in the
      cells. Without it they resolve against the root, escape this scroll
@@ -172,12 +763,9 @@ body {
   position: relative;
   overflow-x: auto;
   width: 100%;
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  margin: 3rem 0;
-  border: 1px solid var(--color-gray-200);
-  border-top: 4px solid var(--color-primary-600);
-  background: white;
+  margin: 2rem 0;
+  border: 1px solid var(--ed-rule);
+  background: var(--ed-paper);
 }
 
 main table {
@@ -186,7 +774,6 @@ main table {
   border-spacing: 0;
   border: none;
   margin: 0;
-  box-shadow: none;
 }
 
 main thead {
@@ -199,77 +786,39 @@ main thead::after {
 }
 
 main th {
-  padding: 1rem 1.5rem;
+  padding: 0.875rem 1.25rem;
   text-align: left;
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-gray-900);
-  border-bottom: 2px solid var(--color-gray-200);
+  letter-spacing: 0.12em;
+  color: var(--ed-ink-3);
+  border-bottom: 1px solid var(--ed-rule-strong);
   position: sticky;
   top: -1px;
-  background-color: var(--color-gray-100);
+  background-color: var(--ed-paper-2);
 }
 
 main td {
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.25rem;
   font-size: 0.875rem;
-  color: var(--color-gray-800);
-  border-bottom: 1px solid var(--color-gray-200);
+  line-height: 1.5;
+  color: var(--ed-ink-2);
+  border-bottom: 1px solid var(--ed-rule);
   white-space: normal;
   word-wrap: break-word;
   max-width: 300px;
+  vertical-align: top;
 }
 
-main tr:hover {
-  background-color: var(--color-gray-50);
+main tbody tr:hover {
+  background-color: var(--ed-paper-2);
 }
 
 main tr:last-child td {
   border-bottom: none;
-}
-
-/* Secondary tags shown under the primary value of the Status / Maintainer cells. */
-.lgu-tag {
-  display: inline-block;
-  margin-top: 0.25rem;
-  padding: 0.125rem 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.25rem;
-  white-space: nowrap;
-  border: 1px solid transparent;
-}
-
-.lgu-tag-stale {
-  background-color: #fff4e0;
-  border-color: #f5c877;
-  color: #8a5200;
-}
-
-.lgu-tag-adoption {
-  background-color: var(--color-primary-50);
-  border-color: #9dc4f7;
-  color: var(--color-primary-700);
-}
-
-/* 🌱 Seeking Funding (#498): a link beside the portal in the Domain cell. */
-a.lgu-tag-funding {
-  background-color: #e8f5e9;
-  border-color: #9ccc9f;
-  color: #1b5e20;
-  text-decoration: none;
-}
-
-a.lgu-tag-funding:hover {
-  background-color: #d4ecd6;
-}
-
-a.lgu-tag-funding:focus-visible {
-  outline: 2px solid var(--color-primary-600);
-  outline-offset: 2px;
 }
 
 /* LGU cell (#448): the place as the main text, "Province · Region" as a
@@ -277,69 +826,95 @@ a.lgu-tag-funding:focus-visible {
    full name is what screen readers read. */
 .lgu-place {
   font-weight: 600;
+  color: var(--ed-ink);
 }
 
 .lgu-where {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.25rem;
-  color: var(--color-gray-700); /* gray-500/600 fail AA at this size */
+  color: var(--ed-ink-3);
 }
 
-/* Directory controls: search, filters, sort and kind chips in one panel.
-   One border around the whole panel, none of the per-control shadows; the
-   only strong colour is a pressed kind chip. */
+/* ---- Directory controls ----
+   The directory listing pattern: a big search field and flat filter
+   buttons above the results, in one tinted, ruled panel. */
 .directory-controls {
   margin-bottom: 2rem;
-  padding: 1rem;
-  border: 1px solid var(--color-gray-200);
-  border-radius: 1rem;
-  background-color: #fff;
+  padding: 1.25rem;
+  border: 1px solid var(--ed-rule);
+  background-color: var(--ed-paper-2);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .directory-controls {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
 }
 
+/* Big search: Figtree input, 1.5px navy frame, an example query as the
+   italic placeholder. The frame carries the focus ring, since the input
+   itself has no border to draw one on. */
 .dc-search {
   position: relative;
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--ed-navy);
+  background: var(--ed-paper);
+}
+
+.dc-search:focus-within {
+  outline: 2px solid var(--ed-navy);
+  outline-offset: 2px;
 }
 
 .dc-search__icon {
   position: absolute;
   top: 50%;
-  left: 0.875rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  left: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   transform: translateY(-50%);
-  color: var(--color-gray-600);
+  color: var(--ed-ink-3);
   pointer-events: none;
 }
 
 .dc-search__input {
   display: block;
+  flex: 1;
+  min-width: 0;
   width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.75rem;
-  border: 1px solid var(--color-gray-200);
-  border-radius: 0.75rem;
-  background-color: var(--color-gray-50);
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: var(--color-gray-800);
-  transition: border-color 0.15s, background-color 0.15s, box-shadow 0.15s;
-}
-
-.dc-search__input::placeholder {
-  color: var(--color-gray-600);
+  padding: 1.375rem 1.5rem 1.375rem 3.75rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.5;
+  color: var(--ed-ink);
 }
 
 .dc-search__input:focus {
   outline: none;
-  border-color: var(--color-primary-600);
-  background-color: #fff;
-  box-shadow: 0 0 0 3px var(--color-primary-50);
+}
+
+.dc-search__input::placeholder {
+  font-style: italic;
+  color: var(--ed-ink-3);
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .dc-search__icon {
+    left: 0.875rem;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .dc-search__input {
+    padding: 0.75rem 0.875rem 0.75rem 2.75rem;
+    font-size: 18px;
+  }
 }
 
 /* Region comes first and takes a full row on phones, so its PSGC label
@@ -348,8 +923,8 @@ a.lgu-tag-funding:focus-visible {
 .dc-fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 1rem;
+  gap: 1rem;
+  margin-top: 1.25rem;
 }
 
 .dc-field--region {
@@ -369,10 +944,10 @@ a.lgu-tag-funding:focus-visible {
 .dc-label {
   display: block;
   margin-bottom: 0.375rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1.25rem;
-  color: var(--color-gray-700);
+  color: var(--ed-ink-2);
 }
 
 .dc-label--inline {
@@ -380,37 +955,44 @@ a.lgu-tag-funding:focus-visible {
   margin: 0 0.25rem 0 0;
 }
 
-/* Native arrow removed; the chevron sits 0.875rem in from the edge, and the
-   right padding keeps long option labels clear of it. */
+/* Selects share the md button height (44px) so they line up with buttons.
+   The border is ink-4: a non-text boundary at 3:1, the WCAG minimum. Native
+   arrow removed; the chevron sits 0.875rem in from the edge, and the right
+   padding keeps long option labels clear of it. */
 .dc-select {
   display: block;
+  box-sizing: border-box;
   width: 100%;
-  padding: 0.625rem 2.5rem 0.625rem 0.875rem;
-  border: 1px solid var(--color-gray-200);
-  border-radius: 0.75rem;
-  background-color: #fff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23495057'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  height: 44px;
+  padding: 0 2.5rem 0 0.875rem;
+  border: 1px solid var(--ed-ink-4);
+  border-radius: 0;
+  background-color: var(--ed-paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%232B3A55'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.875rem center;
   background-size: 1.125rem;
   -webkit-appearance: none;
   appearance: none;
+  font-family: var(--font-sans);
   font-size: 0.9375rem;
   line-height: 1.5rem;
-  color: var(--color-gray-800);
+  color: var(--ed-ink);
   text-overflow: ellipsis;
   cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s;
 }
 
 .dc-select:hover {
-  border-color: var(--color-gray-400);
+  border-color: var(--ed-ink);
 }
 
-.dc-select:focus {
-  outline: none;
-  border-color: var(--color-primary-600);
-  box-shadow: 0 0 0 3px var(--color-primary-50);
+.dc-select--sm {
+  display: inline-block;
+  width: auto;
+  height: 36px;
+  padding-right: 2.25rem;
+  font-size: 0.875rem;
 }
 
 .dc-toggles {
@@ -419,9 +1001,9 @@ a.lgu-tag-funding:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1.5rem;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-gray-200);
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ed-rule);
 }
 
 /* The checkbox filters, kept together at the right of the toggles row so
@@ -430,7 +1012,7 @@ a.lgu-tag-funding:focus-visible {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1.5rem;
+  gap: 0.5rem 1.5rem;
 }
 
 .dc-kinds {
@@ -440,39 +1022,45 @@ a.lgu-tag-funding:focus-visible {
   gap: 0.5rem;
 }
 
-/* Kind filter chips (#448): toggle buttons; aria-pressed carries the state.
-   Pressed is the panel's one strong colour, with a check so the state never
-   rests on colour alone. */
+/* Kind filter chips (#448): flat toggle buttons at the sm button size.
+   aria-pressed carries the state: pressed is the solid navy button with a
+   check, so the state never rests on colour alone; unpressed is the ghost
+   button. */
 .kind-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  padding: 0.375rem 0.875rem;
-  border: 1px solid var(--color-gray-200);
-  border-radius: 9999px;
-  background-color: #fff;
-  font-size: 0.875rem;
+  box-sizing: border-box;
+  height: 36px;
+  padding: 0 0.875rem;
+  border: 1px solid var(--ed-navy);
+  border-radius: 0;
+  background-color: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
   font-weight: 500;
-  line-height: 1.25rem;
-  color: var(--color-gray-700);
+  line-height: 1rem;
+  color: var(--ed-navy);
   cursor: pointer;
-  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+  transition: background-color 0.15s, color 0.15s;
 }
 
 .kind-chip:hover {
-  border-color: var(--color-gray-400);
+  background-color: var(--ed-navy-tint);
 }
 
-.kind-chip:focus-visible,
 .dc-adoption:focus-within {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--ed-navy);
   outline-offset: 2px;
 }
 
 .kind-chip[aria-pressed="true"] {
-  border-color: var(--color-primary-600);
-  background-color: var(--color-primary-600);
+  background-color: var(--ed-navy);
   color: #fff;
+}
+
+.kind-chip[aria-pressed="true"]:hover {
+  background-color: var(--ed-navy-2);
 }
 
 .kind-chip[aria-pressed="true"]::before {
@@ -484,21 +1072,23 @@ a.lgu-tag-funding:focus-visible {
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill-rule='evenodd' d='M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.58l7.3-7.3a1 1 0 011.4 0z' clip-rule='evenodd'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+/* Checkbox filters: the label is the hit area, at least 36px tall. */
 .dc-adoption {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 0.5rem;
+  min-height: 36px;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-gray-700);
+  color: var(--ed-ink-2);
   cursor: pointer;
 }
 
 .dc-adoption__input {
   width: 1.125rem;
   height: 1.125rem;
-  accent-color: var(--color-primary-600);
+  margin: 0;
+  accent-color: var(--ed-navy);
   cursor: pointer;
 }
 
@@ -506,18 +1096,63 @@ a.lgu-tag-funding:focus-visible {
   outline: none;
 }
 
+/* Result count and paging under the table: a ruled row, not a box. */
+.dc-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ed-rule);
+  font-size: 0.875rem;
+  color: var(--ed-ink-3);
+}
+
+.dc-pagination strong,
+.dc-pagination [id^="showing-"],
+.dc-pagination #total-results {
+  font-weight: 600;
+  color: var(--ed-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Empty result: says so plainly and offers a one-click way back. */
+.empty-state {
+  margin: 2rem 0;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid var(--ed-rule);
+  background: var(--ed-paper-2);
+  text-align: center;
+}
+
+.empty-state__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ed-ink);
+}
+
+.empty-state__body {
+  margin: 0.5rem auto 1.25rem;
+  max-width: 42rem;
+  font-size: 0.9375rem;
+  color: var(--ed-ink-2);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .dc-search__input,
   .dc-select,
-  .kind-chip {
+  .kind-chip,
+  .btn,
+  .card,
+  .link,
+  .arrow-link,
+  a.lgu-tag-funding {
     transition: none;
   }
 }
-
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideIn { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-.animate-fade-in { animation: fadeIn 0.5s ease-in-out forwards; }
-.animate-slide-in { animation: slideIn 0.5s ease-out forwards; }
 
 /* Repository activity (#162) — second line inside the Repository cell,
    after a <br> (same pattern as .lgu-tag below — a sibling element, not a
@@ -544,7 +1179,7 @@ a.lgu-tag-funding:focus-visible {
   min-height: 1.1rem;
   font-size: 0.75rem;
   line-height: 1.1rem;
-  color: var(--color-gray-600);
+  color: var(--ed-ink-3);
 }
 
 .repo-activity-empty {
@@ -552,7 +1187,7 @@ a.lgu-tag-funding:focus-visible {
 }
 
 .repo-activity time {
-  border-bottom: 1px dotted var(--color-gray-400);
+  border-bottom: 1px dotted var(--ed-ink-4);
   cursor: help;
 }
 
@@ -560,8 +1195,7 @@ a.lgu-tag-funding:focus-visible {
   display: inline-block;
   width: 7rem;
   height: 0.65rem;
-  border-radius: 0.25rem;
-  background: linear-gradient(90deg, var(--color-gray-200) 25%, var(--color-gray-100) 37%, var(--color-gray-200) 63%);
+  background: linear-gradient(90deg, var(--ed-paper-3) 25%, var(--ed-paper-2) 37%, var(--ed-paper-3) 63%);
   background-size: 400% 100%;
   animation: repoActivityShimmer 1.4s ease-in-out infinite;
 }
@@ -584,139 +1218,89 @@ a.lgu-tag-funding:focus-visible {
   border-width: 0;
 }
 
+/* Social icons: ink at rest, navy on hover, the same on every platform.
+   Platform brand colours would bring a dozen off-palette colours into the
+   page. Each link is at least 24px square (WCAG 2.2 target size). */
 .social-icon-link,
 .prose a.social-icon-link {
-  color: #9ca3af;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  color: var(--ed-ink-2);
   cursor: pointer;
-  transition: color 0.2s, transform 0.2s;
+  transition: color 0.15s;
 }
 
 .social-icon-link:hover,
 .prose a.social-icon-link:hover {
-  color: var(--brand, #6b7280);
-  transform: scale(1.1);
+  color: var(--ed-navy);
 }
 
-/* Featured Portal card (#132) — a themed, blue-on-glass variant of the
-   generic `.lgu-tag` pill above, plus the parts of the stretched-link
-   pattern Tailwind's utilities can't express on their own: the inverted
-   badge, keyboard focus for the whole-card link, and styling the <a> tags
-   kramdown emits from `lgu.maintainer`'s raw markdown (there is no class
-   hook available on those — see _includes/featured-portal.html). */
-.featured-portal-badge {
-  /* Overlay pill on the image's top-left corner per #126's locked spec
-     (D/heropanel variant) — not an inline pill in the text body. #2563eb
-     is #126's fixed value for this badge (the D variant just inverts fill
-     and text vs. the other variants), not var(--color-primary-700)
-     (#003d8d), which is a different blue used elsewhere on the card.
-     Inset bumped to 1rem (from the prototype's literal .65rem) — matches
-     the card's own `rounded-2xl` (1rem) radius, so the pill clears the
-     curve of the corner instead of crowding it (Jan, live visual check). */
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3em;
-  /* 1.4 (not 1) matches #126's prototype `font: 700 11px/1.4 …` reference —
-     #140's line-height:1 fixed vertical misalignment but flattened the
-     pill's line-box, making it read as compact vs. the locked spec. All
-     three rules here (parent + both inner spans) must share this value:
-     the parent's line-height no longer directly sizes anything (icon/label
-     are the flex items now), but keeping it consistent avoids a stray
-     mismatched line-box if a future edit adds text directly to the parent
-     again. */
-  line-height: 1.4;
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  background-color: #fff;
-  color: #2563eb;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.35),
-    0 0 0 3px rgba(255, 255, 255, 0.5);
+/* Featured Portal (#132) — a white panel on the navy hero band. It is not
+   a single-destination card (it carries the maintainer and social links
+   too), so the heading and an arrow link go to the portal, and the image
+   repeats that link for pointer users only. Kramdown-free markup, but
+   maintainer-links.html emits bare <a> tags with no class hook, hence the
+   descendant rule. */
+.featured-portal {
+  background: var(--ed-paper);
+  color: var(--ed-ink);
 }
 
-/* Icon and label as separate flex items (#140) — align-items: center on
-   the parent only has an effect between distinct flex items on the cross
-   axis; a single unstructured text node ("⭐ Featured") gives it nothing
-   to center, so the star's own glyph metrics sat off the label's
-   baseline. Splitting them lets each participate in flex centering, and
-   the icon gets its own line-height/vertical nudge since emoji glyphs
-   commonly render with extra internal leading that text characters don't
-   have — 1 (inherited from the parent) still isn't enough to visually
-   center the glyph against the label's cap-height/x-height.
-
-   line-height bumped from 1 to 1.4 (regression fix, follow-up to #141 —
-   flat line-height:1 was making the whole pill read as compact vs. #126's
-   locked spec). The 0.05em translateY nudge is UNCHANGED and still
-   correct at 1.4: the nudge compensates for the emoji glyph's own
-   optical position inside its em-box, a font-metric bias that's
-   independent of line-height. Growing line-height only adds equal
-   half-leading above and below the existing content of BOTH spans
-   (icon and label share the same 1.4 value), so it enlarges the two
-   line-boxes symmetrically around their prior centers — it doesn't
-   reintroduce or shift the relative offset the nudge was tuned to
-   correct. Re-verify visually if the font-size or nudge value ever
-   changes together. */
-.featured-portal-badge__icon {
-  display: inline-flex;
-  align-items: center;
-  line-height: 1.4;
-  transform: translateY(0.05em);
+.featured-portal__image {
+  display: block;
+  aspect-ratio: 1200 / 630;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ed-rule);
+  background: var(--ed-paper-2);
 }
 
-.featured-portal-badge__label {
-  display: inline-flex;
-  align-items: center;
-  line-height: 1.4;
+.featured-portal__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.featured-portal-card__link:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
+.featured-portal__title a {
+  color: var(--ed-ink);
+  text-decoration: none;
 }
 
-.featured-portal-card__inline-link,
-.featured-portal-card__maintainer a {
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.875rem;
+.featured-portal__title a:hover {
+  color: var(--ed-navy);
   text-decoration: underline;
   text-underline-offset: 2px;
-  text-decoration-color: rgba(255, 255, 255, 0.5);
-  transition: text-decoration-color 0.2s;
 }
 
-.featured-portal-card__inline-link:hover,
-.featured-portal-card__maintainer a:hover {
-  text-decoration-color: #fff;
+.featured-portal__maintainer a {
+  color: var(--ed-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.featured-portal-card__socials .social-icon-link {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.featured-portal-card__socials .social-icon-link:hover {
-  color: #fff;
+.featured-portal__maintainer a:hover {
+  color: var(--ed-red);
 }
 
 @media (max-width: 768px) {
-  .prose h1 { font-size: 1.875rem; }
-  .prose h2 { font-size: 1.5rem; }
-  main td, main th { padding: 0.75rem 1rem; }
+  .prose h2:not(:where(.not-prose, .not-prose *)),
+  .section-heading { font-size: 19px; }
+  main td, main th { padding: 0.75rem 0.875rem; }
+}
+
+@media (max-width: 480px) {
+  main td, main th { padding: 0.625rem 0.75rem; }
 }
 
 /* ---- Logo band (#179) ----
-   Full-bleed: breaks out of .prose/main's max-w-7xl + px-4 container via the
-   standard 100vw/-50vw technique, so the band spans the full viewport width
-   regardless of where it sits in the document. No plate — Logos sit directly
-   on the section background (--color-gray-100), unlike the Featured card's
-   glass panel. Ported from prototype/logo-wall (variant B); see that
+   Full-bleed: breaks out of its container via the standard 100vw/-50vw
+   technique, so the band spans the full viewport width regardless of where
+   it sits in the document. No plate — Logos sit directly on the tinted
+   band (paper-2). Ported from prototype/logo-wall (variant B); see that
    branch's FINDINGS.md and _includes/logo-band.html for the data/markup this
    styles. */
 .lb {
@@ -726,29 +1310,26 @@ a.lgu-tag-funding:focus-visible {
   width: 100vw;
   margin-left: -50vw;
   margin-right: -50vw;
-  background: var(--color-gray-100);
-  border-block: 1px solid var(--color-gray-200);
+  background: var(--ed-paper-2);
+  border-block: 1px solid var(--ed-rule);
   padding: 1.75rem 0;
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
-/* `.lb` sits inside `.prose` (index.md's content column), whose bare-element
-   rules (`.prose p`, `.prose ul`, `.prose li` — see above) carry higher
-   specificity (0,1,1) than a single class like `.lb-caption`/`.lb-track`/
-   `.lb-item` (0,1,0) and would otherwise win margin/padding/list-style on
-   these elements regardless of source order, breaking the flush alignment
-   the prototype had (it rendered outside any `.prose` ancestor). Selectors
-   below that override a `.prose <element>` rule are scoped under `.lb ` to
-   clear that bar. */
+/* Scoped under `.lb ` so these clear any bare-element rule (`.prose p`,
+   `.prose ul`, `.prose li`) whose specificity (0,1,1) would otherwise beat
+   a single class (0,1,0) if the band is ever rendered inside `.prose`. The
+   caption is an eyebrow: a mono label, not a sentence. */
 .lb .lb-caption {
   margin: 0 0 1rem;
   text-align: center;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-gray-600);
+  color: var(--ed-ink-3);
 }
 
 .lb .lb-item {
@@ -766,7 +1347,6 @@ a.lgu-tag-funding:focus-visible {
   box-sizing: border-box;
   width: 120px;
   height: 72px;
-  transition: transform 0.2s ease;
 }
 
 .lb-img {
@@ -791,19 +1371,17 @@ a.lgu-tag-funding:focus-visible {
     filter: grayscale(0);
     opacity: 1;
   }
-  .lb-link:hover {
-    transform: translateY(-2px);
-  }
 }
 
 .lb-link:focus-visible {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--ed-navy);
   outline-offset: 3px;
-  border-radius: 4px;
 }
 
 /* Marquee mechanics: each row's track is duplicated (row1+row1, row2+row2 —
-   see logo-band.html) so translating exactly -50% loops seamlessly. */
+   see logo-band.html) so translating exactly -50% loops seamlessly. The
+   edge mask fades Logos in and out at the band's ends; the band itself
+   stays flat. */
 .lb-marquee {
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
@@ -877,21 +1455,14 @@ a.lgu-tag-funding:focus-visible {
   .lb-static-rail {
     display: flex;
   }
+  .lb-img {
+    transition: none;
+  }
 }
 
 /* Maintainer Profiles (#426). The profile card and the /maintainers/ index
-   sit inside .prose, whose list, paragraph, and link rules are this file's
-   own (not Tailwind Typography), so `not-prose` needs real rules here. */
-.prose .not-prose ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-
-.prose .not-prose li {
-  padding-left: 0;
-}
-
+   sit inside .prose in .not-prose blocks, which the prose element rules
+   above skip, so they style themselves. */
 /* Long portal domains (e.g. a 49-character vercel.app host) and channel
    values must wrap rather than overflow the card on phones. `anywhere` only
    breaks a word that wouldn't otherwise fit, and min-width: 0 stops grid
@@ -906,23 +1477,145 @@ a.lgu-tag-funding:focus-visible {
   min-width: 0;
 }
 
-/* .prose p's bottom margin would pad a card's last line beyond its padding. */
-.prose .not-prose p:last-child {
-  margin-bottom: 0;
+.prose .not-prose dd {
+  margin: 0.25rem 0 0;
 }
 
-.prose a.maintainer-card__link,
-.prose a.maintainer-card__link:hover {
-  color: inherit;
-  font-weight: inherit;
-  text-decoration: none;
+/* Profile details: label-plus-value records, the officials-table pattern —
+   a mono label above the value, rows on hairline rules. */
+.profile-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin: 0;
 }
 
-/* "Open to" pills on profiles: the generic .lgu-tag pill has no colors. */
-.lgu-tag-open {
-  background-color: var(--color-primary-50);
-  border-color: #9dc4f7;
-  color: var(--color-primary-700);
+.profile-details > div {
+  padding-block: 1rem;
+  border-top: 1px solid var(--ed-rule);
+}
+
+@media (min-width: 768px) {
+  .profile-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .profile-details > .profile-details__wide {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Profile page: the card as a left sidebar from 1024px, the Maintainer's
+   text beside it at reading width (its own .prose, so the measure applies
+   to its direct children). The card's details go to one column there. */
+.profile-layout__card {
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .profile-layout {
+    display: grid;
+    grid-template-columns: 20rem minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .profile-layout__card {
+    margin-bottom: 0;
+  }
+
+  .profile-layout .profile-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .profile-layout__body > :first-child {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .profile-layout {
+    grid-template-columns: 22rem minmax(0, 1fr);
+    gap: 4rem;
+  }
+}
+
+.profile-details dd {
+  font-size: 1rem;
+  color: var(--ed-ink);
+}
+
+/* /maintainers/ card grid. Fluid: as many columns of at least 17.5rem as
+   the content width holds (4 on a wide page, 3 on a laptop, 2 on a tablet,
+   1 on a phone), each stretched to share the row, so the grid always spans
+   the full width with no leftover gutter. min(100%, …) lets a single column
+   shrink below 17.5rem on the narrowest phones instead of overflowing.
+   Rows stretch, so every card in a row is the same height. */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.maintainer-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.maintainer-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.maintainer-card__handle {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: var(--ed-ink-3);
+}
+
+/* Label-plus-value sections on hairline rules, like the profile page. */
+.maintainer-card__section {
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--ed-rule);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ed-ink-2);
+}
+
+.maintainer-card__section .eyebrow {
+  margin-bottom: 0.375rem;
+}
+
+.maintainer-card__portals {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.maintainer-card__portals li + li {
+  margin-top: 0.25rem;
+}
+
+.maintainer-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.maintainer-card__tags .lgu-tag {
+  margin-top: 0;
+}
+
+.maintainer-card__support {
+  margin: 0.625rem 0 0;
+  font-size: 0.875rem;
+  color: var(--ed-ink-2);
 }
 
 [x-cloak] {
