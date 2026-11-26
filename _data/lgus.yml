@@ -3867,8 +3867,8 @@
   province: "Cavite"
   region: "CALABARZON"
   region_rank: 5
-  host: ""
-  domain: "-"
+  host: "better-tanza.vercel.app"
+  domain: "[better-tanza.vercel.app](https://better-tanza.vercel.app/)"
   funding_url: ""
   repo: "[GitHub](https://github.com/manalilib/betterTanza)"
   repo_owner: "manalilib"
@@ -3877,7 +3877,7 @@
     - platform: "facebook"
       label: "Facebook"
       url: "https://www.facebook.com/betterTanzaCavite"
-  status: "🟡 Work in Progress"
+  status: "🟢 Active"
   stale: false
   open_for_adoption: false
   maintainer: "[@manalilib](https://github.com/manalilib)"

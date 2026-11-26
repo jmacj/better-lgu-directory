@@ -397,3 +397,16 @@
     - handle: "pogicodes"
       url: "https://github.com/pogicodes"
       profile: false
+- name: "Tanza, Cavite"
+  portal: "[tanza-cavite-transparency-portal.vercel.app](https://tanza-cavite-transparency-portal.vercel.app)"
+  type: "🏛️ Standalone"
+  integrated: false
+  parent_domain: "-"
+  repo: "[GitHub](https://github.com/manalilib/transparency-portal)"
+  repo_owner: "manalilib"
+  repo_name: "transparency-portal"
+  maintainer: "[@manalilib](https://github.com/manalilib)"
+  maintainers:
+    - handle: "manalilib"
+      url: "https://github.com/manalilib"
+      profile: false
