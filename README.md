@@ -80,7 +80,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | General Mariano Alvarez, Cavite | - | [GitHub](https://github.com/bettergma/bettergma-gov) | - | 🟡 Work in Progress | [@izxclyde](https://github.com/izxclyde) |
 | General Santos City, South Cotabato | [bettergensan.org](https://bettergensan.org) | [GitHub](https://github.com/psalmcatulpos/bettergensan) | - | 🟢 Active | [@psalmcatulpos](https://github.com/psalmcatulpos) |
 | General Trias City, Cavite | [bettergeneraltrias.org](https://www.bettergeneraltrias.org/) | [GitHub](https://github.com/kenhehe/betterGeneraltrias) | [Facebook](https://www.facebook.com/betterGeneralTrias) | 🟢 Active | [@kenhehe](https://github.com/kenhehe) |
-| Gloria, Oriental Mindoro | [bettergloria.org](https://bettergloria.org) | - | - | 🔵 Planned | [@gslwebsolutions](https://github.com/gslwebsolutions) |
+| Gloria, Oriental Mindoro | [bettergloria.org](https://bettergloria.org) | [Github](https://github.com/bettergloriaorg/bettergloria) | - | 🔵 Planned | [@gslwebsolutions](https://github.com/gslwebsolutions) |
 | Hermosa, Bataan | [betterhermosa.org](https://betterhermosa.org) | [GitHub](https://github.com/BetterHermosa/betterhermosa) | - | 🟢 Active | [@ialexies](https://github.com/ialexies) |
 | Hilongos, Leyte | - | [GitHub](https://github.com/rolpppp/betterhilongos) | - | 🟡 Work in Progress | [@rolpppp](https://github.com/rolpppp) |
 | Iligan City, Lanao del Norte | [betteriligancity.org](https://betteriligancity.org/) | [GitHub](https://github.com/KishonShrill/BetterIligan) | [Facebook](https://www.facebook.com/BetterIliganCity.org) | 🟢 Active | [@KishonShrill](https://github.com/KishonShrill) |
