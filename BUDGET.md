@@ -46,7 +46,6 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Taal, Batangas | [taal.betterbatangas.org](https://taal.betterbatangas.org) | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | [@pogicodes](https://github.com/pogicodes) |
 | Tanza, Cavite | [tanza-cavite-transparency-portal.vercel.app](https://tanza-cavite-transparency-portal.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/manalilib/transparency-portal) | [@manalilib](https://github.com/manalilib) |
 
-
 <!-- SYNC_BUDGET_TABLE_END -->
 
 > Want to add your budget portal? See [Adding a Budget Portal](CONTRIBUTING.md#adding-a-budget-portal). Write the LGU name in the [naming format](CONTRIBUTING.md#naming-your-lgu) and insert the row in A–Z order by place name.
