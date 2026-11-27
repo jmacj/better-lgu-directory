@@ -146,7 +146,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Pila, Laguna | - | [GitHub](https://github.com/Necookie/betterpila) | - | 🟡 Work in Progress | [@Necookie](https://github.com/Necookie) |
 | Plaridel, Bulacan | [betterplaridel-two.vercel.app](https://betterplaridel-two.vercel.app/) | [GitHub](https://github.com/kai-dev00/betterplaridel) | - | 🟡 Work in Progress | [@kai-dev00](https://github.com/kai-dev00), [@Ephraim-ed](https://github.com/Ephraim-ed), [@laconic-xtian](https://github.com/laconic-xtian) |
 | Puerto Princesa City, Palawan | [betterpuertoprincesa.org](https://betterpuertoprincesa.org) | [GitHub](https://github.com/BetterPuertoPrincesa/betterpuertoprincesa) | [Facebook](https://www.facebook.com/betterpuertoprincesa) | 🟢 Active | [@kelxety](https://github.com/kelxety), [@hmcldryl](https://github.com/hmcldryl), [@atualariao](https://github.com/atualariao) |
-| Quezon City, Metro Manila | - | [GitHub](https://github.com/brixavengoza/betterquezoncity) | - | 🔵 Planned | [@dyllanlobaton](https://github.com/dyllanlobaton) |
+| Quezon City, Metro Manila | - | [GitHub](https://github.com/dyllanlobaton/betterquezoncity) | - | 🔵 Planned | [@dyllanlobaton](https://github.com/dyllanlobaton) |
 | Ramon, Isabela | [betterramon.pages.dev](https://betterramon.pages.dev) | [GitHub](https://github.com/spncrruiz-alt/betterramon) | - | 🟢 Active | [@spncrruiz-alt](https://github.com/spncrruiz-alt) |
 | Rizal, Nueva Ecija | - | [GitHub](https://github.com/njveneracion/betterrizalne) | - | 🟡 Work in Progress | [@njveneracion](https://github.com/njveneracion) |
 | Rosales, Pangasinan | - | [GitHub](https://github.com/Xerman09/betterrosales) | - | 🔵 Planned | [@Xerman09](https://github.com/Xerman09) |
