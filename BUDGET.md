@@ -14,6 +14,7 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | LGU | Portal | Type | Repository | Maintainer/s |
 |---|---|---|---|---|
 | Albay Province | [albay-transparency-portal.vercel.app](https://albay-transparency-portal.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/Pseudoman21/albay-transparency-portal) | [@Pseudoman21](https://github.com/Pseudoman21) |
+| Alcala, Pangasinan | [budget.betteralcala.org](https://budget.betteralcala.org/) | 🧩 Integrated | [GitHub](https://github.com/melmarj0nes23/budget) | [@melmarj0nes23](https://github.com/melmarj0nes23) |
 | Bagabag, Nueva Vizcaya | [budget.betterbagabag.org](https://budget.betterbagabag.org) | 🧩 Integrated | [GitHub](https://github.com/marttidumangeng/nueva-vizcaya-transparency-portal) | [@marttidumangeng](https://github.com/marttidumangeng) |
 | Batangas Province | [betterbatangas.org](https://betterbatangas.org) | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal) | [@pogicodes](https://github.com/pogicodes) |
 | Bukidnon Province | [budget.betterbukidnon.org](https://budget.betterbukidnon.org) | 🧩 Integrated | - | [@DMNCDLPRT](https://github.com/DMNCDLPRT) |
@@ -35,12 +36,15 @@ A budget portal is either part of an LGU's Better LGU portal (`budget.betterlb.o
 | Miagao, Iloilo | [bettermiagao.org/budget](https://bettermiagao.org/budget) | 🧩 Integrated | [GitHub](https://github.com/joebertj/bettermiagao) | [@joebertj](https://github.com/joebertj) |
 | Morong, Rizal | [budget.bettermorong.org](https://budget.bettermorong.org) | 🧩 Integrated | [GitHub](https://github.com/carlodandan/transparency-portal-morong) | [@carlodandan](https://github.com/carlodandan) |
 | Nueva Vizcaya Province | [betternuevavizcaya.org](https://betternuevavizcaya.org) | 🏛️ Standalone | [GitHub](https://github.com/marttidumangeng/nueva-vizcaya-transparency-portal) | [@marttidumangeng](https://github.com/marttidumangeng) |
+| Pagbilao, Quezon | [betterpagbilao.org/transparency/budget](https://betterpagbilao.org/transparency/budget) | 🧩 Integrated | [GitHub](https://github.com/rallion90/better-pagbilao) | [@rallion90](https://github.com/rallion90) |
 | Pampanga Province | [betterpampanga.vercel.app](https://betterpampanga.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/Pseudoman21/betterpampanga) | [@Pseudoman21](https://github.com/Pseudoman21) |
 | Puerto Princesa City, Palawan | [budget.betterpuertoprincesa.org](https://budget.betterpuertoprincesa.org) | 🧩 Integrated | [GitHub](https://github.com/BetterPuertoPrincesa/transparency-portal) | [@hmcldryl](https://github.com/hmcldryl) |
 | Rosario, Batangas | [rosario-betterbatangas.vercel.app](https://rosario-betterbatangas.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/BetterWatchMen/better-rosario) | [@BetterWatchMen](https://github.com/BetterWatchMen) |
 | Silang, Cavite | [bettersilang.org](https://www.bettersilang.org) | 🏛️ Standalone | [GitHub](https://github.com/0xDataBear/bettersilang) | [@0xDataBear](https://github.com/0xDataBear) |
+| Solano, Nueva Vizcaya | [transparency-portal.bettersolano.org](https://transparency-portal.bettersolano.org/) | 🧩 Integrated | [GitHub](https://github.com/BetterSolano/transparency-portal) | [@ramonloganjr](https://github.com/ramonloganjr) |
 | Sorsogon Province | [sorsogon-province-transparency-portal.vercel.app](https://sorsogon-province-transparency-portal.vercel.app/) | 🏛️ Standalone | [GitHub](https://github.com/jill1214/sorsogon-province-transparency-portal) | [@jill1214](https://github.com/jill1214) |
 | Taal, Batangas | [taal.betterbatangas.org](https://taal.betterbatangas.org) | 🏛️ Standalone | [GitHub](https://github.com/pogicodes/batangas-transparency-portal/tree/taal) | [@pogicodes](https://github.com/pogicodes) |
+| Tanza, Cavite | [tanza-cavite-transparency-portal.vercel.app](https://tanza-cavite-transparency-portal.vercel.app) | 🏛️ Standalone | [GitHub](https://github.com/manalilib/transparency-portal) | [@manalilib](https://github.com/manalilib) |
 
 <!-- SYNC_BUDGET_TABLE_END -->
 

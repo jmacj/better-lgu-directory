@@ -66,7 +66,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Cavite City, Cavite | [bettercavitecity.org](https://bettercavitecity.org) | - | [Facebook](https://www.facebook.com/bettercavitecity.org) | 🟢 Active | [@jdsatsatin](https://github.com/jdsatsatin) |
 | Cebu City, Cebu | - | [GitHub](https://github.com/kyrenmearr/bettercebucity) | - | 🟡 Work in Progress | [@kyrenmearr](https://github.com/kyrenmearr) |
 | Claver, Surigao del Norte | - | - | - | 🔵 Planned<br>⚠️ Stale | [@eljohn2001](https://github.com/eljohn2001)<br>🤝 Open for Adoption |
-| Concepcion, Romblon | - | [GitHub](https://github.com/johannfranzero/betterconcepcion) | - | 🔵 Planned | [@johannfranzero](https://github.com/johannfranzero) |
+| Concepcion, Romblon | [betterconcepcion.vercel.app](https://betterconcepcion.vercel.app) | [GitHub](https://github.com/johannfranzero/betterconcepcion) | - | 🟢 Active | [@johannfranzero](https://github.com/johannfranzero) |
 | Concepcion, Tarlac | - | [GitHub](https://github.com/aaronher1030-glitch/bettergovtarlacph) | - | 🔵 Planned | [@aaronher1030-glitch](https://github.com/aaronher1030-glitch) |
 | Corella, Bohol | [bettercorella.vercel.app](https://bettercorella.vercel.app) | [GitHub](https://github.com/ashdroidcmd/bettercorella) | - | 🟢 Active | [@ashdroidcmd](https://github.com/ashdroidcmd) |
 | Dagupan City, Pangasinan | - | [GitHub](https://github.com/jamesjmnz/better-dagupan) | - | 🟡 Work in Progress | [@jamesjmnz](https://github.com/jamesjmnz) |
@@ -115,6 +115,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Malaybalay City, Bukidnon | [bettermalaybalay.cloud](https://www.bettermalaybalay.cloud) | [GitHub](https://github.com/lordzxxxx/BetterMC) | [Facebook](https://www.facebook.com/profile.php?id=61596547555480) | 🟢 Active | [@lordzxxxx](https://github.com/lordzxxxx) |
 | Malinao, Albay | - | [GitHub](https://github.com/bettermalinao/bettermalinao) | [Facebook](https://www.facebook.com/bettermalinao.org) | 🟡 Work in Progress | [@rcbalingbing](https://github.com/rcbalingbing) |
 | Malolos City, Bulacan | [bettermalolos.org](https://bettermalolos.org/) | [GitHub](https://github.com/francisdiaz22/bettermalolos) | [Facebook](https://www.facebook.com/bettermalolos.org) | 🟢 Active | [@francisdiaz22](https://github.com/francisdiaz22) |
+| Mandaluyong City, Metro Manila | [bettermandaluyong.org](https://bettermandaluyong.org) | [GitHub](https://github.com/BetterMandaluyong/bettermandaluyong.org) | [Facebook](https://www.facebook.com/BetterMandaluyong/) | 🟡 Work in Progress | [@njncalub](https://github.com/njncalub) |
 | Mandaue City, Cebu | - | - | - | 🔵 Planned | [@jaylothai](https://github.com/jaylothai) |
 | Manila City, Metro Manila | [bettermanila.org](https://bettermanila.org) | [GitHub](https://github.com/grgdlm/bettermanila) | [Facebook](https://www.facebook.com/BetterManilaOrg) | 🟢 Active | [@grgdlm](https://github.com/grgdlm) |
 | Mapandan, Pangasinan | [bettermapandan.org](https://www.bettermapandan.org/) | [GitHub](https://github.com/jadolation/bettermapandan) | - | 🟢 Active | [@jadolation](https://github.com/jadolation), [@Gel81](https://github.com/Gel81) |
@@ -185,7 +186,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | Tampakan, South Cotabato | [bettertampakan.org](https://bettertampakan.org) | [GitHub](https://github.com/jamez78/bettertampakan) | - | 🟡 Work in Progress | [@jamez78](https://github.com/jamez78) |
 | Tanay, Rizal | [bettertanay.org](https://bettertanay.org) | [GitHub](https://github.com/s4burieru/bettertanay) | [Facebook](https://www.facebook.com/bettertanay) | 🟢 Active | [@s4burieru](https://github.com/s4burieru) |
 | Tandag City, Surigao del Sur | - | [GitHub](https://github.com/BetterTandag/better-tandag) | - | 🟡 Work in Progress | [@ikmespinoza](https://github.com/ikmespinoza) |
-| Tanza, Cavite | - | [GitHub](https://github.com/manalilib/betterTanza) | [Facebook](https://www.facebook.com/betterTanzaCavite) | 🟡 Work in Progress | [@manalilib](https://github.com/manalilib) |
+| Tanza, Cavite | [better-tanza.vercel.app](https://better-tanza.vercel.app/) | [GitHub](https://github.com/manalilib/betterTanza) | [Facebook](https://www.facebook.com/betterTanzaCavite) | 🟢 Active | [@manalilib](https://github.com/manalilib) |
 | Tayabas City, Quezon | [bettertayabas.org](https://bettertayabas.org) | [GitHub](https://github.com/herseyy/bettertayabas) | - | 🔵 Planned | [@arksmc](https://github.com/arksmc), [@herseyy](https://github.com/herseyy), [@ninnzz](https://github.com/ninnzz) |
 | Taytay, Rizal | - | [GitHub](https://github.com/zzelif/bettertaytay) | - | 🟡 Work in Progress | [@zzelif](https://github.com/zzelif) |
 | Teresa, Rizal | - | [GitHub](https://github.com/MewSeiren/betterteresa.org) | - | 🟡 Work in Progress | [@MewSeiren](https://github.com/MewSeiren) |

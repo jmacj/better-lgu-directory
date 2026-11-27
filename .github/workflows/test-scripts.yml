@@ -1,0 +1,57 @@
+name: Test Scripts
+
+# Runs every plain-Node regression test (scripts/test-*.js) on each pull
+# request to main (#450). The tests use only Node built-ins, so there is no
+# dependency install. `pull_request` (not `pull_request_target`) means fork
+# PRs run with a read-only token and no secrets; the job only reads.
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-scripts-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Run scripts/test-*.js
+        run: |
+          shopt -s nullglob
+          tests=(scripts/test-*.js)
+          if [ ${#tests[@]} -eq 0 ]; then
+            echo "::error::No scripts/test-*.js files found"
+            exit 1
+          fi
+
+          failed=()
+          for t in "${tests[@]}"; do
+            echo "::group::$t"
+            if node "$t"; then
+              echo "::endgroup::"
+            else
+              echo "::endgroup::"
+              echo "::error file=$t::$t failed"
+              failed+=("$t")
+            fi
+          done
+
+          if [ ${#failed[@]} -gt 0 ]; then
+            echo "Failed (${#failed[@]} of ${#tests[@]}):"
+            printf '  %s\n' "${failed[@]}"
+            exit 1
+          fi
+          echo "All ${#tests[@]} test scripts passed."
