@@ -82,6 +82,7 @@ A community-maintained directory of **Better LGU** digital transparency portals 
 | General Trias City, Cavite | [bettergeneraltrias.org](https://www.bettergeneraltrias.org/) | [GitHub](https://github.com/kenhehe/betterGeneraltrias) | [Facebook](https://www.facebook.com/betterGeneralTrias) | 🟢 Active | [@kenhehe](https://github.com/kenhehe) |
 | Hermosa, Bataan | [betterhermosa.org](https://betterhermosa.org) | [GitHub](https://github.com/BetterHermosa/betterhermosa) | - | 🟢 Active | [@ialexies](https://github.com/ialexies) |
 | Hilongos, Leyte | - | [GitHub](https://github.com/rolpppp/betterhilongos) | - | 🟡 Work in Progress | [@rolpppp](https://github.com/rolpppp) |
+| Ibaan, Batangas | - | [GitHub](https://github.com/blame-zeus/betteribaan) | - | 🟡 Work in Progress | [@rolpppp](https://github.com/blame-zeus) | 
 | Iligan City, Lanao del Norte | [betteriligancity.org](https://betteriligancity.org/) | [GitHub](https://github.com/KishonShrill/BetterIligan) | [Facebook](https://www.facebook.com/BetterIliganCity.org) | 🟢 Active | [@KishonShrill](https://github.com/KishonShrill) |
 | Ilocos Norte Province | - | [GitHub](https://github.com/russellraed/betterilocosnorte) | - | 🟡 Work in Progress | [@russellraed](https://github.com/russellraed) |
 | Inabanga, Bohol | [betterinabanga.vercel.app](https://betterinabanga.vercel.app) | [GitHub](https://github.com/gerardosocias29/betterinabanga) | - | 🟡 Work in Progress | [@gerardosocias29](https://github.com/gerardosocias29) |
